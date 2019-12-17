@@ -1,0 +1,285 @@
+
+import RxSwift
+import Alamofire
+import Reachability
+import CoreLocation
+import RxCocoa
+
+class APIManager: NSObject {
+    static let shared = APIManager()
+    let reachability = Reachability()!
+    var isReachable = Variable(true)
+    
+    private var progress:Progress!
+    private var context = 0
+    
+    lazy var requestManager: SessionManager = {
+        let config = URLSessionConfiguration.default
+        config.timeoutIntervalForRequest = APITimeout
+        config.httpAdditionalHeaders = SessionManager.defaultHTTPHeaders
+        //note: 還沒有分出demo版本哦
+        #if COLATOUR_DEV
+        let policies: [String: ServerTrustPolicy] = [
+            "172.20.5.71": .disableEvaluation,
+            "172.20.5.72": .disableEvaluation,
+            "172.20.5.73" : .disableEvaluation,
+            "118.163.109.236" : .disableEvaluation,
+            "118.163.109.238" : .disableEvaluation,
+            "118.163.109.239" : .disableEvaluation,
+            "118.163.109.240" : .disableEvaluation,
+            ]
+        return Alamofire.SessionManager(
+            configuration: config,
+            serverTrustPolicyManager: ServerTrustPolicyManager(policies: policies)
+        )
+        #endif
+        
+        return SessionManager(configuration: config)
+    }()
+    
+    override init() {
+        super.init()
+        
+        let reachabilityManager = NetworkReachabilityManager.init(host:"www.apple.com")
+        let isInternetReachable = (reachabilityManager?.isReachable) ?? false
+        
+        self.isReachable.value = isInternetReachable
+        reachability.whenUnreachable = { reachability in
+            DispatchQueue.main.async {
+                self.isReachable.value = false
+            }
+        }
+        
+        reachability.whenReachable = { reachability in
+            DispatchQueue.main.async {
+                self.isReachable.value = true
+            }
+        }
+        
+        do {
+            try reachability.startNotifier()
+        } catch {
+            #if DEBUG
+            print("Error")
+            #endif
+        }
+    }
+    
+    deinit {
+        progress.removeObserver(self, forKeyPath: "apiCompleted")
+    }
+    
+    fileprivate func manager(method: HTTPMethod, appendUrl: String, url: APIUrl, parameters: [String: Any]?, appendHeaders: [String: String]?) -> Single<[String:Any]> {
+        
+        return Single.create { (single) -> Disposable in
+            
+            let param = (parameters) ?? [String:Any]()
+            let headers: HTTPHeaders = self.getHttpHeadersWith(method: method, appendHeaders: appendHeaders)
+            let requestUrl: String = self.getRequestUrlWith(url: url, appendUrl: appendUrl)
+            let encode: ParameterEncoding = self.getEncodeWith(method: method)
+            
+            self.printRequest(requestUrl, headers, param)
+            
+            if (self.isReachable.value == false) {
+                let err = APIError.init(type: .noInternetException, localDesc: "The Internet connection appears to be offline.", alertMsg: "")
+                single(.error(err))
+                FirebaseCrashManager.recordError(err, api: url, method: method)
+                return Disposables.create()
+            }
+            
+            self.requestManager
+                .request(requestUrl, method: method, parameters: param, encoding: encode, headers: headers)
+                .validate()
+                .responseJSON(completionHandler: { (response) in
+                    switch response.result {
+                    case .success(let value):
+                        if (value is [String:Any]) {
+                            self.printResponse(requestUrl, value)
+                            single(.success(value as! [String:Any]))
+                        } else {
+                            let err = APIError.init(type: .otherException, localDesc: "It's success.But AlertMsg doesn't exist.", alertMsg: "")
+                            self.printErrorResponse(requestUrl, response, err, alertMsg: "")
+                            FirebaseCrashManager.recordError(err, api: url, method: method)
+                            single(.error(err))
+                        }
+ 
+                    case .failure(let error):
+                        
+                        var json: [String : String] = [:]
+                        
+                        if let data = response.data {
+                            do{
+                                json = try (JSONSerialization.jsonObject(with: data, options: []) as! [String: String])
+                            }catch{
+                                json["AlertMsg"] = ""
+                            }
+                        }
+                        
+                        let alertMsg = json["AlertMsg"] ?? ""
+                        
+                        self.printErrorResponse(requestUrl, response, error, alertMsg: alertMsg)
+                        
+                        let localDesc = (error as NSError).localizedDescription
+                        let errorCode = (error as NSError).code
+                        let statusCode = response.response?.statusCode ?? nil
+                        let err: APIError = APIError(statusCode: statusCode, errorCode: errorCode, localDesc: localDesc, alertMsg: alertMsg)
+                        FirebaseCrashManager.recordError(err, api: url, method: method)
+                        single(.error(err))
+                    }
+                })
+            return Disposables.create()
+        }
+    }
+    
+    private func getEncodeWith(method: HTTPMethod) -> ParameterEncoding {
+        switch method {
+        case .get:
+            return URLEncoding.default
+          
+        case .post:
+            return JSONEncoding.default
+            
+        default:
+            return URLEncoding.default
+        }
+    }
+    
+    private func getHttpHeadersWith(method: HTTPMethod, appendHeaders: [String: String]?) -> HTTPHeaders{
+        let uuid = AccountRepository.shared.osUUID
+        let appVersion = DeviceUtil.appBuildVersion()
+        let osVersion = DeviceUtil.osVersion()
+        let apiToken = AccountRepository.shared.getLocalApiToken() ?? ""
+        
+        let localMemberNo = MemberRepository.shared.getLocalMemberNo()
+        let memberNo = (localMemberNo == nil) ? "" : "\(localMemberNo!)"
+        let memberToken = MemberRepository.shared.getLocalMemberToken() ?? ""
+        
+        var headers: HTTPHeaders = [
+            "Client_Id": "IOS",
+            "Device_Id": uuid,
+            "App_Version": appVersion!,
+            "API_Token": apiToken,
+            "OS_Version": osVersion!
+        ]
+        
+        appendHeaders?.forEach({ header in
+            headers[ header.key ] =  header.value
+        })
+        
+        if headers["Pax_Token"] == nil {
+            headers["Member_No"]  = memberNo
+            headers["Member_Token"]  = memberToken
+        }
+        
+        if let tempMemberNo = appendHeaders?["Member_No"], let tempMemberToken = appendHeaders?["Member_Token"] {
+            headers["Member_No"] = tempMemberNo
+            headers["Member_Token"]  = tempMemberToken
+        }
+        
+        switch method {
+        case .get:
+            headers["Content-Type"] = "application/x-www-form-urlencoded"
+        case .post:
+            headers["Content-Type"] = "application/json"
+        default:
+            headers["Content-Type"] = "application/x-www-form-urlencoded"
+        }
+        
+        return headers
+    }
+    
+    private func getRequestUrlWith(url: APIUrl, appendUrl: String) -> String {
+        let encodeUrl = appendUrl
+        var requestUrl = ""
+        
+        switch url {
+        case .authApi(let type):
+            requestUrl = type.url()
+        case .portalApi(let type):
+            requestUrl = type.url()
+        case .bulletinApi(let type):
+            requestUrl = type.url()
+        }
+
+        requestUrl =  (requestUrl + encodeUrl ).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+        return requestUrl
+    }
+    
+}
+
+extension APIManager {
+    func getApiToken(deviceName: String, accessToken: String) -> Single<[String:Any]> {
+        let params = ["device_Name":deviceName,
+                      "access_Secret":accessToken]
+        
+        return manager(method: .post, appendUrl: "", url: APIUrl.authApi(type: .apiToken), parameters: params, appendHeaders: nil)
+    }
+    
+    func pushDevice() -> Single<[String:Any]> {
+        let params = ["Push_Id": AccountRepository.shared.getLocalFirebaseToken()!]
+        
+        return manager(method: .post, appendUrl: "", url:
+            APIUrl.portalApi(type: .pushDevice), parameters: params, appendHeaders: nil)
+    }
+    
+    func getVersionRule() -> Single<[String:Any]> {
+        return manager(method: .get, appendUrl: "", url: APIUrl.authApi(type: .versionRule), parameters: nil, appendHeaders: nil)
+    }
+    
+}
+
+extension APIManager {
+    
+    private func printRequest(_ requestUrl: String, _ headers: HTTPHeaders, _ params: [String: Any]) {
+        //return
+        #if DEBUG
+        print("-------------------------------------------------------")
+        print("* 【呼叫】 The_requestUrl : \(requestUrl)")
+        print("* 【呼叫】 Req∂uest_headers : ")
+        headers.forEach({ header in
+            print("   \(header)")
+        })
+
+        print("* 【呼叫】 Request_params : ")
+        print(params)
+        print(getPrettyParams(params) ?? "")
+        #endif
+    }
+    
+    private func printResponse(_ requestUrl: String,_ value: (Any)){
+        //return
+        #if DEBUG
+        print("-------------------------------------------------------")
+        print("* 【回應】 The_requestUrl : \(requestUrl)")
+        print("* 【回應】 Response_value : ")
+        print(getPrettyPrint(value))
+        #endif
+    }
+    
+    private func printErrorResponse(_ requestUrl:String, _ response: (DataResponse<Any>), _ error: (Error), alertMsg: String) {
+        //return
+        #if DEBUG
+        print("-------------------------------------------------------")
+        print("* 【回應錯誤】 The_requestUrl : \(requestUrl)")
+        print("* StatusCode : \(String(describing: response.response?.statusCode))")
+        print("* View_OnError : \(String(describing:error))")
+        print("* Error.code : \((error as NSError).code)")
+        print("* AlertMsg : \(alertMsg)")
+        #endif
+    }
+    
+    private func getPrettyPrint(_ responseValue: Any) -> String{
+        var string: String = ""
+        if let data = try? JSONSerialization.data(withJSONObject: responseValue, options: .prettyPrinted){
+            if let nstr = NSString(data: data, encoding: String.Encoding.utf8.rawValue){
+                string = nstr as String
+            }
+        }
+        return string
+    }
+    
+    private func getPrettyParams(_ dict: [String: Any]) -> NSString? {
+        let jsonData = try! JSONSerialization.data(withJSONObject: dict, options: .prettyPrinted)
+        return NSString(data: jsonData, encoding: String.Encoding.utf8.rawValue)
+    }
+}

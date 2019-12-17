@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ToastView" customModule="colatour" customModuleProvider="target">
+            <connections>
+                <outlet property="bottomConstraint" destination="jKm-dX-R99" id="6KA-Ri-kye"/>
+                <outlet property="toastLabel" destination="KWy-u7-7vE" id="UBv-aQ-thR"/>
+                <outlet property="toastView" destination="dav-kl-LCe" id="rf2-1H-ezS"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dav-kl-LCe" userLabel="ToastHint">
+                    <rect key="frame" x="167.5" y="605.5" width="40.5" height="41.5"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KWy-u7-7vE">
+                            <rect key="frame" x="18" y="11" width="4.5" height="19.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.35294117650000001" green="0.35294117650000001" blue="0.67843137249999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="KWy-u7-7vE" firstAttribute="centerY" secondItem="dav-kl-LCe" secondAttribute="centerY" id="7ni-vG-BLs"/>
+                        <constraint firstAttribute="height" secondItem="KWy-u7-7vE" secondAttribute="height" constant="22" id="WSq-Zl-2Ii"/>
+                        <constraint firstItem="KWy-u7-7vE" firstAttribute="centerX" secondItem="dav-kl-LCe" secondAttribute="centerX" id="dIo-Qu-T5P"/>
+                        <constraint firstAttribute="width" secondItem="KWy-u7-7vE" secondAttribute="width" constant="36" id="i9O-dt-fGl"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="RzD-bw-U9s"/>
+                </view>
+            </subviews>
+            <constraints>
+                <constraint firstItem="dav-kl-LCe" firstAttribute="top" relation="greaterThanOrEqual" secondItem="vUN-kp-3ea" secondAttribute="top" constant="20" id="HRt-uI-4yy"/>
+                <constraint firstItem="dav-kl-LCe" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="bXp-tv-LET"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="dav-kl-LCe" secondAttribute="bottom" constant="20" id="jKm-dX-R99"/>
+                <constraint firstItem="dav-kl-LCe" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="vUN-kp-3ea" secondAttribute="leading" id="siJ-Y0-NIi"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="dav-kl-LCe" secondAttribute="trailing" id="zFo-M3-iP5"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="141" y="120"/>
+        </view>
+    </objects>
+</document>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NoInternetErrorView" customModule="TicketDemo" customModuleProvider="target">
+            <connections>
+                <outlet property="reload" destination="hmK-Pi-hH3" id="yW2-hf-5hI"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" restorationIdentifier="NoInternetErrorView" id="Vlv-2e-4M9">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_internet" translatesAutoresizingMaskIntoConstraints="NO" id="HW5-mz-LI2">
+                    <rect key="frame" x="163" y="208.5" width="48" height="42"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="目前沒有連線" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j2k-Wk-9oX">
+                    <rect key="frame" x="126" y="260.5" width="122.5" height="24"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <color key="textColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="請檢查網路連線設定或稍後再試" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9yu-67-Ihk">
+                    <rect key="frame" x="0.0" y="294.5" width="375" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <color key="textColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hmK-Pi-hH3">
+                    <rect key="frame" x="146" y="325.5" width="82" height="36"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <state key="normal" title="重新載入">
+                        <color key="titleColor" red="0.51764705879999995" green="0.1960784314" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="oco-pA-bRs" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="hmK-Pi-hH3" secondAttribute="bottom" id="1eC-Za-v5X"/>
+                <constraint firstItem="HW5-mz-LI2" firstAttribute="centerX" secondItem="oco-pA-bRs" secondAttribute="centerX" id="7vd-Zs-ZAb"/>
+                <constraint firstItem="hmK-Pi-hH3" firstAttribute="centerX" secondItem="oco-pA-bRs" secondAttribute="centerX" id="F5F-bh-G3I"/>
+                <constraint firstItem="hmK-Pi-hH3" firstAttribute="centerY" secondItem="oco-pA-bRs" secondAttribute="centerY" id="GAe-fn-fQ3"/>
+                <constraint firstItem="HW5-mz-LI2" firstAttribute="bottom" secondItem="j2k-Wk-9oX" secondAttribute="top" constant="-10" id="HN5-jW-R1L"/>
+                <constraint firstItem="HW5-mz-LI2" firstAttribute="centerX" secondItem="oco-pA-bRs" secondAttribute="centerX" id="K4l-L9-cCJ"/>
+                <constraint firstItem="9yu-67-Ihk" firstAttribute="centerX" secondItem="oco-pA-bRs" secondAttribute="centerX" id="KSw-oS-dHi"/>
+                <constraint firstItem="oco-pA-bRs" firstAttribute="trailing" secondItem="9yu-67-Ihk" secondAttribute="trailing" id="blR-rM-15n"/>
+                <constraint firstItem="j2k-Wk-9oX" firstAttribute="centerX" secondItem="oco-pA-bRs" secondAttribute="centerX" id="hPT-OG-vDi"/>
+                <constraint firstItem="hmK-Pi-hH3" firstAttribute="top" secondItem="9yu-67-Ihk" secondAttribute="bottom" constant="10" id="hXv-Dh-Bi0"/>
+                <constraint firstItem="j2k-Wk-9oX" firstAttribute="bottom" secondItem="9yu-67-Ihk" secondAttribute="top" constant="-10" id="iua-wc-McN"/>
+                <constraint firstItem="9yu-67-Ihk" firstAttribute="leading" secondItem="oco-pA-bRs" secondAttribute="leading" id="yVP-BN-rQI"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="oco-pA-bRs"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="no_internet" width="48" height="42"/>
+    </resources>
+</document>
