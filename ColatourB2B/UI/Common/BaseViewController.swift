@@ -294,10 +294,10 @@ class BaseViewController: UIViewController, BaseViewProtocol {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        view.bringSubview(toFront: loadingView)
-        view.bringSubview(toFront: apiFailErrorView)
-        view.bringSubview(toFront: noInternetErrorView)
-        view.bringSubview(toFront: toastView)
+        view.bringSubviewToFront(loadingView)
+        view.bringSubviewToFront(apiFailErrorView)
+        view.bringSubviewToFront(noInternetErrorView)
+        view.bringSubviewToFront(toastView)
     }
 
     func adjustViewAppearance() {
@@ -573,7 +573,7 @@ extension BaseViewController {
             self.noInternetErrorView.isHidden = false
         case .alert:
             let alertSeverError: UIAlertController = UIAlertController(title: "目前沒有連線", message: "請檢查網路連線設定或稍後再試。", preferredStyle: .alert)
-            let action = UIAlertAction(title: "確定", style: UIAlertActionStyle.default, handler: nil)
+            let action = UIAlertAction(title: "確定", style: UIAlertAction.Style.default, handler: nil)
             alertSeverError.addAction(action)
             self.present(alertSeverError, animated: true)
         case .toast:
@@ -597,7 +597,7 @@ extension BaseViewController {
             self.apiFailErrorView.isHidden = false
         case .alert:
             let alertSeverError: UIAlertController = UIAlertController(title: title, message: msg, preferredStyle: .alert)
-            let action = UIAlertAction(title: "確定", style: UIAlertActionStyle.default, handler: nil)
+            let action = UIAlertAction(title: "確定", style: UIAlertAction.Style.default, handler: nil)
             alertSeverError.addAction(action)
             self.present(alertSeverError, animated: true)
         case .toast:
@@ -620,7 +620,7 @@ extension BaseViewController: UISearchBarDelegate {
 
 class CustomSearchBar: UISearchBar {
     override var intrinsicContentSize: CGSize {
-        return CGSize(width: UILayoutFittingExpandedSize.width, height: 56.0)
+        return CGSize(width: UIView.layoutFittingExpandedSize.width, height: 56.0)
     }
 }
 

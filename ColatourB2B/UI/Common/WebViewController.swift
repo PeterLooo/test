@@ -239,7 +239,7 @@ extension WebViewController : WKUIDelegate {
         pringLog("runJavaScriptAlertPanelWithMessage : \(message)")
         
         let alertSeverError:UIAlertController = UIAlertController(title: "", message: message, preferredStyle: .alert)
-        let action = UIAlertAction(title: "確認", style: UIAlertActionStyle.default, handler: nil)
+        let action = UIAlertAction(title: "確認", style: UIAlertAction.Style.default, handler: nil)
         alertSeverError.addAction(action)
         
         self.present(alertSeverError, animated: true)

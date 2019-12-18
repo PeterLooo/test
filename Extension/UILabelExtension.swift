@@ -30,7 +30,7 @@ extension UILabel {
         if self.text.isNilOrEmpty { return }
         let deletelineRange = NSMakeRange(0, (self.text?.count)!)
         let attributedDeleteLine = NSMutableAttributedString(string: self.text!)
-        attributedDeleteLine.addAttribute(NSAttributedStringKey.strikethroughStyle, value: NSUnderlineStyle.styleSingle.rawValue, range: deletelineRange)
+        attributedDeleteLine.addAttribute(NSAttributedString.Key.strikethroughStyle, value: NSUnderlineStyle.single.rawValue, range: deletelineRange)
         self.attributedText = attributedDeleteLine
     }
     
@@ -38,7 +38,7 @@ extension UILabel {
         if self.text.isNilOrEmpty { return }
         let underlineRange = NSMakeRange(0, (self.text?.count)!)
         let attributedUnderline = NSMutableAttributedString(string: self.text!)
-        attributedUnderline.addAttribute(NSAttributedStringKey.underlineStyle, value: NSUnderlineStyle.styleSingle.rawValue, range: underlineRange)
+        attributedUnderline.addAttribute(NSAttributedString.Key.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: underlineRange)
         self.attributedText = attributedUnderline
     }
     
@@ -46,7 +46,7 @@ extension UILabel {
         if self.text.isNilOrEmpty { return }
         let underlineRange = NSMakeRange(0, (self.text?.count)!)
         let attributedUnderline = NSMutableAttributedString(string: self.text!)
-        attributedUnderline.removeAttribute(NSAttributedStringKey.underlineStyle, range: underlineRange)
+        attributedUnderline.removeAttribute(NSAttributedString.Key.underlineStyle, range: underlineRange)
         self.attributedText = attributedUnderline
     }
 }

@@ -294,11 +294,11 @@ extension UIView {
     func pushTransition(_ duration:CFTimeInterval) {
         let animation:CATransition = CATransition()
         animation.timingFunction = CAMediaTimingFunction(name:
-            kCAMediaTimingFunctionEaseInEaseOut)
-        animation.type = kCATransitionFade
-        animation.subtype = kCATransitionFromTop
+            CAMediaTimingFunctionName.easeInEaseOut)
+        animation.type = CATransitionType.fade
+        animation.subtype = CATransitionSubtype.fromTop
         animation.duration = duration
-        layer.add(animation, forKey: kCATransitionFade)
+        layer.add(animation, forKey: CATransitionType.fade.rawValue)
     }
 }
 
@@ -310,7 +310,7 @@ class CommonDraw:NSObject {
         return view
     }()
     func maskWith(alpha:CGFloat , animate:Bool) {
-        self.view.bringSubview(toFront: maskView)
+        self.view.bringSubviewToFront(maskView)
         self.maskView.backgroundColor = colorPrimary.withAlphaComponent(alpha)
         let duration = animate ? 0.25 : 0.0
         UIView.animate(withDuration: duration) {
