@@ -27,7 +27,7 @@ extension UIView {
         }
         
         shapeLayer.path = clippedPath.cgPath
-        shapeLayer.fillRule = kCAFillRuleEvenOdd
+        shapeLayer.fillRule = CAShapeLayerFillRule.evenOdd
         self.layer.mask = shapeLayer
     }
     
