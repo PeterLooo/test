@@ -19,6 +19,18 @@
 		3817E52A23A33C9500ED8609 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3817E4FF23A33C8500ED8609 /* LaunchScreen.storyboard */; };
 		3817E52B23A33C9500ED8609 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3817E4FD23A33C8500ED8609 /* Assets.xcassets */; };
 		3817E52C23A33C9500ED8609 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3817E4FA23A33C8400ED8609 /* Main.storyboard */; };
+		387FBEF723ACA201005412F1 /* AirTicket.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 387FBEF623ACA201005412F1 /* AirTicket.storyboard */; };
+		387FBEF823ACA201005412F1 /* AirTicket.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 387FBEF623ACA201005412F1 /* AirTicket.storyboard */; };
+		387FBEFA23ACA21D005412F1 /* AirTicketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387FBEF923ACA21D005412F1 /* AirTicketViewController.swift */; };
+		387FBEFB23ACA21D005412F1 /* AirTicketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387FBEF923ACA21D005412F1 /* AirTicketViewController.swift */; };
+		387FBEFD23ACA2A7005412F1 /* Notice.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 387FBEFC23ACA2A7005412F1 /* Notice.storyboard */; };
+		387FBEFE23ACA2A7005412F1 /* Notice.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 387FBEFC23ACA2A7005412F1 /* Notice.storyboard */; };
+		387FBF0023ACA2D2005412F1 /* NoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387FBEFF23ACA2D2005412F1 /* NoticeViewController.swift */; };
+		387FBF0123ACA2D2005412F1 /* NoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387FBEFF23ACA2D2005412F1 /* NoticeViewController.swift */; };
+		387FBF0323ACA327005412F1 /* More.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 387FBF0223ACA327005412F1 /* More.storyboard */; };
+		387FBF0423ACA327005412F1 /* More.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 387FBF0223ACA327005412F1 /* More.storyboard */; };
+		387FBF0623ACA392005412F1 /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387FBF0523ACA392005412F1 /* MoreViewController.swift */; };
+		387FBF0723ACA392005412F1 /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387FBF0523ACA392005412F1 /* MoreViewController.swift */; };
 		38BCD91C23A3457900D59910 /* AccountRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BCD91B23A3457900D59910 /* AccountRepository.swift */; };
 		38BCD91D23A3457900D59910 /* AccountRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BCD91B23A3457900D59910 /* AccountRepository.swift */; };
 		38BCD92B23A345FA00D59910 /* DeviceUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BCD92023A345FA00D59910 /* DeviceUtil.swift */; };
@@ -172,6 +184,12 @@
 		3817E51623A33C8500ED8609 /* ColatourB2BUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColatourB2BUITests.swift; sourceTree = "<group>"; };
 		3817E51823A33C8500ED8609 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3817E53023A33C9500ED8609 /* ColatourB2BDev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColatourB2BDev.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		387FBEF623ACA201005412F1 /* AirTicket.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AirTicket.storyboard; sourceTree = "<group>"; };
+		387FBEF923ACA21D005412F1 /* AirTicketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirTicketViewController.swift; sourceTree = "<group>"; };
+		387FBEFC23ACA2A7005412F1 /* Notice.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Notice.storyboard; sourceTree = "<group>"; };
+		387FBEFF23ACA2D2005412F1 /* NoticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeViewController.swift; sourceTree = "<group>"; };
+		387FBF0223ACA327005412F1 /* More.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = More.storyboard; sourceTree = "<group>"; };
+		387FBF0523ACA392005412F1 /* MoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
 		38BCD91B23A3457900D59910 /* AccountRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountRepository.swift; sourceTree = "<group>"; };
 		38BCD92023A345FA00D59910 /* DeviceUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceUtil.swift; sourceTree = "<group>"; };
 		38BCD92123A345FA00D59910 /* EncryptionUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EncryptionUtils.m; sourceTree = "<group>"; };
@@ -456,6 +474,9 @@
 				38BCDA2223A3760900D59910 /* Common */,
 				38BCDA2823A379DE00D59910 /* GroupToruViewController.swift */,
 				38BCDA2E23A37B7100D59910 /* MemberIndexViewController.swift */,
+				387FBEF923ACA21D005412F1 /* AirTicketViewController.swift */,
+				387FBEFF23ACA2D2005412F1 /* NoticeViewController.swift */,
+				387FBF0523ACA392005412F1 /* MoreViewController.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -486,6 +507,9 @@
 				3817E4FA23A33C8400ED8609 /* Main.storyboard */,
 				38BCDA2523A3796800D59910 /* GroupTour.storyboard */,
 				38BCDA2B23A37B5D00D59910 /* MemberIndex.storyboard */,
+				387FBEF623ACA201005412F1 /* AirTicket.storyboard */,
+				387FBEFC23ACA2A7005412F1 /* Notice.storyboard */,
+				387FBF0223ACA327005412F1 /* More.storyboard */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -649,8 +673,11 @@
 			files = (
 				3817E50123A33C8500ED8609 /* LaunchScreen.storyboard in Resources */,
 				38BCDA2623A3796800D59910 /* GroupTour.storyboard in Resources */,
+				387FBEFD23ACA2A7005412F1 /* Notice.storyboard in Resources */,
 				38BCDA0723A367D000D59910 /* LoadingView.xib in Resources */,
 				38BCDA2C23A37B5D00D59910 /* MemberIndex.storyboard in Resources */,
+				387FBEF723ACA201005412F1 /* AirTicket.storyboard in Resources */,
+				387FBF0323ACA327005412F1 /* More.storyboard in Resources */,
 				38BCDA0F23A367D000D59910 /* NoInternetErrorView.xib in Resources */,
 				38BCDA0B23A367D000D59910 /* ApiFailErrorView.xib in Resources */,
 				3817E4FE23A33C8500ED8609 /* Assets.xcassets in Resources */,
@@ -680,8 +707,11 @@
 			files = (
 				3817E52A23A33C9500ED8609 /* LaunchScreen.storyboard in Resources */,
 				38BCDA2723A3796800D59910 /* GroupTour.storyboard in Resources */,
+				387FBEFE23ACA2A7005412F1 /* Notice.storyboard in Resources */,
 				38BCDA0823A367D000D59910 /* LoadingView.xib in Resources */,
 				38BCDA2D23A37B5D00D59910 /* MemberIndex.storyboard in Resources */,
+				387FBEF823ACA201005412F1 /* AirTicket.storyboard in Resources */,
+				387FBF0423ACA327005412F1 /* More.storyboard in Resources */,
 				38BCDA1023A367D000D59910 /* NoInternetErrorView.xib in Resources */,
 				38BCDA0C23A367D000D59910 /* ApiFailErrorView.xib in Resources */,
 				3817E52B23A33C9500ED8609 /* Assets.xcassets in Resources */,
@@ -816,11 +846,13 @@
 				38BCD94223A346B800D59910 /* APILoadingHandleType.swift in Sources */,
 				38BCD9CD23A3648B00D59910 /* BaseModelProtocol.swift in Sources */,
 				38BCD97723A3484300D59910 /* NSObjectExtension.swift in Sources */,
+				387FBEFA23ACA21D005412F1 /* AirTicketViewController.swift in Sources */,
 				38BCD92D23A345FA00D59910 /* EncryptionUtils.m in Sources */,
 				38BCD99C23A363AB00D59910 /* MemberRepositoryProtocol.swift in Sources */,
 				38BCD9D423A366D500D59910 /* BaseViewController.swift in Sources */,
 				38BCDA1223A3684E00D59910 /* BaseProtocol.swift in Sources */,
 				38BCD98723A3484300D59910 /* UINavigationControllerExtension.swift in Sources */,
+				387FBF0023ACA2D2005412F1 /* NoticeViewController.swift in Sources */,
 				38BCD94023A346B800D59910 /* APIErrorHandleType.swift in Sources */,
 				38BCDA0D23A367D000D59910 /* LoadingView.swift in Sources */,
 				38BCD91C23A3457900D59910 /* AccountRepository.swift in Sources */,
@@ -856,6 +888,7 @@
 				38BCD98D23A3484300D59910 /* ShareFunc.swift in Sources */,
 				38BCD93323A345FA00D59910 /* FormatUtil.swift in Sources */,
 				38BCD97D23A3484300D59910 /* IntExtenstion.swift in Sources */,
+				387FBF0623ACA392005412F1 /* MoreViewController.swift in Sources */,
 				38BCD97F23A3484300D59910 /* UIFontExtenstion.swift in Sources */,
 				38BCD92F23A345FA00D59910 /* ColorHexUtil.swift in Sources */,
 				38BCD94623A346B800D59910 /* APIDefine.swift in Sources */,
@@ -890,11 +923,13 @@
 				38BCD94323A346B800D59910 /* APILoadingHandleType.swift in Sources */,
 				38BCD9CE23A3648B00D59910 /* BaseModelProtocol.swift in Sources */,
 				38BCD97823A3484300D59910 /* NSObjectExtension.swift in Sources */,
+				387FBEFB23ACA21D005412F1 /* AirTicketViewController.swift in Sources */,
 				38BCD92E23A345FA00D59910 /* EncryptionUtils.m in Sources */,
 				38BCD99D23A363AB00D59910 /* MemberRepositoryProtocol.swift in Sources */,
 				38BCD9D523A366D500D59910 /* BaseViewController.swift in Sources */,
 				38BCDA1323A3684E00D59910 /* BaseProtocol.swift in Sources */,
 				38BCD98823A3484300D59910 /* UINavigationControllerExtension.swift in Sources */,
+				387FBF0123ACA2D2005412F1 /* NoticeViewController.swift in Sources */,
 				38BCD94123A346B800D59910 /* APIErrorHandleType.swift in Sources */,
 				38BCDA0E23A367D000D59910 /* LoadingView.swift in Sources */,
 				38BCD91D23A3457900D59910 /* AccountRepository.swift in Sources */,
@@ -930,6 +965,7 @@
 				38BCD98E23A3484300D59910 /* ShareFunc.swift in Sources */,
 				38BCD93423A345FA00D59910 /* FormatUtil.swift in Sources */,
 				38BCD97E23A3484300D59910 /* IntExtenstion.swift in Sources */,
+				387FBF0723ACA392005412F1 /* MoreViewController.swift in Sources */,
 				38BCD98023A3484300D59910 /* UIFontExtenstion.swift in Sources */,
 				38BCD93023A345FA00D59910 /* ColorHexUtil.swift in Sources */,
 				38BCD94723A346B800D59910 /* APIDefine.swift in Sources */,
@@ -1101,7 +1137,7 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 83357CEQAU;
 				INFOPLIST_FILE = ColatourB2B/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1124,7 +1160,7 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = ColatourB2B/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1229,7 +1265,7 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 83357CEQAU;
 				INFOPLIST_FILE = "ColatourB2B copy-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1252,7 +1288,7 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "ColatourB2B copy-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
