@@ -20,14 +20,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     fileprivate var disposebag = DisposeBag()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-//        setFirebaseNotification(application)
-        self.pushDevice()
+        setFirebaseNotification(application)
         return true
     }
     
     private func setFirebaseNotification(_ application: UIApplication) {
         FirebaseApp.configure()
-        
+        if #available(iOS 10.0, *) {
+            
+            UNUserNotificationCenter.current().delegate = self
+            let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+            UNUserNotificationCenter.current().requestAuthorization(
+            options: authOptions,
+            completionHandler: {_, _ in })
+            
+        } else {
+            let settings: UIUserNotificationSettings =
+            UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+              application.registerUserNotificationSettings(settings)
+         
+        }
         UNUserNotificationCenter.current().delegate = self
         
         self.pushDevice()

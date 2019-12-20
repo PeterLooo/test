@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2AF496B423AB7EA50053EA45 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2AF496B323AB7EA50053EA45 /* GoogleService-Info.plist */; };
+		2AF496B623AB7EBB0053EA45 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2AF496B523AB7EBB0053EA45 /* GoogleService-Info.plist */; };
 		3817E4F723A33C8400ED8609 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3817E4F623A33C8400ED8609 /* AppDelegate.swift */; };
 		3817E4FC23A33C8400ED8609 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3817E4FA23A33C8400ED8609 /* Main.storyboard */; };
 		3817E4FE23A33C8500ED8609 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3817E4FD23A33C8500ED8609 /* Assets.xcassets */; };
@@ -153,6 +155,10 @@
 /* Begin PBXFileReference section */
 		00BEF28893EA23CD1FFC87FB /* Pods_ColatourB2BDev.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ColatourB2BDev.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		163FEF6363ACF8456B6B3D9F /* Pods-ColatourB2B.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ColatourB2B.release.xcconfig"; path = "Pods/Target Support Files/Pods-ColatourB2B/Pods-ColatourB2B.release.xcconfig"; sourceTree = "<group>"; };
+		2AF496B023AB79810053EA45 /* ColatourB2BDev.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ColatourB2BDev.entitlements; sourceTree = "<group>"; };
+		2AF496B123AB79B50053EA45 /* ColatourB2B.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ColatourB2B.entitlements; sourceTree = "<group>"; };
+		2AF496B323AB7EA50053EA45 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2AF496B523AB7EBB0053EA45 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3817E4F323A33C8400ED8609 /* ColatourB2B.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColatourB2B.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3817E4F623A33C8400ED8609 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3817E4FB23A33C8400ED8609 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -266,9 +272,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2AF496AD23AB6D580053EA45 /* ColatourB2BDev */ = {
+			isa = PBXGroup;
+			children = (
+				2AF496B523AB7EBB0053EA45 /* GoogleService-Info.plist */,
+			);
+			path = ColatourB2BDev;
+			sourceTree = "<group>";
+		};
+		2AF496B223AB7DCD0053EA45 /* ColatourB2BProd */ = {
+			isa = PBXGroup;
+			children = (
+				2AF496B323AB7EA50053EA45 /* GoogleService-Info.plist */,
+			);
+			path = ColatourB2BProd;
+			sourceTree = "<group>";
+		};
 		3817E4EA23A33C8400ED8609 = {
 			isa = PBXGroup;
 			children = (
+				2AF496B123AB79B50053EA45 /* ColatourB2B.entitlements */,
+				2AF496B023AB79810053EA45 /* ColatourB2BDev.entitlements */,
 				38BCDA2023A3713900D59910 /* ColatourB2B-Bridging-Header.h */,
 				3817E4F523A33C8400ED8609 /* ColatourB2B */,
 				38BCD95D23A3484300D59910 /* Extension */,
@@ -296,6 +320,8 @@
 			isa = PBXGroup;
 			children = (
 				38BCDA1423A3689500D59910 /* ColorDef.swift */,
+				2AF496B223AB7DCD0053EA45 /* ColatourB2BProd */,
+				2AF496AD23AB6D580053EA45 /* ColatourB2BDev */,
 				38BCD93723A346B700D59910 /* API */,
 				38BCD94A23A3471600D59910 /* Manager */,
 				38BCD99123A3499700D59910 /* Constant */,
@@ -628,6 +654,7 @@
 				38BCDA0F23A367D000D59910 /* NoInternetErrorView.xib in Resources */,
 				38BCDA0B23A367D000D59910 /* ApiFailErrorView.xib in Resources */,
 				3817E4FE23A33C8500ED8609 /* Assets.xcassets in Resources */,
+				2AF496B423AB7EA50053EA45 /* GoogleService-Info.plist in Resources */,
 				3817E4FC23A33C8400ED8609 /* Main.storyboard in Resources */,
 				38BCDA0923A367D000D59910 /* ToastView.xib in Resources */,
 			);
@@ -658,6 +685,7 @@
 				38BCDA1023A367D000D59910 /* NoInternetErrorView.xib in Resources */,
 				38BCDA0C23A367D000D59910 /* ApiFailErrorView.xib in Resources */,
 				3817E52B23A33C9500ED8609 /* Assets.xcassets in Resources */,
+				2AF496B623AB7EBB0053EA45 /* GoogleService-Info.plist in Resources */,
 				3817E52C23A33C9500ED8609 /* Main.storyboard in Resources */,
 				38BCDA0A23A367D000D59910 /* ToastView.xib in Resources */,
 			);
@@ -1069,6 +1097,7 @@
 			baseConfigurationReference = 987A0E450DD4AC32A30375C6 /* Pods-ColatourB2B.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ColatourB2B/ColatourB2B.entitlements;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 83357CEQAU;
 				INFOPLIST_FILE = ColatourB2B/Info.plist;
@@ -1091,6 +1120,7 @@
 			baseConfigurationReference = 163FEF6363ACF8456B6B3D9F /* Pods-ColatourB2B.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ColatourB2B/ColatourB2B.entitlements;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = ColatourB2B/Info.plist;
@@ -1195,6 +1225,7 @@
 			baseConfigurationReference = 732B40A95C148E8D08B6AD90 /* Pods-ColatourB2BDev.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ColatourB2BDev.entitlements;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 83357CEQAU;
 				INFOPLIST_FILE = "ColatourB2B copy-Info.plist";
@@ -1217,6 +1248,7 @@
 			baseConfigurationReference = B09E7C65A225E6FF958329EA /* Pods-ColatourB2BDev.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ColatourB2BDev.entitlements;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "ColatourB2B copy-Info.plist";
