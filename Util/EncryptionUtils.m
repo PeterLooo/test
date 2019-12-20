@@ -43,7 +43,7 @@
      */
     
     NSData *nsdataFromBase64String = [[NSData alloc]
-                                      initWithBase64EncodedString:@"POaFgaVwa3hBDmsswe98sHEx93Ratwes" options:0];
+                                      initWithBase64EncodedString:@"7A13A02C527D43E99FF57C14566EC90D" options:0];
     
     const void *vkey =  (const void *)([nsdataFromBase64String bytes]);
     //R9cIzmuBQUPDKWEnixShKpaJUMlGRfUmlGf1R51R5fs=
