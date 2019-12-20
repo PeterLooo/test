@@ -40,7 +40,7 @@ var calendarForDatePicker: Calendar {
 }
 
 var isLogin: Bool {
-    let memberToken = UserDefaultUtil.shared.memberToken
+    let memberToken = UserDefaultUtil.shared.accessToken
     if memberToken == nil || memberToken == "" {
         return false
     }else{

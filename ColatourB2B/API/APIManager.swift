@@ -149,10 +149,8 @@ class APIManager: NSObject {
         let appVersion = DeviceUtil.appBuildVersion()
         let osVersion = DeviceUtil.osVersion()
         let apiToken = AccountRepository.shared.getLocalApiToken() ?? ""
-        
-        let localMemberNo = MemberRepository.shared.getLocalMemberNo()
-        let memberNo = (localMemberNo == nil) ? "" : "\(localMemberNo!)"
-        let memberToken = MemberRepository.shared.getLocalMemberToken() ?? ""
+        let accessToken = MemberRepository.shared.getLocalAccessToken() ?? ""
+        let refreshToken = MemberRepository.shared.getLocalRefreshToken() ?? ""
         
         var headers: HTTPHeaders = [
             "Client_Id": "IOS",
@@ -166,15 +164,8 @@ class APIManager: NSObject {
             headers[ header.key ] =  header.value
         })
         
-        if headers["Pax_Token"] == nil {
-            headers["Member_No"]  = memberNo
-            headers["Member_Token"]  = memberToken
-        }
-        
-        if let tempMemberNo = appendHeaders?["Member_No"], let tempMemberToken = appendHeaders?["Member_Token"] {
-            headers["Member_No"] = tempMemberNo
-            headers["Member_Token"]  = tempMemberToken
-        }
+        headers["Access_Token"]  = accessToken
+        headers["Refresh_Token"]  = refreshToken
         
         switch method {
         case .get:
@@ -209,8 +200,8 @@ class APIManager: NSObject {
 
 extension APIManager {
     func getApiToken(deviceName: String, accessToken: String) -> Single<[String:Any]> {
-        let params = ["device_Name":deviceName,
-                      "access_Secret":accessToken]
+        let params = ["Device_Name":deviceName,
+                      "Access_Secret":accessToken]
         
         return manager(method: .post, appendUrl: "", url: APIUrl.authApi(type: .apiToken), parameters: params, appendHeaders: nil)
     }
@@ -219,7 +210,7 @@ extension APIManager {
         let params = ["Push_Id": AccountRepository.shared.getLocalFirebaseToken()!]
         
         return manager(method: .post, appendUrl: "", url:
-            APIUrl.portalApi(type: .pushDevice), parameters: params, appendHeaders: nil)
+            APIUrl.authApi(type: .pushDevice), parameters: params, appendHeaders: nil)
     }
     
     func getVersionRule() -> Single<[String:Any]> {

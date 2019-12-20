@@ -11,8 +11,8 @@ import UIKit
 enum UserDefaultKey: String {
     case uuid = "UUID"
     case apiToken = "API_TOKEN"
-    case memberNo = "MEMBER_NO"
-    case memberToken = "MEMBER_TOKEN"
+    case refreshToken = "REFRESH_TOLEN"
+    case accessToken = "ACCESS_TOKEN"
     case leaveAppTicketIndexTime = "LEAVE_APP_TICKET_INDEX_TIME"
     case leaveAppColatourIndexTime = "LEAVE_APP_CALATOUR_INDEX_TIME"
     case traceLastReceiveTime = "TRACE_LAST_RECEIVE_TIME"
@@ -44,21 +44,21 @@ class UserDefaultUtil: NSObject {
         }
     }
 
-    var memberNo: Int? {
+    var refreshToken: String? {
         get{
-            return getObject(classType: Int(), key: .memberNo)
+            return getObject(classType: String(), key: .refreshToken)
         }
         set(memberNo){
-            update(object: memberNo, key: .memberNo)
+            update(object: memberNo, key: .refreshToken)
         }
     }
     
-    var memberToken: String? {
+    var accessToken: String? {
         get{
-            return getObject(classType: String(), key: .memberToken)
+            return getObject(classType: String(), key: .accessToken)
         }
         set(memberToken){
-            update(object: memberToken, key: .memberToken)
+            update(object: memberToken, key: .accessToken)
         }
     }
     

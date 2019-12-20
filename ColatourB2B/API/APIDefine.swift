@@ -6,12 +6,12 @@ import UIKit
 let APITimeout: Double = 60.0
 
 #if COLATOURB2B_DEV
-let AUTH_WEB_HOST = "https://ntestWebAPICauth.colatour.com.tw"
+let AUTH_WEB_HOST = "https://ntestWebAPIBauth.colatour.com.tw"
 let PORTAL_WEB_HOST = "https://ntestwebapicportal.colatour.com.tw"
 
 #else
-let AUTH_WEB_HOST = "https://webAPICauth.colatour.com.tw"
-let PORTAL_WEB_HOST = "https://webAPICportal.colatour.com.tw"
+let AUTH_WEB_HOST = "https://ntestWebAPIBauth.colatour.com.tw"
+let PORTAL_WEB_HOST = "https://ntestwebapicportal.colatour.com.tw"
 
 #endif
 
@@ -33,6 +33,9 @@ enum APIUrl {
     
     enum AuthApi: String {
         case apiToken = "api-token"
+        case refreshToken = "refresh-token"
+        case accessToken = "access-token"
+        case pushDevice   = "PushDevice"
         case memberToken = "member-token"
         case versionRule = "VersionRule"
         case paxToken = "pax-token"
@@ -54,7 +57,6 @@ enum APIUrl {
     
     enum PortalApi: String {
         case homeAdList   = "Ticket/首頁1"
-        case pushDevice   = "notice/push"
         
         static func urlWith(type: PortalApi, append: String) -> String {
             let base =  PORTAL_WEB_HOST + "/Portal/"
