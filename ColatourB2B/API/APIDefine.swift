@@ -36,9 +36,7 @@ enum APIUrl {
         case refreshToken = "refresh-token"
         case accessToken = "access-token"
         case pushDevice   = "PushDevice"
-        case memberToken = "member-token"
         case versionRule = "VersionRule"
-        case paxToken = "pax-token"
         case logout = "logout"
         
         static func urlWith(type: AuthApi, append:String) -> String {
