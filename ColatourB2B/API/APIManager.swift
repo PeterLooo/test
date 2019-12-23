@@ -17,22 +17,6 @@ class APIManager: NSObject {
         let config = URLSessionConfiguration.default
         config.timeoutIntervalForRequest = APITimeout
         config.httpAdditionalHeaders = SessionManager.defaultHTTPHeaders
-        //note: 還沒有分出demo版本哦
-        #if COLATOUR_DEV
-        let policies: [String: ServerTrustPolicy] = [
-            "172.20.5.71": .disableEvaluation,
-            "172.20.5.72": .disableEvaluation,
-            "172.20.5.73" : .disableEvaluation,
-            "118.163.109.236" : .disableEvaluation,
-            "118.163.109.238" : .disableEvaluation,
-            "118.163.109.239" : .disableEvaluation,
-            "118.163.109.240" : .disableEvaluation,
-            ]
-        return Alamofire.SessionManager(
-            configuration: config,
-            serverTrustPolicyManager: ServerTrustPolicyManager(policies: policies)
-        )
-        #endif
         
         return SessionManager(configuration: config)
     }()
