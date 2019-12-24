@@ -14,25 +14,21 @@ class MemberRepository: MemberRepositoryProtocol {
     
     static let shared = MemberRepository()
     
-    func getLocalMemberToken() -> String? {
-        return UserDefaultUtil.shared.memberToken
+    func getLocalAccessToken() -> String? {
+        return UserDefaultUtil.shared.accessToken
     }
     
-    func getLocalMemberNo() -> Int? {
-        return UserDefaultUtil.shared.memberNo
+    func getLocalRefreshToken() -> String? {
+        return UserDefaultUtil.shared.refreshToken
     }
     
-    func removeLocalUserToken() {
-        UserDefaultUtil.shared.memberNo = nil
-        UserDefaultUtil.shared.memberToken = nil
+    func removeLocalAccessToken() {
         
-        FirebaseCrashManager.setUserName("NoLogin")
+        UserDefaultUtil.shared.accessToken = nil
     }
     
-    func setLocalUserToken(memberNo: Int, memberToken: String) {
-        UserDefaultUtil.shared.memberNo = memberNo
-        UserDefaultUtil.shared.memberToken = memberToken
+    func setLocalUserToken( accessToken: String) {
         
-        FirebaseCrashManager.setUserName("\(memberNo)")
+        UserDefaultUtil.shared.accessToken = accessToken
     }
 }
