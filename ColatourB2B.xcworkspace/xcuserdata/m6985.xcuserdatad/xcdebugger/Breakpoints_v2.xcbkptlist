@@ -3,4 +3,70 @@
    uuid = "D9F443C7-29E8-494E-9093-6A540D7FCFEE"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "59208452-E371-4CC2-BE44-91261476DF63"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ColatourB2B/API/APIDefine.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "9"
+            endingLineNumber = "9"
+            landmarkName = "unknown"
+            landmarkType = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "580B81C3-B276-442A-AEA2-3D9568748220"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ColatourB2B/API/APIDefine.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "13"
+            endingLineNumber = "13"
+            landmarkName = "unknown"
+            landmarkType = "0">
+            <Locations>
+               <Location
+                  uuid = "580B81C3-B276-442A-AEA2-3D9568748220 - 285654f4c31ac907"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "globalinit_33_33DEAFAC6A63750911878CBA24A5ADFD_func1"
+                  moduleName = "ColatourB2B"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/m6985/Documents/ColatourB2B/ColatourB2B/API/APIDefine.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  uuid = "580B81C3-B276-442A-AEA2-3D9568748220 - 2e85125c93ebd4e0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ColatourB2B.AUTH_WEB_HOST.unsafeMutableAddressor : Swift.String"
+                  moduleName = "ColatourB2B"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/m6985/Documents/ColatourB2B/ColatourB2B/API/APIDefine.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "4">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
