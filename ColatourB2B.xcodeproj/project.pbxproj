@@ -1270,6 +1270,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" \"-DCOLATOURB2B_DEV\"";
 				PRODUCT_BUNDLE_IDENTIFIER = tw.com.colatour.b2b.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = ColatourB2BDev_20191218;
