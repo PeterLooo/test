@@ -64,6 +64,68 @@ class AccountRepository: NSObject {
         return Single.just(apiToken!)
     }
     
+    func getRefreshToke(loginRequest: LoginRequest) -> Single<LoginResponse> {
+        let api = APIManager.shared
+            .getRefreshToken(loginRequest: loginRequest)
+        
+        return AccountRepository.shared.apiToken
+            .flatMap{ model -> Single<[String:Any]> in
+                return api
+            }
+            .flatMap{ response -> Single<LoginResponse> in
+                let loginResponse:LoginResponse = LoginResponse(JSON: response)!
+                return Single.just(loginResponse)
+            }
+            .flatMap{ response -> Single<LoginResponse> in
+                return self.procressRefreshToken(loginResponse: response)
+            }
+    }
+    
+    var accessToken: Single<LoginResponse> {
+        let refreshToken = UserDefaultUtil.shared.refreshToken
+        if refreshToken != nil {
+            let respones = LoginResponse()
+            respones.accessToken = UserDefaultUtil.shared.accessToken
+            respones.refreshToken = UserDefaultUtil.shared.refreshToken
+            return  Single.just(respones)
+        }
+        if refreshToken == nil {
+            MemberRepository.shared.removeLocalAccessToken()
+            return Single.error(APIError.init(type: .apiForbiddenException, localDesc: "", alertMsg: ""))
+        }
+        let api = APIManager.shared.getAccessToken(refreshToke: "")
+        return AccountRepository.shared.apiToken
+                   .flatMap{ model -> Single<[String:Any]> in
+                       return api
+                   }
+                   .flatMap{ response -> Single<LoginResponse> in
+                       let loginResponse:LoginResponse = LoginResponse(JSON: response)!
+                       return Single.just(loginResponse)
+                   }
+                   .flatMap{ response -> Single<LoginResponse> in
+                       return self.procressRefreshToken(loginResponse: response)
+                   }
+    }
+    
+    private func procressRefreshToken(loginResponse: LoginResponse) -> Single<LoginResponse> {
+        switch loginResponse.passwordReset == true {
+        case true:
+            MemberRepository.shared.removeLocalAccessToken()
+            
+        case false:
+            MemberRepository.shared.setLocalUserToken(refreshToken: loginResponse.refreshToken!, accessToken: loginResponse.accessToken!)
+        }
+
+        return Single.just(loginResponse)
+    }
+    
+    func getVersionRule() -> Single<VersionRuleReponse.Update?> {
+        let api = APIManager.shared.getVersionRule()
+        return AccountRepository.shared.accessToken
+            .flatMap{_ in api}
+            .map{ VersionRuleReponse(JSON: $0)!.update}
+    }
+    
     private func removeApiTokenIfExpired(apiToken: String?) -> String {
         if (apiToken == nil) { return "" }
         if (apiToken == "") { return "" }

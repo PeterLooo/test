@@ -163,8 +163,6 @@
 		38E9922B23B053C400E28271 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E9922923B053C400E28271 /* LoginPresenter.swift */; };
 		38E9922E23B058CA00E28271 /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E9922D23B058CA00E28271 /* LoginRequest.swift */; };
 		38E9922F23B058CA00E28271 /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E9922D23B058CA00E28271 /* LoginRequest.swift */; };
-		38E9923123B0596100E28271 /* MemberResitory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E9923023B0596100E28271 /* MemberResitory.swift */; };
-		38E9923223B0596100E28271 /* MemberResitory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E9923023B0596100E28271 /* MemberResitory.swift */; };
 		38E9923423B05A0700E28271 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E9923323B05A0700E28271 /* LoginResponse.swift */; };
 		38E9923523B05A0700E28271 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E9923323B05A0700E28271 /* LoginResponse.swift */; };
 		38E9923723B06AFA00E28271 /* BasePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E9923623B06AFA00E28271 /* BasePresenter.swift */; };
@@ -288,7 +286,6 @@
 		38E9922623B053A200E28271 /* LoginProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginProtocol.swift; sourceTree = "<group>"; };
 		38E9922923B053C400E28271 /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
 		38E9922D23B058CA00E28271 /* LoginRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
-		38E9923023B0596100E28271 /* MemberResitory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberResitory.swift; sourceTree = "<group>"; };
 		38E9923323B05A0700E28271 /* LoginResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
 		38E9923623B06AFA00E28271 /* BasePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePresenter.swift; sourceTree = "<group>"; };
 		38E9923923B0B5DF00E28271 /* BooleanButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BooleanButton.swift; sourceTree = "<group>"; };
@@ -458,7 +455,6 @@
 				38BCD91B23A3457900D59910 /* AccountRepository.swift */,
 				38BCD99823A3639500D59910 /* MemberRepository.swift */,
 				38BCD99B23A363AB00D59910 /* MemberRepositoryProtocol.swift */,
-				38E9923023B0596100E28271 /* MemberResitory.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -990,7 +986,6 @@
 				38BCDA0123A367D000D59910 /* NoInternetErrorView.swift in Sources */,
 				38BCD98323A3484300D59910 /* DateComponentExtension.swift in Sources */,
 				38BCD97123A3484300D59910 /* FirebaseEvent.swift in Sources */,
-				38E9923123B0596100E28271 /* MemberResitory.swift in Sources */,
 				38BCDA1823A3696800D59910 /* WebViewController.swift in Sources */,
 				38E9923723B06AFA00E28271 /* BasePresenter.swift in Sources */,
 				38BCDA0523A367D000D59910 /* ToastView.swift in Sources */,
@@ -1080,7 +1075,6 @@
 				38BCDA0223A367D000D59910 /* NoInternetErrorView.swift in Sources */,
 				38BCD98423A3484300D59910 /* DateComponentExtension.swift in Sources */,
 				38BCD97223A3484300D59910 /* FirebaseEvent.swift in Sources */,
-				38E9923223B0596100E28271 /* MemberResitory.swift in Sources */,
 				38BCDA1923A3696800D59910 /* WebViewController.swift in Sources */,
 				38E9923823B06AFA00E28271 /* BasePresenter.swift in Sources */,
 				38BCDA0623A367D000D59910 /* ToastView.swift in Sources */,

@@ -201,6 +201,16 @@ extension APIManager {
         return manager(method: .get, appendUrl: "", url: APIUrl.authApi(type: .versionRule), parameters: nil, appendHeaders: nil)
     }
     
+    func getRefreshToken(loginRequest: LoginRequest) -> Single<[String:Any]> {
+        let params = ["Member_Idno":loginRequest.memberIdno!,
+                      "Password":loginRequest.password!]
+        return manager(method: .post, appendUrl: "", url: APIUrl.authApi(type: .refreshToken), parameters: params, appendHeaders: nil)
+    }
+    
+    func getAccessToken(refreshToke:String) -> Single<[String:Any]> {
+        let params = ["Refresh_Token":refreshToke]
+        return manager(method: .post, appendUrl: "", url: APIUrl.authApi(type: .accessToken), parameters: params, appendHeaders: nil)
+    }
 }
 
 extension APIManager {
