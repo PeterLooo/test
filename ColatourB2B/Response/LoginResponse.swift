@@ -13,7 +13,7 @@ class LoginResponse: BaseModel {
     
     var accessToken : String?
     var confirmRegisterData : Bool?
-    var loginMessage : AnyObject?
+    var loginMessage : String?
     var loginResult : Bool?
     var passwordReset : Bool?
     var refreshToken : String?
