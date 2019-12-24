@@ -166,7 +166,8 @@ extension BaseViewController {
 
 }
 
-class BaseViewController: UIViewController, BaseViewProtocol {
+class BaseViewController: UIViewController {
+    
     private var loadingAPICount = 0
 
     let loadingView = LoadingView(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
@@ -215,7 +216,7 @@ class BaseViewController: UIViewController, BaseViewProtocol {
     private var isNeedToPopVCWhenLoginClose = false
     
     private var source: String?
-    
+    private var basePresenter: BasePresenter?
     var topAnchor: NSLayoutYAxisAnchor{
         if #available(iOS 11.0, *) {
             return view.safeAreaLayoutGuide.topAnchor
@@ -278,7 +279,7 @@ class BaseViewController: UIViewController, BaseViewProtocol {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+         basePresenter = BasePresenter(delegate: self)
         setUpLoadingView()
         setUpErrorViews()
         setUpToastView()
@@ -404,14 +405,45 @@ class BaseViewController: UIViewController, BaseViewProtocol {
 
     //Note: 注意如果直接使用，要小心設計isNeedToPopVCwhenLoginClose事件
     func logoutAndPopLoginVC(isAllowPaxButtonEnable: Bool = false) {
+        let vc = getVC(st: "Login", vc: "LoginViewController") as! LoginViewController
+        vc.modalPresentationStyle = .overCurrentContext
         
+        let nav = UINavigationController(rootViewController: vc)
+        nav.restorationIdentifier = "LoginNavigationController"
+        nav.modalPresentationStyle = .fullScreen
+        self.present(nav, animated: true)
     }
 
     func logoutAndPopLoginVC(linkType: LinkType) {
        
     }
 }
-
+extension BaseViewController: MemberLoginSuccessViewProtocol {
+    func onLoginSuccess(linkType: LinkType, linkValue: String?) {
+         handleLinkType(linkType: linkType, linkValue: linkValue, linkText: nil)
+    }
+    
+    @objc func onLoginSuccess() {
+        ()
+    }
+}
+extension BaseViewController: MemberLoginOnTouchNavCloseProtocol {
+    @objc func onTouchLoginNavClose() {
+        //Note: 不要覆寫
+        switch isNeedToPopVCWhenLoginClose {
+        case true:
+            self.navigationController?.popViewController(animated: true)
+        case false:
+            //Note: do nothing
+            ()
+        }
+    }
+}
+extension BaseViewController: BaseViewProtocol {
+    func onBindAccessToken(response: AccessTokenResponse) {
+        ()
+    }
+}
 //MARK: Nav Appearance
 extension BaseViewController {
     private func adjustBarIsHiddenOrNot() {
@@ -451,7 +483,7 @@ extension BaseViewController {
             self.navigationController?.navigationBar.backItem?.title = " "
             self.navigationController?.navigationBar.topItem?.title = " "
         case .close:
-            let closeImage = #imageLiteral(resourceName: "close.png")
+            let closeImage = #imageLiteral(resourceName: "close.png").withRenderingMode(.alwaysOriginal)
             self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(image: closeImage, style: .plain, target: self, action: #selector(onTouchNavClose))
             
         case .custom:
