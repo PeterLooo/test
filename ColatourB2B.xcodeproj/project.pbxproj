@@ -31,6 +31,25 @@
 		387FBF0423ACA327005412F1 /* More.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 387FBF0223ACA327005412F1 /* More.storyboard */; };
 		387FBF0623ACA392005412F1 /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387FBF0523ACA392005412F1 /* MoreViewController.swift */; };
 		387FBF0723ACA392005412F1 /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387FBF0523ACA392005412F1 /* MoreViewController.swift */; };
+		38873C6323B30067001B5FDF /* AppHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38873C6223B30067001B5FDF /* AppHelper.swift */; };
+		38873C6423B30067001B5FDF /* AppHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38873C6223B30067001B5FDF /* AppHelper.swift */; };
+		38873C6623B3011F001B5FDF /* Group.json in Resources */ = {isa = PBXBuildFile; fileRef = 38873C6523B3011E001B5FDF /* Group.json */; };
+		38873C6923B30E09001B5FDF /* GroupSliderItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38873C6723B30E09001B5FDF /* GroupSliderItemCell.swift */; };
+		38873C6A23B30E09001B5FDF /* GroupSliderItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38873C6723B30E09001B5FDF /* GroupSliderItemCell.swift */; };
+		38873C6B23B30E09001B5FDF /* GroupSliderItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38873C6823B30E09001B5FDF /* GroupSliderItemCell.xib */; };
+		38873C6C23B30E09001B5FDF /* GroupSliderItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38873C6823B30E09001B5FDF /* GroupSliderItemCell.xib */; };
+		38873C7123B31939001B5FDF /* SelectOption.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38873C6E23B31938001B5FDF /* SelectOption.storyboard */; };
+		38873C7223B31939001B5FDF /* SelectOption.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38873C6E23B31938001B5FDF /* SelectOption.storyboard */; };
+		38873C7323B31939001B5FDF /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38873C6F23B31938001B5FDF /* Calendar.storyboard */; };
+		38873C7423B31939001B5FDF /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38873C6F23B31938001B5FDF /* Calendar.storyboard */; };
+		38873C7523B31939001B5FDF /* Common.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38873C7023B31938001B5FDF /* Common.storyboard */; };
+		38873C7623B31939001B5FDF /* Common.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38873C7023B31938001B5FDF /* Common.storyboard */; };
+		38B09D6323B1C95800329DDA /* GroupSlideInTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B09D6223B1C95800329DDA /* GroupSlideInTransition.swift */; };
+		38B09D6423B1C95800329DDA /* GroupSlideInTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B09D6223B1C95800329DDA /* GroupSlideInTransition.swift */; };
+		38B09D6623B1CB0500329DDA /* GroupSliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B09D6523B1CB0500329DDA /* GroupSliderViewController.swift */; };
+		38B09D6723B1CB0500329DDA /* GroupSliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B09D6523B1CB0500329DDA /* GroupSliderViewController.swift */; };
+		38B09D6923B1EF6300329DDA /* GroupMenuResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B09D6823B1EF6300329DDA /* GroupMenuResponse.swift */; };
+		38B09D6A23B1EF6300329DDA /* GroupMenuResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B09D6823B1EF6300329DDA /* GroupMenuResponse.swift */; };
 		38BCD91C23A3457900D59910 /* AccountRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BCD91B23A3457900D59910 /* AccountRepository.swift */; };
 		38BCD91D23A3457900D59910 /* AccountRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BCD91B23A3457900D59910 /* AccountRepository.swift */; };
 		38BCD92B23A345FA00D59910 /* DeviceUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BCD92023A345FA00D59910 /* DeviceUtil.swift */; };
@@ -190,6 +209,16 @@
 		387FBEFF23ACA2D2005412F1 /* NoticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeViewController.swift; sourceTree = "<group>"; };
 		387FBF0223ACA327005412F1 /* More.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = More.storyboard; sourceTree = "<group>"; };
 		387FBF0523ACA392005412F1 /* MoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
+		38873C6223B30067001B5FDF /* AppHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppHelper.swift; sourceTree = "<group>"; };
+		38873C6523B3011E001B5FDF /* Group.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Group.json; sourceTree = "<group>"; };
+		38873C6723B30E09001B5FDF /* GroupSliderItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupSliderItemCell.swift; sourceTree = "<group>"; };
+		38873C6823B30E09001B5FDF /* GroupSliderItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupSliderItemCell.xib; sourceTree = "<group>"; };
+		38873C6E23B31938001B5FDF /* SelectOption.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SelectOption.storyboard; sourceTree = "<group>"; };
+		38873C6F23B31938001B5FDF /* Calendar.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Calendar.storyboard; sourceTree = "<group>"; };
+		38873C7023B31938001B5FDF /* Common.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Common.storyboard; sourceTree = "<group>"; };
+		38B09D6223B1C95800329DDA /* GroupSlideInTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupSlideInTransition.swift; sourceTree = "<group>"; };
+		38B09D6523B1CB0500329DDA /* GroupSliderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupSliderViewController.swift; sourceTree = "<group>"; };
+		38B09D6823B1EF6300329DDA /* GroupMenuResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupMenuResponse.swift; sourceTree = "<group>"; };
 		38BCD91B23A3457900D59910 /* AccountRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountRepository.swift; sourceTree = "<group>"; };
 		38BCD92023A345FA00D59910 /* DeviceUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceUtil.swift; sourceTree = "<group>"; };
 		38BCD92123A345FA00D59910 /* EncryptionUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EncryptionUtils.m; sourceTree = "<group>"; };
@@ -374,6 +403,38 @@
 			path = ColatourB2BUITests;
 			sourceTree = "<group>";
 		};
+		38873C6D23B31938001B5FDF /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				38873C6E23B31938001B5FDF /* SelectOption.storyboard */,
+				38873C6F23B31938001B5FDF /* Calendar.storyboard */,
+				38873C7023B31938001B5FDF /* Common.storyboard */,
+			);
+			name = Common;
+			path = ColatourB2B/StroyBoard/Common;
+			sourceTree = SOURCE_ROOT;
+		};
+		38873C7723B31BA5001B5FDF /* Group */ = {
+			isa = PBXGroup;
+			children = (
+				38873C7823B31BBC001B5FDF /* Slider */,
+				38BCDA2823A379DE00D59910 /* GroupToruViewController.swift */,
+			);
+			path = Group;
+			sourceTree = "<group>";
+		};
+		38873C7823B31BBC001B5FDF /* Slider */ = {
+			isa = PBXGroup;
+			children = (
+				38B09D6223B1C95800329DDA /* GroupSlideInTransition.swift */,
+				38B09D6523B1CB0500329DDA /* GroupSliderViewController.swift */,
+				38873C6523B3011E001B5FDF /* Group.json */,
+				38873C6723B30E09001B5FDF /* GroupSliderItemCell.swift */,
+				38873C6823B30E09001B5FDF /* GroupSliderItemCell.xib */,
+			);
+			path = Slider;
+			sourceTree = "<group>";
+		};
 		38BCD91A23A3452C00D59910 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
@@ -403,6 +464,7 @@
 		38BCD93723A346B700D59910 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				38873C6223B30067001B5FDF /* AppHelper.swift */,
 				38BCD93823A346B700D59910 /* APIError.swift */,
 				38BCD93923A346B700D59910 /* APIErrorHandleType.swift */,
 				38BCD93A23A346B700D59910 /* APILoadingHandleType.swift */,
@@ -471,8 +533,8 @@
 		38BCDA2123A3760000D59910 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				38873C7723B31BA5001B5FDF /* Group */,
 				38BCDA2223A3760900D59910 /* Common */,
-				38BCDA2823A379DE00D59910 /* GroupToruViewController.swift */,
 				38BCDA2E23A37B7100D59910 /* MemberIndexViewController.swift */,
 				387FBEF923ACA21D005412F1 /* AirTicketViewController.swift */,
 				387FBEFF23ACA2D2005412F1 /* NoticeViewController.swift */,
@@ -496,6 +558,7 @@
 		38BCDA2323A3766100D59910 /* StroyBoard */ = {
 			isa = PBXGroup;
 			children = (
+				38873C6D23B31938001B5FDF /* Common */,
 				38BCDA2423A378E900D59910 /* Home */,
 			);
 			path = StroyBoard;
@@ -521,6 +584,7 @@
 				38BCDA1123A3684D00D59910 /* BaseProtocol.swift */,
 				38BCD9CC23A3648B00D59910 /* BaseModelProtocol.swift */,
 				38BCD9C923A3647E00D59910 /* BaseModel.swift */,
+				38B09D6823B1EF6300329DDA /* GroupMenuResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -675,12 +739,16 @@
 				38BCDA2623A3796800D59910 /* GroupTour.storyboard in Resources */,
 				387FBEFD23ACA2A7005412F1 /* Notice.storyboard in Resources */,
 				38BCDA0723A367D000D59910 /* LoadingView.xib in Resources */,
+				38873C7323B31939001B5FDF /* Calendar.storyboard in Resources */,
 				38BCDA2C23A37B5D00D59910 /* MemberIndex.storyboard in Resources */,
 				387FBEF723ACA201005412F1 /* AirTicket.storyboard in Resources */,
 				387FBF0323ACA327005412F1 /* More.storyboard in Resources */,
 				38BCDA0F23A367D000D59910 /* NoInternetErrorView.xib in Resources */,
 				38BCDA0B23A367D000D59910 /* ApiFailErrorView.xib in Resources */,
+				38873C6B23B30E09001B5FDF /* GroupSliderItemCell.xib in Resources */,
+				38873C7523B31939001B5FDF /* Common.storyboard in Resources */,
 				3817E4FE23A33C8500ED8609 /* Assets.xcassets in Resources */,
+				38873C7123B31939001B5FDF /* SelectOption.storyboard in Resources */,
 				2AF496B423AB7EA50053EA45 /* GoogleService-Info.plist in Resources */,
 				3817E4FC23A33C8400ED8609 /* Main.storyboard in Resources */,
 				38BCDA0923A367D000D59910 /* ToastView.xib in Resources */,
@@ -708,8 +776,13 @@
 				3817E52A23A33C9500ED8609 /* LaunchScreen.storyboard in Resources */,
 				38BCDA2723A3796800D59910 /* GroupTour.storyboard in Resources */,
 				387FBEFE23ACA2A7005412F1 /* Notice.storyboard in Resources */,
+				38873C7623B31939001B5FDF /* Common.storyboard in Resources */,
+				38873C7423B31939001B5FDF /* Calendar.storyboard in Resources */,
 				38BCDA0823A367D000D59910 /* LoadingView.xib in Resources */,
+				38873C6C23B30E09001B5FDF /* GroupSliderItemCell.xib in Resources */,
 				38BCDA2D23A37B5D00D59910 /* MemberIndex.storyboard in Resources */,
+				38873C6623B3011F001B5FDF /* Group.json in Resources */,
+				38873C7223B31939001B5FDF /* SelectOption.storyboard in Resources */,
 				387FBEF823ACA201005412F1 /* AirTicket.storyboard in Resources */,
 				387FBF0423ACA327005412F1 /* More.storyboard in Resources */,
 				38BCDA1023A367D000D59910 /* NoInternetErrorView.xib in Resources */,
@@ -876,11 +949,14 @@
 				38BCD98923A3484300D59910 /* OptionalStringExtension.swift in Sources */,
 				38BCDA0123A367D000D59910 /* NoInternetErrorView.swift in Sources */,
 				38BCD98323A3484300D59910 /* DateComponentExtension.swift in Sources */,
+				38B09D6623B1CB0500329DDA /* GroupSliderViewController.swift in Sources */,
 				38BCD97123A3484300D59910 /* FirebaseEvent.swift in Sources */,
 				38BCDA1823A3696800D59910 /* WebViewController.swift in Sources */,
 				38BCDA0523A367D000D59910 /* ToastView.swift in Sources */,
+				38B09D6323B1C95800329DDA /* GroupSlideInTransition.swift in Sources */,
 				38BCD97B23A3484300D59910 /* UILabelExtension.swift in Sources */,
 				38BCDA2923A379DE00D59910 /* GroupToruViewController.swift in Sources */,
+				38B09D6923B1EF6300329DDA /* GroupMenuResponse.swift in Sources */,
 				38BCD99923A3639500D59910 /* MemberRepository.swift in Sources */,
 				38BCD98123A3484300D59910 /* UIViewExtension.swift in Sources */,
 				38BCD93523A345FA00D59910 /* GTMBase64.m in Sources */,
@@ -888,6 +964,7 @@
 				38BCD98D23A3484300D59910 /* ShareFunc.swift in Sources */,
 				38BCD93323A345FA00D59910 /* FormatUtil.swift in Sources */,
 				38BCD97D23A3484300D59910 /* IntExtenstion.swift in Sources */,
+				38873C6923B30E09001B5FDF /* GroupSliderItemCell.swift in Sources */,
 				387FBF0623ACA392005412F1 /* MoreViewController.swift in Sources */,
 				38BCD97F23A3484300D59910 /* UIFontExtenstion.swift in Sources */,
 				38BCD92F23A345FA00D59910 /* ColorHexUtil.swift in Sources */,
@@ -897,6 +974,7 @@
 				38BCDA2F23A37B7100D59910 /* MemberIndexViewController.swift in Sources */,
 				38BCD93E23A346B800D59910 /* APIError.swift in Sources */,
 				38BCD95123A3471600D59910 /* FirebaseCrashManager.swift in Sources */,
+				38873C6323B30067001B5FDF /* AppHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -953,11 +1031,14 @@
 				38BCD98A23A3484300D59910 /* OptionalStringExtension.swift in Sources */,
 				38BCDA0223A367D000D59910 /* NoInternetErrorView.swift in Sources */,
 				38BCD98423A3484300D59910 /* DateComponentExtension.swift in Sources */,
+				38B09D6723B1CB0500329DDA /* GroupSliderViewController.swift in Sources */,
 				38BCD97223A3484300D59910 /* FirebaseEvent.swift in Sources */,
 				38BCDA1923A3696800D59910 /* WebViewController.swift in Sources */,
 				38BCDA0623A367D000D59910 /* ToastView.swift in Sources */,
+				38B09D6423B1C95800329DDA /* GroupSlideInTransition.swift in Sources */,
 				38BCD97C23A3484300D59910 /* UILabelExtension.swift in Sources */,
 				38BCDA2A23A379DE00D59910 /* GroupToruViewController.swift in Sources */,
+				38B09D6A23B1EF6300329DDA /* GroupMenuResponse.swift in Sources */,
 				38BCD99A23A3639500D59910 /* MemberRepository.swift in Sources */,
 				38BCD98223A3484300D59910 /* UIViewExtension.swift in Sources */,
 				38BCD93623A345FA00D59910 /* GTMBase64.m in Sources */,
@@ -965,6 +1046,7 @@
 				38BCD98E23A3484300D59910 /* ShareFunc.swift in Sources */,
 				38BCD93423A345FA00D59910 /* FormatUtil.swift in Sources */,
 				38BCD97E23A3484300D59910 /* IntExtenstion.swift in Sources */,
+				38873C6A23B30E09001B5FDF /* GroupSliderItemCell.swift in Sources */,
 				387FBF0723ACA392005412F1 /* MoreViewController.swift in Sources */,
 				38BCD98023A3484300D59910 /* UIFontExtenstion.swift in Sources */,
 				38BCD93023A345FA00D59910 /* ColorHexUtil.swift in Sources */,
@@ -974,6 +1056,7 @@
 				38BCDA3023A37B7100D59910 /* MemberIndexViewController.swift in Sources */,
 				38BCD93F23A346B800D59910 /* APIError.swift in Sources */,
 				38BCD95223A3471600D59910 /* FirebaseCrashManager.swift in Sources */,
+				38873C6423B30067001B5FDF /* AppHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
