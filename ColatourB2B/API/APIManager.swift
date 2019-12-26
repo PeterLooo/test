@@ -205,8 +205,8 @@ extension APIManager {
         return manager(method: .post, appendUrl: "", url: APIUrl.authApi(type: .refreshToken), parameters: params, appendHeaders: nil)
     }
     
-    func getAccessToken(refreshToke:String) -> Single<[String:Any]> {
-        let params = ["Refresh_Token":refreshToke]
+    func getAccessToken(refreshToken:String) -> Single<[String:Any]> {
+        let params = ["Refresh_Token":refreshToken]
         return manager(method: .post, appendUrl: "", url: APIUrl.authApi(type: .accessToken), parameters: params, appendHeaders: nil)
     }
 }
