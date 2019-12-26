@@ -22,4 +22,14 @@ class BasePresenter: NSObject,BasePresenterProtocol {
         self.init()
         self.delegate = delegate
     }
+    
+    func getAccessToken(){
+        AccountRepository.shared.getAccessToken(getLocalToken:false).subscribe(onSuccess: { (_) in
+            self.delegate?.loadData()
+            self.delegate?.onCompletedLoadingHandle()
+        }, onError: { (error) in
+            self.delegate?.onApiErrorHandle(apiError: error as! APIError, handleType: .coverPlate)
+            self.delegate?.onCompletedLoadingHandle()
+        }).disposed(by: dispose)
+    }
 }

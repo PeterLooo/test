@@ -134,7 +134,6 @@ class APIManager: NSObject {
         let osVersion = DeviceUtil.osVersion()
         let apiToken = AccountRepository.shared.getLocalApiToken() ?? ""
         let accessToken = MemberRepository.shared.getLocalAccessToken() ?? ""
-        let refreshToken = MemberRepository.shared.getLocalRefreshToken() ?? ""
         
         var headers: HTTPHeaders = [
             "Client_Id": "IOS",
@@ -149,7 +148,6 @@ class APIManager: NSObject {
         })
         
         headers["Access_Token"]  = accessToken
-        headers["Refresh_Token"]  = refreshToken
         
         switch method {
         case .get:

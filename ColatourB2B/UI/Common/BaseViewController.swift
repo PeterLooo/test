@@ -315,7 +315,7 @@ class BaseViewController: UIViewController {
             self.handleNoInternetError(handleType: handleType)
 
         case .apiForbiddenException:
-            self.logoutAndPopLoginVC()
+            basePresenter?.getAccessToken()
 
         case .apiFailException:
             self.handleApiFailError(handleType: handleType, alertMsg: apiError.alertMsg)
@@ -325,6 +325,8 @@ class BaseViewController: UIViewController {
             self.handleApiFailError(handleType: handleType, alertMsg: apiError.alertMsg)
         case .otherException:
             self.handleApiFailError(handleType: handleType, alertMsg: apiError.alertMsg)
+        case .presentLogin:
+            self.logoutAndPopLoginVC()
         }
     }
 

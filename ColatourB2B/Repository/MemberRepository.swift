@@ -25,6 +25,10 @@ class MemberRepository: MemberRepositoryProtocol {
     func removeLocalAccessToken() {
         
         UserDefaultUtil.shared.accessToken = nil
+    }
+    
+    func removeLocalRefreshToken() {
+        
         UserDefaultUtil.shared.refreshToken = nil
     }
     

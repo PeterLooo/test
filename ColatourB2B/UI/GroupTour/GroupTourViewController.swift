@@ -28,6 +28,11 @@ class GroupTourViewController: BaseViewController {
         getApiToken()
     }
     
+    override func loadData() {
+        super.loadData()
+        getVersionRule()
+    }
+    
     private func getApiToken(){
         self.presenter?.getApiToken()
     }
