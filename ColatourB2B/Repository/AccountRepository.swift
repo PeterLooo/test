@@ -123,17 +123,15 @@ class AccountRepository: NSObject {
     }
     
     private func procressAccessToken(loginResponse: LoginResponse) -> Single<LoginResponse> {
-        let tokenType = (loginResponse.accessToken.isNilOrEmpty, loginResponse.refreshToken.isNilOrEmpty)
-        switch tokenType {
-        case (true,true):
+        
+        switch loginResponse.accessToken.isNilOrEmpty {
+        case true:
             MemberRepository.shared.removeLocalAccessToken()
             MemberRepository.shared.removeLocalRefreshToken()
             return getAccessToken(getLocalToken: false)
-        case (false,false):
+        case false:
             MemberRepository.shared.setLocalUserToken(refreshToken: loginResponse.refreshToken!, accessToken: loginResponse.accessToken!)
             return Single.just(loginResponse)
-        default:
-            return getAccessToken(getLocalToken: false)
         }
 
     }
