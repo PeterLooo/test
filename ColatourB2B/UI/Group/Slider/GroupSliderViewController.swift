@@ -45,8 +45,8 @@ class GroupSliderViewController: BaseViewController {
 extension GroupSliderViewController: GroupSliderItemCellProtocol {
     
     func onTouchDate(serverData: GroupMenuResponse.ServerData) {
-        self.delegate?.onTouchData(serverData: serverData)
         self.dismiss(animated: true, completion: nil)
+        self.delegate?.onTouchData(serverData: serverData)
     }
 }
 extension GroupSliderViewController: UITableViewDataSource {

@@ -11,6 +11,7 @@ import UIKit
 class GroupTourViewController: BaseViewController {
     
     @IBOutlet weak var grayBlurView: UIView!
+    @IBOutlet weak var groupSearchView: UIView!
     
     private var presenter: GropeTourPresenter?
     private var result : GroupMenuResponse?
@@ -24,7 +25,8 @@ class GroupTourViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setNavIcon()
+        setSearchGes()
+        setIsNavShadowEnable(false)
         let api = AppHelper.shared.getJson(forResource: "Group")
         api.map{ GroupMenuResponse(JSON: $0)! }.subscribe(onSuccess: { (model) in
            
@@ -35,6 +37,7 @@ class GroupTourViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         getApiToken()
+        setNavIcon()
     }
     
     override func loadData() {
@@ -102,6 +105,16 @@ class GroupTourViewController: BaseViewController {
 
         self.present(alert, animated: true)
     }
+    
+    private func setSearchGes(){
+        let ges = UITapGestureRecognizer(target: self, action: #selector(onTouchSearch))
+        self.groupSearchView.addGestureRecognizer(ges)
+        self.groupSearchView.isUserInteractionEnabled = true
+    }
+    
+    @objc private func onTouchSearch(){
+        ()
+    }
 }
 extension GroupTourViewController: GroupSliderViewControllerProtocol {
     func onTouchData(serverData: GroupMenuResponse.ServerData) {
@@ -133,9 +146,7 @@ extension GroupTourViewController: GropeTourViewProtocol {
         getVersionRule()
 
     }
-    
     func onBindVersionRule(versionRule: VersionRuleReponse.Update?) {
-        print(versionRule)
+        ()
     }
-    
 }

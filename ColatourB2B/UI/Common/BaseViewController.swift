@@ -284,13 +284,13 @@ class BaseViewController: UIViewController {
         setUpErrorViews()
         setUpToastView()
         setUpNilButton()
-        setBarTypeLayoutImmediately()
+        
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        
+        setBarTypeLayoutImmediately()
     }
     
     override func viewDidAppear(_ animated: Bool) {
