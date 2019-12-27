@@ -10,6 +10,7 @@ struct APIError: Error {
         case noInternetException
         case otherException
         case requestTimeOut
+        case presentLogin
     }
     internal let type:ErrorType
     internal let localizedDescription:String
