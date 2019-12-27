@@ -7,31 +7,51 @@
 //
 
 import UIKit
-import RxSwift
-class GroupToruViewController: BaseViewController {
+
+class GroupTourViewController: BaseViewController {
     
     @IBOutlet weak var grayBlurView: UIView!
-    var result : GroupMenuResponse?
-    fileprivate var dispose = DisposeBag()
-
+    
+    private var presenter: GropeTourPresenter?
+    private var result : GroupMenuResponse?
     let transiton = GroupSlideInTransition()
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        
+        presenter = GropeTourPresenter(delegate: self)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        AccountRepository.shared.apiToken.subscribe(onSuccess: { (model) in
-           print(model)
-        }, onError: { (error) in
-            print("error")
-        }).disposed(by: dispose)
         setNavIcon()
-        
         let api = AppHelper.shared.getJson(forResource: "Group")
         api.map{ GroupMenuResponse(JSON: $0)! }.subscribe(onSuccess: { (model) in
            
             self.result = model
         })
-
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        getApiToken()
+    }
+    
+    override func loadData() {
+        super.loadData()
+        getVersionRule()
+    }
+    
+    private func getApiToken(){
+        self.presenter?.getApiToken()
+    }
+    
+    private func getVersionRule(){
+        self.presenter?.getVersionRule()
+    }
+    
+    override func onLoginSuccess(){
+        self.getVersionRule()
     }
     
     private func setNavIcon(){
@@ -83,13 +103,13 @@ class GroupToruViewController: BaseViewController {
         self.present(alert, animated: true)
     }
 }
-extension GroupToruViewController: GroupSliderViewControllerProtocol {
+extension GroupTourViewController: GroupSliderViewControllerProtocol {
     func onTouchData(serverData: GroupMenuResponse.ServerData) {
         self.handleLinkType(linkType: serverData.linkType, linkValue: serverData.linkValue, linkText: nil)
     }
     
 }
-extension GroupToruViewController: UIViewControllerTransitioningDelegate {
+extension GroupTourViewController: UIViewControllerTransitioningDelegate {
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         transiton.isPresenting = true
         grayBlurView.isHidden = false
@@ -106,4 +126,16 @@ extension GroupToruViewController: UIViewControllerTransitioningDelegate {
         self.setTabBarType(tabBarType: .notHidden)
         return transiton
     }
+}
+
+extension GroupTourViewController: GropeTourViewProtocol {
+    func onBindApiTokenComplete() {
+        getVersionRule()
+
+    }
+    
+    func onBindVersionRule(versionRule: VersionRuleReponse.Update?) {
+        print(versionRule)
+    }
+    
 }

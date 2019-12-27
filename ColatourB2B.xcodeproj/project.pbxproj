@@ -159,12 +159,16 @@
 		38E68AAE23B5AB80006BC4DD /* Group.json in Resources */ = {isa = PBXBuildFile; fileRef = 38E68AA423B5AB80006BC4DD /* Group.json */; };
 		38E68AAF23B5AB80006BC4DD /* GroupSliderItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38E68AA523B5AB80006BC4DD /* GroupSliderItemCell.xib */; };
 		38E68AB023B5AB80006BC4DD /* GroupSliderItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38E68AA523B5AB80006BC4DD /* GroupSliderItemCell.xib */; };
-		38E68AB123B5AB80006BC4DD /* GroupToruViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E68AA623B5AB80006BC4DD /* GroupToruViewController.swift */; };
-		38E68AB223B5AB80006BC4DD /* GroupToruViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E68AA623B5AB80006BC4DD /* GroupToruViewController.swift */; };
 		38E68AB423B5ABE9006BC4DD /* AppHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E68AB323B5ABE9006BC4DD /* AppHelper.swift */; };
 		38E68AB523B5ABE9006BC4DD /* AppHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E68AB323B5ABE9006BC4DD /* AppHelper.swift */; };
 		38E68AB723B5AC12006BC4DD /* GroupMenuResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E68AB623B5AC12006BC4DD /* GroupMenuResponse.swift */; };
 		38E68AB823B5AC12006BC4DD /* GroupMenuResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E68AB623B5AC12006BC4DD /* GroupMenuResponse.swift */; };
+		38E68ABD23B5AE30006BC4DD /* SelectOption.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38E68ABA23B5AE30006BC4DD /* SelectOption.storyboard */; };
+		38E68ABE23B5AE30006BC4DD /* SelectOption.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38E68ABA23B5AE30006BC4DD /* SelectOption.storyboard */; };
+		38E68ABF23B5AE30006BC4DD /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38E68ABB23B5AE30006BC4DD /* Calendar.storyboard */; };
+		38E68AC023B5AE30006BC4DD /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38E68ABB23B5AE30006BC4DD /* Calendar.storyboard */; };
+		38E68AC123B5AE30006BC4DD /* Common.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38E68ABC23B5AE30006BC4DD /* Common.storyboard */; };
+		38E68AC223B5AE30006BC4DD /* Common.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38E68ABC23B5AE30006BC4DD /* Common.storyboard */; };
 		38E9921B23B04CD400E28271 /* GropeTourProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E9921A23B04CD400E28271 /* GropeTourProtocol.swift */; };
 		38E9921C23B04CD400E28271 /* GropeTourProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E9921A23B04CD400E28271 /* GropeTourProtocol.swift */; };
 		38E9921E23B04CF200E28271 /* GropeTourPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E9921D23B04CF200E28271 /* GropeTourPresenter.swift */; };
@@ -300,9 +304,11 @@
 		38E68AA323B5AB80006BC4DD /* GroupSliderItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupSliderItemCell.swift; sourceTree = "<group>"; };
 		38E68AA423B5AB80006BC4DD /* Group.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Group.json; sourceTree = "<group>"; };
 		38E68AA523B5AB80006BC4DD /* GroupSliderItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GroupSliderItemCell.xib; sourceTree = "<group>"; };
-		38E68AA623B5AB80006BC4DD /* GroupToruViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupToruViewController.swift; sourceTree = "<group>"; };
 		38E68AB323B5ABE9006BC4DD /* AppHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppHelper.swift; sourceTree = "<group>"; };
 		38E68AB623B5AC12006BC4DD /* GroupMenuResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupMenuResponse.swift; sourceTree = "<group>"; };
+		38E68ABA23B5AE30006BC4DD /* SelectOption.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SelectOption.storyboard; sourceTree = "<group>"; };
+		38E68ABB23B5AE30006BC4DD /* Calendar.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Calendar.storyboard; sourceTree = "<group>"; };
+		38E68ABC23B5AE30006BC4DD /* Common.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Common.storyboard; sourceTree = "<group>"; };
 		38E9921A23B04CD400E28271 /* GropeTourProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GropeTourProtocol.swift; sourceTree = "<group>"; };
 		38E9921D23B04CF200E28271 /* GropeTourPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GropeTourPresenter.swift; sourceTree = "<group>"; };
 		38E9922023B04F1400E28271 /* VersionRuleReponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VersionRuleReponse.swift; sourceTree = "<group>"; };
@@ -572,7 +578,6 @@
 			isa = PBXGroup;
 			children = (
 				38E68A9F23B5AB80006BC4DD /* Group */,
-				38E9921923B04C6E00E28271 /* GroupTour */,
 				387FBF0823ACCE5C005412F1 /* Member */,
 				38BCDA2223A3760900D59910 /* Common */,
 				387FBEF923ACA21D005412F1 /* AirTicketViewController.swift */,
@@ -601,6 +606,7 @@
 		38BCDA2323A3766100D59910 /* StroyBoard */ = {
 			isa = PBXGroup;
 			children = (
+				38E68AB923B5AE30006BC4DD /* Common */,
 				387FBF0923ACCE7C005412F1 /* Member */,
 				38BCDA2423A378E900D59910 /* Home */,
 			);
@@ -638,7 +644,9 @@
 			isa = PBXGroup;
 			children = (
 				38E68AA023B5AB80006BC4DD /* Slider */,
-				38E68AA623B5AB80006BC4DD /* GroupToruViewController.swift */,
+				38BCDA2823A379DE00D59910 /* GroupTourViewController.swift */,
+				38E9921A23B04CD400E28271 /* GropeTourProtocol.swift */,
+				38E9921D23B04CF200E28271 /* GropeTourPresenter.swift */,
 			);
 			path = Group;
 			sourceTree = "<group>";
@@ -655,14 +663,14 @@
 			path = Slider;
 			sourceTree = "<group>";
 		};
-		38E9921923B04C6E00E28271 /* GroupTour */ = {
+		38E68AB923B5AE30006BC4DD /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				38BCDA2823A379DE00D59910 /* GroupTourViewController.swift */,
-				38E9921A23B04CD400E28271 /* GropeTourProtocol.swift */,
-				38E9921D23B04CF200E28271 /* GropeTourPresenter.swift */,
+				38E68ABA23B5AE30006BC4DD /* SelectOption.storyboard */,
+				38E68ABB23B5AE30006BC4DD /* Calendar.storyboard */,
+				38E68ABC23B5AE30006BC4DD /* Common.storyboard */,
 			);
-			path = GroupTour;
+			path = Common;
 			sourceTree = "<group>";
 		};
 		38E9922C23B0589700E28271 /* Request */ = {
@@ -819,11 +827,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38E68ABF23B5AE30006BC4DD /* Calendar.storyboard in Resources */,
 				3817E50123A33C8500ED8609 /* LaunchScreen.storyboard in Resources */,
 				38BCDA2623A3796800D59910 /* GroupTour.storyboard in Resources */,
 				387FBF0B23ACCEB7005412F1 /* Login.storyboard in Resources */,
 				38E68AAD23B5AB80006BC4DD /* Group.json in Resources */,
 				387FBEFD23ACA2A7005412F1 /* Notice.storyboard in Resources */,
+				38E68AC123B5AE30006BC4DD /* Common.storyboard in Resources */,
+				38E68ABD23B5AE30006BC4DD /* SelectOption.storyboard in Resources */,
 				38BCDA0723A367D000D59910 /* LoadingView.xib in Resources */,
 				38BCDA2C23A37B5D00D59910 /* MemberIndex.storyboard in Resources */,
 				38E68AAF23B5AB80006BC4DD /* GroupSliderItemCell.xib in Resources */,
@@ -856,11 +867,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38E68AC023B5AE30006BC4DD /* Calendar.storyboard in Resources */,
 				3817E52A23A33C9500ED8609 /* LaunchScreen.storyboard in Resources */,
 				38BCDA2723A3796800D59910 /* GroupTour.storyboard in Resources */,
 				387FBF1123ACCF00005412F1 /* Login.storyboard in Resources */,
 				38E68AAE23B5AB80006BC4DD /* Group.json in Resources */,
 				387FBEFE23ACA2A7005412F1 /* Notice.storyboard in Resources */,
+				38E68AC223B5AE30006BC4DD /* Common.storyboard in Resources */,
+				38E68ABE23B5AE30006BC4DD /* SelectOption.storyboard in Resources */,
 				38BCDA0823A367D000D59910 /* LoadingView.xib in Resources */,
 				38BCDA2D23A37B5D00D59910 /* MemberIndex.storyboard in Resources */,
 				38E68AB023B5AB80006BC4DD /* GroupSliderItemCell.xib in Resources */,
@@ -1063,7 +1077,6 @@
 				38BCD97F23A3484300D59910 /* UIFontExtenstion.swift in Sources */,
 				38BCD92F23A345FA00D59910 /* ColorHexUtil.swift in Sources */,
 				38BCD94623A346B800D59910 /* APIDefine.swift in Sources */,
-				38E68AB123B5AB80006BC4DD /* GroupToruViewController.swift in Sources */,
 				38BCD97523A3484300D59910 /* UIColorExtension.swift in Sources */,
 				38BCDA0323A367D000D59910 /* ApiFailErrorView.swift in Sources */,
 				38BCDA2F23A37B7100D59910 /* MemberIndexViewController.swift in Sources */,
@@ -1158,7 +1171,6 @@
 				38BCD98023A3484300D59910 /* UIFontExtenstion.swift in Sources */,
 				38BCD93023A345FA00D59910 /* ColorHexUtil.swift in Sources */,
 				38BCD94723A346B800D59910 /* APIDefine.swift in Sources */,
-				38E68AB223B5AB80006BC4DD /* GroupToruViewController.swift in Sources */,
 				38BCD97623A3484300D59910 /* UIColorExtension.swift in Sources */,
 				38BCDA0423A367D000D59910 /* ApiFailErrorView.swift in Sources */,
 				38BCDA3023A37B7100D59910 /* MemberIndexViewController.swift in Sources */,
