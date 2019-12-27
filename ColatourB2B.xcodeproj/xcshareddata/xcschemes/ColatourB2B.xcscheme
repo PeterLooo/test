@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1010"
+   LastUpgradeVersion = "1130"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3817E52423A33C9500ED8609"
-               BuildableName = "ColatourB2BDev.app"
-               BlueprintName = "ColatourB2BDev"
+               BlueprintIdentifier = "3817E4F223A33C8400ED8609"
+               BuildableName = "ColatourB2B.app"
+               BlueprintName = "ColatourB2B"
                ReferencedContainer = "container:ColatourB2B.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -27,16 +27,27 @@
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "3817E52423A33C9500ED8609"
-            BuildableName = "ColatourB2BDev.app"
-            BlueprintName = "ColatourB2BDev"
-            ReferencedContainer = "container:ColatourB2B.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "3817E50623A33C8500ED8609"
+               BuildableName = "ColatourB2BTests.xctest"
+               BlueprintName = "ColatourB2BTests"
+               ReferencedContainer = "container:ColatourB2B.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "3817E51123A33C8500ED8609"
+               BuildableName = "ColatourB2BUITests.xctest"
+               BlueprintName = "ColatourB2BUITests"
+               ReferencedContainer = "container:ColatourB2B.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
@@ -53,19 +64,12 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "3817E52423A33C9500ED8609"
-            BuildableName = "ColatourB2BDev.app"
-            BlueprintName = "ColatourB2BDev"
+            BlueprintIdentifier = "3817E4F223A33C8400ED8609"
+            BuildableName = "ColatourB2B.app"
+            BlueprintName = "ColatourB2B"
             ReferencedContainer = "container:ColatourB2B.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
-      <EnvironmentVariables>
-         <EnvironmentVariable
-            key = "OS_ACTIVITY_MODE"
-            value = "disable"
-            isEnabled = "NO">
-         </EnvironmentVariable>
-      </EnvironmentVariables>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -77,9 +81,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "3817E52423A33C9500ED8609"
-            BuildableName = "ColatourB2BDev.app"
-            BlueprintName = "ColatourB2BDev"
+            BlueprintIdentifier = "3817E4F223A33C8400ED8609"
+            BuildableName = "ColatourB2B.app"
+            BlueprintName = "ColatourB2B"
             ReferencedContainer = "container:ColatourB2B.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

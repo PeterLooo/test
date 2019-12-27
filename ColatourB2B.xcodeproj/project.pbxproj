@@ -31,6 +31,12 @@
 		387FBF0423ACA327005412F1 /* More.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 387FBF0223ACA327005412F1 /* More.storyboard */; };
 		387FBF0623ACA392005412F1 /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387FBF0523ACA392005412F1 /* MoreViewController.swift */; };
 		387FBF0723ACA392005412F1 /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387FBF0523ACA392005412F1 /* MoreViewController.swift */; };
+		387FBF0B23ACCEB7005412F1 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 387FBF0A23ACCEB7005412F1 /* Login.storyboard */; };
+		387FBF0F23ACCEF4005412F1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387FBF0E23ACCEF4005412F1 /* LoginViewController.swift */; };
+		387FBF1023ACCEF4005412F1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387FBF0E23ACCEF4005412F1 /* LoginViewController.swift */; };
+		387FBF1123ACCF00005412F1 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 387FBF0A23ACCEB7005412F1 /* Login.storyboard */; };
+		387FBF1323ACD047005412F1 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387FBF1223ACD046005412F1 /* CustomTextField.swift */; };
+		387FBF1423ACD047005412F1 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387FBF1223ACD046005412F1 /* CustomTextField.swift */; };
 		38BCD91C23A3457900D59910 /* AccountRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BCD91B23A3457900D59910 /* AccountRepository.swift */; };
 		38BCD91D23A3457900D59910 /* AccountRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BCD91B23A3457900D59910 /* AccountRepository.swift */; };
 		38BCD92B23A345FA00D59910 /* DeviceUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BCD92023A345FA00D59910 /* DeviceUtil.swift */; };
@@ -137,12 +143,32 @@
 		38BCDA1F23A36ADC00D59910 /* TabBarPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BCDA1D23A36ADC00D59910 /* TabBarPresenter.swift */; };
 		38BCDA2623A3796800D59910 /* GroupTour.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38BCDA2523A3796800D59910 /* GroupTour.storyboard */; };
 		38BCDA2723A3796800D59910 /* GroupTour.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38BCDA2523A3796800D59910 /* GroupTour.storyboard */; };
-		38BCDA2923A379DE00D59910 /* GroupToruViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BCDA2823A379DE00D59910 /* GroupToruViewController.swift */; };
-		38BCDA2A23A379DE00D59910 /* GroupToruViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BCDA2823A379DE00D59910 /* GroupToruViewController.swift */; };
+		38BCDA2923A379DE00D59910 /* GroupTourViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BCDA2823A379DE00D59910 /* GroupTourViewController.swift */; };
+		38BCDA2A23A379DE00D59910 /* GroupTourViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BCDA2823A379DE00D59910 /* GroupTourViewController.swift */; };
 		38BCDA2C23A37B5D00D59910 /* MemberIndex.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38BCDA2B23A37B5D00D59910 /* MemberIndex.storyboard */; };
 		38BCDA2D23A37B5D00D59910 /* MemberIndex.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38BCDA2B23A37B5D00D59910 /* MemberIndex.storyboard */; };
 		38BCDA2F23A37B7100D59910 /* MemberIndexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BCDA2E23A37B7100D59910 /* MemberIndexViewController.swift */; };
 		38BCDA3023A37B7100D59910 /* MemberIndexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BCDA2E23A37B7100D59910 /* MemberIndexViewController.swift */; };
+		38E9921B23B04CD400E28271 /* GropeTourProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E9921A23B04CD400E28271 /* GropeTourProtocol.swift */; };
+		38E9921C23B04CD400E28271 /* GropeTourProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E9921A23B04CD400E28271 /* GropeTourProtocol.swift */; };
+		38E9921E23B04CF200E28271 /* GropeTourPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E9921D23B04CF200E28271 /* GropeTourPresenter.swift */; };
+		38E9921F23B04CF200E28271 /* GropeTourPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E9921D23B04CF200E28271 /* GropeTourPresenter.swift */; };
+		38E9922123B04F1400E28271 /* VersionRuleReponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E9922023B04F1400E28271 /* VersionRuleReponse.swift */; };
+		38E9922223B04F1400E28271 /* VersionRuleReponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E9922023B04F1400E28271 /* VersionRuleReponse.swift */; };
+		38E9922423B04F2A00E28271 /* BulletinResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E9922323B04F2A00E28271 /* BulletinResponse.swift */; };
+		38E9922523B04F2A00E28271 /* BulletinResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E9922323B04F2A00E28271 /* BulletinResponse.swift */; };
+		38E9922723B053A200E28271 /* LoginProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E9922623B053A200E28271 /* LoginProtocol.swift */; };
+		38E9922823B053A200E28271 /* LoginProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E9922623B053A200E28271 /* LoginProtocol.swift */; };
+		38E9922A23B053C400E28271 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E9922923B053C400E28271 /* LoginPresenter.swift */; };
+		38E9922B23B053C400E28271 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E9922923B053C400E28271 /* LoginPresenter.swift */; };
+		38E9922E23B058CA00E28271 /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E9922D23B058CA00E28271 /* LoginRequest.swift */; };
+		38E9922F23B058CA00E28271 /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E9922D23B058CA00E28271 /* LoginRequest.swift */; };
+		38E9923423B05A0700E28271 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E9923323B05A0700E28271 /* LoginResponse.swift */; };
+		38E9923523B05A0700E28271 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E9923323B05A0700E28271 /* LoginResponse.swift */; };
+		38E9923723B06AFA00E28271 /* BasePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E9923623B06AFA00E28271 /* BasePresenter.swift */; };
+		38E9923823B06AFA00E28271 /* BasePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E9923623B06AFA00E28271 /* BasePresenter.swift */; };
+		38E9923A23B0B5DF00E28271 /* BooleanButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E9923923B0B5DF00E28271 /* BooleanButton.swift */; };
+		38E9923B23B0B5DF00E28271 /* BooleanButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E9923923B0B5DF00E28271 /* BooleanButton.swift */; };
 		9196F236CE205CFA47F4C95B /* Pods_ColatourB2BDev.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00BEF28893EA23CD1FFC87FB /* Pods_ColatourB2BDev.framework */; };
 		FF8E32EC7686F078B8ABDE18 /* Pods_ColatourB2B.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A331B185DD2055D277F472F3 /* Pods_ColatourB2B.framework */; };
 /* End PBXBuildFile section */
@@ -190,6 +216,9 @@
 		387FBEFF23ACA2D2005412F1 /* NoticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeViewController.swift; sourceTree = "<group>"; };
 		387FBF0223ACA327005412F1 /* More.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = More.storyboard; sourceTree = "<group>"; };
 		387FBF0523ACA392005412F1 /* MoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
+		387FBF0A23ACCEB7005412F1 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		387FBF0E23ACCEF4005412F1 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		387FBF1223ACD046005412F1 /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		38BCD91B23A3457900D59910 /* AccountRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountRepository.swift; sourceTree = "<group>"; };
 		38BCD92023A345FA00D59910 /* DeviceUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceUtil.swift; sourceTree = "<group>"; };
 		38BCD92123A345FA00D59910 /* EncryptionUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EncryptionUtils.m; sourceTree = "<group>"; };
@@ -247,9 +276,19 @@
 		38BCDA1D23A36ADC00D59910 /* TabBarPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarPresenter.swift; sourceTree = "<group>"; };
 		38BCDA2023A3713900D59910 /* ColatourB2B-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ColatourB2B-Bridging-Header.h"; sourceTree = "<group>"; };
 		38BCDA2523A3796800D59910 /* GroupTour.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GroupTour.storyboard; sourceTree = "<group>"; };
-		38BCDA2823A379DE00D59910 /* GroupToruViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupToruViewController.swift; sourceTree = "<group>"; };
+		38BCDA2823A379DE00D59910 /* GroupTourViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTourViewController.swift; sourceTree = "<group>"; };
 		38BCDA2B23A37B5D00D59910 /* MemberIndex.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MemberIndex.storyboard; sourceTree = "<group>"; };
 		38BCDA2E23A37B7100D59910 /* MemberIndexViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberIndexViewController.swift; sourceTree = "<group>"; };
+		38E9921A23B04CD400E28271 /* GropeTourProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GropeTourProtocol.swift; sourceTree = "<group>"; };
+		38E9921D23B04CF200E28271 /* GropeTourPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GropeTourPresenter.swift; sourceTree = "<group>"; };
+		38E9922023B04F1400E28271 /* VersionRuleReponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VersionRuleReponse.swift; sourceTree = "<group>"; };
+		38E9922323B04F2A00E28271 /* BulletinResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BulletinResponse.swift; sourceTree = "<group>"; };
+		38E9922623B053A200E28271 /* LoginProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginProtocol.swift; sourceTree = "<group>"; };
+		38E9922923B053C400E28271 /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
+		38E9922D23B058CA00E28271 /* LoginRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
+		38E9923323B05A0700E28271 /* LoginResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
+		38E9923623B06AFA00E28271 /* BasePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePresenter.swift; sourceTree = "<group>"; };
+		38E9923923B0B5DF00E28271 /* BooleanButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BooleanButton.swift; sourceTree = "<group>"; };
 		732B40A95C148E8D08B6AD90 /* Pods-ColatourB2BDev.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ColatourB2BDev.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ColatourB2BDev/Pods-ColatourB2BDev.debug.xcconfig"; sourceTree = "<group>"; };
 		987A0E450DD4AC32A30375C6 /* Pods-ColatourB2B.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ColatourB2B.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ColatourB2B/Pods-ColatourB2B.debug.xcconfig"; sourceTree = "<group>"; };
 		A331B185DD2055D277F472F3 /* Pods_ColatourB2B.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ColatourB2B.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -345,6 +384,7 @@
 				38BCD99123A3499700D59910 /* Constant */,
 				38BCD91A23A3452C00D59910 /* Repository */,
 				38BCDA3123A37FDA00D59910 /* Response */,
+				38E9922C23B0589700E28271 /* Request */,
 				38BCDA2123A3760000D59910 /* UI */,
 				38BCDA2323A3766100D59910 /* StroyBoard */,
 				38BCD9F823A367D000D59910 /* ErrorAndLoadingView */,
@@ -372,6 +412,41 @@
 				3817E51823A33C8500ED8609 /* Info.plist */,
 			);
 			path = ColatourB2BUITests;
+			sourceTree = "<group>";
+		};
+		387FBF0823ACCE5C005412F1 /* Member */ = {
+			isa = PBXGroup;
+			children = (
+				387FBF0D23ACCEE4005412F1 /* Login */,
+				387FBF0C23ACCEC7005412F1 /* MemberIndex */,
+			);
+			path = Member;
+			sourceTree = "<group>";
+		};
+		387FBF0923ACCE7C005412F1 /* Member */ = {
+			isa = PBXGroup;
+			children = (
+				387FBF0A23ACCEB7005412F1 /* Login.storyboard */,
+			);
+			path = Member;
+			sourceTree = "<group>";
+		};
+		387FBF0C23ACCEC7005412F1 /* MemberIndex */ = {
+			isa = PBXGroup;
+			children = (
+				38BCDA2E23A37B7100D59910 /* MemberIndexViewController.swift */,
+			);
+			path = MemberIndex;
+			sourceTree = "<group>";
+		};
+		387FBF0D23ACCEE4005412F1 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				387FBF0E23ACCEF4005412F1 /* LoginViewController.swift */,
+				38E9922623B053A200E28271 /* LoginProtocol.swift */,
+				38E9922923B053C400E28271 /* LoginPresenter.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 		38BCD91A23A3452C00D59910 /* Repository */ = {
@@ -471,9 +546,9 @@
 		38BCDA2123A3760000D59910 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				38E9921923B04C6E00E28271 /* GroupTour */,
+				387FBF0823ACCE5C005412F1 /* Member */,
 				38BCDA2223A3760900D59910 /* Common */,
-				38BCDA2823A379DE00D59910 /* GroupToruViewController.swift */,
-				38BCDA2E23A37B7100D59910 /* MemberIndexViewController.swift */,
 				387FBEF923ACA21D005412F1 /* AirTicketViewController.swift */,
 				387FBEFF23ACA2D2005412F1 /* NoticeViewController.swift */,
 				387FBF0523ACA392005412F1 /* MoreViewController.swift */,
@@ -484,11 +559,15 @@
 		38BCDA2223A3760900D59910 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				387FBF1223ACD046005412F1 /* CustomTextField.swift */,
 				38BCD9D623A366EC00D59910 /* TabBarViewController.swift */,
 				38BCDA1A23A36AC100D59910 /* TabBarProtocol.swift */,
 				38BCDA1D23A36ADC00D59910 /* TabBarPresenter.swift */,
+				38BCDA1123A3684D00D59910 /* BaseProtocol.swift */,
 				38BCD9D323A366D500D59910 /* BaseViewController.swift */,
 				38BCDA1723A3696800D59910 /* WebViewController.swift */,
+				38E9923623B06AFA00E28271 /* BasePresenter.swift */,
+				38E9923923B0B5DF00E28271 /* BooleanButton.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -496,6 +575,7 @@
 		38BCDA2323A3766100D59910 /* StroyBoard */ = {
 			isa = PBXGroup;
 			children = (
+				387FBF0923ACCE7C005412F1 /* Member */,
 				38BCDA2423A378E900D59910 /* Home */,
 			);
 			path = StroyBoard;
@@ -517,12 +597,32 @@
 		38BCDA3123A37FDA00D59910 /* Response */ = {
 			isa = PBXGroup;
 			children = (
+				38E9923323B05A0700E28271 /* LoginResponse.swift */,
 				38BCD9CF23A3652200D59910 /* VerifyModel.swift */,
-				38BCDA1123A3684D00D59910 /* BaseProtocol.swift */,
 				38BCD9CC23A3648B00D59910 /* BaseModelProtocol.swift */,
 				38BCD9C923A3647E00D59910 /* BaseModel.swift */,
+				38E9922023B04F1400E28271 /* VersionRuleReponse.swift */,
+				38E9922323B04F2A00E28271 /* BulletinResponse.swift */,
 			);
 			path = Response;
+			sourceTree = "<group>";
+		};
+		38E9921923B04C6E00E28271 /* GroupTour */ = {
+			isa = PBXGroup;
+			children = (
+				38BCDA2823A379DE00D59910 /* GroupTourViewController.swift */,
+				38E9921A23B04CD400E28271 /* GropeTourProtocol.swift */,
+				38E9921D23B04CF200E28271 /* GropeTourPresenter.swift */,
+			);
+			path = GroupTour;
+			sourceTree = "<group>";
+		};
+		38E9922C23B0589700E28271 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				38E9922D23B058CA00E28271 /* LoginRequest.swift */,
+			);
+			path = Request;
 			sourceTree = "<group>";
 		};
 		45720B246F780AA989A37ED1 /* Frameworks */ = {
@@ -673,6 +773,7 @@
 			files = (
 				3817E50123A33C8500ED8609 /* LaunchScreen.storyboard in Resources */,
 				38BCDA2623A3796800D59910 /* GroupTour.storyboard in Resources */,
+				387FBF0B23ACCEB7005412F1 /* Login.storyboard in Resources */,
 				387FBEFD23ACA2A7005412F1 /* Notice.storyboard in Resources */,
 				38BCDA0723A367D000D59910 /* LoadingView.xib in Resources */,
 				38BCDA2C23A37B5D00D59910 /* MemberIndex.storyboard in Resources */,
@@ -707,6 +808,7 @@
 			files = (
 				3817E52A23A33C9500ED8609 /* LaunchScreen.storyboard in Resources */,
 				38BCDA2723A3796800D59910 /* GroupTour.storyboard in Resources */,
+				387FBF1123ACCF00005412F1 /* Login.storyboard in Resources */,
 				387FBEFE23ACA2A7005412F1 /* Notice.storyboard in Resources */,
 				38BCDA0823A367D000D59910 /* LoadingView.xib in Resources */,
 				38BCDA2D23A37B5D00D59910 /* MemberIndex.storyboard in Resources */,
@@ -845,10 +947,12 @@
 			files = (
 				38BCD94223A346B800D59910 /* APILoadingHandleType.swift in Sources */,
 				38BCD9CD23A3648B00D59910 /* BaseModelProtocol.swift in Sources */,
+				38E9922723B053A200E28271 /* LoginProtocol.swift in Sources */,
 				38BCD97723A3484300D59910 /* NSObjectExtension.swift in Sources */,
 				387FBEFA23ACA21D005412F1 /* AirTicketViewController.swift in Sources */,
 				38BCD92D23A345FA00D59910 /* EncryptionUtils.m in Sources */,
 				38BCD99C23A363AB00D59910 /* MemberRepositoryProtocol.swift in Sources */,
+				38E9921E23B04CF200E28271 /* GropeTourPresenter.swift in Sources */,
 				38BCD9D423A366D500D59910 /* BaseViewController.swift in Sources */,
 				38BCDA1223A3684E00D59910 /* BaseProtocol.swift in Sources */,
 				38BCD98723A3484300D59910 /* UINavigationControllerExtension.swift in Sources */,
@@ -858,6 +962,9 @@
 				38BCD91C23A3457900D59910 /* AccountRepository.swift in Sources */,
 				38BCDA1B23A36AC100D59910 /* TabBarProtocol.swift in Sources */,
 				38BCD9D023A3652200D59910 /* VerifyModel.swift in Sources */,
+				38E9921B23B04CD400E28271 /* GropeTourProtocol.swift in Sources */,
+				38E9922A23B053C400E28271 /* LoginPresenter.swift in Sources */,
+				38E9923423B05A0700E28271 /* LoginResponse.swift in Sources */,
 				38BCD93123A345FA00D59910 /* UserDefaultUtil.swift in Sources */,
 				38BCD98B23A3484300D59910 /* UINavigationBarExtension.swift in Sources */,
 				38BCD95723A3471600D59910 /* FirebaseAnalyticsManager.swift in Sources */,
@@ -868,9 +975,11 @@
 				38BCD94423A346B800D59910 /* APIManager.swift in Sources */,
 				38BCD9CA23A3647E00D59910 /* BaseModel.swift in Sources */,
 				38BCD97923A3484300D59910 /* UIViewExtenstion.swift in Sources */,
+				38E9922423B04F2A00E28271 /* BulletinResponse.swift in Sources */,
 				3817E4F723A33C8400ED8609 /* AppDelegate.swift in Sources */,
 				38BCD98F23A3484300D59910 /* DateFormatterExtenstion.swift in Sources */,
 				38BCD96F23A3484300D59910 /* CAGradientLayerExtension.swift in Sources */,
+				387FBF1323ACD047005412F1 /* CustomTextField.swift in Sources */,
 				38BCDA1523A3689500D59910 /* ColorDef.swift in Sources */,
 				38BCD92B23A345FA00D59910 /* DeviceUtil.swift in Sources */,
 				38BCD98923A3484300D59910 /* OptionalStringExtension.swift in Sources */,
@@ -878,17 +987,22 @@
 				38BCD98323A3484300D59910 /* DateComponentExtension.swift in Sources */,
 				38BCD97123A3484300D59910 /* FirebaseEvent.swift in Sources */,
 				38BCDA1823A3696800D59910 /* WebViewController.swift in Sources */,
+				38E9923723B06AFA00E28271 /* BasePresenter.swift in Sources */,
 				38BCDA0523A367D000D59910 /* ToastView.swift in Sources */,
 				38BCD97B23A3484300D59910 /* UILabelExtension.swift in Sources */,
-				38BCDA2923A379DE00D59910 /* GroupToruViewController.swift in Sources */,
+				38BCDA2923A379DE00D59910 /* GroupTourViewController.swift in Sources */,
 				38BCD99923A3639500D59910 /* MemberRepository.swift in Sources */,
 				38BCD98123A3484300D59910 /* UIViewExtension.swift in Sources */,
+				38E9922123B04F1400E28271 /* VersionRuleReponse.swift in Sources */,
 				38BCD93523A345FA00D59910 /* GTMBase64.m in Sources */,
 				38BCD9D723A366EC00D59910 /* TabBarViewController.swift in Sources */,
 				38BCD98D23A3484300D59910 /* ShareFunc.swift in Sources */,
+				387FBF0F23ACCEF4005412F1 /* LoginViewController.swift in Sources */,
 				38BCD93323A345FA00D59910 /* FormatUtil.swift in Sources */,
 				38BCD97D23A3484300D59910 /* IntExtenstion.swift in Sources */,
 				387FBF0623ACA392005412F1 /* MoreViewController.swift in Sources */,
+				38E9923A23B0B5DF00E28271 /* BooleanButton.swift in Sources */,
+				38E9922E23B058CA00E28271 /* LoginRequest.swift in Sources */,
 				38BCD97F23A3484300D59910 /* UIFontExtenstion.swift in Sources */,
 				38BCD92F23A345FA00D59910 /* ColorHexUtil.swift in Sources */,
 				38BCD94623A346B800D59910 /* APIDefine.swift in Sources */,
@@ -922,10 +1036,12 @@
 			files = (
 				38BCD94323A346B800D59910 /* APILoadingHandleType.swift in Sources */,
 				38BCD9CE23A3648B00D59910 /* BaseModelProtocol.swift in Sources */,
+				38E9922823B053A200E28271 /* LoginProtocol.swift in Sources */,
 				38BCD97823A3484300D59910 /* NSObjectExtension.swift in Sources */,
 				387FBEFB23ACA21D005412F1 /* AirTicketViewController.swift in Sources */,
 				38BCD92E23A345FA00D59910 /* EncryptionUtils.m in Sources */,
 				38BCD99D23A363AB00D59910 /* MemberRepositoryProtocol.swift in Sources */,
+				38E9921F23B04CF200E28271 /* GropeTourPresenter.swift in Sources */,
 				38BCD9D523A366D500D59910 /* BaseViewController.swift in Sources */,
 				38BCDA1323A3684E00D59910 /* BaseProtocol.swift in Sources */,
 				38BCD98823A3484300D59910 /* UINavigationControllerExtension.swift in Sources */,
@@ -935,6 +1051,9 @@
 				38BCD91D23A3457900D59910 /* AccountRepository.swift in Sources */,
 				38BCDA1C23A36AC100D59910 /* TabBarProtocol.swift in Sources */,
 				38BCD9D123A3652200D59910 /* VerifyModel.swift in Sources */,
+				38E9921C23B04CD400E28271 /* GropeTourProtocol.swift in Sources */,
+				38E9922B23B053C400E28271 /* LoginPresenter.swift in Sources */,
+				38E9923523B05A0700E28271 /* LoginResponse.swift in Sources */,
 				38BCD93223A345FA00D59910 /* UserDefaultUtil.swift in Sources */,
 				38BCD98C23A3484300D59910 /* UINavigationBarExtension.swift in Sources */,
 				38BCD95823A3471600D59910 /* FirebaseAnalyticsManager.swift in Sources */,
@@ -945,9 +1064,11 @@
 				38BCD94523A346B800D59910 /* APIManager.swift in Sources */,
 				38BCD9CB23A3647E00D59910 /* BaseModel.swift in Sources */,
 				38BCD97A23A3484300D59910 /* UIViewExtenstion.swift in Sources */,
+				38E9922523B04F2A00E28271 /* BulletinResponse.swift in Sources */,
 				3817E52723A33C9500ED8609 /* AppDelegate.swift in Sources */,
 				38BCD99023A3484300D59910 /* DateFormatterExtenstion.swift in Sources */,
 				38BCD97023A3484300D59910 /* CAGradientLayerExtension.swift in Sources */,
+				387FBF1423ACD047005412F1 /* CustomTextField.swift in Sources */,
 				38BCDA1623A3689500D59910 /* ColorDef.swift in Sources */,
 				38BCD92C23A345FA00D59910 /* DeviceUtil.swift in Sources */,
 				38BCD98A23A3484300D59910 /* OptionalStringExtension.swift in Sources */,
@@ -955,17 +1076,22 @@
 				38BCD98423A3484300D59910 /* DateComponentExtension.swift in Sources */,
 				38BCD97223A3484300D59910 /* FirebaseEvent.swift in Sources */,
 				38BCDA1923A3696800D59910 /* WebViewController.swift in Sources */,
+				38E9923823B06AFA00E28271 /* BasePresenter.swift in Sources */,
 				38BCDA0623A367D000D59910 /* ToastView.swift in Sources */,
 				38BCD97C23A3484300D59910 /* UILabelExtension.swift in Sources */,
-				38BCDA2A23A379DE00D59910 /* GroupToruViewController.swift in Sources */,
+				38BCDA2A23A379DE00D59910 /* GroupTourViewController.swift in Sources */,
 				38BCD99A23A3639500D59910 /* MemberRepository.swift in Sources */,
 				38BCD98223A3484300D59910 /* UIViewExtension.swift in Sources */,
+				38E9922223B04F1400E28271 /* VersionRuleReponse.swift in Sources */,
 				38BCD93623A345FA00D59910 /* GTMBase64.m in Sources */,
 				38BCD9D823A366EC00D59910 /* TabBarViewController.swift in Sources */,
 				38BCD98E23A3484300D59910 /* ShareFunc.swift in Sources */,
+				387FBF1023ACCEF4005412F1 /* LoginViewController.swift in Sources */,
 				38BCD93423A345FA00D59910 /* FormatUtil.swift in Sources */,
 				38BCD97E23A3484300D59910 /* IntExtenstion.swift in Sources */,
 				387FBF0723ACA392005412F1 /* MoreViewController.swift in Sources */,
+				38E9923B23B0B5DF00E28271 /* BooleanButton.swift in Sources */,
+				38E9922F23B058CA00E28271 /* LoginRequest.swift in Sources */,
 				38BCD98023A3484300D59910 /* UIFontExtenstion.swift in Sources */,
 				38BCD93023A345FA00D59910 /* ColorHexUtil.swift in Sources */,
 				38BCD94723A346B800D59910 /* APIDefine.swift in Sources */,
@@ -1142,6 +1268,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\"";
 				PRODUCT_BUNDLE_IDENTIFIER = tw.com.colatour.b2b;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = ColatourB2B_20191218;

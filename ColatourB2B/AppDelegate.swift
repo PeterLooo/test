@@ -105,12 +105,12 @@ extension AppDelegate: MessagingDelegate {
             
             switch settings.authorizationStatus {
             case .authorized:
-                AccountRepository
-                    .shared
-                    .pushDevice()
-                    .subscribe()
-                    .disposed(by: self.disposebag)
-            
+//                AccountRepository
+//                    .shared
+//                    .pushDevice()
+//                    .subscribe()
+//                    .disposed(by: self.disposebag)
+                ()
             default:
                 ()
             }

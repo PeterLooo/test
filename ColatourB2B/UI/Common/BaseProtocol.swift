@@ -13,6 +13,7 @@ protocol BaseViewProtocol: NSObjectProtocol {
     func onStartLoadingHandle(handleType: APILoadingHandleType)
     func onCompletedLoadingHandle()
     func loadData()
+    func onBindAccessToken(response: AccessTokenResponse)
 }
 
 protocol BasePresenterProtocol {

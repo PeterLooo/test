@@ -134,7 +134,6 @@ class APIManager: NSObject {
         let osVersion = DeviceUtil.osVersion()
         let apiToken = AccountRepository.shared.getLocalApiToken() ?? ""
         let accessToken = MemberRepository.shared.getLocalAccessToken() ?? ""
-        let refreshToken = MemberRepository.shared.getLocalRefreshToken() ?? ""
         
         var headers: HTTPHeaders = [
             "Client_Id": "IOS",
@@ -149,7 +148,6 @@ class APIManager: NSObject {
         })
         
         headers["Access_Token"]  = accessToken
-        headers["Refresh_Token"]  = refreshToken
         
         switch method {
         case .get:
@@ -201,6 +199,16 @@ extension APIManager {
         return manager(method: .get, appendUrl: "", url: APIUrl.authApi(type: .versionRule), parameters: nil, appendHeaders: nil)
     }
     
+    func getRefreshToken(loginRequest: LoginRequest) -> Single<[String:Any]> {
+        let params = ["Member_Idno":loginRequest.memberIdno!,
+                      "Password":loginRequest.password!]
+        return manager(method: .post, appendUrl: "", url: APIUrl.authApi(type: .refreshToken), parameters: params, appendHeaders: nil)
+    }
+    
+    func getAccessToken(refreshToken:String) -> Single<[String:Any]> {
+        let params = ["Refresh_Token":refreshToken]
+        return manager(method: .post, appendUrl: "", url: APIUrl.authApi(type: .accessToken), parameters: params, appendHeaders: nil)
+    }
 }
 
 extension APIManager {
