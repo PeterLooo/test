@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f7q-01-GCh">
-                                <rect key="frame" x="0.0" y="-64" width="375" height="731"/>
+                                <rect key="frame" x="0.0" y="-64" width="414" height="960"/>
                                 <color key="backgroundColor" red="0.43137254899999999" green="0.43137254899999999" blue="0.43137254899999999" alpha="0.5" colorSpace="calibratedRGB"/>
                             </view>
                         </subviews>
@@ -62,11 +62,11 @@
             <objects>
                 <viewController storyboardIdentifier="GroupSliderViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="yXt-yi-LcQ" customClass="GroupSliderViewController" customModule="ColatourB2B" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0li-91-g3v">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nWS-8B-YAb">
-                                <rect key="frame" x="0.0" y="0.0" width="272" height="667"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nWS-8B-YAb">
+                                <rect key="frame" x="0.0" y="44" width="311" height="852"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="yXt-yi-LcQ" id="JJw-51-em1"/>
@@ -74,7 +74,7 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="47v-xA-WJF">
-                                <rect key="frame" x="272" y="0.0" width="103" height="667"/>
+                                <rect key="frame" x="311" y="44" width="103" height="818"/>
                             </view>
                         </subviews>
                         <constraints>
