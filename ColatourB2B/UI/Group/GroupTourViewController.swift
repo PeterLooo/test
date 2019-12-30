@@ -27,11 +27,7 @@ class GroupTourViewController: BaseViewController {
         super.viewDidLoad()
         setSearchGes()
         setIsNavShadowEnable(false)
-        let api = AppHelper.shared.getJson(forResource: "Group")
-        api.map{ GroupMenuResponse(JSON: $0)! }.subscribe(onSuccess: { (model) in
-           
-            self.result = model
-        })
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
