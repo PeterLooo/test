@@ -284,6 +284,7 @@ class BaseViewController: UIViewController {
         setUpErrorViews()
         setUpToastView()
         setUpNilButton()
+        
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -524,14 +525,14 @@ extension BaseViewController {
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.backgroundColor = UIColor.white.withAlphaComponent(navAlpha)
         if isPageSheetPresenting == true && self.modalPresentationStyle == .pageSheet {
-            self.navigationController?.navigationBar.tintColor = colorPurple
+            self.navigationController?.navigationBar.tintColor = UIColor.init(named: "通用綠")
             statusBar?.backgroundColor = UIColor.clear
             self.navigationController?.navigationBar.barStyle = UIBarStyle.black
             return
         }
         switch navAlpha {
         case 1.0:
-            self.navigationController?.navigationBar.tintColor = colorPurple
+            self.navigationController?.navigationBar.tintColor = UIColor.init(named: "通用綠")
             statusBar?.backgroundColor = UIColor.white
             self.navigationController?.navigationBar.barStyle = UIBarStyle.default
 

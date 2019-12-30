@@ -1,0 +1,98 @@
+{
+  "Server_Item": [
+    {
+      "Server_List": [
+        {
+          "Link_Type": "00",
+          "Link_Value": "https://b2b.colatour.com.tw/",
+          "Server": "查詢出團表"
+        },
+        {
+          "Link_Type": "00",
+          "Link_Value": "",
+          "Server": "報名單管理"
+        },
+        {
+          "Link_Type": "00",
+          "Link_Value": "",
+          "Server": "幸福存摺"
+        },
+        {
+          "Link_Type": "00",
+          "Link_Value": "",
+          "Server": "候補順位"
+        },
+        {
+          "Link_Type": "00",
+          "Link_Value": "",
+          "Server": "團體快訊"
+        },
+        {
+          "Link_Type": "00",
+          "Link_Value": "",
+          "Server": "意見調查表"
+        },
+        {
+          "Link_Type": "00",
+          "Link_Value": "",
+          "Server": "業務窗口"
+        }
+      ]
+    },{
+      "Server_List": [
+        {
+          "Link_Type": "00",
+          "Link_Value": "https://b2b.colatour.com.tw/",
+          "Server": "同業專賣"
+        },
+        {
+          "Link_Type": "00",
+          "Link_Value": "",
+          "Server": "直刻ＤＭ"
+        },
+        {
+          "Link_Type": "00",
+          "Link_Value": "",
+          "Server": "團體表格"
+        },
+        {
+          "Link_Type": "00",
+          "Link_Value": "",
+          "Server": "求才資訊"
+        },
+        {
+          "Link_Type": "00",
+          "Link_Value": "",
+          "Server": "網路資源"
+        },
+        {
+          "Link_Type": "00",
+          "Link_Value": "",
+          "Server": "旅遊情報"
+        },
+        {
+          "Link_Type": "00",
+          "Link_Value": "",
+          "Server": "年度回饋"
+        },
+        {
+          "Link_Type": "00",
+          "Link_Value": "",
+          "Server": "簽收訊息"
+        }
+      ]
+    }
+  ],
+  "Contact_List": [
+    {
+      "Link_Type": "00",
+      "Link_Value": "",
+      "Server": "改善建議"
+    },
+    {
+      "Link_Type": "00",
+      "Link_Value": "",
+      "Server": "聯絡業務"
+    }
+  ]
+}
