@@ -8,7 +8,7 @@
 
 import UIKit
 protocol GroupSliderItemCellProtocol: NSObjectProtocol {
-    func onTouchDate(serverData: GroupMenuResponse.ServerData)
+    func onTouchDate(serverData: ServerData)
 }
 class GroupSliderItemCell: UITableViewCell {
 
@@ -16,7 +16,7 @@ class GroupSliderItemCell: UITableViewCell {
     @IBOutlet weak var bottomViewHeight: NSLayoutConstraint!
     
     weak var delegate: GroupSliderItemCellProtocol?
-    private var serverData: GroupMenuResponse.ServerData?
+    private var serverData: ServerData?
     override func awakeFromNib() {
         super.awakeFromNib()
         let ges = UITapGestureRecognizer(target: self, action: #selector(onTouchDate))
@@ -24,9 +24,9 @@ class GroupSliderItemCell: UITableViewCell {
         self.isUserInteractionEnabled = true
     }
 
-    func setCell(serverData: GroupMenuResponse.ServerData, isNeedLine: Bool){
+    func setCell(serverData: ServerData, isNeedLine: Bool){
         self.serverData = serverData
-        self.serverTitle.text = serverData.server
+        self.serverTitle.text = serverData.linkName
         bottomViewHeight.constant = isNeedLine ? 17 : 0
     }
     

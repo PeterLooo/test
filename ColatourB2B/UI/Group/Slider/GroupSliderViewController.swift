@@ -9,7 +9,7 @@
 import UIKit
 protocol GroupSliderViewControllerProtocol: NSObjectProtocol {
     
-    func onTouchData(serverData: GroupMenuResponse.ServerData)
+    func onTouchData(serverData: ServerData)
 }
 extension GroupSliderViewController {
     func setVC(serverList:[GroupMenuResponse.ServerItem]) {
@@ -44,7 +44,7 @@ class GroupSliderViewController: BaseViewController {
 }
 extension GroupSliderViewController: GroupSliderItemCellProtocol {
     
-    func onTouchDate(serverData: GroupMenuResponse.ServerData) {
+    func onTouchDate(serverData: ServerData) {
         self.dismiss(animated: true, completion: nil)
         self.delegate?.onTouchData(serverData: serverData)
     }

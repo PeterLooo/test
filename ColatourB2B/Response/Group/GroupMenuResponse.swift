@@ -29,24 +29,22 @@ class GroupMenuResponse: BaseModel {
             itemDataList <- map["Server_List"]
         }
     }
+}
+class ServerData: BaseModel {
     
-    class ServerData: BaseModel {
+    var linkType : LinkType!
+    var linkValue : String?
+    var linkName : String?
+    
+    override func mapping(map: Map) {
+        super.mapping(map: map)
         
-        var linkType : LinkType!
-        var linkValue : String?
-        var server : String?
-        
-        override func mapping(map: Map) {
-            super.mapping(map: map)
-            
-            var type = ""
-            type <- map["Link_Type"]
-            linkType = LinkType(rawValue: type)
-            if (linkType == nil) { linkType = .unknown }
-            linkValue <- map["Link_Value"]
-            server <- map["Server"]
+        var type = ""
+        type <- map["Link_Type"]
+        linkType = LinkType(rawValue: type)
+        if (linkType == nil) { linkType = .unknown }
+        linkValue <- map["Link_Value"]
+        linkName <- map["Link_Name"]
 
-        }
     }
-    
 }

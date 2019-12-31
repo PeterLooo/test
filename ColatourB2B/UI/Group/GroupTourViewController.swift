@@ -92,7 +92,7 @@ class GroupTourViewController: BaseViewController {
     @objc func onTouchContact (){
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         self.result?.contactList.forEach({ (server) in
-            alert.addAction(UIAlertAction(title: server.server , style: .default, handler: { (_) in
+            alert.addAction(UIAlertAction(title: server.linkName , style: .default, handler: { (_) in
                 self.handleLinkType(linkType: server.linkType, linkValue: server.linkValue, linkText: nil)
             }))
         })
@@ -113,7 +113,7 @@ class GroupTourViewController: BaseViewController {
     }
 }
 extension GroupTourViewController: GroupSliderViewControllerProtocol {
-    func onTouchData(serverData: GroupMenuResponse.ServerData) {
+    func onTouchData(serverData: ServerData) {
         self.handleLinkType(linkType: serverData.linkType, linkValue: serverData.linkValue, linkText: nil)
     }
     
