@@ -8,17 +8,18 @@ let APITimeout: Double = 60.0
 #if COLATOURB2B_DEV
 let AUTH_WEB_HOST = "https://ntestWebAPIBauth.colatour.com.tw"
 let PORTAL_WEB_HOST = "https://ntestwebapicportal.colatour.com.tw"
-
+let MEMBER_WEB_HOST = "https://ntestWebAPIBmember.colatour.com.tw/"
 #else
 let AUTH_WEB_HOST = "https://ntestWebAPIBauth.colatour.com.tw"
 let PORTAL_WEB_HOST = "https://ntestwebapicportal.colatour.com.tw"
-
+let MEMBER_WEB_HOST = "https://ntestWebAPIBmember.colatour.com.tw/"
 #endif
 
 enum APIUrl {
     case authApi(type: AuthApi)
     case portalApi(type: PortalApi)
     case bulletinApi(type: BulletinApi)
+    case memberApi(type: MemberApi)
     
     func getUrl() -> String {
         switch self {
@@ -28,6 +29,8 @@ enum APIUrl {
             return type.url()
         case .bulletinApi(let type):
             return type.url()
+        case .memberApi(let type):
+        return type.url()
         }
     }
     
@@ -85,6 +88,24 @@ enum APIUrl {
         
         func url(append:String) -> String {
             return APIUrl.BulletinApi.urlWith(type: self, append: append)
+        }
+    }
+    
+    enum MemberApi: String {
+        
+        case memberIndex = "Index"
+        
+        static func urlWith(type: MemberApi, append:String) -> String {
+            let base =  MEMBER_WEB_HOST + "/Member/"
+            return "\(base)\(type.rawValue)\(append)"
+        }
+        
+        func url () -> String {
+            return APIUrl.MemberApi.urlWith(type: self, append: "")
+        }
+        
+        func url(append:String) -> String {
+            return APIUrl.MemberApi.urlWith(type: self, append: append)
         }
     }
 }
