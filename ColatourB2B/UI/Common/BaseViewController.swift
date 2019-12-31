@@ -409,12 +409,8 @@ class BaseViewController: UIViewController {
     //Note: 注意如果直接使用，要小心設計isNeedToPopVCwhenLoginClose事件
     func logoutAndPopLoginVC(isAllowPaxButtonEnable: Bool = false) {
         let vc = getVC(st: "Login", vc: "LoginViewController") as! LoginViewController
-        vc.modalPresentationStyle = .overCurrentContext
-        
-        let nav = UINavigationController(rootViewController: vc)
-        nav.restorationIdentifier = "LoginNavigationController"
-        nav.modalPresentationStyle = .fullScreen
-        self.present(nav, animated: true)
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: false)
     }
 
     func logoutAndPopLoginVC(linkType: LinkType) {

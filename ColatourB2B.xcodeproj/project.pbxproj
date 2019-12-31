@@ -444,6 +444,22 @@
 			path = ColatourB2BUITests;
 			sourceTree = "<group>";
 		};
+		3833F41C23B9EA7A003B26EF /* Member */ = {
+			isa = PBXGroup;
+			children = (
+				38E9923323B05A0700E28271 /* LoginResponse.swift */,
+			);
+			path = Member;
+			sourceTree = "<group>";
+		};
+		3833F41D23B9EA96003B26EF /* Group */ = {
+			isa = PBXGroup;
+			children = (
+				38E68AB623B5AC12006BC4DD /* GroupMenuResponse.swift */,
+			);
+			path = Group;
+			sourceTree = "<group>";
+		};
 		387FBF0823ACCE5C005412F1 /* Member */ = {
 			isa = PBXGroup;
 			children = (
@@ -629,13 +645,13 @@
 		38BCDA3123A37FDA00D59910 /* Response */ = {
 			isa = PBXGroup;
 			children = (
-				38E9923323B05A0700E28271 /* LoginResponse.swift */,
+				3833F41D23B9EA96003B26EF /* Group */,
+				3833F41C23B9EA7A003B26EF /* Member */,
 				38BCD9CF23A3652200D59910 /* VerifyModel.swift */,
 				38BCD9CC23A3648B00D59910 /* BaseModelProtocol.swift */,
 				38BCD9C923A3647E00D59910 /* BaseModel.swift */,
 				38E9922023B04F1400E28271 /* VersionRuleReponse.swift */,
 				38E9922323B04F2A00E28271 /* BulletinResponse.swift */,
-				38E68AB623B5AC12006BC4DD /* GroupMenuResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
