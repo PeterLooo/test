@@ -20,6 +20,7 @@ class LoginViewController: BaseViewController {
     @IBOutlet weak var password: CustomTextField!
     @IBOutlet weak var login: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var registerButton: UIButton!
     
     weak var navCloseDelegate: MemberLoginOnTouchNavCloseProtocol?
     weak var loginSuccessDelegate: MemberLoginSuccessViewProtocol?
@@ -35,20 +36,16 @@ class LoginViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.setNavBarItem(left: .close, mid: .textTitle, right: .nothing)
+        self.setNavBarItem(left: .custom, mid: .textTitle, right: .nothing)
         self.setIsNavShadowEnable(false)
         self.setTabBarType(tabBarType: .hidden)
-        self.memberIdno.someController?.placeholderText = "會員帳號"
-        self.password.someController?.placeholderText = "密碼"
+        
         let ges = UITapGestureRecognizer(target: self, action: #selector(onTouchScrollView(_:)))
         scrollView.addGestureRecognizer(ges)
         password.clearButton.isHidden = true
-    }
-    
-    override func onTouchNavClose() {
-        self.navCloseDelegate?.onTouchLoginNavClose()
-        self.dismiss(animated: true, completion: nil)
+        memberIdno.someController?.placeholderText = "會員帳號"
+        password.someController?.placeholderText = "密碼"
+        registerButton.setBorder(width: 1, radius: 4, color: UIColor.init(named: "通用綠"))
     }
     
     @objc private func onTouchScrollView(_ sender: UIScrollView) {
@@ -69,7 +66,11 @@ class LoginViewController: BaseViewController {
                    self.presenter?.login(requset: request)
         }
     }
+    @IBAction func onTouchRegister(_ sender: Any) {
+    }
     
+    @IBAction func onTouchForgetPassword(_ sender: Any) {
+    }
     @IBAction func onTouchEyes(_ sender: BooleanButton) {
         password.isSecureTextEntry = sender.isSelect
     }
