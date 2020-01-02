@@ -375,6 +375,14 @@
 			path = ColatourB2BProd;
 			sourceTree = "<group>";
 		};
+		380C151223BD92B1008B4501 /* AirTicket */ = {
+			isa = PBXGroup;
+			children = (
+				387FBEF923ACA21D005412F1 /* AirTicketViewController.swift */,
+			);
+			path = AirTicket;
+			sourceTree = "<group>";
+		};
 		3817E4EA23A33C8400ED8609 = {
 			isa = PBXGroup;
 			children = (
@@ -593,10 +601,10 @@
 		38BCDA2123A3760000D59910 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				380C151223BD92B1008B4501 /* AirTicket */,
 				38E68A9F23B5AB80006BC4DD /* Group */,
 				387FBF0823ACCE5C005412F1 /* Member */,
 				38BCDA2223A3760900D59910 /* Common */,
-				387FBEF923ACA21D005412F1 /* AirTicketViewController.swift */,
 				387FBEFF23ACA2D2005412F1 /* NoticeViewController.swift */,
 				387FBF0523ACA392005412F1 /* MoreViewController.swift */,
 			);
