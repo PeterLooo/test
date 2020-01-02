@@ -20,6 +20,7 @@ class MemberIndexPresenter: MemberIndexPresenterProtocol {
     }
     
     func getMemberIndex() {
+        self.delegate?.onStartLoadingHandle(handleType: .ignore)
         accountRepository.getMemberIndex().subscribe(onSuccess: { (model) in
             self.delegate?.onBindMemberIndex(result: model)
             self.delegate?.onCompletedLoadingHandle()

@@ -20,6 +20,7 @@ class LoginPresenter: LoginPresenterProtocol {
     }
     
     func login(requset: LoginRequest) {
+        self.delegate?.onStartLoadingHandle(handleType: .ignore)
         accountRepository.getRefreshToke(loginRequest: requset)
         .subscribe(onSuccess: { (model) in
             self.delegate?.loginSuccess(loginResponse: model)
