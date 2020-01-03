@@ -205,7 +205,7 @@ class BaseViewController: UIViewController {
     private var navAlpha: CGFloat = 1.0
 
     private var navTitle: String = ""
-    private var navTitleColor: UIColor = ColorHexUtil.hexColor(hex: "#333333")
+    private var navTitleColor: UIColor = UIColor.init(named: "通用綠")!
     
     private var nilButton: UIBarButtonItem?
     

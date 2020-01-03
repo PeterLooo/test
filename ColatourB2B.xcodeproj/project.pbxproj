@@ -19,6 +19,12 @@
 		3817E52A23A33C9500ED8609 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3817E4FF23A33C8500ED8609 /* LaunchScreen.storyboard */; };
 		3817E52B23A33C9500ED8609 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3817E4FD23A33C8500ED8609 /* Assets.xcassets */; };
 		3817E52C23A33C9500ED8609 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3817E4FA23A33C8400ED8609 /* Main.storyboard */; };
+		385B54F423BDC3A400BE1476 /* NotificationTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385B54F323BDC3A400BE1476 /* NotificationTableView.swift */; };
+		385B54F523BDC3A400BE1476 /* NotificationTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385B54F323BDC3A400BE1476 /* NotificationTableView.swift */; };
+		385B54F823BDC4C800BE1476 /* NotificationItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385B54F623BDC4C800BE1476 /* NotificationItemCell.swift */; };
+		385B54F923BDC4C800BE1476 /* NotificationItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385B54F623BDC4C800BE1476 /* NotificationItemCell.swift */; };
+		385B54FA23BDC4C800BE1476 /* NotificationItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 385B54F723BDC4C800BE1476 /* NotificationItemCell.xib */; };
+		385B54FB23BDC4C800BE1476 /* NotificationItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 385B54F723BDC4C800BE1476 /* NotificationItemCell.xib */; };
 		387FBEF723ACA201005412F1 /* AirTicket.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 387FBEF623ACA201005412F1 /* AirTicket.storyboard */; };
 		387FBEF823ACA201005412F1 /* AirTicket.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 387FBEF623ACA201005412F1 /* AirTicket.storyboard */; };
 		387FBEFA23ACA21D005412F1 /* AirTicketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387FBEF923ACA21D005412F1 /* AirTicketViewController.swift */; };
@@ -230,6 +236,9 @@
 		3817E51623A33C8500ED8609 /* ColatourB2BUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColatourB2BUITests.swift; sourceTree = "<group>"; };
 		3817E51823A33C8500ED8609 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3817E53023A33C9500ED8609 /* ColatourB2BDev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColatourB2BDev.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		385B54F323BDC3A400BE1476 /* NotificationTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTableView.swift; sourceTree = "<group>"; };
+		385B54F623BDC4C800BE1476 /* NotificationItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationItemCell.swift; sourceTree = "<group>"; };
+		385B54F723BDC4C800BE1476 /* NotificationItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationItemCell.xib; sourceTree = "<group>"; };
 		387FBEF623ACA201005412F1 /* AirTicket.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AirTicket.storyboard; sourceTree = "<group>"; };
 		387FBEF923ACA21D005412F1 /* AirTicketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirTicketViewController.swift; sourceTree = "<group>"; };
 		387FBEFC23ACA2A7005412F1 /* Notice.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Notice.storyboard; sourceTree = "<group>"; };
@@ -460,6 +469,17 @@
 			path = Group;
 			sourceTree = "<group>";
 		};
+		385B54F223BDC1D900BE1476 /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				387FBEFF23ACA2D2005412F1 /* NoticeViewController.swift */,
+				385B54F323BDC3A400BE1476 /* NotificationTableView.swift */,
+				385B54F623BDC4C800BE1476 /* NotificationItemCell.swift */,
+				385B54F723BDC4C800BE1476 /* NotificationItemCell.xib */,
+			);
+			path = Notification;
+			sourceTree = "<group>";
+		};
 		387FBF0823ACCE5C005412F1 /* Member */ = {
 			isa = PBXGroup;
 			children = (
@@ -593,11 +613,11 @@
 		38BCDA2123A3760000D59910 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				385B54F223BDC1D900BE1476 /* Notification */,
 				38E68A9F23B5AB80006BC4DD /* Group */,
 				387FBF0823ACCE5C005412F1 /* Member */,
 				38BCDA2223A3760900D59910 /* Common */,
 				387FBEF923ACA21D005412F1 /* AirTicketViewController.swift */,
-				387FBEFF23ACA2D2005412F1 /* NoticeViewController.swift */,
 				387FBF0523ACA392005412F1 /* MoreViewController.swift */,
 			);
 			path = UI;
@@ -858,6 +878,7 @@
 				387FBF0323ACA327005412F1 /* More.storyboard in Resources */,
 				38BCDA0F23A367D000D59910 /* NoInternetErrorView.xib in Resources */,
 				38BCDA0B23A367D000D59910 /* ApiFailErrorView.xib in Resources */,
+				385B54FA23BDC4C800BE1476 /* NotificationItemCell.xib in Resources */,
 				3817E4FE23A33C8500ED8609 /* Assets.xcassets in Resources */,
 				2AF496B423AB7EA50053EA45 /* GoogleService-Info.plist in Resources */,
 				3817E4FC23A33C8400ED8609 /* Main.storyboard in Resources */,
@@ -898,6 +919,7 @@
 				387FBF0423ACA327005412F1 /* More.storyboard in Resources */,
 				38BCDA1023A367D000D59910 /* NoInternetErrorView.xib in Resources */,
 				38BCDA0C23A367D000D59910 /* ApiFailErrorView.xib in Resources */,
+				385B54FB23BDC4C800BE1476 /* NotificationItemCell.xib in Resources */,
 				3817E52B23A33C9500ED8609 /* Assets.xcassets in Resources */,
 				2AF496B623AB7EBB0053EA45 /* GoogleService-Info.plist in Resources */,
 				3817E52C23A33C9500ED8609 /* Main.storyboard in Resources */,
@@ -1067,6 +1089,7 @@
 				38BCD96F23A3484300D59910 /* CAGradientLayerExtension.swift in Sources */,
 				387FBF1323ACD047005412F1 /* CustomTextField.swift in Sources */,
 				38BCDA1523A3689500D59910 /* ColorDef.swift in Sources */,
+				385B54F423BDC3A400BE1476 /* NotificationTableView.swift in Sources */,
 				38E68AAB23B5AB80006BC4DD /* GroupSliderItemCell.swift in Sources */,
 				38BCD92B23A345FA00D59910 /* DeviceUtil.swift in Sources */,
 				38BCD98923A3484300D59910 /* OptionalStringExtension.swift in Sources */,
@@ -1077,6 +1100,7 @@
 				38E9923723B06AFA00E28271 /* BasePresenter.swift in Sources */,
 				38BCDA0523A367D000D59910 /* ToastView.swift in Sources */,
 				38BCD97B23A3484300D59910 /* UILabelExtension.swift in Sources */,
+				385B54F823BDC4C800BE1476 /* NotificationItemCell.swift in Sources */,
 				38BCDA2923A379DE00D59910 /* GroupTourViewController.swift in Sources */,
 				38BCD99923A3639500D59910 /* MemberRepository.swift in Sources */,
 				38BCD98123A3484300D59910 /* UIViewExtension.swift in Sources */,
@@ -1161,6 +1185,7 @@
 				38BCD97023A3484300D59910 /* CAGradientLayerExtension.swift in Sources */,
 				387FBF1423ACD047005412F1 /* CustomTextField.swift in Sources */,
 				38BCDA1623A3689500D59910 /* ColorDef.swift in Sources */,
+				385B54F523BDC3A400BE1476 /* NotificationTableView.swift in Sources */,
 				38E68AAC23B5AB80006BC4DD /* GroupSliderItemCell.swift in Sources */,
 				38BCD92C23A345FA00D59910 /* DeviceUtil.swift in Sources */,
 				38BCD98A23A3484300D59910 /* OptionalStringExtension.swift in Sources */,
@@ -1171,6 +1196,7 @@
 				38E9923823B06AFA00E28271 /* BasePresenter.swift in Sources */,
 				38BCDA0623A367D000D59910 /* ToastView.swift in Sources */,
 				38BCD97C23A3484300D59910 /* UILabelExtension.swift in Sources */,
+				385B54F923BDC4C800BE1476 /* NotificationItemCell.swift in Sources */,
 				38BCDA2A23A379DE00D59910 /* GroupTourViewController.swift in Sources */,
 				38BCD99A23A3639500D59910 /* MemberRepository.swift in Sources */,
 				38BCD98223A3484300D59910 /* UIViewExtension.swift in Sources */,
