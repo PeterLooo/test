@@ -442,7 +442,12 @@ extension BaseViewController: BaseViewProtocol {
     func onBindAccessWebUrl(url: String) {
         let vc = getVC(st: "Common", vc: "WebViewController") as! WebViewController
         vc.setVCwith(url: url, title: "")
-        self.navigationController?.pushViewController(vc, animated: true)
+        vc.setDismissButton()
+        let nav = UINavigationController(rootViewController: vc)
+        nav.modalPresentationStyle = .fullScreen
+        nav.restorationIdentifier = "WebViewControllerNavigationController"
+        self.present(nav, animated: true)
+        
     }
     
     func onBindAccessToken(response: AccessTokenResponse) {
