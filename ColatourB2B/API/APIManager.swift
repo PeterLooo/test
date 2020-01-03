@@ -174,6 +174,8 @@ class APIManager: NSObject {
             requestUrl = type.url()
         case .memberApi(let type):
             requestUrl = type.url()
+        case .mainApi(let type):
+            requestUrl = type.url()
         }
 
         requestUrl =  (requestUrl + encodeUrl ).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
@@ -212,9 +214,18 @@ extension APIManager {
         return manager(method: .post, appendUrl: "", url: APIUrl.authApi(type: .accessToken), parameters: params, appendHeaders: nil)
     }
     
+    func getAccessWeb(webUrl:String) -> Single<[String:Any]> {
+           let params = ["Web_Url":webUrl]
+           return manager(method: .post, appendUrl: "", url: APIUrl.authApi(type: .accessWeb), parameters: params, appendHeaders: nil)
+       }
+    
     func getMemberIndex()-> Single<[String:Any]> {
         
         return manager(method: .get, appendUrl: "", url: APIUrl.memberApi(type: .memberIndex), parameters: nil, appendHeaders: nil)
+    }
+    
+    func getGroupMenu()-> Single<[String:Any]> {
+        return manager(method: .get, appendUrl: "", url: APIUrl.mainApi(type: .tour), parameters: nil, appendHeaders: nil)
     }
 }
 
