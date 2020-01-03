@@ -33,7 +33,7 @@ class GroupTourViewController: BaseViewController {
         super.viewDidLoad()
         setSearchGes()
         setIsNavShadowEnable(false)
-        
+        self.grayBlurView.alpha = 0
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -91,6 +91,14 @@ class GroupTourViewController: BaseViewController {
         
     }
     
+    @IBAction func screenEdge(_ sender: UIScreenEdgePanGestureRecognizer) {
+        switch sender.edges {
+        case .left:
+            onTouchMenu()
+        default:
+            ()
+        }
+    }
     @objc func onTouchMenu() {
         let vc = getVC(st: "GroupTour", vc: "GroupSliderViewController") as! GroupSliderViewController
         vc.delegate = self
@@ -132,7 +140,9 @@ extension GroupTourViewController: GroupSliderViewControllerProtocol {
 extension GroupTourViewController: UIViewControllerTransitioningDelegate {
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         transiton.isPresenting = true
-        grayBlurView.isHidden = false
+        UIView.animate(withDuration: 0.5) {
+            self.grayBlurView.alpha = 1
+        }
         self.tabBarController?.tabBar.isHidden = true
         
         return transiton
@@ -141,8 +151,10 @@ extension GroupTourViewController: UIViewControllerTransitioningDelegate {
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         transiton.isPresenting = false
         self.tabBarController?.tabBar.isHidden = false
-        grayBlurView.isHidden = true
         
+        UIView.animate(withDuration: 0.5, animations: {
+            self.grayBlurView.alpha = 0
+        })
         self.setTabBarType(tabBarType: .notHidden)
         return transiton
     }
