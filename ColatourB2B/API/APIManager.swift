@@ -172,6 +172,8 @@ class APIManager: NSObject {
             requestUrl = type.url()
         case .bulletinApi(let type):
             requestUrl = type.url()
+        case .memberApi(let type):
+            requestUrl = type.url()
         }
 
         requestUrl =  (requestUrl + encodeUrl ).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
@@ -208,6 +210,11 @@ extension APIManager {
     func getAccessToken(refreshToken:String) -> Single<[String:Any]> {
         let params = ["Refresh_Token":refreshToken]
         return manager(method: .post, appendUrl: "", url: APIUrl.authApi(type: .accessToken), parameters: params, appendHeaders: nil)
+    }
+    
+    func getMemberIndex()-> Single<[String:Any]> {
+        
+        return manager(method: .get, appendUrl: "", url: APIUrl.memberApi(type: .memberIndex), parameters: nil, appendHeaders: nil)
     }
 }
 

@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,10 +16,29 @@
                     <view key="view" contentMode="scaleToFill" id="6cl-aN-v2U">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ul3-hK-LxH">
+                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                                <color key="backgroundColor" name="背景灰"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="2RF-tG-htG" id="775-k1-2Hr"/>
+                                    <outlet property="delegate" destination="2RF-tG-htG" id="Uh2-Dz-pRK"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ul3-hK-LxH" firstAttribute="top" secondItem="Q6Q-uL-p1X" secondAttribute="top" id="6xj-Jg-sIS"/>
+                            <constraint firstItem="ul3-hK-LxH" firstAttribute="leading" secondItem="Q6Q-uL-p1X" secondAttribute="leading" id="Bll-zy-XQM"/>
+                            <constraint firstItem="Q6Q-uL-p1X" firstAttribute="bottom" secondItem="ul3-hK-LxH" secondAttribute="bottom" id="OTt-kR-JcF"/>
+                            <constraint firstItem="Q6Q-uL-p1X" firstAttribute="trailing" secondItem="ul3-hK-LxH" secondAttribute="trailing" id="VCg-hM-hQ0"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Q6Q-uL-p1X"/>
                     </view>
                     <navigationItem key="navigationItem" id="JWa-Qy-0l0"/>
+                    <connections>
+                        <outlet property="tableView" destination="ul3-hK-LxH" id="9lH-ew-fI8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iHz-2Z-4aX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -43,4 +63,9 @@
             <point key="canvasLocation" x="504.80000000000001" y="-219.04047976011995"/>
         </scene>
     </scenes>
+    <resources>
+        <namedColor name="背景灰">
+            <color red="0.97254901960784312" green="0.97254901960784312" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>
