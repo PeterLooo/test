@@ -31,6 +31,11 @@ class MoreViewController: BaseViewController {
         
         presenter = MorePresenter(delegate: self)
         setUpLayout()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         loadData()
     }
     

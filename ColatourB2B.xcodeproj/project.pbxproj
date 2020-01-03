@@ -644,9 +644,7 @@
 				38BCDA2223A3760900D59910 /* Common */,
 				387FBEF923ACA21D005412F1 /* AirTicketViewController.swift */,
 				387FBEFF23ACA2D2005412F1 /* NoticeViewController.swift */,
-				387FBF0523ACA392005412F1 /* MoreViewController.swift */,
-				C711753C23BF407D00555D8C /* MoreProtocol.swift */,
-				C711753F23BF40DA00555D8C /* MorePresenter.swift */,
+				C711754223BF47B700555D8C /* More */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -763,6 +761,16 @@
 				B09E7C65A225E6FF958329EA /* Pods-ColatourB2BDev.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		C711754223BF47B700555D8C /* More */ = {
+			isa = PBXGroup;
+			children = (
+				387FBF0523ACA392005412F1 /* MoreViewController.swift */,
+				C711753C23BF407D00555D8C /* MoreProtocol.swift */,
+				C711753F23BF40DA00555D8C /* MorePresenter.swift */,
+			);
+			path = More;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
