@@ -14,6 +14,7 @@ protocol BaseViewProtocol: NSObjectProtocol {
     func onCompletedLoadingHandle()
     func loadData()
     func onBindAccessToken(response: AccessTokenResponse)
+    func onBindAccessWebUrl(url: String)
 }
 
 protocol BasePresenterProtocol {
