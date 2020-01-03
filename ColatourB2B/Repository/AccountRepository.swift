@@ -143,6 +143,13 @@ class AccountRepository: NSObject {
             .map{ VersionRuleReponse(JSON: $0)!.update}
     }
     
+    func getMemberIndex()-> Single<MemberIndexResponse> {
+        let api = APIManager.shared.getMemberIndex()
+        return AccountRepository.shared.getAccessToken()
+            .flatMap{_ in api}
+            .map{ MemberIndexResponse(JSON: $0)!}
+    }
+    
     private func removeApiTokenIfExpired(apiToken: String?) -> String {
         if (apiToken == nil) { return "" }
         if (apiToken == "") { return "" }

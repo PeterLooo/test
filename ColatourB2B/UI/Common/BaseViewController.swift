@@ -679,6 +679,16 @@ extension BaseViewController {
                 }
             }
         
+        case .getApiUrl:
+            
+            // 取的 URL
+            ()
+        case .passwordReset:
+            
+            ()
+        case .updateDate:
+            
+            ()
         case .unknown:
             //Note: doNothing
             ()

@@ -19,6 +19,24 @@
 		3817E52A23A33C9500ED8609 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3817E4FF23A33C8500ED8609 /* LaunchScreen.storyboard */; };
 		3817E52B23A33C9500ED8609 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3817E4FD23A33C8500ED8609 /* Assets.xcassets */; };
 		3817E52C23A33C9500ED8609 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3817E4FA23A33C8400ED8609 /* Main.storyboard */; };
+		3869542823BADBFC00F6E7D9 /* MemberIndexProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3869542723BADBFC00F6E7D9 /* MemberIndexProtocol.swift */; };
+		3869542923BADBFC00F6E7D9 /* MemberIndexProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3869542723BADBFC00F6E7D9 /* MemberIndexProtocol.swift */; };
+		3869542B23BADC0F00F6E7D9 /* MemberIndexPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3869542A23BADC0F00F6E7D9 /* MemberIndexPresenter.swift */; };
+		3869542C23BADC0F00F6E7D9 /* MemberIndexPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3869542A23BADC0F00F6E7D9 /* MemberIndexPresenter.swift */; };
+		3869542E23BADC9000F6E7D9 /* MemberIndexResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3869542D23BADC9000F6E7D9 /* MemberIndexResponse.swift */; };
+		3869542F23BADC9000F6E7D9 /* MemberIndexResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3869542D23BADC9000F6E7D9 /* MemberIndexResponse.swift */; };
+		3869543223BAE5F500F6E7D9 /* MemberTopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3869543023BAE5F500F6E7D9 /* MemberTopCell.swift */; };
+		3869543323BAE5F500F6E7D9 /* MemberTopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3869543023BAE5F500F6E7D9 /* MemberTopCell.swift */; };
+		3869543423BAE5F500F6E7D9 /* MemberTopCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3869543123BAE5F500F6E7D9 /* MemberTopCell.xib */; };
+		3869543523BAE5F500F6E7D9 /* MemberTopCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3869543123BAE5F500F6E7D9 /* MemberTopCell.xib */; };
+		3869543823BAF85900F6E7D9 /* MemberIndexServiceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3869543623BAF85900F6E7D9 /* MemberIndexServiceCell.swift */; };
+		3869543923BAF85900F6E7D9 /* MemberIndexServiceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3869543623BAF85900F6E7D9 /* MemberIndexServiceCell.swift */; };
+		3869543A23BAF85900F6E7D9 /* MemberIndexServiceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3869543723BAF85900F6E7D9 /* MemberIndexServiceCell.xib */; };
+		3869543B23BAF85900F6E7D9 /* MemberIndexServiceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3869543723BAF85900F6E7D9 /* MemberIndexServiceCell.xib */; };
+		3869543E23BB002900F6E7D9 /* MemberIndexVersionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3869543C23BB002900F6E7D9 /* MemberIndexVersionCell.swift */; };
+		3869543F23BB002900F6E7D9 /* MemberIndexVersionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3869543C23BB002900F6E7D9 /* MemberIndexVersionCell.swift */; };
+		3869544023BB002900F6E7D9 /* MemberIndexVersionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3869543D23BB002900F6E7D9 /* MemberIndexVersionCell.xib */; };
+		3869544123BB002900F6E7D9 /* MemberIndexVersionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3869543D23BB002900F6E7D9 /* MemberIndexVersionCell.xib */; };
 		387FBEF723ACA201005412F1 /* AirTicket.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 387FBEF623ACA201005412F1 /* AirTicket.storyboard */; };
 		387FBEF823ACA201005412F1 /* AirTicket.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 387FBEF623ACA201005412F1 /* AirTicket.storyboard */; };
 		387FBEFA23ACA21D005412F1 /* AirTicketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387FBEF923ACA21D005412F1 /* AirTicketViewController.swift */; };
@@ -230,6 +248,15 @@
 		3817E51623A33C8500ED8609 /* ColatourB2BUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColatourB2BUITests.swift; sourceTree = "<group>"; };
 		3817E51823A33C8500ED8609 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3817E53023A33C9500ED8609 /* ColatourB2BDev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColatourB2BDev.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3869542723BADBFC00F6E7D9 /* MemberIndexProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberIndexProtocol.swift; sourceTree = "<group>"; };
+		3869542A23BADC0F00F6E7D9 /* MemberIndexPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberIndexPresenter.swift; sourceTree = "<group>"; };
+		3869542D23BADC9000F6E7D9 /* MemberIndexResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberIndexResponse.swift; sourceTree = "<group>"; };
+		3869543023BAE5F500F6E7D9 /* MemberTopCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberTopCell.swift; sourceTree = "<group>"; };
+		3869543123BAE5F500F6E7D9 /* MemberTopCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MemberTopCell.xib; sourceTree = "<group>"; };
+		3869543623BAF85900F6E7D9 /* MemberIndexServiceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberIndexServiceCell.swift; sourceTree = "<group>"; };
+		3869543723BAF85900F6E7D9 /* MemberIndexServiceCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MemberIndexServiceCell.xib; sourceTree = "<group>"; };
+		3869543C23BB002900F6E7D9 /* MemberIndexVersionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberIndexVersionCell.swift; sourceTree = "<group>"; };
+		3869543D23BB002900F6E7D9 /* MemberIndexVersionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MemberIndexVersionCell.xib; sourceTree = "<group>"; };
 		387FBEF623ACA201005412F1 /* AirTicket.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AirTicket.storyboard; sourceTree = "<group>"; };
 		387FBEF923ACA21D005412F1 /* AirTicketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirTicketViewController.swift; sourceTree = "<group>"; };
 		387FBEFC23ACA2A7005412F1 /* Notice.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Notice.storyboard; sourceTree = "<group>"; };
@@ -456,6 +483,7 @@
 			isa = PBXGroup;
 			children = (
 				38E9923323B05A0700E28271 /* LoginResponse.swift */,
+				3869542D23BADC9000F6E7D9 /* MemberIndexResponse.swift */,
 			);
 			path = Member;
 			sourceTree = "<group>";
@@ -489,6 +517,14 @@
 			isa = PBXGroup;
 			children = (
 				38BCDA2E23A37B7100D59910 /* MemberIndexViewController.swift */,
+				3869542723BADBFC00F6E7D9 /* MemberIndexProtocol.swift */,
+				3869542A23BADC0F00F6E7D9 /* MemberIndexPresenter.swift */,
+				3869543023BAE5F500F6E7D9 /* MemberTopCell.swift */,
+				3869543123BAE5F500F6E7D9 /* MemberTopCell.xib */,
+				3869543623BAF85900F6E7D9 /* MemberIndexServiceCell.swift */,
+				3869543723BAF85900F6E7D9 /* MemberIndexServiceCell.xib */,
+				3869543C23BB002900F6E7D9 /* MemberIndexVersionCell.swift */,
+				3869543D23BB002900F6E7D9 /* MemberIndexVersionCell.xib */,
 			);
 			path = MemberIndex;
 			sourceTree = "<group>";
@@ -856,6 +892,7 @@
 				38BCDA2623A3796800D59910 /* GroupTour.storyboard in Resources */,
 				387FBF0B23ACCEB7005412F1 /* Login.storyboard in Resources */,
 				38E68AAD23B5AB80006BC4DD /* Group.json in Resources */,
+				3869544023BB002900F6E7D9 /* MemberIndexVersionCell.xib in Resources */,
 				387FBEFD23ACA2A7005412F1 /* Notice.storyboard in Resources */,
 				38E68AC123B5AE30006BC4DD /* Common.storyboard in Resources */,
 				38E68ABD23B5AE30006BC4DD /* SelectOption.storyboard in Resources */,
@@ -864,11 +901,13 @@
 				38E68AAF23B5AB80006BC4DD /* GroupSliderItemCell.xib in Resources */,
 				387FBEF723ACA201005412F1 /* AirTicket.storyboard in Resources */,
 				387FBF0323ACA327005412F1 /* More.storyboard in Resources */,
+				3869543423BAE5F500F6E7D9 /* MemberTopCell.xib in Resources */,
 				38BCDA0F23A367D000D59910 /* NoInternetErrorView.xib in Resources */,
 				38BCDA0B23A367D000D59910 /* ApiFailErrorView.xib in Resources */,
 				3817E4FE23A33C8500ED8609 /* Assets.xcassets in Resources */,
 				2AF496B423AB7EA50053EA45 /* GoogleService-Info.plist in Resources */,
 				3817E4FC23A33C8400ED8609 /* Main.storyboard in Resources */,
+				3869543A23BAF85900F6E7D9 /* MemberIndexServiceCell.xib in Resources */,
 				38BCDA0923A367D000D59910 /* ToastView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -896,6 +935,7 @@
 				38BCDA2723A3796800D59910 /* GroupTour.storyboard in Resources */,
 				387FBF1123ACCF00005412F1 /* Login.storyboard in Resources */,
 				38E68AAE23B5AB80006BC4DD /* Group.json in Resources */,
+				3869544123BB002900F6E7D9 /* MemberIndexVersionCell.xib in Resources */,
 				387FBEFE23ACA2A7005412F1 /* Notice.storyboard in Resources */,
 				38E68AC223B5AE30006BC4DD /* Common.storyboard in Resources */,
 				38E68ABE23B5AE30006BC4DD /* SelectOption.storyboard in Resources */,
@@ -904,11 +944,13 @@
 				38E68AB023B5AB80006BC4DD /* GroupSliderItemCell.xib in Resources */,
 				387FBEF823ACA201005412F1 /* AirTicket.storyboard in Resources */,
 				387FBF0423ACA327005412F1 /* More.storyboard in Resources */,
+				3869543523BAE5F500F6E7D9 /* MemberTopCell.xib in Resources */,
 				38BCDA1023A367D000D59910 /* NoInternetErrorView.xib in Resources */,
 				38BCDA0C23A367D000D59910 /* ApiFailErrorView.xib in Resources */,
 				3817E52B23A33C9500ED8609 /* Assets.xcassets in Resources */,
 				2AF496B623AB7EBB0053EA45 /* GoogleService-Info.plist in Resources */,
 				3817E52C23A33C9500ED8609 /* Main.storyboard in Resources */,
+				3869543B23BAF85900F6E7D9 /* MemberIndexServiceCell.xib in Resources */,
 				38BCDA0A23A367D000D59910 /* ToastView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1035,13 +1077,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3869543823BAF85900F6E7D9 /* MemberIndexServiceCell.swift in Sources */,
 				38BCD94223A346B800D59910 /* APILoadingHandleType.swift in Sources */,
 				38BCD9CD23A3648B00D59910 /* BaseModelProtocol.swift in Sources */,
 				38E9922723B053A200E28271 /* LoginProtocol.swift in Sources */,
 				38BCD97723A3484300D59910 /* NSObjectExtension.swift in Sources */,
 				387FBEFA23ACA21D005412F1 /* AirTicketViewController.swift in Sources */,
 				38E68AA723B5AB80006BC4DD /* GroupSlideInTransition.swift in Sources */,
+				3869542823BADBFC00F6E7D9 /* MemberIndexProtocol.swift in Sources */,
 				38BCD92D23A345FA00D59910 /* EncryptionUtils.m in Sources */,
+				3869543E23BB002900F6E7D9 /* MemberIndexVersionCell.swift in Sources */,
 				38BCD99C23A363AB00D59910 /* MemberRepositoryProtocol.swift in Sources */,
 				38E9921E23B04CF200E28271 /* GropeTourPresenter.swift in Sources */,
 				38BCD9D423A366D500D59910 /* BaseViewController.swift in Sources */,
@@ -1077,6 +1122,7 @@
 				38BCDA1523A3689500D59910 /* ColorDef.swift in Sources */,
 				38E68AAB23B5AB80006BC4DD /* GroupSliderItemCell.swift in Sources */,
 				38BCD92B23A345FA00D59910 /* DeviceUtil.swift in Sources */,
+				3869542B23BADC0F00F6E7D9 /* MemberIndexPresenter.swift in Sources */,
 				38BCD98923A3484300D59910 /* OptionalStringExtension.swift in Sources */,
 				38BCDA0123A367D000D59910 /* NoInternetErrorView.swift in Sources */,
 				38BCD98323A3484300D59910 /* DateComponentExtension.swift in Sources */,
@@ -1088,12 +1134,14 @@
 				38BCDA2923A379DE00D59910 /* GroupTourViewController.swift in Sources */,
 				38BCD99923A3639500D59910 /* MemberRepository.swift in Sources */,
 				38BCD98123A3484300D59910 /* UIViewExtension.swift in Sources */,
+				3869542E23BADC9000F6E7D9 /* MemberIndexResponse.swift in Sources */,
 				38E9922123B04F1400E28271 /* VersionRuleReponse.swift in Sources */,
 				38BCD93523A345FA00D59910 /* GTMBase64.m in Sources */,
 				38BCD9D723A366EC00D59910 /* TabBarViewController.swift in Sources */,
 				38BCD98D23A3484300D59910 /* ShareFunc.swift in Sources */,
 				387FBF0F23ACCEF4005412F1 /* LoginViewController.swift in Sources */,
 				38BCD93323A345FA00D59910 /* FormatUtil.swift in Sources */,
+				3869543223BAE5F500F6E7D9 /* MemberTopCell.swift in Sources */,
 				38BCD97D23A3484300D59910 /* IntExtenstion.swift in Sources */,
 				387FBF0623ACA392005412F1 /* MoreViewController.swift in Sources */,
 				38E9923A23B0B5DF00E28271 /* BooleanButton.swift in Sources */,
@@ -1129,13 +1177,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3869543923BAF85900F6E7D9 /* MemberIndexServiceCell.swift in Sources */,
 				38BCD94323A346B800D59910 /* APILoadingHandleType.swift in Sources */,
 				38BCD9CE23A3648B00D59910 /* BaseModelProtocol.swift in Sources */,
 				38E9922823B053A200E28271 /* LoginProtocol.swift in Sources */,
 				38BCD97823A3484300D59910 /* NSObjectExtension.swift in Sources */,
 				387FBEFB23ACA21D005412F1 /* AirTicketViewController.swift in Sources */,
 				38E68AA823B5AB80006BC4DD /* GroupSlideInTransition.swift in Sources */,
+				3869542923BADBFC00F6E7D9 /* MemberIndexProtocol.swift in Sources */,
 				38BCD92E23A345FA00D59910 /* EncryptionUtils.m in Sources */,
+				3869543F23BB002900F6E7D9 /* MemberIndexVersionCell.swift in Sources */,
 				38BCD99D23A363AB00D59910 /* MemberRepositoryProtocol.swift in Sources */,
 				38E9921F23B04CF200E28271 /* GropeTourPresenter.swift in Sources */,
 				38BCD9D523A366D500D59910 /* BaseViewController.swift in Sources */,
@@ -1171,6 +1222,7 @@
 				38BCDA1623A3689500D59910 /* ColorDef.swift in Sources */,
 				38E68AAC23B5AB80006BC4DD /* GroupSliderItemCell.swift in Sources */,
 				38BCD92C23A345FA00D59910 /* DeviceUtil.swift in Sources */,
+				3869542C23BADC0F00F6E7D9 /* MemberIndexPresenter.swift in Sources */,
 				38BCD98A23A3484300D59910 /* OptionalStringExtension.swift in Sources */,
 				38BCDA0223A367D000D59910 /* NoInternetErrorView.swift in Sources */,
 				38BCD98423A3484300D59910 /* DateComponentExtension.swift in Sources */,
@@ -1182,12 +1234,14 @@
 				38BCDA2A23A379DE00D59910 /* GroupTourViewController.swift in Sources */,
 				38BCD99A23A3639500D59910 /* MemberRepository.swift in Sources */,
 				38BCD98223A3484300D59910 /* UIViewExtension.swift in Sources */,
+				3869542F23BADC9000F6E7D9 /* MemberIndexResponse.swift in Sources */,
 				38E9922223B04F1400E28271 /* VersionRuleReponse.swift in Sources */,
 				38BCD93623A345FA00D59910 /* GTMBase64.m in Sources */,
 				38BCD9D823A366EC00D59910 /* TabBarViewController.swift in Sources */,
 				38BCD98E23A3484300D59910 /* ShareFunc.swift in Sources */,
 				387FBF1023ACCEF4005412F1 /* LoginViewController.swift in Sources */,
 				38BCD93423A345FA00D59910 /* FormatUtil.swift in Sources */,
+				3869543323BAE5F500F6E7D9 /* MemberTopCell.swift in Sources */,
 				38BCD97E23A3484300D59910 /* IntExtenstion.swift in Sources */,
 				387FBF0723ACA392005412F1 /* MoreViewController.swift in Sources */,
 				38E9923B23B0B5DF00E28271 /* BooleanButton.swift in Sources */,
