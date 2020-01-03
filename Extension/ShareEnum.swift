@@ -16,6 +16,22 @@ public enum LinkType: String {
     case unknown
 }
 
+public enum ToolBarType {
+    case tour
+    case tkt
+    case other
+    
+    func getApiUrl() -> APIUrl {
+        switch self {
+        case .tour:
+            return APIUrl.mainApi(type: .tour)
+        case .tkt:
+            return APIUrl.mainApi(type: .tkt)
+        case .other:
+            return APIUrl.mainApi(type: .other)
+        }
+    }
+}
 
 public class ShareOption {
     var optionKey: String!
