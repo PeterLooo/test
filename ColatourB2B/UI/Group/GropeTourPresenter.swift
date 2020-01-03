@@ -13,6 +13,7 @@ class GropeTourPresenter: GropeTourPresenterProtocol {
     weak var delegate: GropeTourViewProtocol?
     fileprivate var dispose = DisposeBag()
     let accountRepositouy = AccountRepository.shared
+    let groupReponsitory = GroupReponsitory.shared
     
     convenience init(delegate: GropeTourViewProtocol) {
         self.init()
@@ -42,4 +43,15 @@ class GropeTourPresenter: GropeTourPresenterProtocol {
         }).disposed(by: dispose)
     }
     
+    func getGroupMenu() {
+        self.delegate?.onStartLoadingHandle(handleType: .ignore)
+        
+        groupReponsitory.getGroupMenu().subscribe(onSuccess: { (model) in
+            self.delegate?.onBindGroupMenu(menu: model)
+            self.delegate?.onCompletedLoadingHandle()
+        }, onError: { (error) in
+            self.delegate?.onApiErrorHandle(apiError: error as! APIError, handleType: .coverPlate)
+            self.delegate?.onCompletedLoadingHandle()
+        }).disposed(by: dispose)
+    }
 }

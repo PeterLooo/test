@@ -136,6 +136,13 @@ class AccountRepository: NSObject {
 
     }
     
+    func getAccessWeb(webUrl:String) -> Single<String> {
+        let api = APIManager.shared.getAccessWeb(webUrl: webUrl)
+        return AccountRepository.shared.getAccessToken()
+        .flatMap{_ in api}
+        .map{ WebUrl(JSON: $0)!.webUrl!}
+    }
+    
     func getVersionRule() -> Single<VersionRuleReponse.Update?> {
         let api = APIManager.shared.getVersionRule()
         return AccountRepository.shared.getAccessToken()

@@ -205,7 +205,7 @@ class BaseViewController: UIViewController {
     private var navAlpha: CGFloat = 1.0
 
     private var navTitle: String = ""
-    private var navTitleColor: UIColor = ColorHexUtil.hexColor(hex: "#333333")
+    private var navTitleColor: UIColor = UIColor.init(named: "通用綠")!
     
     private var nilButton: UIBarButtonItem?
     
@@ -439,6 +439,12 @@ extension BaseViewController: MemberLoginOnTouchNavCloseProtocol {
     }
 }
 extension BaseViewController: BaseViewProtocol {
+    func onBindAccessWebUrl(url: String) {
+        let vc = getVC(st: "Common", vc: "WebViewController") as! WebViewController
+        vc.setVCwith(url: url, title: "")
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
     func onBindAccessToken(response: AccessTokenResponse) {
         ()
     }
@@ -681,8 +687,8 @@ extension BaseViewController {
         
         case .getApiUrl:
             
-            // 取的 URL
-            ()
+            self.basePresenter?.getAccessWebUrl(webUrl: linkValue!)
+            
         case .passwordReset:
             
             ()
