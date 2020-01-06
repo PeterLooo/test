@@ -135,6 +135,16 @@ extension UIView{
             ])
     }
     
+    func constraintToSafeArea(){
+        self.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            self.topAnchor.constraint(equalTo: superview!.safeAreaLayoutGuide.topAnchor),
+            self.bottomAnchor.constraint(equalTo: superview!.safeAreaLayoutGuide.bottomAnchor),
+            self.leadingAnchor.constraint(equalTo: superview!.safeAreaLayoutGuide.leadingAnchor),
+            self.trailingAnchor.constraint(equalTo: superview!.safeAreaLayoutGuide.trailingAnchor)
+            ])
+    }
+    
     func constraint(_ top: CGFloat?, _ bottom: CGFloat?, _ leading: CGFloat?, _ trailing: CGFloat?){
         self.translatesAutoresizingMaskIntoConstraints = false
 

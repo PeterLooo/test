@@ -14,7 +14,13 @@ class GroupTourViewController: BaseViewController {
     @IBOutlet weak var groupSearchView: UIView!
     
     private var presenter: GropeTourPresenter?
-    private var result : GroupMenuResponse?
+    
+    private var menuList : GroupMenuResponse? {
+        didSet{
+            setNavIcon()
+        }
+    }
+    
     let transiton = GroupSlideInTransition()
     
     required init?(coder: NSCoder) {
@@ -27,18 +33,17 @@ class GroupTourViewController: BaseViewController {
         super.viewDidLoad()
         setSearchGes()
         setIsNavShadowEnable(false)
-        
+        self.grayBlurView.alpha = 0
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         getApiToken()
-        setNavIcon()
     }
     
     override func loadData() {
         super.loadData()
-        getVersionRule()
+        getApiToken()
     }
     
     private func getApiToken(){
@@ -47,6 +52,11 @@ class GroupTourViewController: BaseViewController {
     
     private func getVersionRule(){
         self.presenter?.getVersionRule()
+        
+    }
+    
+    private func getGroupMenu(){
+        self.presenter?.getGroupMenu(toolBarType: .tour)
     }
     
     override func onLoginSuccess(){
@@ -56,16 +66,17 @@ class GroupTourViewController: BaseViewController {
     private func setNavIcon(){
         self.setNavTitle(title: "團體旅遊")
         
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.init(named: "通用綠")!]
-        
-        let contaceButtonView = UIButton(type: .system)
-        
-        let rightImage = #imageLiteral(resourceName: "home_contavt")
-        contaceButtonView.setImage(rightImage, for: .normal)
-        contaceButtonView.addTarget(self, action: #selector(self.onTouchContact), for: .touchUpInside)
+        if self.menuList?.contactList.isEmpty == false {
+            let contaceButtonView = UIButton(type: .system)
+            
+            let rightImage = #imageLiteral(resourceName: "home_contavt")
+            contaceButtonView.setImage(rightImage, for: .normal)
+            contaceButtonView.addTarget(self, action: #selector(self.onTouchContact), for: .touchUpInside)
 
-        var contaceBarButtonItem = UIBarButtonItem(customView: contaceButtonView)
-        contaceBarButtonItem = UIBarButtonItem(image: rightImage, style: .plain, target: self, action: #selector(self.onTouchContact))
+            var contaceBarButtonItem = UIBarButtonItem(customView: contaceButtonView)
+            contaceBarButtonItem = UIBarButtonItem(image: rightImage, style: .plain, target: self, action: #selector(self.onTouchContact))
+            self.navigationItem.rightBarButtonItem = contaceBarButtonItem
+        }
         
         let menuButtonView = UIButton(type: .system)
         
@@ -77,21 +88,29 @@ class GroupTourViewController: BaseViewController {
         menuBarButtonItem = UIBarButtonItem(image: leftImage, style: .plain, target: self, action: #selector(self.onTouchMenu))
         
         self.navigationItem.leftBarButtonItem = menuBarButtonItem
-        self.navigationItem.rightBarButtonItem = contaceBarButtonItem
+        
     }
     
-    @objc func onTouchMenu (){
+    @IBAction func screenEdge(_ sender: UIScreenEdgePanGestureRecognizer) {
+        switch sender.edges {
+        case .left:
+            onTouchMenu()
+        default:
+            ()
+        }
+    }
+    @objc func onTouchMenu() {
         let vc = getVC(st: "GroupTour", vc: "GroupSliderViewController") as! GroupSliderViewController
         vc.delegate = self
         vc.modalPresentationStyle = .overCurrentContext
         vc.transitioningDelegate = self
-        vc.setVC(serverList: self.result?.serverList ?? [])
+        vc.setVC(serverList: self.menuList?.serverList ?? [])
         present(vc, animated: true)
     }
     
     @objc func onTouchContact (){
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        self.result?.contactList.forEach({ (server) in
+        self.menuList?.contactList.forEach({ (server) in
             alert.addAction(UIAlertAction(title: server.linkName , style: .default, handler: { (_) in
                 self.handleLinkType(linkType: server.linkType, linkValue: server.linkValue, linkText: nil)
             }))
@@ -121,7 +140,9 @@ extension GroupTourViewController: GroupSliderViewControllerProtocol {
 extension GroupTourViewController: UIViewControllerTransitioningDelegate {
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         transiton.isPresenting = true
-        grayBlurView.isHidden = false
+        UIView.animate(withDuration: 0.5) {
+            self.grayBlurView.alpha = 1
+        }
         self.tabBarController?.tabBar.isHidden = true
         
         return transiton
@@ -130,17 +151,25 @@ extension GroupTourViewController: UIViewControllerTransitioningDelegate {
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         transiton.isPresenting = false
         self.tabBarController?.tabBar.isHidden = false
-        grayBlurView.isHidden = true
         
+        UIView.animate(withDuration: 0.5, animations: {
+            self.grayBlurView.alpha = 0
+        })
         self.setTabBarType(tabBarType: .notHidden)
         return transiton
     }
 }
 
 extension GroupTourViewController: GropeTourViewProtocol {
+    func onBindGroupMenu(menu: GroupMenuResponse) {
+        self.menuList = menu
+        
+    }
+    
     func onBindApiTokenComplete() {
+        
+        getGroupMenu()
         getVersionRule()
-
     }
     func onBindVersionRule(versionRule: VersionRuleReponse.Update?) {
         ()

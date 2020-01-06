@@ -61,12 +61,13 @@
                                     <constraint firstAttribute="height" constant="54" id="yQr-U1-Olx"/>
                                 </constraints>
                             </view>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f7q-01-GCh">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f7q-01-GCh">
                                 <rect key="frame" x="0.0" y="-64" width="414" height="960"/>
                                 <color key="backgroundColor" red="0.43137254899999999" green="0.43137254899999999" blue="0.43137254899999999" alpha="0.5" colorSpace="calibratedRGB"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="EGk-Fg-apE" firstAttribute="top" secondItem="zzg-b0-LkS" secondAttribute="top" id="6wH-Ns-yQ8"/>
                             <constraint firstItem="EGk-Fg-apE" firstAttribute="leading" secondItem="zzg-b0-LkS" secondAttribute="leading" id="Fi8-on-uVL"/>
@@ -77,6 +78,9 @@
                             <constraint firstItem="f7q-01-GCh" firstAttribute="trailing" secondItem="zzg-b0-LkS" secondAttribute="trailing" id="rb1-PQ-ifn"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zzg-b0-LkS"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="ZhH-vz-EiZ" appends="YES" id="Bod-cJ-yJv"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="8Ez-c5-IlF"/>
                     <connections>
@@ -85,6 +89,12 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I6N-U6-UhN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <screenEdgePanGestureRecognizer minimumNumberOfTouches="1" id="ZhH-vz-EiZ">
+                    <rectEdge key="edges" left="YES"/>
+                    <connections>
+                        <action selector="screenEdge:" destination="b9a-Me-4Gs" id="TaW-a3-ilt"/>
+                    </connections>
+                </screenEdgePanGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1611.5942028985507" y="-233.70535714285714"/>
         </scene>

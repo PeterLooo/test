@@ -12,7 +12,7 @@ protocol GroupSliderViewControllerProtocol: NSObjectProtocol {
     func onTouchData(serverData: ServerData)
 }
 extension GroupSliderViewController {
-    func setVC(serverList:[GroupMenuResponse.ServerItem]) {
+    func setVC(serverList:[ServerData]) {
         self.serverList = serverList
     }
 }
@@ -23,7 +23,7 @@ class GroupSliderViewController: BaseViewController {
     
     weak var delegate : GroupSliderViewControllerProtocol?
     
-    private var serverList : [GroupMenuResponse.ServerItem] = []
+    private var serverList : [ServerData] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,17 +51,17 @@ extension GroupSliderViewController: GroupSliderItemCellProtocol {
 }
 extension GroupSliderViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return self.serverList.count
+        return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.serverList[section].itemDataList.count
+        return self.serverList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "GroupSliderItemCell") as! GroupSliderItemCell
         let isNeedLine = indexPath.section != 0 && indexPath.row == 0
-        cell.setCell(serverData: self.serverList[indexPath.section].itemDataList[indexPath.row], isNeedLine: isNeedLine)
+        cell.setCell(serverData: self.serverList[indexPath.row], isNeedLine: isNeedLine)
         cell.delegate = self
         return cell
     }

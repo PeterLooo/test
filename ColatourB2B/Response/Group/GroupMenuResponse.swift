@@ -11,12 +11,12 @@ import ObjectMapper
 class GroupMenuResponse: BaseModel {
     
     var contactList : [ServerData] = []
-    var serverList : [ServerItem] = []
+    var serverList : [ServerData] = []
     
     override func mapping(map: Map) {
         super.mapping(map: map)
         contactList <- map["Contact_List"]
-        serverList <- map["Server_Item"]
+        serverList <- map["ToolBar_List"]
         
     }
     
@@ -46,5 +46,16 @@ class ServerData: BaseModel {
         linkValue <- map["Link_Value"]
         linkName <- map["Link_Name"]
 
+    }
+}
+
+class WebUrl: BaseModel {
+    
+    var webUrl : String?
+    
+    override func mapping(map: Map) {
+        super.mapping(map: map)
+        
+        webUrl <- map["Web_Url"]
     }
 }
