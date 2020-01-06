@@ -33,7 +33,8 @@ class GroupTourViewController: BaseViewController {
         super.viewDidLoad()
         setSearchGes()
         setIsNavShadowEnable(false)
-        self.grayBlurView.alpha = 0
+        grayBlurView.alpha = 0
+        setSearchBorder()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -61,6 +62,10 @@ class GroupTourViewController: BaseViewController {
     
     override func onLoginSuccess(){
         self.loadData()
+    }
+    
+    private func setSearchBorder(){
+        groupSearchView.setBorder(width: 0.5, radius: 14, color: UIColor.init(red: 230, green: 230, blue: 230))
     }
     
     private func setNavIcon(){

@@ -33,6 +33,7 @@ class AirTicketViewController: BaseViewController {
         
         setIsNavShadowEnable(false)
         self.grayBlurView.alpha = 0
+        setSearchBorder()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -42,6 +43,10 @@ class AirTicketViewController: BaseViewController {
     
     private func getAirMenu(){
         self.presenter?.getAirMenu(toolBarType: .tkt)
+    }
+    
+    private func setSearchBorder(){
+        airSearchView.setBorder(width: 0.5, radius: 14, color: UIColor.init(red: 230, green: 230, blue: 230))
     }
     
     private func setNavIcon(){
