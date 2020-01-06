@@ -12,11 +12,12 @@ import ObjectMapper
 class MemberIndexResponse: BaseModel {
     
     var memberIndexList:[ServerData] = []
-
+    var memeberName: String?
+    
     override func mapping(map: Map) {
         super.mapping(map: map)
         memberIndexList <- map["MemberIndex_List"]
-
+        memeberName <- map["Member_Name"]
     }
     
 }
