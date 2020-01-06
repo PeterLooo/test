@@ -15,8 +15,8 @@ class GroupReponsitory: NSObject {
     fileprivate var dispose = DisposeBag()
     static let shared = GroupReponsitory()
     
-    func getGroupMenu() -> Single<GroupMenuResponse> {
-        let api = APIManager.shared.getGroupMenu()
+    func getGroupMenu(toolBarType: ToolBarType) -> Single<GroupMenuResponse> {
+        let api = APIManager.shared.getGroupMenu(toolBarType: toolBarType)
         return AccountRepository.shared.getAccessToken()
             .flatMap{_ in api}
             .map{ GroupMenuResponse(JSON: $0)!}

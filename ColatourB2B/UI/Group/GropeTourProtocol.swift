@@ -17,5 +17,5 @@ protocol GropeTourViewProtocol: BaseViewProtocol {
 protocol GropeTourPresenterProtocol: BasePresenterProtocol {
     func getApiToken()
     func getVersionRule()
-    func getGroupMenu()
+    func getGroupMenu(toolBarType: ToolBarType)
 }

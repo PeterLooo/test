@@ -56,7 +56,7 @@ class GroupTourViewController: BaseViewController {
     }
     
     private func getGroupMenu(){
-        self.presenter?.getGroupMenu()
+        self.presenter?.getGroupMenu(toolBarType: .tour)
     }
     
     override func onLoginSuccess(){
