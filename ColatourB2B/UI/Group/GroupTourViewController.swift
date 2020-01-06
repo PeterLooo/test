@@ -109,7 +109,7 @@ class GroupTourViewController: BaseViewController {
     }
     
     @objc func onTouchContact (){
-        let alert = UIAlertController(title: "nil", message: nil, preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
         alert.addAction(UIAlertAction(title: "改善建議" , style: .default, handler: { (_) in
             self.onPopContactVC()
