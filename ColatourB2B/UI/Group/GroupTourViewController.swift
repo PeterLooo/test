@@ -60,23 +60,21 @@ class GroupTourViewController: BaseViewController {
     }
     
     override func onLoginSuccess(){
-        self.getVersionRule()
+        self.loadData()
     }
     
     private func setNavIcon(){
         self.setNavTitle(title: "團體旅遊")
         
-        if self.menuList?.contactList.isEmpty == false {
-            let contaceButtonView = UIButton(type: .system)
-            
-            let rightImage = #imageLiteral(resourceName: "home_contavt")
-            contaceButtonView.setImage(rightImage, for: .normal)
-            contaceButtonView.addTarget(self, action: #selector(self.onTouchContact), for: .touchUpInside)
+       let contaceButtonView = UIButton(type: .system)
+        
+        let rightImage = #imageLiteral(resourceName: "home_contavt")
+        contaceButtonView.setImage(rightImage, for: .normal)
+        contaceButtonView.addTarget(self, action: #selector(self.onTouchContact), for: .touchUpInside)
 
-            var contaceBarButtonItem = UIBarButtonItem(customView: contaceButtonView)
-            contaceBarButtonItem = UIBarButtonItem(image: rightImage, style: .plain, target: self, action: #selector(self.onTouchContact))
-            self.navigationItem.rightBarButtonItem = contaceBarButtonItem
-        }
+        var contaceBarButtonItem = UIBarButtonItem(customView: contaceButtonView)
+        contaceBarButtonItem = UIBarButtonItem(image: rightImage, style: .plain, target: self, action: #selector(self.onTouchContact))
+        self.navigationItem.rightBarButtonItem = contaceBarButtonItem
         
         let menuButtonView = UIButton(type: .system)
         
@@ -94,11 +92,13 @@ class GroupTourViewController: BaseViewController {
     @IBAction func screenEdge(_ sender: UIScreenEdgePanGestureRecognizer) {
         switch sender.edges {
         case .left:
+            if self.presentedViewController?.restorationIdentifier == "GroupSliderViewController" {return}
             onTouchMenu()
         default:
             ()
         }
     }
+    
     @objc func onTouchMenu() {
         let vc = getVC(st: "GroupTour", vc: "GroupSliderViewController") as! GroupSliderViewController
         vc.delegate = self
@@ -109,13 +109,14 @@ class GroupTourViewController: BaseViewController {
     }
     
     @objc func onTouchContact (){
-        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        self.menuList?.contactList.forEach({ (server) in
-            alert.addAction(UIAlertAction(title: server.linkName , style: .default, handler: { (_) in
-                self.handleLinkType(linkType: server.linkType, linkValue: server.linkValue, linkText: nil)
-            }))
-        })
-
+        let alert = UIAlertController(title: "nil", message: nil, preferredStyle: .actionSheet)
+        
+        alert.addAction(UIAlertAction(title: "改善建議" , style: .default, handler: { (_) in
+            self.onPopContactVC()
+        }))
+        alert.addAction(UIAlertAction(title: "聯絡客服" , style: .default, handler: { (_) in
+            self.onPopContactVC()
+        }))
         alert.addAction(UIAlertAction(title: "取消", style: .destructive))
 
         self.present(alert, animated: true)
@@ -125,6 +126,10 @@ class GroupTourViewController: BaseViewController {
         let ges = UITapGestureRecognizer(target: self, action: #selector(onTouchSearch))
         self.groupSearchView.addGestureRecognizer(ges)
         self.groupSearchView.isUserInteractionEnabled = true
+    }
+    
+    private func onPopContactVC(){
+        ()
     }
     
     @objc private func onTouchSearch(){
@@ -169,7 +174,7 @@ extension GroupTourViewController: GropeTourViewProtocol {
     func onBindApiTokenComplete() {
         
         getGroupMenu()
-        getVersionRule()
+        //getVersionRule()
     }
     func onBindVersionRule(versionRule: VersionRuleReponse.Update?) {
         ()
