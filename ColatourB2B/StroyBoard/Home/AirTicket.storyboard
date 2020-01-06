@@ -61,12 +61,13 @@
                                     <constraint firstItem="oUm-QW-3Ad" firstAttribute="leading" secondItem="1vf-ok-sS1" secondAttribute="leading" constant="16" id="mUM-8Z-oVc"/>
                                 </constraints>
                             </view>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nFL-5a-4Mq">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nFL-5a-4Mq">
                                 <rect key="frame" x="0.0" y="-64" width="414" height="960"/>
                                 <color key="backgroundColor" red="0.43137254899999999" green="0.43137254899999999" blue="0.43137254899999999" alpha="0.5" colorSpace="calibratedRGB"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="1vf-ok-sS1" firstAttribute="leading" secondItem="eUV-G5-EKY" secondAttribute="leading" id="O8h-Wo-jMQ"/>
                             <constraint firstAttribute="trailing" secondItem="1vf-ok-sS1" secondAttribute="trailing" id="TbC-yC-CnE"/>
@@ -77,6 +78,9 @@
                             <constraint firstItem="1vf-ok-sS1" firstAttribute="top" secondItem="eUV-G5-EKY" secondAttribute="top" id="q5S-Ym-Qcd"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="eUV-G5-EKY"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="t1J-6O-nPu" appends="YES" id="muo-Tq-b2i"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="MQO-NJ-Dfr"/>
                     <connections>
@@ -85,6 +89,12 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QIf-q9-Ott" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <screenEdgePanGestureRecognizer minimumNumberOfTouches="1" id="t1J-6O-nPu">
+                    <rectEdge key="edges" left="YES"/>
+                    <connections>
+                        <action selector="screenEdge:" destination="6lR-hG-lrq" id="MZl-GZ-v9a"/>
+                    </connections>
+                </screenEdgePanGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1100" y="95.758928571428569"/>
         </scene>

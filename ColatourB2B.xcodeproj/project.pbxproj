@@ -21,6 +21,10 @@
 		3817E52C23A33C9500ED8609 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3817E4FA23A33C8400ED8609 /* Main.storyboard */; };
 		382EF48323BEF93A0002BAB0 /* GroupReponsitory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382EF48223BEF93A0002BAB0 /* GroupReponsitory.swift */; };
 		382EF48423BEF93A0002BAB0 /* GroupReponsitory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382EF48223BEF93A0002BAB0 /* GroupReponsitory.swift */; };
+		384B110323C2BD33000E2B41 /* AirTicketProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384B110223C2BD33000E2B41 /* AirTicketProtocol.swift */; };
+		384B110423C2BD33000E2B41 /* AirTicketProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384B110223C2BD33000E2B41 /* AirTicketProtocol.swift */; };
+		384B110623C2BD46000E2B41 /* AirTicketPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384B110523C2BD46000E2B41 /* AirTicketPresenter.swift */; };
+		384B110723C2BD46000E2B41 /* AirTicketPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384B110523C2BD46000E2B41 /* AirTicketPresenter.swift */; };
 		3869542823BADBFC00F6E7D9 /* MemberIndexProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3869542723BADBFC00F6E7D9 /* MemberIndexProtocol.swift */; };
 		3869542923BADBFC00F6E7D9 /* MemberIndexProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3869542723BADBFC00F6E7D9 /* MemberIndexProtocol.swift */; };
 		3869542B23BADC0F00F6E7D9 /* MemberIndexPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3869542A23BADC0F00F6E7D9 /* MemberIndexPresenter.swift */; };
@@ -255,6 +259,8 @@
 		3817E51823A33C8500ED8609 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3817E53023A33C9500ED8609 /* ColatourB2BDev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColatourB2BDev.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		382EF48223BEF93A0002BAB0 /* GroupReponsitory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupReponsitory.swift; sourceTree = "<group>"; };
+		384B110223C2BD33000E2B41 /* AirTicketProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirTicketProtocol.swift; sourceTree = "<group>"; };
+		384B110523C2BD46000E2B41 /* AirTicketPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirTicketPresenter.swift; sourceTree = "<group>"; };
 		3869542723BADBFC00F6E7D9 /* MemberIndexProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberIndexProtocol.swift; sourceTree = "<group>"; };
 		3869542A23BADC0F00F6E7D9 /* MemberIndexPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberIndexPresenter.swift; sourceTree = "<group>"; };
 		3869542D23BADC9000F6E7D9 /* MemberIndexResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberIndexResponse.swift; sourceTree = "<group>"; };
@@ -415,6 +421,8 @@
 			isa = PBXGroup;
 			children = (
 				387FBEF923ACA21D005412F1 /* AirTicketViewController.swift */,
+				384B110223C2BD33000E2B41 /* AirTicketProtocol.swift */,
+				384B110523C2BD46000E2B41 /* AirTicketPresenter.swift */,
 			);
 			path = AirTicket;
 			sourceTree = "<group>";
@@ -1108,6 +1116,7 @@
 				38BCD92D23A345FA00D59910 /* EncryptionUtils.m in Sources */,
 				3869543E23BB002900F6E7D9 /* MemberIndexVersionCell.swift in Sources */,
 				38BCD99C23A363AB00D59910 /* MemberRepositoryProtocol.swift in Sources */,
+				384B110623C2BD46000E2B41 /* AirTicketPresenter.swift in Sources */,
 				38E9921E23B04CF200E28271 /* GropeTourPresenter.swift in Sources */,
 				38BCD9D423A366D500D59910 /* BaseViewController.swift in Sources */,
 				38BCDA1223A3684E00D59910 /* BaseProtocol.swift in Sources */,
@@ -1161,6 +1170,7 @@
 				38BCD93523A345FA00D59910 /* GTMBase64.m in Sources */,
 				38BCD9D723A366EC00D59910 /* TabBarViewController.swift in Sources */,
 				38BCD98D23A3484300D59910 /* ShareFunc.swift in Sources */,
+				384B110323C2BD33000E2B41 /* AirTicketProtocol.swift in Sources */,
 				387FBF0F23ACCEF4005412F1 /* LoginViewController.swift in Sources */,
 				38BCD93323A345FA00D59910 /* FormatUtil.swift in Sources */,
 				3869543223BAE5F500F6E7D9 /* MemberTopCell.swift in Sources */,
@@ -1211,6 +1221,7 @@
 				38BCD92E23A345FA00D59910 /* EncryptionUtils.m in Sources */,
 				3869543F23BB002900F6E7D9 /* MemberIndexVersionCell.swift in Sources */,
 				38BCD99D23A363AB00D59910 /* MemberRepositoryProtocol.swift in Sources */,
+				384B110723C2BD46000E2B41 /* AirTicketPresenter.swift in Sources */,
 				38E9921F23B04CF200E28271 /* GropeTourPresenter.swift in Sources */,
 				38BCD9D523A366D500D59910 /* BaseViewController.swift in Sources */,
 				38BCDA1323A3684E00D59910 /* BaseProtocol.swift in Sources */,
@@ -1264,6 +1275,7 @@
 				38BCD93623A345FA00D59910 /* GTMBase64.m in Sources */,
 				38BCD9D823A366EC00D59910 /* TabBarViewController.swift in Sources */,
 				38BCD98E23A3484300D59910 /* ShareFunc.swift in Sources */,
+				384B110423C2BD33000E2B41 /* AirTicketProtocol.swift in Sources */,
 				387FBF1023ACCEF4005412F1 /* LoginViewController.swift in Sources */,
 				38BCD93423A345FA00D59910 /* FormatUtil.swift in Sources */,
 				3869543323BAE5F500F6E7D9 /* MemberTopCell.swift in Sources */,
