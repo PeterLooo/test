@@ -279,7 +279,6 @@
 		387FBF0A23ACCEB7005412F1 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		387FBF0E23ACCEF4005412F1 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		387FBF1223ACD046005412F1 /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
-		38B69D7923C32E4200CBD79F /* ColatourB2B.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ColatourB2B.entitlements; sourceTree = "<group>"; };
 		38BCD91B23A3457900D59910 /* AccountRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountRepository.swift; sourceTree = "<group>"; };
 		38BCD92023A345FA00D59910 /* DeviceUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceUtil.swift; sourceTree = "<group>"; };
 		38BCD92123A345FA00D59910 /* EncryptionUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EncryptionUtils.m; sourceTree = "<group>"; };
@@ -431,7 +430,6 @@
 		3817E4EA23A33C8400ED8609 = {
 			isa = PBXGroup;
 			children = (
-				384B110823C32BF3000E2B41 /* ColatourB2B.entitlements */,
 				2AF496B023AB79810053EA45 /* ColatourB2BDev.entitlements */,
 				38BCDA2023A3713900D59910 /* ColatourB2B-Bridging-Header.h */,
 				3817E4F523A33C8400ED8609 /* ColatourB2B */,
@@ -459,7 +457,7 @@
 		3817E4F523A33C8400ED8609 /* ColatourB2B */ = {
 			isa = PBXGroup;
 			children = (
-				38B69D7923C32E4200CBD79F /* ColatourB2B.entitlements */,
+				384B110823C32BF3000E2B41 /* ColatourB2B.entitlements */,
 				38BCDA1423A3689500D59910 /* ColorDef.swift */,
 				2AF496B223AB7DCD0053EA45 /* ColatourB2BProd */,
 				2AF496AD23AB6D580053EA45 /* ColatourB2BDev */,
