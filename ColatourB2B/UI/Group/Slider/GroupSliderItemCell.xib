@@ -19,25 +19,11 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gbM-RZ-Z4G">
-                        <rect key="frame" x="16" y="12" width="47" height="59.5"/>
+                        <rect key="frame" x="16" y="12" width="315" height="60"/>
                         <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="18"/>
                         <color key="textColor" name="標題黑"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow_next_gray" translatesAutoresizingMaskIntoConstraints="NO" id="4EP-Ra-LaX">
-                        <rect key="frame" x="324" y="35.5" width="7" height="13"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="7" id="BoP-Cb-WOB"/>
-                            <constraint firstAttribute="height" constant="13" id="n3I-jJ-GOo"/>
-                        </constraints>
-                    </imageView>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5ai-0b-tmf">
-                        <rect key="frame" x="16" y="83.5" width="331" height="0.5"/>
-                        <color key="backgroundColor" name="底線灰"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="0.5" id="L4R-34-emF"/>
-                        </constraints>
-                    </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="784-Wx-CMb">
                         <rect key="frame" x="0.0" y="84" width="347" height="17"/>
                         <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -47,17 +33,12 @@
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="4EP-Ra-LaX" secondAttribute="trailing" constant="16" id="9Mx-Bj-6IL"/>
+                    <constraint firstItem="784-Wx-CMb" firstAttribute="top" secondItem="gbM-RZ-Z4G" secondAttribute="bottom" constant="12" id="53Q-dP-3bj"/>
                     <constraint firstAttribute="bottom" secondItem="784-Wx-CMb" secondAttribute="bottom" id="C5M-NM-HQ9"/>
                     <constraint firstItem="gbM-RZ-Z4G" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="GRP-g3-g9E"/>
-                    <constraint firstItem="4EP-Ra-LaX" firstAttribute="centerY" secondItem="gbM-RZ-Z4G" secondAttribute="centerY" id="Gpz-dA-EBM"/>
-                    <constraint firstAttribute="trailing" secondItem="5ai-0b-tmf" secondAttribute="trailing" id="Jw1-Rn-g9b"/>
-                    <constraint firstItem="784-Wx-CMb" firstAttribute="top" secondItem="5ai-0b-tmf" secondAttribute="bottom" id="RKE-EA-mXv"/>
-                    <constraint firstItem="4EP-Ra-LaX" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="gbM-RZ-Z4G" secondAttribute="trailing" constant="16" id="T2T-UK-wuY"/>
-                    <constraint firstItem="5ai-0b-tmf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="U3j-xQ-nTc"/>
                     <constraint firstItem="gbM-RZ-Z4G" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="XLt-mY-KEj"/>
+                    <constraint firstAttribute="trailing" secondItem="gbM-RZ-Z4G" secondAttribute="trailing" constant="16" id="dY6-h4-0oI"/>
                     <constraint firstItem="784-Wx-CMb" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="hnV-jl-emr"/>
-                    <constraint firstItem="5ai-0b-tmf" firstAttribute="top" secondItem="gbM-RZ-Z4G" secondAttribute="bottom" constant="12" id="kXV-hb-iS9"/>
                     <constraint firstAttribute="trailing" secondItem="784-Wx-CMb" secondAttribute="trailing" id="xbq-DX-13v"/>
                 </constraints>
             </tableViewCellContentView>
@@ -65,15 +46,12 @@
             <connections>
                 <outlet property="bottomViewHeight" destination="1zJ-r9-0b6" id="hUO-0K-c9X"/>
                 <outlet property="serverTitle" destination="gbM-RZ-Z4G" id="77y-Wk-bh8"/>
+                <outlet property="titleTopConstraint" destination="XLt-mY-KEj" id="eOk-yt-T3k"/>
             </connections>
             <point key="canvasLocation" x="157.24637681159422" y="130.91517857142856"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="arrow_next_gray" width="9" height="17"/>
-        <namedColor name="底線灰">
-            <color red="0.83921568627450982" green="0.83921568627450982" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="標題黑">
             <color red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

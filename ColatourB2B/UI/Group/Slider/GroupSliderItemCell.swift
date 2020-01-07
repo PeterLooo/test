@@ -13,6 +13,7 @@ protocol GroupSliderItemCellProtocol: NSObjectProtocol {
 class GroupSliderItemCell: UITableViewCell {
 
     @IBOutlet weak var serverTitle: UILabel!
+    @IBOutlet weak var titleTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var bottomViewHeight: NSLayoutConstraint!
     
     weak var delegate: GroupSliderItemCellProtocol?
@@ -24,10 +25,12 @@ class GroupSliderItemCell: UITableViewCell {
         self.isUserInteractionEnabled = true
     }
 
-    func setCell(serverData: ServerData, isNeedLine: Bool){
+    func setCell(serverData: ServerData, isNeedLine: Bool, isFirst: Bool){
         self.serverData = serverData
         self.serverTitle.text = serverData.linkName
-        bottomViewHeight.constant = isNeedLine ? 17 : 0
+        titleTopConstraint.constant = isFirst ? 26 : 12
+        bottomViewHeight.constant = isNeedLine ? 1 : 0
+        
     }
     
     @objc func onTouchDate(){

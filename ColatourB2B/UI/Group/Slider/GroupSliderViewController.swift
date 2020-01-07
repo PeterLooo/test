@@ -35,8 +35,12 @@ class GroupSliderViewController: BaseViewController {
         tableView.register(UINib(nibName: "GroupSliderItemCell", bundle: nil), forCellReuseIdentifier: "GroupSliderItemCell")
         
         tableView.reloadData()
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(onTouchCardView))
+        swipeLeft.direction = .left
+        self.view.addGestureRecognizer(swipeLeft)
+        self.view.isUserInteractionEnabled = true
     }
-    
+   
     @objc func onTouchCardView(){
         self.dismiss(animated: true, completion: nil)
     }
@@ -60,8 +64,8 @@ extension GroupSliderViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "GroupSliderItemCell") as! GroupSliderItemCell
-        let isNeedLine = indexPath.section != 0 && indexPath.row == 0
-        cell.setCell(serverData: self.serverList[indexPath.row], isNeedLine: isNeedLine)
+        let isNeedLine = indexPath.section != (tableView.numberOfSections - 1) && indexPath.row == 0
+        cell.setCell(serverData: self.serverList[indexPath.row], isNeedLine: isNeedLine, isFirst: indexPath.row == 0)
         cell.delegate = self
         return cell
     }

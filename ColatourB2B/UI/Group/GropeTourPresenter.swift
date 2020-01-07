@@ -21,7 +21,7 @@ class GropeTourPresenter: GropeTourPresenterProtocol {
     }
     
     func getApiToken(){
-        self.delegate?.onStartLoadingHandle(handleType: .ignore)
+        self.delegate?.onStartLoadingHandle(handleType: .coverPlate)
         accountRepositouy.apiToken.subscribe(onSuccess: { (model) in
             self.delegate?.onBindApiTokenComplete()
             self.delegate?.onCompletedLoadingHandle()
