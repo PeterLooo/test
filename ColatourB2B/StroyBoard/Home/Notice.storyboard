@@ -44,7 +44,6 @@
                                                 <state key="normal" title="訂單">
                                                     <color key="titleColor" name="通用綠"/>
                                                 </state>
-                                                <state key="selected" image="cart_aboard_focus-1"/>
                                                 <connections>
                                                     <action selector="onTouchTopTag:" destination="fUs-no-ElM" eventType="touchUpInside" id="v93-aj-Rz0"/>
                                                 </connections>
@@ -185,7 +184,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="cart_aboard_focus-1" width="16" height="16"/>
         <namedColor name="標題黑">
             <color red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
