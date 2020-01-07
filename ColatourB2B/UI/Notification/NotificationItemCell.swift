@@ -13,6 +13,7 @@ protocol NotificationItemCellProtocol: NSObjectProtocol {
 class NotificationItemCell: UITableViewCell {
 
     weak var delegate: NotificationItemCellProtocol?
+    @IBOutlet weak var unReadView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -22,6 +23,7 @@ class NotificationItemCell: UITableViewCell {
     }
     
     @objc func onTouchItem(){
+        unReadView.backgroundColor = UIColor.white
         self.delegate?.onTouchItem()
     }
 }
