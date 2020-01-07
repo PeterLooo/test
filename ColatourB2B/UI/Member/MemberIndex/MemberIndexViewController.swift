@@ -84,7 +84,7 @@ extension MemberIndexViewController: MemberTopCellProtocol {
 
 extension MemberIndexViewController: MemberIndexServiceCellProtocol {
     func onTouchServer(server: ServerData) {
-        handleLinkType(linkType: server.linkType, linkValue: server.linkValue, linkText: nil)
+        self.handleLinkType(linkType: server.linkType, linkValue: server.linkValue, linkText: server.linkName ?? "")
     }
 }
 extension MemberIndexViewController: UITableViewDelegate {
