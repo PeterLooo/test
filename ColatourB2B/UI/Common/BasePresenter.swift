@@ -32,4 +32,15 @@ class BasePresenter: NSObject,BasePresenterProtocol {
             self.delegate?.onCompletedLoadingHandle()
         }).disposed(by: dispose)
     }
+    
+    func getAccessWebUrl(webUrl:String) {
+        self.delegate?.onStartLoadingHandle(handleType: .ignore)
+        AccountRepository.shared.getAccessWeb(webUrl: webUrl).subscribe(onSuccess: { (url) in
+            self.delegate?.onBindAccessWebUrl(url: url)
+            self.delegate?.onCompletedLoadingHandle()
+        }, onError: { (error) in
+            self.delegate?.onApiErrorHandle(apiError: error as! APIError, handleType: .coverPlate)
+            self.delegate?.onCompletedLoadingHandle()
+        }).disposed(by: dispose)
+    }
 }

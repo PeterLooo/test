@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" restorationIdentifier="MemberTopCell" selectionStyle="default" indentationWidth="10" rowHeight="142" id="KGk-i7-Jjw" customClass="MemberTopCell" customModule="ColatourB2B" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="347" height="142"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="347" height="142"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="USz-n5-vem">
+                        <rect key="frame" x="0.0" y="0.0" width="347" height="142"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fvy-zD-97k">
+                                <rect key="frame" x="0.0" y="0.0" width="347" height="142"/>
+                                <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Api 沒這個欄位 歡迎回來" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c70-KR-VFi">
+                                <rect key="frame" x="27" y="102" width="222" height="27"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="19"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_member" translatesAutoresizingMaskIntoConstraints="NO" id="E1P-rI-1V0">
+                                <rect key="frame" x="27" y="30" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="E1P-rI-1V0" secondAttribute="height" multiplier="1:1" id="KJc-5q-FyI"/>
+                                    <constraint firstAttribute="width" constant="60" id="xX5-Eh-qZC"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o1M-wl-LGc">
+                                <rect key="frame" x="265" y="101" width="58" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="FbO-L2-yiI"/>
+                                    <constraint firstAttribute="width" constant="58" id="LF1-9T-y51"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="14"/>
+                                <state key="normal" title="登出">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="14"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onTouchLogout:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="aAB-JV-MMv"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="o1M-wl-LGc" secondAttribute="trailing" constant="24" id="2O6-GK-kvv"/>
+                            <constraint firstItem="E1P-rI-1V0" firstAttribute="top" relation="greaterThanOrEqual" secondItem="USz-n5-vem" secondAttribute="top" priority="250" constant="52" id="3Uh-Mn-GzS"/>
+                            <constraint firstItem="o1M-wl-LGc" firstAttribute="leading" secondItem="c70-KR-VFi" secondAttribute="trailing" constant="16" id="3q1-p3-peP"/>
+                            <constraint firstItem="c70-KR-VFi" firstAttribute="leading" secondItem="USz-n5-vem" secondAttribute="leading" constant="27" id="42B-tS-gSE"/>
+                            <constraint firstItem="Fvy-zD-97k" firstAttribute="top" secondItem="USz-n5-vem" secondAttribute="top" id="85C-0C-ld7"/>
+                            <constraint firstItem="Fvy-zD-97k" firstAttribute="leading" secondItem="USz-n5-vem" secondAttribute="leading" id="Ewe-s5-fxj"/>
+                            <constraint firstItem="c70-KR-VFi" firstAttribute="top" secondItem="E1P-rI-1V0" secondAttribute="bottom" constant="12" id="FCH-a7-iwg"/>
+                            <constraint firstItem="o1M-wl-LGc" firstAttribute="bottom" secondItem="c70-KR-VFi" secondAttribute="bottom" id="HXA-St-4FN"/>
+                            <constraint firstAttribute="bottom" secondItem="Fvy-zD-97k" secondAttribute="bottom" id="Jwd-5b-1wa"/>
+                            <constraint firstAttribute="width" secondItem="USz-n5-vem" secondAttribute="height" multiplier="1:0.4" priority="999" id="fuh-sZ-6rR"/>
+                            <constraint firstAttribute="bottom" secondItem="c70-KR-VFi" secondAttribute="bottom" constant="13" id="g3L-ZN-Zec"/>
+                            <constraint firstAttribute="trailing" secondItem="Fvy-zD-97k" secondAttribute="trailing" id="ksf-fl-mV5"/>
+                            <constraint firstItem="E1P-rI-1V0" firstAttribute="leading" secondItem="c70-KR-VFi" secondAttribute="leading" id="qd4-MZ-ODz"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="fuh-sZ-6rR"/>
+                            </mask>
+                        </variation>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="USz-n5-vem" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="4RJ-DA-QYD"/>
+                    <constraint firstAttribute="bottom" secondItem="USz-n5-vem" secondAttribute="bottom" id="Efz-vn-9cT"/>
+                    <constraint firstAttribute="trailing" secondItem="USz-n5-vem" secondAttribute="trailing" id="X8l-MD-6Zi"/>
+                    <constraint firstItem="USz-n5-vem" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="kP4-EN-uJN"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="logout" destination="o1M-wl-LGc" id="XNO-zb-lv5"/>
+                <outlet property="topViewBackgroundView" destination="Fvy-zD-97k" id="Cnh-CH-L4E"/>
+                <outlet property="topViewTitle" destination="c70-KR-VFi" id="3Jd-rM-lIJ"/>
+            </connections>
+            <point key="canvasLocation" x="157.24637681159422" y="193.52678571428569"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="icon_member" width="60" height="60"/>
+    </resources>
+</document>

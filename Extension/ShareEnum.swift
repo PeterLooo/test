@@ -10,9 +10,28 @@ import UIKit
 
 public enum LinkType: String {
     case web = "00"
+    case getApiUrl = "003"
+    case passwordReset = "031"
+    case updateDate = "032"
     case unknown
 }
 
+public enum ToolBarType {
+    case tour
+    case tkt
+    case other
+    
+    func getApiUrl() -> APIUrl {
+        switch self {
+        case .tour:
+            return APIUrl.mainApi(type: .tour)
+        case .tkt:
+            return APIUrl.mainApi(type: .tkt)
+        case .other:
+            return APIUrl.mainApi(type: .other)
+        }
+    }
+}
 
 public class ShareOption {
     var optionKey: String!
