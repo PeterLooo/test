@@ -117,6 +117,8 @@ enum APIUrl {
     enum MainApi: String{
         
         case tour = "Tour"
+        case tkt = "TKT"
+        case other = "Other"
         
         static func urlWith(type: MainApi, append: String) -> String {
             let base =  MAIN_WEB_HOST + "Main/ToolBar/"

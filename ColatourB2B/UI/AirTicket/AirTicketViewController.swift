@@ -1,82 +1,63 @@
 //
-//  GroupToruViewController.swift
+//  AirTicketViewController.swift
 //  ColatourB2B
 //
-//  Created by M6985 on 2019/12/13.
+//  Created by M6985 on 2019/12/20.
 //  Copyright © 2019 Colatour. All rights reserved.
 //
 
 import UIKit
 
-class GroupTourViewController: BaseViewController {
+class AirTicketViewController: BaseViewController {
     
     @IBOutlet weak var grayBlurView: UIView!
-    @IBOutlet weak var groupSearchView: UIView!
+    @IBOutlet weak var airSearchView: UIView!
     
-    private var presenter: GropeTourPresenter?
+    private var presenter: AirTicketPresenter?
     
+    let transiton = GroupSlideInTransition()
     private var menuList : GroupMenuResponse? {
         didSet{
             setNavIcon()
         }
     }
     
-    let transiton = GroupSlideInTransition()
-    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         
-        presenter = GropeTourPresenter(delegate: self)
+        presenter = AirTicketPresenter(delegate: self)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setSearchGes()
+        
         setIsNavShadowEnable(false)
-        grayBlurView.alpha = 0
+        self.grayBlurView.alpha = 0
         setSearchBorder()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        getApiToken()
+        getAirMenu()
     }
     
-    override func loadData() {
-        super.loadData()
-        getApiToken()
-    }
-    
-    private func getApiToken(){
-        self.presenter?.getApiToken()
-    }
-    
-    private func getVersionRule(){
-        self.presenter?.getVersionRule()
-        
-    }
-    
-    private func getGroupMenu(){
-        self.presenter?.getGroupMenu(toolBarType: .tour)
-    }
-    
-    override func onLoginSuccess(){
-        self.loadData()
+    private func getAirMenu(){
+        self.presenter?.getAirMenu(toolBarType: .tkt)
     }
     
     private func setSearchBorder(){
-        groupSearchView.setBorder(width: 0.5, radius: 14, color: UIColor.init(red: 230, green: 230, blue: 230))
+        airSearchView.setBorder(width: 0.5, radius: 14, color: UIColor.init(red: 230, green: 230, blue: 230))
     }
     
     private func setNavIcon(){
-        self.setNavTitle(title: "團體旅遊")
+        self.setNavTitle(title: "機票")
         
-       let contaceButtonView = UIButton(type: .system)
+        let contaceButtonView = UIButton(type: .system)
         
         let rightImage = #imageLiteral(resourceName: "home_contavt")
         contaceButtonView.setImage(rightImage, for: .normal)
         contaceButtonView.addTarget(self, action: #selector(self.onTouchContact), for: .touchUpInside)
-
+        
         var contaceBarButtonItem = UIBarButtonItem(customView: contaceButtonView)
         contaceBarButtonItem = UIBarButtonItem(image: rightImage, style: .plain, target: self, action: #selector(self.onTouchContact))
         self.navigationItem.rightBarButtonItem = contaceBarButtonItem
@@ -86,7 +67,7 @@ class GroupTourViewController: BaseViewController {
         let leftImage = #imageLiteral(resourceName: "home_menu")
         menuButtonView.setImage(leftImage, for: .normal)
         menuButtonView.addTarget(self, action: #selector(self.onTouchMenu), for: .touchUpInside)
-
+        
         var menuBarButtonItem = UIBarButtonItem(customView: menuButtonView)
         menuBarButtonItem = UIBarButtonItem(image: leftImage, style: .plain, target: self, action: #selector(self.onTouchMenu))
         
@@ -97,6 +78,7 @@ class GroupTourViewController: BaseViewController {
     @IBAction func screenEdge(_ sender: UIScreenEdgePanGestureRecognizer) {
         switch sender.edges {
         case .left:
+            // 沒加 下面這行會一直 presentVC 會報錯
             if self.presentedViewController?.restorationIdentifier == "GroupSliderViewController" {return}
             onTouchMenu()
         default:
@@ -105,6 +87,7 @@ class GroupTourViewController: BaseViewController {
     }
     
     @objc func onTouchMenu() {
+        
         let vc = getVC(st: "GroupTour", vc: "GroupSliderViewController") as! GroupSliderViewController
         vc.delegate = self
         vc.modalPresentationStyle = .overCurrentContext
@@ -116,38 +99,42 @@ class GroupTourViewController: BaseViewController {
     @objc func onTouchContact (){
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
-        alert.addAction(UIAlertAction(title: "改善建議" , style: .default, handler: { (_) in
+        alert.addAction(UIAlertAction(title: "留言客服" , style: .default, handler: { (_) in
             self.onPopContactVC()
         }))
-        alert.addAction(UIAlertAction(title: "聯絡客服" , style: .default, handler: { (_) in
-            self.onPopContactVC()
-        }))
+        
         alert.addAction(UIAlertAction(title: "取消", style: .destructive))
-
+        
         self.present(alert, animated: true)
     }
     
     private func setSearchGes(){
         let ges = UITapGestureRecognizer(target: self, action: #selector(onTouchSearch))
-        self.groupSearchView.addGestureRecognizer(ges)
-        self.groupSearchView.isUserInteractionEnabled = true
+        self.airSearchView.addGestureRecognizer(ges)
+        self.airSearchView.isUserInteractionEnabled = true
     }
     
-    private func onPopContactVC(){
+    private func onPopContactVC() {
         ()
     }
-    
     @objc private func onTouchSearch(){
         ()
     }
 }
-extension GroupTourViewController: GroupSliderViewControllerProtocol {
+
+extension AirTicketViewController: GroupSliderViewControllerProtocol {
     func onTouchData(serverData: ServerData) {
         self.handleLinkType(linkType: serverData.linkType, linkValue: serverData.linkValue, linkText: nil)
     }
-    
 }
-extension GroupTourViewController: UIViewControllerTransitioningDelegate {
+
+extension AirTicketViewController: AirTicketViewProtocol {
+    func onBindAirMenu(menu: GroupMenuResponse) {
+        self.menuList = menu
+    }
+}
+
+extension AirTicketViewController: UIViewControllerTransitioningDelegate {
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         transiton.isPresenting = true
         UIView.animate(withDuration: 0.5) {
@@ -157,31 +144,15 @@ extension GroupTourViewController: UIViewControllerTransitioningDelegate {
         
         return transiton
     }
-
+    
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         transiton.isPresenting = false
         self.tabBarController?.tabBar.isHidden = false
-        
         UIView.animate(withDuration: 0.5, animations: {
             self.grayBlurView.alpha = 0
         })
+        
         self.setTabBarType(tabBarType: .notHidden)
         return transiton
-    }
-}
-
-extension GroupTourViewController: GropeTourViewProtocol {
-    func onBindGroupMenu(menu: GroupMenuResponse) {
-        self.menuList = menu
-        
-    }
-    
-    func onBindApiTokenComplete() {
-        
-        getGroupMenu()
-        //getVersionRule()
-    }
-    func onBindVersionRule(versionRule: VersionRuleReponse.Update?) {
-        ()
     }
 }

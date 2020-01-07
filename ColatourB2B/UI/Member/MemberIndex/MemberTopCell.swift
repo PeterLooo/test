@@ -35,7 +35,7 @@ class MemberTopCell: UITableViewCell {
         reloadTopViewGradient()
     }
 
-    func setCellWith(title:String){
+    func setCellWith(title: String?){
         self.topViewTitle.text = title
     }
     

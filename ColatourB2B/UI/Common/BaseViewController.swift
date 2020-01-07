@@ -410,6 +410,7 @@ class BaseViewController: UIViewController {
     func logoutAndPopLoginVC(isAllowPaxButtonEnable: Bool = false) {
         let vc = getVC(st: "Login", vc: "LoginViewController") as! LoginViewController
         vc.modalPresentationStyle = .fullScreen
+        vc.loginSuccessDelegate = self
         self.present(vc, animated: false)
     }
 
@@ -447,7 +448,7 @@ extension BaseViewController: BaseViewProtocol {
         nav.modalPresentationStyle = .fullScreen
         nav.restorationIdentifier = "WebViewControllerNavigationController"
         self.present(nav, animated: true)
-        
+
     }
     
     func onBindAccessToken(response: AccessTokenResponse) {

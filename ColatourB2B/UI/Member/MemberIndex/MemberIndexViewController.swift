@@ -153,6 +153,7 @@ extension MemberIndexViewController: UITableViewDataSource {
         switch section {
         case .TOP_VIEW_LIST:
             cell = tableView.dequeueReusableCell(withIdentifier: "MemberTopCell") as! MemberTopCell
+            (cell as! MemberTopCell).setCellWith(title: memberIndex?.memeberName)
             (cell as! MemberTopCell).delegate = self
             
         case .SEVICE_LIST:

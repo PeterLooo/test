@@ -43,10 +43,10 @@ class GropeTourPresenter: GropeTourPresenterProtocol {
         }).disposed(by: dispose)
     }
     
-    func getGroupMenu() {
+    func getGroupMenu(toolBarType: ToolBarType) {
         self.delegate?.onStartLoadingHandle(handleType: .ignore)
         
-        groupReponsitory.getGroupMenu().subscribe(onSuccess: { (model) in
+        groupReponsitory.getGroupMenu(toolBarType: toolBarType).subscribe(onSuccess: { (model) in
             self.delegate?.onBindGroupMenu(menu: model)
             self.delegate?.onCompletedLoadingHandle()
         }, onError: { (error) in
