@@ -651,22 +651,6 @@ extension BaseViewController {
     }
 }
 
-
-
-extension BaseViewController: UISearchBarDelegate {
-    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
-        handleLinkType(linkType: .unknown, linkValue: nil, linkText: nil)
-
-        return false
-    }
-}
-
-class CustomSearchBar: UISearchBar {
-    override var intrinsicContentSize: CGSize {
-        return CGSize(width: UIView.layoutFittingExpandedSize.width, height: 56.0)
-    }
-}
-
 extension BaseViewController {
     func handleLinkType(linkType: LinkType, linkValue: String?, linkText: String?, source: String? = nil) {
         handleLinkTypePush(linkType: linkType, linkValue: linkValue, linkText: linkText, paxToken: nil, source: source)
