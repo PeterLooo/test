@@ -97,7 +97,7 @@ class AirTicketViewController: BaseViewController {
         vc.delegate = self
         vc.modalPresentationStyle = .overCurrentContext
         vc.transitioningDelegate = self
-        vc.setVC(serverList: self.menuList?.serverList ?? [])
+        vc.setVC(menuResponse: self.menuList!)
         present(vc, animated: true)
     }
     
