@@ -19,13 +19,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gbM-RZ-Z4G">
-                        <rect key="frame" x="16" y="12" width="315" height="60"/>
+                        <rect key="frame" x="16" y="29" width="315" height="60"/>
                         <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="18"/>
                         <color key="textColor" name="標題黑"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="784-Wx-CMb">
-                        <rect key="frame" x="0.0" y="84" width="347" height="17"/>
+                        <rect key="frame" x="0.0" y="0.0" width="347" height="17"/>
                         <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="17" id="1zJ-r9-0b6"/>
@@ -33,10 +33,10 @@
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="784-Wx-CMb" firstAttribute="top" secondItem="gbM-RZ-Z4G" secondAttribute="bottom" constant="12" id="53Q-dP-3bj"/>
-                    <constraint firstAttribute="bottom" secondItem="784-Wx-CMb" secondAttribute="bottom" id="C5M-NM-HQ9"/>
+                    <constraint firstItem="gbM-RZ-Z4G" firstAttribute="top" secondItem="784-Wx-CMb" secondAttribute="bottom" constant="12" id="C5M-NM-HQ9"/>
                     <constraint firstItem="gbM-RZ-Z4G" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="GRP-g3-g9E"/>
-                    <constraint firstItem="gbM-RZ-Z4G" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="XLt-mY-KEj"/>
+                    <constraint firstAttribute="bottom" secondItem="gbM-RZ-Z4G" secondAttribute="bottom" constant="12" id="Gdz-PA-iwc"/>
+                    <constraint firstItem="784-Wx-CMb" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="L0N-BH-3NW"/>
                     <constraint firstAttribute="trailing" secondItem="gbM-RZ-Z4G" secondAttribute="trailing" constant="16" id="dY6-h4-0oI"/>
                     <constraint firstItem="784-Wx-CMb" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="hnV-jl-emr"/>
                     <constraint firstAttribute="trailing" secondItem="784-Wx-CMb" secondAttribute="trailing" id="xbq-DX-13v"/>
@@ -46,7 +46,8 @@
             <connections>
                 <outlet property="bottomViewHeight" destination="1zJ-r9-0b6" id="hUO-0K-c9X"/>
                 <outlet property="serverTitle" destination="gbM-RZ-Z4G" id="77y-Wk-bh8"/>
-                <outlet property="titleTopConstraint" destination="XLt-mY-KEj" id="eOk-yt-T3k"/>
+                <outlet property="titleBottomConstraint" destination="Gdz-PA-iwc" id="Ze6-kx-0Gy"/>
+                <outlet property="titleTopConstraint" destination="C5M-NM-HQ9" id="ltK-rf-6MT"/>
             </connections>
             <point key="canvasLocation" x="157.24637681159422" y="130.91517857142856"/>
         </tableViewCell>
