@@ -137,9 +137,6 @@ extension AirTicketViewController: AirTicketViewProtocol {
 extension AirTicketViewController: UIViewControllerTransitioningDelegate {
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         transiton.isPresenting = true
-        UIView.animate(withDuration: 0.5) {
-            self.grayBlurView.alpha = 1
-        }
         self.tabBarController?.tabBar.isHidden = true
         
         return transiton
@@ -147,12 +144,8 @@ extension AirTicketViewController: UIViewControllerTransitioningDelegate {
     
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         transiton.isPresenting = false
-        self.tabBarController?.tabBar.isHidden = false
-        UIView.animate(withDuration: 0.5, animations: {
-            self.grayBlurView.alpha = 0
-        })
         
-        self.setTabBarType(tabBarType: .notHidden)
+        self.tabBarController?.tabBar.isHidden = false
         return transiton
     }
 }

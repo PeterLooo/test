@@ -147,9 +147,7 @@ extension GroupTourViewController: GroupSliderViewControllerProtocol {
 extension GroupTourViewController: UIViewControllerTransitioningDelegate {
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         transiton.isPresenting = true
-        UIView.animate(withDuration: 0.5) {
-            self.grayBlurView.alpha = 1
-        }
+        
         self.tabBarController?.tabBar.isHidden = true
         
         return transiton
@@ -159,10 +157,6 @@ extension GroupTourViewController: UIViewControllerTransitioningDelegate {
         transiton.isPresenting = false
         self.tabBarController?.tabBar.isHidden = false
         
-        UIView.animate(withDuration: 0.5, animations: {
-            self.grayBlurView.alpha = 0
-        })
-        self.setTabBarType(tabBarType: .notHidden)
         return transiton
     }
 }

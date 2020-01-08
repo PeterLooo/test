@@ -77,31 +77,23 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nWS-8B-YAb">
-                                <rect key="frame" x="0.0" y="44" width="311" height="852"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="yXt-yi-LcQ" id="JJw-51-em1"/>
                                     <outlet property="delegate" destination="yXt-yi-LcQ" id="hi1-2V-z2I"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="47v-xA-WJF">
-                                <rect key="frame" x="311" y="44" width="103" height="818"/>
-                            </view>
                         </subviews>
                         <constraints>
                             <constraint firstItem="nWS-8B-YAb" firstAttribute="leading" secondItem="4PG-T3-CAI" secondAttribute="leading" id="G3H-4h-klV"/>
-                            <constraint firstItem="47v-xA-WJF" firstAttribute="top" secondItem="4PG-T3-CAI" secondAttribute="top" id="S9S-5I-acP"/>
-                            <constraint firstItem="4PG-T3-CAI" firstAttribute="trailing" secondItem="nWS-8B-YAb" secondAttribute="trailing" constant="103" id="YIY-xZ-39f"/>
-                            <constraint firstItem="47v-xA-WJF" firstAttribute="trailing" secondItem="4PG-T3-CAI" secondAttribute="trailing" id="lpz-VO-SDg"/>
+                            <constraint firstItem="4PG-T3-CAI" firstAttribute="trailing" secondItem="nWS-8B-YAb" secondAttribute="trailing" id="YIY-xZ-39f"/>
                             <constraint firstAttribute="bottom" secondItem="nWS-8B-YAb" secondAttribute="bottom" id="nZd-d9-tBn"/>
                             <constraint firstItem="nWS-8B-YAb" firstAttribute="top" secondItem="4PG-T3-CAI" secondAttribute="top" id="qOf-3b-vDS"/>
-                            <constraint firstItem="47v-xA-WJF" firstAttribute="leading" secondItem="nWS-8B-YAb" secondAttribute="trailing" id="s8P-4H-Gda"/>
-                            <constraint firstItem="4PG-T3-CAI" firstAttribute="bottom" secondItem="47v-xA-WJF" secondAttribute="bottom" id="uUK-mq-HlQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4PG-T3-CAI"/>
                     </view>
                     <connections>
-                        <outlet property="gesView" destination="47v-xA-WJF" id="EEF-D3-3Nc"/>
                         <outlet property="tableView" destination="nWS-8B-YAb" id="oPf-Kz-Ql8"/>
                     </connections>
                 </viewController>
