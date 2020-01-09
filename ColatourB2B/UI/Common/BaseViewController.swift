@@ -205,7 +205,7 @@ class BaseViewController: UIViewController {
     private var navAlpha: CGFloat = 1.0
 
     private var navTitle: String = ""
-    private var navTitleColor: UIColor = UIColor.init(named: "通用綠")!
+    private var navTitleColor: UIColor = UIColor.init(named: "標題黑")!
     
     private var nilButton: UIBarButtonItem?
     
@@ -440,15 +440,14 @@ extension BaseViewController: MemberLoginOnTouchNavCloseProtocol {
     }
 }
 extension BaseViewController: BaseViewProtocol {
-    func onBindAccessWebUrl(url: String) {
+    func onBindAccessWebUrl(url: String, title: String) {
         let vc = getVC(st: "Common", vc: "WebViewController") as! WebViewController
-        vc.setVCwith(url: url, title: "")
+        vc.setVCwith(url: url, title: title)
         vc.setDismissButton()
         let nav = UINavigationController(rootViewController: vc)
         nav.modalPresentationStyle = .fullScreen
         nav.restorationIdentifier = "WebViewControllerNavigationController"
         self.present(nav, animated: true)
-
     }
     
     func onBindAccessToken(response: AccessTokenResponse) {
@@ -693,7 +692,7 @@ extension BaseViewController {
         
         case .getApiUrl:
             
-            self.basePresenter?.getAccessWebUrl(webUrl: linkValue!)
+            self.basePresenter?.getAccessWebUrl(webUrl: linkValue!, title: linkText ?? "")
             
         case .passwordReset:
             

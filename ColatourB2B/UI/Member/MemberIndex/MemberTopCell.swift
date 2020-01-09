@@ -15,6 +15,7 @@ class MemberTopCell: UITableViewCell {
     @IBOutlet weak var logout: UIButton!
     @IBOutlet weak var topViewTitle: UILabel!
     @IBOutlet weak var topViewBackgroundView: UIView!
+    @IBOutlet weak var iconTopConstraint: NSLayoutConstraint!
     
     weak var delegate: MemberTopCellProtocol?
     
@@ -23,6 +24,8 @@ class MemberTopCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         logout.setBorder(width: 0.8, radius: 14, color: UIColor.white)
+        let defaultTopConstraints: CGFloat = 52
+        iconTopConstraint.constant = defaultTopConstraints + statusBarHeight
     }
     
     override func layoutIfNeeded() {

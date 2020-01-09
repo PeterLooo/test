@@ -250,7 +250,6 @@
 		00BEF28893EA23CD1FFC87FB /* Pods_ColatourB2BDev.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ColatourB2BDev.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		163FEF6363ACF8456B6B3D9F /* Pods-ColatourB2B.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ColatourB2B.release.xcconfig"; path = "Pods/Target Support Files/Pods-ColatourB2B/Pods-ColatourB2B.release.xcconfig"; sourceTree = "<group>"; };
 		2AF496B023AB79810053EA45 /* ColatourB2BDev.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ColatourB2BDev.entitlements; sourceTree = "<group>"; };
-		2AF496B123AB79B50053EA45 /* ColatourB2B.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ColatourB2B.entitlements; sourceTree = "<group>"; };
 		2AF496B323AB7EA50053EA45 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2AF496B523AB7EBB0053EA45 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3817E4F323A33C8400ED8609 /* ColatourB2B.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColatourB2B.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -276,6 +275,7 @@
 		385B54F323BDC3A400BE1476 /* NotificationTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTableView.swift; sourceTree = "<group>"; };
 		385B54F623BDC4C800BE1476 /* NotificationItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationItemCell.swift; sourceTree = "<group>"; };
 		385B54F723BDC4C800BE1476 /* NotificationItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationItemCell.xib; sourceTree = "<group>"; };
+		384B110823C32BF3000E2B41 /* ColatourB2B.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ColatourB2B.entitlements; sourceTree = "<group>"; };
 		3869542723BADBFC00F6E7D9 /* MemberIndexProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberIndexProtocol.swift; sourceTree = "<group>"; };
 		3869542A23BADC0F00F6E7D9 /* MemberIndexPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberIndexPresenter.swift; sourceTree = "<group>"; };
 		3869542D23BADC9000F6E7D9 /* MemberIndexResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberIndexResponse.swift; sourceTree = "<group>"; };
@@ -442,7 +442,6 @@
 		3817E4EA23A33C8400ED8609 = {
 			isa = PBXGroup;
 			children = (
-				2AF496B123AB79B50053EA45 /* ColatourB2B.entitlements */,
 				2AF496B023AB79810053EA45 /* ColatourB2BDev.entitlements */,
 				38BCDA2023A3713900D59910 /* ColatourB2B-Bridging-Header.h */,
 				3817E4F523A33C8400ED8609 /* ColatourB2B */,
@@ -470,6 +469,7 @@
 		3817E4F523A33C8400ED8609 /* ColatourB2B */ = {
 			isa = PBXGroup;
 			children = (
+				384B110823C32BF3000E2B41 /* ColatourB2B.entitlements */,
 				38BCDA1423A3689500D59910 /* ColorDef.swift */,
 				2AF496B223AB7DCD0053EA45 /* ColatourB2BProd */,
 				2AF496AD23AB6D580053EA45 /* ColatourB2BDev */,
@@ -910,6 +910,11 @@
 				TargetAttributes = {
 					3817E4F223A33C8400ED8609 = {
 						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					3817E50623A33C8500ED8609 = {
 						CreatedOnToolsVersion = 10.1;

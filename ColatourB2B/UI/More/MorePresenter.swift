@@ -24,7 +24,8 @@ class MorePresenter: MorePresenterProtocol {
         groupRepository
             .getGroupMenu(toolBarType: .other)
             .subscribe(onSuccess: { model in
-                self.delegate?.onBindOtherToolBarList(toolBarList: model.serverList)
+                let serverList = model.serverList.flatMap{($0)}
+                self.delegate?.onBindOtherToolBarList(toolBarList: serverList)
                 self.delegate?.onCompletedLoadingHandle()
             }, onError: { error in
                 self.delegate?.onApiErrorHandle(apiError: error as! APIError, handleType: .coverPlate)
