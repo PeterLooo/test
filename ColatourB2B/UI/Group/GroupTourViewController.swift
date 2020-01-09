@@ -109,7 +109,8 @@ class GroupTourViewController: BaseViewController {
         vc.delegate = self
         vc.modalPresentationStyle = .overCurrentContext
         vc.transitioningDelegate = self
-        vc.setVC(serverList: self.menuList?.serverList ?? [])
+        
+        vc.setVC(menuResponse: self.menuList!)
         present(vc, animated: true)
     }
     
@@ -119,10 +120,10 @@ class GroupTourViewController: BaseViewController {
         alert.addAction(UIAlertAction(title: "改善建議" , style: .default, handler: { (_) in
             self.onPopContactVC()
         }))
-        alert.addAction(UIAlertAction(title: "聯絡客服" , style: .default, handler: { (_) in
+        alert.addAction(UIAlertAction(title: "聯絡業務" , style: .default, handler: { (_) in
             self.onPopContactVC()
         }))
-        alert.addAction(UIAlertAction(title: "取消", style: .destructive))
+        alert.addAction(UIAlertAction(title: "取消", style: .cancel))
 
         self.present(alert, animated: true)
     }
@@ -143,7 +144,7 @@ class GroupTourViewController: BaseViewController {
 }
 extension GroupTourViewController: GroupSliderViewControllerProtocol {
     func onTouchData(serverData: ServerData) {
-        self.handleLinkType(linkType: serverData.linkType, linkValue: serverData.linkValue, linkText: nil)
+        self.handleLinkType(linkType: serverData.linkType, linkValue: serverData.linkValue, linkText: serverData.linkName ?? "")
     }
     
 }
@@ -172,6 +173,7 @@ extension GroupTourViewController: UIViewControllerTransitioningDelegate {
 
 extension GroupTourViewController: GropeTourViewProtocol {
     func onBindGroupMenu(menu: GroupMenuResponse) {
+        
         self.menuList = menu
         
     }

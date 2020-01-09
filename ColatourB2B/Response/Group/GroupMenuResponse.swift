@@ -10,26 +10,15 @@ import UIKit
 import ObjectMapper
 class GroupMenuResponse: BaseModel {
     
-    var contactList : [ServerData] = []
-    var serverList : [ServerData] = []
+    var serverList : [[ServerData]] = []
     
     override func mapping(map: Map) {
         super.mapping(map: map)
-        contactList <- map["Contact_List"]
-        serverList <- map["ToolBar_List"]
-        
-    }
     
-    class ServerItem : BaseModel {
-        
-        var itemDataList : [ServerData] = []
-        
-        override func mapping(map: Map) {
-            super.mapping(map: map)
-            itemDataList <- map["Server_List"]
-        }
+        serverList <- map["ToolBar_List"]
     }
 }
+
 class ServerData: BaseModel {
     
     var linkType : LinkType!

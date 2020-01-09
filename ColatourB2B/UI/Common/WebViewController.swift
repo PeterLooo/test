@@ -25,7 +25,7 @@ class WebViewController: BaseViewController, UIGestureRecognizerDelegate {
         
         let preferences = WKPreferences()
         preferences.javaScriptEnabled = true
-        preferences.javaScriptCanOpenWindowsAutomatically = false
+        preferences.javaScriptCanOpenWindowsAutomatically = true
         let configuration = WKWebViewConfiguration()
         configuration.preferences = preferences
         
@@ -37,7 +37,7 @@ class WebViewController: BaseViewController, UIGestureRecognizerDelegate {
             webView.topAnchor.constraint(equalTo: topAnchor),
             webView.leadingAnchor.constraint(equalTo: leadingAnchor),
             webView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            webView.bottomAnchor.constraint(equalTo: bottomAnchor)
+            webView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
             
             ])
         
@@ -68,19 +68,16 @@ class WebViewController: BaseViewController, UIGestureRecognizerDelegate {
     
     func setNavigationItem(){
         
-        let browserImage = #imageLiteral(resourceName: "open_in_browser_purple_ios").withRenderingMode(.alwaysOriginal)
         let backImage = #imageLiteral(resourceName: "arrow_back_purple").withRenderingMode(.alwaysOriginal)
         let nextImage = #imageLiteral(resourceName: "arrow_next_purple").withRenderingMode(.alwaysOriginal)
         let closeImage = #imageLiteral(resourceName: "close").withRenderingMode(.alwaysOriginal)
         
         let back = UIBarButtonItem.init(image: backImage, style: .plain, target: self, action: #selector(self.goBack))
         let forward = UIBarButtonItem.init(image: nextImage, style: .plain, target: self, action: #selector(self.goForward))
-        let browser = UIBarButtonItem.init(image: browserImage, style: .plain, target: self, action: #selector(self.openBrowser))
         let close = UIBarButtonItem.init(image: closeImage, style: .plain, target: self, action: #selector(self.popView))
         if #available(iOS 11, *) {
             back.imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
             forward.imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 10)
-            browser.imageInsets = UIEdgeInsets(top: 0, left: 20, bottom: 20, right: 0)
             close.imageInsets = UIEdgeInsets(top: 1, left: 0, bottom: 0, right: 0)
         }
         if self.webView.canGoBack == true{
@@ -100,7 +97,7 @@ class WebViewController: BaseViewController, UIGestureRecognizerDelegate {
         }
         
         self.navigationItem.leftBarButtonItems = [back,forward]
-        self.navigationItem.rightBarButtonItems = [close,browser]
+        self.navigationItem.rightBarButtonItems = [close]
         self.setNavTitle(title: webViewTitle)
     }
     
@@ -112,12 +109,6 @@ class WebViewController: BaseViewController, UIGestureRecognizerDelegate {
     func setDismissButton(){
         navLeftButtonType = .defaultType
         isNeedToDimiss = true
-    }
-    
-    @objc func openBrowser(){
-        if let browserUrl = URL(string: url!) {
-            UIApplication.shared.open(browserUrl, options: [:], completionHandler: nil)
-        }
     }
     
     @objc func goBack(){
@@ -223,8 +214,18 @@ extension WebViewController : WKUIDelegate {
         if navigationAction.targetFrame == nil {
             let url = navigationAction.request.url
             if let url = url {
-                let request = URLRequest(url:url, cachePolicy: .reloadIgnoringLocalAndRemoteCacheData, timeoutInterval: 30)
-                webView.load(request)
+                let request = URLRequest(url:url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 30)
+                
+                let newWebView = WKWebView(frame: webView.frame, configuration: configuration)
+                newWebView.load(request)
+                newWebView.uiDelegate = self
+                newWebView.navigationDelegate = self
+                
+                let vc = BaseViewController()
+                vc.view.addSubview(newWebView)
+                navigationController?.pushViewController(vc, animated: true)
+                
+                return newWebView
             }
         }
         return nil
