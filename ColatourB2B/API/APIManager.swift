@@ -227,6 +227,12 @@ extension APIManager {
     func getGroupMenu(toolBarType: ToolBarType)-> Single<[String:Any]> {
         return manager(method: .get, appendUrl: "", url: toolBarType.getApiUrl(), parameters: nil, appendHeaders: nil)
     }
+    
+    func getNoticeDetail(noticeNo: String) -> Single<[String:Any]> {
+        let parameters = ["Noti_No": noticeNo]
+        //Note: 待API提供正確路徑
+        return manager(method: .post, appendUrl: "", url: APIUrl.memberApi(type: .noticeDetail), parameters: parameters, appendHeaders: nil)
+    }
 }
 
 extension APIManager {
