@@ -78,6 +78,6 @@ extension MoreViewController: UITableViewDataSource {
 
 extension MoreViewController: MemberIndexServiceCellProtocol {
     func onTouchServer(server: ServerData) {
-        handleLinkType(linkType: server.linkType, linkValue: server.linkValue, linkText: nil)
+        self.handleLinkType(linkType: server.linkType, linkValue: server.linkValue, linkText: server.linkName ?? "")
     }
 }
