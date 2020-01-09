@@ -25,6 +25,8 @@
 		381B12B023C465AE0030BACE /* AirTicketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381B12AE23C465AE0030BACE /* AirTicketViewController.swift */; };
 		381B12B223C466370030BACE /* NoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381B12B123C466370030BACE /* NoticeViewController.swift */; };
 		381B12B323C466370030BACE /* NoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381B12B123C466370030BACE /* NoticeViewController.swift */; };
+		382ADF1923C5D02C00E886B4 /* NotificationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382ADF1823C5D02C00E886B4 /* NotificationResponse.swift */; };
+		382ADF1A23C5D02C00E886B4 /* NotificationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382ADF1823C5D02C00E886B4 /* NotificationResponse.swift */; };
 		382EF48323BEF93A0002BAB0 /* GroupReponsitory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382EF48223BEF93A0002BAB0 /* GroupReponsitory.swift */; };
 		382EF48423BEF93A0002BAB0 /* GroupReponsitory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382EF48223BEF93A0002BAB0 /* GroupReponsitory.swift */; };
 		384B110323C2BD33000E2B41 /* AirTicketProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384B110223C2BD33000E2B41 /* AirTicketProtocol.swift */; };
@@ -267,6 +269,7 @@
 		381B12AB23C465950030BACE /* MoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
 		381B12AE23C465AE0030BACE /* AirTicketViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirTicketViewController.swift; sourceTree = "<group>"; };
 		381B12B123C466370030BACE /* NoticeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeViewController.swift; sourceTree = "<group>"; };
+		382ADF1823C5D02C00E886B4 /* NotificationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationResponse.swift; sourceTree = "<group>"; };
 		382EF48223BEF93A0002BAB0 /* GroupReponsitory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupReponsitory.swift; sourceTree = "<group>"; };
 		384B110223C2BD33000E2B41 /* AirTicketProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirTicketProtocol.swift; sourceTree = "<group>"; };
 		384B110523C2BD46000E2B41 /* AirTicketPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirTicketPresenter.swift; sourceTree = "<group>"; };
@@ -505,6 +508,14 @@
 			path = ColatourB2BUITests;
 			sourceTree = "<group>";
 		};
+		382ADF1723C5CF2A00E886B4 /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				382ADF1823C5D02C00E886B4 /* NotificationResponse.swift */,
+			);
+			path = Notification;
+			sourceTree = "<group>";
+		};
 		3833F41C23B9EA7A003B26EF /* Member */ = {
 			isa = PBXGroup;
 			children = (
@@ -727,6 +738,7 @@
 		38BCDA3123A37FDA00D59910 /* Response */ = {
 			isa = PBXGroup;
 			children = (
+				382ADF1723C5CF2A00E886B4 /* Notification */,
 				3833F41D23B9EA96003B26EF /* Group */,
 				3833F41C23B9EA7A003B26EF /* Member */,
 				38BCD9CF23A3652200D59910 /* VerifyModel.swift */,
@@ -1193,6 +1205,7 @@
 				3869542E23BADC9000F6E7D9 /* MemberIndexResponse.swift in Sources */,
 				38E9922123B04F1400E28271 /* VersionRuleReponse.swift in Sources */,
 				38BCD93523A345FA00D59910 /* GTMBase64.m in Sources */,
+				382ADF1923C5D02C00E886B4 /* NotificationResponse.swift in Sources */,
 				38BCD9D723A366EC00D59910 /* TabBarViewController.swift in Sources */,
 				38BCD98D23A3484300D59910 /* ShareFunc.swift in Sources */,
 				384B110323C2BD33000E2B41 /* AirTicketProtocol.swift in Sources */,
@@ -1300,6 +1313,7 @@
 				3869542F23BADC9000F6E7D9 /* MemberIndexResponse.swift in Sources */,
 				38E9922223B04F1400E28271 /* VersionRuleReponse.swift in Sources */,
 				38BCD93623A345FA00D59910 /* GTMBase64.m in Sources */,
+				382ADF1A23C5D02C00E886B4 /* NotificationResponse.swift in Sources */,
 				38BCD9D823A366EC00D59910 /* TabBarViewController.swift in Sources */,
 				38BCD98E23A3484300D59910 /* ShareFunc.swift in Sources */,
 				384B110423C2BD33000E2B41 /* AirTicketProtocol.swift in Sources */,
