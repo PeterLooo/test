@@ -8,12 +8,16 @@
 
 import UIKit
 protocol NotificationItemCellProtocol: NSObjectProtocol {
-    func onTouchItem()
+    func onTouchItem(item: NotificationResponse.Item)
 }
 class NotificationItemCell: UITableViewCell {
 
     weak var delegate: NotificationItemCellProtocol?
     @IBOutlet weak var unReadView: UIView!
+    @IBOutlet weak var notiTitle: UILabel!
+    @IBOutlet weak var notiContent: UILabel!
+    
+    private var item: NotificationResponse.Item?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -22,8 +26,16 @@ class NotificationItemCell: UITableViewCell {
         self.isUserInteractionEnabled = true
     }
     
+    func setCell(item: NotificationResponse.Item) {
+        self.item = item
+        self.notiTitle.text = item.notiTitle
+        self.notiContent.text = item.remark
+        self.unReadView.backgroundColor = item.unreadMark != false ? UIColor.init(named: "通用綠") : UIColor.white
+        
+    }
+    
     @objc func onTouchItem(){
         unReadView.backgroundColor = UIColor.white
-        self.delegate?.onTouchItem()
+        self.delegate?.onTouchItem(item: self.item!)
     }
 }

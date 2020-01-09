@@ -9,7 +9,7 @@
 import UIKit
 
 class NoticeViewController: BaseViewController {
-
+    
     @IBOutlet weak var topButtonView: UIView!
     @IBOutlet weak var topOrderButton: UIButton!
     @IBOutlet weak var topMessageButton: UIButton!
@@ -19,20 +19,37 @@ class NoticeViewController: BaseViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var stackView: UIStackView!
     
+    private var notificationResponse: NotificationResponse?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setIsNavShadowEnable(false)
         setNavTitle(title: "通知")
-        setTableView()
         switchPageButton(toPage: 0)
+        
+        let api = AppHelper.shared.getJson(forResource: "Group")
+        api.map{ NotificationResponse(JSON: $0)! }.subscribe(onSuccess: { (model) in
+            self.notificationResponse = model
+            self.setTableView()
+        })
+        
     }
     
     private func setTableView() {
         stackView.subviews.forEach({$0.removeFromSuperview()})
         for i in 0...2 {
             let view = NotificationTableView()
-            view.setViewWith(productTraceList: [], tag:i)
+            switch i {
+            case 0:
+                view.setViewWith(itemList: self.notificationResponse!.order)
+            case 1:
+                view.setViewWith(itemList: self.notificationResponse!.message)
+            case 2:
+                view.setViewWith(itemList: self.notificationResponse!.news)
+            default:
+                break
+            }
             view.delegate = self
             stackView.addArrangedSubview(view)
         }
@@ -96,9 +113,10 @@ class NoticeViewController: BaseViewController {
     }
 }
 extension NoticeViewController: NotificationTableViewProtocol {
-    func onTouchNoti(tag: Int) {
-        print(tag)
+    func onTouchNoti(item: NotificationResponse.Item) {
+        handleLinkType(linkType: item.linkType!, linkValue: item.linkValue, linkText: nil)
     }
+
 }
 extension NoticeViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -110,7 +128,7 @@ extension NoticeViewController: UIScrollViewDelegate {
         let percent = nowOffsetX / (wholeWidth / 3.0)
         scrollTopPageButtonBottomLine(percent: percent)
         switchPageButton(toPage: lround(Double(percent)))
-    
+        
     }
     
 }

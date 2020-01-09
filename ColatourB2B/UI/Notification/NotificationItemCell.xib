@@ -46,7 +46,6 @@
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IUJ-Fx-tA2">
                         <rect key="frame" x="8" y="16" width="10" height="10"/>
-                        <color key="backgroundColor" name="通用綠"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="10" id="7MW-CC-NGK"/>
                             <constraint firstAttribute="height" constant="10" id="qXC-on-HDv"/>
@@ -77,6 +76,8 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="notiContent" destination="aie-2A-sXs" id="sZn-C8-dXn"/>
+                <outlet property="notiTitle" destination="Rvc-as-Hn7" id="ELQ-QV-65Q"/>
                 <outlet property="unReadView" destination="IUJ-Fx-tA2" id="ZNN-zI-2RX"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="154.6875"/>
@@ -86,9 +87,6 @@
         <image name="arrow_next_gray" width="9" height="17"/>
         <namedColor name="底線灰">
             <color red="0.83921568627450982" green="0.83921568627450982" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="通用綠">
-            <color red="0.098039215686274508" green="0.74901960784313726" blue="0.3843137254901961" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

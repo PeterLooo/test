@@ -8,13 +8,14 @@
 
 import UIKit
 protocol NotificationTableViewProtocol: NSObjectProtocol {
-    func onTouchNoti(tag: Int)
+    func onTouchNoti(item: NotificationResponse.Item)
 }
 class NotificationTableView: UIView {
     
     private var cellsHeight: [IndexPath : CGFloat] = [:]
     
     weak var delegate : NotificationTableViewProtocol?
+    private var itemList: [NotificationResponse.Item] = []
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -28,7 +29,7 @@ class NotificationTableView: UIView {
         setUp()
     }
     
-    private lazy var tableViewTrace: UITableView = {
+    private lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.separatorStyle = .none
@@ -43,28 +44,29 @@ class NotificationTableView: UIView {
     
     fileprivate func setUp(){
         
-        self.addSubview(tableViewTrace)
+        self.addSubview(tableView)
         
         NSLayoutConstraint.activate([
-            tableViewTrace.topAnchor.constraint(equalTo: topAnchor, constant: 0),
-            tableViewTrace.widthAnchor.constraint(equalToConstant: screenWidth),
-            tableViewTrace.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0),
-            tableViewTrace.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0),
-            tableViewTrace.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0)
+            tableView.topAnchor.constraint(equalTo: topAnchor, constant: 0),
+            tableView.widthAnchor.constraint(equalToConstant: screenWidth),
+            tableView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0),
+            tableView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0),
+            tableView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0)
         ])
     }
     
-    func setViewWith(productTraceList: [Any], tag:Int){
-        self.tag = tag
+    func setViewWith(itemList: [NotificationResponse.Item]){
+        self.itemList = itemList
         
-        tableViewTrace.reloadData()
+        tableView.reloadData()
     }
 }
 
 extension NotificationTableView : NotificationItemCellProtocol {
-    func onTouchItem() {
-        self.delegate?.onTouchNoti(tag: self.tag)
+    func onTouchItem(item: NotificationResponse.Item) {
+        self.delegate?.onTouchNoti(item: item)
     }
+    
 }
 
 extension NotificationTableView : UITableViewDelegate {
@@ -78,11 +80,12 @@ extension NotificationTableView : UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return self.itemList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "NotificationItemCell", for: indexPath) as! NotificationItemCell
+        cell.setCell(item: itemList[indexPath.row])
         cell.delegate = self
         return cell
     }
