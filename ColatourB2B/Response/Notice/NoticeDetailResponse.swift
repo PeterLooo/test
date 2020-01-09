@@ -19,7 +19,7 @@ class NoticeDetailResponse: BaseModel {
     }
     
     class NoticeDetail: BaseModel {
-        var messageTime: String?
+        var messageDate: String?
         var orderNo: String?
         var groupNo: String?
         var sendUser: String?
@@ -28,7 +28,7 @@ class NoticeDetailResponse: BaseModel {
         override func mapping(map: Map) {
             super.mapping(map: map)
             
-            messageTime <- map["Message_Time"]
+            messageDate <- map["Message_Date"]
             orderNo <- map["Order_No"]
             groupNo <- map["Group_No"]
             sendUser <- map["Send_User"]
