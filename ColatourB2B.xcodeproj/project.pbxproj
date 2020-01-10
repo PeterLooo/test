@@ -222,6 +222,8 @@
 		C74FC80223C5AEE100E2250D /* NoticeDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C74FC80023C5AEE100E2250D /* NoticeDetail.storyboard */; };
 		C74FC80423C5AF0E00E2250D /* NoticeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74FC80323C5AF0E00E2250D /* NoticeDetailViewController.swift */; };
 		C74FC80523C5AF0E00E2250D /* NoticeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74FC80323C5AF0E00E2250D /* NoticeDetailViewController.swift */; };
+		C77994DE23C867BE00E497B3 /* NoticeDetailInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C41C3C23C724C100F97057 /* NoticeDetailInfoCell.swift */; };
+		C77994DF23C867BF00E497B3 /* NoticeDetailInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C41C3C23C724C100F97057 /* NoticeDetailInfoCell.swift */; };
 		C7BBF4BB23C7040900023307 /* NoticeDetailProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BBF4BA23C7040900023307 /* NoticeDetailProtocol.swift */; };
 		C7BBF4BC23C7040900023307 /* NoticeDetailProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BBF4BA23C7040900023307 /* NoticeDetailProtocol.swift */; };
 		C7BBF4BE23C7042200023307 /* NoticeDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BBF4BD23C7042200023307 /* NoticeDetailPresenter.swift */; };
@@ -1251,6 +1253,7 @@
 				38BCD9D723A366EC00D59910 /* TabBarViewController.swift in Sources */,
 				38BCD98D23A3484300D59910 /* ShareFunc.swift in Sources */,
 				384B110323C2BD33000E2B41 /* AirTicketProtocol.swift in Sources */,
+				C77994DE23C867BE00E497B3 /* NoticeDetailInfoCell.swift in Sources */,
 				387FBF0F23ACCEF4005412F1 /* LoginViewController.swift in Sources */,
 				38BCD93323A345FA00D59910 /* FormatUtil.swift in Sources */,
 				3869543223BAE5F500F6E7D9 /* MemberTopCell.swift in Sources */,
@@ -1362,6 +1365,7 @@
 				38BCD9D823A366EC00D59910 /* TabBarViewController.swift in Sources */,
 				38BCD98E23A3484300D59910 /* ShareFunc.swift in Sources */,
 				384B110423C2BD33000E2B41 /* AirTicketProtocol.swift in Sources */,
+				C77994DF23C867BF00E497B3 /* NoticeDetailInfoCell.swift in Sources */,
 				387FBF1023ACCEF4005412F1 /* LoginViewController.swift in Sources */,
 				38BCD93423A345FA00D59910 /* FormatUtil.swift in Sources */,
 				3869543323BAE5F500F6E7D9 /* MemberTopCell.swift in Sources */,
