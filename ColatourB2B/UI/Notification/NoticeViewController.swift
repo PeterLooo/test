@@ -33,7 +33,6 @@ class NoticeViewController: BaseViewController {
         setIsNavShadowEnable(false)
         setNavTitle(title: "通知")
         switchPageButton(toPage: 0)
-        stackView.subviews.forEach({$0.removeFromSuperview()})
         
         loadData()
     }
@@ -44,7 +43,7 @@ class NoticeViewController: BaseViewController {
     }
     
     private func setTableView() {
-        
+        stackView.subviews.forEach({$0.removeFromSuperview()})
         for i in 0...2 {
             let view = NotificationTableView()
             switch i {
