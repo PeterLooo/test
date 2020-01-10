@@ -66,11 +66,15 @@ class LoginViewController: BaseViewController {
                    self.presenter?.login(requset: request)
         }
     }
+    
     @IBAction func onTouchRegister(_ sender: Any) {
+        handleLinkType(linkType: .openBrowser, linkValue: "https://b2b.colatour.com.tw/R01B_Member/R01B_01_Register.aspx", linkText: nil)
     }
     
     @IBAction func onTouchForgetPassword(_ sender: Any) {
+         handleLinkType(linkType: .openBrowser, linkValue: "https://b2b.colatour.com.tw/R01B_Member/R01B_03_QueryPW.aspx", linkText: nil)
     }
+    
     @IBAction func onTouchEyes(_ sender: BooleanButton) {
         password.isSecureTextEntry = sender.isSelect
     }
