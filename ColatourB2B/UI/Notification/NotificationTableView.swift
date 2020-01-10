@@ -38,7 +38,7 @@ class NotificationTableView: UIView {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: "NotificationItemCell", bundle: nil), forCellReuseIdentifier: "NotificationItemCell")
-        
+        tableView.backgroundColor = UIColor.init(named: "背景灰")
         return tableView
     }()
     

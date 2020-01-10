@@ -137,7 +137,7 @@
                                 </connections>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" name="背景灰"/>
                         <constraints>
                             <constraint firstItem="xqH-q4-HbE" firstAttribute="top" secondItem="bCx-qh-bS8" secondAttribute="top" id="Bkd-6P-ndH"/>
                             <constraint firstItem="xqH-q4-HbE" firstAttribute="leading" secondItem="bCx-qh-bS8" secondAttribute="leading" id="CVr-ha-cBN"/>
@@ -186,6 +186,9 @@
     <resources>
         <namedColor name="標題黑">
             <color red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="背景灰">
+            <color red="0.97254901960784312" green="0.97254901960784312" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="通用綠">
             <color red="0.098039215686274508" green="0.74901960784313726" blue="0.3843137254901961" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
