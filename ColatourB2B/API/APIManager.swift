@@ -176,6 +176,8 @@ class APIManager: NSObject {
             requestUrl = type.url()
         case .mainApi(let type):
             requestUrl = type.url()
+        case .noticeApi(let type):
+            requestUrl = type.url()
         }
 
         requestUrl =  (requestUrl + encodeUrl ).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
@@ -226,6 +228,11 @@ extension APIManager {
     
     func getGroupMenu(toolBarType: ToolBarType)-> Single<[String:Any]> {
         return manager(method: .get, appendUrl: "", url: toolBarType.getApiUrl(), parameters: nil, appendHeaders: nil)
+    }
+    
+    func getNoticeList() -> Single<[String:Any]> {
+        return AppHelper.shared.getJson(forResource: "Group")
+        return manager(method: .get, appendUrl: "", url: APIUrl.noticeApi(type: .notice), parameters: nil, appendHeaders: nil)
     }
 }
 

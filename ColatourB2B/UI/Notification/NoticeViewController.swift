@@ -19,7 +19,13 @@ class NoticeViewController: BaseViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var stackView: UIStackView!
     
-    private var notificationResponse: NotificationResponse?
+    var presenter: NoticePresenter?
+    private var noticeList: NoticeResponse?
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        self.presenter = NoticePresenter(delegate: self)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,26 +33,27 @@ class NoticeViewController: BaseViewController {
         setIsNavShadowEnable(false)
         setNavTitle(title: "通知")
         switchPageButton(toPage: 0)
+        stackView.subviews.forEach({$0.removeFromSuperview()})
         
-        let api = AppHelper.shared.getJson(forResource: "Group")
-        api.map{ NotificationResponse(JSON: $0)! }.subscribe(onSuccess: { (model) in
-            self.notificationResponse = model
-            self.setTableView()
-        })
-        
+        loadData()
+    }
+    
+    override func loadData() {
+        super.loadData()
+        presenter?.getNoticeList()
     }
     
     private func setTableView() {
-        stackView.subviews.forEach({$0.removeFromSuperview()})
+        
         for i in 0...2 {
             let view = NotificationTableView()
             switch i {
             case 0:
-                view.setViewWith(itemList: self.notificationResponse!.order)
+                view.setViewWith(itemList: self.noticeList!.order)
             case 1:
-                view.setViewWith(itemList: self.notificationResponse!.message)
+                view.setViewWith(itemList: self.noticeList!.message)
             case 2:
-                view.setViewWith(itemList: self.notificationResponse!.news)
+                view.setViewWith(itemList: self.noticeList!.news)
             default:
                 break
             }
@@ -112,8 +119,16 @@ class NoticeViewController: BaseViewController {
         self.pageButtonBottomLineLeading.constant = scrollOffset
     }
 }
+
+extension NoticeViewController: NoticeViewProtocol {
+    func onBindNoticeListComplete(noticeList: NoticeResponse) {
+        self.noticeList = noticeList
+        setTableView()
+    }
+    
+}
 extension NoticeViewController: NotificationTableViewProtocol {
-    func onTouchNoti(item: NotificationResponse.Item) {
+    func onTouchNoti(item: NoticeResponse.Item) {
         handleLinkType(linkType: item.linkType!, linkValue: item.linkValue, linkText: nil)
     }
 

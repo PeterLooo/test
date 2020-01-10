@@ -8,14 +8,14 @@
 
 import UIKit
 protocol NotificationTableViewProtocol: NSObjectProtocol {
-    func onTouchNoti(item: NotificationResponse.Item)
+    func onTouchNoti(item: NoticeResponse.Item)
 }
 class NotificationTableView: UIView {
     
     private var cellsHeight: [IndexPath : CGFloat] = [:]
     
     weak var delegate : NotificationTableViewProtocol?
-    private var itemList: [NotificationResponse.Item] = []
+    private var itemList: [NoticeResponse.Item] = []
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -55,7 +55,7 @@ class NotificationTableView: UIView {
         ])
     }
     
-    func setViewWith(itemList: [NotificationResponse.Item]){
+    func setViewWith(itemList: [NoticeResponse.Item]){
         self.itemList = itemList
         
         tableView.reloadData()
@@ -63,7 +63,7 @@ class NotificationTableView: UIView {
 }
 
 extension NotificationTableView : NotificationItemCellProtocol {
-    func onTouchItem(item: NotificationResponse.Item) {
+    func onTouchItem(item: NoticeResponse.Item) {
         self.delegate?.onTouchNoti(item: item)
     }
     

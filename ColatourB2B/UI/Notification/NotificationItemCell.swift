@@ -8,7 +8,7 @@
 
 import UIKit
 protocol NotificationItemCellProtocol: NSObjectProtocol {
-    func onTouchItem(item: NotificationResponse.Item)
+    func onTouchItem(item: NoticeResponse.Item)
 }
 class NotificationItemCell: UITableViewCell {
 
@@ -17,7 +17,7 @@ class NotificationItemCell: UITableViewCell {
     @IBOutlet weak var notiTitle: UILabel!
     @IBOutlet weak var notiContent: UILabel!
     
-    private var item: NotificationResponse.Item?
+    private var item: NoticeResponse.Item?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,7 +26,7 @@ class NotificationItemCell: UITableViewCell {
         self.isUserInteractionEnabled = true
     }
     
-    func setCell(item: NotificationResponse.Item) {
+    func setCell(item: NoticeResponse.Item) {
         self.item = item
         self.notiTitle.text = item.notiTitle
         self.notiContent.text = item.remark

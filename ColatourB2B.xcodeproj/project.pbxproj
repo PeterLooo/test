@@ -25,10 +25,16 @@
 		381B12B023C465AE0030BACE /* AirTicketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381B12AE23C465AE0030BACE /* AirTicketViewController.swift */; };
 		381B12B223C466370030BACE /* NoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381B12B123C466370030BACE /* NoticeViewController.swift */; };
 		381B12B323C466370030BACE /* NoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381B12B123C466370030BACE /* NoticeViewController.swift */; };
-		382ADF1923C5D02C00E886B4 /* NotificationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382ADF1823C5D02C00E886B4 /* NotificationResponse.swift */; };
-		382ADF1A23C5D02C00E886B4 /* NotificationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382ADF1823C5D02C00E886B4 /* NotificationResponse.swift */; };
+		382ADF1923C5D02C00E886B4 /* NoticeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382ADF1823C5D02C00E886B4 /* NoticeResponse.swift */; };
+		382ADF1A23C5D02C00E886B4 /* NoticeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382ADF1823C5D02C00E886B4 /* NoticeResponse.swift */; };
 		382EF48323BEF93A0002BAB0 /* GroupReponsitory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382EF48223BEF93A0002BAB0 /* GroupReponsitory.swift */; };
 		382EF48423BEF93A0002BAB0 /* GroupReponsitory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382EF48223BEF93A0002BAB0 /* GroupReponsitory.swift */; };
+		3848DA7B23C7280500EA0ED0 /* NoticeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3848DA7A23C7280500EA0ED0 /* NoticeProtocol.swift */; };
+		3848DA7C23C7280500EA0ED0 /* NoticeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3848DA7A23C7280500EA0ED0 /* NoticeProtocol.swift */; };
+		3848DA7E23C7289A00EA0ED0 /* NoticePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3848DA7D23C7289A00EA0ED0 /* NoticePresenter.swift */; };
+		3848DA7F23C7289A00EA0ED0 /* NoticePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3848DA7D23C7289A00EA0ED0 /* NoticePresenter.swift */; };
+		3848DA8123C72FA600EA0ED0 /* NoticeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3848DA8023C72FA600EA0ED0 /* NoticeRepository.swift */; };
+		3848DA8223C72FA600EA0ED0 /* NoticeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3848DA8023C72FA600EA0ED0 /* NoticeRepository.swift */; };
 		384B110323C2BD33000E2B41 /* AirTicketProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384B110223C2BD33000E2B41 /* AirTicketProtocol.swift */; };
 		384B110423C2BD33000E2B41 /* AirTicketProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384B110223C2BD33000E2B41 /* AirTicketProtocol.swift */; };
 		384B110623C2BD46000E2B41 /* AirTicketPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384B110523C2BD46000E2B41 /* AirTicketPresenter.swift */; };
@@ -268,14 +274,17 @@
 		381B12AB23C465950030BACE /* MoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
 		381B12AE23C465AE0030BACE /* AirTicketViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirTicketViewController.swift; sourceTree = "<group>"; };
 		381B12B123C466370030BACE /* NoticeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeViewController.swift; sourceTree = "<group>"; };
-		382ADF1823C5D02C00E886B4 /* NotificationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationResponse.swift; sourceTree = "<group>"; };
+		382ADF1823C5D02C00E886B4 /* NoticeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeResponse.swift; sourceTree = "<group>"; };
 		382EF48223BEF93A0002BAB0 /* GroupReponsitory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupReponsitory.swift; sourceTree = "<group>"; };
+		3848DA7A23C7280500EA0ED0 /* NoticeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeProtocol.swift; sourceTree = "<group>"; };
+		3848DA7D23C7289A00EA0ED0 /* NoticePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticePresenter.swift; sourceTree = "<group>"; };
+		3848DA8023C72FA600EA0ED0 /* NoticeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeRepository.swift; sourceTree = "<group>"; };
 		384B110223C2BD33000E2B41 /* AirTicketProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirTicketProtocol.swift; sourceTree = "<group>"; };
 		384B110523C2BD46000E2B41 /* AirTicketPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirTicketPresenter.swift; sourceTree = "<group>"; };
+		384B110823C32BF3000E2B41 /* ColatourB2B.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ColatourB2B.entitlements; sourceTree = "<group>"; };
 		385B54F323BDC3A400BE1476 /* NotificationTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTableView.swift; sourceTree = "<group>"; };
 		385B54F623BDC4C800BE1476 /* NotificationItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationItemCell.swift; sourceTree = "<group>"; };
 		385B54F723BDC4C800BE1476 /* NotificationItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationItemCell.xib; sourceTree = "<group>"; };
-		384B110823C32BF3000E2B41 /* ColatourB2B.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ColatourB2B.entitlements; sourceTree = "<group>"; };
 		3869542723BADBFC00F6E7D9 /* MemberIndexProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberIndexProtocol.swift; sourceTree = "<group>"; };
 		3869542A23BADC0F00F6E7D9 /* MemberIndexPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberIndexPresenter.swift; sourceTree = "<group>"; };
 		3869542D23BADC9000F6E7D9 /* MemberIndexResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberIndexResponse.swift; sourceTree = "<group>"; };
@@ -511,7 +520,7 @@
 		382ADF1723C5CF2A00E886B4 /* Notification */ = {
 			isa = PBXGroup;
 			children = (
-				382ADF1823C5D02C00E886B4 /* NotificationResponse.swift */,
+				382ADF1823C5D02C00E886B4 /* NoticeResponse.swift */,
 			);
 			path = Notification;
 			sourceTree = "<group>";
@@ -536,6 +545,8 @@
 		385B54F223BDC1D900BE1476 /* Notification */ = {
 			isa = PBXGroup;
 			children = (
+				3848DA7A23C7280500EA0ED0 /* NoticeProtocol.swift */,
+				3848DA7D23C7289A00EA0ED0 /* NoticePresenter.swift */,
 				381B12B123C466370030BACE /* NoticeViewController.swift */,
 				385B54F323BDC3A400BE1476 /* NotificationTableView.swift */,
 				385B54F623BDC4C800BE1476 /* NotificationItemCell.swift */,
@@ -594,6 +605,7 @@
 				38BCD99823A3639500D59910 /* MemberRepository.swift */,
 				38BCD99B23A363AB00D59910 /* MemberRepositoryProtocol.swift */,
 				382EF48223BEF93A0002BAB0 /* GroupReponsitory.swift */,
+				3848DA8023C72FA600EA0ED0 /* NoticeRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -1157,18 +1169,21 @@
 				381B12B223C466370030BACE /* NoticeViewController.swift in Sources */,
 				384B110623C2BD46000E2B41 /* AirTicketPresenter.swift in Sources */,
 				38E9921E23B04CF200E28271 /* GropeTourPresenter.swift in Sources */,
+				3848DA7B23C7280500EA0ED0 /* NoticeProtocol.swift in Sources */,
 				38BCD9D423A366D500D59910 /* BaseViewController.swift in Sources */,
 				38BCDA1223A3684E00D59910 /* BaseProtocol.swift in Sources */,
 				38BCD98723A3484300D59910 /* UINavigationControllerExtension.swift in Sources */,
 				38BCD94023A346B800D59910 /* APIErrorHandleType.swift in Sources */,
 				38E68AB423B5ABE9006BC4DD /* AppHelper.swift in Sources */,
 				38BCDA0D23A367D000D59910 /* LoadingView.swift in Sources */,
+				3848DA7E23C7289A00EA0ED0 /* NoticePresenter.swift in Sources */,
 				38BCD91C23A3457900D59910 /* AccountRepository.swift in Sources */,
 				38BCDA1B23A36AC100D59910 /* TabBarProtocol.swift in Sources */,
 				38BCD9D023A3652200D59910 /* VerifyModel.swift in Sources */,
 				38E68AB723B5AC12006BC4DD /* GroupMenuResponse.swift in Sources */,
 				38E9921B23B04CD400E28271 /* GropeTourProtocol.swift in Sources */,
 				C711753D23BF407E00555D8C /* MoreProtocol.swift in Sources */,
+				3848DA8123C72FA600EA0ED0 /* NoticeRepository.swift in Sources */,
 				38E9922A23B053C400E28271 /* LoginPresenter.swift in Sources */,
 				38E9923423B05A0700E28271 /* LoginResponse.swift in Sources */,
 				38E68AA923B5AB80006BC4DD /* GroupSliderViewController.swift in Sources */,
@@ -1210,7 +1225,7 @@
 				3869542E23BADC9000F6E7D9 /* MemberIndexResponse.swift in Sources */,
 				38E9922123B04F1400E28271 /* VersionRuleReponse.swift in Sources */,
 				38BCD93523A345FA00D59910 /* GTMBase64.m in Sources */,
-				382ADF1923C5D02C00E886B4 /* NotificationResponse.swift in Sources */,
+				382ADF1923C5D02C00E886B4 /* NoticeResponse.swift in Sources */,
 				38BCD9D723A366EC00D59910 /* TabBarViewController.swift in Sources */,
 				38BCD98D23A3484300D59910 /* ShareFunc.swift in Sources */,
 				384B110323C2BD33000E2B41 /* AirTicketProtocol.swift in Sources */,
@@ -1265,18 +1280,21 @@
 				381B12B323C466370030BACE /* NoticeViewController.swift in Sources */,
 				384B110723C2BD46000E2B41 /* AirTicketPresenter.swift in Sources */,
 				38E9921F23B04CF200E28271 /* GropeTourPresenter.swift in Sources */,
+				3848DA7C23C7280500EA0ED0 /* NoticeProtocol.swift in Sources */,
 				38BCD9D523A366D500D59910 /* BaseViewController.swift in Sources */,
 				38BCDA1323A3684E00D59910 /* BaseProtocol.swift in Sources */,
 				38BCD98823A3484300D59910 /* UINavigationControllerExtension.swift in Sources */,
 				38BCD94123A346B800D59910 /* APIErrorHandleType.swift in Sources */,
 				38E68AB523B5ABE9006BC4DD /* AppHelper.swift in Sources */,
 				38BCDA0E23A367D000D59910 /* LoadingView.swift in Sources */,
+				3848DA7F23C7289A00EA0ED0 /* NoticePresenter.swift in Sources */,
 				38BCD91D23A3457900D59910 /* AccountRepository.swift in Sources */,
 				38BCDA1C23A36AC100D59910 /* TabBarProtocol.swift in Sources */,
 				38BCD9D123A3652200D59910 /* VerifyModel.swift in Sources */,
 				38E68AB823B5AC12006BC4DD /* GroupMenuResponse.swift in Sources */,
 				38E9921C23B04CD400E28271 /* GropeTourProtocol.swift in Sources */,
 				C711753E23BF407E00555D8C /* MoreProtocol.swift in Sources */,
+				3848DA8223C72FA600EA0ED0 /* NoticeRepository.swift in Sources */,
 				38E9922B23B053C400E28271 /* LoginPresenter.swift in Sources */,
 				38E9923523B05A0700E28271 /* LoginResponse.swift in Sources */,
 				38E68AAA23B5AB80006BC4DD /* GroupSliderViewController.swift in Sources */,
@@ -1318,7 +1336,7 @@
 				3869542F23BADC9000F6E7D9 /* MemberIndexResponse.swift in Sources */,
 				38E9922223B04F1400E28271 /* VersionRuleReponse.swift in Sources */,
 				38BCD93623A345FA00D59910 /* GTMBase64.m in Sources */,
-				382ADF1A23C5D02C00E886B4 /* NotificationResponse.swift in Sources */,
+				382ADF1A23C5D02C00E886B4 /* NoticeResponse.swift in Sources */,
 				38BCD9D823A366EC00D59910 /* TabBarViewController.swift in Sources */,
 				38BCD98E23A3484300D59910 /* ShareFunc.swift in Sources */,
 				384B110423C2BD33000E2B41 /* AirTicketProtocol.swift in Sources */,

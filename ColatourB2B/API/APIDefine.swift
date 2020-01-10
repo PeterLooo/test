@@ -23,6 +23,7 @@ enum APIUrl {
     case bulletinApi(type: BulletinApi)
     case memberApi(type: MemberApi)
     case mainApi(type: MainApi)
+    case noticeApi(type: NoticeApi)
     func getUrl() -> String {
         switch self {
         case .authApi(let type):
@@ -34,6 +35,8 @@ enum APIUrl {
         case .memberApi(let type):
             return type.url()
         case .mainApi(let type):
+            return type.url()
+        case .noticeApi(let type):
             return type.url()
         }
     }
@@ -130,6 +133,23 @@ enum APIUrl {
         
         func url(append:String) -> String {
             return APIUrl.MainApi.urlWith(type: self, append: append)
+        }
+    }
+    
+    enum NoticeApi: String {
+        case notice = "Notification?"
+        
+        static func urlWith(type: NoticeApi, append: String) -> String {
+            let base =  MEMBER_WEB_HOST
+            return "\(base)\(type.rawValue)\(append)"
+        }
+        
+        func url () -> String {
+            return APIUrl.NoticeApi.urlWith(type: self, append: "")
+        }
+        
+        func url(append:String) -> String {
+            return APIUrl.NoticeApi.urlWith(type: self, append: append)
         }
     }
 }

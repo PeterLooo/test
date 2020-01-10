@@ -9,13 +9,12 @@
 import UIKit
 import ObjectMapper
 
-class NotificationResponse: BaseModel {
+class NoticeResponse: BaseModel {
     
     var message : [Item] = []
     var news : [Item] = []
     var order : [Item] = []
 
-    
     override func mapping(map: Map) {
     super.mapping(map: map)
         
