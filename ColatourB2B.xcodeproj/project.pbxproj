@@ -27,6 +27,10 @@
 		381B12B323C466370030BACE /* NoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381B12B123C466370030BACE /* NoticeViewController.swift */; };
 		382ADF1923C5D02C00E886B4 /* NoticeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382ADF1823C5D02C00E886B4 /* NoticeResponse.swift */; };
 		382ADF1A23C5D02C00E886B4 /* NoticeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382ADF1823C5D02C00E886B4 /* NoticeResponse.swift */; };
+		381B12B523C48D360030BACE /* GroupNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381B12B423C48D360030BACE /* GroupNavigationView.swift */; };
+		381B12B623C48D360030BACE /* GroupNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381B12B423C48D360030BACE /* GroupNavigationView.swift */; };
+		381B12B823C48D440030BACE /* GroupNavigationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 381B12B723C48D440030BACE /* GroupNavigationView.xib */; };
+		381B12B923C48D440030BACE /* GroupNavigationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 381B12B723C48D440030BACE /* GroupNavigationView.xib */; };
 		382EF48323BEF93A0002BAB0 /* GroupReponsitory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382EF48223BEF93A0002BAB0 /* GroupReponsitory.swift */; };
 		382EF48423BEF93A0002BAB0 /* GroupReponsitory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382EF48223BEF93A0002BAB0 /* GroupReponsitory.swift */; };
 		3848DA7B23C7280500EA0ED0 /* NoticeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3848DA7A23C7280500EA0ED0 /* NoticeProtocol.swift */; };
@@ -275,6 +279,8 @@
 		381B12AE23C465AE0030BACE /* AirTicketViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirTicketViewController.swift; sourceTree = "<group>"; };
 		381B12B123C466370030BACE /* NoticeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeViewController.swift; sourceTree = "<group>"; };
 		382ADF1823C5D02C00E886B4 /* NoticeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeResponse.swift; sourceTree = "<group>"; };
+		381B12B423C48D360030BACE /* GroupNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupNavigationView.swift; sourceTree = "<group>"; };
+		381B12B723C48D440030BACE /* GroupNavigationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupNavigationView.xib; sourceTree = "<group>"; };
 		382EF48223BEF93A0002BAB0 /* GroupReponsitory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupReponsitory.swift; sourceTree = "<group>"; };
 		3848DA7A23C7280500EA0ED0 /* NoticeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeProtocol.swift; sourceTree = "<group>"; };
 		3848DA7D23C7289A00EA0ED0 /* NoticePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticePresenter.swift; sourceTree = "<group>"; };
@@ -769,6 +775,8 @@
 				38BCDA2823A379DE00D59910 /* GroupTourViewController.swift */,
 				38E9921A23B04CD400E28271 /* GropeTourProtocol.swift */,
 				38E9921D23B04CF200E28271 /* GropeTourPresenter.swift */,
+				381B12B423C48D360030BACE /* GroupNavigationView.swift */,
+				381B12B723C48D440030BACE /* GroupNavigationView.xib */,
 			);
 			path = Group;
 			sourceTree = "<group>";
@@ -982,6 +990,7 @@
 				38BCDA0F23A367D000D59910 /* NoInternetErrorView.xib in Resources */,
 				38BCDA0B23A367D000D59910 /* ApiFailErrorView.xib in Resources */,
 				385B54FA23BDC4C800BE1476 /* NotificationItemCell.xib in Resources */,
+				381B12B823C48D440030BACE /* GroupNavigationView.xib in Resources */,
 				3817E4FE23A33C8500ED8609 /* Assets.xcassets in Resources */,
 				2AF496B423AB7EA50053EA45 /* GoogleService-Info.plist in Resources */,
 				3817E4FC23A33C8400ED8609 /* Main.storyboard in Resources */,
@@ -1026,6 +1035,7 @@
 				38BCDA1023A367D000D59910 /* NoInternetErrorView.xib in Resources */,
 				38BCDA0C23A367D000D59910 /* ApiFailErrorView.xib in Resources */,
 				385B54FB23BDC4C800BE1476 /* NotificationItemCell.xib in Resources */,
+				381B12B923C48D440030BACE /* GroupNavigationView.xib in Resources */,
 				3817E52B23A33C9500ED8609 /* Assets.xcassets in Resources */,
 				2AF496B623AB7EBB0053EA45 /* GoogleService-Info.plist in Resources */,
 				3817E52C23A33C9500ED8609 /* Main.storyboard in Resources */,
@@ -1185,6 +1195,7 @@
 				C711753D23BF407E00555D8C /* MoreProtocol.swift in Sources */,
 				3848DA8123C72FA600EA0ED0 /* NoticeRepository.swift in Sources */,
 				38E9922A23B053C400E28271 /* LoginPresenter.swift in Sources */,
+				381B12B523C48D360030BACE /* GroupNavigationView.swift in Sources */,
 				38E9923423B05A0700E28271 /* LoginResponse.swift in Sources */,
 				38E68AA923B5AB80006BC4DD /* GroupSliderViewController.swift in Sources */,
 				38BCD93123A345FA00D59910 /* UserDefaultUtil.swift in Sources */,
@@ -1296,6 +1307,7 @@
 				C711753E23BF407E00555D8C /* MoreProtocol.swift in Sources */,
 				3848DA8223C72FA600EA0ED0 /* NoticeRepository.swift in Sources */,
 				38E9922B23B053C400E28271 /* LoginPresenter.swift in Sources */,
+				381B12B623C48D360030BACE /* GroupNavigationView.swift in Sources */,
 				38E9923523B05A0700E28271 /* LoginResponse.swift in Sources */,
 				38E68AAA23B5AB80006BC4DD /* GroupSliderViewController.swift in Sources */,
 				38BCD93223A345FA00D59910 /* UserDefaultUtil.swift in Sources */,

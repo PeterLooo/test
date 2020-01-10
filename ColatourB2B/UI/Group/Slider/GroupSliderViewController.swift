@@ -19,7 +19,6 @@ extension GroupSliderViewController {
 class GroupSliderViewController: BaseViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var gesView: UIView!
     
     weak var delegate : GroupSliderViewControllerProtocol?
     
@@ -28,9 +27,6 @@ class GroupSliderViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let ges = UITapGestureRecognizer(target: self, action: #selector(onTouchCardView))
-        self.gesView.addGestureRecognizer(ges)
-        self.gesView.isUserInteractionEnabled = true
         self.setTabBarType(tabBarType: .hidden)
         tableView.register(UINib(nibName: "GroupSliderItemCell", bundle: nil), forCellReuseIdentifier: "GroupSliderItemCell")
         
