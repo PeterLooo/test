@@ -84,6 +84,7 @@ extension LoginViewController : LoginViewProtocol {
                 self.toast(text: resultMessage)
             }
         }else{
+            presenter?.pushDevice()
             self.dismiss(animated: true, completion: {
                 if let linkType = self.linkType{
                     self.loginSuccessDelegate?.onLoginSuccess(linkType: linkType, linkValue: self.linkValue)

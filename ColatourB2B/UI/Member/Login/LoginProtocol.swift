@@ -14,4 +14,5 @@ protocol LoginViewProtocol:BaseViewProtocol {
 
 protocol LoginPresenterProtocol:BasePresenterProtocol {
     func login(requset:LoginRequest)
+    func pushDevice()
 }
