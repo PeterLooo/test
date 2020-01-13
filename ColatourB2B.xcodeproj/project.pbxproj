@@ -222,6 +222,10 @@
 		C711753E23BF407E00555D8C /* MoreProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C711753C23BF407D00555D8C /* MoreProtocol.swift */; };
 		C711754023BF40DA00555D8C /* MorePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C711753F23BF40DA00555D8C /* MorePresenter.swift */; };
 		C711754123BF40DA00555D8C /* MorePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C711753F23BF40DA00555D8C /* MorePresenter.swift */; };
+		C77282F323CC502500067EB4 /* GroupTourSearch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C77282F223CC502500067EB4 /* GroupTourSearch.storyboard */; };
+		C77282F423CC502500067EB4 /* GroupTourSearch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C77282F223CC502500067EB4 /* GroupTourSearch.storyboard */; };
+		C77282F723CC505800067EB4 /* GroupTourSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77282F623CC505800067EB4 /* GroupTourSearchViewController.swift */; };
+		C77282F823CC505800067EB4 /* GroupTourSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77282F623CC505800067EB4 /* GroupTourSearchViewController.swift */; };
 		FF8E32EC7686F078B8ABDE18 /* Pods_ColatourB2B.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A331B185DD2055D277F472F3 /* Pods_ColatourB2B.framework */; };
 /* End PBXBuildFile section */
 
@@ -371,6 +375,8 @@
 		B09E7C65A225E6FF958329EA /* Pods-ColatourB2BDev.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ColatourB2BDev.release.xcconfig"; path = "Pods/Target Support Files/Pods-ColatourB2BDev/Pods-ColatourB2BDev.release.xcconfig"; sourceTree = "<group>"; };
 		C711753C23BF407D00555D8C /* MoreProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreProtocol.swift; sourceTree = "<group>"; };
 		C711753F23BF40DA00555D8C /* MorePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MorePresenter.swift; sourceTree = "<group>"; };
+		C77282F223CC502500067EB4 /* GroupTourSearch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GroupTourSearch.storyboard; sourceTree = "<group>"; };
+		C77282F623CC505800067EB4 /* GroupTourSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTourSearchViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -706,6 +712,7 @@
 				387FBEF623ACA201005412F1 /* AirTicket.storyboard */,
 				387FBEFC23ACA2A7005412F1 /* Notice.storyboard */,
 				387FBF0223ACA327005412F1 /* More.storyboard */,
+				C77282F223CC502500067EB4 /* GroupTourSearch.storyboard */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -727,6 +734,7 @@
 		38E68A9F23B5AB80006BC4DD /* Group */ = {
 			isa = PBXGroup;
 			children = (
+				C77282F523CC503F00067EB4 /* GroupTourSearch */,
 				38E68AA023B5AB80006BC4DD /* Slider */,
 				38BCDA2823A379DE00D59910 /* GroupTourViewController.swift */,
 				38E9921A23B04CD400E28271 /* GropeTourProtocol.swift */,
@@ -795,6 +803,14 @@
 				C711753F23BF40DA00555D8C /* MorePresenter.swift */,
 			);
 			path = More;
+			sourceTree = "<group>";
+		};
+		C77282F523CC503F00067EB4 /* GroupTourSearch */ = {
+			isa = PBXGroup;
+			children = (
+				C77282F623CC505800067EB4 /* GroupTourSearchViewController.swift */,
+			);
+			path = GroupTourSearch;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -933,6 +949,7 @@
 				38BCDA2623A3796800D59910 /* GroupTour.storyboard in Resources */,
 				387FBF0B23ACCEB7005412F1 /* Login.storyboard in Resources */,
 				38E68AAD23B5AB80006BC4DD /* Group.json in Resources */,
+				C77282F323CC502500067EB4 /* GroupTourSearch.storyboard in Resources */,
 				3869544023BB002900F6E7D9 /* MemberIndexVersionCell.xib in Resources */,
 				387FBEFD23ACA2A7005412F1 /* Notice.storyboard in Resources */,
 				38E68AC123B5AE30006BC4DD /* Common.storyboard in Resources */,
@@ -977,6 +994,7 @@
 				38BCDA2723A3796800D59910 /* GroupTour.storyboard in Resources */,
 				387FBF1123ACCF00005412F1 /* Login.storyboard in Resources */,
 				38E68AAE23B5AB80006BC4DD /* Group.json in Resources */,
+				C77282F423CC502500067EB4 /* GroupTourSearch.storyboard in Resources */,
 				3869544123BB002900F6E7D9 /* MemberIndexVersionCell.xib in Resources */,
 				387FBEFE23ACA2A7005412F1 /* Notice.storyboard in Resources */,
 				38E68AC223B5AE30006BC4DD /* Common.storyboard in Resources */,
@@ -1190,6 +1208,7 @@
 				387FBF0F23ACCEF4005412F1 /* LoginViewController.swift in Sources */,
 				38BCD93323A345FA00D59910 /* FormatUtil.swift in Sources */,
 				3869543223BAE5F500F6E7D9 /* MemberTopCell.swift in Sources */,
+				C77282F723CC505800067EB4 /* GroupTourSearchViewController.swift in Sources */,
 				38BCD97D23A3484300D59910 /* IntExtenstion.swift in Sources */,
 				387FBF0623ACA392005412F1 /* MoreViewController.swift in Sources */,
 				38E9923A23B0B5DF00E28271 /* BooleanButton.swift in Sources */,
@@ -1296,6 +1315,7 @@
 				387FBF1023ACCEF4005412F1 /* LoginViewController.swift in Sources */,
 				38BCD93423A345FA00D59910 /* FormatUtil.swift in Sources */,
 				3869543323BAE5F500F6E7D9 /* MemberTopCell.swift in Sources */,
+				C77282F823CC505800067EB4 /* GroupTourSearchViewController.swift in Sources */,
 				38BCD97E23A3484300D59910 /* IntExtenstion.swift in Sources */,
 				387FBF0723ACA392005412F1 /* MoreViewController.swift in Sources */,
 				38E9923B23B0B5DF00E28271 /* BooleanButton.swift in Sources */,
