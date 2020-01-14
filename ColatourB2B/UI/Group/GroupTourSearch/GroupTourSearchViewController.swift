@@ -86,8 +86,7 @@ class GroupTourSearchViewController: BaseViewController {
 
 }
 
-
-//MARK: scroll top page 國外滑到國內，國內滑到過外
+//MARK: scroll top page 左邊滑到右邊，右邊滑到左邊
 extension GroupTourSearchViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView != topPageScrollView { return }
