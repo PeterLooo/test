@@ -227,6 +227,10 @@ extension APIManager {
     func getGroupMenu(toolBarType: ToolBarType)-> Single<[String:Any]> {
         return manager(method: .get, appendUrl: "", url: toolBarType.getApiUrl(), parameters: nil, appendHeaders: nil)
     }
+    
+    func getSalesList() -> Single<[String:Any]> {
+        return AppHelper.shared.getJson(forResource: "Group")
+    }
 }
 
 extension APIManager {
