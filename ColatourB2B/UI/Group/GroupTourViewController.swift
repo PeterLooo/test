@@ -124,7 +124,7 @@ class GroupTourViewController: BaseViewController {
             self.onPopContactVC()
         }))
         alert.addAction(UIAlertAction(title: "聯絡業務" , style: .default, handler: { (_) in
-            self.contectSales()
+            self.contactSales()
         }))
         alert.addAction(UIAlertAction(title: "取消", style: .cancel))
 
@@ -135,7 +135,7 @@ class GroupTourViewController: BaseViewController {
         ()
     }
     
-    private func contectSales(){
+    private func contactSales(){
         let vc = getVC(st: "Sales", vc: "SalesViewController") as! SalesViewController
         self.navigationController?.pushViewController(vc, animated: true)
     }
