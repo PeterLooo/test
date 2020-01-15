@@ -25,12 +25,12 @@
 		381B12B023C465AE0030BACE /* AirTicketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381B12AE23C465AE0030BACE /* AirTicketViewController.swift */; };
 		381B12B223C466370030BACE /* NoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381B12B123C466370030BACE /* NoticeViewController.swift */; };
 		381B12B323C466370030BACE /* NoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381B12B123C466370030BACE /* NoticeViewController.swift */; };
-		382ADF1923C5D02C00E886B4 /* NoticeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382ADF1823C5D02C00E886B4 /* NoticeResponse.swift */; };
-		382ADF1A23C5D02C00E886B4 /* NoticeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382ADF1823C5D02C00E886B4 /* NoticeResponse.swift */; };
 		381B12B523C48D360030BACE /* GroupNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381B12B423C48D360030BACE /* GroupNavigationView.swift */; };
 		381B12B623C48D360030BACE /* GroupNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381B12B423C48D360030BACE /* GroupNavigationView.swift */; };
 		381B12B823C48D440030BACE /* GroupNavigationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 381B12B723C48D440030BACE /* GroupNavigationView.xib */; };
 		381B12B923C48D440030BACE /* GroupNavigationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 381B12B723C48D440030BACE /* GroupNavigationView.xib */; };
+		382ADF1923C5D02C00E886B4 /* NoticeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382ADF1823C5D02C00E886B4 /* NoticeResponse.swift */; };
+		382ADF1A23C5D02C00E886B4 /* NoticeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382ADF1823C5D02C00E886B4 /* NoticeResponse.swift */; };
 		382EF48323BEF93A0002BAB0 /* GroupReponsitory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382EF48223BEF93A0002BAB0 /* GroupReponsitory.swift */; };
 		382EF48423BEF93A0002BAB0 /* GroupReponsitory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382EF48223BEF93A0002BAB0 /* GroupReponsitory.swift */; };
 		3848DA7B23C7280500EA0ED0 /* NoticeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3848DA7A23C7280500EA0ED0 /* NoticeProtocol.swift */; };
@@ -278,9 +278,9 @@
 		381B12AB23C465950030BACE /* MoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
 		381B12AE23C465AE0030BACE /* AirTicketViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirTicketViewController.swift; sourceTree = "<group>"; };
 		381B12B123C466370030BACE /* NoticeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeViewController.swift; sourceTree = "<group>"; };
-		382ADF1823C5D02C00E886B4 /* NoticeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeResponse.swift; sourceTree = "<group>"; };
 		381B12B423C48D360030BACE /* GroupNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupNavigationView.swift; sourceTree = "<group>"; };
 		381B12B723C48D440030BACE /* GroupNavigationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupNavigationView.xib; sourceTree = "<group>"; };
+		382ADF1823C5D02C00E886B4 /* NoticeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeResponse.swift; sourceTree = "<group>"; };
 		382EF48223BEF93A0002BAB0 /* GroupReponsitory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupReponsitory.swift; sourceTree = "<group>"; };
 		3848DA7A23C7280500EA0ED0 /* NoticeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeProtocol.swift; sourceTree = "<group>"; };
 		3848DA7D23C7289A00EA0ED0 /* NoticePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticePresenter.swift; sourceTree = "<group>"; };
@@ -853,6 +853,7 @@
 				3817E4F023A33C8400ED8609 /* Frameworks */,
 				3817E4F123A33C8400ED8609 /* Resources */,
 				E80E3A03E7894FC913ED443D /* [CP] Embed Pods Frameworks */,
+				38A7D93923CEB11800FAAC5D /* Fabric Run Script */,
 			);
 			buildRules = (
 			);
@@ -908,6 +909,7 @@
 				3817E52823A33C9500ED8609 /* Frameworks */,
 				3817E52923A33C9500ED8609 /* Resources */,
 				A3B9B8FF192086C401904B3D /* [CP] Embed Pods Frameworks */,
+				385342A723CEA7B70026391E /* Fabrc Run Script */,
 			);
 			buildRules = (
 			);
@@ -1047,6 +1049,42 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		385342A723CEA7B70026391E /* Fabrc Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Fabrc Run Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\"\n";
+		};
+		38A7D93923CEB11800FAAC5D /* Fabric Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Fabric Run Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\"\n";
+		};
 		822ED899253DA5F18DACEAEC /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1439,7 +1477,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
