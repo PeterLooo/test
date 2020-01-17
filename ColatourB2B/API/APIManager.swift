@@ -201,6 +201,11 @@ extension APIManager {
             APIUrl.authApi(type: .pushDevice), parameters: params, appendHeaders: nil)
     }
     
+    func getNoticeUnreadCount() -> Single<[String:Any]> {
+        
+        return manager(method: .get, appendUrl: "", url: APIUrl.noticeApi(type: .unreadCount) ,parameters: nil, appendHeaders: nil)
+    }
+    
     func getVersionRule() -> Single<[String:Any]> {
         return manager(method: .get, appendUrl: "", url: APIUrl.authApi(type: .versionRule), parameters: nil, appendHeaders: nil)
     }

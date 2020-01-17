@@ -138,6 +138,7 @@ enum APIUrl {
     
     enum NoticeApi: String {
         case notice = "Notification?"
+        case unreadCount = "/Notification/Unread"
         
         static func urlWith(type: NoticeApi, append: String) -> String {
             let base =  MEMBER_WEB_HOST

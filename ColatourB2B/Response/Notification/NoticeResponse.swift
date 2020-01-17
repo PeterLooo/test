@@ -49,3 +49,12 @@ class NoticeResponse: BaseModel {
         }
     }
 }
+class NoticeUnreadCountResponse: BaseModel {
+
+    var unreadCount: Int!
+    override func mapping(map: Map) {
+        super.mapping(map: map)
+        unreadCount <- map["Unread_Count"]
+    }
+    
+}

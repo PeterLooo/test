@@ -177,6 +177,7 @@ extension GroupTourViewController: GropeTourViewProtocol {
         
         getGroupMenu()
         //getVersionRule()
+        NotificationCenter.default.post(name: Notification.Name("getUnreadCount"), object: nil)
     }
     func onBindVersionRule(versionRule: VersionRuleReponse.Update?) {
         ()

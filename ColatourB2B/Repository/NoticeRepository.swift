@@ -19,4 +19,11 @@ class NoticeRepository: NSObject {
             .flatMap{_ in api}
             .map{ NoticeResponse(JSON: $0)!}
     }
+    
+    func getNumberOfNoticeUnreadCount() -> Single<Int> {
+        let api = APIManager.shared.getNoticeUnreadCount()
+        return AccountRepository.shared.apiToken
+            .flatMap{_ in api}
+            .map{NoticeUnreadCountResponse(JSON: $0)!.unreadCount }
+    }
 }
