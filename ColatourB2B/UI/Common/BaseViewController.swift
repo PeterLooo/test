@@ -683,10 +683,15 @@ extension BaseViewController {
         case .getApiUrl:
             
             self.basePresenter?.getAccessWebUrl(webUrl: linkValue!, title: linkText ?? "")
-            
         case .passwordReset:
             
-            ()
+            let passwordResetViewController = getVC(st: "PasswordReset", vc: "PasswordReset") as! PasswordResetViewController
+            passwordResetViewController.delegate = self
+            let nav = UINavigationController(rootViewController: passwordResetViewController)
+            nav.modalPresentationStyle = .fullScreen
+            self.navigationController?.present(nav, animated: true)
+            
+            
         case .updateDate:
             
             ()
@@ -700,4 +705,12 @@ extension BaseViewController {
         }
     }
     
+}
+
+extension BaseViewController: PasswordResetToastProtocol {
+
+    func setPasswordResetToastText(text: String) {
+        
+        self.toast(text: text)
+    }
 }
