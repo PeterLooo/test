@@ -222,6 +222,18 @@
 		C711753E23BF407E00555D8C /* MoreProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C711753C23BF407D00555D8C /* MoreProtocol.swift */; };
 		C711754023BF40DA00555D8C /* MorePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C711753F23BF40DA00555D8C /* MorePresenter.swift */; };
 		C711754123BF40DA00555D8C /* MorePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C711753F23BF40DA00555D8C /* MorePresenter.swift */; };
+		CC0D411123CFE80700FE5C74 /* PasswordReset.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC0D411023CFE80700FE5C74 /* PasswordReset.storyboard */; };
+		CC0D411623CFEB6300FE5C74 /* PasswordResetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0D411523CFEB6300FE5C74 /* PasswordResetViewController.swift */; };
+		CC0D411723D0170B00FE5C74 /* PasswordResetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0D411523CFEB6300FE5C74 /* PasswordResetViewController.swift */; };
+		CC0D411823D0188800FE5C74 /* PasswordReset.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC0D411023CFE80700FE5C74 /* PasswordReset.storyboard */; };
+		CC0D411A23D045BD00FE5C74 /* PasswordResetProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0D411923D045BD00FE5C74 /* PasswordResetProtocol.swift */; };
+		CC0D411C23D045D000FE5C74 /* PasswordRestPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0D411B23D045D000FE5C74 /* PasswordRestPresenter.swift */; };
+		CC0D411D23D04B3700FE5C74 /* PasswordResetProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0D411923D045BD00FE5C74 /* PasswordResetProtocol.swift */; };
+		CC0D411E23D04B3900FE5C74 /* PasswordRestPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0D411B23D045D000FE5C74 /* PasswordRestPresenter.swift */; };
+		CC0D412023D054DC00FE5C74 /* PasswordResetRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0D411F23D054DC00FE5C74 /* PasswordResetRequest.swift */; };
+		CC0D412123D054DC00FE5C74 /* PasswordResetRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0D411F23D054DC00FE5C74 /* PasswordResetRequest.swift */; };
+		CC0D412323D0682900FE5C74 /* PasswordResetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0D412223D0682900FE5C74 /* PasswordResetResponse.swift */; };
+		CC0D412423D0682900FE5C74 /* PasswordResetResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0D412223D0682900FE5C74 /* PasswordResetResponse.swift */; };
 		FF8E32EC7686F078B8ABDE18 /* Pods_ColatourB2B.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A331B185DD2055D277F472F3 /* Pods_ColatourB2B.framework */; };
 /* End PBXBuildFile section */
 
@@ -371,6 +383,12 @@
 		B09E7C65A225E6FF958329EA /* Pods-ColatourB2BDev.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ColatourB2BDev.release.xcconfig"; path = "Pods/Target Support Files/Pods-ColatourB2BDev/Pods-ColatourB2BDev.release.xcconfig"; sourceTree = "<group>"; };
 		C711753C23BF407D00555D8C /* MoreProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreProtocol.swift; sourceTree = "<group>"; };
 		C711753F23BF40DA00555D8C /* MorePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MorePresenter.swift; sourceTree = "<group>"; };
+		CC0D411023CFE80700FE5C74 /* PasswordReset.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = PasswordReset.storyboard; path = ColatourB2B/StroyBoard/Member/PasswordReset.storyboard; sourceTree = SOURCE_ROOT; };
+		CC0D411523CFEB6300FE5C74 /* PasswordResetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordResetViewController.swift; sourceTree = "<group>"; };
+		CC0D411923D045BD00FE5C74 /* PasswordResetProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordResetProtocol.swift; sourceTree = "<group>"; };
+		CC0D411B23D045D000FE5C74 /* PasswordRestPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordRestPresenter.swift; sourceTree = "<group>"; };
+		CC0D411F23D054DC00FE5C74 /* PasswordResetRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordResetRequest.swift; sourceTree = "<group>"; };
+		CC0D412223D0682900FE5C74 /* PasswordResetResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordResetResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -506,6 +524,7 @@
 			isa = PBXGroup;
 			children = (
 				38E9923323B05A0700E28271 /* LoginResponse.swift */,
+				CC0D412223D0682900FE5C74 /* PasswordResetResponse.swift */,
 				3869542D23BADC9000F6E7D9 /* MemberIndexResponse.swift */,
 			);
 			path = Member;
@@ -524,6 +543,7 @@
 			children = (
 				387FBF0D23ACCEE4005412F1 /* Login */,
 				387FBF0C23ACCEC7005412F1 /* MemberIndex */,
+				CC0D411223CFEA5000FE5C74 /* PasswordReset */,
 			);
 			path = Member;
 			sourceTree = "<group>";
@@ -532,6 +552,7 @@
 			isa = PBXGroup;
 			children = (
 				387FBF0A23ACCEB7005412F1 /* Login.storyboard */,
+				CC0D411023CFE80700FE5C74 /* PasswordReset.storyboard */,
 			);
 			path = Member;
 			sourceTree = "<group>";
@@ -763,6 +784,7 @@
 			isa = PBXGroup;
 			children = (
 				38E9922D23B058CA00E28271 /* LoginRequest.swift */,
+				CC0D411F23D054DC00FE5C74 /* PasswordResetRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -795,6 +817,16 @@
 				C711753F23BF40DA00555D8C /* MorePresenter.swift */,
 			);
 			path = More;
+			sourceTree = "<group>";
+		};
+		CC0D411223CFEA5000FE5C74 /* PasswordReset */ = {
+			isa = PBXGroup;
+			children = (
+				CC0D411523CFEB6300FE5C74 /* PasswordResetViewController.swift */,
+				CC0D411923D045BD00FE5C74 /* PasswordResetProtocol.swift */,
+				CC0D411B23D045D000FE5C74 /* PasswordRestPresenter.swift */,
+			);
+			path = PasswordReset;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -941,6 +973,7 @@
 				38BCDA2C23A37B5D00D59910 /* MemberIndex.storyboard in Resources */,
 				38E68AAF23B5AB80006BC4DD /* GroupSliderItemCell.xib in Resources */,
 				387FBEF723ACA201005412F1 /* AirTicket.storyboard in Resources */,
+				CC0D411123CFE80700FE5C74 /* PasswordReset.storyboard in Resources */,
 				387FBF0323ACA327005412F1 /* More.storyboard in Resources */,
 				3869543423BAE5F500F6E7D9 /* MemberTopCell.xib in Resources */,
 				38BCDA0F23A367D000D59910 /* NoInternetErrorView.xib in Resources */,
@@ -985,6 +1018,7 @@
 				38BCDA2D23A37B5D00D59910 /* MemberIndex.storyboard in Resources */,
 				38E68AB023B5AB80006BC4DD /* GroupSliderItemCell.xib in Resources */,
 				387FBEF823ACA201005412F1 /* AirTicket.storyboard in Resources */,
+				CC0D411823D0188800FE5C74 /* PasswordReset.storyboard in Resources */,
 				387FBF0423ACA327005412F1 /* More.storyboard in Resources */,
 				3869543523BAE5F500F6E7D9 /* MemberTopCell.xib in Resources */,
 				38BCDA1023A367D000D59910 /* NoInternetErrorView.xib in Resources */,
@@ -1136,10 +1170,12 @@
 				38BCD9D423A366D500D59910 /* BaseViewController.swift in Sources */,
 				38BCDA1223A3684E00D59910 /* BaseProtocol.swift in Sources */,
 				38BCD98723A3484300D59910 /* UINavigationControllerExtension.swift in Sources */,
+				CC0D411A23D045BD00FE5C74 /* PasswordResetProtocol.swift in Sources */,
 				387FBF0023ACA2D2005412F1 /* NoticeViewController.swift in Sources */,
 				38BCD94023A346B800D59910 /* APIErrorHandleType.swift in Sources */,
 				38E68AB423B5ABE9006BC4DD /* AppHelper.swift in Sources */,
 				38BCDA0D23A367D000D59910 /* LoadingView.swift in Sources */,
+				CC0D411C23D045D000FE5C74 /* PasswordRestPresenter.swift in Sources */,
 				38BCD91C23A3457900D59910 /* AccountRepository.swift in Sources */,
 				38BCDA1B23A36AC100D59910 /* TabBarProtocol.swift in Sources */,
 				38BCD9D023A3652200D59910 /* VerifyModel.swift in Sources */,
@@ -1175,7 +1211,9 @@
 				38BCD98323A3484300D59910 /* DateComponentExtension.swift in Sources */,
 				38BCD97123A3484300D59910 /* FirebaseEvent.swift in Sources */,
 				38BCDA1823A3696800D59910 /* WebViewController.swift in Sources */,
+				CC0D412023D054DC00FE5C74 /* PasswordResetRequest.swift in Sources */,
 				38E9923723B06AFA00E28271 /* BasePresenter.swift in Sources */,
+				CC0D412323D0682900FE5C74 /* PasswordResetResponse.swift in Sources */,
 				38BCDA0523A367D000D59910 /* ToastView.swift in Sources */,
 				38BCD97B23A3484300D59910 /* UILabelExtension.swift in Sources */,
 				38BCDA2923A379DE00D59910 /* GroupTourViewController.swift in Sources */,
@@ -1199,6 +1237,7 @@
 				C711754023BF40DA00555D8C /* MorePresenter.swift in Sources */,
 				38BCD94623A346B800D59910 /* APIDefine.swift in Sources */,
 				38BCD97523A3484300D59910 /* UIColorExtension.swift in Sources */,
+				CC0D411623CFEB6300FE5C74 /* PasswordResetViewController.swift in Sources */,
 				38BCDA0323A367D000D59910 /* ApiFailErrorView.swift in Sources */,
 				38BCDA2F23A37B7100D59910 /* MemberIndexViewController.swift in Sources */,
 				38BCD93E23A346B800D59910 /* APIError.swift in Sources */,
@@ -1242,10 +1281,12 @@
 				38BCD9D523A366D500D59910 /* BaseViewController.swift in Sources */,
 				38BCDA1323A3684E00D59910 /* BaseProtocol.swift in Sources */,
 				38BCD98823A3484300D59910 /* UINavigationControllerExtension.swift in Sources */,
+				CC0D411D23D04B3700FE5C74 /* PasswordResetProtocol.swift in Sources */,
 				387FBF0123ACA2D2005412F1 /* NoticeViewController.swift in Sources */,
 				38BCD94123A346B800D59910 /* APIErrorHandleType.swift in Sources */,
 				38E68AB523B5ABE9006BC4DD /* AppHelper.swift in Sources */,
 				38BCDA0E23A367D000D59910 /* LoadingView.swift in Sources */,
+				CC0D411E23D04B3900FE5C74 /* PasswordRestPresenter.swift in Sources */,
 				38BCD91D23A3457900D59910 /* AccountRepository.swift in Sources */,
 				38BCDA1C23A36AC100D59910 /* TabBarProtocol.swift in Sources */,
 				38BCD9D123A3652200D59910 /* VerifyModel.swift in Sources */,
@@ -1281,7 +1322,9 @@
 				38BCD98423A3484300D59910 /* DateComponentExtension.swift in Sources */,
 				38BCD97223A3484300D59910 /* FirebaseEvent.swift in Sources */,
 				38BCDA1923A3696800D59910 /* WebViewController.swift in Sources */,
+				CC0D412123D054DC00FE5C74 /* PasswordResetRequest.swift in Sources */,
 				38E9923823B06AFA00E28271 /* BasePresenter.swift in Sources */,
+				CC0D412423D0682900FE5C74 /* PasswordResetResponse.swift in Sources */,
 				38BCDA0623A367D000D59910 /* ToastView.swift in Sources */,
 				38BCD97C23A3484300D59910 /* UILabelExtension.swift in Sources */,
 				38BCDA2A23A379DE00D59910 /* GroupTourViewController.swift in Sources */,
@@ -1305,6 +1348,7 @@
 				C711754123BF40DA00555D8C /* MorePresenter.swift in Sources */,
 				38BCD94723A346B800D59910 /* APIDefine.swift in Sources */,
 				38BCD97623A3484300D59910 /* UIColorExtension.swift in Sources */,
+				CC0D411723D0170B00FE5C74 /* PasswordResetViewController.swift in Sources */,
 				38BCDA0423A367D000D59910 /* ApiFailErrorView.swift in Sources */,
 				38BCDA3023A37B7100D59910 /* MemberIndexViewController.swift in Sources */,
 				38BCD93F23A346B800D59910 /* APIError.swift in Sources */,
@@ -1598,6 +1642,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ColatourB2BDev.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 83357CEQAU;
 				INFOPLIST_FILE = "ColatourB2B copy-Info.plist";
