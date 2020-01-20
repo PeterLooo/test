@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -16,29 +16,14 @@
                     <view key="view" contentMode="scaleToFill" id="Zhw-vJ-j7l">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f7q-01-GCh">
-                                <rect key="frame" x="0.0" y="-64" width="414" height="960"/>
-                                <color key="backgroundColor" red="0.43137254899999999" green="0.43137254899999999" blue="0.43137254899999999" alpha="0.5" colorSpace="calibratedRGB"/>
-                            </view>
-                        </subviews>
                         <color key="backgroundColor" name="背景灰"/>
                         <gestureRecognizers/>
-                        <constraints>
-                            <constraint firstItem="f7q-01-GCh" firstAttribute="leading" secondItem="zzg-b0-LkS" secondAttribute="leading" id="Olw-vF-ePq"/>
-                            <constraint firstItem="f7q-01-GCh" firstAttribute="top" secondItem="Zhw-vJ-j7l" secondAttribute="top" constant="-64" id="Wv3-mR-aNx"/>
-                            <constraint firstItem="f7q-01-GCh" firstAttribute="bottom" secondItem="Zhw-vJ-j7l" secondAttribute="bottom" id="qyr-A4-Tgy"/>
-                            <constraint firstItem="f7q-01-GCh" firstAttribute="trailing" secondItem="zzg-b0-LkS" secondAttribute="trailing" id="rb1-PQ-ifn"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="zzg-b0-LkS"/>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="ZhH-vz-EiZ" appends="YES" id="Bod-cJ-yJv"/>
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" id="8Ez-c5-IlF"/>
-                    <connections>
-                        <outlet property="grayBlurView" destination="f7q-01-GCh" id="RAE-bp-OFd"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I6N-U6-UhN" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <screenEdgePanGestureRecognizer minimumNumberOfTouches="1" id="ZhH-vz-EiZ">

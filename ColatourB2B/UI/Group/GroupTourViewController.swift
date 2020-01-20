@@ -10,7 +10,6 @@ import UIKit
 
 class GroupTourViewController: BaseViewController {
     
-    @IBOutlet weak var grayBlurView: UIView!
     
     private var presenter: GropeTourPresenter?
     
@@ -27,6 +26,7 @@ class GroupTourViewController: BaseViewController {
         
         presenter = GropeTourPresenter(delegate: self)
     }
+    var groupADList : [IndexResponse.MultiModule] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +34,6 @@ class GroupTourViewController: BaseViewController {
         setIsNavShadowEnable(false)
         self.setNavBarItem(left: .defaultType, mid: .custom, right: .custom)
         
-        grayBlurView.alpha = 0
         setSearchView()
     }
     
@@ -59,6 +58,7 @@ class GroupTourViewController: BaseViewController {
     
     private func getGroupMenu(){
         self.presenter?.getGroupMenu(toolBarType: .tour)
+        self.presenter?.getGroupIndex()
     }
     
     override func onLoginSuccess(){
@@ -167,6 +167,10 @@ extension GroupTourViewController: GroupNavigationViewProtocol{
     }
 }
 extension GroupTourViewController: GropeTourViewProtocol {
+    func onBindGroupIndex(moduleDataList: [IndexResponse.MultiModule]) {
+        groupADList = moduleDataList
+    }
+    
     func onBindGroupMenu(menu: GroupMenuResponse) {
         
         self.menuList = menu

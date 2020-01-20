@@ -42,6 +42,17 @@ class GropeTourPresenter: GropeTourPresenterProtocol {
             self.delegate?.onCompletedLoadingHandle()
         }).disposed(by: dispose)
     }
+    func getGroupIndex() {
+        self.delegate?.onStartLoadingHandle(handleType: .coverPlate)
+        
+        groupReponsitory.getGroupIndex().subscribe(onSuccess: { (model) in
+            self.delegate?.onBindGroupIndex(moduleDataList: model.moduleDataList)
+            self.delegate?.onCompletedLoadingHandle()
+        }, onError: { (error) in
+            self.delegate?.onApiErrorHandle(apiError: error as! APIError, handleType: .coverPlate)
+            self.delegate?.onCompletedLoadingHandle()
+        }).disposed(by: dispose)
+    }
     
     func getGroupMenu(toolBarType: ToolBarType) {
         self.delegate?.onStartLoadingHandle(handleType: .ignore)

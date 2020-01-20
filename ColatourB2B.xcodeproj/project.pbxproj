@@ -65,6 +65,8 @@
 		387FBF1123ACCF00005412F1 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 387FBF0A23ACCEB7005412F1 /* Login.storyboard */; };
 		387FBF1323ACD047005412F1 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387FBF1223ACD046005412F1 /* CustomTextField.swift */; };
 		387FBF1423ACD047005412F1 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387FBF1223ACD046005412F1 /* CustomTextField.swift */; };
+		38871EAD23D5553F007ED33D /* IndexResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38871EAC23D5553F007ED33D /* IndexResponse.swift */; };
+		38871EAE23D5553F007ED33D /* IndexResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38871EAC23D5553F007ED33D /* IndexResponse.swift */; };
 		38BCD91C23A3457900D59910 /* AccountRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BCD91B23A3457900D59910 /* AccountRepository.swift */; };
 		38BCD91D23A3457900D59910 /* AccountRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BCD91B23A3457900D59910 /* AccountRepository.swift */; };
 		38BCD92B23A345FA00D59910 /* DeviceUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BCD92023A345FA00D59910 /* DeviceUtil.swift */; };
@@ -285,6 +287,7 @@
 		387FBF0A23ACCEB7005412F1 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		387FBF0E23ACCEF4005412F1 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		387FBF1223ACD046005412F1 /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		38871EAC23D5553F007ED33D /* IndexResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexResponse.swift; sourceTree = "<group>"; };
 		38BCD91B23A3457900D59910 /* AccountRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountRepository.swift; sourceTree = "<group>"; };
 		38BCD92023A345FA00D59910 /* DeviceUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceUtil.swift; sourceTree = "<group>"; };
 		38BCD92123A345FA00D59910 /* EncryptionUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EncryptionUtils.m; sourceTree = "<group>"; };
@@ -720,6 +723,7 @@
 				38BCD9C923A3647E00D59910 /* BaseModel.swift */,
 				38E9922023B04F1400E28271 /* VersionRuleReponse.swift */,
 				38E9922323B04F2A00E28271 /* BulletinResponse.swift */,
+				38871EAC23D5553F007ED33D /* IndexResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -1201,6 +1205,7 @@
 				38BCD97523A3484300D59910 /* UIColorExtension.swift in Sources */,
 				38BCDA0323A367D000D59910 /* ApiFailErrorView.swift in Sources */,
 				38BCDA2F23A37B7100D59910 /* MemberIndexViewController.swift in Sources */,
+				38871EAD23D5553F007ED33D /* IndexResponse.swift in Sources */,
 				38BCD93E23A346B800D59910 /* APIError.swift in Sources */,
 				38BCD95123A3471600D59910 /* FirebaseCrashManager.swift in Sources */,
 			);
@@ -1307,6 +1312,7 @@
 				38BCD97623A3484300D59910 /* UIColorExtension.swift in Sources */,
 				38BCDA0423A367D000D59910 /* ApiFailErrorView.swift in Sources */,
 				38BCDA3023A37B7100D59910 /* MemberIndexViewController.swift in Sources */,
+				38871EAE23D5553F007ED33D /* IndexResponse.swift in Sources */,
 				38BCD93F23A346B800D59910 /* APIError.swift in Sources */,
 				38BCD95223A3471600D59910 /* FirebaseCrashManager.swift in Sources */,
 			);
