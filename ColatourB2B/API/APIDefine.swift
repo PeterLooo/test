@@ -99,6 +99,7 @@ enum APIUrl {
     enum MemberApi: String {
         
         case memberIndex = "Index"
+        case passwordReset = "Password/Modify"
         
         static func urlWith(type: MemberApi, append:String) -> String {
             let base =  MEMBER_WEB_HOST + "/Member/"

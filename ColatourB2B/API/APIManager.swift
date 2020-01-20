@@ -224,6 +224,15 @@ extension APIManager {
         return manager(method: .get, appendUrl: "", url: APIUrl.memberApi(type: .memberIndex), parameters: nil, appendHeaders: nil)
     }
     
+    func passwordReset(passwordResetRequest: PasswordResetRequest) -> Single<[String: Any]> {
+        let params = ["Original_Password": passwordResetRequest.originalPassword,
+                      "New_Password": passwordResetRequest.newPassword,
+                      "Confirm_New_Password": passwordResetRequest.checkNewPassword,
+                      "Password_Hint": passwordResetRequest.passwordHint,
+                      "Refresh_Token": passwordResetRequest.refreshToken]        
+        return manager(method: .post, appendUrl: "", url: APIUrl.memberApi(type: .passwordReset), parameters: params as [String : Any], appendHeaders: nil)
+    }
+    
     func getGroupMenu(toolBarType: ToolBarType)-> Single<[String:Any]> {
         return manager(method: .get, appendUrl: "", url: toolBarType.getApiUrl(), parameters: nil, appendHeaders: nil)
     }

@@ -81,6 +81,15 @@ class AccountRepository: NSObject {
             }
     }
     
+    func passwordReset(passwordResetRequest: PasswordResetRequest) -> Single<PasswordResetResponse> {
+        
+        let api = APIManager.shared.passwordReset(passwordResetRequest: passwordResetRequest)
+        
+        return AccountRepository.shared.getAccessToken()
+            .flatMap{_ in api}
+            .map{PasswordResetResponse(JSON: $0)!}
+    }
+    
     private func procressRefreshToken(loginResponse: LoginResponse) -> Single<LoginResponse> {
         switch loginResponse.passwordReset == true {
         case true:
