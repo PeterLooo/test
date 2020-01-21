@@ -226,6 +226,8 @@
 		C77282F423CC502500067EB4 /* GroupTourSearch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C77282F223CC502500067EB4 /* GroupTourSearch.storyboard */; };
 		C77282F723CC505800067EB4 /* GroupTourSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77282F623CC505800067EB4 /* GroupTourSearchViewController.swift */; };
 		C77282F823CC505800067EB4 /* GroupTourSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77282F623CC505800067EB4 /* GroupTourSearchViewController.swift */; };
+		C7DA175723D6E5C9006A8803 /* GroupTourSearchKeywordAndTourCodeInputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DA175623D6E5C9006A8803 /* GroupTourSearchKeywordAndTourCodeInputCell.swift */; };
+		C7DA175823D6E5C9006A8803 /* GroupTourSearchKeywordAndTourCodeInputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DA175623D6E5C9006A8803 /* GroupTourSearchKeywordAndTourCodeInputCell.swift */; };
 		C7DCA71623D1B76200F415B8 /* GroupTourSearchInputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DCA71523D1B76200F415B8 /* GroupTourSearchInputCell.swift */; };
 		C7DCA71723D1B76200F415B8 /* GroupTourSearchInputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DCA71523D1B76200F415B8 /* GroupTourSearchInputCell.swift */; };
 		C7DCA71C23D1BBAB00F415B8 /* GroupTourSearchInitResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DCA71B23D1BBAB00F415B8 /* GroupTourSearchInitResponse.swift */; };
@@ -387,6 +389,7 @@
 		C711753F23BF40DA00555D8C /* MorePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MorePresenter.swift; sourceTree = "<group>"; };
 		C77282F223CC502500067EB4 /* GroupTourSearch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GroupTourSearch.storyboard; sourceTree = "<group>"; };
 		C77282F623CC505800067EB4 /* GroupTourSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTourSearchViewController.swift; sourceTree = "<group>"; };
+		C7DA175623D6E5C9006A8803 /* GroupTourSearchKeywordAndTourCodeInputCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTourSearchKeywordAndTourCodeInputCell.swift; sourceTree = "<group>"; };
 		C7DCA71523D1B76200F415B8 /* GroupTourSearchInputCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTourSearchInputCell.swift; sourceTree = "<group>"; };
 		C7DCA71B23D1BBAB00F415B8 /* GroupTourSearchInitResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTourSearchInitResponse.swift; sourceTree = "<group>"; };
 		C7DCA71E23D1BBC300F415B8 /* GroupTourSearchProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTourSearchProtocol.swift; sourceTree = "<group>"; };
@@ -829,6 +832,7 @@
 				C7DCA71523D1B76200F415B8 /* GroupTourSearchInputCell.swift */,
 				C7DCA71E23D1BBC300F415B8 /* GroupTourSearchProtocol.swift */,
 				C7DCA72123D1BBE300F415B8 /* GroupTourSearchPresenter.swift */,
+				C7DA175623D6E5C9006A8803 /* GroupTourSearchKeywordAndTourCodeInputCell.swift */,
 			);
 			path = GroupTourSearch;
 			sourceTree = "<group>";
@@ -1226,6 +1230,7 @@
 				38E9922123B04F1400E28271 /* VersionRuleReponse.swift in Sources */,
 				38BCD93523A345FA00D59910 /* GTMBase64.m in Sources */,
 				38BCD9D723A366EC00D59910 /* TabBarViewController.swift in Sources */,
+				C7DA175723D6E5C9006A8803 /* GroupTourSearchKeywordAndTourCodeInputCell.swift in Sources */,
 				38BCD98D23A3484300D59910 /* ShareFunc.swift in Sources */,
 				384B110323C2BD33000E2B41 /* AirTicketProtocol.swift in Sources */,
 				387FBF0F23ACCEF4005412F1 /* LoginViewController.swift in Sources */,
@@ -1338,6 +1343,7 @@
 				38E9922223B04F1400E28271 /* VersionRuleReponse.swift in Sources */,
 				38BCD93623A345FA00D59910 /* GTMBase64.m in Sources */,
 				38BCD9D823A366EC00D59910 /* TabBarViewController.swift in Sources */,
+				C7DA175823D6E5C9006A8803 /* GroupTourSearchKeywordAndTourCodeInputCell.swift in Sources */,
 				38BCD98E23A3484300D59910 /* ShareFunc.swift in Sources */,
 				384B110423C2BD33000E2B41 /* AirTicketProtocol.swift in Sources */,
 				387FBF1023ACCEF4005412F1 /* LoginViewController.swift in Sources */,
