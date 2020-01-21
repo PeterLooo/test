@@ -1,5 +1,5 @@
 //
-//  PasswordResetViewController.swift
+//  PasswordModifyViewController.swift
 //  ColatourB2B
 //
 //  Created by M7635 on 2020/1/16.
@@ -8,12 +8,12 @@
 
 import UIKit
 
-protocol PasswordResetToastProtocol {
+protocol PasswordModifyToastProtocol {
     
-    func setPasswordResetToastText(text: String)
+    func setPasswordModifyToastText(text: String)
 }
 
-class PasswordResetViewController: BaseViewController {
+class PasswordModifyViewController: BaseViewController {
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var originalPassword: CustomTextField!
@@ -23,15 +23,16 @@ class PasswordResetViewController: BaseViewController {
     @IBOutlet weak var originalPasswordEye: BooleanButton!
     @IBOutlet weak var newPasswordEye: BooleanButton!
     @IBOutlet weak var checkNewPasswordEye: BooleanButton!
+    @IBOutlet weak var hintLabel: UILabel!
     @IBOutlet weak var confirmButton: UIButton!
     
-    private var presenter: PasswordResetPresenter?
-    var delegate: PasswordResetToastProtocol?
+    private var presenter: PasswordModifyPresenter?
+    var delegate: PasswordModifyToastProtocol?
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         
-        presenter = PasswordResetPresenter(delegate: self)
+        presenter = PasswordModifyPresenter(delegate: self)
     }
     
     override func viewDidLoad() {
@@ -59,6 +60,8 @@ class PasswordResetViewController: BaseViewController {
         passwordHint.clearButton.isHidden = true
         passwordHint.delegate = self
         
+        hintLabel.isHidden = true
+        
         confirmButton.setBorder(width: 1, radius: 4, color: UIColor.init(named: "通用綠"))
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -75,7 +78,7 @@ class PasswordResetViewController: BaseViewController {
         
         UIView.animate(withDuration: 0.05, animations: {
             if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
-                self.scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardFrame.cgRectValue.height + 10, right: 0)
+                self.scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardFrame.cgRectValue.height + 25, right: 0)
             }
         })
     }
@@ -126,21 +129,22 @@ class PasswordResetViewController: BaseViewController {
             newPassword.becomeFirstResponder()
         
         } else if checkNewPassword.text?.count == 0 {
-            checkNewPassword.someController?.setErrorText("請再次輸入新密碼", errorAccessibilityValue: nil)
+            checkNewPassword.someController?.setErrorText("請再一次輸入新密碼", errorAccessibilityValue: nil)
             checkNewPassword.becomeFirstResponder()
             
         } else if passwordHint.text?.count == 0 {
-            passwordHint.someController?.setErrorText("請輸入密碼提示", errorAccessibilityValue: nil)
+            passwordHint.someController?.setErrorText("", errorAccessibilityValue: nil)
+            hintLabel.isHidden = false
             passwordHint.becomeFirstResponder()
             
         } else {
-            let request = PasswordResetRequest()
+            let request = PasswordModifyRequest()
             request.originalPassword = originalPassword.text
             request.newPassword = newPassword.text
             request.checkNewPassword = checkNewPassword.text
             request.passwordHint = passwordHint.text
             request.refreshToken = MemberRepository.shared.getLocalRefreshToken()
-            presenter?.passwordReset(request: request)
+            presenter?.passwordModify(request: request)
             
         }
     }
@@ -157,7 +161,7 @@ class PasswordResetViewController: BaseViewController {
     }
 }
 
-extension PasswordResetViewController : UIScrollViewDelegate {
+extension PasswordModifyViewController : UIScrollViewDelegate {
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         
@@ -165,7 +169,7 @@ extension PasswordResetViewController : UIScrollViewDelegate {
     }
 }
 
-extension PasswordResetViewController: UITextFieldDelegate {
+extension PasswordModifyViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
 
@@ -193,23 +197,45 @@ extension PasswordResetViewController: UITextFieldDelegate {
             return false
         }
     }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        switch textField {
+            
+        case originalPassword:
+            originalPassword.someController?.setErrorText(nil, errorAccessibilityValue: nil)
+            return true
+            
+        case newPassword:
+            newPassword.someController?.setErrorText(nil, errorAccessibilityValue: nil)
+            return true
+            
+        case checkNewPassword:
+            checkNewPassword.someController?.setErrorText(nil, errorAccessibilityValue: nil)
+            return true
+            
+        case passwordHint:
+            passwordHint.someController?.setErrorText(nil, errorAccessibilityValue: nil)
+            hintLabel.isHidden = true
+            return true
+            
+        default:
+            return false
+        }
+    }
 }
 
-extension PasswordResetViewController: PasswordResetViewProtocol {
+extension PasswordModifyViewController: PasswordModifyViewProtocol {
     
-    func passwordResetResult(response: PasswordResetResponse) {
+    func passwordModifySuccess() {
         
-        if response.modifyPassowrd?.modifyMark == false {
-            
-            self.view.endEditing(true)
-            self.toast(text: response.modifyPassowrd?.modifyMessage ?? "")
-        
-        } else {
-            
-            MemberRepository.shared.setLocalUserToken(refreshToken: response.modifyPassowrd!.refreshToken!, accessToken: response.modifyPassowrd!.accessToken!)
-            self.dismiss(animated: true, completion: {
-                self.delegate?.setPasswordResetToastText(text: "更改密碼成功")
-            })
-        }
+        self.dismiss(animated: true, completion: {
+            self.delegate?.setPasswordModifyToastText(text: "更改密碼成功")
+        })
+    }
+    
+    func passwordModifyFail(response: PasswordModifyResponse) {
+        self.view.endEditing(true)
+        self.toast(text: response.modifyPassowrd?.modifyMessage ?? "")
     }
 }

@@ -81,13 +81,34 @@ class AccountRepository: NSObject {
             }
     }
     
-    func passwordReset(passwordResetRequest: PasswordResetRequest) -> Single<PasswordResetResponse> {
+    func passwordModify(passwordModifyRequest: PasswordModifyRequest) -> Single<PasswordModifyResponse> {
         
-        let api = APIManager.shared.passwordReset(passwordResetRequest: passwordResetRequest)
+        let api = APIManager.shared.passwordModify(passwordModifyRequest: passwordModifyRequest)
         
         return AccountRepository.shared.getAccessToken()
             .flatMap{_ in api}
-            .map{PasswordResetResponse(JSON: $0)!}
+            .flatMap{ response -> Single<PasswordModifyResponse> in
+                let passwordModifyResponse: PasswordModifyResponse = PasswordModifyResponse(JSON: response)!
+                return Single.just(passwordModifyResponse)
+            }
+            .flatMap{ response -> Single<PasswordModifyResponse> in
+                return self.procressRefreshToken(passwordModifyResponse: response)
+            }
+    }
+    
+    private func procressRefreshToken(passwordModifyResponse: PasswordModifyResponse) -> Single<PasswordModifyResponse> {
+        
+        switch passwordModifyResponse.modifyPassowrd?.modifyMark == true {
+            
+        case true:
+             MemberRepository.shared.setLocalUserToken(refreshToken: passwordModifyResponse.modifyPassowrd!.refreshToken!, accessToken: passwordModifyResponse.modifyPassowrd!.accessToken!)
+            
+        case false:
+            MemberRepository.shared.removeLocalAccessToken()
+            MemberRepository.shared.removeLocalRefreshToken()
+        }
+        
+        return Single.just(passwordModifyResponse)
     }
     
     private func procressRefreshToken(loginResponse: LoginResponse) -> Single<LoginResponse> {

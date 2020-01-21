@@ -9,31 +9,32 @@
 import Foundation
 import RxSwift
 
-class PasswordResetPresenter: PasswordResetPresenterProtocol {
+class PasswordModifyPresenter: PasswordModifyPresenterProtocol {
     
-    weak var delegate: PasswordResetViewProtocol?
+    weak var delegate: PasswordModifyViewProtocol?
     let accountRepository = AccountRepository.shared
+    let memberRepository = MemberRepository.shared
     let dispose = DisposeBag()
 
-    convenience init(delegate:PasswordResetViewProtocol) {
+    convenience init(delegate:PasswordModifyViewProtocol) {
         self.init()
         self.delegate = delegate
     }
     
-    func passwordReset(request: PasswordResetRequest) {
+    func passwordModify(request: PasswordModifyRequest) {
         
         self.delegate?.onStartLoadingHandle(handleType: .ignore)
-        accountRepository.passwordReset(passwordResetRequest: request)
+        accountRepository.passwordModify(passwordModifyRequest: request)
             .subscribe(
                 
-                onSuccess: { (passwordResetReponse) in
-                    self.delegate?.passwordResetResult(response: passwordResetReponse)
+                onSuccess: { (passwordModifyReponse) in
+                    self.delegate?.passwordModifySuccess()
                     self.delegate?.onCompletedLoadingHandle()
                     
             },  onError: { (error) in
                     self.delegate?.onApiErrorHandle(apiError: error as! APIError, handleType: .alert)
                     self.delegate?.onCompletedLoadingHandle()
                 
-            }).disposed(by:dispose)
+            }).disposed(by: dispose)
     }
 }
