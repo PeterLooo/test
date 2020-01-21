@@ -145,7 +145,6 @@ class PasswordModifyViewController: BaseViewController {
             request.passwordHint = passwordHint.text
             request.refreshToken = MemberRepository.shared.getLocalRefreshToken()
             presenter?.passwordModify(request: request)
-            
         }
     }
     
@@ -173,7 +172,6 @@ extension PasswordModifyViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
 
-        
         switch textField {
             
         case originalPassword:
