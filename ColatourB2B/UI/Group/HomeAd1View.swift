@@ -57,8 +57,6 @@ class HomeAd1View: UIView {
             SDWebImageManager.shared.loadImage(with: URL(string: item.picUrl ?? ""), options: SDWebImageOptions(rawValue: 0), progress: nil, completed: { (image, data, error, cacheType, bool, imageURL) in
                 if error == nil {
                     self.imageView.image = image
-                }else{
-                    self.imageView.image = #imageLiteral(resourceName: "emptystate")
                 }
             })
         }
