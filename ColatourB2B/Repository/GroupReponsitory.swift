@@ -15,8 +15,8 @@ class GroupReponsitory: NSObject {
     fileprivate var dispose = DisposeBag()
     static let shared = GroupReponsitory()
     
-    func getGroupIndex() -> Single<IndexResponse> {
-        let api = APIManager.shared.getGroupIndex()
+    func getTourIndex(tourType: TourType) -> Single<IndexResponse> {
+        let api = APIManager.shared.getGroupIndex(tourType: tourType)
         
         return AccountRepository.shared.getAccessToken()
             .flatMap{_ in api}

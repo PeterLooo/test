@@ -224,9 +224,9 @@ extension APIManager {
         return manager(method: .get, appendUrl: "", url: APIUrl.memberApi(type: .memberIndex), parameters: nil, appendHeaders: nil)
     }
     
-    func getGroupIndex() -> Single<[String:Any]> {
+    func getGroupIndex(tourType:TourType) -> Single<[String:Any]> {
         
-        return manager(method: .get, appendUrl: "", url: APIUrl.portalApi(type: .groupIndex), parameters: nil, appendHeaders: nil)
+        return manager(method: .get, appendUrl: "", url: tourType.getApiUrl(), parameters: nil, appendHeaders: nil)
     }
     
     func getGroupMenu(toolBarType: ToolBarType)-> Single<[String:Any]> {
