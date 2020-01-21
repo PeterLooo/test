@@ -228,6 +228,10 @@
 		C77282F823CC505800067EB4 /* GroupTourSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77282F623CC505800067EB4 /* GroupTourSearchViewController.swift */; };
 		C7DA175723D6E5C9006A8803 /* GroupTourSearchKeywordAndTourCodeInputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DA175623D6E5C9006A8803 /* GroupTourSearchKeywordAndTourCodeInputCell.swift */; };
 		C7DA175823D6E5C9006A8803 /* GroupTourSearchKeywordAndTourCodeInputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DA175623D6E5C9006A8803 /* GroupTourSearchKeywordAndTourCodeInputCell.swift */; };
+		C7DA175A23D70245006A8803 /* GroupTourSearchKeywordAndTourCodeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DA175923D70245006A8803 /* GroupTourSearchKeywordAndTourCodeRequest.swift */; };
+		C7DA175B23D70245006A8803 /* GroupTourSearchKeywordAndTourCodeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DA175923D70245006A8803 /* GroupTourSearchKeywordAndTourCodeRequest.swift */; };
+		C7DA175D23D70261006A8803 /* GroupTourSearchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DA175C23D70261006A8803 /* GroupTourSearchRequest.swift */; };
+		C7DA175E23D70261006A8803 /* GroupTourSearchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DA175C23D70261006A8803 /* GroupTourSearchRequest.swift */; };
 		C7DCA71623D1B76200F415B8 /* GroupTourSearchInputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DCA71523D1B76200F415B8 /* GroupTourSearchInputCell.swift */; };
 		C7DCA71723D1B76200F415B8 /* GroupTourSearchInputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DCA71523D1B76200F415B8 /* GroupTourSearchInputCell.swift */; };
 		C7DCA71C23D1BBAB00F415B8 /* GroupTourSearchInitResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DCA71B23D1BBAB00F415B8 /* GroupTourSearchInitResponse.swift */; };
@@ -390,6 +394,8 @@
 		C77282F223CC502500067EB4 /* GroupTourSearch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GroupTourSearch.storyboard; sourceTree = "<group>"; };
 		C77282F623CC505800067EB4 /* GroupTourSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTourSearchViewController.swift; sourceTree = "<group>"; };
 		C7DA175623D6E5C9006A8803 /* GroupTourSearchKeywordAndTourCodeInputCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTourSearchKeywordAndTourCodeInputCell.swift; sourceTree = "<group>"; };
+		C7DA175923D70245006A8803 /* GroupTourSearchKeywordAndTourCodeRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTourSearchKeywordAndTourCodeRequest.swift; sourceTree = "<group>"; };
+		C7DA175C23D70261006A8803 /* GroupTourSearchRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTourSearchRequest.swift; sourceTree = "<group>"; };
 		C7DCA71523D1B76200F415B8 /* GroupTourSearchInputCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTourSearchInputCell.swift; sourceTree = "<group>"; };
 		C7DCA71B23D1BBAB00F415B8 /* GroupTourSearchInitResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTourSearchInitResponse.swift; sourceTree = "<group>"; };
 		C7DCA71E23D1BBC300F415B8 /* GroupTourSearchProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTourSearchProtocol.swift; sourceTree = "<group>"; };
@@ -791,6 +797,8 @@
 			isa = PBXGroup;
 			children = (
 				38E9922D23B058CA00E28271 /* LoginRequest.swift */,
+				C7DA175C23D70261006A8803 /* GroupTourSearchRequest.swift */,
+				C7DA175923D70245006A8803 /* GroupTourSearchKeywordAndTourCodeRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -1205,6 +1213,7 @@
 				C7DCA71F23D1BBC400F415B8 /* GroupTourSearchProtocol.swift in Sources */,
 				38BCD9CA23A3647E00D59910 /* BaseModel.swift in Sources */,
 				38BCD97923A3484300D59910 /* UIViewExtenstion.swift in Sources */,
+				C7DA175A23D70245006A8803 /* GroupTourSearchKeywordAndTourCodeRequest.swift in Sources */,
 				38E9922423B04F2A00E28271 /* BulletinResponse.swift in Sources */,
 				3817E4F723A33C8400ED8609 /* AppDelegate.swift in Sources */,
 				38BCD98F23A3484300D59910 /* DateFormatterExtenstion.swift in Sources */,
@@ -1234,6 +1243,7 @@
 				38BCD98D23A3484300D59910 /* ShareFunc.swift in Sources */,
 				384B110323C2BD33000E2B41 /* AirTicketProtocol.swift in Sources */,
 				387FBF0F23ACCEF4005412F1 /* LoginViewController.swift in Sources */,
+				C7DA175D23D70261006A8803 /* GroupTourSearchRequest.swift in Sources */,
 				38BCD93323A345FA00D59910 /* FormatUtil.swift in Sources */,
 				3869543223BAE5F500F6E7D9 /* MemberTopCell.swift in Sources */,
 				C77282F723CC505800067EB4 /* GroupTourSearchViewController.swift in Sources */,
@@ -1318,6 +1328,7 @@
 				C7DCA72023D1BBC400F415B8 /* GroupTourSearchProtocol.swift in Sources */,
 				38BCD9CB23A3647E00D59910 /* BaseModel.swift in Sources */,
 				38BCD97A23A3484300D59910 /* UIViewExtenstion.swift in Sources */,
+				C7DA175B23D70245006A8803 /* GroupTourSearchKeywordAndTourCodeRequest.swift in Sources */,
 				38E9922523B04F2A00E28271 /* BulletinResponse.swift in Sources */,
 				3817E52723A33C9500ED8609 /* AppDelegate.swift in Sources */,
 				38BCD99023A3484300D59910 /* DateFormatterExtenstion.swift in Sources */,
@@ -1347,6 +1358,7 @@
 				38BCD98E23A3484300D59910 /* ShareFunc.swift in Sources */,
 				384B110423C2BD33000E2B41 /* AirTicketProtocol.swift in Sources */,
 				387FBF1023ACCEF4005412F1 /* LoginViewController.swift in Sources */,
+				C7DA175E23D70261006A8803 /* GroupTourSearchRequest.swift in Sources */,
 				38BCD93423A345FA00D59910 /* FormatUtil.swift in Sources */,
 				3869543323BAE5F500F6E7D9 /* MemberTopCell.swift in Sources */,
 				C77282F823CC505800067EB4 /* GroupTourSearchViewController.swift in Sources */,

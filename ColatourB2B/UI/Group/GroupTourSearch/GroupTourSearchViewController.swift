@@ -39,27 +39,6 @@ extension GroupTourSearchViewController {
     }
 }
 
-class GroupTourSearchRequest: NSObject {
-    var startTourDate: String?
-    var tourDays: Int?
-    var selectedRegionCode: KeyValue?
-    var selectedDepartureCity: KeyValue?
-    var selectedAirlineCode: KeyValue?
-    var selectedTourType: KeyValue?
-    var isBookingTour: Bool = true
-}
-
-class GroupTourSearchKeywordAndTourCodeRequest: NSObject {
-    var keywordOrTourCode: String?
-    var selectedDepartureCity: KeyValue?
-    var keywordOrTourCodeSearchType: KeywordOrTourCodeSearchType?
-    
-    enum KeywordOrTourCodeSearchType {
-        case keyword
-        case tourCode
-    }
-}
-
 class GroupTourSearchViewController: BaseViewController {
     @IBOutlet weak var topPageScrollView: UIScrollView!
     @IBOutlet weak var topPageButtonView: UIView!
@@ -575,7 +554,7 @@ extension GroupTourSearchViewController {
     
     private func enableButton(_ button: UIButton, isEnable: Bool){
         switch isEnable {
-        case true :
+        case true:
             let color = UIColor.init(named: "通用綠")!
             button.tintColor = color
             button.setTitleColor(color, for: .normal)
