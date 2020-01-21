@@ -63,6 +63,8 @@ enum APIUrl {
     
     enum PortalApi: String {
         case homeAdList   = "Ticket/首頁1"
+        //TODO: 待正確API
+        case groupTourSearchInit = "groupTourSearchInit"
         
         static func urlWith(type: PortalApi, append: String) -> String {
             let base =  PORTAL_WEB_HOST + "/Portal/"

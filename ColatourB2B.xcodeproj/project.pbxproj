@@ -226,6 +226,16 @@
 		C77282F423CC502500067EB4 /* GroupTourSearch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C77282F223CC502500067EB4 /* GroupTourSearch.storyboard */; };
 		C77282F723CC505800067EB4 /* GroupTourSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77282F623CC505800067EB4 /* GroupTourSearchViewController.swift */; };
 		C77282F823CC505800067EB4 /* GroupTourSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77282F623CC505800067EB4 /* GroupTourSearchViewController.swift */; };
+		C7DCA71623D1B76200F415B8 /* GroupTourSearchInputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DCA71523D1B76200F415B8 /* GroupTourSearchInputCell.swift */; };
+		C7DCA71723D1B76200F415B8 /* GroupTourSearchInputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DCA71523D1B76200F415B8 /* GroupTourSearchInputCell.swift */; };
+		C7DCA71C23D1BBAB00F415B8 /* GroupTourSearchInitResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DCA71B23D1BBAB00F415B8 /* GroupTourSearchInitResponse.swift */; };
+		C7DCA71D23D1BBAB00F415B8 /* GroupTourSearchInitResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DCA71B23D1BBAB00F415B8 /* GroupTourSearchInitResponse.swift */; };
+		C7DCA71F23D1BBC400F415B8 /* GroupTourSearchProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DCA71E23D1BBC300F415B8 /* GroupTourSearchProtocol.swift */; };
+		C7DCA72023D1BBC400F415B8 /* GroupTourSearchProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DCA71E23D1BBC300F415B8 /* GroupTourSearchProtocol.swift */; };
+		C7DCA72223D1BBE300F415B8 /* GroupTourSearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DCA72123D1BBE300F415B8 /* GroupTourSearchPresenter.swift */; };
+		C7DCA72323D1BBE300F415B8 /* GroupTourSearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DCA72123D1BBE300F415B8 /* GroupTourSearchPresenter.swift */; };
+		C7E15BF123D18CB0004C20A0 /* CustomPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E15BF023D18CB0004C20A0 /* CustomPickerView.swift */; };
+		C7E15BF223D18CB0004C20A0 /* CustomPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E15BF023D18CB0004C20A0 /* CustomPickerView.swift */; };
 		FF8E32EC7686F078B8ABDE18 /* Pods_ColatourB2B.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A331B185DD2055D277F472F3 /* Pods_ColatourB2B.framework */; };
 /* End PBXBuildFile section */
 
@@ -377,6 +387,11 @@
 		C711753F23BF40DA00555D8C /* MorePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MorePresenter.swift; sourceTree = "<group>"; };
 		C77282F223CC502500067EB4 /* GroupTourSearch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GroupTourSearch.storyboard; sourceTree = "<group>"; };
 		C77282F623CC505800067EB4 /* GroupTourSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTourSearchViewController.swift; sourceTree = "<group>"; };
+		C7DCA71523D1B76200F415B8 /* GroupTourSearchInputCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTourSearchInputCell.swift; sourceTree = "<group>"; };
+		C7DCA71B23D1BBAB00F415B8 /* GroupTourSearchInitResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTourSearchInitResponse.swift; sourceTree = "<group>"; };
+		C7DCA71E23D1BBC300F415B8 /* GroupTourSearchProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTourSearchProtocol.swift; sourceTree = "<group>"; };
+		C7DCA72123D1BBE300F415B8 /* GroupTourSearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTourSearchPresenter.swift; sourceTree = "<group>"; };
+		C7E15BF023D18CB0004C20A0 /* CustomPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPickerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -521,6 +536,7 @@
 			isa = PBXGroup;
 			children = (
 				38E68AB623B5AC12006BC4DD /* GroupMenuResponse.swift */,
+				C7DCA71B23D1BBAB00F415B8 /* GroupTourSearchInitResponse.swift */,
 			);
 			path = Group;
 			sourceTree = "<group>";
@@ -689,6 +705,7 @@
 				38BCDA1723A3696800D59910 /* WebViewController.swift */,
 				38E9923623B06AFA00E28271 /* BasePresenter.swift */,
 				38E9923923B0B5DF00E28271 /* BooleanButton.swift */,
+				C7E15BF023D18CB0004C20A0 /* CustomPickerView.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -809,6 +826,9 @@
 			isa = PBXGroup;
 			children = (
 				C77282F623CC505800067EB4 /* GroupTourSearchViewController.swift */,
+				C7DCA71523D1B76200F415B8 /* GroupTourSearchInputCell.swift */,
+				C7DCA71E23D1BBC300F415B8 /* GroupTourSearchProtocol.swift */,
+				C7DCA72123D1BBE300F415B8 /* GroupTourSearchPresenter.swift */,
 			);
 			path = GroupTourSearch;
 			sourceTree = "<group>";
@@ -1156,6 +1176,7 @@
 				38BCD98723A3484300D59910 /* UINavigationControllerExtension.swift in Sources */,
 				387FBF0023ACA2D2005412F1 /* NoticeViewController.swift in Sources */,
 				38BCD94023A346B800D59910 /* APIErrorHandleType.swift in Sources */,
+				C7DCA71623D1B76200F415B8 /* GroupTourSearchInputCell.swift in Sources */,
 				38E68AB423B5ABE9006BC4DD /* AppHelper.swift in Sources */,
 				38BCDA0D23A367D000D59910 /* LoadingView.swift in Sources */,
 				38BCD91C23A3457900D59910 /* AccountRepository.swift in Sources */,
@@ -1175,7 +1196,9 @@
 				38BCD97323A3484300D59910 /* UIImageViewExtension.swift in Sources */,
 				38BCD98523A3484300D59910 /* ShareEnum.swift in Sources */,
 				38BCDA1E23A36ADC00D59910 /* TabBarPresenter.swift in Sources */,
+				C7DCA72223D1BBE300F415B8 /* GroupTourSearchPresenter.swift in Sources */,
 				38BCD94423A346B800D59910 /* APIManager.swift in Sources */,
+				C7DCA71F23D1BBC400F415B8 /* GroupTourSearchProtocol.swift in Sources */,
 				38BCD9CA23A3647E00D59910 /* BaseModel.swift in Sources */,
 				38BCD97923A3484300D59910 /* UIViewExtenstion.swift in Sources */,
 				38E9922423B04F2A00E28271 /* BulletinResponse.swift in Sources */,
@@ -1214,6 +1237,7 @@
 				38E9923A23B0B5DF00E28271 /* BooleanButton.swift in Sources */,
 				38E9922E23B058CA00E28271 /* LoginRequest.swift in Sources */,
 				38BCD97F23A3484300D59910 /* UIFontExtenstion.swift in Sources */,
+				C7E15BF123D18CB0004C20A0 /* CustomPickerView.swift in Sources */,
 				38BCD92F23A345FA00D59910 /* ColorHexUtil.swift in Sources */,
 				C711754023BF40DA00555D8C /* MorePresenter.swift in Sources */,
 				38BCD94623A346B800D59910 /* APIDefine.swift in Sources */,
@@ -1221,6 +1245,7 @@
 				38BCDA0323A367D000D59910 /* ApiFailErrorView.swift in Sources */,
 				38BCDA2F23A37B7100D59910 /* MemberIndexViewController.swift in Sources */,
 				38BCD93E23A346B800D59910 /* APIError.swift in Sources */,
+				C7DCA71C23D1BBAB00F415B8 /* GroupTourSearchInitResponse.swift in Sources */,
 				38BCD95123A3471600D59910 /* FirebaseCrashManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1263,6 +1288,7 @@
 				38BCD98823A3484300D59910 /* UINavigationControllerExtension.swift in Sources */,
 				387FBF0123ACA2D2005412F1 /* NoticeViewController.swift in Sources */,
 				38BCD94123A346B800D59910 /* APIErrorHandleType.swift in Sources */,
+				C7DCA71723D1B76200F415B8 /* GroupTourSearchInputCell.swift in Sources */,
 				38E68AB523B5ABE9006BC4DD /* AppHelper.swift in Sources */,
 				38BCDA0E23A367D000D59910 /* LoadingView.swift in Sources */,
 				38BCD91D23A3457900D59910 /* AccountRepository.swift in Sources */,
@@ -1282,7 +1308,9 @@
 				38BCD97423A3484300D59910 /* UIImageViewExtension.swift in Sources */,
 				38BCD98623A3484300D59910 /* ShareEnum.swift in Sources */,
 				38BCDA1F23A36ADC00D59910 /* TabBarPresenter.swift in Sources */,
+				C7DCA72323D1BBE300F415B8 /* GroupTourSearchPresenter.swift in Sources */,
 				38BCD94523A346B800D59910 /* APIManager.swift in Sources */,
+				C7DCA72023D1BBC400F415B8 /* GroupTourSearchProtocol.swift in Sources */,
 				38BCD9CB23A3647E00D59910 /* BaseModel.swift in Sources */,
 				38BCD97A23A3484300D59910 /* UIViewExtenstion.swift in Sources */,
 				38E9922523B04F2A00E28271 /* BulletinResponse.swift in Sources */,
@@ -1321,6 +1349,7 @@
 				38E9923B23B0B5DF00E28271 /* BooleanButton.swift in Sources */,
 				38E9922F23B058CA00E28271 /* LoginRequest.swift in Sources */,
 				38BCD98023A3484300D59910 /* UIFontExtenstion.swift in Sources */,
+				C7E15BF223D18CB0004C20A0 /* CustomPickerView.swift in Sources */,
 				38BCD93023A345FA00D59910 /* ColorHexUtil.swift in Sources */,
 				C711754123BF40DA00555D8C /* MorePresenter.swift in Sources */,
 				38BCD94723A346B800D59910 /* APIDefine.swift in Sources */,
@@ -1328,6 +1357,7 @@
 				38BCDA0423A367D000D59910 /* ApiFailErrorView.swift in Sources */,
 				38BCDA3023A37B7100D59910 /* MemberIndexViewController.swift in Sources */,
 				38BCD93F23A346B800D59910 /* APIError.swift in Sources */,
+				C7DCA71D23D1BBAB00F415B8 /* GroupTourSearchInitResponse.swift in Sources */,
 				38BCD95223A3471600D59910 /* FirebaseCrashManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

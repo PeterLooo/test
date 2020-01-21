@@ -21,4 +21,11 @@ class GroupReponsitory: NSObject {
             .flatMap{_ in api}
             .map{ GroupMenuResponse(JSON: $0)!}
     }
+    
+    func getGroupTourSearchInit() -> Single<GroupTourSearchInitResponse.GroupTourSearchInit> {
+        let api = APIManager.shared.getGroupTourSearchInit()
+        return AccountRepository.shared.getAccessToken()
+            .flatMap{_ in api}
+            .map{ GroupTourSearchInitResponse.GroupTourSearchInit(JSON: $0)!}
+    }
 }

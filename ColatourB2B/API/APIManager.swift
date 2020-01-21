@@ -227,6 +227,11 @@ extension APIManager {
     func getGroupMenu(toolBarType: ToolBarType)-> Single<[String:Any]> {
         return manager(method: .get, appendUrl: "", url: toolBarType.getApiUrl(), parameters: nil, appendHeaders: nil)
     }
+    
+    func getGroupTourSearchInit() -> Single<[String: Any]> {
+        return AppHelper.shared.getJson(forResource: "File")
+        return manager(method: .get, appendUrl: "", url: APIUrl.portalApi(type: .groupTourSearchInit), parameters: nil, appendHeaders: nil)
+    }
 }
 
 extension APIManager {
