@@ -1,5 +1,5 @@
 //
-//  PasswordResetResponse.swift
+//  PasswordModifyResponse.swift
 //  ColatourB2B
 //
 //  Created by M7635 on 2020/1/16.
@@ -9,9 +9,9 @@
 import UIKit
 import ObjectMapper
 
-class PasswordResetResponse: BaseModel {
+class PasswordModifyResponse: BaseModel {
     
-    var modifyPassowrd: passwordResetComponent?
+    var modifyPassowrd: PasswordModifyComponent?
     
     override func mapping(map: Map) {
         super.mapping(map: map)
@@ -20,7 +20,7 @@ class PasswordResetResponse: BaseModel {
     }
 }
 
-class passwordResetComponent: BaseModel {
+class PasswordModifyComponent: BaseModel {
     
     var modifyMark: Bool?
     var modifyMessage: String?

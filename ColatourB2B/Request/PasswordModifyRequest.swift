@@ -1,5 +1,5 @@
 //
-//  PasswordResetRequest.swift
+//  PasswordModifyRequest.swift
 //  ColatourB2B
 //
 //  Created by M7635 on 2020/1/16.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class PasswordResetRequest: NSObject {
+class PasswordModifyRequest: NSObject {
     
     var originalPassword: String?
     var newPassword: String?
