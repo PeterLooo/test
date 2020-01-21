@@ -19,8 +19,8 @@ class GroupTourSearchPresenter: GroupTourSearchPresenterProtocol {
        }
        
        func getGroupTourSearchInit() {
-           self.delegate?.onStartLoadingHandle(handleType: .coverPlate)
-        GroupReponsitory.shared
+        self.delegate?.onStartLoadingHandle(handleType: .coverPlate)
+            GroupReponsitory.shared
             .getGroupTourSearchInit()
             .subscribe(onSuccess:{ (model) in
             self.delegate?.onBindGroupTourSearchInit(groupTourSearchInit: model)
