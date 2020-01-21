@@ -10,9 +10,16 @@ import UIKit
 
 class GroupTourViewController: BaseViewController {
     
+    @IBOutlet weak var topButtonView: UIView!
+    @IBOutlet weak var topGroupButton: UIButton!
+    @IBOutlet weak var topTCButton: UIButton!
+    @IBOutlet weak var topKSButton: UIButton!
+    @IBOutlet weak var pageButtonBottomLineLeading: NSLayoutConstraint!
     
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var stackView: UIStackView!
     private var presenter: GropeTourPresenter?
-    
+    private var groupTableViews: [GroupTableView] = []
     private var menuList : GroupMenuResponse? {
         didSet{
             setNavIcon()
@@ -33,7 +40,24 @@ class GroupTourViewController: BaseViewController {
         
         setIsNavShadowEnable(false)
         self.setNavBarItem(left: .defaultType, mid: .custom, right: .custom)
-        
+        stackView.subviews.forEach({$0.removeFromSuperview()})
+        for i in 0...2 {
+            let view = GroupTableView()
+            switch i {
+            case 0:
+                view.setViewWith(itemList: groupADList)
+            case 1:
+                view.setViewWith(itemList: groupADList)
+            case 2:
+                view.setViewWith(itemList: groupADList)
+            default:
+                break
+            }
+            view.delegate = self
+            
+            stackView.addArrangedSubview(view)
+            groupTableViews.append(view)
+        }
         setSearchView()
     }
     
@@ -57,8 +81,11 @@ class GroupTourViewController: BaseViewController {
     }
     
     private func getGroupMenu(){
+        if isLogin == false { return }
         self.presenter?.getGroupMenu(toolBarType: .tour)
-        self.presenter?.getGroupIndex()
+        self.presenter?.getTourIndex(tourType: .tour)
+        self.presenter?.getTourIndex(tourType: .taichung)
+        self.presenter?.getTourIndex(tourType: .kaohsiung)
     }
     
     override func onLoginSuccess(){
@@ -130,6 +157,62 @@ class GroupTourViewController: BaseViewController {
 
         self.present(alert, animated: true)
     }
+    @IBAction func onTouchTopTag(_ sender: UIButton) {
+        var contentOffset = CGFloat.zero
+        switch sender.tag {
+        case 0:
+            contentOffset = 0
+        case 1:
+            contentOffset = screenWidth * 1
+        case 2:
+            contentOffset = screenWidth * 2
+        default:
+            contentOffset = 0
+        }
+        scrollView.setContentOffset(CGPoint.init(x: contentOffset, y: 0), animated: true)
+    }
+    
+    private func switchPageButton(toPage: Int){
+        switch toPage {
+        case 0:
+            enableButton(topGroupButton)
+            disableButton(topTCButton)
+            disableButton(topKSButton)
+            
+        case 1:
+            enableButton(topTCButton)
+            disableButton(topGroupButton)
+            disableButton(topKSButton)
+            
+        case 2:
+            enableButton(topKSButton)
+            disableButton(topTCButton)
+            disableButton(topGroupButton)
+            
+        default:
+            ()
+        }
+    }
+    
+    private func enableButton(_ button: UIButton){
+        button.tintColor = UIColor.init(named: "通用綠")
+        button.setTitleColor(UIColor.init(named: "通用綠"), for: .normal)
+        button.titleLabel?.font = UIFont.init(name: "PingFang-TC-Semibold", size: 16.0)
+        
+    }
+    
+    private func disableButton(_ button: UIButton){
+        button.tintColor = UIColor.init(named: "標題黑")
+        button.setTitleColor(UIColor.init(named: "標題黑"), for: .normal)
+        button.titleLabel?.font = UIFont.init(name: "PingFang-TC-Regular", size: 16.0)
+        
+    }
+    
+    private func scrollTopPageButtonBottomLine(percent: CGFloat){
+        let maxOffset = UIScreen.main.bounds.width / 3.0
+        let scrollOffset = maxOffset * percent
+        self.pageButtonBottomLineLeading.constant = scrollOffset
+    }
     
     private func onPopContactVC(){
         ()
@@ -166,15 +249,27 @@ extension GroupTourViewController: GroupNavigationViewProtocol{
         ()
     }
 }
+extension GroupTourViewController: GroupTableViewProtocol {
+    func onTouchItem(item: IndexResponse.ModuleItem) {
+        self.handleLinkType(linkType: item.linkType, linkValue: item.linkParams, linkText: nil)
+    }
+}
 extension GroupTourViewController: GropeTourViewProtocol {
-    func onBindGroupIndex(moduleDataList: [IndexResponse.MultiModule]) {
-        groupADList = moduleDataList
+    func onBindTourIndex(moduleDataList: [IndexResponse.MultiModule], tourType: TourType) {
+        switch tourType {
+        case .tour:
+            self.groupTableViews[0].setViewWith(itemList: moduleDataList)
+        case .taichung:
+            self.groupTableViews[1].setViewWith(itemList: moduleDataList)
+        case .kaohsiung:
+            self.groupTableViews[2].setViewWith(itemList: moduleDataList)
+        
+        }
     }
     
     func onBindGroupMenu(menu: GroupMenuResponse) {
         
         self.menuList = menu
-        
     }
     
     func onBindApiTokenComplete() {
@@ -184,5 +279,18 @@ extension GroupTourViewController: GropeTourViewProtocol {
     }
     func onBindVersionRule(versionRule: VersionRuleReponse.Update?) {
         ()
+    }
+}
+
+extension GroupTourViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView != self.scrollView { return }
+        
+        let wholeWidth = scrollView.contentSize.width
+        let nowOffsetX = scrollView.contentOffset.x
+        
+        let percent = nowOffsetX / (wholeWidth / 3.0)
+        scrollTopPageButtonBottomLine(percent: percent)
+        switchPageButton(toPage: lround(Double(percent)))
     }
 }
