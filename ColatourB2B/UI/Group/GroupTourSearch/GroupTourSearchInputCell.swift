@@ -54,7 +54,7 @@ class GroupTourSearchInputCell: UITableViewCell, UITextFieldDelegate {
         
         if groupTourSearchRequest.startTourDate == nil {
             self.startTourDate.text = "出發日期"
-            self.startTourDate.textColor = UIColor.init(named: "預設文字灰")!
+            self.startTourDate.textColor = UIColor.init(named: "預設文字")!
         } else {
             self.startTourDate.text = groupTourSearchRequest.startTourDate
             self.startTourDate.textColor = UIColor.init(named: "標題黑")!
@@ -74,7 +74,6 @@ class GroupTourSearchInputCell: UITableViewCell, UITextFieldDelegate {
     }
     
     @objc func textFieldDidChange(_ textField: UITextField) {
-        print("aaaaaaar")
         delegate?.onTourDaysTextFieldDidChange(text: textField.text ?? "")
     }
 }

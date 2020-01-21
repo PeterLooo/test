@@ -58,10 +58,97 @@ class GroupTourSearchViewController: BaseViewController {
     
     @IBOutlet weak var groupTourTableView: UITableView!
     
-    @IBOutlet weak var pickerView: CustomPickerView!
-    @IBOutlet weak var pickerViewTop: NSLayoutConstraint!
-    @IBOutlet weak var datePicker: UIDatePicker!
-    @IBOutlet weak var datePickerTop: NSLayoutConstraint!
+    private var pickerViewTop: NSLayoutConstraint!
+    private var datePickerTop: NSLayoutConstraint!
+    
+    private lazy var datePicker : UIDatePicker = {
+        let view = UIDatePicker()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.setToBasic()
+        view.datePickerMode = .date
+        view.addTarget(self, action: #selector(datePickerChanged(picker:)), for: .valueChanged)
+        return view
+    }()
+    
+    private lazy var toolBarOnDatePicker : UIToolbar = {
+        let toolBar = UIToolbar()
+        toolBar.translatesAutoresizingMaskIntoConstraints = false
+        let doneBottom = UIBarButtonItem(title: "完成", style: .plain, target: self, action: #selector(self.onTouchDatePickerDone))
+        let lexibeSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        toolBar.setItems([lexibeSpace, doneBottom], animated: true)
+        toolBar.isUserInteractionEnabled = true
+        
+        return toolBar
+    }()
+    
+    @objc private func onTouchDatePickerDone() {
+        datePickerChanged(picker: datePicker)
+        
+        touchInputField = nil
+    }
+    
+    @objc private func datePickerChanged(picker: UIDatePicker) {
+        groupTourSearchRequest.startTourDate = FormatUtil.convertDateToString(dateFormatTo: "yyyy/MM/dd", date: picker.date)
+        
+        groupTourTableView?.reloadData()
+    }
+    
+    private lazy var pickerView : CustomPickerView = {
+        let view = CustomPickerView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.setOptionList(optionList: [])
+        view.valueChangeDelegate = self
+        return view
+    }()
+    
+    private lazy var toolBarOnPickerView : UIToolbar = {
+        let toolBar = UIToolbar()
+        toolBar.translatesAutoresizingMaskIntoConstraints = false
+        let doneBottom = UIBarButtonItem(title: "完成", style: .plain, target: self, action: #selector(self.onTouchPickerViewDone))
+        let lexibeSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        toolBar.setItems([lexibeSpace, doneBottom], animated: true)
+        toolBar.isUserInteractionEnabled = true
+        
+        return toolBar
+    }()
+    
+    @objc private func onTouchPickerViewDone() {
+        pickerView.pickerView(pickerView, didSelectRow: pickerView.selectedRow(inComponent: 0), inComponent: 0)
+        
+        touchInputField = nil
+    }
+    
+    private func layoutPickerView(){
+        view.addSubview(pickerView)
+        view.addSubview(toolBarOnPickerView)
+        
+        pickerView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        pickerView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        
+        toolBarOnPickerView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        toolBarOnPickerView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+
+        pickerViewTop = toolBarOnPickerView.topAnchor.constraint(equalTo: view.bottomAnchor)
+        pickerViewTop.isActive = true
+    
+        pickerView.topAnchor.constraint(equalTo: toolBarOnPickerView.bottomAnchor, constant: 0).isActive = true
+    }
+    
+    private func layoutDatePicker(){
+        view.addSubview(datePicker)
+        view.addSubview(toolBarOnDatePicker)
+        
+        datePicker.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        datePicker.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        
+        toolBarOnDatePicker.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        toolBarOnDatePicker.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+
+        datePickerTop = toolBarOnDatePicker.topAnchor.constraint(equalTo: view.bottomAnchor)
+        datePickerTop.isActive = true
+        
+        datePicker.topAnchor.constraint(equalTo: toolBarOnDatePicker.bottomAnchor, constant: 0).isActive = true
+    }
     
     private var presenter: GroupTourSearchPresenterProtocol?
     private var groupTourSearchInit: GroupTourSearchInitResponse.GroupTourSearchInit?
@@ -72,26 +159,44 @@ class GroupTourSearchViewController: BaseViewController {
     
     private var touchInputField: InputFieldType? {
         didSet {
-            reloadPickerView(inputFieldType: touchInputField)
+            reloadPickerViewAndDatePicker(inputFieldType: touchInputField)
             showKeyBoardWith(inputFieldType: touchInputField)
         }
     }
     
-    private func reloadPickerView(inputFieldType: InputFieldType?){
+    private func reloadPickerViewAndDatePicker(inputFieldType: InputFieldType?){
         var shareOptionList:[ShareOption] = []
         switch inputFieldType {
         case .startTourDate:
-            ()
+            if let date = groupTourSearchRequest.startTourDate {
+                datePicker.date = FormatUtil.convertStringToDate(dateFormatFrom: "yyyy/MM/dd", dateString: date) ?? Date()
+            }
         case .tourDays:
             ()
         case .regionCode:
             shareOptionList = groupTourSearchInit?.regionCodeList.map({ ShareOption(optionKey: $0.key!, optionValue: $0.value!) }) ?? []
+            
+            if let regionCode = groupTourSearchRequest.selectedRegionCode?.key {
+                let _ = pickerView.setDefaultKey(key: regionCode)
+            }
         case .departureCity:
             shareOptionList = groupTourSearchInit?.departureCityList.map({ ShareOption(optionKey: $0.key!, optionValue: $0.value!) }) ?? []
+            
+            if let departureCity = groupTourSearchRequest.selectedDepartureCity?.key {
+                let _ = pickerView.setDefaultKey(key: departureCity)
+            }
         case .airlineCode:
             shareOptionList = groupTourSearchInit?.airlineCodeList.map({ ShareOption(optionKey: $0.key!, optionValue: $0.value!) }) ?? []
+            
+            if let airlineCode = groupTourSearchRequest.selectedAirlineCode?.key {
+                let _ = pickerView.setDefaultKey(key: airlineCode)
+            }
         case .tourType:
             shareOptionList = groupTourSearchInit?.tourTypeList.map({ ShareOption(optionKey: $0.key!, optionValue: $0.value!) }) ?? []
+            
+            if let tourType = groupTourSearchRequest.selectedTourType?.key {
+                let _ = pickerView.setDefaultKey(key: tourType)
+            }
         default:
             ()
         }
@@ -114,7 +219,7 @@ class GroupTourSearchViewController: BaseViewController {
               
               var isDatePickerViewShow: Bool = false {
                   didSet {
-                      let constant = isDatePickerViewShow ? -datePicker.frame.height - 34 : 0
+                      let constant = isDatePickerViewShow ? -datePicker.frame.height - toolBarOnDatePicker.frame.height : 0
                       datePickerTop.constant = constant
                       
                       UIView.animate(withDuration: 0.3) {
@@ -125,7 +230,7 @@ class GroupTourSearchViewController: BaseViewController {
               
               var isPickerViewShow: Bool = false {
                   didSet {
-                      let constant = isPickerViewShow ? -pickerView.frame.height - 34 : 0
+                      let constant = isPickerViewShow ? -pickerView.frame.height - toolBarOnPickerView.frame.height : 0
                       pickerViewTop.constant = constant
                       
                       UIView.animate(withDuration: 0.3) {
@@ -190,9 +295,10 @@ class GroupTourSearchViewController: BaseViewController {
         datePicker.backgroundColor = UIColor.white
         pickerView.backgroundColor = UIColor.white
         
+        
         setUpTopPageScrollView()
-        setUpPickerView()
-        setUpDatePicker()
+        layoutPickerView()
+        layoutDatePicker()
         
         presenter = GroupTourSearchPresenter(delegate: self)
         loadData()
@@ -203,22 +309,6 @@ class GroupTourSearchViewController: BaseViewController {
         self.topPageScrollView.delegate = self
         scrollTopPageButtonBottomLine(percent: 0)
         switchPageButton(toPage: 0)
-    }
-    
-    private func setUpPickerView(){
-        let emptyShareOptionList: [ShareOption] = []
-        self.pickerView.setOptionList(optionList: emptyShareOptionList)
-        self.pickerView.valueChangeDelegate = self
-    }
-    
-    private func setUpDatePicker(){
-        datePicker.addTarget(self, action: #selector(datePickerChanged(picker:)), for: .valueChanged)
-    }
-    
-    @objc func datePickerChanged(picker: UIDatePicker) {
-        groupTourSearchRequest.startTourDate = FormatUtil.convertDateToString(dateFormatTo: "yyyy/MM/dd", date: picker.date)
-        
-        groupTourTableView?.reloadData()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -265,8 +355,9 @@ class GroupTourSearchViewController: BaseViewController {
     }
     
     @IBAction func onTouchBookingTourView(_ sender: UIButton) {
-        touchInputField = nil
         groupTourSearchRequest.isBookingTour = !groupTourSearchRequest.isBookingTour
+        
+        touchInputField = nil
         
         groupTourTableView?.reloadData()
     }
@@ -290,12 +381,8 @@ extension GroupTourSearchViewController: GroupTourSearchViewProtocol {
         
         groupTourSearchRequest.startTourDate = groupTourSearchInit.defaultStarTourDate
         
-        if let date = groupTourSearchInit.defaultStarTourDate {
-            datePicker.date = FormatUtil.convertStringToDate(dateFormatFrom: "yyyy/MM/dd", dateString: date) ?? Date()
-        }
-        
         groupTourSearchRequest.tourDays = groupTourSearchInit.defaultTourDays
-        
+       
         groupTourTableView?.reloadData()
     }
 }
@@ -304,8 +391,10 @@ extension GroupTourSearchViewController: CustomPickerViewProtocol {
     func onKeyChanged(key: String) {
         switch touchInputField {
         case .startTourDate:
+            //Note: 不使用PickerView，用DatePicker datePickerChanged(picker:)
             ()
         case .tourDays:
+            //Note: 不使用PickerView，用Textfield cell裡 editingDidEnd textFieldDidChange(_:)
             ()
         case .regionCode:
             let keyValue = groupTourSearchInit!.regionCodeList.first{ $0.key == key }!
