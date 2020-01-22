@@ -15,33 +15,33 @@ class SalesResponse: BaseModel {
     override func mapping(map: Map) {
         super.mapping(map: map)
         
-        salseList <- map["Sales_List"]
+        salseList <- map["WindowList_List"]
     }
     
     class Sales: BaseModel {
         
-        var dedicatedLine : String?
-        var email : String?
-        var introduction : String?
+        var directPhone : String?
+        var emailAddress : String?
+        var sopMemo : String?
         var lineID : String?
-        var mobile : String?
-        var phone : String?
+        var mobilePhone : String?
+        var officePhone : String?
         var salesName : String?
-        var salesTitle : String?
-        var ext : String?
+        var salesType : String?
+        var officePhoneExt : String?
         
         override func mapping(map: Map) {
             super.mapping(map: map)
             
-            dedicatedLine <- map["Dedicated_Line"]
-            email <- map["Email"]
-            introduction <- map["Introduction"]
+            directPhone <- map["Direct_Phone"]
+            emailAddress <- map["Email_Address"]
+            sopMemo <- map["SOP_Memo"]
             lineID <- map["Line_Id"]
-            mobile <- map["Mobile"]
-            phone <- map["Phone"]
+            mobilePhone <- map["Mobile_Phone"]
+            officePhone <- map["Office_Phone"]
             salesName <- map["Sales_Name"]
-            salesTitle <- map["Sales_Title"]
-            ext <- map["Ext"]
+            salesType <- map["Sales_Type"]
+            officePhoneExt <- map["Office_Phone_Ext"]
         }
     }
 }

@@ -26,6 +26,6 @@ class SalesPresenter: SalesPresenterProtocol {
         }) { (error) in
             self.delegate?.onApiErrorHandle(apiError: error as! APIError, handleType: .coverPlate)
             self.delegate?.onCompletedLoadingHandle()
-        }.dispose()
+        }.disposed(by: dispose)
     }
 }

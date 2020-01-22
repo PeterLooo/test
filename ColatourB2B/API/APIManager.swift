@@ -168,7 +168,9 @@ class APIManager: NSObject {
         switch url {
         case .authApi(let type):
             requestUrl = type.url()
-        case .portalApi(let type):
+        case .bportalApi(let type):
+            requestUrl = type.url()
+        case .cportalApi(let type):
             requestUrl = type.url()
         case .bulletinApi(let type):
             requestUrl = type.url()
@@ -229,7 +231,7 @@ extension APIManager {
     }
     
     func getSalesList() -> Single<[String:Any]> {
-        return AppHelper.shared.getJson(forResource: "Group")
+        return manager(method: .get, appendUrl: "", url: APIUrl.bportalApi(type: .serviceTourWindowList), parameters: nil, appendHeaders: nil)
     }
 }
 

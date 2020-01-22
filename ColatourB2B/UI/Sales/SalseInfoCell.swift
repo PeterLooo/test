@@ -49,13 +49,13 @@ class SalseInfoCell: UITableViewCell {
     }
     
     @objc func onTouchPhone(){
-        if let phone = self.sales?.phone , let url = URL.init(string: "tel://\(phone)") {
+        if let phone = self.sales?.officePhone , let url = URL.init(string: "tel://\(phone)") {
             self.delegate?.onTouchPhoneNum(url: url)
         }
     }
     
     @objc func onTouchDedicatedLine() {
-        if let dedicatedLine = self.sales?.dedicatedLine , let url = URL.init(string: "tel://\(dedicatedLine)") {
+        if let dedicatedLine = self.sales?.directPhone , let url = URL.init(string: "tel://\(dedicatedLine)") {
             self.delegate?.onTouchPhoneNum(url: url)
         }
     }
@@ -64,13 +64,13 @@ class SalseInfoCell: UITableViewCell {
                  isFirst: Bool,
                  isLast: Bool) {
         self.sales = sales
-        salseTitle.text = sales.salesTitle
-        nameAndMobile.text = "\(sales.salesName ?? "")      \(sales.mobile ?? "")"
-        phone.text = sales.phone
-        ext.text = sales.ext
-        email.text = sales.email
-        introduction.text = sales.introduction
-        dedicatedLine.text = sales.dedicatedLine
+        salseTitle.text = sales.salesType
+        nameAndMobile.text = "\(sales.salesName ?? "")      \(sales.mobilePhone ?? "")"
+        phone.text = sales.officePhone
+        ext.text = sales.officePhoneExt
+        email.text = sales.emailAddress
+        introduction.text = sales.sopMemo
+        dedicatedLine.text = sales.directPhone
         
         borderTopConstraint.constant = isFirst ? 16 : 5
         borderBottomConstraint.constant = isLast ? 40 : 5
@@ -83,9 +83,9 @@ class SalseInfoCell: UITableViewCell {
         nameAndMobile.textContainerInset = .zero
         email.textContainerInset = .zero
         
-        introTextViewHeight.constant = getLabelHeight(text: sales!.introduction!, font: UIFont.init(thickness: .regular, size: 15), width: textViewWidth)
-        nameAndMobileHeight.constant = getLabelHeight(text: "\(sales!.salesName ?? "")      \(sales!.mobile ?? "")", font: UIFont.init(thickness: .regular, size: 15), width: textViewWidth)
-        emailHeight.constant = getLabelHeight(text: sales!.email!, font: UIFont.init(thickness: .regular, size: 15), width: textViewWidth)
+        introTextViewHeight.constant = getLabelHeight(text: sales!.sopMemo!, font: UIFont.init(thickness: .regular, size: 15), width: textViewWidth)
+        nameAndMobileHeight.constant = getLabelHeight(text: "\(sales!.salesName ?? "")      \(sales!.mobilePhone ?? "")", font: UIFont.init(thickness: .regular, size: 15), width: textViewWidth)
+        emailHeight.constant = getLabelHeight(text: sales!.emailAddress!, font: UIFont.init(thickness: .regular, size: 15), width: textViewWidth)
     }
     
     @IBAction func onTouchComment(_ sender: Any) {
