@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -22,13 +20,13 @@
                         <rect key="frame" x="16" y="5" width="288" height="402"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="geJ-CJ-H3M">
-                                <rect key="frame" x="16" y="16" width="92" height="21"/>
+                                <rect key="frame" x="16" y="16" width="55" height="21"/>
                                 <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="15"/>
                                 <color key="textColor" name="標題黑"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yYT-w0-Jb2">
-                                <rect key="frame" x="203" y="12" width="76" height="30"/>
+                                <rect key="frame" x="184" y="12" width="95" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.76470588235294112" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="W09-xk-wxO"/>
@@ -49,7 +47,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yth-TV-wV9">
-                                <rect key="frame" x="124" y="12" width="73" height="30"/>
+                                <rect key="frame" x="87" y="12" width="91" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="nOP-pO-bRd"/>
                                 </constraints>
@@ -216,17 +214,17 @@
                 <outlet property="borderTopConstraint" destination="R65-Fo-Qxv" id="WLv-Ck-sNt"/>
                 <outlet property="borderView" destination="MMa-rl-Map" id="8eb-wv-vz7"/>
                 <outlet property="comment" destination="yth-TV-wV9" id="KpE-kt-8Hh"/>
-                <outlet property="dedicatedLine" destination="vSF-LT-tZS" id="nR1-tS-VMh"/>
-                <outlet property="email" destination="Y3u-dn-TOB" id="SIA-o8-9Js"/>
-                <outlet property="emailHeight" destination="lLA-43-WJn" id="Aag-5Q-PJh"/>
-                <outlet property="ext" destination="qen-Cq-VHP" id="bTc-Av-7h4"/>
+                <outlet property="directPhone" destination="vSF-LT-tZS" id="nR1-tS-VMh"/>
+                <outlet property="emailAddress" destination="Y3u-dn-TOB" id="SIA-o8-9Js"/>
+                <outlet property="emailAddressHeight" destination="lLA-43-WJn" id="Aag-5Q-PJh"/>
                 <outlet property="introTextViewHeight" destination="2nL-r9-f9H" id="0Yp-Lq-Uvx"/>
-                <outlet property="introduction" destination="FDz-kG-LGI" id="4wx-Wk-fsX"/>
                 <outlet property="lineMessage" destination="yYT-w0-Jb2" id="D1n-Tc-hDI"/>
-                <outlet property="nameAndMobile" destination="9Zb-Xn-qlY" id="Q4R-yP-pG8"/>
-                <outlet property="nameAndMobileHeight" destination="HqS-dm-W5F" id="8gs-Ee-tdP"/>
-                <outlet property="phone" destination="2Cj-JF-RY1" id="51X-DC-wMm"/>
-                <outlet property="salseTitle" destination="geJ-CJ-H3M" id="SJh-JW-PhH"/>
+                <outlet property="officePhone" destination="2Cj-JF-RY1" id="51X-DC-wMm"/>
+                <outlet property="officePhoneExt" destination="qen-Cq-VHP" id="bTc-Av-7h4"/>
+                <outlet property="salesNameAndMobilePhone" destination="9Zb-Xn-qlY" id="Q4R-yP-pG8"/>
+                <outlet property="salesNameAndMobilePhoneHeight" destination="HqS-dm-W5F" id="8gs-Ee-tdP"/>
+                <outlet property="salesType" destination="geJ-CJ-H3M" id="SJh-JW-PhH"/>
+                <outlet property="sopMemo" destination="FDz-kG-LGI" id="4wx-Wk-fsX"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="270.53571428571428"/>
         </tableViewCell>

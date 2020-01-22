@@ -17,18 +17,18 @@ class SalseInfoCell: UITableViewCell {
     @IBOutlet weak var borderView: UIView!
     @IBOutlet weak var comment: UIButton!
     @IBOutlet weak var lineMessage: UIButton!
-    @IBOutlet weak var salseTitle: UILabel!
-    @IBOutlet weak var phone: UILabel!
-    @IBOutlet weak var ext: UILabel!
-    @IBOutlet weak var dedicatedLine: UILabel!
-    @IBOutlet weak var nameAndMobile: UITextView!
-    @IBOutlet weak var email: UITextView!
-    @IBOutlet weak var introduction: UITextView!
+    @IBOutlet weak var salesType: UILabel!
+    @IBOutlet weak var officePhone: UILabel!
+    @IBOutlet weak var officePhoneExt: UILabel!
+    @IBOutlet weak var directPhone: UILabel!
+    @IBOutlet weak var salesNameAndMobilePhone: UITextView!
+    @IBOutlet weak var emailAddress: UITextView!
+    @IBOutlet weak var sopMemo: UITextView!
     @IBOutlet weak var borderTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var borderBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var introTextViewHeight: NSLayoutConstraint!
-    @IBOutlet weak var nameAndMobileHeight: NSLayoutConstraint!
-    @IBOutlet weak var emailHeight: NSLayoutConstraint!
+    @IBOutlet weak var salesNameAndMobilePhoneHeight: NSLayoutConstraint!
+    @IBOutlet weak var emailAddressHeight: NSLayoutConstraint!
     
     weak var delegate: SalseInfoCellProtocol?
     
@@ -39,23 +39,23 @@ class SalseInfoCell: UITableViewCell {
         borderView.setBorder(width: 1, radius: 4, color: ColorHexUtil.hexColor(hex: "e7e7e7"))
         comment.setBorder(width: 1, radius: 15, color: UIColor.init(named: "通用綠"))
         
-        let phoneGes = UITapGestureRecognizer(target: self, action: #selector(onTouchPhone))
-        self.phone.addGestureRecognizer(phoneGes)
-        self.phone.isUserInteractionEnabled = true
+        let officePhoneGes = UITapGestureRecognizer(target: self, action: #selector(onTouchOfficePhone))
+        self.officePhone.addGestureRecognizer(officePhoneGes)
+        self.officePhone.isUserInteractionEnabled = true
         
-        let dedicatedGes = UITapGestureRecognizer(target: self, action: #selector(onTouchDedicatedLine))
-        self.dedicatedLine.addGestureRecognizer(dedicatedGes)
-        self.dedicatedLine.isUserInteractionEnabled = true
+        let directPhoneGes = UITapGestureRecognizer(target: self, action: #selector(onTouchDirectPhone))
+        self.directPhone.addGestureRecognizer(directPhoneGes)
+        self.directPhone.isUserInteractionEnabled = true
     }
     
-    @objc func onTouchPhone(){
-        if let phone = self.sales?.officePhone , let url = URL.init(string: "tel://\(phone)") {
+    @objc func onTouchOfficePhone(){
+        if let officePhone = self.sales?.officePhone , let url = URL.init(string: "tel://\(officePhone)") {
             self.delegate?.onTouchPhoneNum(url: url)
         }
     }
     
-    @objc func onTouchDedicatedLine() {
-        if let dedicatedLine = self.sales?.directPhone , let url = URL.init(string: "tel://\(dedicatedLine)") {
+    @objc func onTouchDirectPhone() {
+        if let directPhone = self.sales?.directPhone , let url = URL.init(string: "tel://\(directPhone)") {
             self.delegate?.onTouchPhoneNum(url: url)
         }
     }
@@ -64,13 +64,13 @@ class SalseInfoCell: UITableViewCell {
                  isFirst: Bool,
                  isLast: Bool) {
         self.sales = sales
-        salseTitle.text = sales.salesType
-        nameAndMobile.text = "\(sales.salesName ?? "")      \(sales.mobilePhone ?? "")"
-        phone.text = sales.officePhone
-        ext.text = sales.officePhoneExt
-        email.text = sales.emailAddress
-        introduction.text = sales.sopMemo
-        dedicatedLine.text = sales.directPhone
+        salesType.text = sales.salesType
+        salesNameAndMobilePhone.text = "\(sales.salesName ?? "")      \(sales.mobilePhone ?? "")"
+        officePhone.text = sales.officePhone
+        officePhoneExt.text = sales.officePhoneExt
+        emailAddress.text = sales.emailAddress
+        sopMemo.text = sales.sopMemo
+        directPhone.text = sales.directPhone
         
         borderTopConstraint.constant = isFirst ? 16 : 5
         borderBottomConstraint.constant = isLast ? 40 : 5
@@ -79,13 +79,13 @@ class SalseInfoCell: UITableViewCell {
     
     private func setTextViewConstant() {
         let textViewWidth = screenWidth - 64
-        introduction.textContainerInset = .zero
-        nameAndMobile.textContainerInset = .zero
-        email.textContainerInset = .zero
+        sopMemo.textContainerInset = .zero
+        salesNameAndMobilePhone.textContainerInset = .zero
+        emailAddress.textContainerInset = .zero
         
         introTextViewHeight.constant = getLabelHeight(text: sales!.sopMemo!, font: UIFont.init(thickness: .regular, size: 15), width: textViewWidth)
-        nameAndMobileHeight.constant = getLabelHeight(text: "\(sales!.salesName ?? "")      \(sales!.mobilePhone ?? "")", font: UIFont.init(thickness: .regular, size: 15), width: textViewWidth)
-        emailHeight.constant = getLabelHeight(text: sales!.emailAddress!, font: UIFont.init(thickness: .regular, size: 15), width: textViewWidth)
+        salesNameAndMobilePhoneHeight.constant = getLabelHeight(text: "\(sales!.salesName ?? "")      \(sales!.mobilePhone ?? "")", font: UIFont.init(thickness: .regular, size: 15), width: textViewWidth)
+        emailAddressHeight.constant = getLabelHeight(text: sales!.emailAddress!, font: UIFont.init(thickness: .regular, size: 15), width: textViewWidth)
     }
     
     @IBAction func onTouchComment(_ sender: Any) {
