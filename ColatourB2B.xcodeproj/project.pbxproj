@@ -35,6 +35,10 @@
 		382EF48423BEF93A0002BAB0 /* GroupReponsitory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382EF48223BEF93A0002BAB0 /* GroupReponsitory.swift */; };
 		382FD59923D7F48F001FF38E /* NewsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382FD59823D7F48F001FF38E /* NewsResponse.swift */; };
 		382FD59A23D7F48F001FF38E /* NewsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382FD59823D7F48F001FF38E /* NewsResponse.swift */; };
+		382FD59C23D80382001FF38E /* BottomLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382FD59B23D80382001FF38E /* BottomLoadingView.swift */; };
+		382FD59D23D80382001FF38E /* BottomLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382FD59B23D80382001FF38E /* BottomLoadingView.swift */; };
+		382FD59F23D8038C001FF38E /* BottomLoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 382FD59E23D8038C001FF38E /* BottomLoadingView.xib */; };
+		382FD5A023D8038C001FF38E /* BottomLoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 382FD59E23D8038C001FF38E /* BottomLoadingView.xib */; };
 		3848DA7B23C7280500EA0ED0 /* NoticeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3848DA7A23C7280500EA0ED0 /* NoticeProtocol.swift */; };
 		3848DA7C23C7280500EA0ED0 /* NoticeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3848DA7A23C7280500EA0ED0 /* NoticeProtocol.swift */; };
 		3848DA7E23C7289A00EA0ED0 /* NoticePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3848DA7D23C7289A00EA0ED0 /* NoticePresenter.swift */; };
@@ -285,6 +289,8 @@
 		382ADF1823C5D02C00E886B4 /* NoticeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeResponse.swift; sourceTree = "<group>"; };
 		382EF48223BEF93A0002BAB0 /* GroupReponsitory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupReponsitory.swift; sourceTree = "<group>"; };
 		382FD59823D7F48F001FF38E /* NewsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsResponse.swift; sourceTree = "<group>"; };
+		382FD59B23D80382001FF38E /* BottomLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomLoadingView.swift; sourceTree = "<group>"; };
+		382FD59E23D8038C001FF38E /* BottomLoadingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BottomLoadingView.xib; sourceTree = "<group>"; };
 		3848DA7A23C7280500EA0ED0 /* NoticeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeProtocol.swift; sourceTree = "<group>"; };
 		3848DA7D23C7289A00EA0ED0 /* NoticePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticePresenter.swift; sourceTree = "<group>"; };
 		3848DA8023C72FA600EA0ED0 /* NoticeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeRepository.swift; sourceTree = "<group>"; };
@@ -561,6 +567,8 @@
 				385B54F323BDC3A400BE1476 /* NotificationTableView.swift */,
 				385B54F623BDC4C800BE1476 /* NotificationItemCell.swift */,
 				385B54F723BDC4C800BE1476 /* NotificationItemCell.xib */,
+				382FD59B23D80382001FF38E /* BottomLoadingView.swift */,
+				382FD59E23D8038C001FF38E /* BottomLoadingView.xib */,
 			);
 			path = Notification;
 			sourceTree = "<group>";
@@ -982,6 +990,7 @@
 				387FBF0B23ACCEB7005412F1 /* Login.storyboard in Resources */,
 				38E68AAD23B5AB80006BC4DD /* Group.json in Resources */,
 				3869544023BB002900F6E7D9 /* MemberIndexVersionCell.xib in Resources */,
+				382FD59F23D8038C001FF38E /* BottomLoadingView.xib in Resources */,
 				387FBEFD23ACA2A7005412F1 /* Notice.storyboard in Resources */,
 				38E68AC123B5AE30006BC4DD /* Common.storyboard in Resources */,
 				38E68ABD23B5AE30006BC4DD /* SelectOption.storyboard in Resources */,
@@ -1027,6 +1036,7 @@
 				387FBF1123ACCF00005412F1 /* Login.storyboard in Resources */,
 				38E68AAE23B5AB80006BC4DD /* Group.json in Resources */,
 				3869544123BB002900F6E7D9 /* MemberIndexVersionCell.xib in Resources */,
+				382FD5A023D8038C001FF38E /* BottomLoadingView.xib in Resources */,
 				387FBEFE23ACA2A7005412F1 /* Notice.storyboard in Resources */,
 				38E68AC223B5AE30006BC4DD /* Common.storyboard in Resources */,
 				38E68ABE23B5AE30006BC4DD /* SelectOption.storyboard in Resources */,
@@ -1226,6 +1236,7 @@
 				38BCD92B23A345FA00D59910 /* DeviceUtil.swift in Sources */,
 				3869542B23BADC0F00F6E7D9 /* MemberIndexPresenter.swift in Sources */,
 				38BCD98923A3484300D59910 /* OptionalStringExtension.swift in Sources */,
+				382FD59C23D80382001FF38E /* BottomLoadingView.swift in Sources */,
 				38BCDA0123A367D000D59910 /* NoInternetErrorView.swift in Sources */,
 				38BCD98323A3484300D59910 /* DateComponentExtension.swift in Sources */,
 				38BCD97123A3484300D59910 /* FirebaseEvent.swift in Sources */,
@@ -1339,6 +1350,7 @@
 				38BCD92C23A345FA00D59910 /* DeviceUtil.swift in Sources */,
 				3869542C23BADC0F00F6E7D9 /* MemberIndexPresenter.swift in Sources */,
 				38BCD98A23A3484300D59910 /* OptionalStringExtension.swift in Sources */,
+				382FD59D23D80382001FF38E /* BottomLoadingView.swift in Sources */,
 				38BCDA0223A367D000D59910 /* NoInternetErrorView.swift in Sources */,
 				38BCD98423A3484300D59910 /* DateComponentExtension.swift in Sources */,
 				38BCD97223A3484300D59910 /* FirebaseEvent.swift in Sources */,

@@ -8,14 +8,20 @@
 
 import UIKit
 protocol NotificationTableViewProtocol: NSObjectProtocol {
-    func onTouchNoti(item: NoticeResponse.Item)
+    func onTouchNoti(item: NotiItem)
+    func onStartLoading(notiType: NotiType)
+    func pullRefresh(notiType: NotiType)
 }
 class NotificationTableView: UIView {
     
     private var cellsHeight: [IndexPath : CGFloat] = [:]
     
     weak var delegate : NotificationTableViewProtocol?
-    private var itemList: [NoticeResponse.Item] = []
+    
+    private let bottomLoadingView = BottomLoadingView()
+    private var itemList: [NotiItem] = []
+    private var notiType: NotiType!
+    private var isNewScroll = false
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -53,24 +59,76 @@ class NotificationTableView: UIView {
             tableView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0),
             tableView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0)
         ])
+        let refreshControl = UIRefreshControl()
+        refreshControl.tintColor = UIColor.lightGray
+        refreshControl.addTarget(self, action: #selector(self.pullToRefresh) ,for: .valueChanged)
+        self.tableView.refreshControl = refreshControl
     }
     
-    func setViewWith(itemList: [NoticeResponse.Item]){
+    func setViewWith(itemList: [NotiItem],notiType: NotiType){
         self.itemList = itemList
-        
+        self.notiType = notiType
+        self.tableView.refreshControl?.endRefreshing()
         tableView.reloadData()
+    }
+    @objc private func pullToRefresh(){
+        self.delegate?.pullRefresh(notiType: self.notiType)
+    }
+    private func startBottomLoadingView(){
+        self.tableView.tableFooterView = bottomLoadingView
+        
+        let bottomLoadingViewHeight: CGFloat = 27
+        let totalHeight = self.tableView.contentSize.height + bottomLoadingViewHeight
+        var totalSize = self.tableView.contentSize
+        totalSize.height = totalHeight + 25
+        self.tableView.contentSize = totalSize
+    }
+    
+    private func stopBottonLoadingView(){
+        
+        self.tableView.tableFooterView = nil
     }
 }
 
 extension NotificationTableView : NotificationItemCellProtocol {
-    func onTouchItem(item: NoticeResponse.Item) {
+    func onTouchItem(item: NotiItem) {
         self.delegate?.onTouchNoti(item: item)
     }
     
 }
 
 extension NotificationTableView : UITableViewDelegate {
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cellsHeight[indexPath] = cell.frame.size.height
+    }
     
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        guard let height = cellsHeight[indexPath] else { return UITableView.automaticDimension }
+        
+        return height
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        guard let height = cellsHeight[indexPath] else { return UITableView.automaticDimension }
+        
+        return height
+    }
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        isNewScroll = true
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if (!isNewScroll) { return }
+           
+           let scrollViewFrameHeight = scrollView.frame.size.height
+           let contentYoffset2 = scrollView.contentOffset.y
+           let scrollViewHeight = scrollView.contentSize.height
+           
+           if (contentYoffset2 > 0 && contentYoffset2 >= (scrollViewHeight - scrollViewFrameHeight)) {
+            self.delegate?.onStartLoading(notiType: self.notiType)
+               isNewScroll = false
+           }
+    }
 }
 
 extension NotificationTableView : UITableViewDataSource {

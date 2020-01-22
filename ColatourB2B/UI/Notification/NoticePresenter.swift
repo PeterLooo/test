@@ -18,8 +18,8 @@ class NoticePresenter: NoticePresenterProtocol {
         self.delegate = delegate
     }
     
-    func getNoticeList(pageIndex: Int) {
-        self.delegate?.onStartLoadingHandle(handleType: .coverPlate)
+    func getNoticeList(pageIndex: Int, handleType: APILoadingHandleType) {
+        self.delegate?.onStartLoadingHandle(handleType: handleType)
         
         NoticeRepository.shared.getNoticeList(pageIndex: pageIndex).subscribe(onSuccess: { (model) in
             self.delegate?.onBindNoticeListComplete(noticeList: self.processNotificationResponse(model: model))
@@ -30,11 +30,11 @@ class NoticePresenter: NoticePresenterProtocol {
         }).disposed(by: dispose)
     }
     
-    func getNewsList(pageIndex: Int) {
-        self.delegate?.onStartLoadingHandle(handleType: .coverPlate)
+    func getNewsList(pageIndex: Int, handleType: APILoadingHandleType) {
+        self.delegate?.onStartLoadingHandle(handleType: handleType)
         
         NoticeRepository.shared.getNewsList(pageIndex: pageIndex).subscribe(onSuccess: { (model) in
-            self.delegate?.onBindNewsListComplete(noticeList: self.processNewsResponse(model: model))
+            self.delegate?.onBindNewsListComplete(newsList: self.processNewsResponse(model: model))
             self.delegate?.onCompletedLoadingHandle()
         }, onError: { (error) in
             self.delegate?.onApiErrorHandle(apiError: error as! APIError, handleType: .coverPlate)

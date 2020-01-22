@@ -11,10 +11,10 @@ import Foundation
 protocol NoticeViewProtocol: BaseViewProtocol {
     
     func onBindNoticeListComplete(noticeList: [NotiItem])
-    func onBindNewsListComplete(noticeList: [NotiItem])
+    func onBindNewsListComplete(newsList: [NotiItem])
 }
 
 protocol NoticePresenterProtocol: BasePresenterProtocol {
-    func getNoticeList(pageIndex:Int)
-    func getNewsList(pageIndex:Int)
+    func getNoticeList(pageIndex:Int, handleType: APILoadingHandleType)
+    func getNewsList(pageIndex:Int, handleType: APILoadingHandleType)
 }

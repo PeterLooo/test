@@ -15,12 +15,16 @@ class NoticeViewController: BaseViewController {
     @IBOutlet weak var topMessageButton: UIButton!
     @IBOutlet weak var topNewsButton: UIButton!
     @IBOutlet weak var pageButtonBottomLineLeading: NSLayoutConstraint!
-    
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var stackView: UIStackView!
     
     var presenter: NoticePresenter?
-    private var noticeList: NoticeResponse?
+    private var noticeList: [NotiItem] = []
+    private var newsList: [NotiItem] = []
+    private var tableViews:[NotificationTableView] = []
+    private var pageSize = 5
+    private var isNotiLastPage = false
+    private var isNewsLastPage = false
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -33,13 +37,18 @@ class NoticeViewController: BaseViewController {
         setIsNavShadowEnable(false)
         setNavTitle(title: "通知")
         switchPageButton(toPage: 0)
-        
+        setTableView()
         loadData()
     }
     
     override func loadData() {
         super.loadData()
-        presenter?.getNoticeList()
+        isNotiLastPage = false
+        isNewsLastPage = false
+        noticeList = []
+        newsList = []
+        presenter?.getNoticeList(pageIndex: 1, handleType: .coverPlate)
+        presenter?.getNewsList(pageIndex: 1, handleType: .coverPlate)
     }
     
     private func setTableView() {
@@ -48,16 +57,17 @@ class NoticeViewController: BaseViewController {
             let view = NotificationTableView()
             switch i {
             case 0:
-                view.setViewWith(itemList: self.noticeList!.order)
+                view.setViewWith(itemList: [], notiType: .order)
             case 1:
-                view.setViewWith(itemList: self.noticeList!.message)
+                view.setViewWith(itemList: [], notiType: .noti)
             case 2:
-                view.setViewWith(itemList: self.noticeList!.news)
+                view.setViewWith(itemList: [], notiType: .news)
             default:
                 break
             }
             view.delegate = self
             stackView.addArrangedSubview(view)
+            tableViews.append(view)
         }
     }
     
@@ -120,17 +130,67 @@ class NoticeViewController: BaseViewController {
 }
 
 extension NoticeViewController: NoticeViewProtocol {
-    func onBindNoticeListComplete(noticeList: NoticeResponse) {
-        self.noticeList = noticeList
-        setTableView()
+    func onBindNewsListComplete(newsList: [NotiItem]) {
+        if self.newsList == [] {
+            self.newsList = newsList
+        }else{
+            self.newsList += newsList
+        }
+        isNewsLastPage = newsList.count < pageSize
+        tableViews[2].setViewWith(itemList: newsList, notiType: .news)
+    }
+    
+    func onBindNoticeListComplete(noticeList: [NotiItem]) {
+        
+        if self.noticeList == [] {
+            self.noticeList = noticeList
+        }else{
+            self.noticeList += noticeList
+        }
+        isNotiLastPage = noticeList.count < pageSize
+        tableViews[1].setViewWith(itemList: self.noticeList, notiType: .noti)
     }
     
 }
 extension NoticeViewController: NotificationTableViewProtocol {
-    func onTouchNoti(item: NoticeResponse.Item) {
+    func pullRefresh(notiType: NotiType) {
+        switch notiType {
+        case .noti:
+            isNotiLastPage = false
+            self.noticeList = []
+            self.presenter?.getNoticeList(pageIndex: 1, handleType: .coverPlateAlpha)
+            
+        case .news:
+            isNewsLastPage = false
+            self.newsList = []
+            self.presenter?.getNewsList(pageIndex: 1, handleType: .coverPlateAlpha)
+            
+        default:
+            ()
+        }
+    }
+    
+    func onStartLoading(notiType: NotiType) {
+        switch notiType {
+        case .noti:
+            if isNotiLastPage {return}
+            if self.noticeList.count % pageSize == 0 {
+                self.presenter?.getNoticeList(pageIndex: (self.noticeList.count / 5) + 1, handleType: .ignore)
+            }
+        case .news:
+            if isNewsLastPage {return}
+            if self.newsList.count % pageSize == 0 {
+                self.presenter?.getNewsList(pageIndex: (self.newsList.count / 5) + 1, handleType: .ignore)
+            }
+            
+        default:
+            ()
+        }
+    }
+    
+    func onTouchNoti(item: NotiItem) {
         handleLinkType(linkType: item.linkType!, linkValue: item.linkValue, linkText: nil)
     }
-
 }
 extension NoticeViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
