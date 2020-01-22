@@ -136,8 +136,7 @@ class GroupTourViewController: BaseViewController {
     }
     
     private func contactSales(){
-        let vc = getVC(st: "Sales", vc: "SalesViewController") as! SalesViewController
-        self.navigationController?.pushViewController(vc, animated: true)
+        ()
     }
     
     @objc private func onTouchSearch(){
