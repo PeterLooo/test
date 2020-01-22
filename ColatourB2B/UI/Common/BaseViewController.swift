@@ -673,7 +673,13 @@ extension BaseViewController {
                     }
                 }
             }
-        
+        case .openBrowser:
+            guard let url = linkValue else{
+                return
+            }
+            if let browserUrl = URL(string: url) {
+                UIApplication.shared.open(browserUrl, options: [:], completionHandler: nil)
+            }
         case .getApiUrl:
             
             self.basePresenter?.getAccessWebUrl(webUrl: linkValue!, title: linkText ?? "")

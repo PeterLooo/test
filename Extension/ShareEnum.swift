@@ -13,6 +13,7 @@ public enum LinkType: String {
     case getApiUrl = "003"
     case passwordReset = "031"
     case updateDate = "032"
+    case openBrowser
     case unknown
 }
 
@@ -32,7 +33,22 @@ public enum ToolBarType {
         }
     }
 }
-
+public enum TourType {
+    case tour
+    case taichung
+    case kaohsiung
+    
+    func getApiUrl() -> APIUrl {
+        switch self {
+        case .tour:
+            return APIUrl.portalApi(type: .groupTourIndex)
+        case .taichung:
+            return APIUrl.portalApi(type: .groupTaichungIndex)
+        case .kaohsiung:
+            return APIUrl.portalApi(type: .groupKaohsiungIndex)
+        }
+    }
+}
 public class ShareOption {
     var optionKey: String!
     var optionValue: String!
