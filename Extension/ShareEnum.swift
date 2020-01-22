@@ -16,12 +16,11 @@ public enum LinkType: String {
     case openBrowser
     case unknown
 }
+
 public enum NotiType {
     case order
     case noti
     case news
-    
-    
 }
 
 public enum ToolBarType {
