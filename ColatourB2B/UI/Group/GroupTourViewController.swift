@@ -40,24 +40,7 @@ class GroupTourViewController: BaseViewController {
         
         setIsNavShadowEnable(false)
         self.setNavBarItem(left: .defaultType, mid: .custom, right: .custom)
-        stackView.subviews.forEach({$0.removeFromSuperview()})
-        for i in 0...2 {
-            let view = GroupTableView()
-            switch i {
-            case 0:
-                view.setViewWith(itemList: groupADList)
-            case 1:
-                view.setViewWith(itemList: groupADList)
-            case 2:
-                view.setViewWith(itemList: groupADList)
-            default:
-                break
-            }
-            view.delegate = self
-            
-            stackView.addArrangedSubview(view)
-            groupTableViews.append(view)
-        }
+        setUpTableView()
         setSearchView()
     }
     
@@ -78,6 +61,27 @@ class GroupTourViewController: BaseViewController {
     private func getVersionRule(){
         self.presenter?.getVersionRule()
         
+    }
+    
+    private func setUpTableView() {
+        stackView.subviews.forEach({$0.removeFromSuperview()})
+        for i in 0...2 {
+            let view = GroupTableView()
+            switch i {
+            case 0:
+                view.setViewWith(itemList: [])
+            case 1:
+                view.setViewWith(itemList: [])
+            case 2:
+                view.setViewWith(itemList: [])
+            default:
+                break
+            }
+            view.delegate = self
+            
+            stackView.addArrangedSubview(view)
+            groupTableViews.append(view)
+        }
     }
     
     private func getGroupMenu(){
