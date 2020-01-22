@@ -185,6 +185,7 @@ class BannerImageView: UIView {
         if (!autoPlay) { return }
         if (pageControl.currentPage == count - 1) {
             self.delegate?.changePageControlFocus(index: 0)
+            self.pageControl.currentPage = 0
             self.scrollView.setContentOffset(.zero, animated: false)
         }else {
             DispatchQueue.main.async {
