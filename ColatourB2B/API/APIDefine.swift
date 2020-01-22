@@ -7,22 +7,19 @@ let APITimeout: Double = 60.0
 
 #if COLATOURB2B_DEV
 let AUTH_WEB_HOST = "https://ntestWebAPIBauth.colatour.com.tw"
-let B_PORTAL_WEB_HOST = "https://ntestwebapiBportal.colatour.com.tw"
-let C_PORTAL_WEB_HOST = "https://ntestwebapicportal.colatour.com.tw"
+let PORTAL_WEB_HOST = "https://ntestwebapiBportal.colatour.com.tw"
 let MEMBER_WEB_HOST = "https://ntestWebAPIBmember.colatour.com.tw/"
 let MAIN_WEB_HOST = "https://ntestWebAPIBportal.colatour.com.tw/"
 #else
 let AUTH_WEB_HOST = "https://ntestWebAPIBauth.colatour.com.tw"
-let B_PORTAL_WEB_HOST = "https://ntestwebapiBportal.colatour.com.tw"
-let C_PORTAL_WEB_HOST = "https://ntestwebapicportal.colatour.com.tw"
+let PORTAL_WEB_HOST = "https://ntestwebapiBportal.colatour.com.tw"
 let MEMBER_WEB_HOST = "https://ntestWebAPIBmember.colatour.com.tw/"
 let MAIN_WEB_HOST = "https://ntestWebAPIBportal.colatour.com.tw/"
 #endif
 
 enum APIUrl {
     case authApi(type: AuthApi)
-    case bportalApi(type: BPortalApi)
-    case cportalApi(type: CPortalApi)
+    case portalApi(type: PortalApi)
     case bulletinApi(type: BulletinApi)
     case memberApi(type: MemberApi)
     case mainApi(type: MainApi)
@@ -30,9 +27,7 @@ enum APIUrl {
         switch self {
         case .authApi(let type):
             return type.url()
-        case .cportalApi(let type):
-            return type.url()
-        case .bportalApi(let type):
+        case .portalApi(let type):
             return type.url()
         case .bulletinApi(let type):
             return type.url()
@@ -66,40 +61,24 @@ enum APIUrl {
         }
     }
 
-    enum BPortalApi: String {
+    enum PortalApi: String {
         case serviceTourWindowList   = "/Service/Tour/WindowList"
-
-        static func urlWith(type: BPortalApi, append: String) -> String {
-            let base =  B_PORTAL_WEB_HOST
-            return "\(base)\(type.rawValue)\(append)"
-        }
-        
-        func url () -> String {
-            return APIUrl.BPortalApi.urlWith(type: self, append: "")
-        }
-        
-        func url(append:String) -> String {
-            return APIUrl.BPortalApi.urlWith(type: self, append: append)
-        }
-    }
-    
-    enum CPortalApi: String {
         case homeAdList   = "/Portal/Ticket/首頁1"
 
-        static func urlWith(type: CPortalApi, append: String) -> String {
-            let base =  C_PORTAL_WEB_HOST
+        static func urlWith(type: PortalApi, append: String) -> String {
+            let base =  PORTAL_WEB_HOST
             return "\(base)\(type.rawValue)\(append)"
         }
         
         func url () -> String {
-            return APIUrl.CPortalApi.urlWith(type: self, append: "")
+            return APIUrl.PortalApi.urlWith(type: self, append: "")
         }
         
         func url(append:String) -> String {
-            return APIUrl.CPortalApi.urlWith(type: self, append: append)
+            return APIUrl.PortalApi.urlWith(type: self, append: append)
         }
     }
-    
+
     enum BulletinApi: String{
         
         case bulletin = "AutoDispalyBulletin"
