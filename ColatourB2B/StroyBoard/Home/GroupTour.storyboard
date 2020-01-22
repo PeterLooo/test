@@ -110,7 +110,7 @@
                                     <constraint firstItem="KGB-dU-A7F" firstAttribute="height" secondItem="Jsd-Xo-aZd" secondAttribute="height" id="yVx-HC-ZCk"/>
                                 </constraints>
                             </view>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="56I-bJ-qEw">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="56I-bJ-qEw">
                                 <rect key="frame" x="0.0" y="142" width="414" height="754"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AWt-TH-wUr">
@@ -134,6 +134,7 @@
                                 </constraints>
                                 <connections>
                                     <outlet property="delegate" destination="b9a-Me-4Gs" id="WeO-Pw-boD"/>
+                                    <outletCollection property="gestureRecognizers" destination="ZhH-vz-EiZ" appends="YES" id="3YV-GK-5q2"/>
                                 </connections>
                             </scrollView>
                         </subviews>
@@ -149,9 +150,6 @@
                             <constraint firstItem="Jsd-Xo-aZd" firstAttribute="top" secondItem="zzg-b0-LkS" secondAttribute="top" id="dYJ-tZ-lrC"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zzg-b0-LkS"/>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="ZhH-vz-EiZ" appends="YES" id="Bod-cJ-yJv"/>
-                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="8Ez-c5-IlF"/>
                     <connections>
