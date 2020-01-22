@@ -7,7 +7,7 @@ let APITimeout: Double = 60.0
 
 #if COLATOURB2B_DEV
 let AUTH_WEB_HOST = "https://ntestWebAPIBauth.colatour.com.tw"
-let PORTAL_WEB_HOST = "https://ntestwebapicportal.colatour.com.tw"
+let PORTAL_WEB_HOST = "https://ntestwebapibportal.colatour.com.tw"
 let MEMBER_WEB_HOST = "https://ntestWebAPIBmember.colatour.com.tw/"
 let MAIN_WEB_HOST = "https://ntestWebAPIBportal.colatour.com.tw/"
 #else
@@ -62,7 +62,9 @@ enum APIUrl {
     }
     
     enum PortalApi: String {
-        case homeAdList   = "Ticket/首頁1"
+        case groupTourIndex   = "Tour/首頁1"
+        case groupTaichungIndex   = "Taichung/首頁1"
+        case groupKaohsiungIndex   = "Kaohsiung/首頁1"
         
         static func urlWith(type: PortalApi, append: String) -> String {
             let base =  PORTAL_WEB_HOST + "/Portal/"

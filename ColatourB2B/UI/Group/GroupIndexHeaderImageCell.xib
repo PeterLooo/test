@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="405" id="KGk-i7-Jjw" customClass="GroupIndexHeaderImageCell" customModule="ColatourB2B" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="462" height="405"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="462" height="405"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pSy-Lf-8qg" customClass="BannerImageView" customModule="ColatourB2B" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="462" height="362.5"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="pSy-Lf-8qg" secondAttribute="height" multiplier="800:628" priority="999" id="xu8-WZ-cPr"/>
+                        </constraints>
+                    </view>
+                    <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="AEv-TB-r96">
+                        <rect key="frame" x="211.5" y="362.5" width="39" height="42.5"/>
+                        <color key="pageIndicatorTintColor" name="底線灰"/>
+                        <color key="currentPageIndicatorTintColor" name="通用綠"/>
+                    </pageControl>
+                </subviews>
+                <color key="backgroundColor" name="背景灰"/>
+                <constraints>
+                    <constraint firstItem="pSy-Lf-8qg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="1zh-J9-UWa"/>
+                    <constraint firstAttribute="bottom" secondItem="AEv-TB-r96" secondAttribute="bottom" id="BcQ-rA-xxj"/>
+                    <constraint firstItem="AEv-TB-r96" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="C4q-QY-06u"/>
+                    <constraint firstItem="pSy-Lf-8qg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="M89-UM-h2d"/>
+                    <constraint firstItem="AEv-TB-r96" firstAttribute="top" secondItem="pSy-Lf-8qg" secondAttribute="bottom" id="ODO-GC-A7E"/>
+                    <constraint firstAttribute="trailing" secondItem="pSy-Lf-8qg" secondAttribute="trailing" id="jS2-Hp-hfr"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="bannerImageView" destination="pSy-Lf-8qg" id="OhM-h1-FQa"/>
+                <outlet property="pageControl" destination="AEv-TB-r96" id="haq-be-eCN"/>
+            </connections>
+            <point key="canvasLocation" x="7.2463768115942031" y="215.29017857142856"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="底線灰">
+            <color red="0.83921568627450982" green="0.83921568627450982" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="背景灰">
+            <color red="0.97254901960784312" green="0.97254901960784312" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="通用綠">
+            <color red="0.098039215686274508" green="0.74901960784313726" blue="0.3843137254901961" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
