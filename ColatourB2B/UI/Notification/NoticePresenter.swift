@@ -18,11 +18,23 @@ class NoticePresenter: NoticePresenterProtocol {
         self.delegate = delegate
     }
     
-    func getNoticeList() {
+    func getNoticeList(pageIndex: Int) {
         self.delegate?.onStartLoadingHandle(handleType: .coverPlate)
         
-        NoticeRepository.shared.getNoticeList().subscribe(onSuccess: { (model) in
-            self.delegate?.onBindNoticeListComplete(noticeList: model)
+        NoticeRepository.shared.getNoticeList(pageIndex: pageIndex).subscribe(onSuccess: { (model) in
+            self.delegate?.onBindNoticeListComplete(noticeList: self.processNotificationResponse(model: model))
+            self.delegate?.onCompletedLoadingHandle()
+        }, onError: { (error) in
+            self.delegate?.onApiErrorHandle(apiError: error as! APIError, handleType: .coverPlate)
+            self.delegate?.onCompletedLoadingHandle()
+        }).disposed(by: dispose)
+    }
+    
+    func getNewsList(pageIndex: Int) {
+        self.delegate?.onStartLoadingHandle(handleType: .coverPlate)
+        
+        NoticeRepository.shared.getNewsList(pageIndex: pageIndex).subscribe(onSuccess: { (model) in
+            self.delegate?.onBindNewsListComplete(noticeList: self.processNewsResponse(model: model))
             self.delegate?.onCompletedLoadingHandle()
         }, onError: { (error) in
             self.delegate?.onApiErrorHandle(apiError: error as! APIError, handleType: .coverPlate)
@@ -30,4 +42,19 @@ class NoticePresenter: NoticePresenterProtocol {
         }).disposed(by: dispose)
     }
 
+    private func processNotificationResponse(model:NoticeResponse) -> [NotiItem] {
+        var items:[NotiItem] = []
+        model.notification?.notiItemList.forEach({ (item) in
+            items.append(NotiItem(notiTitle: item.pushTitle, notiContent: item.pushContent, notiId: item.notiId, notiDate: item.inputTime, unreadMark: item.unreadMark, linkType: item.linkType, linkValue: item.linkValue))
+        })
+        return items
+    }
+    private func processNewsResponse(model:NewsResponse) -> [NotiItem] {
+        var items:[NotiItem] = []
+        model.newsList.forEach({ (item) in
+            
+            items.append(NotiItem(notiTitle: item.eDMTitle, notiContent: item.publishDate , notiId: nil, notiDate: item.publishDate, unreadMark: item.unreadMark, linkType: item.linkType, linkValue: item.linkValue))
+        })
+        return items
+    }
 }

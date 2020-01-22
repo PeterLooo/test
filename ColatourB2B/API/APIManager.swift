@@ -235,9 +235,20 @@ extension APIManager {
         return manager(method: .get, appendUrl: "", url: toolBarType.getApiUrl(), parameters: nil, appendHeaders: nil)
     }
     
-    func getNoticeList() -> Single<[String:Any]> {
-        return AppHelper.shared.getJson(forResource: "Group")
-        return manager(method: .get, appendUrl: "", url: APIUrl.noticeApi(type: .notice), parameters: nil, appendHeaders: nil)
+    func getNoticeList(pageIndex: Int) -> Single<[String:Any]> {
+        let pageSize = "PageSize=5"
+        var appendUrl = ""
+        appendUrl = "PageIndex=" + "\(String(pageIndex))" + "&" + pageSize
+        
+        return manager(method: .get, appendUrl: appendUrl, url: APIUrl.noticeApi(type: .notice), parameters: nil, appendHeaders: nil)
+    }
+    
+    func getNewsList(pageIndex: Int) -> Single<[String:Any]> {
+        let pageSize = "Page_Size=5"
+        var appendUrl = ""
+        appendUrl = "Page_Index=" + "\(String(pageIndex))" + "&" + pageSize
+        
+        return manager(method: .get, appendUrl: appendUrl, url: APIUrl.noticeApi(type: .news), parameters: nil, appendHeaders: nil)
     }
 }
 

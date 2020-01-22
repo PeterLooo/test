@@ -15,6 +15,13 @@ public enum LinkType: String {
     case updateDate = "032"
     case unknown
 }
+public enum NotiType {
+    case order
+    case noti
+    case news
+    
+    
+}
 
 public enum ToolBarType {
     case tour
