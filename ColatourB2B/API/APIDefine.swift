@@ -85,7 +85,7 @@ enum APIUrl {
         case noticeBulletin = ""
         
         static func urlWith(type: BulletinApi, append: String) -> String {
-            let base =  C_PORTAL_WEB_HOST + "/Bulletin/"
+            let base = PORTAL_WEB_HOST + "/Bulletin/"
             return "\(base)\(type.rawValue)\(append)"
         }
         func url () -> String {
