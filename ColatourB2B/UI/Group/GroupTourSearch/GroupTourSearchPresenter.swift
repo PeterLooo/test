@@ -9,40 +9,40 @@
 import RxSwift
 
 class GroupTourSearchPresenter: GroupTourSearchPresenterProtocol {
-      weak var delegate: GroupTourSearchViewProtocol?
-  
-       fileprivate var dispose = DisposeBag()
-
-       convenience init(delegate: GroupTourSearchViewProtocol){
-           self.init()
-           self.delegate = delegate
-       }
-       
-       func getGroupTourSearchInit(departureCode: String?) {
+    weak var delegate: GroupTourSearchViewProtocol?
+    
+    fileprivate var dispose = DisposeBag()
+    
+    convenience init(delegate: GroupTourSearchViewProtocol){
+        self.init()
+        self.delegate = delegate
+    }
+    
+    func getGroupTourSearchInit(departureCode: String?) {
         self.delegate?.onStartLoadingHandle(handleType: .coverPlate)
-            GroupReponsitory.shared
+        GroupReponsitory.shared
             .getGroupTourSearchInit(departureCode: departureCode)
             .subscribe(onSuccess:{ (model) in
-            self.delegate?.onBindGroupTourSearchInit(groupTourSearchInit: model)
-               self.delegate?.onCompletedLoadingHandle()
-           }, onError: { (error) in
+                self.delegate?.onBindGroupTourSearchInit(groupTourSearchInit: model)
+                self.delegate?.onCompletedLoadingHandle()
+            }, onError: { (error) in
                 self.delegate?.onApiErrorHandle(apiError: error as! APIError, handleType: .coverPlate)
-               self.delegate?.onCompletedLoadingHandle()
-               
-           }).disposed(by:dispose)
-       }
+                self.delegate?.onCompletedLoadingHandle()
+                
+            }).disposed(by:dispose)
+    }
     
     func getGroupTourSearchUrl(groupTourSearchRequest: GroupTourSearchRequest) {
         self.delegate?.onStartLoadingHandle(handleType: .coverPlate)
-            GroupReponsitory.shared
+        GroupReponsitory.shared
             .getGroupTourSearchUrl(groupTourSearchRequest: groupTourSearchRequest)
             .subscribe(onSuccess:{ (model) in
-               self.delegate?.onBindGroupTourSearchUrl(groupTourSearchUrl: model)
-               self.delegate?.onCompletedLoadingHandle()
-           }, onError: { (error) in
+                self.delegate?.onBindGroupTourSearchUrl(groupTourSearchUrl: model)
+                self.delegate?.onCompletedLoadingHandle()
+            }, onError: { (error) in
                 self.delegate?.onApiErrorHandle(apiError: error as! APIError, handleType: .coverPlate)
-               self.delegate?.onCompletedLoadingHandle()
-               
-           }).disposed(by:dispose)
+                self.delegate?.onCompletedLoadingHandle()
+                
+            }).disposed(by:dispose)
     }
 }
