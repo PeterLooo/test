@@ -17,10 +17,28 @@ class NoticeViewController: BaseViewController {
     @IBOutlet weak var pageButtonBottomLineLeading: NSLayoutConstraint!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var stackView: UIStackView!
+    @IBOutlet weak var orderUnreadHint: UIView!
+    @IBOutlet weak var messageUnreadHint: UIView!
+    @IBOutlet weak var newsUnreadHint: UIView!
     
     var presenter: NoticePresenter?
     private var noticeList: [NotiItem] = []
-    private var newsList: [NotiItem] = []
+    {
+        didSet{
+            self.messageUnreadHint.isHidden = true
+            if let _ = noticeList.filter({$0.unreadMark == true}).first {
+                self.messageUnreadHint.isHidden = false
+            }
+        }
+    }
+    private var newsList: [NotiItem] = [] {
+        didSet{
+            self.newsUnreadHint.isHidden = true
+            if let _ = newsList.filter({$0.unreadMark == true}).first {
+                self.newsUnreadHint.isHidden = false
+            }
+        }
+    }
     private var tableViews:[NotificationTableView] = []
     private var pageSize = 5
     private var isNotiLastPage = false
