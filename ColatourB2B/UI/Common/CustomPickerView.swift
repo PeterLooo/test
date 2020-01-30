@@ -71,13 +71,11 @@ class CustomPickerView : UIPickerView, UIPickerViewDelegate, UIPickerViewDataSou
     //Note: title置左
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
         let pickerLabel = UILabel()
-        let font = UIFont.init(thickness: .regular, size: 23)
-        let color = UIColor.black
-        pickerLabel.font = font
-        pickerLabel.textColor = color
-
-        pickerLabel.text = self.shareOptionList[row].optionValue!
+        pickerLabel.font = UIFont.init(thickness: .regular, size: 23)
+        pickerLabel.textColor = UIColor.black
         pickerLabel.textAlignment = NSTextAlignment.left
+
+        pickerLabel.text = self.shareOptionList[row].optionValue ?? ""
         return pickerLabel
     }
 }
