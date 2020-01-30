@@ -71,7 +71,7 @@ class SalseInfoCell: UITableViewCell {
         emailAddress.text = sales.emailAddress
         sopMemo.text = sales.sopMemo
         directPhone.text = sales.directPhone
-        
+        lineMessage.isHidden = sales.lineID.isNilOrEmpty == true
         borderTopConstraint.constant = isFirst ? 16 : 5
         borderBottomConstraint.constant = isLast ? 40 : 5
         setTextViewConstant()
