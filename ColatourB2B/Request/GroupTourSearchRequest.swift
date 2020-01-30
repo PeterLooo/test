@@ -9,9 +9,21 @@
 class GroupTourSearchRequest: NSObject {
     var startTourDate: String?
     var tourDays: Int?
-    var selectedRegionCode: KeyValue?
-    var selectedDepartureCity: KeyValue?
-    var selectedAirlineCode: KeyValue?
-    var selectedTourType: KeyValue?
+    var selectedRegionCode: Region?
+    var selectedDepartureCity: DepartureCity?
+    var selectedAirlineCode: AirlineCode?
+    var selectedTourType: TourType?
     var isBookingTour: Bool = true
+    
+    func getDictionary() -> [String:Any] {
+        let params = ["Tour_Date": "\(startTourDate ?? "")"
+            , "Departure_City": selectedDepartureCity?.departureCode ?? ""
+            , "Airline_Code": selectedAirlineCode?.airlineCode ?? ""
+            , "Region_Code": selectedRegionCode?.regionCode ?? ""
+            , "TourType_Code": selectedTourType?.tourTypeCode ?? ""
+            , "BookingTour_Mark": isBookingTour
+            , "Tour_Days": tourDays ?? ""] as [String : Any]
+        
+        return params
+    }
 }

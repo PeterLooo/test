@@ -25,11 +25,11 @@ public enum ToolBarType {
     func getApiUrl() -> APIUrl {
         switch self {
         case .tour:
-            return APIUrl.mainApi(type: .tour)
+            return APIUrl.mainApi(type: .toolbarTour)
         case .tkt:
-            return APIUrl.mainApi(type: .tkt)
+            return APIUrl.mainApi(type: .toolbarTKT)
         case .other:
-            return APIUrl.mainApi(type: .other)
+            return APIUrl.mainApi(type: .toolbarOther)
         }
     }
 }

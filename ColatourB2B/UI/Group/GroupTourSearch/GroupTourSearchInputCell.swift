@@ -41,16 +41,16 @@ class GroupTourSearchInputCell: UITableViewCell, UITextFieldDelegate {
         
         self.regionCode.text = groupTourSearchRequest
             .selectedRegionCode?
-            .value
+            .regionName
         self.departureCity.text = groupTourSearchRequest
             .selectedDepartureCity?
-            .value
+            .departureName
         self.airLineCode.text = groupTourSearchRequest
             .selectedAirlineCode?
-            .value
+            .airlineName
         self.tourType.text = groupTourSearchRequest
             .selectedTourType?
-            .value
+            .tourTypeName
         
         if groupTourSearchRequest.startTourDate == nil {
             self.startTourDate.text = "出發日期"

@@ -228,9 +228,15 @@ extension APIManager {
         return manager(method: .get, appendUrl: "", url: toolBarType.getApiUrl(), parameters: nil, appendHeaders: nil)
     }
     
-    func getGroupTourSearchInit() -> Single<[String: Any]> {
-        return AppHelper.shared.getJson(forResource: "File")
-        return manager(method: .get, appendUrl: "", url: APIUrl.portalApi(type: .groupTourSearchInit), parameters: nil, appendHeaders: nil)
+    func getGroupTourSearchInit(departureCode: String?) -> Single<[String: Any]> {
+
+        let appendUrl = ( departureCode == nil ) ? "" : "?Departure_Code=\(departureCode!)"
+        return manager(method: .get, appendUrl: appendUrl, url: APIUrl.mainApi(type: .tourSearchInit), parameters: nil, appendHeaders: nil)
+    }
+    
+    func getGroupTourSearchUrl(groupTourSearchRequest: GroupTourSearchRequest) -> Single<[String: Any]> {
+        
+        return manager(method: .post, appendUrl: "", url: APIUrl.mainApi(type: .tourSearch), parameters: groupTourSearchRequest.getDictionary(), appendHeaders: nil)
     }
 }
 

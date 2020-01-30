@@ -9,7 +9,9 @@
 
 protocol GroupTourSearchViewProtocol: BaseViewProtocol {
     func onBindGroupTourSearchInit(groupTourSearchInit: GroupTourSearchInitResponse.GroupTourSearchInit)
+    func onBindGroupTourSearchUrl(groupTourSearchUrl: GroupTourSearchUrlResponse.GroupTourSearchUrl)
 }
 protocol GroupTourSearchPresenterProtocol : BasePresenterProtocol {
-    func getGroupTourSearchInit()
+    func getGroupTourSearchInit(departureCode: String?)
+    func getGroupTourSearchUrl(groupTourSearchRequest: GroupTourSearchRequest)
 }

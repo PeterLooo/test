@@ -38,7 +38,7 @@ class GroupTourSearchKeywordAndTourCodeInputCell: UITableViewCell, UITextFieldDe
         
         self.departureCity.text = groupTourSearchKeywordAndTourCodeRequest
             .selectedDepartureCity?
-            .value
+            .departureName
         
         self.keywordOrTourCodeTextField.text = groupTourSearchKeywordAndTourCodeRequest.keywordOrTourCode
     }

@@ -8,7 +8,7 @@
 
 class GroupTourSearchKeywordAndTourCodeRequest: NSObject {
     var keywordOrTourCode: String?
-    var selectedDepartureCity: KeyValue?
+    var selectedDepartureCity: DepartureCity?
     var keywordOrTourCodeSearchType: KeywordOrTourCodeSearchType?
     
     enum KeywordOrTourCodeSearchType {

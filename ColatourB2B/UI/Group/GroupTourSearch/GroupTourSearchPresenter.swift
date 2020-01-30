@@ -18,10 +18,10 @@ class GroupTourSearchPresenter: GroupTourSearchPresenterProtocol {
            self.delegate = delegate
        }
        
-       func getGroupTourSearchInit() {
+       func getGroupTourSearchInit(departureCode: String?) {
         self.delegate?.onStartLoadingHandle(handleType: .coverPlate)
             GroupReponsitory.shared
-            .getGroupTourSearchInit()
+            .getGroupTourSearchInit(departureCode: departureCode)
             .subscribe(onSuccess:{ (model) in
             self.delegate?.onBindGroupTourSearchInit(groupTourSearchInit: model)
                self.delegate?.onCompletedLoadingHandle()
@@ -31,4 +31,18 @@ class GroupTourSearchPresenter: GroupTourSearchPresenterProtocol {
                
            }).disposed(by:dispose)
        }
+    
+    func getGroupTourSearchUrl(groupTourSearchRequest: GroupTourSearchRequest) {
+        self.delegate?.onStartLoadingHandle(handleType: .coverPlate)
+            GroupReponsitory.shared
+            .getGroupTourSearchUrl(groupTourSearchRequest: groupTourSearchRequest)
+            .subscribe(onSuccess:{ (model) in
+               self.delegate?.onBindGroupTourSearchUrl(groupTourSearchUrl: model)
+               self.delegate?.onCompletedLoadingHandle()
+           }, onError: { (error) in
+                self.delegate?.onApiErrorHandle(apiError: error as! APIError, handleType: .coverPlate)
+               self.delegate?.onCompletedLoadingHandle()
+               
+           }).disposed(by:dispose)
+    }
 }

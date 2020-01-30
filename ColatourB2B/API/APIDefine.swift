@@ -63,8 +63,6 @@ enum APIUrl {
     
     enum PortalApi: String {
         case homeAdList   = "Ticket/首頁1"
-        //TODO: 待正確API
-        case groupTourSearchInit = "groupTourSearchInit"
         
         static func urlWith(type: PortalApi, append: String) -> String {
             let base =  PORTAL_WEB_HOST + "/Portal/"
@@ -118,12 +116,14 @@ enum APIUrl {
     
     enum MainApi: String{
         
-        case tour = "Tour"
-        case tkt = "TKT"
-        case other = "Other"
+        case toolbarTour = "ToolBar/Tour"
+        case toolbarTKT = "ToolBar/TKT"
+        case toolbarOther = "ToolBar/Other"
+        case tourSearchInit = "Tour/Search/Initial"
+        case tourSearch = "Tour/Search"
         
         static func urlWith(type: MainApi, append: String) -> String {
-            let base =  MAIN_WEB_HOST + "Main/ToolBar/"
+            let base =  MAIN_WEB_HOST + "Main/"
             return "\(base)\(type.rawValue)\(append)"
         }
         func url () -> String {
