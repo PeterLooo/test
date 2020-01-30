@@ -52,8 +52,6 @@ class BannerImageView: UIView {
         }
     }
     
-    var picUrl: [String] = []
-    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.setup()
@@ -96,13 +94,13 @@ class BannerImageView: UIView {
         scrollView.addSubview(imgV)
     }
     
-    func setImageWithUrl(picUrl: [String], smallPicUrl: [String], isSkeleton: Bool){
+    func setImageWithUrl(picUrl: [String], smallPicUrl: [String], isSkeleton: Bool, needUpdateBannerImage: Bool){
+        if needUpdateBannerImage == false { return }
         scrollView.subviews.forEach{$0.removeFromSuperview()}
         imgView.removeAll()
         currentCount = 0
         scrollView.contentOffset = .zero
         pageControl.currentPage = 0
-        self.picUrl = picUrl
         
         let width = self.bounds.width
         let height = self.bounds.height

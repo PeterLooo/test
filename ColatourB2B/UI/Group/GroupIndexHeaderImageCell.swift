@@ -21,7 +21,7 @@ class GroupIndexHeaderImageCell: UITableViewCell {
     private var smallUrls:[String] = []
     private var itemList: [IndexResponse.ModuleItem] = []
     
-    func setCell(itemList: [IndexResponse.ModuleItem]){
+    func setCell(itemList: [IndexResponse.ModuleItem], needUpdateBannerImage:Bool){
         self.itemList = itemList
         urls = []
         smallUrls = []
@@ -33,7 +33,7 @@ class GroupIndexHeaderImageCell: UITableViewCell {
         itemList.forEach { (smallPic) in
             smallUrls.append(smallPic.smallPicUrl!)
         }
-        bannerImageView.setImageWithUrl(picUrl: urls, smallPicUrl: smallUrls, isSkeleton: false)
+        bannerImageView.setImageWithUrl(picUrl: urls, smallPicUrl: smallUrls, isSkeleton: false, needUpdateBannerImage: needUpdateBannerImage)
         
         bannerImageView.delegate = self
     }
