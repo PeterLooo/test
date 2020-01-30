@@ -40,7 +40,7 @@ class GroupTourSearchPresenter: GroupTourSearchPresenterProtocol {
                 self.delegate?.onBindGroupTourSearchUrl(groupTourSearchUrl: model)
                 self.delegate?.onCompletedLoadingHandle()
             }, onError: { (error) in
-                self.delegate?.onApiErrorHandle(apiError: error as! APIError, handleType: .coverPlate)
+                self.delegate?.onApiErrorHandle(apiError: error as! APIError, handleType: .alert)
                 self.delegate?.onCompletedLoadingHandle()
                 
             }).disposed(by:dispose)
