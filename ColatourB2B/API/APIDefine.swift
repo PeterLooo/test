@@ -23,6 +23,7 @@ enum APIUrl {
     case bulletinApi(type: BulletinApi)
     case memberApi(type: MemberApi)
     case mainApi(type: MainApi)
+    case serviceApi(type: ServiceApi)
     func getUrl() -> String {
         switch self {
         case .authApi(let type):
@@ -34,6 +35,8 @@ enum APIUrl {
         case .memberApi(let type):
             return type.url()
         case .mainApi(let type):
+            return type.url()
+        case .serviceApi(let type):
             return type.url()
         }
     }
@@ -62,6 +65,7 @@ enum APIUrl {
     }
     
     enum PortalApi: String {
+        
         case homeAdList   = "Ticket/首頁1"
         
         static func urlWith(type: PortalApi, append: String) -> String {
@@ -132,5 +136,35 @@ enum APIUrl {
             return APIUrl.MainApi.urlWith(type: self, append: append)
         }
     }
+    
+    enum ServiceApi: String {
+        
+        case messageSend = ""
+        case groupSale = "團體－連絡業務"
+        case groupSuggest = "團體－改善建議"
+        case ticketFeedback = "票務－意見回饋"
+        
+        static func urlWith(type: ServiceApi, append: String) -> String {
+            let base =  MAIN_WEB_HOST + "Service/Message/Send"
+            let initSendType = "/Initial?Send_Type="
+            
+            if type.rawValue == "" {
+                
+                return "\(base)\(type.rawValue)\(append)"
+            } else {
+                
+                return "\(base)\(initSendType)\(type.rawValue)\(append)"
+            }
+        }
+        
+        func url() -> String {
+            return APIUrl.ServiceApi.urlWith(type: self, append: "")
+        }
+        
+        func url(append: String) -> String {
+            return APIUrl.ServiceApi.urlWith(type: self, append: append)
+        }
+    }
+    
 }
 

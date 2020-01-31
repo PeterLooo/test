@@ -176,6 +176,8 @@ class APIManager: NSObject {
             requestUrl = type.url()
         case .mainApi(let type):
             requestUrl = type.url()
+        case .serviceApi(let type):
+            requestUrl = type.url()
         }
 
         requestUrl =  (requestUrl + encodeUrl ).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
@@ -225,7 +227,20 @@ extension APIManager {
     }
     
     func getGroupMenu(toolBarType: ToolBarType)-> Single<[String:Any]> {
+        
         return manager(method: .get, appendUrl: "", url: toolBarType.getApiUrl(), parameters: nil, appendHeaders: nil)
+    }
+    
+    func getMessageSendUserList(messageSendType: MessageSendType) -> Single<[String:Any]> {
+        return manager(method: .get, appendUrl: "", url: messageSendType.getApiUrl(), parameters: nil, appendHeaders: nil)
+    }
+    
+    func messageSend(messageSendRequest: MessageSendRequest) -> Single<[String:Any]> {
+        let params = ["Send_Type": messageSendRequest.sendType!,
+                      "Send_Key_List": messageSendRequest.sendKeyList!,
+                      "Message_Topic": messageSendRequest.messageTopic!,
+                      "Message_Text": messageSendRequest.messageText!] as [String : Any]
+        return manager(method: .post, appendUrl: "", url: APIUrl.serviceApi(type: .messageSend), parameters: params, appendHeaders: nil)
     }
 }
 
