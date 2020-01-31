@@ -11,7 +11,6 @@ import Foundation
 protocol PasswordModifyViewProtocol: BaseViewProtocol {
 
     func passwordModifySuccess()
-    func passwordModifyFail(response: PasswordModifyResponse)
 }
 
 protocol PasswordModifyPresenterProtocol: BasePresenterProtocol {

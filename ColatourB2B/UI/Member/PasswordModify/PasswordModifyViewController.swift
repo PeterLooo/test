@@ -231,9 +231,4 @@ extension PasswordModifyViewController: PasswordModifyViewProtocol {
             self.delegate?.setPasswordModifyToastText(text: "更改密碼成功")
         })
     }
-    
-    func passwordModifyFail(response: PasswordModifyResponse) {
-        self.view.endEditing(true)
-        self.toast(text: response.modifyPassowrd?.modifyMessage ?? "")
-    }
 }
