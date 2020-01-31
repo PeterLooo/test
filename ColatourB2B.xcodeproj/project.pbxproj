@@ -222,6 +222,34 @@
 		C711753E23BF407E00555D8C /* MoreProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C711753C23BF407D00555D8C /* MoreProtocol.swift */; };
 		C711754023BF40DA00555D8C /* MorePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C711753F23BF40DA00555D8C /* MorePresenter.swift */; };
 		C711754123BF40DA00555D8C /* MorePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C711753F23BF40DA00555D8C /* MorePresenter.swift */; };
+		CC1570B223E282ED0090763A /* MessageSendRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC1570B123E282ED0090763A /* MessageSendRequest.swift */; };
+		CC1570B323E282ED0090763A /* MessageSendRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC1570B123E282ED0090763A /* MessageSendRequest.swift */; };
+		CC1B764623D7E2A200206138 /* MessageSendUserListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC1B764523D7E2A200206138 /* MessageSendUserListResponse.swift */; };
+		CC1B764723D7E2A200206138 /* MessageSendUserListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC1B764523D7E2A200206138 /* MessageSendUserListResponse.swift */; };
+		CC1B764C23D81E6E00206138 /* MessageSendProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC1B764B23D81E6E00206138 /* MessageSendProtocol.swift */; };
+		CC1B764D23D81E6E00206138 /* MessageSendProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC1B764B23D81E6E00206138 /* MessageSendProtocol.swift */; };
+		CC1B764F23D81E8400206138 /* MessageSendPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC1B764E23D81E8400206138 /* MessageSendPresenter.swift */; };
+		CC1B765023D81E8400206138 /* MessageSendPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC1B764E23D81E8400206138 /* MessageSendPresenter.swift */; };
+		CC1B765223D8392100206138 /* MessageSendRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC1B765123D8392100206138 /* MessageSendRepository.swift */; };
+		CC1B765323D8392100206138 /* MessageSendRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC1B765123D8392100206138 /* MessageSendRepository.swift */; };
+		CC90777223D6DBAF002EF7B4 /* MessageSend.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC90777123D6DBAF002EF7B4 /* MessageSend.storyboard */; };
+		CC90777323D6DBAF002EF7B4 /* MessageSend.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC90777123D6DBAF002EF7B4 /* MessageSend.storyboard */; };
+		CC90777523D6E1DB002EF7B4 /* MessageSendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC90777423D6E1DB002EF7B4 /* MessageSendViewController.swift */; };
+		CC90777623D6E1DB002EF7B4 /* MessageSendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC90777423D6E1DB002EF7B4 /* MessageSendViewController.swift */; };
+		CC90779123D6FA26002EF7B4 /* MessageSendNotificationListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC90778F23D6FA26002EF7B4 /* MessageSendNotificationListCell.swift */; };
+		CC90779223D6FA26002EF7B4 /* MessageSendNotificationListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC90778F23D6FA26002EF7B4 /* MessageSendNotificationListCell.swift */; };
+		CC90779323D6FA26002EF7B4 /* MessageSendNotificationListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC90779023D6FA26002EF7B4 /* MessageSendNotificationListCell.xib */; };
+		CC90779423D6FA26002EF7B4 /* MessageSendNotificationListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC90779023D6FA26002EF7B4 /* MessageSendNotificationListCell.xib */; };
+		CC90779723D6FA48002EF7B4 /* MessageSendTopicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC90779523D6FA48002EF7B4 /* MessageSendTopicCell.swift */; };
+		CC90779823D6FA48002EF7B4 /* MessageSendTopicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC90779523D6FA48002EF7B4 /* MessageSendTopicCell.swift */; };
+		CC90779923D6FA48002EF7B4 /* MessageSendTopicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC90779623D6FA48002EF7B4 /* MessageSendTopicCell.xib */; };
+		CC90779A23D6FA48002EF7B4 /* MessageSendTopicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC90779623D6FA48002EF7B4 /* MessageSendTopicCell.xib */; };
+		CC90779D23D6FA5C002EF7B4 /* MessageSendContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC90779B23D6FA5C002EF7B4 /* MessageSendContentCell.swift */; };
+		CC90779E23D6FA5C002EF7B4 /* MessageSendContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC90779B23D6FA5C002EF7B4 /* MessageSendContentCell.swift */; };
+		CC90779F23D6FA5C002EF7B4 /* MessageSendContentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC90779C23D6FA5C002EF7B4 /* MessageSendContentCell.xib */; };
+		CC9077A023D6FA5C002EF7B4 /* MessageSendContentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC90779C23D6FA5C002EF7B4 /* MessageSendContentCell.xib */; };
+		CCCCED7E23E2C09C005115EB /* MessageSendResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCCED7D23E2C09C005115EB /* MessageSendResponse.swift */; };
+		CCCCED7F23E2C09C005115EB /* MessageSendResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCCED7D23E2C09C005115EB /* MessageSendResponse.swift */; };
 		FF8E32EC7686F078B8ABDE18 /* Pods_ColatourB2B.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A331B185DD2055D277F472F3 /* Pods_ColatourB2B.framework */; };
 /* End PBXBuildFile section */
 
@@ -371,6 +399,20 @@
 		B09E7C65A225E6FF958329EA /* Pods-ColatourB2BDev.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ColatourB2BDev.release.xcconfig"; path = "Pods/Target Support Files/Pods-ColatourB2BDev/Pods-ColatourB2BDev.release.xcconfig"; sourceTree = "<group>"; };
 		C711753C23BF407D00555D8C /* MoreProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreProtocol.swift; sourceTree = "<group>"; };
 		C711753F23BF40DA00555D8C /* MorePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MorePresenter.swift; sourceTree = "<group>"; };
+		CC1570B123E282ED0090763A /* MessageSendRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageSendRequest.swift; sourceTree = "<group>"; };
+		CC1B764523D7E2A200206138 /* MessageSendUserListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageSendUserListResponse.swift; sourceTree = "<group>"; };
+		CC1B764B23D81E6E00206138 /* MessageSendProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageSendProtocol.swift; sourceTree = "<group>"; };
+		CC1B764E23D81E8400206138 /* MessageSendPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageSendPresenter.swift; sourceTree = "<group>"; };
+		CC1B765123D8392100206138 /* MessageSendRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageSendRepository.swift; sourceTree = "<group>"; };
+		CC90777123D6DBAF002EF7B4 /* MessageSend.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MessageSend.storyboard; sourceTree = "<group>"; };
+		CC90777423D6E1DB002EF7B4 /* MessageSendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageSendViewController.swift; sourceTree = "<group>"; };
+		CC90778F23D6FA26002EF7B4 /* MessageSendNotificationListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageSendNotificationListCell.swift; sourceTree = "<group>"; };
+		CC90779023D6FA26002EF7B4 /* MessageSendNotificationListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageSendNotificationListCell.xib; sourceTree = "<group>"; };
+		CC90779523D6FA48002EF7B4 /* MessageSendTopicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageSendTopicCell.swift; sourceTree = "<group>"; };
+		CC90779623D6FA48002EF7B4 /* MessageSendTopicCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageSendTopicCell.xib; sourceTree = "<group>"; };
+		CC90779B23D6FA5C002EF7B4 /* MessageSendContentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageSendContentCell.swift; sourceTree = "<group>"; };
+		CC90779C23D6FA5C002EF7B4 /* MessageSendContentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageSendContentCell.xib; sourceTree = "<group>"; };
+		CCCCED7D23E2C09C005115EB /* MessageSendResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageSendResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -515,6 +557,8 @@
 			isa = PBXGroup;
 			children = (
 				38E68AB623B5AC12006BC4DD /* GroupMenuResponse.swift */,
+				CC1B764523D7E2A200206138 /* MessageSendUserListResponse.swift */,
+				CCCCED7D23E2C09C005115EB /* MessageSendResponse.swift */,
 			);
 			path = Group;
 			sourceTree = "<group>";
@@ -569,6 +613,7 @@
 				38BCD99823A3639500D59910 /* MemberRepository.swift */,
 				38BCD99B23A363AB00D59910 /* MemberRepositoryProtocol.swift */,
 				382EF48223BEF93A0002BAB0 /* GroupReponsitory.swift */,
+				CC1B765123D8392100206138 /* MessageSendRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -661,11 +706,12 @@
 		38BCDA2123A3760000D59910 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				380C151223BD92B1008B4501 /* AirTicket */,
-				38E68A9F23B5AB80006BC4DD /* Group */,
-				387FBF0823ACCE5C005412F1 /* Member */,
 				38BCDA2223A3760900D59910 /* Common */,
+				CC90776F23D6DB49002EF7B4 /* MessageSend */,
+				38E68A9F23B5AB80006BC4DD /* Group */,
+				380C151223BD92B1008B4501 /* AirTicket */,
 				387FBEFF23ACA2D2005412F1 /* NoticeViewController.swift */,
+				387FBF0823ACCE5C005412F1 /* Member */,
 				C711754223BF47B700555D8C /* More */,
 			);
 			path = UI;
@@ -690,6 +736,7 @@
 		38BCDA2323A3766100D59910 /* StroyBoard */ = {
 			isa = PBXGroup;
 			children = (
+				CC07581823E416AB00F30CF7 /* MessageSend */,
 				38E68AB923B5AE30006BC4DD /* Common */,
 				387FBF0923ACCE7C005412F1 /* Member */,
 				38BCDA2423A378E900D59910 /* Home */,
@@ -763,6 +810,7 @@
 			isa = PBXGroup;
 			children = (
 				38E9922D23B058CA00E28271 /* LoginRequest.swift */,
+				CC1570B123E282ED0090763A /* MessageSendRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -795,6 +843,30 @@
 				C711753F23BF40DA00555D8C /* MorePresenter.swift */,
 			);
 			path = More;
+			sourceTree = "<group>";
+		};
+		CC07581823E416AB00F30CF7 /* MessageSend */ = {
+			isa = PBXGroup;
+			children = (
+				CC90777123D6DBAF002EF7B4 /* MessageSend.storyboard */,
+			);
+			path = MessageSend;
+			sourceTree = "<group>";
+		};
+		CC90776F23D6DB49002EF7B4 /* MessageSend */ = {
+			isa = PBXGroup;
+			children = (
+				CC90777423D6E1DB002EF7B4 /* MessageSendViewController.swift */,
+				CC1B764B23D81E6E00206138 /* MessageSendProtocol.swift */,
+				CC1B764E23D81E8400206138 /* MessageSendPresenter.swift */,
+				CC90778F23D6FA26002EF7B4 /* MessageSendNotificationListCell.swift */,
+				CC90779023D6FA26002EF7B4 /* MessageSendNotificationListCell.xib */,
+				CC90779523D6FA48002EF7B4 /* MessageSendTopicCell.swift */,
+				CC90779623D6FA48002EF7B4 /* MessageSendTopicCell.xib */,
+				CC90779B23D6FA5C002EF7B4 /* MessageSendContentCell.swift */,
+				CC90779C23D6FA5C002EF7B4 /* MessageSendContentCell.xib */,
+			);
+			path = MessageSend;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -931,9 +1003,12 @@
 				38E68ABF23B5AE30006BC4DD /* Calendar.storyboard in Resources */,
 				3817E50123A33C8500ED8609 /* LaunchScreen.storyboard in Resources */,
 				38BCDA2623A3796800D59910 /* GroupTour.storyboard in Resources */,
+				CC90779F23D6FA5C002EF7B4 /* MessageSendContentCell.xib in Resources */,
 				387FBF0B23ACCEB7005412F1 /* Login.storyboard in Resources */,
+				CC90777223D6DBAF002EF7B4 /* MessageSend.storyboard in Resources */,
 				38E68AAD23B5AB80006BC4DD /* Group.json in Resources */,
 				3869544023BB002900F6E7D9 /* MemberIndexVersionCell.xib in Resources */,
+				CC90779323D6FA26002EF7B4 /* MessageSendNotificationListCell.xib in Resources */,
 				387FBEFD23ACA2A7005412F1 /* Notice.storyboard in Resources */,
 				38E68AC123B5AE30006BC4DD /* Common.storyboard in Resources */,
 				38E68ABD23B5AE30006BC4DD /* SelectOption.storyboard in Resources */,
@@ -947,6 +1022,7 @@
 				38BCDA0B23A367D000D59910 /* ApiFailErrorView.xib in Resources */,
 				381B12B823C48D440030BACE /* GroupNavigationView.xib in Resources */,
 				3817E4FE23A33C8500ED8609 /* Assets.xcassets in Resources */,
+				CC90779923D6FA48002EF7B4 /* MessageSendTopicCell.xib in Resources */,
 				2AF496B423AB7EA50053EA45 /* GoogleService-Info.plist in Resources */,
 				3817E4FC23A33C8400ED8609 /* Main.storyboard in Resources */,
 				3869543A23BAF85900F6E7D9 /* MemberIndexServiceCell.xib in Resources */,
@@ -975,9 +1051,12 @@
 				38E68AC023B5AE30006BC4DD /* Calendar.storyboard in Resources */,
 				3817E52A23A33C9500ED8609 /* LaunchScreen.storyboard in Resources */,
 				38BCDA2723A3796800D59910 /* GroupTour.storyboard in Resources */,
+				CC9077A023D6FA5C002EF7B4 /* MessageSendContentCell.xib in Resources */,
 				387FBF1123ACCF00005412F1 /* Login.storyboard in Resources */,
+				CC90777323D6DBAF002EF7B4 /* MessageSend.storyboard in Resources */,
 				38E68AAE23B5AB80006BC4DD /* Group.json in Resources */,
 				3869544123BB002900F6E7D9 /* MemberIndexVersionCell.xib in Resources */,
+				CC90779423D6FA26002EF7B4 /* MessageSendNotificationListCell.xib in Resources */,
 				387FBEFE23ACA2A7005412F1 /* Notice.storyboard in Resources */,
 				38E68AC223B5AE30006BC4DD /* Common.storyboard in Resources */,
 				38E68ABE23B5AE30006BC4DD /* SelectOption.storyboard in Resources */,
@@ -991,6 +1070,7 @@
 				38BCDA0C23A367D000D59910 /* ApiFailErrorView.xib in Resources */,
 				381B12B923C48D440030BACE /* GroupNavigationView.xib in Resources */,
 				3817E52B23A33C9500ED8609 /* Assets.xcassets in Resources */,
+				CC90779A23D6FA48002EF7B4 /* MessageSendTopicCell.xib in Resources */,
 				2AF496B623AB7EBB0053EA45 /* GoogleService-Info.plist in Resources */,
 				3817E52C23A33C9500ED8609 /* Main.storyboard in Resources */,
 				3869543B23BAF85900F6E7D9 /* MemberIndexServiceCell.xib in Resources */,
@@ -1120,6 +1200,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC1B764F23D81E8400206138 /* MessageSendPresenter.swift in Sources */,
 				3869543823BAF85900F6E7D9 /* MemberIndexServiceCell.swift in Sources */,
 				38BCD94223A346B800D59910 /* APILoadingHandleType.swift in Sources */,
 				38BCD9CD23A3648B00D59910 /* BaseModelProtocol.swift in Sources */,
@@ -1137,6 +1218,7 @@
 				38BCDA1223A3684E00D59910 /* BaseProtocol.swift in Sources */,
 				38BCD98723A3484300D59910 /* UINavigationControllerExtension.swift in Sources */,
 				387FBF0023ACA2D2005412F1 /* NoticeViewController.swift in Sources */,
+				CC90779723D6FA48002EF7B4 /* MessageSendTopicCell.swift in Sources */,
 				38BCD94023A346B800D59910 /* APIErrorHandleType.swift in Sources */,
 				38E68AB423B5ABE9006BC4DD /* AppHelper.swift in Sources */,
 				38BCDA0D23A367D000D59910 /* LoadingView.swift in Sources */,
@@ -1147,6 +1229,7 @@
 				38E9921B23B04CD400E28271 /* GropeTourProtocol.swift in Sources */,
 				C711753D23BF407E00555D8C /* MoreProtocol.swift in Sources */,
 				38E9922A23B053C400E28271 /* LoginPresenter.swift in Sources */,
+				CC1B765223D8392100206138 /* MessageSendRepository.swift in Sources */,
 				381B12B523C48D360030BACE /* GroupNavigationView.swift in Sources */,
 				38E9923423B05A0700E28271 /* LoginResponse.swift in Sources */,
 				38E68AA923B5AB80006BC4DD /* GroupSliderViewController.swift in Sources */,
@@ -1162,12 +1245,14 @@
 				38BCD97923A3484300D59910 /* UIViewExtenstion.swift in Sources */,
 				38E9922423B04F2A00E28271 /* BulletinResponse.swift in Sources */,
 				3817E4F723A33C8400ED8609 /* AppDelegate.swift in Sources */,
+				CC90779D23D6FA5C002EF7B4 /* MessageSendContentCell.swift in Sources */,
 				38BCD98F23A3484300D59910 /* DateFormatterExtenstion.swift in Sources */,
 				382EF48323BEF93A0002BAB0 /* GroupReponsitory.swift in Sources */,
 				38BCD96F23A3484300D59910 /* CAGradientLayerExtension.swift in Sources */,
 				387FBF1323ACD047005412F1 /* CustomTextField.swift in Sources */,
 				38BCDA1523A3689500D59910 /* ColorDef.swift in Sources */,
 				38E68AAB23B5AB80006BC4DD /* GroupSliderItemCell.swift in Sources */,
+				CC1B764623D7E2A200206138 /* MessageSendUserListResponse.swift in Sources */,
 				38BCD92B23A345FA00D59910 /* DeviceUtil.swift in Sources */,
 				3869542B23BADC0F00F6E7D9 /* MemberIndexPresenter.swift in Sources */,
 				38BCD98923A3484300D59910 /* OptionalStringExtension.swift in Sources */,
@@ -1184,18 +1269,23 @@
 				3869542E23BADC9000F6E7D9 /* MemberIndexResponse.swift in Sources */,
 				38E9922123B04F1400E28271 /* VersionRuleReponse.swift in Sources */,
 				38BCD93523A345FA00D59910 /* GTMBase64.m in Sources */,
+				CC90779123D6FA26002EF7B4 /* MessageSendNotificationListCell.swift in Sources */,
 				38BCD9D723A366EC00D59910 /* TabBarViewController.swift in Sources */,
 				38BCD98D23A3484300D59910 /* ShareFunc.swift in Sources */,
 				384B110323C2BD33000E2B41 /* AirTicketProtocol.swift in Sources */,
 				387FBF0F23ACCEF4005412F1 /* LoginViewController.swift in Sources */,
 				38BCD93323A345FA00D59910 /* FormatUtil.swift in Sources */,
+				CCCCED7E23E2C09C005115EB /* MessageSendResponse.swift in Sources */,
 				3869543223BAE5F500F6E7D9 /* MemberTopCell.swift in Sources */,
 				38BCD97D23A3484300D59910 /* IntExtenstion.swift in Sources */,
+				CC1B764C23D81E6E00206138 /* MessageSendProtocol.swift in Sources */,
 				387FBF0623ACA392005412F1 /* MoreViewController.swift in Sources */,
 				38E9923A23B0B5DF00E28271 /* BooleanButton.swift in Sources */,
 				38E9922E23B058CA00E28271 /* LoginRequest.swift in Sources */,
 				38BCD97F23A3484300D59910 /* UIFontExtenstion.swift in Sources */,
 				38BCD92F23A345FA00D59910 /* ColorHexUtil.swift in Sources */,
+				CC1570B223E282ED0090763A /* MessageSendRequest.swift in Sources */,
+				CC90777523D6E1DB002EF7B4 /* MessageSendViewController.swift in Sources */,
 				C711754023BF40DA00555D8C /* MorePresenter.swift in Sources */,
 				38BCD94623A346B800D59910 /* APIDefine.swift in Sources */,
 				38BCD97523A3484300D59910 /* UIColorExtension.swift in Sources */,
@@ -1226,6 +1316,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC1B765023D81E8400206138 /* MessageSendPresenter.swift in Sources */,
 				3869543923BAF85900F6E7D9 /* MemberIndexServiceCell.swift in Sources */,
 				38BCD94323A346B800D59910 /* APILoadingHandleType.swift in Sources */,
 				38BCD9CE23A3648B00D59910 /* BaseModelProtocol.swift in Sources */,
@@ -1243,6 +1334,7 @@
 				38BCDA1323A3684E00D59910 /* BaseProtocol.swift in Sources */,
 				38BCD98823A3484300D59910 /* UINavigationControllerExtension.swift in Sources */,
 				387FBF0123ACA2D2005412F1 /* NoticeViewController.swift in Sources */,
+				CC90779823D6FA48002EF7B4 /* MessageSendTopicCell.swift in Sources */,
 				38BCD94123A346B800D59910 /* APIErrorHandleType.swift in Sources */,
 				38E68AB523B5ABE9006BC4DD /* AppHelper.swift in Sources */,
 				38BCDA0E23A367D000D59910 /* LoadingView.swift in Sources */,
@@ -1253,6 +1345,7 @@
 				38E9921C23B04CD400E28271 /* GropeTourProtocol.swift in Sources */,
 				C711753E23BF407E00555D8C /* MoreProtocol.swift in Sources */,
 				38E9922B23B053C400E28271 /* LoginPresenter.swift in Sources */,
+				CC1B765323D8392100206138 /* MessageSendRepository.swift in Sources */,
 				381B12B623C48D360030BACE /* GroupNavigationView.swift in Sources */,
 				38E9923523B05A0700E28271 /* LoginResponse.swift in Sources */,
 				38E68AAA23B5AB80006BC4DD /* GroupSliderViewController.swift in Sources */,
@@ -1268,12 +1361,14 @@
 				38BCD97A23A3484300D59910 /* UIViewExtenstion.swift in Sources */,
 				38E9922523B04F2A00E28271 /* BulletinResponse.swift in Sources */,
 				3817E52723A33C9500ED8609 /* AppDelegate.swift in Sources */,
+				CC90779E23D6FA5C002EF7B4 /* MessageSendContentCell.swift in Sources */,
 				38BCD99023A3484300D59910 /* DateFormatterExtenstion.swift in Sources */,
 				382EF48423BEF93A0002BAB0 /* GroupReponsitory.swift in Sources */,
 				38BCD97023A3484300D59910 /* CAGradientLayerExtension.swift in Sources */,
 				387FBF1423ACD047005412F1 /* CustomTextField.swift in Sources */,
 				38BCDA1623A3689500D59910 /* ColorDef.swift in Sources */,
 				38E68AAC23B5AB80006BC4DD /* GroupSliderItemCell.swift in Sources */,
+				CC1B764723D7E2A200206138 /* MessageSendUserListResponse.swift in Sources */,
 				38BCD92C23A345FA00D59910 /* DeviceUtil.swift in Sources */,
 				3869542C23BADC0F00F6E7D9 /* MemberIndexPresenter.swift in Sources */,
 				38BCD98A23A3484300D59910 /* OptionalStringExtension.swift in Sources */,
@@ -1290,18 +1385,23 @@
 				3869542F23BADC9000F6E7D9 /* MemberIndexResponse.swift in Sources */,
 				38E9922223B04F1400E28271 /* VersionRuleReponse.swift in Sources */,
 				38BCD93623A345FA00D59910 /* GTMBase64.m in Sources */,
+				CC90779223D6FA26002EF7B4 /* MessageSendNotificationListCell.swift in Sources */,
 				38BCD9D823A366EC00D59910 /* TabBarViewController.swift in Sources */,
 				38BCD98E23A3484300D59910 /* ShareFunc.swift in Sources */,
 				384B110423C2BD33000E2B41 /* AirTicketProtocol.swift in Sources */,
 				387FBF1023ACCEF4005412F1 /* LoginViewController.swift in Sources */,
 				38BCD93423A345FA00D59910 /* FormatUtil.swift in Sources */,
+				CCCCED7F23E2C09C005115EB /* MessageSendResponse.swift in Sources */,
 				3869543323BAE5F500F6E7D9 /* MemberTopCell.swift in Sources */,
 				38BCD97E23A3484300D59910 /* IntExtenstion.swift in Sources */,
+				CC1B764D23D81E6E00206138 /* MessageSendProtocol.swift in Sources */,
 				387FBF0723ACA392005412F1 /* MoreViewController.swift in Sources */,
 				38E9923B23B0B5DF00E28271 /* BooleanButton.swift in Sources */,
 				38E9922F23B058CA00E28271 /* LoginRequest.swift in Sources */,
 				38BCD98023A3484300D59910 /* UIFontExtenstion.swift in Sources */,
 				38BCD93023A345FA00D59910 /* ColorHexUtil.swift in Sources */,
+				CC1570B323E282ED0090763A /* MessageSendRequest.swift in Sources */,
+				CC90777623D6E1DB002EF7B4 /* MessageSendViewController.swift in Sources */,
 				C711754123BF40DA00555D8C /* MorePresenter.swift in Sources */,
 				38BCD94723A346B800D59910 /* APIDefine.swift in Sources */,
 				38BCD97623A3484300D59910 /* UIColorExtension.swift in Sources */,
