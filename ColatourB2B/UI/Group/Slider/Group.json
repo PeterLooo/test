@@ -1,98 +1,48 @@
 {
-  "Server_Item": [
+  "Order": [
     {
-      "Server_List": [
-        {
-          "Link_Type": "00",
-          "Link_Value": "https://b2b.colatour.com.tw/",
-          "Link_Name": "查詢出團表"
-        },
-        {
-          "Link_Type": "00",
-          "Link_Value": "",
-          "Link_Name": "報名單管理"
-        },
-        {
-          "Link_Type": "00",
-          "Link_Value": "",
-          "Link_Name": "幸福存摺"
-        },
-        {
-          "Link_Type": "00",
-          "Link_Value": "",
-          "Link_Name": "候補順位"
-        },
-        {
-          "Link_Type": "00",
-          "Link_Value": "",
-          "Link_Name": "團體快訊"
-        },
-        {
-          "Link_Type": "00",
-          "Link_Value": "",
-          "Link_Name": "意見調查表"
-        },
-        {
-          "Link_Type": "00",
-          "Link_Value": "",
-          "Link_Name": "業務窗口"
-        }
-      ]
-    },{
-      "Server_List": [
-        {
-          "Link_Type": "00",
-          "Link_Value": "https://b2b.colatour.com.tw/",
-          "Link_Name": "同業專賣"
-        },
-        {
-          "Link_Type": "00",
-          "Link_Value": "",
-          "Link_Name": "直刻ＤＭ"
-        },
-        {
-          "Link_Type": "00",
-          "Link_Value": "",
-          "Link_Name": "團體表格"
-        },
-        {
-          "Link_Type": "00",
-          "Link_Value": "",
-          "Link_Name": "求才資訊"
-        },
-        {
-          "Link_Type": "00",
-          "Link_Value": "",
-          "Link_Name": "網路資源"
-        },
-        {
-          "Link_Type": "00",
-          "Link_Value": "",
-          "Link_Name": "旅遊情報"
-        },
-        {
-          "Link_Type": "00",
-          "Link_Value": "",
-          "Link_Name": "年度回饋"
-        },
-        {
-          "Link_Type": "00",
-          "Link_Value": "",
-          "Link_Name": "簽收訊息"
-        }
-      ]
-    }
-  ],
-  "Contact_List": [
-    {
+      "NoTi_No":"12345",
+      "Noti_Title": "訂單通知",
+      "Remark": "訂單編號1234422",
       "Link_Type": "00",
-      "Link_Value": "",
-      "Link_Name": "改善建議"
+      "Link_Value": "https://b2b.colatour.com.tw/",
+      "Unread_Mark": false
     },
     {
+      "NoTi_No":"12345",
+      "Noti_Title": "訊息通知",
+      "Remark": "訂單編號122",
       "Link_Type": "00",
-      "Link_Value": "",
-      "Link_Name": "聯絡業務"
+      "Link_Value": "https://b2b.colatour.com.tw/",
+      "Unread_Mark": true
+    }
+  ],
+  "Message": [
+    {
+      "NoTi_No":"12345",
+      "Noti_Title": "訊息通知",
+      "Remark": "訂單編號1234422",
+      "Link_Type": "00",
+      "Link_Value": "https://b2b.colatour.com.tw/",
+      "Unread_Mark": false
+    },
+    {
+      "NoTi_No":"12345",
+      "Noti_Title": "訊息通知",
+      "Remark": "訂單編號1234422",
+      "Link_Type": "00",
+      "Link_Value": "https://b2b.colatour.com.tw/",
+      "Unread_Mark": true
+    }
+  ],
+  "News": [
+    {
+      "NoTi_No":"12345",
+      "Noti_Title": "美加八日！",
+      "Remark": "同業49990起",
+      "Link_Type": "00",
+      "Link_Value": "https://b2b.colatour.com.tw/",
+      "Unread_Mark": false
     }
   ]
 }
