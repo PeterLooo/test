@@ -89,6 +89,8 @@ extension LoginViewController : LoginViewProtocol {
             }
         }else{
             presenter?.pushDevice()
+            NotificationCenter.default.post(name: Notification.Name("noticeLoadDate"), object: nil)
+            NotificationCenter.default.post(name: Notification.Name("getUnreadCount"), object: nil)
             self.dismiss(animated: true, completion: {
                 if let linkType = self.linkType{
                     self.loginSuccessDelegate?.onLoginSuccess(linkType: linkType, linkValue: self.linkValue)
