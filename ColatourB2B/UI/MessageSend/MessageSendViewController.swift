@@ -53,7 +53,7 @@ class MessageSendViewController: BaseViewController {
         
         presenter?.getSendUserList(messageSendType: messageSendType!)
         
-        setNavBarItem(left: .defaultType, mid: .textTitle, right: .custom)
+        setNavBarItem(left: .custom, mid: .textTitle, right: .nothing)
         setNavTitle(title: "留言")
         setNavButton()
         
@@ -73,14 +73,11 @@ class MessageSendViewController: BaseViewController {
     }
     
     private func setNavButton() {
-    
-        let font = UIFont.systemFont(ofSize: 14)
-    
-        let cancelBarButtonItem = UIBarButtonItem(title: "取消", style: .plain, target: self, action: #selector(self.onTouchCancel))
-        cancelBarButtonItem.setTitleTextAttributes([NSAttributedString.Key.font: font], for: .normal)
-        navigationItem.rightBarButtonItem?.tintColor = UIColor(named: "通用綠")
         
-        setCustomRightBarButtonItem(barButtonItem: cancelBarButtonItem)
+        let cancelBarButtonItem = UIBarButtonItem(image: UIImage(named: "close"), style: .plain, target: self, action: #selector(self.onTouchCancel))
+        cancelBarButtonItem.tintColor = UIColor.init(named: "通用綠")
+        
+        setCustomLeftBarButtonItem(barButtonItem: cancelBarButtonItem)
     }
     
     @objc private func onTouchCancel(){
