@@ -33,4 +33,11 @@ class NoticeRepository: NSObject {
             .flatMap{_ in api}
             .map{NoticeUnreadCountResponse(JSON: $0)!.unreadCount }
     }
+    
+    func setNotiRead(notiId:[String]) -> Single<Any> {
+        let api = APIManager.shared.setNotiRead(notiId: notiId)
+        return AccountRepository.shared.getAccessToken()
+            .flatMap{_ in api}
+            .map{BaseModel(JSON: $0)!}
+    }
 }

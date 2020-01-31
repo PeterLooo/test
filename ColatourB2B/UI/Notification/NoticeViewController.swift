@@ -40,10 +40,10 @@ class NoticeViewController: BaseViewController {
         }
     }
     private var tableViews:[NotificationTableView] = []
-    private var pageSize = 5
+    private var pageSize = 10
     private var isNotiLastPage = false
     private var isNewsLastPage = false
-    
+    private var needReloadData = true
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         self.presenter = NoticePresenter(delegate: self)
@@ -51,12 +51,20 @@ class NoticeViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.reLoadData), name: Notification.Name("noticeLoadDate"), object: nil)
         setIsNavShadowEnable(false)
         setNavTitle(title: "通知")
         switchPageButton(toPage: 0)
         setTableView()
-        loadData()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if needReloadData {
+            loadData()
+            needReloadData = false
+        }
     }
     
     override func loadData() {
@@ -87,6 +95,10 @@ class NoticeViewController: BaseViewController {
             stackView.addArrangedSubview(view)
             tableViews.append(view)
         }
+    }
+    
+    @objc private func reLoadData() {
+        needReloadData = true
     }
     
     @IBAction func onTouchTopTag(_ sender: UIButton) {
@@ -148,6 +160,10 @@ class NoticeViewController: BaseViewController {
 }
 
 extension NoticeViewController: NoticeViewProtocol {
+    func onBindSetNotiRead() {
+        NotificationCenter.default.post(name: Notification.Name("getUnreadCount"), object: nil)
+    }
+    
     func onBindNewsListComplete(newsList: [NotiItem]) {
         if self.newsList == [] {
             self.newsList = newsList
@@ -193,12 +209,12 @@ extension NoticeViewController: NotificationTableViewProtocol {
         case .noti:
             if isNotiLastPage {return}
             if self.noticeList.count % pageSize == 0 {
-                self.presenter?.getNoticeList(pageIndex: (self.noticeList.count / 5) + 1, handleType: .ignore)
+                self.presenter?.getNoticeList(pageIndex: (self.noticeList.count / 10) + 1, handleType: .ignore)
             }
         case .news:
             if isNewsLastPage {return}
             if self.newsList.count % pageSize == 0 {
-                self.presenter?.getNewsList(pageIndex: (self.newsList.count / 5) + 1, handleType: .ignore)
+                self.presenter?.getNewsList(pageIndex: (self.newsList.count / 10) + 1, handleType: .ignore)
             }
             
         default:
@@ -208,6 +224,9 @@ extension NoticeViewController: NotificationTableViewProtocol {
     
     func onTouchNoti(item: NotiItem) {
         handleLinkType(linkType: item.linkType!, linkValue: item.linkValue, linkText: nil)
+        if item.unreadMark == true {
+            presenter?.setNoticeRead(noticeIdList: [item.notiId!])
+        }
     }
 }
 extension NoticeViewController: UIScrollViewDelegate {
