@@ -256,6 +256,14 @@ extension APIManager {
         return manager(method: .get, appendUrl: appendUrl, url: APIUrl.noticeApi(type: .news), parameters: nil, appendHeaders: nil)
     }
     
+    func getImportantList(pageIndex: Int) -> Single<[String:Any]> {
+        let pageSize = "PageSize=10"
+        var appendUrl = ""
+        appendUrl = "PageIndex=" + "\(String(pageIndex))" + "&" + pageSize
+        
+        return manager(method: .get, appendUrl: appendUrl, url: APIUrl.noticeApi(type: .important), parameters: nil, appendHeaders: nil)
+    }
+    
     func setNotiRead(notiId:[String])-> Single<[String:Any]> {
         let notiIdLists = notiId.map { (
             ["Noti_Id": $0

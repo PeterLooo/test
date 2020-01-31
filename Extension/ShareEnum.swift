@@ -18,9 +18,10 @@ public enum LinkType: String {
 }
 
 public enum NotiType {
-    case order
+    case important
     case noti
     case news
+    
 }
 
 public enum ToolBarType {
