@@ -9,16 +9,28 @@
 import UIKit
 
 extension NoticeDetailViewController {
-    func setVCwith(navTitle: String?, noticeNo: String) {
+    func setVCwith(navTitle: String?,
+                   noticeNo: String,
+                   messageDate: String?,
+                   sendUser: String?,
+                   content: String?,
+                   orderNo: String?,
+                   groupNo: String?) {
         self.navTitle = navTitle
         self.noticeNo = noticeNo
+        
+        self.noticeDetail = NoticeDetailResponse.NoticeDetail(messageDate: messageDate,
+                                                              sendUser: sendUser,
+                                                              content: content,
+                                                              orderNo: orderNo,
+                                                              groupNo: groupNo)
     }
 }
 
 class NoticeDetailViewController: BaseViewController {
     private var navTitle: String?
     private var noticeNo: String!
-    private var presenter: NoticeDetailPresenterProtocol?
+
     private var noticeDetail: NoticeDetailResponse.NoticeDetail? {
         didSet {
             tableView.reloadData()
@@ -44,31 +56,18 @@ class NoticeDetailViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        presenter = NoticeDetailPresenter(delegate: self)
+
         self.setNavTitle(title: navTitle ?? "")
         self.setNavType(navBarType: .notHidden)
         self.setTabBarType(tabBarType: .notHidden)
         
         layout()
-        loadData()
-    }
-    
-    override func loadData() {
-        super.loadData()
-        
-        getNoticeDetail()
     }
     
     private func layout(){
         self.view.addSubview(tableView)
         tableView.constraintToSafeArea()
     }
-    
-    private func getNoticeDetail() {
-        self.presenter?.getNoticeDetail(noticeNo: noticeNo)
-    }
-    
 }
 
 extension NoticeDetailViewController: NoticeDetailViewProtocol {
