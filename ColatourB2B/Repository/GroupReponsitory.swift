@@ -35,4 +35,11 @@ class GroupReponsitory: NSObject {
             .flatMap{_ in api}
             .map{ GroupTourSearchUrlResponse.GroupTourSearchUrl(JSON: $0)!}
     }
+    
+    func getGroupTourSearchUrl(groupTourSearchKeywordAndTourCodeRequest: GroupTourSearchKeywordAndTourCodeRequest) -> Single<GroupTourSearchUrlResponse.GroupTourSearchUrl> {
+        let api = APIManager.shared.getGroupTourSearchUrl(groupTourSearchKeywordAndTourCodeRequest: groupTourSearchKeywordAndTourCodeRequest)
+        return AccountRepository.shared.getAccessToken()
+            .flatMap{_ in api}
+            .map{ GroupTourSearchUrlResponse.GroupTourSearchUrl(JSON: $0)!}
+    }
 }

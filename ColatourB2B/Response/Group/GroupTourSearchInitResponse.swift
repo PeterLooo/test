@@ -84,10 +84,10 @@ class KeyValue: BaseModel {
     var key: String?
     var value: String?
     
-    override func mapping(map: Map) {
-        super.mapping(map: map)
+    convenience init(key: String?, value: String?) {
+        self.init()
         
-        key <- map["Key"]
-        value <- map["Value"]
+        self.key = key
+        self.value = value
     }
 }

@@ -26,7 +26,7 @@ class CustomPickerView : UIPickerView, UIPickerViewDelegate, UIPickerViewDataSou
     func setOptionList(optionList: [ShareOption]) {
         self.delegate = self
         self.dataSource = self
-        
+
         self.shareOptionList = optionList
     }
     
@@ -77,5 +77,9 @@ class CustomPickerView : UIPickerView, UIPickerViewDelegate, UIPickerViewDataSou
 
         pickerLabel.text = self.shareOptionList[row].optionValue ?? ""
         return pickerLabel
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
+        return screenWidth - 40
     }
 }

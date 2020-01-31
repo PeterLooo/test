@@ -121,6 +121,7 @@ enum APIUrl {
         case toolbarOther = "ToolBar/Other"
         case tourSearchInit = "Tour/Search/Initial"
         case tourSearch = "Tour/Search"
+        case tourKeywordSearch = "Tour/Keyword/Search"
         
         static func urlWith(type: MainApi, append: String) -> String {
             let base =  MAIN_WEB_HOST + "Main/"

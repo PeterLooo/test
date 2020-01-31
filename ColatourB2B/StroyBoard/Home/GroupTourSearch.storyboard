@@ -677,7 +677,6 @@
                                                                                                         </userDefinedRuntimeAttribute>
                                                                                                     </userDefinedRuntimeAttributes>
                                                                                                     <connections>
-                                                                                                        <action selector="onTouchGroupTourSearchButton:" destination="thA-6r-Ryi" eventType="touchUpInside" id="Ljn-zQ-xrG"/>
                                                                                                         <action selector="onTouchSearchByKeywordButton:" destination="thA-6r-Ryi" eventType="touchUpInside" id="yFy-WU-PGb"/>
                                                                                                     </connections>
                                                                                                 </button>
@@ -697,7 +696,6 @@
                                                                                                         </userDefinedRuntimeAttribute>
                                                                                                     </userDefinedRuntimeAttributes>
                                                                                                     <connections>
-                                                                                                        <action selector="onTouchGroupTourSearchButton:" destination="thA-6r-Ryi" eventType="touchUpInside" id="RYY-n5-hlW"/>
                                                                                                         <action selector="onTouchSearchByTourCodeButton:" destination="thA-6r-Ryi" eventType="touchUpInside" id="jd1-hV-AO1"/>
                                                                                                     </connections>
                                                                                                 </button>

@@ -31,6 +31,12 @@ extension GroupTourSearchViewController {
         case datePicker
         case hide
     }
+    
+    enum SearchByType {
+        case groupTour
+        case keyword
+        case tourCode
+    }
 }
 
 extension GroupTourSearchViewController {
@@ -147,6 +153,11 @@ class GroupTourSearchViewController: BaseViewController {
     private var groupTourSearchInit: GroupTourSearchInitResponse.GroupTourSearchInit?
     private var groupTourSearchRequest = GroupTourSearchRequest()
     private var groupTourSearchKeywordAndTourCodeRequest = GroupTourSearchKeywordAndTourCodeRequest()
+    private var keywordOrTourCodeDepartureCityShareOptionList =
+        [KeyValue(key: "*", value: "不限出發地"),
+         KeyValue(key: "台北", value: "台北出發"),
+         KeyValue(key: "台中", value: "台中出發"),
+         KeyValue(key: "高雄", value: "高雄出發")]
     
     private var defaultPage: GroupTourSearchTabType = .groupTour
     private var isNeedShowDefaultPage = true
@@ -187,8 +198,10 @@ class GroupTourSearchViewController: BaseViewController {
         case .keywordOrTourCode:
             ()
         case .keywordOrTourCodeDepartureCity:
-            shareOptionList = groupTourSearchInit?.departureCityList.map({ ShareOption(optionKey: $0.departureCode!, optionValue: $0.departureName!) }) ?? []
-            selectedKey = groupTourSearchKeywordAndTourCodeRequest.selectedDepartureCity?.departureCode
+            shareOptionList = keywordOrTourCodeDepartureCityShareOptionList.map({ ShareOption(optionKey: $0.key!, optionValue: $0.value!) })
+            selectedKey = groupTourSearchKeywordAndTourCodeRequest
+                .selectedDepartureCity?
+                .key
 
         case nil:
             ()
@@ -335,8 +348,15 @@ class GroupTourSearchViewController: BaseViewController {
         presenter?.getGroupTourSearchInit(departureCode: groupTourSearchRequest.selectedDepartureCity?.departureName)
     }
     
-    private func getTourSearchUrl(){
-        presenter?.getGroupTourSearchUrl(groupTourSearchRequest: groupTourSearchRequest)
+    private func getTourSearchUrl(searchByType: SearchByType){
+        switch searchByType {
+        case .groupTour:
+            presenter?.getGroupTourSearchUrl(groupTourSearchRequest: groupTourSearchRequest)
+            
+        case .keyword,
+             .tourCode:
+            presenter?.getGroupTourSearchUrl(groupTourSearchKeywordAndTourCodeRequest: groupTourSearchKeywordAndTourCodeRequest)
+        }
     }
     
     @IBAction func onTouchStartTourDateView(_ sender: UIButton) {
@@ -368,19 +388,19 @@ class GroupTourSearchViewController: BaseViewController {
     }
     
     @IBAction func onTouchGroupTourSearchButton(_ sender: UIButton) {
-        getTourSearchUrl()
+        getTourSearchUrl(searchByType: .groupTour)
     }
     
     @IBAction func onTouchSearchByKeywordButton(_ sender: UIButton) {
         groupTourSearchKeywordAndTourCodeRequest.keywordOrTourCodeSearchType = .keyword
         
-        //TODO: 送出
+        getTourSearchUrl(searchByType: .keyword)
     }
     
     @IBAction func onTouchSearchByTourCodeButton(_ sender: UIButton) {
         groupTourSearchKeywordAndTourCodeRequest.keywordOrTourCodeSearchType = .tourCode
         
-        //TODO: 送出
+        getTourSearchUrl(searchByType: .tourCode)
     }
     
     @IBAction func onTouchKeywordAndTourCodeDepartureCityView(_ sender: UIButton) {
@@ -405,7 +425,7 @@ extension GroupTourSearchViewController: GroupTourSearchViewProtocol {
         
         groupTourSearchRequest.startTourDate = groupTourSearchInit.defaultDepartureDate
         
-        groupTourSearchKeywordAndTourCodeRequest.selectedDepartureCity = groupTourSearchInit.departureCityList.first
+        groupTourSearchKeywordAndTourCodeRequest.selectedDepartureCity = keywordOrTourCodeDepartureCityShareOptionList.first
        
         groupTourTableView?.reloadData()
         keywordOrTourCodeTableView?.reloadData()
@@ -451,7 +471,7 @@ extension GroupTourSearchViewController: CustomPickerViewProtocol {
             //Note: 不使用PickerView，用Textfield cell裡 editingDidEnd textFieldDidChange(_:)
             ()
         case .keywordOrTourCodeDepartureCity:
-            let keyValue = groupTourSearchInit!.departureCityList.first{ $0.departureCode == key }!
+            let keyValue = keywordOrTourCodeDepartureCityShareOptionList.first{ $0.key == key }!
             groupTourSearchKeywordAndTourCodeRequest.selectedDepartureCity = keyValue
             
         case nil:

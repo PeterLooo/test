@@ -238,6 +238,12 @@ extension APIManager {
         
         return manager(method: .post, appendUrl: "", url: APIUrl.mainApi(type: .tourSearch), parameters: groupTourSearchRequest.getDictionary(), appendHeaders: nil)
     }
+    
+    func getGroupTourSearchUrl(groupTourSearchKeywordAndTourCodeRequest: GroupTourSearchKeywordAndTourCodeRequest) -> Single<[String: Any]> {
+
+        return manager(method: .post, appendUrl: "", url: APIUrl.mainApi(type: .tourKeywordSearch), parameters: groupTourSearchKeywordAndTourCodeRequest.getDictionary(), appendHeaders: nil)
+    }
+
 }
 
 extension APIManager {

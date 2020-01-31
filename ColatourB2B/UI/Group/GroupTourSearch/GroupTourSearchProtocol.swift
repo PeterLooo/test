@@ -14,4 +14,5 @@ protocol GroupTourSearchViewProtocol: BaseViewProtocol {
 protocol GroupTourSearchPresenterProtocol : BasePresenterProtocol {
     func getGroupTourSearchInit(departureCode: String?)
     func getGroupTourSearchUrl(groupTourSearchRequest: GroupTourSearchRequest)
+    func getGroupTourSearchUrl(groupTourSearchKeywordAndTourCodeRequest: GroupTourSearchKeywordAndTourCodeRequest)
 }

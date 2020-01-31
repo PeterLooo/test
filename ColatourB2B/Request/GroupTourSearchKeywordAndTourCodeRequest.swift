@@ -8,11 +8,27 @@
 
 class GroupTourSearchKeywordAndTourCodeRequest: NSObject {
     var keywordOrTourCode: String?
-    var selectedDepartureCity: DepartureCity?
-    var keywordOrTourCodeSearchType: KeywordOrTourCodeSearchType?
+    var selectedDepartureCity: KeyValue?
+    var keywordOrTourCodeSearchType: KeywordOrTourCodeSearchType!
     
     enum KeywordOrTourCodeSearchType {
         case keyword
         case tourCode
+    }
+    
+    func getDictionary() -> [String:Any] {
+        var searchType: String!
+        switch keywordOrTourCodeSearchType! {
+        case .keyword:
+            searchType = "關鍵字"
+        case .tourCode:
+            searchType = "團號"
+        }
+        
+        let params = ["Search_Type": searchType!
+            , "Keyword": keywordOrTourCode ?? ""
+            , "Departure_City": selectedDepartureCity?.key ?? ""] as [String : Any]
+        
+        return params
     }
 }

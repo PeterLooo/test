@@ -45,4 +45,18 @@ class GroupTourSearchPresenter: GroupTourSearchPresenterProtocol {
                 
             }).disposed(by:dispose)
     }
+    
+    func getGroupTourSearchUrl(groupTourSearchKeywordAndTourCodeRequest: GroupTourSearchKeywordAndTourCodeRequest) {
+        self.delegate?.onStartLoadingHandle(handleType: .coverPlate)
+        GroupReponsitory.shared
+            .getGroupTourSearchUrl(groupTourSearchKeywordAndTourCodeRequest: groupTourSearchKeywordAndTourCodeRequest)
+            .subscribe(onSuccess:{ (model) in
+                self.delegate?.onBindGroupTourSearchUrl(groupTourSearchUrl: model)
+                self.delegate?.onCompletedLoadingHandle()
+            }, onError: { (error) in
+                self.delegate?.onApiErrorHandle(apiError: error as! APIError, handleType: .alert)
+                self.delegate?.onCompletedLoadingHandle()
+                
+            }).disposed(by:dispose)
+    }
 }
