@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "3817E52423A33C9500ED8609"
-               BuildableName = "&#x53ef;&#x6a02;&#x65c5;&#x904a;B2BDev.app"
+               BuildableName = "ColatourB2BDev.app"
                BlueprintName = "ColatourB2BDev"
                ReferencedContainer = "container:ColatourB2B.xcodeproj">
             </BuildableReference>
@@ -27,19 +27,17 @@
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
-      <Testables>
-      </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "3817E52423A33C9500ED8609"
-            BuildableName = "&#x53ef;&#x6a02;&#x65c5;&#x904a;B2BDev.app"
+            BuildableName = "ColatourB2BDev.app"
             BlueprintName = "ColatourB2BDev"
             ReferencedContainer = "container:ColatourB2B.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
-      <AdditionalOptions>
-      </AdditionalOptions>
+      <Testables>
+      </Testables>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
@@ -56,7 +54,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "3817E52423A33C9500ED8609"
-            BuildableName = "&#x53ef;&#x6a02;&#x65c5;&#x904a;B2BDev.app"
+            BuildableName = "ColatourB2BDev.app"
             BlueprintName = "ColatourB2BDev"
             ReferencedContainer = "container:ColatourB2B.xcodeproj">
          </BuildableReference>
@@ -68,8 +66,6 @@
             isEnabled = "NO">
          </EnvironmentVariable>
       </EnvironmentVariables>
-      <AdditionalOptions>
-      </AdditionalOptions>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -82,7 +78,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "3817E52423A33C9500ED8609"
-            BuildableName = "&#x53ef;&#x6a02;&#x65c5;&#x904a;B2BDev.app"
+            BuildableName = "ColatourB2BDev.app"
             BlueprintName = "ColatourB2BDev"
             ReferencedContainer = "container:ColatourB2B.xcodeproj">
          </BuildableReference>

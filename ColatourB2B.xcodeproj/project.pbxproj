@@ -268,6 +268,26 @@
 		C711753E23BF407E00555D8C /* MoreProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C711753C23BF407D00555D8C /* MoreProtocol.swift */; };
 		C711754023BF40DA00555D8C /* MorePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C711753F23BF40DA00555D8C /* MorePresenter.swift */; };
 		C711754123BF40DA00555D8C /* MorePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C711753F23BF40DA00555D8C /* MorePresenter.swift */; };
+		C74FC80123C5AEE100E2250D /* NoticeDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C74FC80023C5AEE100E2250D /* NoticeDetail.storyboard */; };
+		C74FC80223C5AEE100E2250D /* NoticeDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C74FC80023C5AEE100E2250D /* NoticeDetail.storyboard */; };
+		C74FC80423C5AF0E00E2250D /* NoticeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74FC80323C5AF0E00E2250D /* NoticeDetailViewController.swift */; };
+		C74FC80523C5AF0E00E2250D /* NoticeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74FC80323C5AF0E00E2250D /* NoticeDetailViewController.swift */; };
+		C77994DE23C867BE00E497B3 /* NoticeDetailInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C41C3C23C724C100F97057 /* NoticeDetailInfoCell.swift */; };
+		C77994DF23C867BF00E497B3 /* NoticeDetailInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C41C3C23C724C100F97057 /* NoticeDetailInfoCell.swift */; };
+		C7BBF4BB23C7040900023307 /* NoticeDetailProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BBF4BA23C7040900023307 /* NoticeDetailProtocol.swift */; };
+		C7BBF4BC23C7040900023307 /* NoticeDetailProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BBF4BA23C7040900023307 /* NoticeDetailProtocol.swift */; };
+		C7BBF4BE23C7042200023307 /* NoticeDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BBF4BD23C7042200023307 /* NoticeDetailPresenter.swift */; };
+		C7BBF4BF23C7042200023307 /* NoticeDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BBF4BD23C7042200023307 /* NoticeDetailPresenter.swift */; };
+		C7BBF4C123C7043D00023307 /* NoticeDetailResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BBF4C023C7043D00023307 /* NoticeDetailResponse.swift */; };
+		C7BBF4C223C7043D00023307 /* NoticeDetailResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BBF4C023C7043D00023307 /* NoticeDetailResponse.swift */; };
+		C7BBF4C423C7045600023307 /* NoticeDetailRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BBF4C323C7045600023307 /* NoticeDetailRepository.swift */; };
+		C7BBF4C523C7045600023307 /* NoticeDetailRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BBF4C323C7045600023307 /* NoticeDetailRepository.swift */; };
+		C7C41C4023C724C100F97057 /* NoticeDetailInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7C41C3D23C724C100F97057 /* NoticeDetailInfoCell.xib */; };
+		C7C41C4123C724C100F97057 /* NoticeDetailInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7C41C3D23C724C100F97057 /* NoticeDetailInfoCell.xib */; };
+		C7C41C4423C724E900F97057 /* NoticeDetailContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C41C4223C724E900F97057 /* NoticeDetailContentCell.swift */; };
+		C7C41C4523C724E900F97057 /* NoticeDetailContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C41C4223C724E900F97057 /* NoticeDetailContentCell.swift */; };
+		C7C41C4623C724E900F97057 /* NoticeDetailContentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7C41C4323C724E900F97057 /* NoticeDetailContentCell.xib */; };
+		C7C41C4723C724E900F97057 /* NoticeDetailContentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7C41C4323C724E900F97057 /* NoticeDetailContentCell.xib */; };
 		FF8E32EC7686F078B8ABDE18 /* Pods_ColatourB2B.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A331B185DD2055D277F472F3 /* Pods_ColatourB2B.framework */; };
 /* End PBXBuildFile section */
 
@@ -441,6 +461,17 @@
 		B09E7C65A225E6FF958329EA /* Pods-ColatourB2BDev.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ColatourB2BDev.release.xcconfig"; path = "Pods/Target Support Files/Pods-ColatourB2BDev/Pods-ColatourB2BDev.release.xcconfig"; sourceTree = "<group>"; };
 		C711753C23BF407D00555D8C /* MoreProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreProtocol.swift; sourceTree = "<group>"; };
 		C711753F23BF40DA00555D8C /* MorePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MorePresenter.swift; sourceTree = "<group>"; };
+		C72B30E623C32D98006279BA /* ColatourB2B.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ColatourB2B.entitlements; sourceTree = "<group>"; };
+		C74FC80023C5AEE100E2250D /* NoticeDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NoticeDetail.storyboard; sourceTree = "<group>"; };
+		C74FC80323C5AF0E00E2250D /* NoticeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeDetailViewController.swift; sourceTree = "<group>"; };
+		C7BBF4BA23C7040900023307 /* NoticeDetailProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeDetailProtocol.swift; sourceTree = "<group>"; };
+		C7BBF4BD23C7042200023307 /* NoticeDetailPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeDetailPresenter.swift; sourceTree = "<group>"; };
+		C7BBF4C023C7043D00023307 /* NoticeDetailResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeDetailResponse.swift; sourceTree = "<group>"; };
+		C7BBF4C323C7045600023307 /* NoticeDetailRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeDetailRepository.swift; sourceTree = "<group>"; };
+		C7C41C3C23C724C100F97057 /* NoticeDetailInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeDetailInfoCell.swift; sourceTree = "<group>"; };
+		C7C41C3D23C724C100F97057 /* NoticeDetailInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoticeDetailInfoCell.xib; sourceTree = "<group>"; };
+		C7C41C4223C724E900F97057 /* NoticeDetailContentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeDetailContentCell.swift; sourceTree = "<group>"; };
+		C7C41C4323C724E900F97057 /* NoticeDetailContentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoticeDetailContentCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -659,6 +690,7 @@
 		38BCD91A23A3452C00D59910 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				C7BBF4C323C7045600023307 /* NoticeDetailRepository.swift */,
 				38BCD91B23A3457900D59910 /* AccountRepository.swift */,
 				38BCD99823A3639500D59910 /* MemberRepository.swift */,
 				38BCD99B23A363AB00D59910 /* MemberRepositoryProtocol.swift */,
@@ -756,6 +788,7 @@
 		38BCDA2123A3760000D59910 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				C74FC80623C5AF1400E2250D /* Notice */,
 				385B54F223BDC1D900BE1476 /* Notification */,
 				380C151223BD92B1008B4501 /* AirTicket */,
 				38E68A9F23B5AB80006BC4DD /* Group */,
@@ -785,6 +818,7 @@
 		38BCDA2323A3766100D59910 /* StroyBoard */ = {
 			isa = PBXGroup;
 			children = (
+				C74FC7FF23C5AEC100E2250D /* Notice */,
 				38E68AB923B5AE30006BC4DD /* Common */,
 				387FBF0923ACCE7C005412F1 /* Member */,
 				38BCDA2423A378E900D59910 /* Home */,
@@ -808,6 +842,7 @@
 		38BCDA3123A37FDA00D59910 /* Response */ = {
 			isa = PBXGroup;
 			children = (
+				C7BBF4C623C704A500023307 /* Notice */,
 				382ADF1723C5CF2A00E886B4 /* Notification */,
 				3833F41D23B9EA96003B26EF /* Group */,
 				3833F41C23B9EA7A003B26EF /* Member */,
@@ -904,6 +939,36 @@
 				C711753F23BF40DA00555D8C /* MorePresenter.swift */,
 			);
 			path = More;
+			sourceTree = "<group>";
+		};
+		C74FC7FF23C5AEC100E2250D /* Notice */ = {
+			isa = PBXGroup;
+			children = (
+				C74FC80023C5AEE100E2250D /* NoticeDetail.storyboard */,
+			);
+			path = Notice;
+			sourceTree = "<group>";
+		};
+		C74FC80623C5AF1400E2250D /* Notice */ = {
+			isa = PBXGroup;
+			children = (
+				C74FC80323C5AF0E00E2250D /* NoticeDetailViewController.swift */,
+				C7BBF4BD23C7042200023307 /* NoticeDetailPresenter.swift */,
+				C7BBF4BA23C7040900023307 /* NoticeDetailProtocol.swift */,
+				C7C41C3C23C724C100F97057 /* NoticeDetailInfoCell.swift */,
+				C7C41C3D23C724C100F97057 /* NoticeDetailInfoCell.xib */,
+				C7C41C4223C724E900F97057 /* NoticeDetailContentCell.swift */,
+				C7C41C4323C724E900F97057 /* NoticeDetailContentCell.xib */,
+			);
+			path = Notice;
+			sourceTree = "<group>";
+		};
+		C7BBF4C623C704A500023307 /* Notice */ = {
+			isa = PBXGroup;
+			children = (
+				C7BBF4C023C7043D00023307 /* NoticeDetailResponse.swift */,
+			);
+			path = Notice;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1037,7 +1102,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7C41C4623C724E900F97057 /* NoticeDetailContentCell.xib in Resources */,
 				38E68ABF23B5AE30006BC4DD /* Calendar.storyboard in Resources */,
+				C7C41C4023C724C100F97057 /* NoticeDetailInfoCell.xib in Resources */,
 				3817E50123A33C8500ED8609 /* LaunchScreen.storyboard in Resources */,
 				38BCDA2623A3796800D59910 /* GroupTour.storyboard in Resources */,
 				387FBF0B23ACCEB7005412F1 /* Login.storyboard in Resources */,
@@ -1064,6 +1131,7 @@
 				3817E4FE23A33C8500ED8609 /* Assets.xcassets in Resources */,
 				2AF496B423AB7EA50053EA45 /* GoogleService-Info.plist in Resources */,
 				3817E4FC23A33C8400ED8609 /* Main.storyboard in Resources */,
+				C74FC80123C5AEE100E2250D /* NoticeDetail.storyboard in Resources */,
 				3869543A23BAF85900F6E7D9 /* MemberIndexServiceCell.xib in Resources */,
 				38BCDA0923A367D000D59910 /* ToastView.xib in Resources */,
 				38871EC323D5B061007ED33D /* HomeAd1Cell.xib in Resources */,
@@ -1088,7 +1156,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7C41C4723C724E900F97057 /* NoticeDetailContentCell.xib in Resources */,
 				38E68AC023B5AE30006BC4DD /* Calendar.storyboard in Resources */,
+				C7C41C4123C724C100F97057 /* NoticeDetailInfoCell.xib in Resources */,
 				3817E52A23A33C9500ED8609 /* LaunchScreen.storyboard in Resources */,
 				38BCDA2723A3796800D59910 /* GroupTour.storyboard in Resources */,
 				387FBF1123ACCF00005412F1 /* Login.storyboard in Resources */,
@@ -1115,6 +1185,7 @@
 				3817E52B23A33C9500ED8609 /* Assets.xcassets in Resources */,
 				2AF496B623AB7EBB0053EA45 /* GoogleService-Info.plist in Resources */,
 				3817E52C23A33C9500ED8609 /* Main.storyboard in Resources */,
+				C74FC80223C5AEE100E2250D /* NoticeDetail.storyboard in Resources */,
 				3869543B23BAF85900F6E7D9 /* MemberIndexServiceCell.xib in Resources */,
 				38BCDA0A23A367D000D59910 /* ToastView.xib in Resources */,
 				38871EC423D5B061007ED33D /* HomeAd1Cell.xib in Resources */,
@@ -1245,6 +1316,7 @@
 			files = (
 				3869543823BAF85900F6E7D9 /* MemberIndexServiceCell.swift in Sources */,
 				38BCD94223A346B800D59910 /* APILoadingHandleType.swift in Sources */,
+				C7BBF4C423C7045600023307 /* NoticeDetailRepository.swift in Sources */,
 				38BCD9CD23A3648B00D59910 /* BaseModelProtocol.swift in Sources */,
 				38E9922723B053A200E28271 /* LoginProtocol.swift in Sources */,
 				38BCD97723A3484300D59910 /* NSObjectExtension.swift in Sources */,
@@ -1252,12 +1324,14 @@
 				38871EB023D55D16007ED33D /* GroupTableView.swift in Sources */,
 				387FBEFA23ACA21D005412F1 /* AirTicketViewController.swift in Sources */,
 				38E68AA723B5AB80006BC4DD /* GroupSlideInTransition.swift in Sources */,
+				C7BBF4BE23C7042200023307 /* NoticeDetailPresenter.swift in Sources */,
 				3869542823BADBFC00F6E7D9 /* MemberIndexProtocol.swift in Sources */,
 				38BCD92D23A345FA00D59910 /* EncryptionUtils.m in Sources */,
 				3869543E23BB002900F6E7D9 /* MemberIndexVersionCell.swift in Sources */,
 				38BCD99C23A363AB00D59910 /* MemberRepositoryProtocol.swift in Sources */,
 				381B12B223C466370030BACE /* NoticeViewController.swift in Sources */,
 				384B110623C2BD46000E2B41 /* AirTicketPresenter.swift in Sources */,
+				C7BBF4BB23C7040900023307 /* NoticeDetailProtocol.swift in Sources */,
 				38E9921E23B04CF200E28271 /* GropeTourPresenter.swift in Sources */,
 				3848DA7B23C7280500EA0ED0 /* NoticeProtocol.swift in Sources */,
 				38BCD9D423A366D500D59910 /* BaseViewController.swift in Sources */,
@@ -1318,8 +1392,10 @@
 				385B54F823BDC4C800BE1476 /* NotificationItemCell.swift in Sources */,
 				38BCDA2923A379DE00D59910 /* GroupTourViewController.swift in Sources */,
 				38BCD99923A3639500D59910 /* MemberRepository.swift in Sources */,
+				C7BBF4C123C7043D00023307 /* NoticeDetailResponse.swift in Sources */,
 				38BCD98123A3484300D59910 /* UIViewExtension.swift in Sources */,
 				3869542E23BADC9000F6E7D9 /* MemberIndexResponse.swift in Sources */,
+				C7C41C4423C724E900F97057 /* NoticeDetailContentCell.swift in Sources */,
 				38E9922123B04F1400E28271 /* VersionRuleReponse.swift in Sources */,
 				38BCD93523A345FA00D59910 /* GTMBase64.m in Sources */,
 				382ADF1923C5D02C00E886B4 /* NoticeResponse.swift in Sources */,
@@ -1327,6 +1403,7 @@
 				38BCD9D723A366EC00D59910 /* TabBarViewController.swift in Sources */,
 				38BCD98D23A3484300D59910 /* ShareFunc.swift in Sources */,
 				384B110323C2BD33000E2B41 /* AirTicketProtocol.swift in Sources */,
+				C77994DE23C867BE00E497B3 /* NoticeDetailInfoCell.swift in Sources */,
 				387FBF0F23ACCEF4005412F1 /* LoginViewController.swift in Sources */,
 				38BCD93323A345FA00D59910 /* FormatUtil.swift in Sources */,
 				3869543223BAE5F500F6E7D9 /* MemberTopCell.swift in Sources */,
@@ -1337,6 +1414,7 @@
 				38BCD92F23A345FA00D59910 /* ColorHexUtil.swift in Sources */,
 				C711754023BF40DA00555D8C /* MorePresenter.swift in Sources */,
 				38BCD94623A346B800D59910 /* APIDefine.swift in Sources */,
+				C74FC80423C5AF0E00E2250D /* NoticeDetailViewController.swift in Sources */,
 				38BCD97523A3484300D59910 /* UIColorExtension.swift in Sources */,
 				38BCDA0323A367D000D59910 /* ApiFailErrorView.swift in Sources */,
 				38BCDA2F23A37B7100D59910 /* MemberIndexViewController.swift in Sources */,
@@ -1368,6 +1446,7 @@
 			files = (
 				3869543923BAF85900F6E7D9 /* MemberIndexServiceCell.swift in Sources */,
 				38BCD94323A346B800D59910 /* APILoadingHandleType.swift in Sources */,
+				C7BBF4C523C7045600023307 /* NoticeDetailRepository.swift in Sources */,
 				38BCD9CE23A3648B00D59910 /* BaseModelProtocol.swift in Sources */,
 				38E9922823B053A200E28271 /* LoginProtocol.swift in Sources */,
 				38BCD97823A3484300D59910 /* NSObjectExtension.swift in Sources */,
@@ -1375,12 +1454,14 @@
 				38871EB123D55D16007ED33D /* GroupTableView.swift in Sources */,
 				387FBEFB23ACA21D005412F1 /* AirTicketViewController.swift in Sources */,
 				38E68AA823B5AB80006BC4DD /* GroupSlideInTransition.swift in Sources */,
+				C7BBF4BF23C7042200023307 /* NoticeDetailPresenter.swift in Sources */,
 				3869542923BADBFC00F6E7D9 /* MemberIndexProtocol.swift in Sources */,
 				38BCD92E23A345FA00D59910 /* EncryptionUtils.m in Sources */,
 				3869543F23BB002900F6E7D9 /* MemberIndexVersionCell.swift in Sources */,
 				38BCD99D23A363AB00D59910 /* MemberRepositoryProtocol.swift in Sources */,
 				381B12B323C466370030BACE /* NoticeViewController.swift in Sources */,
 				384B110723C2BD46000E2B41 /* AirTicketPresenter.swift in Sources */,
+				C7BBF4BC23C7040900023307 /* NoticeDetailProtocol.swift in Sources */,
 				38E9921F23B04CF200E28271 /* GropeTourPresenter.swift in Sources */,
 				3848DA7C23C7280500EA0ED0 /* NoticeProtocol.swift in Sources */,
 				38BCD9D523A366D500D59910 /* BaseViewController.swift in Sources */,
@@ -1441,8 +1522,10 @@
 				385B54F923BDC4C800BE1476 /* NotificationItemCell.swift in Sources */,
 				38BCDA2A23A379DE00D59910 /* GroupTourViewController.swift in Sources */,
 				38BCD99A23A3639500D59910 /* MemberRepository.swift in Sources */,
+				C7BBF4C223C7043D00023307 /* NoticeDetailResponse.swift in Sources */,
 				38BCD98223A3484300D59910 /* UIViewExtension.swift in Sources */,
 				3869542F23BADC9000F6E7D9 /* MemberIndexResponse.swift in Sources */,
+				C7C41C4523C724E900F97057 /* NoticeDetailContentCell.swift in Sources */,
 				38E9922223B04F1400E28271 /* VersionRuleReponse.swift in Sources */,
 				38BCD93623A345FA00D59910 /* GTMBase64.m in Sources */,
 				382ADF1A23C5D02C00E886B4 /* NoticeResponse.swift in Sources */,
@@ -1450,6 +1533,7 @@
 				38BCD9D823A366EC00D59910 /* TabBarViewController.swift in Sources */,
 				38BCD98E23A3484300D59910 /* ShareFunc.swift in Sources */,
 				384B110423C2BD33000E2B41 /* AirTicketProtocol.swift in Sources */,
+				C77994DF23C867BF00E497B3 /* NoticeDetailInfoCell.swift in Sources */,
 				387FBF1023ACCEF4005412F1 /* LoginViewController.swift in Sources */,
 				38BCD93423A345FA00D59910 /* FormatUtil.swift in Sources */,
 				3869543323BAE5F500F6E7D9 /* MemberTopCell.swift in Sources */,
@@ -1460,6 +1544,7 @@
 				38BCD93023A345FA00D59910 /* ColorHexUtil.swift in Sources */,
 				C711754123BF40DA00555D8C /* MorePresenter.swift in Sources */,
 				38BCD94723A346B800D59910 /* APIDefine.swift in Sources */,
+				C74FC80523C5AF0E00E2250D /* NoticeDetailViewController.swift in Sources */,
 				38BCD97623A3484300D59910 /* UIColorExtension.swift in Sources */,
 				38BCDA0423A367D000D59910 /* ApiFailErrorView.swift in Sources */,
 				38BCDA3023A37B7100D59910 /* MemberIndexViewController.swift in Sources */,
@@ -1651,7 +1736,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ColatourB2B/ColatourB2B.entitlements;
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 83357CEQAU;
 				INFOPLIST_FILE = ColatourB2B/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1659,8 +1744,8 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = tw.com.colatour.b2b;
-				PRODUCT_NAME = "可樂旅遊B2B";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = ColatourB2B_20191218;
 				SWIFT_OBJC_BRIDGING_HEADER = "ColatourB2B-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1755,6 +1840,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ColatourB2BDev.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 83357CEQAU;
 				INFOPLIST_FILE = "ColatourB2B copy-Info.plist";
@@ -1779,8 +1865,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ColatourB2BDev.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 83357CEQAU;
 				INFOPLIST_FILE = "ColatourB2B copy-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1788,8 +1875,8 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = tw.com.colatour.b2b.dev;
-				PRODUCT_NAME = "可樂旅遊B2BDev";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = ColatourB2B_Dev_Profile_Distribution20200108;
 				SWIFT_OBJC_BRIDGING_HEADER = "ColatourB2B-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

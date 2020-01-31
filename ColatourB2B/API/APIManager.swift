@@ -240,6 +240,12 @@ extension APIManager {
         return manager(method: .get, appendUrl: "", url: toolBarType.getApiUrl(), parameters: nil, appendHeaders: nil)
     }
     
+    func getNoticeDetail(noticeNo: String) -> Single<[String:Any]> {
+        let parameters = ["Noti_No": noticeNo]
+        //Note: 待API提供正確路徑
+        return manager(method: .post, appendUrl: "", url: APIUrl.memberApi(type: .noticeDetail), parameters: parameters, appendHeaders: nil)
+    }
+        
     func getNoticeList(pageIndex: Int) -> Single<[String:Any]> {
         let pageSize = "PageSize=5"
         var appendUrl = ""
@@ -254,6 +260,7 @@ extension APIManager {
         appendUrl = "Page_Index=" + "\(String(pageIndex))" + "&" + pageSize
         
         return manager(method: .get, appendUrl: appendUrl, url: APIUrl.noticeApi(type: .news), parameters: nil, appendHeaders: nil)
+
     }
 }
 
