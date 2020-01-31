@@ -87,7 +87,7 @@ class AccountRepository: NSObject {
             MemberRepository.shared.removeLocalAccessToken()
             MemberRepository.shared.removeLocalRefreshToken()
         case false:
-            MemberRepository.shared.setLocalUserToken(refreshToken: loginResponse.refreshToken!, accessToken: "\(loginResponse.accessToken!)")
+            MemberRepository.shared.setLocalUserToken(refreshToken: loginResponse.refreshToken!, accessToken: loginResponse.accessToken!)
         }
 
         return Single.just(loginResponse)

@@ -21,7 +21,7 @@ class AirTicketPresenter: AirTicketPresenterProtocol {
     }
     
     func getAirMenu(toolBarType: ToolBarType) {
-        self.delegate?.onStartLoadingHandle(handleType: .ignore)
+        self.delegate?.onStartLoadingHandle(handleType: .coverPlate)
         
         groupReponsitory.getGroupMenu(toolBarType: toolBarType).subscribe(onSuccess: { (model) in
             self.delegate?.onBindAirMenu(menu: model)

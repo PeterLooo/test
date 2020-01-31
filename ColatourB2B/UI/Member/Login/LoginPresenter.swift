@@ -33,4 +33,8 @@ class LoginPresenter: LoginPresenterProtocol {
         }).disposed(by:dispose)
     }
     
+    func pushDevice() {
+        let _ = accountRepository.pushDevice().subscribe()
+    }
+    
 }

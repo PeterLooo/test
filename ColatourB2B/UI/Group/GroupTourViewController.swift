@@ -11,7 +11,6 @@ import UIKit
 class GroupTourViewController: BaseViewController {
     
     @IBOutlet weak var grayBlurView: UIView!
-    @IBOutlet weak var groupSearchView: UIView!
     
     private var presenter: GropeTourPresenter?
     
@@ -31,10 +30,12 @@ class GroupTourViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setSearchGes()
+        
         setIsNavShadowEnable(false)
+        self.setNavBarItem(left: .defaultType, mid: .custom, right: .custom)
+        
         grayBlurView.alpha = 0
-        setSearchBorder()
+        setSearchView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -64,14 +65,16 @@ class GroupTourViewController: BaseViewController {
         self.loadData()
     }
     
-    private func setSearchBorder(){
-        groupSearchView.setBorder(width: 0.5, radius: 14, color: UIColor.init(red: 230, green: 230, blue: 230))
+    private func setSearchView(){
+        let view = GroupNavigationView()
+            view.translatesAutoresizingMaskIntoConstraints = false
+        
+        view.delegate = self
+        self.setCustomMidBarButtonItem(view: view)
     }
     
     private func setNavIcon(){
-        self.setNavTitle(title: "團體旅遊")
-        
-       let contaceButtonView = UIButton(type: .system)
+        let contaceButtonView = UIButton(type: .system)
         
         let rightImage = #imageLiteral(resourceName: "home_contavt")
         contaceButtonView.setImage(rightImage, for: .normal)
@@ -109,7 +112,8 @@ class GroupTourViewController: BaseViewController {
         vc.delegate = self
         vc.modalPresentationStyle = .overCurrentContext
         vc.transitioningDelegate = self
-        vc.setVC(serverList: self.menuList?.serverList ?? [])
+        
+        vc.setVC(menuResponse: self.menuList!)
         present(vc, animated: true)
     }
     
@@ -119,18 +123,12 @@ class GroupTourViewController: BaseViewController {
         alert.addAction(UIAlertAction(title: "改善建議" , style: .default, handler: { (_) in
             self.onPopContactVC()
         }))
-        alert.addAction(UIAlertAction(title: "聯絡客服" , style: .default, handler: { (_) in
+        alert.addAction(UIAlertAction(title: "聯絡業務" , style: .default, handler: { (_) in
             self.onPopContactVC()
         }))
-        alert.addAction(UIAlertAction(title: "取消", style: .destructive))
+        alert.addAction(UIAlertAction(title: "取消", style: .cancel))
 
         self.present(alert, animated: true)
-    }
-    
-    private func setSearchGes(){
-        let ges = UITapGestureRecognizer(target: self, action: #selector(onTouchSearch))
-        self.groupSearchView.addGestureRecognizer(ges)
-        self.groupSearchView.isUserInteractionEnabled = true
     }
     
     private func onPopContactVC(){
@@ -143,16 +141,14 @@ class GroupTourViewController: BaseViewController {
 }
 extension GroupTourViewController: GroupSliderViewControllerProtocol {
     func onTouchData(serverData: ServerData) {
-        self.handleLinkType(linkType: serverData.linkType, linkValue: serverData.linkValue, linkText: nil)
+        self.handleLinkType(linkType: serverData.linkType, linkValue: serverData.linkValue, linkText: serverData.linkName ?? "")
     }
     
 }
 extension GroupTourViewController: UIViewControllerTransitioningDelegate {
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         transiton.isPresenting = true
-        UIView.animate(withDuration: 0.5) {
-            self.grayBlurView.alpha = 1
-        }
+        
         self.tabBarController?.tabBar.isHidden = true
         
         return transiton
@@ -162,16 +158,17 @@ extension GroupTourViewController: UIViewControllerTransitioningDelegate {
         transiton.isPresenting = false
         self.tabBarController?.tabBar.isHidden = false
         
-        UIView.animate(withDuration: 0.5, animations: {
-            self.grayBlurView.alpha = 0
-        })
-        self.setTabBarType(tabBarType: .notHidden)
         return transiton
     }
 }
-
+extension GroupTourViewController: GroupNavigationViewProtocol{
+    func onTouchSearchView() {
+        ()
+    }
+}
 extension GroupTourViewController: GropeTourViewProtocol {
     func onBindGroupMenu(menu: GroupMenuResponse) {
+        
         self.menuList = menu
         
     }

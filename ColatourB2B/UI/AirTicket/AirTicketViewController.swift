@@ -38,6 +38,11 @@ class AirTicketViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        loadData()
+    }
+    
+    override func loadData() {
+        super.loadData()
         getAirMenu()
     }
     
@@ -92,7 +97,7 @@ class AirTicketViewController: BaseViewController {
         vc.delegate = self
         vc.modalPresentationStyle = .overCurrentContext
         vc.transitioningDelegate = self
-        vc.setVC(serverList: self.menuList?.serverList ?? [])
+        vc.setVC(menuResponse: self.menuList!)
         present(vc, animated: true)
     }
     
@@ -103,7 +108,7 @@ class AirTicketViewController: BaseViewController {
             self.onPopContactVC()
         }))
         
-        alert.addAction(UIAlertAction(title: "取消", style: .destructive))
+        alert.addAction(UIAlertAction(title: "取消", style: .cancel))
         
         self.present(alert, animated: true)
     }
@@ -124,7 +129,7 @@ class AirTicketViewController: BaseViewController {
 
 extension AirTicketViewController: GroupSliderViewControllerProtocol {
     func onTouchData(serverData: ServerData) {
-        self.handleLinkType(linkType: serverData.linkType, linkValue: serverData.linkValue, linkText: nil)
+        self.handleLinkType(linkType: serverData.linkType, linkValue: serverData.linkValue, linkText: serverData.linkName ?? "")
     }
 }
 
@@ -137,9 +142,6 @@ extension AirTicketViewController: AirTicketViewProtocol {
 extension AirTicketViewController: UIViewControllerTransitioningDelegate {
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         transiton.isPresenting = true
-        UIView.animate(withDuration: 0.5) {
-            self.grayBlurView.alpha = 1
-        }
         self.tabBarController?.tabBar.isHidden = true
         
         return transiton
@@ -147,12 +149,8 @@ extension AirTicketViewController: UIViewControllerTransitioningDelegate {
     
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         transiton.isPresenting = false
-        self.tabBarController?.tabBar.isHidden = false
-        UIView.animate(withDuration: 0.5, animations: {
-            self.grayBlurView.alpha = 0
-        })
         
-        self.setTabBarType(tabBarType: .notHidden)
+        self.tabBarController?.tabBar.isHidden = false
         return transiton
     }
 }

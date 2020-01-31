@@ -12,7 +12,8 @@ class GroupSlideInTransition: NSObject, UIViewControllerAnimatedTransitioning {
 
     var isPresenting = false
     let dimmingView = UIView()
-
+    private var fromVC : UIViewController?
+    
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return 0.3
     }
@@ -23,13 +24,13 @@ class GroupSlideInTransition: NSObject, UIViewControllerAnimatedTransitioning {
             let fromViewController = transitionContext.viewController(forKey: .from) else { return }
 
         let containerView = transitionContext.containerView
-
-        let finalWidth = toViewController.view.bounds.width
+        fromVC = fromViewController
+        let finalWidth = toViewController.view.bounds.width * 0.68
         let finalHeight = toViewController.view.bounds.height
 
         if isPresenting {
             // Add dimming view
-            
+            dimmingView.backgroundColor = UIColor.black.withAlphaComponent(0.5)
             dimmingView.alpha = 0.0
             containerView.addSubview(dimmingView)
             dimmingView.frame = containerView.bounds
@@ -45,6 +46,9 @@ class GroupSlideInTransition: NSObject, UIViewControllerAnimatedTransitioning {
             self.dimmingView.alpha = 0.5
             toViewController.view.transform = CGAffineTransform(translationX: finalWidth, y: 0)
         }
+        let ges = UITapGestureRecognizer(target: self, action: #selector(onTouchView))
+        dimmingView.addGestureRecognizer(ges)
+        dimmingView.isUserInteractionEnabled = true
 
         // Move back off screen
         let identity = {
@@ -60,6 +64,10 @@ class GroupSlideInTransition: NSObject, UIViewControllerAnimatedTransitioning {
         }) { (_) in
             transitionContext.completeTransition(!isCancelled)
         }
+    }
+    
+    @objc func onTouchView() {
+        fromVC?.dismiss(animated: true, completion: nil)
     }
 
 }

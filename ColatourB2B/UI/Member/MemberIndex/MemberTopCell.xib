@@ -88,6 +88,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="iconTopConstraint" destination="3Uh-Mn-GzS" id="5To-2a-8P3"/>
                 <outlet property="logout" destination="o1M-wl-LGc" id="XNO-zb-lv5"/>
                 <outlet property="topViewBackgroundView" destination="Fvy-zD-97k" id="Cnh-CH-L4E"/>
                 <outlet property="topViewTitle" destination="c70-KR-VFi" id="3Jd-rM-lIJ"/>

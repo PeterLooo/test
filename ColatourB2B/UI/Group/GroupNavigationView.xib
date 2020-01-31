@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GroupNavigationView" customModule="ColatourB2B" customModuleProvider="target">
+            <connections>
+                <outlet property="searchView" destination="fEx-Ze-qST" id="Z9A-Tt-TNk"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="196"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="98W-NX-cUq">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="196"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fEx-Ze-qST">
+                            <rect key="frame" x="0.0" y="81" width="414" height="34"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="searching" translatesAutoresizingMaskIntoConstraints="NO" id="FEa-uv-EbF">
+                                    <rect key="frame" x="8" y="9" width="16" height="16"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="16" id="4Xb-zi-Zt7"/>
+                                        <constraint firstAttribute="height" constant="16" id="VA8-Xc-qhK"/>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="團體旅遊查詢 / 關鍵字/團號查詢" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XPE-EL-YIO">
+                                    <rect key="frame" x="32" y="5" width="374" height="24"/>
+                                    <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="15"/>
+                                    <color key="textColor" red="0.70588235290000001" green="0.70588235290000001" blue="0.70588235290000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" name="背景灰"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="XPE-EL-YIO" secondAttribute="bottom" constant="5" id="08N-Ua-YQd"/>
+                                <constraint firstItem="XPE-EL-YIO" firstAttribute="top" secondItem="fEx-Ze-qST" secondAttribute="top" constant="5" id="7yB-0t-WHa"/>
+                                <constraint firstAttribute="trailing" secondItem="XPE-EL-YIO" secondAttribute="trailing" constant="8" id="8ws-2F-iqa"/>
+                                <constraint firstItem="XPE-EL-YIO" firstAttribute="leading" secondItem="FEa-uv-EbF" secondAttribute="trailing" constant="8" id="Bgi-an-StQ"/>
+                                <constraint firstItem="FEa-uv-EbF" firstAttribute="centerY" secondItem="fEx-Ze-qST" secondAttribute="centerY" id="T59-c5-bq5"/>
+                                <constraint firstAttribute="height" constant="34" id="iM1-2W-2VF"/>
+                                <constraint firstItem="FEa-uv-EbF" firstAttribute="leading" secondItem="fEx-Ze-qST" secondAttribute="leading" constant="8" id="mOU-MV-VhV"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="17"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="fEx-Ze-qST" firstAttribute="leading" secondItem="98W-NX-cUq" secondAttribute="leading" id="396-Ps-61p"/>
+                        <constraint firstItem="fEx-Ze-qST" firstAttribute="centerY" secondItem="98W-NX-cUq" secondAttribute="centerY" id="he3-cJ-I5l"/>
+                        <constraint firstAttribute="trailing" secondItem="fEx-Ze-qST" secondAttribute="trailing" id="qHI-B5-Q32"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="98W-NX-cUq" secondAttribute="bottom" id="T5j-Li-wKB"/>
+                <constraint firstItem="98W-NX-cUq" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Tae-Gt-khH"/>
+                <constraint firstItem="98W-NX-cUq" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="ZFJ-M9-Vrh"/>
+                <constraint firstAttribute="trailing" secondItem="98W-NX-cUq" secondAttribute="trailing" id="ePs-Lu-0JF"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="137.59999999999999" y="148.42578710644679"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="searching" width="24" height="24"/>
+        <namedColor name="背景灰">
+            <color red="0.97254901960784312" green="0.97254901960784312" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

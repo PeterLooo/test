@@ -17,51 +17,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EGk-Fg-apE">
-                                <rect key="frame" x="0.0" y="88" width="414" height="54"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EqL-08-v2n">
-                                        <rect key="frame" x="16" y="10" width="382" height="34"/>
-                                        <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="searching" translatesAutoresizingMaskIntoConstraints="NO" id="W7U-2l-C8e">
-                                                <rect key="frame" x="8" y="9" width="16" height="16"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="16" id="2ob-gE-hQE"/>
-                                                    <constraint firstAttribute="width" constant="16" id="iTI-hY-q2g"/>
-                                                </constraints>
-                                            </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="團體旅遊查詢 / 關鍵字/團號查詢" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MGL-at-nD8">
-                                                <rect key="frame" x="32" y="5" width="342" height="24"/>
-                                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="15"/>
-                                                <color key="textColor" red="0.70588235294117641" green="0.70588235294117641" blue="0.70588235294117641" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                        <color key="backgroundColor" name="背景灰"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="34" id="NwR-Xw-vih"/>
-                                            <constraint firstItem="MGL-at-nD8" firstAttribute="top" secondItem="EqL-08-v2n" secondAttribute="top" constant="5" id="QgJ-bZ-6OE"/>
-                                            <constraint firstItem="MGL-at-nD8" firstAttribute="leading" secondItem="W7U-2l-C8e" secondAttribute="trailing" constant="8" id="U9h-Tt-eND"/>
-                                            <constraint firstAttribute="trailing" secondItem="MGL-at-nD8" secondAttribute="trailing" constant="8" id="XRg-We-zYt"/>
-                                            <constraint firstItem="W7U-2l-C8e" firstAttribute="leading" secondItem="EqL-08-v2n" secondAttribute="leading" constant="8" id="mMj-5O-JWk"/>
-                                            <constraint firstItem="W7U-2l-C8e" firstAttribute="centerY" secondItem="EqL-08-v2n" secondAttribute="centerY" id="sB4-oT-dH3"/>
-                                            <constraint firstAttribute="bottom" secondItem="MGL-at-nD8" secondAttribute="bottom" constant="5" id="wDJ-2w-bYS"/>
-                                        </constraints>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="15"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </view>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="EqL-08-v2n" secondAttribute="trailing" constant="16" id="dLP-EG-63A"/>
-                                    <constraint firstItem="EqL-08-v2n" firstAttribute="centerY" secondItem="EGk-Fg-apE" secondAttribute="centerY" id="gBm-V4-hOQ"/>
-                                    <constraint firstItem="EqL-08-v2n" firstAttribute="leading" secondItem="EGk-Fg-apE" secondAttribute="leading" constant="16" id="pqc-7i-BU0"/>
-                                    <constraint firstAttribute="height" constant="54" id="yQr-U1-Olx"/>
-                                </constraints>
-                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f7q-01-GCh">
                                 <rect key="frame" x="0.0" y="-64" width="414" height="960"/>
                                 <color key="backgroundColor" red="0.43137254899999999" green="0.43137254899999999" blue="0.43137254899999999" alpha="0.5" colorSpace="calibratedRGB"/>
@@ -70,11 +25,8 @@
                         <color key="backgroundColor" name="背景灰"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="EGk-Fg-apE" firstAttribute="top" secondItem="zzg-b0-LkS" secondAttribute="top" id="6wH-Ns-yQ8"/>
-                            <constraint firstItem="EGk-Fg-apE" firstAttribute="leading" secondItem="zzg-b0-LkS" secondAttribute="leading" id="Fi8-on-uVL"/>
                             <constraint firstItem="f7q-01-GCh" firstAttribute="leading" secondItem="zzg-b0-LkS" secondAttribute="leading" id="Olw-vF-ePq"/>
                             <constraint firstItem="f7q-01-GCh" firstAttribute="top" secondItem="Zhw-vJ-j7l" secondAttribute="top" constant="-64" id="Wv3-mR-aNx"/>
-                            <constraint firstItem="zzg-b0-LkS" firstAttribute="trailing" secondItem="EGk-Fg-apE" secondAttribute="trailing" id="bs4-ll-uio"/>
                             <constraint firstItem="f7q-01-GCh" firstAttribute="bottom" secondItem="Zhw-vJ-j7l" secondAttribute="bottom" id="qyr-A4-Tgy"/>
                             <constraint firstItem="f7q-01-GCh" firstAttribute="trailing" secondItem="zzg-b0-LkS" secondAttribute="trailing" id="rb1-PQ-ifn"/>
                         </constraints>
@@ -86,7 +38,6 @@
                     <navigationItem key="navigationItem" id="8Ez-c5-IlF"/>
                     <connections>
                         <outlet property="grayBlurView" destination="f7q-01-GCh" id="RAE-bp-OFd"/>
-                        <outlet property="groupSearchView" destination="EqL-08-v2n" id="bpG-df-leT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I6N-U6-UhN" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -126,31 +77,23 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nWS-8B-YAb">
-                                <rect key="frame" x="0.0" y="44" width="311" height="852"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="yXt-yi-LcQ" id="JJw-51-em1"/>
                                     <outlet property="delegate" destination="yXt-yi-LcQ" id="hi1-2V-z2I"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="47v-xA-WJF">
-                                <rect key="frame" x="311" y="44" width="103" height="818"/>
-                            </view>
                         </subviews>
                         <constraints>
                             <constraint firstItem="nWS-8B-YAb" firstAttribute="leading" secondItem="4PG-T3-CAI" secondAttribute="leading" id="G3H-4h-klV"/>
-                            <constraint firstItem="47v-xA-WJF" firstAttribute="top" secondItem="4PG-T3-CAI" secondAttribute="top" id="S9S-5I-acP"/>
-                            <constraint firstItem="4PG-T3-CAI" firstAttribute="trailing" secondItem="nWS-8B-YAb" secondAttribute="trailing" constant="103" id="YIY-xZ-39f"/>
-                            <constraint firstItem="47v-xA-WJF" firstAttribute="trailing" secondItem="4PG-T3-CAI" secondAttribute="trailing" id="lpz-VO-SDg"/>
+                            <constraint firstItem="4PG-T3-CAI" firstAttribute="trailing" secondItem="nWS-8B-YAb" secondAttribute="trailing" id="YIY-xZ-39f"/>
                             <constraint firstAttribute="bottom" secondItem="nWS-8B-YAb" secondAttribute="bottom" id="nZd-d9-tBn"/>
                             <constraint firstItem="nWS-8B-YAb" firstAttribute="top" secondItem="4PG-T3-CAI" secondAttribute="top" id="qOf-3b-vDS"/>
-                            <constraint firstItem="47v-xA-WJF" firstAttribute="leading" secondItem="nWS-8B-YAb" secondAttribute="trailing" id="s8P-4H-Gda"/>
-                            <constraint firstItem="4PG-T3-CAI" firstAttribute="bottom" secondItem="47v-xA-WJF" secondAttribute="bottom" id="uUK-mq-HlQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4PG-T3-CAI"/>
                     </view>
                     <connections>
-                        <outlet property="gesView" destination="47v-xA-WJF" id="EEF-D3-3Nc"/>
                         <outlet property="tableView" destination="nWS-8B-YAb" id="oPf-Kz-Ql8"/>
                     </connections>
                 </viewController>
@@ -160,7 +103,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="searching" width="24" height="24"/>
         <namedColor name="背景灰">
             <color red="0.97254901960784312" green="0.97254901960784312" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

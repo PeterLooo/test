@@ -19,6 +19,10 @@
 		3817E52A23A33C9500ED8609 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3817E4FF23A33C8500ED8609 /* LaunchScreen.storyboard */; };
 		3817E52B23A33C9500ED8609 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3817E4FD23A33C8500ED8609 /* Assets.xcassets */; };
 		3817E52C23A33C9500ED8609 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3817E4FA23A33C8400ED8609 /* Main.storyboard */; };
+		381B12B523C48D360030BACE /* GroupNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381B12B423C48D360030BACE /* GroupNavigationView.swift */; };
+		381B12B623C48D360030BACE /* GroupNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381B12B423C48D360030BACE /* GroupNavigationView.swift */; };
+		381B12B823C48D440030BACE /* GroupNavigationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 381B12B723C48D440030BACE /* GroupNavigationView.xib */; };
+		381B12B923C48D440030BACE /* GroupNavigationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 381B12B723C48D440030BACE /* GroupNavigationView.xib */; };
 		382EF48323BEF93A0002BAB0 /* GroupReponsitory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382EF48223BEF93A0002BAB0 /* GroupReponsitory.swift */; };
 		382EF48423BEF93A0002BAB0 /* GroupReponsitory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382EF48223BEF93A0002BAB0 /* GroupReponsitory.swift */; };
 		384B110323C2BD33000E2B41 /* AirTicketProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384B110223C2BD33000E2B41 /* AirTicketProtocol.swift */; };
@@ -262,7 +266,6 @@
 		00BEF28893EA23CD1FFC87FB /* Pods_ColatourB2BDev.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ColatourB2BDev.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		163FEF6363ACF8456B6B3D9F /* Pods-ColatourB2B.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ColatourB2B.release.xcconfig"; path = "Pods/Target Support Files/Pods-ColatourB2B/Pods-ColatourB2B.release.xcconfig"; sourceTree = "<group>"; };
 		2AF496B023AB79810053EA45 /* ColatourB2BDev.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ColatourB2BDev.entitlements; sourceTree = "<group>"; };
-		2AF496B123AB79B50053EA45 /* ColatourB2B.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ColatourB2B.entitlements; sourceTree = "<group>"; };
 		2AF496B323AB7EA50053EA45 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2AF496B523AB7EBB0053EA45 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3817E4F323A33C8400ED8609 /* ColatourB2B.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColatourB2B.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -278,9 +281,12 @@
 		3817E51623A33C8500ED8609 /* ColatourB2BUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColatourB2BUITests.swift; sourceTree = "<group>"; };
 		3817E51823A33C8500ED8609 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3817E53023A33C9500ED8609 /* ColatourB2BDev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColatourB2BDev.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		381B12B423C48D360030BACE /* GroupNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupNavigationView.swift; sourceTree = "<group>"; };
+		381B12B723C48D440030BACE /* GroupNavigationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupNavigationView.xib; sourceTree = "<group>"; };
 		382EF48223BEF93A0002BAB0 /* GroupReponsitory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupReponsitory.swift; sourceTree = "<group>"; };
 		384B110223C2BD33000E2B41 /* AirTicketProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirTicketProtocol.swift; sourceTree = "<group>"; };
 		384B110523C2BD46000E2B41 /* AirTicketPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirTicketPresenter.swift; sourceTree = "<group>"; };
+		384B110823C32BF3000E2B41 /* ColatourB2B.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ColatourB2B.entitlements; sourceTree = "<group>"; };
 		3869542723BADBFC00F6E7D9 /* MemberIndexProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberIndexProtocol.swift; sourceTree = "<group>"; };
 		3869542A23BADC0F00F6E7D9 /* MemberIndexPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberIndexPresenter.swift; sourceTree = "<group>"; };
 		3869542D23BADC9000F6E7D9 /* MemberIndexResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberIndexResponse.swift; sourceTree = "<group>"; };
@@ -461,7 +467,6 @@
 		3817E4EA23A33C8400ED8609 = {
 			isa = PBXGroup;
 			children = (
-				2AF496B123AB79B50053EA45 /* ColatourB2B.entitlements */,
 				2AF496B023AB79810053EA45 /* ColatourB2BDev.entitlements */,
 				38BCDA2023A3713900D59910 /* ColatourB2B-Bridging-Header.h */,
 				3817E4F523A33C8400ED8609 /* ColatourB2B */,
@@ -489,7 +494,7 @@
 		3817E4F523A33C8400ED8609 /* ColatourB2B */ = {
 			isa = PBXGroup;
 			children = (
-				C72B30E623C32D98006279BA /* ColatourB2B.entitlements */,
+				384B110823C32BF3000E2B41 /* ColatourB2B.entitlements */,
 				38BCDA1423A3689500D59910 /* ColorDef.swift */,
 				2AF496B223AB7DCD0053EA45 /* ColatourB2BProd */,
 				2AF496AD23AB6D580053EA45 /* ColatourB2BDev */,
@@ -761,6 +766,8 @@
 				38BCDA2823A379DE00D59910 /* GroupTourViewController.swift */,
 				38E9921A23B04CD400E28271 /* GropeTourProtocol.swift */,
 				38E9921D23B04CF200E28271 /* GropeTourPresenter.swift */,
+				381B12B423C48D360030BACE /* GroupNavigationView.swift */,
+				381B12B723C48D440030BACE /* GroupNavigationView.xib */,
 			);
 			path = Group;
 			sourceTree = "<group>";
@@ -1005,6 +1012,7 @@
 				3869543423BAE5F500F6E7D9 /* MemberTopCell.xib in Resources */,
 				38BCDA0F23A367D000D59910 /* NoInternetErrorView.xib in Resources */,
 				38BCDA0B23A367D000D59910 /* ApiFailErrorView.xib in Resources */,
+				381B12B823C48D440030BACE /* GroupNavigationView.xib in Resources */,
 				3817E4FE23A33C8500ED8609 /* Assets.xcassets in Resources */,
 				2AF496B423AB7EA50053EA45 /* GoogleService-Info.plist in Resources */,
 				3817E4FC23A33C8400ED8609 /* Main.storyboard in Resources */,
@@ -1051,6 +1059,7 @@
 				3869543523BAE5F500F6E7D9 /* MemberTopCell.xib in Resources */,
 				38BCDA1023A367D000D59910 /* NoInternetErrorView.xib in Resources */,
 				38BCDA0C23A367D000D59910 /* ApiFailErrorView.xib in Resources */,
+				381B12B923C48D440030BACE /* GroupNavigationView.xib in Resources */,
 				3817E52B23A33C9500ED8609 /* Assets.xcassets in Resources */,
 				2AF496B623AB7EBB0053EA45 /* GoogleService-Info.plist in Resources */,
 				3817E52C23A33C9500ED8609 /* Main.storyboard in Resources */,
@@ -1212,6 +1221,7 @@
 				38E9921B23B04CD400E28271 /* GropeTourProtocol.swift in Sources */,
 				C711753D23BF407E00555D8C /* MoreProtocol.swift in Sources */,
 				38E9922A23B053C400E28271 /* LoginPresenter.swift in Sources */,
+				381B12B523C48D360030BACE /* GroupNavigationView.swift in Sources */,
 				38E9923423B05A0700E28271 /* LoginResponse.swift in Sources */,
 				38E68AA923B5AB80006BC4DD /* GroupSliderViewController.swift in Sources */,
 				38BCD93123A345FA00D59910 /* UserDefaultUtil.swift in Sources */,
@@ -1324,6 +1334,7 @@
 				38E9921C23B04CD400E28271 /* GropeTourProtocol.swift in Sources */,
 				C711753E23BF407E00555D8C /* MoreProtocol.swift in Sources */,
 				38E9922B23B053C400E28271 /* LoginPresenter.swift in Sources */,
+				381B12B623C48D360030BACE /* GroupNavigationView.swift in Sources */,
 				38E9923523B05A0700E28271 /* LoginResponse.swift in Sources */,
 				38E68AAA23B5AB80006BC4DD /* GroupSliderViewController.swift in Sources */,
 				38BCD93223A345FA00D59910 /* UserDefaultUtil.swift in Sources */,
