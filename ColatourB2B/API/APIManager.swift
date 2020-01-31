@@ -176,6 +176,8 @@ class APIManager: NSObject {
             requestUrl = type.url()
         case .mainApi(let type):
             requestUrl = type.url()
+        case .noticeApi(let type):
+            requestUrl = type.url()
         }
 
         requestUrl =  (requestUrl + encodeUrl ).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
@@ -197,6 +199,11 @@ extension APIManager {
         
         return manager(method: .post, appendUrl: "", url:
             APIUrl.authApi(type: .pushDevice), parameters: params, appendHeaders: nil)
+    }
+    
+    func getNoticeUnreadCount() -> Single<[String:Any]> {
+        
+        return manager(method: .get, appendUrl: "", url: APIUrl.noticeApi(type: .unreadCount) ,parameters: nil, appendHeaders: nil)
     }
     
     func getVersionRule() -> Single<[String:Any]> {
@@ -231,6 +238,22 @@ extension APIManager {
     
     func getGroupMenu(toolBarType: ToolBarType)-> Single<[String:Any]> {
         return manager(method: .get, appendUrl: "", url: toolBarType.getApiUrl(), parameters: nil, appendHeaders: nil)
+    }
+    
+    func getNoticeList(pageIndex: Int) -> Single<[String:Any]> {
+        let pageSize = "PageSize=5"
+        var appendUrl = ""
+        appendUrl = "PageIndex=" + "\(String(pageIndex))" + "&" + pageSize
+        
+        return manager(method: .get, appendUrl: appendUrl, url: APIUrl.noticeApi(type: .notice), parameters: nil, appendHeaders: nil)
+    }
+    
+    func getNewsList(pageIndex: Int) -> Single<[String:Any]> {
+        let pageSize = "Page_Size=5"
+        var appendUrl = ""
+        appendUrl = "Page_Index=" + "\(String(pageIndex))" + "&" + pageSize
+        
+        return manager(method: .get, appendUrl: appendUrl, url: APIUrl.noticeApi(type: .news), parameters: nil, appendHeaders: nil)
     }
 }
 
