@@ -104,10 +104,15 @@ class AirTicketViewController: BaseViewController {
     @objc func onTouchContact (){
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
-        alert.addAction(UIAlertAction(title: "留言客服" , style: .default, handler: { (_) in
-            self.onPopContactVC()
+        alert.addAction(UIAlertAction(title: "聯絡業務(團體)" , style: .default, handler: { (_) in
+            self.onPopContactVC(messageSendType: .groupSale)
         }))
-        
+        alert.addAction(UIAlertAction(title: "改善建議(團體)" , style: .default, handler: { (_) in
+            self.onPopContactVC(messageSendType: .groupSuggest)
+        }))
+        alert.addAction(UIAlertAction(title: "改善建議(票務)" , style: .default, handler: { (_) in
+            self.onPopContactVC(messageSendType: .ticketFeedback)
+        }))
         alert.addAction(UIAlertAction(title: "取消", style: .cancel))
         
         self.present(alert, animated: true)
@@ -119,9 +124,17 @@ class AirTicketViewController: BaseViewController {
         self.airSearchView.isUserInteractionEnabled = true
     }
     
-    private func onPopContactVC() {
-        ()
+    private func onPopContactVC(messageSendType: MessageSendType){
+        
+        let messageSendViewController = getVC(st: "MessageSend", vc: "MessageSend") as! MessageSendViewController
+        messageSendViewController.setVC(messageSendType: messageSendType)
+        messageSendViewController.delegate = self
+        
+        let nav = UINavigationController(rootViewController: messageSendViewController)
+        nav.modalPresentationStyle = .fullScreen
+        self.navigationController?.present(nav, animated: true)
     }
+    
     @objc private func onTouchSearch(){
         ()
     }
@@ -152,5 +165,13 @@ extension AirTicketViewController: UIViewControllerTransitioningDelegate {
         
         self.tabBarController?.tabBar.isHidden = false
         return transiton
+    }
+}
+
+extension AirTicketViewController: MessageSendToastDelegate {
+
+    func setMessageSendToastText(text: String) {
+        
+        self.toast(text: text)
     }
 }
