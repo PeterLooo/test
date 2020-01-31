@@ -271,6 +271,10 @@ extension GroupTourViewController: GropeTourViewProtocol {
     
     func onBindApiTokenComplete() {
         
+        presenter?.getAccessToken()
+    }
+    
+    func onBindAccessTokenSuccess() {
         getGroupMenu()
         //getVersionRule()
     }

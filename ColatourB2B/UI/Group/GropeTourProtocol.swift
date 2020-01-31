@@ -10,6 +10,7 @@ import Foundation
 protocol GropeTourViewProtocol: BaseViewProtocol {
     
     func onBindApiTokenComplete()
+    func onBindAccessTokenSuccess()
     func onBindVersionRule(versionRule: VersionRuleReponse.Update?)
     func onBindTourIndex(moduleDataList : [IndexResponse.MultiModule],tourType: TourType)
     func onBindGroupMenu(menu: GroupMenuResponse)
@@ -17,6 +18,7 @@ protocol GropeTourViewProtocol: BaseViewProtocol {
 
 protocol GropeTourPresenterProtocol: BasePresenterProtocol {
     func getApiToken()
+    func getAccessToken()
     func getVersionRule()
     func getTourIndex(tourType: TourType)
     func getGroupMenu(toolBarType: ToolBarType)
