@@ -1,48 +1,48 @@
 {
-  "Sales_List": [
+  "Order": [
     {
-      "Sales_Title": "業務代表",
-      "Sales_Name": "林可樂",
-      "Mobile": "0977330223",
-      "Phone": "02-2659",
-      "Txt": "667",
-      "Dedicated_Line": "02-2659",
-      "Email": "sisian.wu@colatour.com.tw",
-      "Introduction": "1.每天出發。 \r\n2.大人票適用年齡為11歲(含)以上；兒童票適用年齡為6~10歲；未滿5歲小孩(不佔位者)可免費參與\r\n3.大人票適用年齡為11歲(含)以上；兒童票適用年齡為6~10歲；未滿5歲小孩(不佔位者)可免費參與\r\n4.大人票適用年齡為11歲(含)以上；兒童票適用年齡為6~10歲；0977330223",
-      "Line_Id": "HCXlqKwESz"
+      "NoTi_No":"12345",
+      "Noti_Title": "訂單通知",
+      "Remark": "訂單編號1234422",
+      "Link_Type": "00",
+      "Link_Value": "https://b2b.colatour.com.tw/",
+      "Unread_Mark": false
     },
     {
-      "Sales_Title": "業務代表",
-      "Sales_Name": "林可樂",
-      "Mobile": "09",
-      "Phone": "02-2659",
-      "Txt": "667",
-      "Dedicated_Line": "02-2659",
-      "Email": "@colatour.com.tw",
-      "Introduction": "B2B網站客服：B2B系統操作協助、B2B系統問題排除、B2B會員帳號管理、B2B會員資料查詢 ◎可樂B2B2C：聯絡窗口、BBC連結維護",
-      "Line_Id": "LWJmd29uwE"
+      "NoTi_No":"12345",
+      "Noti_Title": "訊息通知",
+      "Remark": "訂單編號122",
+      "Link_Type": "00",
+      "Link_Value": "https://b2b.colatour.com.tw/",
+      "Unread_Mark": true
+    }
+  ],
+  "Message": [
+    {
+      "NoTi_No":"12345",
+      "Noti_Title": "訊息通知",
+      "Remark": "訂單編號1234422",
+      "Link_Type": "00",
+      "Link_Value": "https://b2b.colatour.com.tw/",
+      "Unread_Mark": false
     },
     {
-      "Sales_Title": "業務代表",
-      "Sales_Name": "林可樂",
-      "Mobile": "09",
-      "Phone": "02-2659",
-      "Txt": "667",
-      "Dedicated_Line": "02-2659",
-      "Email": "@colatour.com.tw",
-      "Introduction": "1. B2B網站諮詢: 網站操作及問題排除/會員帳號管理. 2. 可樂B2B2C: 協助操作及問題排除/後端連結設定.1. B2B網站諮詢: 網站操作及問題排除/會員帳號管理. 2. 可樂B2B2C: 協助操作及問題排除/後端連結設定.1. B2B網站諮詢: 網站操作及問題排除/會員帳號管理. 2. 可樂B2B2C: 協助操作及問題排除/後端連結設定.",
-      "Line_Id": "HCXlqKwESz"
-    },
+      "NoTi_No":"12345",
+      "Noti_Title": "訊息通知",
+      "Remark": "訂單編號1234422",
+      "Link_Type": "00",
+      "Link_Value": "https://b2b.colatour.com.tw/",
+      "Unread_Mark": true
+    }
+  ],
+  "News": [
     {
-      "Sales_Title": "業務代表",
-      "Sales_Name": "林可樂",
-      "Mobile": "09",
-      "Phone": "02-2659",
-      "Txt": "667",
-      "Dedicated_Line": "02-2659",
-      "Email": "@colatour.com.tw",
-      "Introduction": "1. B2B網站諮詢: 網站操作及問題排除/會員帳號管理. 2. 可樂B2B2C: 協助操作及問題排除/後端連結設定.",
-      "Line_Id": ""
+      "NoTi_No":"12345",
+      "Noti_Title": "美加八日！",
+      "Remark": "同業49990起",
+      "Link_Type": "00",
+      "Link_Value": "https://b2b.colatour.com.tw/",
+      "Unread_Mark": false
     }
   ]
 }

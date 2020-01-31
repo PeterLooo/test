@@ -17,6 +17,12 @@ public enum LinkType: String {
     case unknown
 }
 
+public enum NotiType {
+    case order
+    case noti
+    case news
+}
+
 public enum ToolBarType {
     case tour
     case tkt

@@ -30,7 +30,7 @@ class GroupTableView: UIView {
     private var indexList: [IndexResponse.Module] = []
     private var homeAd1List: [IndexResponse.Module] = []
     private var homeAd2List: [IndexResponse.Module] = []
-    
+    private var needUpdateBannerImage = false
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -71,9 +71,9 @@ class GroupTableView: UIView {
         ])
     }
     
-    func setViewWith(itemList: [IndexResponse.MultiModule]){
+    func setViewWith(itemList: [IndexResponse.MultiModule],needUpdateBannerImage:Bool){
         self.itemList = itemList
-        
+        self.needUpdateBannerImage = needUpdateBannerImage
         tableView.reloadData()
     }
 }
@@ -134,9 +134,9 @@ extension GroupTableView : UITableViewDataSource {
         case .BANNER:
             cell = tableView.dequeueReusableCell(withIdentifier: "GroupIndexHeaderImageCell") as! GroupIndexHeaderImageCell
             
-            (cell as! GroupIndexHeaderImageCell).setCell(itemList: indexList[indexPath.row].moduleItemList)
+            (cell as! GroupIndexHeaderImageCell).setCell(itemList: indexList[indexPath.row].moduleItemList, needUpdateBannerImage: needUpdateBannerImage)
             (cell as! GroupIndexHeaderImageCell).delegate = self
-            
+            needUpdateBannerImage = false
         case .HOMEAD1:
             cell = tableView.dequeueReusableCell(withIdentifier: "HomeAd1Cell") as! HomeAd1Cell
             (cell as! HomeAd1Cell).setCell(item: self.homeAd1List[indexPath.row])
