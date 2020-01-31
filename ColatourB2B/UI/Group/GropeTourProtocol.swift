@@ -11,11 +11,13 @@ protocol GropeTourViewProtocol: BaseViewProtocol {
     
     func onBindApiTokenComplete()
     func onBindVersionRule(versionRule: VersionRuleReponse.Update?)
+    func onBindTourIndex(moduleDataList : [IndexResponse.MultiModule],tourType: TourType)
     func onBindGroupMenu(menu: GroupMenuResponse)
 }
 
 protocol GropeTourPresenterProtocol: BasePresenterProtocol {
     func getApiToken()
     func getVersionRule()
+    func getTourIndex(tourType: TourType)
     func getGroupMenu(toolBarType: ToolBarType)
 }
