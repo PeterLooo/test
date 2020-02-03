@@ -681,8 +681,7 @@ extension BaseViewController {
                 UIApplication.shared.open(browserUrl, options: [:], completionHandler: nil)
             }
         case .salesPage:
-            let vc = getVC(st: "Sales", vc: "SalesViewController") as! SalesViewController
-            self.navigationController?.pushViewController(vc, animated: true)
+            vc = getVC(st: "Sales", vc: "SalesViewController") as! SalesViewController
         case .getApiUrl:
             
             self.basePresenter?.getAccessWebUrl(webUrl: linkValue!, title: linkText ?? "")
