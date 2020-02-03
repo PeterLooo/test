@@ -12,8 +12,6 @@ import RxCocoa
 
 class MessageSendRepository: NSObject {
     
-    fileprivate var dispose = DisposeBag()
-    
     static let shared = MessageSendRepository()
     
     func getMessageSendUserList(messageSendType: MessageSendType) -> Single<MessageSendUserListResponse> {

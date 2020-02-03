@@ -177,7 +177,6 @@ class APIManager: NSObject {
         case .mainApi(let type):
             requestUrl = type.url()
         case .serviceApi(let type):
-            //
             requestUrl = type.url()
         case .noticeApi(let type):
             requestUrl = type.url()
