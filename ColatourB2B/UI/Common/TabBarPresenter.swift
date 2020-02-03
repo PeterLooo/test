@@ -12,6 +12,7 @@ import ObjectMapper
 
 class TabBarPresenter: NSObject, TabBarPresenterProtocol {
     weak var delegate: TabBarViewProtocol?
+    let shared = NoticeRepository.shared
     
     fileprivate var dispose = DisposeBag()
     
@@ -20,4 +21,9 @@ class TabBarPresenter: NSObject, TabBarPresenterProtocol {
         self.delegate = delegate
     }
 
+    func getNumberOfNoticeUnreadCount(){
+        shared.getNumberOfNoticeUnreadCount().subscribe(onSuccess: { (model) in
+            self.delegate?.onBindNumberOfNoticeUnreadCount(numbers: model)
+        }).disposed(by:dispose)
+    }
 }

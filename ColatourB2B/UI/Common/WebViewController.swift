@@ -52,7 +52,7 @@ class WebViewController: BaseViewController, UIGestureRecognizerDelegate {
         
         self.webView?.addObserver(self, forKeyPath: "estimatedProgress", options: .new, context: nil)
         
-        if let urlString = self.url, let url = URL.init(string: urlString) {
+        if let urlString = self.url?.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed), let url = URL.init(string: urlString) {
             let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalAndRemoteCacheData, timeoutInterval: 30)
             webView.load(request)
         }

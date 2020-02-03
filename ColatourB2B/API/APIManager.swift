@@ -201,6 +201,11 @@ extension APIManager {
             APIUrl.authApi(type: .pushDevice), parameters: params, appendHeaders: nil)
     }
     
+    func getNoticeUnreadCount() -> Single<[String:Any]> {
+        
+        return manager(method: .get, appendUrl: "", url: APIUrl.noticeApi(type: .unreadCount) ,parameters: nil, appendHeaders: nil)
+    }
+    
     func getVersionRule() -> Single<[String:Any]> {
         return manager(method: .get, appendUrl: "", url: APIUrl.authApi(type: .versionRule), parameters: nil, appendHeaders: nil)
     }
@@ -226,13 +231,49 @@ extension APIManager {
         return manager(method: .get, appendUrl: "", url: APIUrl.memberApi(type: .memberIndex), parameters: nil, appendHeaders: nil)
     }
     
+    func getGroupIndex(tourType:TourType) -> Single<[String:Any]> {
+        
+        return manager(method: .get, appendUrl: "", url: tourType.getApiUrl(), parameters: nil, appendHeaders: nil)
+    }
+    
     func getGroupMenu(toolBarType: ToolBarType)-> Single<[String:Any]> {
         return manager(method: .get, appendUrl: "", url: toolBarType.getApiUrl(), parameters: nil, appendHeaders: nil)
     }
     
-    func getNoticeList() -> Single<[String:Any]> {
-        return AppHelper.shared.getJson(forResource: "Group")
-        return manager(method: .get, appendUrl: "", url: APIUrl.noticeApi(type: .notice), parameters: nil, appendHeaders: nil)
+    func getNoticeDetail(noticeNo: String) -> Single<[String:Any]> {
+        let parameters = ["Noti_No": noticeNo]
+        //Note: 待API提供正確路徑
+        return manager(method: .post, appendUrl: "", url: APIUrl.memberApi(type: .noticeDetail), parameters: parameters, appendHeaders: nil)
+    }
+        
+    func getNoticeList(pageIndex: Int) -> Single<[String:Any]> {
+        let pageSize = "PageSize=10"
+        var appendUrl = ""
+        appendUrl = "PageIndex=" + "\(String(pageIndex))" + "&" + pageSize
+        
+        return manager(method: .get, appendUrl: appendUrl, url: APIUrl.noticeApi(type: .notice), parameters: nil, appendHeaders: nil)
+    }
+    
+    func getNewsList(pageIndex: Int) -> Single<[String:Any]> {
+        let pageSize = "Page_Size=10"
+        var appendUrl = ""
+        appendUrl = "Page_Index=" + "\(String(pageIndex))" + "&" + pageSize
+        
+        return manager(method: .get, appendUrl: appendUrl, url: APIUrl.noticeApi(type: .news), parameters: nil, appendHeaders: nil)
+
+    }
+    
+    func setNotiRead(notiId:[String])-> Single<[String:Any]> {
+        let notiIdLists = notiId.map { (
+            ["Noti_Id": $0
+                ] as [String: Any])
+        }
+        
+        let params = [
+            "Noti_Status": "已讀",
+            "NotiId_List": notiIdLists] as [String : Any]
+        
+        return manager(method: .post, appendUrl: "", url: APIUrl.noticeApi(type: .setNotiRead), parameters: params, appendHeaders: nil)
     }
 }
 
