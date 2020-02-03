@@ -256,6 +256,10 @@ extension APIManager {
         return manager(method: .post, appendUrl: "", url: APIUrl.serviceApi(type: .messageSend), parameters: params, appendHeaders: nil)
     }
     
+    func getSalesList() -> Single<[String:Any]> {
+        return manager(method: .get, appendUrl: "", url: APIUrl.portalApi(type: .serviceTourWindowList), parameters: nil, appendHeaders: nil)
+    }
+    
     func getNoticeDetail(noticeNo: String) -> Single<[String:Any]> {
         let parameters = ["Noti_No": noticeNo]
         //Note: 待API提供正確路徑
@@ -277,6 +281,14 @@ extension APIManager {
         
         return manager(method: .get, appendUrl: appendUrl, url: APIUrl.noticeApi(type: .news), parameters: nil, appendHeaders: nil)
 
+    }
+    
+    func getImportantList(pageIndex: Int) -> Single<[String:Any]> {
+        let pageSize = "PageSize=10"
+        var appendUrl = ""
+        appendUrl = "PageIndex=" + "\(String(pageIndex))" + "&" + pageSize
+        
+        return manager(method: .get, appendUrl: appendUrl, url: APIUrl.noticeApi(type: .important), parameters: nil, appendHeaders: nil)
     }
     
     func setNotiRead(notiId:[String])-> Single<[String:Any]> {

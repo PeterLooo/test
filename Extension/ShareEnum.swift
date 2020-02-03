@@ -11,6 +11,7 @@ import UIKit
 public enum LinkType: String {
     case web = "00"
     case getApiUrl = "003"
+    case salesPage = "011"
     case passwordReset = "031"
     case updateDate = "032"
     case openBrowser
@@ -18,9 +19,10 @@ public enum LinkType: String {
 }
 
 public enum NotiType {
-    case order
+    case important
     case noti
     case news
+    
 }
 
 public enum ToolBarType {
