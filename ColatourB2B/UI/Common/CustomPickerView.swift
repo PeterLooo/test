@@ -12,10 +12,12 @@ protocol CustomPickerViewProtocol: NSObjectProtocol {
 }
 
 class CustomPickerView : UIPickerView, UIPickerViewDelegate, UIPickerViewDataSource {
-    private var shareOptionList : [ShareOption] = []
+    private var shareOptionList: [ShareOption] = []
     private var selectedShareOptionKey: String?
     
-    weak var valueChangeDelegate : CustomPickerViewProtocol?
+    weak var valueChangeDelegate: CustomPickerViewProtocol?
+    
+    var textAlign: NSTextAlignment = .center
     
     /** 回傳選擇的key */
     var selectedKey: String? {
@@ -73,7 +75,7 @@ class CustomPickerView : UIPickerView, UIPickerViewDelegate, UIPickerViewDataSou
         let pickerLabel = UILabel()
         pickerLabel.font = UIFont.init(thickness: .regular, size: 23)
         pickerLabel.textColor = UIColor.black
-        pickerLabel.textAlignment = NSTextAlignment.left
+        pickerLabel.textAlignment = textAlign
 
         pickerLabel.text = self.shareOptionList[row].optionValue ?? ""
         return pickerLabel

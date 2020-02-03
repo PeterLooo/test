@@ -172,6 +172,7 @@ class GroupTourSearchViewController: BaseViewController {
     private func reloadPickerViewAndDatePicker(inputFieldType: InputFieldType?){
         var shareOptionList:[ShareOption] = []
         var selectedKey: String?
+        var textAlign: NSTextAlignment = .center
         switch inputFieldType {
         case .startTourDate:
             if let date = groupTourSearchRequest.startTourDate {
@@ -182,6 +183,7 @@ class GroupTourSearchViewController: BaseViewController {
         case .regionCode:
             shareOptionList = groupTourSearchInit?.regionList.map({ ShareOption(optionKey: $0.regionCode!, optionValue: $0.regionName!) }) ?? []
             selectedKey = groupTourSearchRequest.selectedRegionCode?.regionCode
+            textAlign = .left
             
         case .departureCity:
             shareOptionList = groupTourSearchInit?.departureCityList.map({ ShareOption(optionKey: $0.departureCode!, optionValue: $0.departureName!) }) ?? []
@@ -206,7 +208,8 @@ class GroupTourSearchViewController: BaseViewController {
         case nil:
             ()
         }
-        self.pickerView.setOptionList(optionList: shareOptionList)
+        pickerView.setOptionList(optionList: shareOptionList)
+        pickerView.textAlign = textAlign
         pickerView.reloadAllComponents()
         
         if let selectedKey = selectedKey {
@@ -216,57 +219,57 @@ class GroupTourSearchViewController: BaseViewController {
     
     private func showKeyBoardWith(inputFieldType: InputFieldType?){
         func showKeyboard(keyboardType : KeyboardType) {
-              var isNumberpadKeyboardShow: Bool = false {
-                  didSet {
-                      switch isNumberpadKeyboardShow {
-                      case true :
-                          ()
-                      case false:
-                          self.view.endEditing(true)
-                      }
-                  }
-              }
-              
-              var isDatePickerViewShow: Bool = false {
-                  didSet {
-                      let constant = isDatePickerViewShow ? -datePicker.frame.height - toolBarOnDatePicker.frame.height : 0
-                      datePickerTop.constant = constant
-                      
-                      UIView.animate(withDuration: 0.3) {
-                          self.view.layoutIfNeeded()
-                      }
-                  }
-              }
-              
-              var isPickerViewShow: Bool = false {
-                  didSet {
-                      let constant = isPickerViewShow ? -pickerView.frame.height - toolBarOnPickerView.frame.height : 0
-                      pickerViewTop.constant = constant
-                      
-                      UIView.animate(withDuration: 0.3) {
-                          self.view.layoutIfNeeded()
-                      }
-                  }
-              }
-        
-              switch keyboardType {
-              case .typekeyboard:
-                  isNumberpadKeyboardShow = true
-                  isPickerViewShow = false
-                  isDatePickerViewShow = false
-              case .pickerView:
-                  isNumberpadKeyboardShow = false
-                  isPickerViewShow = true
-                  isDatePickerViewShow = false
-              case .datePicker:
-                  isNumberpadKeyboardShow = false
-                  isPickerViewShow = false
-                  isDatePickerViewShow = true
-              case .hide:
-                  isNumberpadKeyboardShow = false
-                  isPickerViewShow = false
-                  isDatePickerViewShow = false
-              }
+            var isNumberpadKeyboardShow: Bool = false {
+                didSet {
+                    switch isNumberpadKeyboardShow {
+                    case true :
+                        ()
+                    case false:
+                        self.view.endEditing(true)
+                    }
+                }
+            }
+            
+            var isDatePickerViewShow: Bool = false {
+                didSet {
+                    let constant = isDatePickerViewShow ? -datePicker.frame.height - toolBarOnDatePicker.frame.height : 0
+                    datePickerTop.constant = constant
+                    
+                    UIView.animate(withDuration: 0.3) {
+                        self.view.layoutIfNeeded()
+                    }
+                }
+            }
+            
+            var isPickerViewShow: Bool = false {
+                didSet {
+                    let constant = isPickerViewShow ? -pickerView.frame.height - toolBarOnPickerView.frame.height : 0
+                    pickerViewTop.constant = constant
+                    
+                    UIView.animate(withDuration: 0.3) {
+                        self.view.layoutIfNeeded()
+                    }
+                }
+            }
+            
+            switch keyboardType {
+            case .typekeyboard:
+                isNumberpadKeyboardShow = true
+                isPickerViewShow = false
+                isDatePickerViewShow = false
+            case .pickerView:
+                isNumberpadKeyboardShow = false
+                isPickerViewShow = true
+                isDatePickerViewShow = false
+            case .datePicker:
+                isNumberpadKeyboardShow = false
+                isPickerViewShow = false
+                isDatePickerViewShow = true
+            case .hide:
+                isNumberpadKeyboardShow = false
+                isPickerViewShow = false
+                isDatePickerViewShow = false
+            }
         }
         
         switch inputFieldType {
@@ -425,7 +428,9 @@ extension GroupTourSearchViewController: GroupTourSearchViewProtocol {
         
         groupTourSearchRequest.startTourDate = groupTourSearchInit.defaultDepartureDate
         
-        groupTourSearchKeywordAndTourCodeRequest.selectedDepartureCity = keywordOrTourCodeDepartureCityShareOptionList.first
+        if groupTourSearchKeywordAndTourCodeRequest.selectedDepartureCity == nil {
+            groupTourSearchKeywordAndTourCodeRequest.selectedDepartureCity = keywordOrTourCodeDepartureCityShareOptionList.first
+        }
        
         groupTourTableView?.reloadData()
         keywordOrTourCodeTableView?.reloadData()
