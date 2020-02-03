@@ -53,4 +53,12 @@ class MemberRepository: MemberRepositoryProtocol {
         UserDefaultUtil.shared.accessToken = accessToken
         
     }
+    
+    func getSalesList() -> Single<SalesResponse> {
+        let api = APIManager.shared.getSalesList()
+        
+        return AccountRepository.shared.getAccessToken()
+            .flatMap{ _ in api}
+            .map{SalesResponse(JSON: $0)!}
+    }
 }
