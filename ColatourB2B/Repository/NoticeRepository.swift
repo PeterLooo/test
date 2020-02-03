@@ -27,6 +27,13 @@ class NoticeRepository: NSObject {
             .map{ NewsResponse(JSON: $0)!}
     }
     
+    func getImportantList(pageIndex: Int) -> Single<NoticeResponse> {
+        let api = APIManager.shared.getImportantList(pageIndex: pageIndex)
+        return AccountRepository.shared.getAccessToken()
+            .flatMap{_ in api}
+            .map{ NoticeResponse(JSON: $0)!}
+    }
+    
     func getNumberOfNoticeUnreadCount() -> Single<Int> {
         let api = APIManager.shared.getNoticeUnreadCount()
         return AccountRepository.shared.apiToken

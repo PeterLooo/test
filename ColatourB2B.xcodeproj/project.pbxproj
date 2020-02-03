@@ -1039,6 +1039,7 @@
 				3817E4F023A33C8400ED8609 /* Frameworks */,
 				3817E4F123A33C8400ED8609 /* Resources */,
 				E80E3A03E7894FC913ED443D /* [CP] Embed Pods Frameworks */,
+				38A7D93923CEB11800FAAC5D /* Fabric Run Script */,
 			);
 			buildRules = (
 			);
@@ -1094,6 +1095,7 @@
 				3817E52823A33C9500ED8609 /* Frameworks */,
 				3817E52923A33C9500ED8609 /* Resources */,
 				A3B9B8FF192086C401904B3D /* [CP] Embed Pods Frameworks */,
+				385342A723CEA7B70026391E /* Fabrc Run Script */,
 			);
 			buildRules = (
 			);
@@ -1256,6 +1258,42 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		385342A723CEA7B70026391E /* Fabrc Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Fabrc Run Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\"\n";
+		};
+		38A7D93923CEB11800FAAC5D /* Fabric Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Fabric Run Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\"\n";
+		};
 		822ED899253DA5F18DACEAEC /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1694,7 +1732,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;

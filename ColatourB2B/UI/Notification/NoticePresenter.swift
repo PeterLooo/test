@@ -42,6 +42,18 @@ class NoticePresenter: NoticePresenterProtocol {
         }).disposed(by: dispose)
     }
     
+    func getImportantList(pageIndex: Int, handleType: APILoadingHandleType) {
+        self.delegate?.onStartLoadingHandle(handleType: handleType)
+        
+        NoticeRepository.shared.getImportantList(pageIndex: pageIndex).subscribe(onSuccess: { (model) in
+            self.delegate?.onBindImportantComplete(importantList: self.processNotificationResponse(model: model))
+            self.delegate?.onCompletedLoadingHandle()
+        }, onError: { (error) in
+            self.delegate?.onApiErrorHandle(apiError: error as! APIError, handleType: .coverPlate)
+            self.delegate?.onCompletedLoadingHandle()
+        }).disposed(by: dispose)
+    }
+    
     func setNoticeRead(noticeIdList: [String]) {
         self.delegate?.onStartLoadingHandle(handleType: .ignore)
         

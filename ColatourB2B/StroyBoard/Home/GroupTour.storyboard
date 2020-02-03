@@ -12,7 +12,7 @@
         <!--Group Tour View Controller-->
         <scene sceneID="pEA-8U-647">
             <objects>
-                <viewController storyboardIdentifier="GroupTourViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="b9a-Me-4Gs" customClass="GroupTourViewController" customModule="可樂旅遊B2B" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GroupTourViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="b9a-Me-4Gs" customClass="GroupTourViewController" customModule="ColatourB2B" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Zhw-vJ-j7l">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -193,7 +193,7 @@
         <!--Group Slider View Controller-->
         <scene sceneID="qd7-Vu-RxU">
             <objects>
-                <viewController storyboardIdentifier="GroupSliderViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="yXt-yi-LcQ" customClass="GroupSliderViewController" customModule="可樂旅遊B2B" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GroupSliderViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="yXt-yi-LcQ" customClass="GroupSliderViewController" customModule="ColatourB2B" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0li-91-g3v">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

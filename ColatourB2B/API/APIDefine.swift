@@ -11,10 +11,10 @@ let PORTAL_WEB_HOST = "https://ntestwebapibportal.colatour.com.tw"
 let MEMBER_WEB_HOST = "https://ntestWebAPIBmember.colatour.com.tw/"
 let MAIN_WEB_HOST = "https://ntestWebAPIBportal.colatour.com.tw/"
 #else
-let AUTH_WEB_HOST = "https://ntestWebAPIBauth.colatour.com.tw"
-let PORTAL_WEB_HOST = "https://ntestwebapiBportal.colatour.com.tw"
-let MEMBER_WEB_HOST = "https://ntestWebAPIBmember.colatour.com.tw/"
-let MAIN_WEB_HOST = "https://ntestWebAPIBportal.colatour.com.tw/"
+let AUTH_WEB_HOST = "https://WebAPIBauth.colatour.com.tw"
+let PORTAL_WEB_HOST = "https://webapicportal.colatour.com.tw"
+let MEMBER_WEB_HOST = "https://WebAPIBmember.colatour.com.tw/"
+let MAIN_WEB_HOST = "https://WebAPIBportal.colatour.com.tw/"
 #endif
 
 enum APIUrl {
@@ -143,6 +143,7 @@ enum APIUrl {
     enum NoticeApi: String {
         case notice = "Notification?"
         case news = "eDM/Tour?"
+        case important = "Notification/important?"
         case unreadCount = "/Notification/Unread"
         case setNotiRead = "/Notification/Modify/Status"
         
