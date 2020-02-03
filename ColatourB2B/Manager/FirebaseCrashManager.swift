@@ -17,7 +17,9 @@ class FirebaseCrashManager: NSObject {
         #if DEBUG
         
         #else
+        
         Fabric.with([Crashlytics()])
+
         FirebaseCrashManager.setUserIdentifier(AccountRepository.shared.osUUID)
         #endif
     }
