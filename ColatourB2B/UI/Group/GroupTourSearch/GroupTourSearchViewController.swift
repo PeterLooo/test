@@ -411,7 +411,7 @@ class GroupTourSearchViewController: BaseViewController {
     @IBAction func onTouchInputDescription(_ sender: UIButton) {
         self.view.endEditing(true)
         
-        let vc = getVC(st: "GroupTourSearch", vc: "PopTextViewController") as! PopTextViewController
+        let vc = getVC(st: "PopText", vc: "PopTextViewController") as! PopTextViewController
         vc.modalPresentationStyle = .overCurrentContext
         vc.delegate = self
         

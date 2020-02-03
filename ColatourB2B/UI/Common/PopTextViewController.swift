@@ -20,6 +20,7 @@ class PopTextViewController: BaseViewController {
     @IBOutlet weak var cardViewTop: NSLayoutConstraint!
     @IBOutlet weak var textViewHeight: NSLayoutConstraint!
     @IBOutlet weak var cardView: UIView!
+    @IBOutlet weak var navBar: UINavigationBar!
     
     private var text: String?
     private var navTitle: String?
@@ -37,6 +38,11 @@ class PopTextViewController: BaseViewController {
         bottomButton.setTitle(bottomButtonTitle ?? "", for: .normal)
         
         textView.contentOffset.y = 0
+        
+        //Note: 消除Nav底線用
+        navBar.setBackgroundImage(UIImage(), for:.default)
+        navBar.shadowImage = UIImage()
+        navBar.layoutIfNeeded()
         
         bottomButton.setBorder(width: 1, radius: 4, color: UIColor.init(named: "通用綠")!)
         setBarAlpha(alpha: 0, animate: true)

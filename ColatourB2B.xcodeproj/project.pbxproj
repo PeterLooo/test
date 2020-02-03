@@ -228,6 +228,8 @@
 		C77282F823CC505800067EB4 /* GroupTourSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77282F623CC505800067EB4 /* GroupTourSearchViewController.swift */; };
 		C78F071923E7F2AD009C1183 /* PopTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78F071823E7F2AD009C1183 /* PopTextViewController.swift */; };
 		C78F071A23E7F2AD009C1183 /* PopTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78F071823E7F2AD009C1183 /* PopTextViewController.swift */; };
+		C78F071C23E8204E009C1183 /* PopText.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C78F071B23E8204E009C1183 /* PopText.storyboard */; };
+		C78F071D23E8204E009C1183 /* PopText.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C78F071B23E8204E009C1183 /* PopText.storyboard */; };
 		C7C623CD23E2C71600A2D8B0 /* GroupTourSearchUrlResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C623CC23E2C71600A2D8B0 /* GroupTourSearchUrlResponse.swift */; };
 		C7C623CE23E2C71600A2D8B0 /* GroupTourSearchUrlResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C623CC23E2C71600A2D8B0 /* GroupTourSearchUrlResponse.swift */; };
 		C7DA175723D6E5C9006A8803 /* GroupTourSearchKeywordAndTourCodeInputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DA175623D6E5C9006A8803 /* GroupTourSearchKeywordAndTourCodeInputCell.swift */; };
@@ -398,6 +400,7 @@
 		C77282F223CC502500067EB4 /* GroupTourSearch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GroupTourSearch.storyboard; sourceTree = "<group>"; };
 		C77282F623CC505800067EB4 /* GroupTourSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTourSearchViewController.swift; sourceTree = "<group>"; };
 		C78F071823E7F2AD009C1183 /* PopTextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopTextViewController.swift; sourceTree = "<group>"; };
+		C78F071B23E8204E009C1183 /* PopText.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PopText.storyboard; sourceTree = "<group>"; };
 		C7C623CC23E2C71600A2D8B0 /* GroupTourSearchUrlResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTourSearchUrlResponse.swift; sourceTree = "<group>"; };
 		C7DA175623D6E5C9006A8803 /* GroupTourSearchKeywordAndTourCodeInputCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTourSearchKeywordAndTourCodeInputCell.swift; sourceTree = "<group>"; };
 		C7DA175923D70245006A8803 /* GroupTourSearchKeywordAndTourCodeRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTourSearchKeywordAndTourCodeRequest.swift; sourceTree = "<group>"; };
@@ -797,6 +800,7 @@
 				38E68ABA23B5AE30006BC4DD /* SelectOption.storyboard */,
 				38E68ABB23B5AE30006BC4DD /* Calendar.storyboard */,
 				38E68ABC23B5AE30006BC4DD /* Common.storyboard */,
+				C78F071B23E8204E009C1183 /* PopText.storyboard */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1002,6 +1006,7 @@
 				3869543423BAE5F500F6E7D9 /* MemberTopCell.xib in Resources */,
 				38BCDA0F23A367D000D59910 /* NoInternetErrorView.xib in Resources */,
 				38BCDA0B23A367D000D59910 /* ApiFailErrorView.xib in Resources */,
+				C78F071C23E8204E009C1183 /* PopText.storyboard in Resources */,
 				381B12B823C48D440030BACE /* GroupNavigationView.xib in Resources */,
 				3817E4FE23A33C8500ED8609 /* Assets.xcassets in Resources */,
 				2AF496B423AB7EA50053EA45 /* GoogleService-Info.plist in Resources */,
@@ -1047,6 +1052,7 @@
 				3869543523BAE5F500F6E7D9 /* MemberTopCell.xib in Resources */,
 				38BCDA1023A367D000D59910 /* NoInternetErrorView.xib in Resources */,
 				38BCDA0C23A367D000D59910 /* ApiFailErrorView.xib in Resources */,
+				C78F071D23E8204E009C1183 /* PopText.storyboard in Resources */,
 				381B12B923C48D440030BACE /* GroupNavigationView.xib in Resources */,
 				3817E52B23A33C9500ED8609 /* Assets.xcassets in Resources */,
 				2AF496B623AB7EBB0053EA45 /* GoogleService-Info.plist in Resources */,
