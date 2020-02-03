@@ -21,7 +21,6 @@ class NotificationTableView: UIView {
     private let bottomLoadingView = BottomLoadingView()
     private var itemList: [NotiItem] = []
     private var notiType: NotiType!
-    private var isNewScroll = false
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -100,6 +99,11 @@ extension NotificationTableView : NotificationItemCellProtocol {
 extension NotificationTableView : UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         cellsHeight[indexPath] = cell.frame.size.height
+        if itemList.isEmpty == true  { return }
+        
+        let secondLastOrLast = max(itemList.count - 2 , 0 )
+        let isSecondLastOrLast = (secondLastOrLast == indexPath.row)
+        if isSecondLastOrLast { self.delegate?.onStartLoading(notiType: self.notiType) }
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -112,22 +116,6 @@ extension NotificationTableView : UITableViewDelegate {
         guard let height = cellsHeight[indexPath] else { return UITableView.automaticDimension }
         
         return height
-    }
-    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        isNewScroll = true
-    }
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if (!isNewScroll) { return }
-           
-           let scrollViewFrameHeight = scrollView.frame.size.height
-           let contentYoffset2 = scrollView.contentOffset.y
-           let scrollViewHeight = scrollView.contentSize.height
-           
-           if (contentYoffset2 > 0 && contentYoffset2 >= (scrollViewHeight - scrollViewFrameHeight)) {
-            self.delegate?.onStartLoading(notiType: self.notiType)
-               isNewScroll = false
-           }
     }
 }
 

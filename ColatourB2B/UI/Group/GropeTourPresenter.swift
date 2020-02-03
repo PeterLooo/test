@@ -31,6 +31,17 @@ class GropeTourPresenter: GropeTourPresenterProtocol {
         }).disposed(by: dispose)
     }
     
+    func getAccessToken() {
+        self.delegate?.onStartLoadingHandle(handleType: .ignore)
+        accountRepositouy.getAccessToken().subscribe(onSuccess: { (_) in
+            self.delegate?.onBindAccessTokenSuccess()
+            self.delegate?.onCompletedLoadingHandle()
+        }, onError: { (error) in
+            self.delegate?.onApiErrorHandle(apiError: error as! APIError, handleType: .coverPlate)
+            self.delegate?.onCompletedLoadingHandle()
+        }).disposed(by: dispose)
+    }
+    
     func getVersionRule() {
         self.delegate?.onStartLoadingHandle(handleType: .ignore)
         

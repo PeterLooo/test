@@ -41,6 +41,30 @@ class NoticePresenter: NoticePresenterProtocol {
             self.delegate?.onCompletedLoadingHandle()
         }).disposed(by: dispose)
     }
+    
+    func getImportantList(pageIndex: Int, handleType: APILoadingHandleType) {
+        self.delegate?.onStartLoadingHandle(handleType: handleType)
+        
+        NoticeRepository.shared.getImportantList(pageIndex: pageIndex).subscribe(onSuccess: { (model) in
+            self.delegate?.onBindImportantComplete(importantList: self.processNotificationResponse(model: model))
+            self.delegate?.onCompletedLoadingHandle()
+        }, onError: { (error) in
+            self.delegate?.onApiErrorHandle(apiError: error as! APIError, handleType: .coverPlate)
+            self.delegate?.onCompletedLoadingHandle()
+        }).disposed(by: dispose)
+    }
+    
+    func setNoticeRead(noticeIdList: [String]) {
+        self.delegate?.onStartLoadingHandle(handleType: .ignore)
+        
+        NoticeRepository.shared.setNotiRead(notiId: noticeIdList).subscribe(onSuccess: { (_) in
+            self.delegate?.onBindSetNotiRead()
+            self.delegate?.onCompletedLoadingHandle()
+        }, onError: { (error) in
+            self.delegate?.onApiErrorHandle(apiError: error as! APIError, handleType: .alert)
+            self.delegate?.onCompletedLoadingHandle()
+        }).disposed(by: dispose)
+    }
 
     private func processNotificationResponse(model:NoticeResponse) -> [NotiItem] {
         var items:[NotiItem] = []

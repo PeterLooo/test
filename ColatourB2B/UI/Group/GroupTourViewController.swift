@@ -20,6 +20,7 @@ class GroupTourViewController: BaseViewController {
     @IBOutlet weak var stackView: UIStackView!
     private var presenter: GropeTourPresenter?
     private var groupTableViews: [GroupTableView] = []
+    private var needUpdateBannerImage = false
     private var menuList : GroupMenuResponse? {
         didSet{
             setNavIcon()
@@ -46,6 +47,7 @@ class GroupTourViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        needUpdateBannerImage = true
         getApiToken()
     }
     
@@ -67,7 +69,7 @@ class GroupTourViewController: BaseViewController {
         stackView.subviews.forEach({$0.removeFromSuperview()})
         for _ in 0...2 {
             let view = GroupTableView()
-            view.setViewWith(itemList: [])
+            view.setViewWith(itemList: [], needUpdateBannerImage: needUpdateBannerImage)
             view.delegate = self
             
             stackView.addArrangedSubview(view)
@@ -146,7 +148,7 @@ class GroupTourViewController: BaseViewController {
             self.onPopContactVC()
         }))
         alert.addAction(UIAlertAction(title: "聯絡業務" , style: .default, handler: { (_) in
-            self.onPopContactVC()
+            self.contactSales()
         }))
         alert.addAction(UIAlertAction(title: "取消", style: .cancel))
 
@@ -213,6 +215,10 @@ class GroupTourViewController: BaseViewController {
         ()
     }
     
+    private func contactSales(){
+        ()
+    }
+    
     @objc private func onTouchSearch(){
         ()
     }
@@ -253,11 +259,11 @@ extension GroupTourViewController: GropeTourViewProtocol {
     func onBindTourIndex(moduleDataList: [IndexResponse.MultiModule], tourType: TourType) {
         switch tourType {
         case .tour:
-            self.groupTableViews[0].setViewWith(itemList: moduleDataList)
+            self.groupTableViews[0].setViewWith(itemList: moduleDataList, needUpdateBannerImage: needUpdateBannerImage)
         case .taichung:
-            self.groupTableViews[1].setViewWith(itemList: moduleDataList)
+            self.groupTableViews[1].setViewWith(itemList: moduleDataList, needUpdateBannerImage: needUpdateBannerImage)
         case .kaohsiung:
-            self.groupTableViews[2].setViewWith(itemList: moduleDataList)
+            self.groupTableViews[2].setViewWith(itemList: moduleDataList, needUpdateBannerImage: needUpdateBannerImage)
         
         }
     }
@@ -269,6 +275,10 @@ extension GroupTourViewController: GropeTourViewProtocol {
     
     func onBindApiTokenComplete() {
         
+        presenter?.getAccessToken()
+    }
+    
+    func onBindAccessTokenSuccess() {
         getGroupMenu()
         //getVersionRule()
         NotificationCenter.default.post(name: Notification.Name("getUnreadCount"), object: nil)

@@ -12,9 +12,13 @@ protocol NoticeViewProtocol: BaseViewProtocol {
     
     func onBindNoticeListComplete(noticeList: [NotiItem])
     func onBindNewsListComplete(newsList: [NotiItem])
+    func onBindImportantComplete(importantList: [NotiItem])
+    func onBindSetNotiRead()
 }
 
 protocol NoticePresenterProtocol: BasePresenterProtocol {
     func getNoticeList(pageIndex:Int, handleType: APILoadingHandleType)
     func getNewsList(pageIndex:Int, handleType: APILoadingHandleType)
+    func getImportantList(pageIndex:Int, handleType: APILoadingHandleType)
+    func setNoticeRead(noticeIdList: [String])
 }

@@ -39,11 +39,20 @@ class NoticeViewController: BaseViewController {
             }
         }
     }
+    private var importantList: [NotiItem] = [] {
+        didSet{
+            self.orderUnreadHint.isHidden = true
+            if let _ = importantList.filter({$0.unreadMark == true}).first {
+                self.orderUnreadHint.isHidden = false
+            }
+        }
+    }
     private var tableViews:[NotificationTableView] = []
-    private var pageSize = 5
+    private var pageSize = 10
     private var isNotiLastPage = false
     private var isNewsLastPage = false
-    
+    private var isImportantLastPage = false
+    private var needReloadData = true
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         self.presenter = NoticePresenter(delegate: self)
@@ -51,22 +60,33 @@ class NoticeViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.reLoadData), name: Notification.Name("noticeLoadDate"), object: nil)
         setIsNavShadowEnable(false)
         setNavTitle(title: "通知")
         switchPageButton(toPage: 0)
         setTableView()
-        loadData()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if needReloadData {
+            loadData()
+            needReloadData = false
+        }
     }
     
     override func loadData() {
         super.loadData()
         isNotiLastPage = false
         isNewsLastPage = false
+        isImportantLastPage = false
         noticeList = []
         newsList = []
+        importantList = []
         presenter?.getNoticeList(pageIndex: 1, handleType: .coverPlate)
         presenter?.getNewsList(pageIndex: 1, handleType: .coverPlate)
+        presenter?.getImportantList(pageIndex: 1, handleType: .coverPlate)
     }
     
     private func setTableView() {
@@ -75,7 +95,7 @@ class NoticeViewController: BaseViewController {
             let view = NotificationTableView()
             switch i {
             case 0:
-                view.setViewWith(itemList: [], notiType: .order)
+                view.setViewWith(itemList: [], notiType: .important)
             case 1:
                 view.setViewWith(itemList: [], notiType: .noti)
             case 2:
@@ -87,6 +107,10 @@ class NoticeViewController: BaseViewController {
             stackView.addArrangedSubview(view)
             tableViews.append(view)
         }
+    }
+    
+    @objc private func reLoadData() {
+        needReloadData = true
     }
     
     @IBAction func onTouchTopTag(_ sender: UIButton) {
@@ -148,14 +172,18 @@ class NoticeViewController: BaseViewController {
 }
 
 extension NoticeViewController: NoticeViewProtocol {
-    func onBindNewsListComplete(newsList: [NotiItem]) {
-        if self.newsList == [] {
-            self.newsList = newsList
+    func onBindSetNotiRead() {
+        NotificationCenter.default.post(name: Notification.Name("getUnreadCount"), object: nil)
+    }
+    
+    func onBindImportantComplete(importantList: [NotiItem]) {
+        if self.importantList == [] {
+            self.importantList = importantList
         }else{
-            self.newsList += newsList
+            self.importantList += importantList
         }
-        isNewsLastPage = newsList.count < pageSize
-        tableViews[2].setViewWith(itemList: newsList, notiType: .news)
+        isImportantLastPage = newsList.count < pageSize
+        tableViews[0].setViewWith(itemList: self.importantList, notiType: .important)
     }
     
     func onBindNoticeListComplete(noticeList: [NotiItem]) {
@@ -169,7 +197,17 @@ extension NoticeViewController: NoticeViewProtocol {
         tableViews[1].setViewWith(itemList: self.noticeList, notiType: .noti)
     }
     
+    func onBindNewsListComplete(newsList: [NotiItem]) {
+        if self.newsList == [] {
+            self.newsList = newsList
+        }else{
+            self.newsList += newsList
+        }
+        isNewsLastPage = newsList.count < pageSize
+        tableViews[2].setViewWith(itemList: self.newsList, notiType: .news)
+    }
 }
+
 extension NoticeViewController: NotificationTableViewProtocol {
     func pullRefresh(notiType: NotiType) {
         switch notiType {
@@ -182,9 +220,10 @@ extension NoticeViewController: NotificationTableViewProtocol {
             isNewsLastPage = false
             self.newsList = []
             self.presenter?.getNewsList(pageIndex: 1, handleType: .coverPlateAlpha)
-            
-        default:
-            ()
+        case .important:
+            isImportantLastPage = false
+            self.importantList = []
+            self.presenter?.getImportantList(pageIndex: 1, handleType: .coverPlateAlpha)
         }
     }
     
@@ -193,20 +232,25 @@ extension NoticeViewController: NotificationTableViewProtocol {
         case .noti:
             if isNotiLastPage {return}
             if self.noticeList.count % pageSize == 0 {
-                self.presenter?.getNoticeList(pageIndex: (self.noticeList.count / 5) + 1, handleType: .ignore)
+                self.presenter?.getNoticeList(pageIndex: (self.noticeList.count / 10) + 1, handleType: .ignore)
             }
         case .news:
             if isNewsLastPage {return}
             if self.newsList.count % pageSize == 0 {
-                self.presenter?.getNewsList(pageIndex: (self.newsList.count / 5) + 1, handleType: .ignore)
+                self.presenter?.getNewsList(pageIndex: (self.newsList.count / 10) + 1, handleType: .ignore)
             }
-            
-        default:
-            ()
+        case .important:
+            if isImportantLastPage {return}
+            if self.importantList.count % pageSize == 0 {
+                self.presenter?.getImportantList(pageIndex: (self.importantList.count / 10) + 1, handleType: .ignore)
+            }
         }
     }
     
     func onTouchNoti(item: NotiItem) {
+        if item.unreadMark == true {
+            presenter?.setNoticeRead(noticeIdList: [item.notiId!])
+        }
         if item.notiType == "Message" {
             let vc = self.getVC(st: "NoticeDetail", vc: "NoticeDetailViewController") as! NoticeDetailViewController
             vc.setVCwith(navTitle: item.notiTitle,
@@ -218,6 +262,7 @@ extension NoticeViewController: NotificationTableViewProtocol {
                          groupNo: nil)
             self.navigationController?.pushViewController(vc, animated: true)
         } else {
+            
             handleLinkType(linkType: item.linkType!, linkValue: item.linkValue, linkText: nil)
         }
     }
