@@ -440,6 +440,10 @@ extension BaseViewController: MemberLoginOnTouchNavCloseProtocol {
     }
 }
 extension BaseViewController: BaseViewProtocol {
+    func onTouchService() {
+        // To Serviec VC
+    }
+    
     func onBindAccessWebUrl(url: String, title: String) {
         let vc = getVC(st: "Common", vc: "WebViewController") as! WebViewController
         vc.setVCwith(url: url, title: title)
@@ -639,7 +643,11 @@ extension BaseViewController {
             self.apiFailErrorView.isHidden = false
         case .alert:
             let alertSeverError: UIAlertController = UIAlertController(title: title, message: msg, preferredStyle: .alert)
-            let action = UIAlertAction(title: "確定", style: UIAlertAction.Style.default, handler: nil)
+            let actions = UIAlertAction(title: "聯絡客服", style: .default) { (_) in
+                self.onTouchService()
+            }
+            alertSeverError.addAction(actions)
+            let action = UIAlertAction(title: "稍後再試", style: UIAlertAction.Style.default, handler: nil)
             alertSeverError.addAction(action)
             self.present(alertSeverError, animated: true)
         case .toast:

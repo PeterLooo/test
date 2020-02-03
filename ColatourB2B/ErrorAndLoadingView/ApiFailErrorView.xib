@@ -11,8 +11,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ApiFailErrorView" customModule="ColatourB2B" customModuleProvider="target">
             <connections>
-                <outlet property="bottomReload" destination="hmK-Pi-hH3" id="cbh-lT-KSB"/>
-                <outlet property="bottomService" destination="zdY-YV-12W" id="sui-n6-prS"/>
                 <outlet property="midReload" destination="lIK-CU-kuH" id="KiA-P0-fyF"/>
                 <outlet property="midService" destination="dCm-yc-zCK" id="58H-6x-FjW"/>
             </connections>
@@ -23,64 +21,16 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="error" translatesAutoresizingMaskIntoConstraints="NO" id="HW5-mz-LI2">
-                    <rect key="frame" x="163.5" y="134" width="48" height="46"/>
+                    <rect key="frame" x="139.5" y="134" width="96" height="92"/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="連線異常請重新嘗試或聯絡客服" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9yu-67-Ihk">
-                    <rect key="frame" x="0.0" y="196" width="375" height="21"/>
+                    <rect key="frame" x="0.0" y="242" width="375" height="21"/>
                     <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="15"/>
                     <color key="textColor" red="0.43137254901960786" green="0.43137254901960786" blue="0.43137254901960786" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r0a-p1-ena">
-                    <rect key="frame" x="0.0" y="609" width="375" height="58"/>
-                    <subviews>
-                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="GWV-vy-MJu">
-                            <rect key="frame" x="16" y="8" width="343" height="42"/>
-                            <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zdY-YV-12W">
-                                    <rect key="frame" x="0.0" y="0.0" width="168.5" height="42"/>
-                                    <color key="tintColor" name="通用綠"/>
-                                    <state key="normal" title="聯絡客服"/>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                            <integer key="value" value="21"/>
-                                        </userDefinedRuntimeAttribute>
-                                    </userDefinedRuntimeAttributes>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hmK-Pi-hH3">
-                                    <rect key="frame" x="174.5" y="0.0" width="168.5" height="42"/>
-                                    <color key="backgroundColor" name="按鈕背景綠"/>
-                                    <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="15"/>
-                                    <state key="normal" title="重新載入">
-                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </state>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                            <integer key="value" value="21"/>
-                                        </userDefinedRuntimeAttribute>
-                                    </userDefinedRuntimeAttributes>
-                                </button>
-                            </subviews>
-                        </stackView>
-                    </subviews>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                    <constraints>
-                        <constraint firstAttribute="bottom" secondItem="GWV-vy-MJu" secondAttribute="bottom" constant="8" id="1Dq-Ki-vgc"/>
-                        <constraint firstAttribute="trailing" secondItem="GWV-vy-MJu" secondAttribute="trailing" constant="16" id="2Vw-oB-FF0"/>
-                        <constraint firstAttribute="height" constant="58" id="2XQ-rr-FzQ"/>
-                        <constraint firstItem="GWV-vy-MJu" firstAttribute="top" secondItem="r0a-p1-ena" secondAttribute="top" constant="8" id="7jh-1Y-cwn"/>
-                        <constraint firstItem="GWV-vy-MJu" firstAttribute="leading" secondItem="r0a-p1-ena" secondAttribute="leading" constant="16" id="skZ-lW-v5N"/>
-                    </constraints>
-                </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jXD-fT-FtT">
-                    <rect key="frame" x="0.0" y="608" width="375" height="1"/>
-                    <color key="backgroundColor" name="底線灰"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="1" id="Z3b-k3-vY0"/>
-                    </constraints>
-                </view>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="RpI-PI-mkp">
-                    <rect key="frame" x="62" y="277" width="251" height="96"/>
+                    <rect key="frame" x="62" y="323" width="251" height="96"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lIK-CU-kuH">
                             <rect key="frame" x="0.0" y="0.0" width="251" height="42"/>
@@ -120,15 +70,9 @@
                 <constraint firstItem="9yu-67-Ihk" firstAttribute="centerX" secondItem="oco-pA-bRs" secondAttribute="centerX" id="KSw-oS-dHi"/>
                 <constraint firstItem="oco-pA-bRs" firstAttribute="trailing" secondItem="9yu-67-Ihk" secondAttribute="trailing" id="LB2-T3-2Kv"/>
                 <constraint firstItem="RpI-PI-mkp" firstAttribute="top" secondItem="9yu-67-Ihk" secondAttribute="bottom" constant="60" id="RXn-ad-ihY"/>
-                <constraint firstItem="jXD-fT-FtT" firstAttribute="leading" secondItem="oco-pA-bRs" secondAttribute="leading" id="Rhk-L3-cop"/>
-                <constraint firstItem="oco-pA-bRs" firstAttribute="trailing" secondItem="jXD-fT-FtT" secondAttribute="trailing" id="VvC-Vu-Thl"/>
                 <constraint firstItem="RpI-PI-mkp" firstAttribute="leading" secondItem="oco-pA-bRs" secondAttribute="leading" constant="62" id="ZQk-Mt-iaZ"/>
-                <constraint firstItem="r0a-p1-ena" firstAttribute="leading" secondItem="oco-pA-bRs" secondAttribute="leading" id="cfY-gQ-jGy"/>
-                <constraint firstItem="oco-pA-bRs" firstAttribute="trailing" secondItem="r0a-p1-ena" secondAttribute="trailing" id="dAU-vN-O9a"/>
                 <constraint firstItem="HW5-mz-LI2" firstAttribute="top" secondItem="oco-pA-bRs" secondAttribute="top" constant="134" id="h61-WS-QtG"/>
                 <constraint firstItem="oco-pA-bRs" firstAttribute="trailing" secondItem="RpI-PI-mkp" secondAttribute="trailing" constant="62" id="oh1-ns-aMh"/>
-                <constraint firstItem="r0a-p1-ena" firstAttribute="top" secondItem="jXD-fT-FtT" secondAttribute="bottom" id="wpK-Fg-TQP"/>
-                <constraint firstItem="oco-pA-bRs" firstAttribute="bottom" secondItem="r0a-p1-ena" secondAttribute="bottom" id="wvI-dE-dkS"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="oco-pA-bRs"/>
             <point key="canvasLocation" x="34.399999999999999" y="52.623688155922046"/>
@@ -136,9 +80,6 @@
     </objects>
     <resources>
         <image name="error" width="48" height="46"/>
-        <namedColor name="底線灰">
-            <color red="0.83921568627450982" green="0.83921568627450982" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="按鈕背景綠">
             <color red="0.098039215686274508" green="0.74901960784313726" blue="0.3843137254901961" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

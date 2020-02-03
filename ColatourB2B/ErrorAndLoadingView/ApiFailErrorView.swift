@@ -12,8 +12,6 @@ class ApiFailErrorView: UIView {
     
     weak var delegate: BaseViewProtocol?
     
-    @IBOutlet weak var bottomReload: UIButton!
-    @IBOutlet weak var bottomService: UIButton!
     @IBOutlet weak var midReload: UIButton!
     @IBOutlet weak var midService: UIButton!
     
@@ -45,16 +43,19 @@ class ApiFailErrorView: UIView {
     
     func setUpApiFailErrorView(){
         self.isHidden = true
-        self.bottomReload.addTarget(self, action: #selector(self.onTouchReload), for: .touchUpInside)
         self.midReload.addTarget(self, action: #selector(self.onTouchReload), for: .touchUpInside)
+        self.midService.addTarget(self, action: #selector(self.onTouchService), for: .touchUpInside)
     }
     
     func setButtonBorder(){
-        self.bottomService.setBorder(width: 1, radius: 21, color: UIColor.init(named: "通用綠"))
         self.midService.setBorder(width: 1, radius: 21, color: UIColor.init(named: "通用綠"))
     }
     
     @objc func onTouchReload(){
         self.delegate?.loadData()
+    }
+    
+    @objc func onTouchService(){
+        self.delegate?.onTouchService()
     }
 }
