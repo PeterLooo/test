@@ -9,6 +9,16 @@
 /* Begin PBXBuildFile section */
 		2AF496B423AB7EA50053EA45 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2AF496B323AB7EA50053EA45 /* GoogleService-Info.plist */; };
 		2AF496B623AB7EBB0053EA45 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2AF496B523AB7EBB0053EA45 /* GoogleService-Info.plist */; };
+		3802A18F23C8520C00CD2EF2 /* SalesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3802A18E23C8520C00CD2EF2 /* SalesViewController.swift */; };
+		3802A19023C8520C00CD2EF2 /* SalesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3802A18E23C8520C00CD2EF2 /* SalesViewController.swift */; };
+		3802A19323C8522F00CD2EF2 /* Sales.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3802A19223C8522F00CD2EF2 /* Sales.storyboard */; };
+		3802A19423C8522F00CD2EF2 /* Sales.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3802A19223C8522F00CD2EF2 /* Sales.storyboard */; };
+		3802A19723C8530100CD2EF2 /* SalesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3802A19623C8530100CD2EF2 /* SalesResponse.swift */; };
+		3802A19823C8530100CD2EF2 /* SalesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3802A19623C8530100CD2EF2 /* SalesResponse.swift */; };
+		3802A19B23C8542800CD2EF2 /* SalseInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3802A19923C8542800CD2EF2 /* SalseInfoCell.swift */; };
+		3802A19C23C8542800CD2EF2 /* SalseInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3802A19923C8542800CD2EF2 /* SalseInfoCell.swift */; };
+		3802A19D23C8542800CD2EF2 /* SalseInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3802A19A23C8542800CD2EF2 /* SalseInfoCell.xib */; };
+		3802A19E23C8542800CD2EF2 /* SalseInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3802A19A23C8542800CD2EF2 /* SalseInfoCell.xib */; };
 		3817E4F723A33C8400ED8609 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3817E4F623A33C8400ED8609 /* AppDelegate.swift */; };
 		3817E4FC23A33C8400ED8609 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3817E4FA23A33C8400ED8609 /* Main.storyboard */; };
 		3817E4FE23A33C8500ED8609 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3817E4FD23A33C8500ED8609 /* Assets.xcassets */; };
@@ -85,6 +95,11 @@
 		387FBF1123ACCF00005412F1 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 387FBF0A23ACCEB7005412F1 /* Login.storyboard */; };
 		387FBF1323ACD047005412F1 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387FBF1223ACD046005412F1 /* CustomTextField.swift */; };
 		387FBF1423ACD047005412F1 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387FBF1223ACD046005412F1 /* CustomTextField.swift */; };
+		38AA8E0723CC4FE600A7EB07 /* Dev_Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 38AA8E0623CC4FE600A7EB07 /* Dev_Info.plist */; };
+		38AFC40323CD51C700983886 /* SalesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AFC40223CD51C700983886 /* SalesProtocol.swift */; };
+		38AFC40423CD51C700983886 /* SalesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AFC40223CD51C700983886 /* SalesProtocol.swift */; };
+		38AFC40623CD521C00983886 /* SalesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AFC40523CD521C00983886 /* SalesPresenter.swift */; };
+		38AFC40723CD521C00983886 /* SalesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AFC40523CD521C00983886 /* SalesPresenter.swift */; };
 		38871EAD23D5553F007ED33D /* IndexResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38871EAC23D5553F007ED33D /* IndexResponse.swift */; };
 		38871EAE23D5553F007ED33D /* IndexResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38871EAC23D5553F007ED33D /* IndexResponse.swift */; };
 		38871EB023D55D16007ED33D /* GroupTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38871EAF23D55D16007ED33D /* GroupTableView.swift */; };
@@ -314,6 +329,12 @@
 		2AF496B023AB79810053EA45 /* ColatourB2BDev.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ColatourB2BDev.entitlements; sourceTree = "<group>"; };
 		2AF496B323AB7EA50053EA45 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2AF496B523AB7EBB0053EA45 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3802A18E23C8520C00CD2EF2 /* SalesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalesViewController.swift; sourceTree = "<group>"; };
+		3802A19223C8522F00CD2EF2 /* Sales.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Sales.storyboard; sourceTree = "<group>"; };
+		3802A19623C8530100CD2EF2 /* SalesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalesResponse.swift; sourceTree = "<group>"; };
+		3802A19923C8542800CD2EF2 /* SalseInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalseInfoCell.swift; sourceTree = "<group>"; };
+		3802A19A23C8542800CD2EF2 /* SalseInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SalseInfoCell.xib; sourceTree = "<group>"; };
+		3817E4F323A33C8400ED8609 /* ColatourB2B.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColatourB2B.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3817E4F323A33C8400ED8609 /* 可樂旅遊B2B.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "可樂旅遊B2B.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3817E4F623A33C8400ED8609 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3817E4FB23A33C8400ED8609 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -362,6 +383,9 @@
 		387FBF0A23ACCEB7005412F1 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		387FBF0E23ACCEF4005412F1 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		387FBF1223ACD046005412F1 /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		38AA8E0623CC4FE600A7EB07 /* Dev_Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Dev_Info.plist; sourceTree = "<group>"; };
+		38AFC40223CD51C700983886 /* SalesProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalesProtocol.swift; sourceTree = "<group>"; };
+		38AFC40523CD521C00983886 /* SalesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalesPresenter.swift; sourceTree = "<group>"; };
 		38871EAC23D5553F007ED33D /* IndexResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexResponse.swift; sourceTree = "<group>"; };
 		38871EAF23D55D16007ED33D /* GroupTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTableView.swift; sourceTree = "<group>"; };
 		38871EB223D55E2F007ED33D /* GroupIndexHeaderImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupIndexHeaderImageCell.swift; sourceTree = "<group>"; };
@@ -512,6 +536,7 @@
 			isa = PBXGroup;
 			children = (
 				2AF496B523AB7EBB0053EA45 /* GoogleService-Info.plist */,
+				38AA8E0623CC4FE600A7EB07 /* Dev_Info.plist */,
 			);
 			path = ColatourB2BDev;
 			sourceTree = "<group>";
@@ -522,6 +547,34 @@
 				2AF496B323AB7EA50053EA45 /* GoogleService-Info.plist */,
 			);
 			path = ColatourB2BProd;
+			sourceTree = "<group>";
+		};
+		3802A18D23C8517C00CD2EF2 /* Sales */ = {
+			isa = PBXGroup;
+			children = (
+				38AFC40223CD51C700983886 /* SalesProtocol.swift */,
+				38AFC40523CD521C00983886 /* SalesPresenter.swift */,
+				3802A18E23C8520C00CD2EF2 /* SalesViewController.swift */,
+				3802A19923C8542800CD2EF2 /* SalseInfoCell.swift */,
+				3802A19A23C8542800CD2EF2 /* SalseInfoCell.xib */,
+			);
+			path = Sales;
+			sourceTree = "<group>";
+		};
+		3802A19123C8521F00CD2EF2 /* Salse */ = {
+			isa = PBXGroup;
+			children = (
+				3802A19223C8522F00CD2EF2 /* Sales.storyboard */,
+			);
+			path = Salse;
+			sourceTree = "<group>";
+		};
+		3802A19523C852F000CD2EF2 /* Salse */ = {
+			isa = PBXGroup;
+			children = (
+				3802A19623C8530100CD2EF2 /* SalesResponse.swift */,
+			);
+			path = Salse;
 			sourceTree = "<group>";
 		};
 		380C151223BD92B1008B4501 /* AirTicket */ = {
@@ -788,6 +841,7 @@
 		38BCDA2123A3760000D59910 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				3802A18D23C8517C00CD2EF2 /* Sales */,
 				C74FC80623C5AF1400E2250D /* Notice */,
 				385B54F223BDC1D900BE1476 /* Notification */,
 				380C151223BD92B1008B4501 /* AirTicket */,
@@ -818,6 +872,7 @@
 		38BCDA2323A3766100D59910 /* StroyBoard */ = {
 			isa = PBXGroup;
 			children = (
+				3802A19123C8521F00CD2EF2 /* Salse */,
 				C74FC7FF23C5AEC100E2250D /* Notice */,
 				38E68AB923B5AE30006BC4DD /* Common */,
 				387FBF0923ACCE7C005412F1 /* Member */,
@@ -842,6 +897,7 @@
 		38BCDA3123A37FDA00D59910 /* Response */ = {
 			isa = PBXGroup;
 			children = (
+				3802A19523C852F000CD2EF2 /* Salse */,
 				C7BBF4C623C704A500023307 /* Notice */,
 				382ADF1723C5CF2A00E886B4 /* Notification */,
 				3833F41D23B9EA96003B26EF /* Group */,
@@ -1117,6 +1173,7 @@
 				3869544023BB002900F6E7D9 /* MemberIndexVersionCell.xib in Resources */,
 				382FD59F23D8038C001FF38E /* BottomLoadingView.xib in Resources */,
 				387FBEFD23ACA2A7005412F1 /* Notice.storyboard in Resources */,
+				3802A19323C8522F00CD2EF2 /* Sales.storyboard in Resources */,
 				38871EB623D55E2F007ED33D /* GroupIndexHeaderImageCell.xib in Resources */,
 				38E68AC123B5AE30006BC4DD /* Common.storyboard in Resources */,
 				38E68ABD23B5AE30006BC4DD /* SelectOption.storyboard in Resources */,
@@ -1128,6 +1185,7 @@
 				3869543423BAE5F500F6E7D9 /* MemberTopCell.xib in Resources */,
 				38BCDA0F23A367D000D59910 /* NoInternetErrorView.xib in Resources */,
 				38BCDA0B23A367D000D59910 /* ApiFailErrorView.xib in Resources */,
+				3802A19D23C8542800CD2EF2 /* SalseInfoCell.xib in Resources */,
 				385B54FA23BDC4C800BE1476 /* NotificationItemCell.xib in Resources */,
 				381B12B823C48D440030BACE /* GroupNavigationView.xib in Resources */,
 				3817E4FE23A33C8500ED8609 /* Assets.xcassets in Resources */,
@@ -1171,17 +1229,20 @@
 				3869544123BB002900F6E7D9 /* MemberIndexVersionCell.xib in Resources */,
 				382FD5A023D8038C001FF38E /* BottomLoadingView.xib in Resources */,
 				387FBEFE23ACA2A7005412F1 /* Notice.storyboard in Resources */,
+				3802A19423C8522F00CD2EF2 /* Sales.storyboard in Resources */,
 				38871EB723D55E2F007ED33D /* GroupIndexHeaderImageCell.xib in Resources */,
 				38E68AC223B5AE30006BC4DD /* Common.storyboard in Resources */,
 				38E68ABE23B5AE30006BC4DD /* SelectOption.storyboard in Resources */,
 				38BCDA0823A367D000D59910 /* LoadingView.xib in Resources */,
 				38BCDA2D23A37B5D00D59910 /* MemberIndex.storyboard in Resources */,
+				38AA8E0723CC4FE600A7EB07 /* Dev_Info.plist in Resources */,
 				38E68AB023B5AB80006BC4DD /* GroupSliderItemCell.xib in Resources */,
 				387FBEF823ACA201005412F1 /* AirTicket.storyboard in Resources */,
 				387FBF0423ACA327005412F1 /* More.storyboard in Resources */,
 				3869543523BAE5F500F6E7D9 /* MemberTopCell.xib in Resources */,
 				38BCDA1023A367D000D59910 /* NoInternetErrorView.xib in Resources */,
 				38BCDA0C23A367D000D59910 /* ApiFailErrorView.xib in Resources */,
+				3802A19E23C8542800CD2EF2 /* SalseInfoCell.xib in Resources */,
 				385B54FB23BDC4C800BE1476 /* NotificationItemCell.xib in Resources */,
 				381B12B923C48D440030BACE /* GroupNavigationView.xib in Resources */,
 				3817E52B23A33C9500ED8609 /* Assets.xcassets in Resources */,
@@ -1352,11 +1413,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38AFC40323CD51C700983886 /* SalesProtocol.swift in Sources */,
 				3869543823BAF85900F6E7D9 /* MemberIndexServiceCell.swift in Sources */,
 				38BCD94223A346B800D59910 /* APILoadingHandleType.swift in Sources */,
 				C7BBF4C423C7045600023307 /* NoticeDetailRepository.swift in Sources */,
 				38BCD9CD23A3648B00D59910 /* BaseModelProtocol.swift in Sources */,
 				38E9922723B053A200E28271 /* LoginProtocol.swift in Sources */,
+				3802A19B23C8542800CD2EF2 /* SalseInfoCell.swift in Sources */,
 				38BCD97723A3484300D59910 /* NSObjectExtension.swift in Sources */,
 				38871EB423D55E2F007ED33D /* GroupIndexHeaderImageCell.swift in Sources */,
 				38871EB023D55D16007ED33D /* GroupTableView.swift in Sources */,
@@ -1380,6 +1443,7 @@
 				38BCDA0D23A367D000D59910 /* LoadingView.swift in Sources */,
 				3848DA7E23C7289A00EA0ED0 /* NoticePresenter.swift in Sources */,
 				38BCD91C23A3457900D59910 /* AccountRepository.swift in Sources */,
+				38AFC40623CD521C00983886 /* SalesPresenter.swift in Sources */,
 				38BCDA1B23A36AC100D59910 /* TabBarProtocol.swift in Sources */,
 				38BCD9D023A3652200D59910 /* VerifyModel.swift in Sources */,
 				38E68AB723B5AC12006BC4DD /* GroupMenuResponse.swift in Sources */,
@@ -1454,10 +1518,12 @@
 				38BCD94623A346B800D59910 /* APIDefine.swift in Sources */,
 				C74FC80423C5AF0E00E2250D /* NoticeDetailViewController.swift in Sources */,
 				38BCD97523A3484300D59910 /* UIColorExtension.swift in Sources */,
+				3802A18F23C8520C00CD2EF2 /* SalesViewController.swift in Sources */,
 				38BCDA0323A367D000D59910 /* ApiFailErrorView.swift in Sources */,
 				38BCDA2F23A37B7100D59910 /* MemberIndexViewController.swift in Sources */,
 				38871EAD23D5553F007ED33D /* IndexResponse.swift in Sources */,
 				38BCD93E23A346B800D59910 /* APIError.swift in Sources */,
+				3802A19723C8530100CD2EF2 /* SalesResponse.swift in Sources */,
 				38BCD95123A3471600D59910 /* FirebaseCrashManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1482,11 +1548,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38AFC40423CD51C700983886 /* SalesProtocol.swift in Sources */,
 				3869543923BAF85900F6E7D9 /* MemberIndexServiceCell.swift in Sources */,
 				38BCD94323A346B800D59910 /* APILoadingHandleType.swift in Sources */,
 				C7BBF4C523C7045600023307 /* NoticeDetailRepository.swift in Sources */,
 				38BCD9CE23A3648B00D59910 /* BaseModelProtocol.swift in Sources */,
 				38E9922823B053A200E28271 /* LoginProtocol.swift in Sources */,
+				3802A19C23C8542800CD2EF2 /* SalseInfoCell.swift in Sources */,
 				38BCD97823A3484300D59910 /* NSObjectExtension.swift in Sources */,
 				38871EB523D55E2F007ED33D /* GroupIndexHeaderImageCell.swift in Sources */,
 				38871EB123D55D16007ED33D /* GroupTableView.swift in Sources */,
@@ -1510,6 +1578,7 @@
 				38BCDA0E23A367D000D59910 /* LoadingView.swift in Sources */,
 				3848DA7F23C7289A00EA0ED0 /* NoticePresenter.swift in Sources */,
 				38BCD91D23A3457900D59910 /* AccountRepository.swift in Sources */,
+				38AFC40723CD521C00983886 /* SalesPresenter.swift in Sources */,
 				38BCDA1C23A36AC100D59910 /* TabBarProtocol.swift in Sources */,
 				38BCD9D123A3652200D59910 /* VerifyModel.swift in Sources */,
 				38E68AB823B5AC12006BC4DD /* GroupMenuResponse.swift in Sources */,
@@ -1584,10 +1653,12 @@
 				38BCD94723A346B800D59910 /* APIDefine.swift in Sources */,
 				C74FC80523C5AF0E00E2250D /* NoticeDetailViewController.swift in Sources */,
 				38BCD97623A3484300D59910 /* UIColorExtension.swift in Sources */,
+				3802A19023C8520C00CD2EF2 /* SalesViewController.swift in Sources */,
 				38BCDA0423A367D000D59910 /* ApiFailErrorView.swift in Sources */,
 				38BCDA3023A37B7100D59910 /* MemberIndexViewController.swift in Sources */,
 				38871EAE23D5553F007ED33D /* IndexResponse.swift in Sources */,
 				38BCD93F23A346B800D59910 /* APIError.swift in Sources */,
+				3802A19823C8530100CD2EF2 /* SalesResponse.swift in Sources */,
 				38BCD95223A3471600D59910 /* FirebaseCrashManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1881,7 +1952,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 83357CEQAU;
-				INFOPLIST_FILE = "ColatourB2B copy-Info.plist";
+				INFOPLIST_FILE = ColatourB2B/ColatourB2BDev/Dev_Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

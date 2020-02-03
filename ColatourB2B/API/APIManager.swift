@@ -240,6 +240,10 @@ extension APIManager {
         return manager(method: .get, appendUrl: "", url: toolBarType.getApiUrl(), parameters: nil, appendHeaders: nil)
     }
     
+    func getSalesList() -> Single<[String:Any]> {
+        return manager(method: .get, appendUrl: "", url: APIUrl.portalApi(type: .serviceTourWindowList), parameters: nil, appendHeaders: nil)
+    }
+    
     func getNoticeDetail(noticeNo: String) -> Single<[String:Any]> {
         let parameters = ["Noti_No": noticeNo]
         //Note: 待API提供正確路徑

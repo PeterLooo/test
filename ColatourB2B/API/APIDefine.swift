@@ -63,14 +63,15 @@ enum APIUrl {
             return APIUrl.AuthApi.urlWith(type: self, append: append)
         }
     }
-    
+
     enum PortalApi: String {
-        case groupTourIndex   = "Tour/首頁1"
-        case groupTaichungIndex   = "Taichung/首頁1"
-        case groupKaohsiungIndex   = "Kaohsiung/首頁1"
-        
+        case groupTourIndex   = "/Portal/Tour/首頁1"
+        case groupTaichungIndex   = "/Portal/Taichung/首頁1"
+        case groupKaohsiungIndex   = "/Portal/Kaohsiung/首頁1"
+        case serviceTourWindowList   = "/Service/Tour/WindowList"
+
         static func urlWith(type: PortalApi, append: String) -> String {
-            let base =  PORTAL_WEB_HOST + "/Portal/"
+            let base =  PORTAL_WEB_HOST
             return "\(base)\(type.rawValue)\(append)"
         }
         
@@ -82,14 +83,14 @@ enum APIUrl {
             return APIUrl.PortalApi.urlWith(type: self, append: append)
         }
     }
-    
+
     enum BulletinApi: String{
         
         case bulletin = "AutoDispalyBulletin"
         case noticeBulletin = ""
         
         static func urlWith(type: BulletinApi, append: String) -> String {
-            let base =  PORTAL_WEB_HOST + "/Bulletin/"
+            let base = PORTAL_WEB_HOST + "/Bulletin/"
             return "\(base)\(type.rawValue)\(append)"
         }
         func url () -> String {
