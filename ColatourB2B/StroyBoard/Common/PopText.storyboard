@@ -17,6 +17,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SoU-KT-bZA">
+                                <rect key="frame" x="0.0" y="-1000" width="414" height="1000"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1000" id="tcT-uF-Zqw"/>
+                                </constraints>
+                            </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PfA-ee-78o">
                                 <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                                 <subviews>
@@ -130,15 +137,19 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="SoU-KT-bZA" firstAttribute="leading" secondItem="z6x-Cg-9dM" secondAttribute="leading" id="FK6-b7-fA6"/>
+                            <constraint firstAttribute="trailing" secondItem="SoU-KT-bZA" secondAttribute="trailing" id="Q0T-x0-3zR"/>
                             <constraint firstItem="PfA-ee-78o" firstAttribute="trailing" secondItem="fvF-Yy-RG6" secondAttribute="trailing" id="Qbd-bL-u3g"/>
                             <constraint firstItem="PfA-ee-78o" firstAttribute="top" secondItem="fvF-Yy-RG6" secondAttribute="top" id="ZhT-s5-tfg"/>
                             <constraint firstItem="ZUy-cQ-zAA" firstAttribute="width" secondItem="z6x-Cg-9dM" secondAttribute="width" id="fxz-P1-lMQ"/>
                             <constraint firstItem="PfA-ee-78o" firstAttribute="leading" secondItem="fvF-Yy-RG6" secondAttribute="leading" id="lau-gi-et0"/>
                             <constraint firstAttribute="bottom" secondItem="PfA-ee-78o" secondAttribute="bottom" id="wmF-QM-Y1B"/>
+                            <constraint firstAttribute="top" secondItem="SoU-KT-bZA" secondAttribute="bottom" id="zU9-u1-J4q"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fvF-Yy-RG6"/>
                     </view>
                     <connections>
+                        <outlet property="aboveBackgroundView" destination="SoU-KT-bZA" id="n34-sC-pP5"/>
                         <outlet property="bottomButton" destination="iNV-Xf-ERr" id="jhZ-Cg-3XR"/>
                         <outlet property="cardView" destination="ZUy-cQ-zAA" id="Z38-nT-iuL"/>
                         <outlet property="cardViewTop" destination="juG-j5-4bc" id="ciP-TJ-6JL"/>
@@ -156,9 +167,6 @@
     </scenes>
     <resources>
         <image name="close" width="14" height="14"/>
-        <namedColor name="標題黑">
-            <color red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="標題黑">
             <color red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

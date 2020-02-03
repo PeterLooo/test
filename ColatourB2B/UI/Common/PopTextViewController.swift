@@ -9,6 +9,7 @@
 import UIKit
 
 protocol PopTextViewControllerProtocol: NSObjectProtocol {
+    //Note: 提供客製化點擊底下按鈕後事件
     func onTouchBottomButton()
 }
 
@@ -21,6 +22,7 @@ class PopTextViewController: BaseViewController {
     @IBOutlet weak var textViewHeight: NSLayoutConstraint!
     @IBOutlet weak var cardView: UIView!
     @IBOutlet weak var navBar: UINavigationBar!
+    @IBOutlet weak var aboveBackgroundView: UIView!
     
     private var text: String?
     private var navTitle: String?
@@ -62,14 +64,15 @@ class PopTextViewController: BaseViewController {
     }
     
     @IBAction func onTouchClose(_ sender: UIBarButtonItem) {
-        self.dismiss(animated: true, completion: nil)
+        dismiss()
     }
     
     @IBAction func onTouchBackgroundButton(_ sender: UIButton) {
-        self.dismiss(animated: true, completion: nil)
+        dismiss()
     }
     
     @IBAction func onTouchBottomButton(_ sender: UIButton) {
+        dismiss()
         delegate?.onTouchBottomButton()
     }
     
@@ -78,6 +81,17 @@ class PopTextViewController: BaseViewController {
             isFadeInBefore = true
             UIView.animate(withDuration: 0.5, animations: {
                 self.view.backgroundColor = ColorHexUtil.hexColor(hex: "#6e6e6e").withAlphaComponent(0.5)
+                self.aboveBackgroundView.backgroundColor = ColorHexUtil.hexColor(hex: "#6e6e6e").withAlphaComponent(0.5)
+            }, completion:nil)
+        }
+    }
+    
+    func fadeOutBackgroundColor(){
+        if isFadeInBefore == true {
+            isFadeInBefore = false
+            UIView.animate(withDuration: 0.5, animations: {
+                self.view.backgroundColor = UIColor.clear
+                self.aboveBackgroundView.backgroundColor = UIColor.clear
             }, completion:nil)
         }
     }
@@ -100,6 +114,11 @@ class PopTextViewController: BaseViewController {
         countTextView.sizeToFit()
         return countTextView.frame.height
     }
+    
+    private func dismiss(){
+        fadeOutBackgroundColor()
+        self.dismiss(animated: true, completion: nil)
+    }
 }
 
 extension PopTextViewController: UIScrollViewDelegate {
@@ -109,7 +128,7 @@ extension PopTextViewController: UIScrollViewDelegate {
         let criticalVelocityY: CGFloat = -0.8
         let criticalContentY: CGFloat = 0
         if (velocity.y < criticalVelocityY) && (scrollView.contentOffset.y < criticalContentY) {
-            self.dismiss(animated: true, completion: nil)
+            dismiss()
         }
         
         if scrollView == textView { return }

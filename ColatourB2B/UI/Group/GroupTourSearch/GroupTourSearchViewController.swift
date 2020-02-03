@@ -54,6 +54,7 @@ class GroupTourSearchViewController: BaseViewController {
     @IBOutlet weak var groupTourPageView: UIView!
     @IBOutlet weak var keywrodOrTourCodePageView: UIView!
     
+    @IBOutlet weak var aboveBackgroundView: UIView!
     @IBOutlet weak var groupTourTableView: UITableView!
     @IBOutlet weak var keywordOrTourCodeTableView: UITableView!
     
@@ -425,7 +426,7 @@ class GroupTourSearchViewController: BaseViewController {
 
 extension GroupTourSearchViewController: PopTextViewControllerProtocol {
     func onTouchBottomButton() {
-        self.dismiss(animated: true, completion: nil)
+        ()
     }
 }
 
