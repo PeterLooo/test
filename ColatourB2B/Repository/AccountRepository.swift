@@ -150,6 +150,14 @@ class AccountRepository: NSObject {
             .map{ VersionRuleReponse(JSON: $0)!.update}
     }
     
+    func memberLogout() -> Single<Any> {
+        
+        let api = APIManager.shared.memberLogout()
+        return AccountRepository.shared.getAccessToken()
+            .flatMap{_ in api}
+            .map{BaseModel(JSON: $0)!}
+    }
+    
     func getMemberIndex()-> Single<MemberIndexResponse> {
         let api = APIManager.shared.getMemberIndex()
         return AccountRepository.shared.getAccessToken()

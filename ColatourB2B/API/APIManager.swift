@@ -226,6 +226,10 @@ extension APIManager {
            return manager(method: .post, appendUrl: "", url: APIUrl.authApi(type: .accessWeb), parameters: params, appendHeaders: nil)
        }
     
+    func memberLogout() -> Single<[String:Any]> {
+        return manager(method: .post, appendUrl: "", url: APIUrl.authApi(type: .logout), parameters: nil, appendHeaders: nil)
+    }
+    
     func getMemberIndex()-> Single<[String:Any]> {
         
         return manager(method: .get, appendUrl: "", url: APIUrl.memberApi(type: .memberIndex), parameters: nil, appendHeaders: nil)

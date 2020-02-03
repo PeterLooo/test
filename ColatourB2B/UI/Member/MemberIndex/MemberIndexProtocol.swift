@@ -13,4 +13,5 @@ protocol MemberIndexViewProtocol:BaseViewProtocol {
 
 protocol MemberIndexPresenterProtocol:BasePresenterProtocol {
     func getMemberIndex()
+    func memberLogout()
 }
