@@ -1036,15 +1036,15 @@
 		CC12235523E7AB2C00998678 /* MessageSend */ = {
 			isa = PBXGroup;
 			children = (
-				CC12235623E7AB2C00998678 /* MessageSendProtocol.swift */,
-				CC12235723E7AB2C00998678 /* MessageSendTopicCell.xib */,
-				CC12235823E7AB2C00998678 /* MessageSendContentCell.swift */,
-				CC12235923E7AB2C00998678 /* MessageSendContentCell.xib */,
 				CC12235A23E7AB2C00998678 /* MessageSendViewController.swift */,
+				CC12235623E7AB2C00998678 /* MessageSendProtocol.swift */,
 				CC12235B23E7AB2C00998678 /* MessageSendPresenter.swift */,
 				CC12235C23E7AB2C00998678 /* MessageSendNotificationListCell.xib */,
-				CC12235D23E7AB2C00998678 /* MessageSendTopicCell.swift */,
 				CC12235E23E7AB2C00998678 /* MessageSendNotificationListCell.swift */,
+				CC12235723E7AB2C00998678 /* MessageSendTopicCell.xib */,
+				CC12235D23E7AB2C00998678 /* MessageSendTopicCell.swift */,
+				CC12235923E7AB2C00998678 /* MessageSendContentCell.xib */,
+				CC12235823E7AB2C00998678 /* MessageSendContentCell.swift */,
 			);
 			path = MessageSend;
 			sourceTree = "<group>";

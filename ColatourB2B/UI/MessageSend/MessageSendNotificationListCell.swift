@@ -25,7 +25,9 @@ class MessageSendNotificationListCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        let ges = UITapGestureRecognizer(target: self, action: #selector(checkButtonPressed(_:)))
+        self.addGestureRecognizer(ges)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

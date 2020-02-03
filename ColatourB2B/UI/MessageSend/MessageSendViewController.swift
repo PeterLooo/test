@@ -15,9 +15,10 @@ protocol MessageSendToastDelegate: NSObjectProtocol {
 
 extension MessageSendViewController {
     
-    func setVC(messageSendType: MessageSendType) {
+    func setVC(messageSendType: MessageSendType, navTitle: String) {
         
         self.messageSendType = messageSendType
+        self.navTitle = navTitle
     }
 }
 
@@ -37,6 +38,7 @@ class MessageSendViewController: BaseViewController {
     private var messageSendType: MessageSendType?
     private var messageTopic: String?
     private var messageContent: String?
+    private var navTitle: String?
     
     weak var delegate: MessageSendToastDelegate?
     
@@ -54,7 +56,7 @@ class MessageSendViewController: BaseViewController {
         presenter?.getSendUserList(messageSendType: messageSendType!)
         
         setNavBarItem(left: .custom, mid: .textTitle, right: .nothing)
-        setNavTitle(title: "留言")
+        setNavTitle(title: navTitle!)
         setNavButton()
         
         tableView.delegate = self
@@ -103,7 +105,17 @@ class MessageSendViewController: BaseViewController {
         request.messageTopic = messageTopic
         request.messageText = messageContent
         
-        presenter?.messageSend(messageSendRequest: request)
+        if request.messageTopic == "請填寫" {
+            
+            let alert = UIAlertController(title: "請輸入訊息主旨", message: nil, preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alert.addAction(okAction)
+            
+            present(alert, animated: true, completion: nil)
+        } else {
+            
+            presenter?.messageSend(messageSendRequest: request)
+        }
     }
 }
 
@@ -170,9 +182,14 @@ extension MessageSendViewController: UITableViewDataSource {
     }
 }
 
-extension MessageSendViewController: UITableViewDelegate {
+extension MessageSendViewController: UITableViewDelegate {}
+
+extension MessageSendViewController: UIScrollViewDelegate {
     
-    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        
+        self.view.endEditing(true)
+    }
 }
 
 extension MessageSendViewController: MessageSendNotificationListCellDelegate {
