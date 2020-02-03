@@ -48,7 +48,8 @@ extension SalesViewController: SalseInfoCellProtocol {
     }
     
     func onTouchComment(sales: SalesResponse.Sales) {
-        // To 留言頁
+        
+        self.onPopContactVC(messageSendType: sales.sendType, navTitle: "留言")
     }
     
     func onTouchLine(sales: SalesResponse.Sales) {
@@ -62,6 +63,17 @@ extension SalesViewController: SalseInfoCellProtocol {
         } else {
             //Note: 目前沒安裝的，不需反應
         }
+    }
+    
+    private func onPopContactVC(messageSendType: MessageSendType, navTitle: String){
+    
+        let messageSendViewController = getVC(st: "MessageSend", vc: "MessageSend") as! MessageSendViewController
+        messageSendViewController.setVC(messageSendType: messageSendType, navTitle: navTitle)
+        messageSendViewController.delegate = self
+        
+        let nav = UINavigationController(rootViewController: messageSendViewController)
+        nav.modalPresentationStyle = .fullScreen
+        self.navigationController?.present(nav, animated: true)
     }
 }
 
@@ -79,5 +91,14 @@ extension SalesViewController: UITableViewDataSource {
         cell.setCell(sales: self.salesList[indexPath.row], isFirst: indexPath.row == 0, isLast: indexPath.row == salesList.count - 1)
         cell.delegate = self
         return cell
+    }
+}
+
+extension SalesViewController: MessageSendToastDelegate {
+
+    func setMessageSendToastText(text: String) {
+        
+        self.addToastViewBottomHeight(height: 50)
+        self.toast(text: text)
     }
 }
