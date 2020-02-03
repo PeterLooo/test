@@ -21,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         setFirebaseNotification(application)
+        FirebaseCrashManager.setUp()
         return true
     }
     
@@ -177,6 +178,43 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         completionHandler()
     }
     
+}
+extension AppDelegate {
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
+        // If you are receiving a notification message while your app is in the background,
+        // this callback will not be fired till the user taps on the notification launching the application.
+        // TODO: Handle data of notification
+
+        // With swizzling disabled you must let Messaging know about the message, for Analytics
+        // Messaging.messaging().appDidReceiveMessage(userInfo)
+
+        // Print message ID.
+        printLog("===didReceiveRemoteNotification1===", "")
+        
+
+        // Print full message.
+        printLog("userInfo", userInfo)
+    }
+
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any],
+                     fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        // If you are receiving a notification message while your app is in the background,
+        // this callback will not be fired till the user taps on the notification launching the application.
+        // TODO: Handle data of notification
+
+        // With swizzling disabled you must let Messaging know about the message, for Analytics
+        // Messaging.messaging().appDidReceiveMessage(userInfo)
+
+        // Print message ID.
+        printLog("===didReceiveRemoteNotification2===", "")
+        
+        NotificationCenter.default.post(name: Notification.Name("getUnreadCount"), object: nil)
+        NotificationCenter.default.post(name: Notification.Name("noticeLoadDate"), object: nil)
+        // Print full message.
+        printLog("userInfo", userInfo)
+
+        completionHandler(UIBackgroundFetchResult.newData)
+    }
 }
 extension AppDelegate {
     func connectToFcm() {

@@ -11,10 +11,18 @@ import UIKit
 public enum LinkType: String {
     case web = "00"
     case getApiUrl = "003"
+    case salesPage = "011"
     case passwordReset = "031"
     case updateDate = "032"
     case openBrowser
     case unknown
+}
+
+public enum NotiType {
+    case important
+    case noti
+    case news
+    
 }
 
 public enum ToolBarType {
@@ -33,7 +41,22 @@ public enum ToolBarType {
         }
     }
 }
-
+public enum TourType {
+    case tour
+    case taichung
+    case kaohsiung
+    
+    func getApiUrl() -> APIUrl {
+        switch self {
+        case .tour:
+            return APIUrl.portalApi(type: .groupTourIndex)
+        case .taichung:
+            return APIUrl.portalApi(type: .groupTaichungIndex)
+        case .kaohsiung:
+            return APIUrl.portalApi(type: .groupKaohsiungIndex)
+        }
+    }
+}
 public class ShareOption {
     var optionKey: String!
     var optionValue: String!

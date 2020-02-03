@@ -35,7 +35,7 @@ class TabBarViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.getUnreadCount), name: Notification.Name("getUnreadCount"), object: nil)
         creatSubViewControllers()
         
         self.tabBar.tintColor = UIColor(named: "TabBar綠")
@@ -78,6 +78,14 @@ class TabBarViewController: UITabBarController {
         let viewController = storyboard.instantiateViewController(withIdentifier: vc)
         
         return viewController
+    }
+    
+    @objc func getUnreadCount(){
+        if isLogin {
+            self.presenter?.getNumberOfNoticeUnreadCount()
+        } else {
+            enableTabBarNotificationBadgeNumber(false)
+        }
     }
     
 }
