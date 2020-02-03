@@ -416,7 +416,7 @@ class GroupTourSearchViewController: BaseViewController {
         vc.modalPresentationStyle = .overCurrentContext
         vc.delegate = self
         
-        let inputDescription = "若需同時查詢多組關鍵字，且/n（１）希望搜尋結果『同時』包含這些關鍵字，請使用『空格』或『,』/n※例如：『迪士尼螃蟹』或『迪士尼,螃蟹』/n（２）希望搜尋結果『至少』包含其中一組關鍵字，請使用『/』/n※例如：『賞楓/泡湯』，則搜尋結果至少包含『賞楓』或『泡湯』其中一項"
+        let inputDescription = "若需同時查詢多組關鍵字，且\n（１）希望搜尋結果『同時』包含這些關鍵字，請使用『空格』或『,』\n※例如：『迪士尼螃蟹』或『迪士尼,螃蟹』\n（２）希望搜尋結果『至少』包含其中一組關鍵字，請使用『/』\n※例如：『賞楓/泡湯』，則搜尋結果至少包含『賞楓』或『泡湯』其中一項"
         vc.setTextWith(text: inputDescription,
                        navTitle: "輸入說明",
                        bottomButtonTitle: "關閉")
