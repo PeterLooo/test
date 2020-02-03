@@ -253,7 +253,7 @@ extension NoticeViewController: NotificationTableViewProtocol {
         }
         if item.notiType == "Message" {
             let vc = self.getVC(st: "NoticeDetail", vc: "NoticeDetailViewController") as! NoticeDetailViewController
-            vc.setVCwith(navTitle: item.notiTitle,
+            vc.setVCwith(navTitle: "訊息明細",
                          noticeNo: item.notiId ?? "",
                          messageDate: item.notiDate,
                          sendUser: nil,
