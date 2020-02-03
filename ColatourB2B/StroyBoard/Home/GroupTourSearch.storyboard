@@ -66,16 +66,16 @@
                                 </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GEy-AN-dQh">
-                                <rect key="frame" x="0.0" y="102" width="414" height="794"/>
+                                <rect key="frame" x="0.0" y="101" width="414" height="795"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="S1i-Vm-pEf">
-                                        <rect key="frame" x="0.0" y="0.0" width="828" height="794"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="828" height="795"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6RP-OB-9AK" userLabel="LeftView">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="794"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="795"/>
                                                 <subviews>
                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wic-uS-cJS">
-                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="794"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="795"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <prototypes>
                                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="InputCell" rowHeight="400" id="AfA-RN-qgH" userLabel="InputCell" customClass="GroupTourSearchInputCell" customModule="ColatourB2B" customModuleProvider="target">
@@ -521,7 +521,6 @@
                                                         </connections>
                                                     </tableView>
                                                 </subviews>
-                                                <color key="backgroundColor" name="背景灰"/>
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="wic-uS-cJS" secondAttribute="trailing" id="3ip-sM-kNx"/>
                                                     <constraint firstAttribute="bottom" secondItem="wic-uS-cJS" secondAttribute="bottom" id="DxX-Z6-v7B"/>
@@ -530,11 +529,11 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o8A-gC-l4k" userLabel="RightView">
-                                                <rect key="frame" x="414" y="0.0" width="414" height="794"/>
+                                                <rect key="frame" x="414" y="0.0" width="414" height="795"/>
                                                 <subviews>
                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rK0-sf-g8K">
-                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="794"/>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="795"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <prototypes>
                                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="InputCell" rowHeight="167" id="aUT-88-dj0" userLabel="InputCell" customClass="GroupTourSearchKeywordAndTourCodeInputCell" customModule="ColatourB2B" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="28" width="414" height="167"/>
@@ -733,7 +732,6 @@
                                                         </connections>
                                                     </tableView>
                                                 </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="bottom" secondItem="rK0-sf-g8K" secondAttribute="bottom" id="ibS-oS-YUM"/>
                                                     <constraint firstItem="rK0-sf-g8K" firstAttribute="top" secondItem="o8A-gC-l4k" secondAttribute="top" id="qB0-iQ-O4r"/>
@@ -769,7 +767,7 @@
                             <constraint firstItem="GEy-AN-dQh" firstAttribute="trailing" secondItem="g0K-eM-Mux" secondAttribute="trailing" id="O10-Vh-rEK"/>
                             <constraint firstItem="g0K-eM-Mux" firstAttribute="top" secondItem="vVY-An-MTc" secondAttribute="top" id="RoY-sH-dDt"/>
                             <constraint firstItem="GEy-AN-dQh" firstAttribute="bottom" secondItem="hJg-7t-g7z" secondAttribute="bottom" id="aDX-qT-76e"/>
-                            <constraint firstItem="GEy-AN-dQh" firstAttribute="top" secondItem="vVY-An-MTc" secondAttribute="bottom" constant="4" id="ks6-KZ-o1U"/>
+                            <constraint firstItem="GEy-AN-dQh" firstAttribute="top" secondItem="vVY-An-MTc" secondAttribute="bottom" constant="3" id="ks6-KZ-o1U"/>
                             <constraint firstItem="GEy-AN-dQh" firstAttribute="leading" secondItem="g0K-eM-Mux" secondAttribute="leading" id="rxD-y9-ka8"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="g0K-eM-Mux"/>
@@ -802,9 +800,6 @@
         </namedColor>
         <namedColor name="標題黑">
             <color red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="背景灰">
-            <color red="0.97254901960784312" green="0.97254901960784312" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="通用綠">
             <color red="0.098039215686274508" green="0.74901960784313726" blue="0.3843137254901961" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

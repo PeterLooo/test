@@ -305,10 +305,8 @@ class GroupTourSearchViewController: BaseViewController {
         
         topPageButtonView.setShadow(offset: CGSize(width: 0, height: 1),
                                     opacity: 0.2,
-                                    shadowRadius: 4,
-                                    color: UIColor
-                                        .black
-                                        .withAlphaComponent(0.8))
+                                    shadowRadius: 1,
+                                    color: UIColor.init(named: "陰影灰")!)
         datePicker.backgroundColor = UIColor.white
         pickerView.backgroundColor = UIColor.white
         
