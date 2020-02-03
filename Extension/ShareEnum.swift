@@ -17,6 +17,12 @@ public enum LinkType: String {
     case unknown
 }
 
+public enum NotiType {
+    case order
+    case noti
+    case news
+}
+
 public enum ToolBarType {
     case tour
     case tkt
@@ -30,6 +36,7 @@ public enum ToolBarType {
             return APIUrl.mainApi(type: .tkt)
         case .other:
             return APIUrl.mainApi(type: .other)
+        
         }
     }
 }
@@ -55,6 +62,23 @@ public enum MessageSendType: String {
     }
 }
 
+public enum TourType {
+    case tour
+    case taichung
+    case kaohsiung
+    
+    func getApiUrl() -> APIUrl {
+        switch self {
+        case .tour:
+            return APIUrl.portalApi(type: .groupTourIndex)
+        case .taichung:
+            return APIUrl.portalApi(type: .groupTaichungIndex)
+        case .kaohsiung:
+            return APIUrl.portalApi(type: .groupKaohsiungIndex)
+        }
+    }
+}
+    
 public class ShareOption {
     var optionKey: String!
     var optionValue: String!

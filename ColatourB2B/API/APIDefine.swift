@@ -7,7 +7,7 @@ let APITimeout: Double = 60.0
 
 #if COLATOURB2B_DEV
 let AUTH_WEB_HOST = "https://ntestWebAPIBauth.colatour.com.tw"
-let PORTAL_WEB_HOST = "https://ntestwebapicportal.colatour.com.tw"
+let PORTAL_WEB_HOST = "https://ntestwebapibportal.colatour.com.tw"
 let MEMBER_WEB_HOST = "https://ntestWebAPIBmember.colatour.com.tw/"
 let MAIN_WEB_HOST = "https://ntestWebAPIBportal.colatour.com.tw/"
 #else
@@ -24,6 +24,7 @@ enum APIUrl {
     case memberApi(type: MemberApi)
     case mainApi(type: MainApi)
     case serviceApi(type: ServiceApi)
+    case noticeApi(type: NoticeApi)
     func getUrl() -> String {
         switch self {
         case .authApi(let type):
@@ -37,6 +38,8 @@ enum APIUrl {
         case .mainApi(let type):
             return type.url()
         case .serviceApi(let type):
+            return type.url()
+        case .noticeApi(let type):
             return type.url()
         }
     }
@@ -67,6 +70,9 @@ enum APIUrl {
     enum PortalApi: String {
         
         case homeAdList   = "Ticket/首頁1"
+        case groupTourIndex   = "Tour/首頁1"
+        case groupTaichungIndex   = "Taichung/首頁1"
+        case groupKaohsiungIndex   = "Kaohsiung/首頁1"
         
         static func urlWith(type: PortalApi, append: String) -> String {
             let base =  PORTAL_WEB_HOST + "/Portal/"
@@ -103,6 +109,7 @@ enum APIUrl {
     enum MemberApi: String {
         
         case memberIndex = "Index"
+        case noticeDetail = "noticeDetail"
         
         static func urlWith(type: MemberApi, append:String) -> String {
             let base =  MEMBER_WEB_HOST + "/Member/"
@@ -166,5 +173,24 @@ enum APIUrl {
         }
     }
     
+    enum NoticeApi: String {
+        case notice = "Notification?"
+        case news = "eDM/Tour?"
+        case unreadCount = "/Notification/Unread"
+        case setNotiRead = "/Notification/Modify/Status"
+        
+        static func urlWith(type: NoticeApi, append: String) -> String {
+            let base =  MEMBER_WEB_HOST
+            return "\(base)\(type.rawValue)\(append)"
+        }
+        
+        func url () -> String {
+            return APIUrl.NoticeApi.urlWith(type: self, append: "")
+        }
+        
+        func url(append:String) -> String {
+            return APIUrl.NoticeApi.urlWith(type: self, append: append)
+        }
+    }
 }
 

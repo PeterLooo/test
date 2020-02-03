@@ -18,9 +18,6 @@ class FirebaseCrashManager: NSObject {
         
         #else
         Fabric.with([Crashlytics()])
-        
-        let userName = (MemberRepository.shared.getLocalMemberNo() == nil) ? "NoLogin" : "\(MemberRepository.shared.getLocalMemberNo()!)"
-        FirebaseCrashManager.setUserName(userName)
         FirebaseCrashManager.setUserIdentifier(AccountRepository.shared.osUUID)
         #endif
     }
