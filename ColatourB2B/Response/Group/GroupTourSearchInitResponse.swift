@@ -13,7 +13,6 @@ class GroupTourSearchInitResponse: BaseModel {
     
     class GroupTourSearchInit: BaseModel {
         var defaultDepartureDate: String?
-        var inputDescription: String?
         var regionList: [Region] = []
         var departureCityList: [DepartureCity] = []
         var airlineCodeList: [AirlineCode] = []
@@ -23,7 +22,6 @@ class GroupTourSearchInitResponse: BaseModel {
             super.mapping(map: map)
             
             defaultDepartureDate <- map["Default_Departure_Date"]
-            inputDescription <- map["Input_Description"]
             regionList <- map["Region_List"]
             departureCityList <- map["DepartureCity_List"]
             airlineCodeList <- map["AirlineCode_List"]

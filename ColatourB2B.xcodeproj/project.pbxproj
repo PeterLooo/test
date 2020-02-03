@@ -226,6 +226,8 @@
 		C77282F423CC502500067EB4 /* GroupTourSearch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C77282F223CC502500067EB4 /* GroupTourSearch.storyboard */; };
 		C77282F723CC505800067EB4 /* GroupTourSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77282F623CC505800067EB4 /* GroupTourSearchViewController.swift */; };
 		C77282F823CC505800067EB4 /* GroupTourSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77282F623CC505800067EB4 /* GroupTourSearchViewController.swift */; };
+		C78F071923E7F2AD009C1183 /* PopTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78F071823E7F2AD009C1183 /* PopTextViewController.swift */; };
+		C78F071A23E7F2AD009C1183 /* PopTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78F071823E7F2AD009C1183 /* PopTextViewController.swift */; };
 		C7C623CD23E2C71600A2D8B0 /* GroupTourSearchUrlResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C623CC23E2C71600A2D8B0 /* GroupTourSearchUrlResponse.swift */; };
 		C7C623CE23E2C71600A2D8B0 /* GroupTourSearchUrlResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C623CC23E2C71600A2D8B0 /* GroupTourSearchUrlResponse.swift */; };
 		C7DA175723D6E5C9006A8803 /* GroupTourSearchKeywordAndTourCodeInputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DA175623D6E5C9006A8803 /* GroupTourSearchKeywordAndTourCodeInputCell.swift */; };
@@ -395,6 +397,7 @@
 		C711753F23BF40DA00555D8C /* MorePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MorePresenter.swift; sourceTree = "<group>"; };
 		C77282F223CC502500067EB4 /* GroupTourSearch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GroupTourSearch.storyboard; sourceTree = "<group>"; };
 		C77282F623CC505800067EB4 /* GroupTourSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTourSearchViewController.swift; sourceTree = "<group>"; };
+		C78F071823E7F2AD009C1183 /* PopTextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopTextViewController.swift; sourceTree = "<group>"; };
 		C7C623CC23E2C71600A2D8B0 /* GroupTourSearchUrlResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTourSearchUrlResponse.swift; sourceTree = "<group>"; };
 		C7DA175623D6E5C9006A8803 /* GroupTourSearchKeywordAndTourCodeInputCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTourSearchKeywordAndTourCodeInputCell.swift; sourceTree = "<group>"; };
 		C7DA175923D70245006A8803 /* GroupTourSearchKeywordAndTourCodeRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTourSearchKeywordAndTourCodeRequest.swift; sourceTree = "<group>"; };
@@ -719,6 +722,7 @@
 				38E9923623B06AFA00E28271 /* BasePresenter.swift */,
 				38E9923923B0B5DF00E28271 /* BooleanButton.swift */,
 				C7E15BF023D18CB0004C20A0 /* CustomPickerView.swift */,
+				C78F071823E7F2AD009C1183 /* PopTextViewController.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1233,6 +1237,7 @@
 				38BCD98323A3484300D59910 /* DateComponentExtension.swift in Sources */,
 				38BCD97123A3484300D59910 /* FirebaseEvent.swift in Sources */,
 				38BCDA1823A3696800D59910 /* WebViewController.swift in Sources */,
+				C78F071923E7F2AD009C1183 /* PopTextViewController.swift in Sources */,
 				38E9923723B06AFA00E28271 /* BasePresenter.swift in Sources */,
 				38BCDA0523A367D000D59910 /* ToastView.swift in Sources */,
 				38BCD97B23A3484300D59910 /* UILabelExtension.swift in Sources */,
@@ -1349,6 +1354,7 @@
 				38BCD98423A3484300D59910 /* DateComponentExtension.swift in Sources */,
 				38BCD97223A3484300D59910 /* FirebaseEvent.swift in Sources */,
 				38BCDA1923A3696800D59910 /* WebViewController.swift in Sources */,
+				C78F071A23E7F2AD009C1183 /* PopTextViewController.swift in Sources */,
 				38E9923823B06AFA00E28271 /* BasePresenter.swift in Sources */,
 				38BCDA0623A367D000D59910 /* ToastView.swift in Sources */,
 				38BCD97C23A3484300D59910 /* UILabelExtension.swift in Sources */,
