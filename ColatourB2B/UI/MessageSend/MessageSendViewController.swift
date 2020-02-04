@@ -115,19 +115,23 @@ class MessageSendViewController: BaseViewController {
             }
         })
         
-        let request = MessageSendRequest()
-        request.sendType = messageSendType
-        request.sendKeyList = sendKeyList
-        request.messageTopic = messageTopic
-        request.messageText = messageContent
-        
-        if request.messageTopic == "請填寫" {
-            
-            setAlert(message: "請輸入訊息主旨")
-        } else if enabledSendUserList.count != 0 && request.sendKeyList?.count == 0 {
+        if enabledSendUserList.count != 0 && sendKeyList.count == 0 {
             
             setAlert(message: "通知名單至少需選擇一位訊息發送對象")
+        } else if messageTopic.isNilOrEmpty == true {
+            
+            setAlert(message: "請輸入訊息主旨")
+        } else if messageContent.isNilOrEmpty == true {
+            
+            setAlert(message: "請輸入訊息內容")
         } else {
+            
+            let request = MessageSendRequest()
+            
+            request.sendType = messageSendType
+            request.sendKeyList = sendKeyList
+            request.messageTopic = messageTopic
+            request.messageText = messageContent
             
             presenter?.messageSend(messageSendRequest: request)
         }
@@ -181,12 +185,10 @@ extension MessageSendViewController: UITableViewDataSource {
         case .Topic:
             cell = tableView.dequeueReusableCell(withIdentifier: "MessageSendTopicCell") as! MessageSendTopicCell
             (cell as! MessageSendTopicCell).messageSendTopicCellDelegate = self
-            messageTopic = (cell as! MessageSendTopicCell).messageTopic.text
             
         case .Content:
             cell = tableView.dequeueReusableCell(withIdentifier: "MessageSendContentCell") as! MessageSendContentCell
             (cell as! MessageSendContentCell).messageSendContentCellDelegate = self
-            messageContent = (cell as! MessageSendContentCell).messageContent.text
         
         case .none:
             cell = UITableViewCell()

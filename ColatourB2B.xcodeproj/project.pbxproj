@@ -589,15 +589,15 @@
 		06DA4F7423E9225F001B7DF1 /* MessageSend */ = {
 			isa = PBXGroup;
 			children = (
-				06DA4F7523E9225F001B7DF1 /* MessageSendProtocol.swift */,
-				06DA4F7623E9225F001B7DF1 /* MessageSendTopicCell.xib */,
-				06DA4F7723E9225F001B7DF1 /* MessageSendContentCell.swift */,
-				06DA4F7823E9225F001B7DF1 /* MessageSendContentCell.xib */,
 				06DA4F7923E9225F001B7DF1 /* MessageSendViewController.swift */,
+				06DA4F7523E9225F001B7DF1 /* MessageSendProtocol.swift */,
 				06DA4F7A23E9225F001B7DF1 /* MessageSendPresenter.swift */,
 				06DA4F7B23E9225F001B7DF1 /* MessageSendNotificationListCell.xib */,
-				06DA4F7C23E9225F001B7DF1 /* MessageSendTopicCell.swift */,
 				06DA4F7D23E9225F001B7DF1 /* MessageSendNotificationListCell.swift */,
+				06DA4F7623E9225F001B7DF1 /* MessageSendTopicCell.xib */,
+				06DA4F7C23E9225F001B7DF1 /* MessageSendTopicCell.swift */,
+				06DA4F7823E9225F001B7DF1 /* MessageSendContentCell.xib */,
+				06DA4F7723E9225F001B7DF1 /* MessageSendContentCell.swift */,
 			);
 			path = MessageSend;
 			sourceTree = "<group>";
