@@ -7,12 +7,12 @@ let APITimeout: Double = 60.0
 
 #if COLATOURB2B_DEV
 let AUTH_WEB_HOST = "https://ntestWebAPIBauth.colatour.com.tw"
-let PORTAL_WEB_HOST = "https://ntestwebapibportal.colatour.com.tw"
+let PORTAL_WEB_HOST = "https://ntestwebAPIBportal.colatour.com.tw"
 let MEMBER_WEB_HOST = "https://ntestWebAPIBmember.colatour.com.tw/"
 let MAIN_WEB_HOST = "https://ntestWebAPIBportal.colatour.com.tw/"
 #else
 let AUTH_WEB_HOST = "https://WebAPIBauth.colatour.com.tw"
-let PORTAL_WEB_HOST = "https://webapicportal.colatour.com.tw"
+let PORTAL_WEB_HOST = "https://webAPIBportal.colatour.com.tw"
 let MEMBER_WEB_HOST = "https://WebAPIBmember.colatour.com.tw/"
 let MAIN_WEB_HOST = "https://WebAPIBportal.colatour.com.tw/"
 #endif
