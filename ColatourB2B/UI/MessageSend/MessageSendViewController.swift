@@ -223,7 +223,6 @@ extension MessageSendViewController: MessageSendNotificationListCellDelegate {
         
         tableView.reloadData()
     }
-    
 }
 
 extension MessageSendViewController: MessageSendTopicCellDelegate {

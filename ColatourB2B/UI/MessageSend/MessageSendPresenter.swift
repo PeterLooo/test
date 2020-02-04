@@ -44,7 +44,7 @@ class MessageSendPresenter: MessageSendPresenterProtocol {
          messageSendRepository.messageSend(messageSendRequest: messageSendRequest)
         .subscribe(
             
-            onSuccess: { (messageSendResponse) in
+            onSuccess: { (_) in
                 self.delegate?.messageSendSuccess()
                 self.delegate?.onCompletedLoadingHandle()
                 
