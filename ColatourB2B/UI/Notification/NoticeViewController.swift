@@ -248,9 +248,22 @@ extension NoticeViewController: NotificationTableViewProtocol {
     }
     
     func onTouchNoti(item: NotiItem) {
-        handleLinkType(linkType: item.linkType!, linkValue: item.linkValue, linkText: nil)
         if item.unreadMark == true {
             presenter?.setNoticeRead(noticeIdList: [item.notiId!])
+        }
+        if item.notiType == "Message" {
+            let vc = self.getVC(st: "NoticeDetail", vc: "NoticeDetailViewController") as! NoticeDetailViewController
+            vc.setVCwith(navTitle: "訊息明細",
+                         notiTitle: item.notiTitle ?? "",
+                         messageDate: item.notiDate,
+                         sendUser: nil,
+                         content: item.notiContent,
+                         orderNo: nil,
+                         groupNo: nil)
+            self.navigationController?.pushViewController(vc, animated: true)
+        } else {
+            
+            handleLinkType(linkType: item.linkType!, linkValue: item.linkValue, linkText: nil)
         }
     }
 }
