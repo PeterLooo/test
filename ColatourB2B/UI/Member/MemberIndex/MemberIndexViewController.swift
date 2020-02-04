@@ -76,8 +76,11 @@ extension MemberIndexViewController: MemberIndexViewProtocol {
 
 extension MemberIndexViewController: MemberTopCellProtocol {
     func onTouchLogout() {
+        presenter?.memberLogout()
         UserDefaultUtil.shared.accessToken = ""
         UserDefaultUtil.shared.refreshToken = ""
+        NotificationCenter.default.post(name: Notification.Name("noticeLoadDate"), object: nil)
+        NotificationCenter.default.post(name: Notification.Name("getUnreadCount"), object: nil)
         loadData()
     }
 }

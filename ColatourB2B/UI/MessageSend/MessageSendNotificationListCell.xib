@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MessageSendNotificationListCell" id="KGk-i7-Jjw" customClass="MessageSendNotificationListCell" customModule="ColatourB2B" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="通知名單" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bsr-zd-fPg">
+                        <rect key="frame" x="16" y="12" width="56" height="20"/>
+                        <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4GU-dJ-6KL" userLabel="CheckButton">
+                        <rect key="frame" x="96" y="13" width="18" height="18"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="18" id="BRf-8T-u8C"/>
+                            <constraint firstAttribute="height" constant="18" id="ihr-fC-KjK"/>
+                        </constraints>
+                        <state key="normal" backgroundImage="check_hover"/>
+                        <connections>
+                            <action selector="checkButtonPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="boJ-6l-Q6J"/>
+                        </connections>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="業務代表" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0LM-Nz-NfH">
+                        <rect key="frame" x="127" y="12" width="56" height="20"/>
+                        <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="0LM-Nz-NfH" firstAttribute="leading" secondItem="4GU-dJ-6KL" secondAttribute="trailing" constant="13" id="0NE-AH-9SK"/>
+                    <constraint firstItem="Bsr-zd-fPg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="4ua-MD-Ghz"/>
+                    <constraint firstItem="4GU-dJ-6KL" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="dRQ-3z-Z4b"/>
+                    <constraint firstItem="Bsr-zd-fPg" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottom" constant="-12" id="enZ-mU-S0X"/>
+                    <constraint firstItem="4GU-dJ-6KL" firstAttribute="leading" secondItem="Bsr-zd-fPg" secondAttribute="trailing" constant="24" id="lND-ZX-VIa"/>
+                    <constraint firstItem="Bsr-zd-fPg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="oPB-vi-LTJ"/>
+                    <constraint firstItem="0LM-Nz-NfH" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="qpT-ot-ufS"/>
+                    <constraint firstItem="0LM-Nz-NfH" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottom" constant="-12" id="xFf-qF-cAE"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="cellTitle" destination="Bsr-zd-fPg" id="eYY-tX-ukW"/>
+                <outlet property="checkButton" destination="4GU-dJ-6KL" id="rJg-pM-RpR"/>
+                <outlet property="sendName" destination="0LM-Nz-NfH" id="Erh-zT-LuV"/>
+            </connections>
+            <point key="canvasLocation" x="139" y="154"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="check_hover" width="20" height="20"/>
+    </resources>
+</document>

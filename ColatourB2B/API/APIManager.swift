@@ -176,6 +176,10 @@ class APIManager: NSObject {
             requestUrl = type.url()
         case .mainApi(let type):
             requestUrl = type.url()
+        case .serviceApi(let type):
+            requestUrl = type.url()
+        case .noticeApi(let type):
+            requestUrl = type.url()
         }
 
         requestUrl =  (requestUrl + encodeUrl ).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
@@ -199,6 +203,11 @@ extension APIManager {
             APIUrl.authApi(type: .pushDevice), parameters: params, appendHeaders: nil)
     }
     
+    func getNoticeUnreadCount() -> Single<[String:Any]> {
+        
+        return manager(method: .get, appendUrl: "", url: APIUrl.noticeApi(type: .unreadCount) ,parameters: nil, appendHeaders: nil)
+    }
+    
     func getVersionRule() -> Single<[String:Any]> {
         return manager(method: .get, appendUrl: "", url: APIUrl.authApi(type: .versionRule), parameters: nil, appendHeaders: nil)
     }
@@ -217,14 +226,33 @@ extension APIManager {
     func getAccessWeb(webUrl:String) -> Single<[String:Any]> {
            let params = ["Web_Url":webUrl]
            return manager(method: .post, appendUrl: "", url: APIUrl.authApi(type: .accessWeb), parameters: params, appendHeaders: nil)
-       }
+    }
+    
+    func memberLogout() -> Single<[String:Any]> {
+        return manager(method: .post, appendUrl: "", url: APIUrl.authApi(type: .logout), parameters: nil, appendHeaders: nil)
+    }
     
     func getMemberIndex()-> Single<[String:Any]> {
         
         return manager(method: .get, appendUrl: "", url: APIUrl.memberApi(type: .memberIndex), parameters: nil, appendHeaders: nil)
     }
     
+    func passwordModify(passwordModifyRequest: PasswordModifyRequest) -> Single<[String: Any]> {
+        let params = ["Original_Password": passwordModifyRequest.originalPassword,
+                      "New_Password": passwordModifyRequest.newPassword,
+                      "Confirm_New_Password": passwordModifyRequest.checkNewPassword,
+                      "Password_Hint": passwordModifyRequest.passwordHint,
+                      "Refresh_Token": passwordModifyRequest.refreshToken]
+        return manager(method: .post, appendUrl: "", url: APIUrl.memberApi(type: .passwordModify), parameters: params as [String : Any], appendHeaders: nil)
+    }
+    
+    func getGroupIndex(tourType:TourType) -> Single<[String:Any]> {
+        
+        return manager(method: .get, appendUrl: "", url: tourType.getApiUrl(), parameters: nil, appendHeaders: nil)
+    }
+    
     func getGroupMenu(toolBarType: ToolBarType)-> Single<[String:Any]> {
+        
         return manager(method: .get, appendUrl: "", url: toolBarType.getApiUrl(), parameters: nil, appendHeaders: nil)
     }
     
@@ -242,6 +270,66 @@ extension APIManager {
     func getGroupTourSearchUrl(groupTourSearchKeywordAndTourCodeRequest: GroupTourSearchKeywordAndTourCodeRequest) -> Single<[String: Any]> {
 
         return manager(method: .post, appendUrl: "", url: APIUrl.mainApi(type: .tourKeywordSearch), parameters: groupTourSearchKeywordAndTourCodeRequest.getDictionary(), appendHeaders: nil)
+    }
+
+    func getMessageSendUserList(messageSendType: String) -> Single<[String:Any]> {
+        
+        var appendUrl = ""
+        appendUrl = "/Initial?Send_Type=\(messageSendType)"
+        
+        return manager(method: .get, appendUrl: appendUrl, url: APIUrl.serviceApi(type: .messageSend), parameters: nil, appendHeaders: nil)
+    }
+    
+    func messageSend(messageSendRequest: MessageSendRequest) -> Single<[String:Any]> {
+        
+        let params = ["Send_Type": messageSendRequest.sendType!,
+                      "Send_Key_List": messageSendRequest.sendKeyList!,
+                      "Message_Topic": messageSendRequest.messageTopic!,
+                      "Message_Text": messageSendRequest.messageText!] as [String : Any]
+        
+        return manager(method: .post, appendUrl: "", url: APIUrl.serviceApi(type: .messageSend), parameters: params, appendHeaders: nil)
+    }
+    
+    func getSalesList() -> Single<[String:Any]> {
+        return manager(method: .get, appendUrl: "", url: APIUrl.portalApi(type: .serviceTourWindowList), parameters: nil, appendHeaders: nil)
+    }
+
+    func getNoticeList(pageIndex: Int) -> Single<[String:Any]> {
+        let pageSize = "PageSize=10"
+        var appendUrl = ""
+        appendUrl = "PageIndex=" + "\(String(pageIndex))" + "&" + pageSize
+        
+        return manager(method: .get, appendUrl: appendUrl, url: APIUrl.noticeApi(type: .notice), parameters: nil, appendHeaders: nil)
+    }
+    
+    func getNewsList(pageIndex: Int) -> Single<[String:Any]> {
+        let pageSize = "Page_Size=10"
+        var appendUrl = ""
+        appendUrl = "Page_Index=" + "\(String(pageIndex))" + "&" + pageSize
+        
+        return manager(method: .get, appendUrl: appendUrl, url: APIUrl.noticeApi(type: .news), parameters: nil, appendHeaders: nil)
+
+    }
+    
+    func getImportantList(pageIndex: Int) -> Single<[String:Any]> {
+        let pageSize = "PageSize=10"
+        var appendUrl = ""
+        appendUrl = "PageIndex=" + "\(String(pageIndex))" + "&" + pageSize
+        
+        return manager(method: .get, appendUrl: appendUrl, url: APIUrl.noticeApi(type: .important), parameters: nil, appendHeaders: nil)
+    }
+    
+    func setNotiRead(notiId:[String])-> Single<[String:Any]> {
+        let notiIdLists = notiId.map { (
+            ["Noti_Id": $0
+                ] as [String: Any])
+        }
+        
+        let params = [
+            "Noti_Status": "已讀",
+            "NotiId_List": notiIdLists] as [String : Any]
+        
+        return manager(method: .post, appendUrl: "", url: APIUrl.noticeApi(type: .setNotiRead), parameters: params, appendHeaders: nil)
     }
 
 }
@@ -264,7 +352,7 @@ extension APIManager {
         #endif
     }
     
-    private func printResponse(_ requestUrl: String,_ value: (Any)){
+    private func printResponse(_ requestUrl: String,_ value: (Any)) {
         //return
         #if DEBUG
         print("-------------------------------------------------------")
@@ -286,10 +374,10 @@ extension APIManager {
         #endif
     }
     
-    private func getPrettyPrint(_ responseValue: Any) -> String{
+    private func getPrettyPrint(_ responseValue: Any) -> String {
         var string: String = ""
-        if let data = try? JSONSerialization.data(withJSONObject: responseValue, options: .prettyPrinted){
-            if let nstr = NSString(data: data, encoding: String.Encoding.utf8.rawValue){
+        if let data = try? JSONSerialization.data(withJSONObject: responseValue, options: .prettyPrinted) {
+            if let nstr = NSString(data: data, encoding: String.Encoding.utf8.rawValue) {
                 string = nstr as String
             }
         }
