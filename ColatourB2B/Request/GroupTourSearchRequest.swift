@@ -9,10 +9,10 @@
 class GroupTourSearchRequest: NSObject {
     var startTourDate: String?
     var tourDays: Int?
-    var selectedRegionCode: Region?
-    var selectedDepartureCity: DepartureCity?
-    var selectedAirlineCode: AirlineCode?
-    var selectedTourType: TourType?
+    var selectedRegionCode: GroupTourSearchInitResponse.Region?
+    var selectedDepartureCity: GroupTourSearchInitResponse.DepartureCity?
+    var selectedAirlineCode: GroupTourSearchInitResponse.AirlineCode?
+    var selectedTourType: GroupTourSearchInitResponse.TourType?
     var isBookingTour: Bool = true
     
     func getDictionary() -> [String:Any] {

@@ -28,53 +28,53 @@ class GroupTourSearchInitResponse: BaseModel {
             tourTypeList <- map["TourType_List"]
         }
     }
-}
 
-class DepartureCity: BaseModel {
-    var departureName: String?
-    var departureCode: String?
-    
-    override func mapping(map: Map) {
-        super.mapping(map: map)
+    class DepartureCity: BaseModel {
+        var departureName: String?
+        var departureCode: String?
         
-        departureName <- map["Departure_Name"]
-        departureCode <- map["Departure_Code"]
+        override func mapping(map: Map) {
+            super.mapping(map: map)
+            
+            departureName <- map["Departure_Name"]
+            departureCode <- map["Departure_Code"]
+        }
     }
-}
 
-class AirlineCode: BaseModel {
-    var airlineName: String?
-    var airlineCode: String?
-    
-    override func mapping(map: Map) {
-        super.mapping(map: map)
+    class AirlineCode: BaseModel {
+        var airlineName: String?
+        var airlineCode: String?
         
-        airlineName <- map["Airline_Name"]
-        airlineCode <- map["Airline_Code"]
+        override func mapping(map: Map) {
+            super.mapping(map: map)
+            
+            airlineName <- map["Airline_Name"]
+            airlineCode <- map["Airline_Code"]
+        }
     }
-}
 
-class Region: BaseModel {
-    var regionCode: String?
-    var regionName: String?
-    
-    override func mapping(map: Map) {
-        super.mapping(map: map)
+    class Region: BaseModel {
+        var regionCode: String?
+        var regionName: String?
         
-        regionCode <- map["Region_Code"]
-        regionName <- map["Region_Name"]
+        override func mapping(map: Map) {
+            super.mapping(map: map)
+            
+            regionCode <- map["Region_Code"]
+            regionName <- map["Region_Name"]
+        }
     }
-}
 
-class TourType: BaseModel {
-    var tourTypeCode: String?
-    var tourTypeName: String?
-    
-    override func mapping(map: Map) {
-        super.mapping(map: map)
+    class TourType: BaseModel {
+        var tourTypeCode: String?
+        var tourTypeName: String?
         
-        tourTypeCode <- map["TourType_Code"]
-        tourTypeName <- map["TourType_Name"]
+        override func mapping(map: Map) {
+            super.mapping(map: map)
+            
+            tourTypeCode <- map["TourType_Code"]
+            tourTypeName <- map["TourType_Name"]
+        }
     }
 }
 
