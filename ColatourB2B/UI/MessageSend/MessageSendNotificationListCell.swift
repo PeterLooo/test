@@ -38,6 +38,8 @@ class MessageSendNotificationListCell: UITableViewCell {
     
     @IBAction func checkButtonPressed(_ sender: UIButton) {
         
+        if userStatus?.enabledMark == false { return }
+        
         userStatus?.defaultMark = !userStatus!.defaultMark!
         self.delegate?.reSetCell(userStatus: userStatus!)
     }
