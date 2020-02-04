@@ -10,26 +10,22 @@ import UIKit
 
 extension NoticeDetailViewController {
     func setVCwith(navTitle: String?,
-                   noticeNo: String,
+                   notiTitle: String?,
                    messageDate: String?,
                    sendUser: String?,
                    content: String?,
                    orderNo: String?,
                    groupNo: String?) {
         self.navTitle = navTitle
-        self.noticeNo = noticeNo
-        
         self.noticeDetail = NoticeDetailResponse.NoticeDetail(messageDate: messageDate,
                                                               sendUser: sendUser,
                                                               content: content,
-                                                              orderNo: orderNo,
-                                                              groupNo: groupNo)
+                                                              notiTitle: notiTitle)
     }
 }
 
 class NoticeDetailViewController: BaseViewController {
     private var navTitle: String?
-    private var noticeNo: String!
 
     private var noticeDetail: NoticeDetailResponse.NoticeDetail? {
         didSet {

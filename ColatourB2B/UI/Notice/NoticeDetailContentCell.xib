@@ -21,13 +21,13 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GbX-bq-SW9">
                         <rect key="frame" x="16" y="16" width="288" height="442"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="PyM-lg-UOH">
-                                <rect key="frame" x="0.0" y="21" width="288" height="385"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="PyM-lg-UOH">
+                                <rect key="frame" x="0.0" y="3" width="288" height="403"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yUL-bK-6LT">
                                         <rect key="frame" x="16" y="10" width="256" height="81"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="團號" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aHC-ih-XTM">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="訊息主旨" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aHC-ih-XTM">
                                                 <rect key="frame" x="0.0" y="0.0" width="256" height="20"/>
                                                 <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="14"/>
                                                 <color key="textColor" name="標題黑"/>
@@ -52,7 +52,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qes-K5-gpC">
-                                        <rect key="frame" x="16" y="101" width="256" height="101"/>
+                                        <rect key="frame" x="16" y="107" width="256" height="101"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="訂單編號" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0qo-Qz-laR">
                                                 <rect key="frame" x="0.0" y="0.0" width="256" height="81"/>
@@ -79,7 +79,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="814-xN-Orp">
-                                        <rect key="frame" x="16" y="212" width="256" height="102"/>
+                                        <rect key="frame" x="16" y="224" width="256" height="102"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="發送人" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xx6-Ad-5bH">
                                                 <rect key="frame" x="0.0" y="0.0" width="256" height="20"/>
@@ -106,7 +106,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dLf-lx-VwR">
-                                        <rect key="frame" x="16" y="324" width="256" height="51"/>
+                                        <rect key="frame" x="16" y="342" width="256" height="51"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="訊息時間" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DXH-z0-Mgf">
                                                 <rect key="frame" x="0.0" y="0.0" width="256" height="20"/>
@@ -165,10 +165,10 @@
             <connections>
                 <outlet property="borderView" destination="GbX-bq-SW9" id="QWG-C9-AM9"/>
                 <outlet property="contentLabel" destination="rg8-jl-a7h" id="0aE-7q-TRO"/>
-                <outlet property="groupNo" destination="aev-fi-yZT" id="jG6-YI-oxQ"/>
-                <outlet property="groupNoView" destination="yUL-bK-6LT" id="zpS-DA-x9A"/>
                 <outlet property="messageDate" destination="Qg8-Cm-3ev" id="F56-UU-1JH"/>
                 <outlet property="messageDateView" destination="dLf-lx-VwR" id="f7W-P5-HTc"/>
+                <outlet property="notiTitle" destination="aev-fi-yZT" id="Yhf-hx-mdi"/>
+                <outlet property="notiTitleView" destination="yUL-bK-6LT" id="dfO-so-NiQ"/>
                 <outlet property="orderNo" destination="Fpv-fe-pf3" id="okt-N4-fhO"/>
                 <outlet property="orderNoView" destination="Qes-K5-gpC" id="1gL-P3-46b"/>
                 <outlet property="sendUser" destination="iki-Fa-ipu" id="ki1-Cs-H7S"/>

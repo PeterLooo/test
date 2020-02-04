@@ -12,12 +12,12 @@ class NoticeDetailContentCell: UITableViewCell {
     
     @IBOutlet weak var borderView: UIView!
     @IBOutlet weak var contentLabel: UILabel!
-    @IBOutlet weak var groupNo: UILabel!
+    @IBOutlet weak var notiTitle: UILabel!
     @IBOutlet weak var orderNo: UILabel!
     @IBOutlet weak var sendUser: UILabel!
     @IBOutlet weak var messageDate: UILabel!
     
-    @IBOutlet weak var groupNoView: UIView!
+    @IBOutlet weak var notiTitleView: UIView!
     @IBOutlet weak var orderNoView: UIView!
     @IBOutlet weak var sendUserView: UIView!
     @IBOutlet weak var messageDateView: UIView!
@@ -25,13 +25,11 @@ class NoticeDetailContentCell: UITableViewCell {
     func setCellWith(noticeDetail: NoticeDetailResponse.NoticeDetail) {
         borderView.setBorder(width: 1, radius: 4, color: ColorHexUtil.hexColor(hex: "#e7e7e7"))
         contentLabel.text = noticeDetail.content ?? ""
-        groupNo.text = noticeDetail.groupNo ?? ""
-        orderNo.text = noticeDetail.orderNo ?? ""
+        notiTitle.text = noticeDetail.notiTitle ?? ""
         sendUser.text = noticeDetail.sendUser ?? ""
         messageDate.text = noticeDetail.messageDate ?? ""
         
-        groupNoView.isHidden = noticeDetail.groupNo.isNilOrEmpty
-        orderNoView.isHidden = noticeDetail.orderNo.isNilOrEmpty
+        notiTitleView.isHidden = noticeDetail.notiTitle.isNilOrEmpty
         sendUserView.isHidden = noticeDetail.sendUser.isNilOrEmpty
         messageDateView.isHidden = noticeDetail.messageDate.isNilOrEmpty
     }
