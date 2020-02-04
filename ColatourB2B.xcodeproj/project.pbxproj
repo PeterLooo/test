@@ -95,11 +95,6 @@
 		387FBF1123ACCF00005412F1 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 387FBF0A23ACCEB7005412F1 /* Login.storyboard */; };
 		387FBF1323ACD047005412F1 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387FBF1223ACD046005412F1 /* CustomTextField.swift */; };
 		387FBF1423ACD047005412F1 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387FBF1223ACD046005412F1 /* CustomTextField.swift */; };
-		38AA8E0723CC4FE600A7EB07 /* Dev_Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 38AA8E0623CC4FE600A7EB07 /* Dev_Info.plist */; };
-		38AFC40323CD51C700983886 /* SalesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AFC40223CD51C700983886 /* SalesProtocol.swift */; };
-		38AFC40423CD51C700983886 /* SalesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AFC40223CD51C700983886 /* SalesProtocol.swift */; };
-		38AFC40623CD521C00983886 /* SalesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AFC40523CD521C00983886 /* SalesPresenter.swift */; };
-		38AFC40723CD521C00983886 /* SalesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AFC40523CD521C00983886 /* SalesPresenter.swift */; };
 		38871EAD23D5553F007ED33D /* IndexResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38871EAC23D5553F007ED33D /* IndexResponse.swift */; };
 		38871EAE23D5553F007ED33D /* IndexResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38871EAC23D5553F007ED33D /* IndexResponse.swift */; };
 		38871EB023D55D16007ED33D /* GroupTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38871EAF23D55D16007ED33D /* GroupTableView.swift */; };
@@ -126,6 +121,11 @@
 		38AA456423D6905900BE3F95 /* HomeAd2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AA456223D6905900BE3F95 /* HomeAd2View.swift */; };
 		38AA456623D6906400BE3F95 /* HomeAd2View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38AA456523D6906400BE3F95 /* HomeAd2View.xib */; };
 		38AA456723D6906400BE3F95 /* HomeAd2View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38AA456523D6906400BE3F95 /* HomeAd2View.xib */; };
+		38AA8E0723CC4FE600A7EB07 /* Dev_Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 38AA8E0623CC4FE600A7EB07 /* Dev_Info.plist */; };
+		38AFC40323CD51C700983886 /* SalesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AFC40223CD51C700983886 /* SalesProtocol.swift */; };
+		38AFC40423CD51C700983886 /* SalesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AFC40223CD51C700983886 /* SalesProtocol.swift */; };
+		38AFC40623CD521C00983886 /* SalesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AFC40523CD521C00983886 /* SalesPresenter.swift */; };
+		38AFC40723CD521C00983886 /* SalesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AFC40523CD521C00983886 /* SalesPresenter.swift */; };
 		38BCD91C23A3457900D59910 /* AccountRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BCD91B23A3457900D59910 /* AccountRepository.swift */; };
 		38BCD91D23A3457900D59910 /* AccountRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BCD91B23A3457900D59910 /* AccountRepository.swift */; };
 		38BCD92B23A345FA00D59910 /* DeviceUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BCD92023A345FA00D59910 /* DeviceUtil.swift */; };
@@ -362,7 +362,6 @@
 		3802A19623C8530100CD2EF2 /* SalesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalesResponse.swift; sourceTree = "<group>"; };
 		3802A19923C8542800CD2EF2 /* SalseInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalseInfoCell.swift; sourceTree = "<group>"; };
 		3802A19A23C8542800CD2EF2 /* SalseInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SalseInfoCell.xib; sourceTree = "<group>"; };
-		3817E4F323A33C8400ED8609 /* ColatourB2B.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColatourB2B.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3817E4F323A33C8400ED8609 /* 可樂旅遊B2B.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "可樂旅遊B2B.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3817E4F623A33C8400ED8609 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3817E4FB23A33C8400ED8609 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -410,9 +409,6 @@
 		387FBF0A23ACCEB7005412F1 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		387FBF0E23ACCEF4005412F1 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		387FBF1223ACD046005412F1 /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
-		38AA8E0623CC4FE600A7EB07 /* Dev_Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Dev_Info.plist; sourceTree = "<group>"; };
-		38AFC40223CD51C700983886 /* SalesProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalesProtocol.swift; sourceTree = "<group>"; };
-		38AFC40523CD521C00983886 /* SalesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalesPresenter.swift; sourceTree = "<group>"; };
 		38871EAC23D5553F007ED33D /* IndexResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexResponse.swift; sourceTree = "<group>"; };
 		38871EAF23D55D16007ED33D /* GroupTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTableView.swift; sourceTree = "<group>"; };
 		38871EB223D55E2F007ED33D /* GroupIndexHeaderImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupIndexHeaderImageCell.swift; sourceTree = "<group>"; };
@@ -426,6 +422,9 @@
 		38AA455D23D68E0A00BE3F95 /* HomeAd2Cell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeAd2Cell.xib; sourceTree = "<group>"; };
 		38AA456223D6905900BE3F95 /* HomeAd2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAd2View.swift; sourceTree = "<group>"; };
 		38AA456523D6906400BE3F95 /* HomeAd2View.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeAd2View.xib; sourceTree = "<group>"; };
+		38AA8E0623CC4FE600A7EB07 /* Dev_Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Dev_Info.plist; sourceTree = "<group>"; };
+		38AFC40223CD51C700983886 /* SalesProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalesProtocol.swift; sourceTree = "<group>"; };
+		38AFC40523CD521C00983886 /* SalesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalesPresenter.swift; sourceTree = "<group>"; };
 		38BCD91B23A3457900D59910 /* AccountRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountRepository.swift; sourceTree = "<group>"; };
 		38BCD92023A345FA00D59910 /* DeviceUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceUtil.swift; sourceTree = "<group>"; };
 		38BCD92123A345FA00D59910 /* EncryptionUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EncryptionUtils.m; sourceTree = "<group>"; };

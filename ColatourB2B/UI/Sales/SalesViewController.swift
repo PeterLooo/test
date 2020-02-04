@@ -49,7 +49,7 @@ extension SalesViewController: SalseInfoCellProtocol {
     
     func onTouchComment(sales: SalesResponse.Sales) {
         
-        self.onPopContactVC(messageSendType: sales.sendType, navTitle: "留言")
+        self.onPopContactVC(messageSendType: sales.salesType!, navTitle: "留言")
     }
     
     func onTouchLine(sales: SalesResponse.Sales) {
@@ -65,8 +65,8 @@ extension SalesViewController: SalseInfoCellProtocol {
         }
     }
     
-    private func onPopContactVC(messageSendType: MessageSendType, navTitle: String){
-    
+    private func onPopContactVC(messageSendType: String, navTitle: String){
+        
         let messageSendViewController = getVC(st: "MessageSend", vc: "MessageSend") as! MessageSendViewController
         messageSendViewController.setVC(messageSendType: messageSendType, navTitle: navTitle)
         messageSendViewController.delegate = self

@@ -14,7 +14,7 @@ class MessageSendRepository: NSObject {
     
     static let shared = MessageSendRepository()
     
-    func getMessageSendUserList(messageSendType: MessageSendType) -> Single<MessageSendUserListResponse> {
+    func getMessageSendUserList(messageSendType: String) -> Single<MessageSendUserListResponse> {
         
         let api = APIManager.shared.getMessageSendUserList(messageSendType: messageSendType)
         

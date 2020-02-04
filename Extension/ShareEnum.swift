@@ -43,39 +43,6 @@ public enum ToolBarType {
     }
 }
 
-public enum MessageSendType: String {
-    
-    case messageSend = ""
-    case groupSale = "團體－連絡業務"
-    case groupSuggest = "團體－改善建議"
-    case ticketFeedback = "票務－意見回饋"
-    case indoor = "業務助理"
-    case sales = "業務代表"
-    case leader = "業務組長"
-    case webServicer = "網路客服"
-    
-    func getApiUrl() -> APIUrl {
-        switch self {
-        case .messageSend:
-            return APIUrl.serviceApi(type: .messageSend)
-        case .groupSale:
-            return APIUrl.serviceApi(type: .groupSale)
-        case .groupSuggest:
-            return APIUrl.serviceApi(type: .groupSuggest)
-        case .ticketFeedback:
-            return APIUrl.serviceApi(type: .ticketFeedback)
-        case .indoor:
-            return APIUrl.serviceApi(type: .indoor)
-        case .sales:
-            return APIUrl.serviceApi(type: .sales)
-        case .leader:
-            return APIUrl.serviceApi(type: .leader)
-        case .webServicer:
-            return APIUrl.serviceApi(type: .webServicer)
-        }
-    }
-}
-
 public enum TourType {
     case tour
     case taichung

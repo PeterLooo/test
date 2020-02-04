@@ -146,26 +146,11 @@ enum APIUrl {
     
     enum ServiceApi: String {
         
-        case messageSend = ""
-        case groupSale = "團體－連絡業務"
-        case groupSuggest = "團體－改善建議"
-        case ticketFeedback = "票務－意見回饋"
-        case indoor = "業務助理"
-        case sales = "業務代表"
-        case leader = "業務組長"
-        case webServicer = "網路客服"
-        
+        case messageSend = "Send"
+
         static func urlWith(type: ServiceApi, append: String) -> String {
-            let base =  MAIN_WEB_HOST + "Service/Message/Send"
-            let initSendType = "/Initial?Send_Type="
-            
-            if type.rawValue == "" {
-                
-                return "\(base)\(type.rawValue)\(append)"
-            } else {
-                
-                return "\(base)\(initSendType)\(type.rawValue)\(append)"
-            }
+            let base =  MAIN_WEB_HOST + "Service/Message/"
+            return "\(base)\(type.rawValue)\(append)"
         }
         
         func url() -> String {

@@ -16,6 +16,6 @@ protocol MessageSendViewProtocol: BaseViewProtocol {
 
 protocol MessageSendPresenterProtocol: BasePresenterProtocol {
 
-    func getSendUserList(messageSendType: MessageSendType)
+    func getSendUserList(messageSendType: String)
     func messageSend(messageSendRequest: MessageSendRequest)
 }

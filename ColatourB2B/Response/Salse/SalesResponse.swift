@@ -28,7 +28,6 @@ class SalesResponse: BaseModel {
         var officePhone : String?
         var salesName : String?
         var salesType : String?
-        var sendType : MessageSendType!
         var officePhoneExt : String?
         
         override func mapping(map: Map) {
@@ -43,12 +42,6 @@ class SalesResponse: BaseModel {
             salesName <- map["Sales_Name"]
             salesType <- map["Sales_Type"]
             officePhoneExt <- map["Office_Phone_Ext"]
-            
-            var type = ""
-            type <- map["Sales_Type"]
-            sendType = MessageSendType(rawValue: type)
-            if (sendType == nil) { sendType = .messageSend }
-            
         }
     }
 }

@@ -105,13 +105,13 @@ class AirTicketViewController: BaseViewController {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
         alert.addAction(UIAlertAction(title: "聯絡業務(團體)" , style: .default, handler: { (_) in
-            self.onPopContactVC(messageSendType: .groupSale, navTitle: "留言")
+            self.onPopContactVC(messageSendType: "團體－連絡業務", navTitle: "留言")
         }))
         alert.addAction(UIAlertAction(title: "改善建議(團體)" , style: .default, handler: { (_) in
-            self.onPopContactVC(messageSendType: .groupSuggest, navTitle: "改善建議")
+            self.onPopContactVC(messageSendType: "團體－改善建議", navTitle: "改善建議")
         }))
         alert.addAction(UIAlertAction(title: "改善建議(票務)" , style: .default, handler: { (_) in
-            self.onPopContactVC(messageSendType: .ticketFeedback, navTitle: "改善建議")
+            self.onPopContactVC(messageSendType: "票務－意見回饋", navTitle: "改善建議")
         }))
         alert.addAction(UIAlertAction(title: "取消", style: .cancel))
         
@@ -124,7 +124,7 @@ class AirTicketViewController: BaseViewController {
         self.airSearchView.isUserInteractionEnabled = true
     }
     
-    private func onPopContactVC(messageSendType: MessageSendType, navTitle: String){
+    private func onPopContactVC(messageSendType: String, navTitle: String){
         
         let messageSendViewController = getVC(st: "MessageSend", vc: "MessageSend") as! MessageSendViewController
         messageSendViewController.setVC(messageSendType: messageSendType, navTitle: navTitle)

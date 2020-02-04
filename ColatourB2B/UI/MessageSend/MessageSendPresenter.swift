@@ -21,7 +21,7 @@ class MessageSendPresenter: MessageSendPresenterProtocol {
         self.delegate = delegate
     }
     
-    func getSendUserList(messageSendType: MessageSendType) {
+    func getSendUserList(messageSendType: String) {
         
         self.delegate?.onStartLoadingHandle(handleType: .ignore)
         messageSendRepository.getMessageSendUserList(messageSendType: messageSendType)

@@ -243,15 +243,21 @@ extension APIManager {
         return manager(method: .get, appendUrl: "", url: toolBarType.getApiUrl(), parameters: nil, appendHeaders: nil)
     }
     
-    func getMessageSendUserList(messageSendType: MessageSendType) -> Single<[String:Any]> {
-        return manager(method: .get, appendUrl: "", url: messageSendType.getApiUrl(), parameters: nil, appendHeaders: nil)
+    func getMessageSendUserList(messageSendType: String) -> Single<[String:Any]> {
+        
+        var appendUrl = ""
+        appendUrl = "/Initial?Send_Type=\(messageSendType)"
+        
+        return manager(method: .get, appendUrl: appendUrl, url: APIUrl.serviceApi(type: .messageSend), parameters: nil, appendHeaders: nil)
     }
     
     func messageSend(messageSendRequest: MessageSendRequest) -> Single<[String:Any]> {
+        
         let params = ["Send_Type": messageSendRequest.sendType!,
                       "Send_Key_List": messageSendRequest.sendKeyList!,
                       "Message_Topic": messageSendRequest.messageTopic!,
                       "Message_Text": messageSendRequest.messageText!] as [String : Any]
+        
         return manager(method: .post, appendUrl: "", url: APIUrl.serviceApi(type: .messageSend), parameters: params, appendHeaders: nil)
     }
     
