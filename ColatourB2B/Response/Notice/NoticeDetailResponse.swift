@@ -10,29 +10,28 @@ import ObjectMapper
 
 class NoticeDetailResponse: BaseModel {
     var noticeDetail: NoticeDetail?
-    
-    
-    override func mapping(map: Map) {
-        super.mapping(map: map)
-        
-        noticeDetail <- map["NoticeDetail"]
-    }
-    
+
     class NoticeDetail: BaseModel {
         var messageDate: String?
-        var orderNo: String?
-        var groupNo: String?
         var sendUser: String?
         var content: String?
+        var orderNo: String?
+        var groupNo: String?
         
-        override func mapping(map: Map) {
-            super.mapping(map: map)
+        convenience init(messageDate: String?,
+                        sendUser: String?,
+                        content: String?,
+                        orderNo: String?,
+                        groupNo: String?)
+        {
+         
             
-            messageDate <- map["Message_Date"]
-            orderNo <- map["Order_No"]
-            groupNo <- map["Group_No"]
-            sendUser <- map["Send_User"]
-            content <- map["Content"]
+            self.init()
+            self.messageDate = messageDate
+            self.sendUser = sendUser
+            self.content = content
+            self.orderNo = orderNo
+            self.groupNo = groupNo
         }
     }
 }

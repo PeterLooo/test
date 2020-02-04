@@ -9,16 +9,28 @@
 import UIKit
 
 extension NoticeDetailViewController {
-    func setVCwith(navTitle: String?, noticeNo: String) {
+    func setVCwith(navTitle: String?,
+                   noticeNo: String,
+                   messageDate: String?,
+                   sendUser: String?,
+                   content: String?,
+                   orderNo: String?,
+                   groupNo: String?) {
         self.navTitle = navTitle
         self.noticeNo = noticeNo
+        
+        self.noticeDetail = NoticeDetailResponse.NoticeDetail(messageDate: messageDate,
+                                                              sendUser: sendUser,
+                                                              content: content,
+                                                              orderNo: orderNo,
+                                                              groupNo: groupNo)
     }
 }
 
 class NoticeDetailViewController: BaseViewController {
     private var navTitle: String?
     private var noticeNo: String!
-    private var presenter: NoticeDetailPresenterProtocol?
+
     private var noticeDetail: NoticeDetailResponse.NoticeDetail? {
         didSet {
             tableView.reloadData()
@@ -26,7 +38,6 @@ class NoticeDetailViewController: BaseViewController {
     }
     
     enum Section: Int, CaseIterable {
-        case info
         case content
     }
     
@@ -44,31 +55,18 @@ class NoticeDetailViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        presenter = NoticeDetailPresenter(delegate: self)
+
         self.setNavTitle(title: navTitle ?? "")
         self.setNavType(navBarType: .notHidden)
         self.setTabBarType(tabBarType: .notHidden)
         
         layout()
-        loadData()
-    }
-    
-    override func loadData() {
-        super.loadData()
-        
-        getNoticeDetail()
     }
     
     private func layout(){
         self.view.addSubview(tableView)
         tableView.constraintToSafeArea()
     }
-    
-    private func getNoticeDetail() {
-        self.presenter?.getNoticeDetail(noticeNo: noticeNo)
-    }
-    
 }
 
 extension NoticeDetailViewController: NoticeDetailViewProtocol {
@@ -85,8 +83,7 @@ extension NoticeDetailViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if noticeDetail == nil { return 0 }
         switch Section(rawValue: section)! {
-        case .info:
-            return 1
+        
         case .content:
             return noticeDetail!.content.isNilOrEmpty ? 0 : 1
         }
@@ -94,13 +91,10 @@ extension NoticeDetailViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch Section(rawValue: indexPath.section)! {
-        case .info:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "NoticeDetailInfoCell") as! NoticeDetailInfoCell
-            cell.setCellWith(noticeDetail: noticeDetail!)
-            return cell
+        
         case .content:
             let cell = tableView.dequeueReusableCell(withIdentifier: "NoticeDetailContentCell") as! NoticeDetailContentCell
-            cell.setCellWith(content: noticeDetail!.content)
+            cell.setCellWith(noticeDetail: noticeDetail!)
             return cell
         }
     }
