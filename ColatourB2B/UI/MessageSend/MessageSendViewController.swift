@@ -15,7 +15,7 @@ protocol MessageSendToastDelegate: NSObjectProtocol {
 
 extension MessageSendViewController {
     
-    func setVC(messageSendType: MessageSendType, navTitle: String) {
+    func setVC(messageSendType: String, navTitle: String) {
         
         self.messageSendType = messageSendType
         self.navTitle = navTitle
@@ -35,7 +35,7 @@ class MessageSendViewController: BaseViewController {
     
     private var presenter: MessageSendPresenter?
     private var sendList: MessageSendUserListResponse?
-    private var messageSendType: MessageSendType?
+    private var messageSendType: String?
     private var messageTopic: String?
     private var messageContent: String?
     private var navTitle: String?
@@ -82,6 +82,16 @@ class MessageSendViewController: BaseViewController {
         setCustomLeftBarButtonItem(barButtonItem: cancelBarButtonItem)
     }
     
+    private func setAlert(message: String) {
+        
+        let alert = UIAlertController(title: "", message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "確認", style: .default, handler: nil)
+        okAction.setValue(UIColor(named: "通用綠"), forKey: "titleTextColor")
+        alert.addAction(okAction)
+        
+        present(alert, animated: true, completion: nil)
+    }
+    
     @objc private func onTouchCancel(){
            
         dismiss(animated: true, completion: nil)
@@ -90,6 +100,7 @@ class MessageSendViewController: BaseViewController {
     @IBAction func onTouchSend(_ sender: UIButton) {
         
         var sendKeyList: [String] = []
+        var enabledSendUserList: [UserStatus] = []
         
         sendList?.sendUserList.forEach({ (status) in
             
@@ -97,21 +108,25 @@ class MessageSendViewController: BaseViewController {
                 
                 sendKeyList.append(status.sendKey!)
             }
+            
+            if status.enabledMark == true {
+                
+                enabledSendUserList.append(status)
+            }
         })
-
+        
         let request = MessageSendRequest()
-        request.sendType = messageSendType.map { $0.rawValue }
+        request.sendType = messageSendType
         request.sendKeyList = sendKeyList
         request.messageTopic = messageTopic
         request.messageText = messageContent
         
         if request.messageTopic == "請填寫" {
             
-            let alert = UIAlertController(title: "請輸入訊息主旨", message: nil, preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-            alert.addAction(okAction)
+            setAlert(message: "請輸入訊息主旨")
+        } else if enabledSendUserList.count != 0 && request.sendKeyList?.count == 0 {
             
-            present(alert, animated: true, completion: nil)
+            setAlert(message: "通知名單至少需選擇一位訊息發送對象")
         } else {
             
             presenter?.messageSend(messageSendRequest: request)
