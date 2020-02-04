@@ -176,6 +176,8 @@ class APIManager: NSObject {
             requestUrl = type.url()
         case .mainApi(let type):
             requestUrl = type.url()
+        case .serviceApi(let type):
+            requestUrl = type.url()
         case .noticeApi(let type):
             requestUrl = type.url()
         }
@@ -224,7 +226,7 @@ extension APIManager {
     func getAccessWeb(webUrl:String) -> Single<[String:Any]> {
            let params = ["Web_Url":webUrl]
            return manager(method: .post, appendUrl: "", url: APIUrl.authApi(type: .accessWeb), parameters: params, appendHeaders: nil)
-       }
+    }
     
     func memberLogout() -> Single<[String:Any]> {
         return manager(method: .post, appendUrl: "", url: APIUrl.authApi(type: .logout), parameters: nil, appendHeaders: nil)
@@ -250,7 +252,26 @@ extension APIManager {
     }
     
     func getGroupMenu(toolBarType: ToolBarType)-> Single<[String:Any]> {
+        
         return manager(method: .get, appendUrl: "", url: toolBarType.getApiUrl(), parameters: nil, appendHeaders: nil)
+    }
+    
+    func getMessageSendUserList(messageSendType: String) -> Single<[String:Any]> {
+        
+        var appendUrl = ""
+        appendUrl = "/Initial?Send_Type=\(messageSendType)"
+        
+        return manager(method: .get, appendUrl: appendUrl, url: APIUrl.serviceApi(type: .messageSend), parameters: nil, appendHeaders: nil)
+    }
+    
+    func messageSend(messageSendRequest: MessageSendRequest) -> Single<[String:Any]> {
+        
+        let params = ["Send_Type": messageSendRequest.sendType!,
+                      "Send_Key_List": messageSendRequest.sendKeyList!,
+                      "Message_Topic": messageSendRequest.messageTopic!,
+                      "Message_Text": messageSendRequest.messageText!] as [String : Any]
+        
+        return manager(method: .post, appendUrl: "", url: APIUrl.serviceApi(type: .messageSend), parameters: params, appendHeaders: nil)
     }
     
     func getSalesList() -> Single<[String:Any]> {
@@ -320,7 +341,7 @@ extension APIManager {
         #endif
     }
     
-    private func printResponse(_ requestUrl: String,_ value: (Any)){
+    private func printResponse(_ requestUrl: String,_ value: (Any)) {
         //return
         #if DEBUG
         print("-------------------------------------------------------")
@@ -342,10 +363,10 @@ extension APIManager {
         #endif
     }
     
-    private func getPrettyPrint(_ responseValue: Any) -> String{
+    private func getPrettyPrint(_ responseValue: Any) -> String {
         var string: String = ""
-        if let data = try? JSONSerialization.data(withJSONObject: responseValue, options: .prettyPrinted){
-            if let nstr = NSString(data: data, encoding: String.Encoding.utf8.rawValue){
+        if let data = try? JSONSerialization.data(withJSONObject: responseValue, options: .prettyPrinted) {
+            if let nstr = NSString(data: data, encoding: String.Encoding.utf8.rawValue) {
                 string = nstr as String
             }
         }

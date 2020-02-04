@@ -38,9 +38,11 @@ public enum ToolBarType {
             return APIUrl.mainApi(type: .tkt)
         case .other:
             return APIUrl.mainApi(type: .other)
+        
         }
     }
 }
+
 public enum TourType {
     case tour
     case taichung
@@ -57,6 +59,7 @@ public enum TourType {
         }
     }
 }
+    
 public class ShareOption {
     var optionKey: String!
     var optionValue: String!

@@ -144,11 +144,14 @@ class GroupTourViewController: BaseViewController {
     @objc func onTouchContact (){
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
-        alert.addAction(UIAlertAction(title: "改善建議" , style: .default, handler: { (_) in
-            self.onPopContactVC()
+        alert.addAction(UIAlertAction(title: "聯絡業務(團體)" , style: .default, handler: { (_) in
+            self.onPopContactVC(messageSendType: "團體－連絡業務", navTitle: "留言")
         }))
-        alert.addAction(UIAlertAction(title: "聯絡業務" , style: .default, handler: { (_) in
-            self.contactSales()
+        alert.addAction(UIAlertAction(title: "改善建議(團體)" , style: .default, handler: { (_) in
+            self.onPopContactVC(messageSendType: "團體－改善建議", navTitle: "改善建議")
+        }))
+        alert.addAction(UIAlertAction(title: "改善建議(票務)" , style: .default, handler: { (_) in
+            self.onPopContactVC(messageSendType: "票務－意見回饋", navTitle: "改善建議")
         }))
         alert.addAction(UIAlertAction(title: "取消", style: .cancel))
 
@@ -211,12 +214,15 @@ class GroupTourViewController: BaseViewController {
         self.pageButtonBottomLineLeading.constant = scrollOffset
     }
     
-    private func onPopContactVC(){
-        ()
-    }
-    
-    private func contactSales(){
-        ()
+    private func onPopContactVC(messageSendType: String, navTitle: String){
+        
+        let messageSendViewController = getVC(st: "MessageSend", vc: "MessageSend") as! MessageSendViewController
+        messageSendViewController.setVC(messageSendType: messageSendType, navTitle: navTitle)
+        messageSendViewController.delegate = self
+        
+        let nav = UINavigationController(rootViewController: messageSendViewController)
+        nav.modalPresentationStyle = .fullScreen
+        self.navigationController?.present(nav, animated: true)
     }
     
     @objc private func onTouchSearch(){
@@ -288,6 +294,14 @@ extension GroupTourViewController: GropeTourViewProtocol {
     }
 }
 
+extension GroupTourViewController: MessageSendToastDelegate {
+
+    func setMessageSendToastText(text: String) {
+        
+        self.toast(text: text)
+    }
+}
+    
 extension GroupTourViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView != self.scrollView { return }
