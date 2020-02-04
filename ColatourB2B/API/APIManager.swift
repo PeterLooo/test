@@ -228,6 +228,10 @@ extension APIManager {
            return manager(method: .post, appendUrl: "", url: APIUrl.authApi(type: .accessWeb), parameters: params, appendHeaders: nil)
     }
     
+    func memberLogout() -> Single<[String:Any]> {
+        return manager(method: .post, appendUrl: "", url: APIUrl.authApi(type: .logout), parameters: nil, appendHeaders: nil)
+    }
+    
     func getMemberIndex()-> Single<[String:Any]> {
         
         return manager(method: .get, appendUrl: "", url: APIUrl.memberApi(type: .memberIndex), parameters: nil, appendHeaders: nil)
@@ -252,6 +256,22 @@ extension APIManager {
         return manager(method: .get, appendUrl: "", url: toolBarType.getApiUrl(), parameters: nil, appendHeaders: nil)
     }
     
+    func getGroupTourSearchInit(departureCode: String?) -> Single<[String: Any]> {
+
+        let appendUrl = ( departureCode == nil ) ? "" : "?Departure_Code=\(departureCode!)"
+        return manager(method: .get, appendUrl: appendUrl, url: APIUrl.mainApi(type: .tourSearchInit), parameters: nil, appendHeaders: nil)
+    }
+    
+    func getGroupTourSearchUrl(groupTourSearchRequest: GroupTourSearchRequest) -> Single<[String: Any]> {
+        
+        return manager(method: .post, appendUrl: "", url: APIUrl.mainApi(type: .tourSearch), parameters: groupTourSearchRequest.getDictionary(), appendHeaders: nil)
+    }
+    
+    func getGroupTourSearchUrl(groupTourSearchKeywordAndTourCodeRequest: GroupTourSearchKeywordAndTourCodeRequest) -> Single<[String: Any]> {
+
+        return manager(method: .post, appendUrl: "", url: APIUrl.mainApi(type: .tourKeywordSearch), parameters: groupTourSearchKeywordAndTourCodeRequest.getDictionary(), appendHeaders: nil)
+    }
+
     func getMessageSendUserList(messageSendType: String) -> Single<[String:Any]> {
         
         var appendUrl = ""
@@ -273,13 +293,7 @@ extension APIManager {
     func getSalesList() -> Single<[String:Any]> {
         return manager(method: .get, appendUrl: "", url: APIUrl.portalApi(type: .serviceTourWindowList), parameters: nil, appendHeaders: nil)
     }
-    
-    func getNoticeDetail(noticeNo: String) -> Single<[String:Any]> {
-        let parameters = ["Noti_No": noticeNo]
-        //Note: 待API提供正確路徑
-        return manager(method: .post, appendUrl: "", url: APIUrl.memberApi(type: .noticeDetail), parameters: parameters, appendHeaders: nil)
-    }
-        
+
     func getNoticeList(pageIndex: Int) -> Single<[String:Any]> {
         let pageSize = "PageSize=10"
         var appendUrl = ""
@@ -317,6 +331,7 @@ extension APIManager {
         
         return manager(method: .post, appendUrl: "", url: APIUrl.noticeApi(type: .setNotiRead), parameters: params, appendHeaders: nil)
     }
+
 }
 
 extension APIManager {

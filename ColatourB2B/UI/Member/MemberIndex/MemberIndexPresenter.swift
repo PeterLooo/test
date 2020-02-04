@@ -32,4 +32,8 @@ class MemberIndexPresenter: MemberIndexPresenterProtocol {
         }).disposed(by:dispose)
     }
     
+    func memberLogout() {
+        let _ = accountRepository.memberLogout().subscribe()
+    }
+    
 }

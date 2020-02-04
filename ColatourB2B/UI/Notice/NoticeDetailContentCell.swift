@@ -32,5 +32,6 @@ class NoticeDetailContentCell: UITableViewCell {
         notiTitleView.isHidden = noticeDetail.notiTitle.isNilOrEmpty
         sendUserView.isHidden = noticeDetail.sendUser.isNilOrEmpty
         messageDateView.isHidden = noticeDetail.messageDate.isNilOrEmpty
+        
     }
 }
