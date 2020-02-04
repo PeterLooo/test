@@ -15,23 +15,19 @@ class NoticeDetailResponse: BaseModel {
         var messageDate: String?
         var sendUser: String?
         var content: String?
-        var orderNo: String?
-        var groupNo: String?
+        var notiTitle: String?
         
         convenience init(messageDate: String?,
                         sendUser: String?,
                         content: String?,
-                        orderNo: String?,
-                        groupNo: String?)
+                        notiTitle: String?)
         {
-         
             
             self.init()
             self.messageDate = messageDate
             self.sendUser = sendUser
             self.content = content
-            self.orderNo = orderNo
-            self.groupNo = groupNo
+            self.notiTitle = notiTitle
         }
     }
 }
