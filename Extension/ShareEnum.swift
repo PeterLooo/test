@@ -11,8 +11,8 @@ import UIKit
 public enum LinkType: String {
     case web = "00"
     case getApiUrl = "003"
+    case passwordModify = "031"
     case salesPage = "011"
-    case passwordReset = "031"
     case updateDate = "032"
     case openBrowser
     case unknown

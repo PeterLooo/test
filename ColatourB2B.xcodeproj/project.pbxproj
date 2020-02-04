@@ -299,6 +299,18 @@
 		C7C41C4523C724E900F97057 /* NoticeDetailContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C41C4223C724E900F97057 /* NoticeDetailContentCell.swift */; };
 		C7C41C4623C724E900F97057 /* NoticeDetailContentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7C41C4323C724E900F97057 /* NoticeDetailContentCell.xib */; };
 		C7C41C4723C724E900F97057 /* NoticeDetailContentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7C41C4323C724E900F97057 /* NoticeDetailContentCell.xib */; };
+		CCCC735223E42C2700FC03EE /* PasswordModifyProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCC734F23E42C2700FC03EE /* PasswordModifyProtocol.swift */; };
+		CCCC735323E42C2700FC03EE /* PasswordModifyProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCC734F23E42C2700FC03EE /* PasswordModifyProtocol.swift */; };
+		CCCC735423E42C2700FC03EE /* PasswordModifyPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCC735023E42C2700FC03EE /* PasswordModifyPresenter.swift */; };
+		CCCC735523E42C2700FC03EE /* PasswordModifyPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCC735023E42C2700FC03EE /* PasswordModifyPresenter.swift */; };
+		CCCC735623E42C2700FC03EE /* PasswordModifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCC735123E42C2700FC03EE /* PasswordModifyViewController.swift */; };
+		CCCC735723E42C2700FC03EE /* PasswordModifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCC735123E42C2700FC03EE /* PasswordModifyViewController.swift */; };
+		CCCC735923E42C9600FC03EE /* PasswordModifyRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCC735823E42C9500FC03EE /* PasswordModifyRequest.swift */; };
+		CCCC735A23E42C9600FC03EE /* PasswordModifyRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCC735823E42C9500FC03EE /* PasswordModifyRequest.swift */; };
+		CCCC735C23E42CDD00FC03EE /* PasswordModifyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCC735B23E42CDD00FC03EE /* PasswordModifyResponse.swift */; };
+		CCCC735D23E42CDD00FC03EE /* PasswordModifyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCC735B23E42CDD00FC03EE /* PasswordModifyResponse.swift */; };
+		CCCC735F23E42D8200FC03EE /* PasswordModify.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCCC735E23E42D8200FC03EE /* PasswordModify.storyboard */; };
+		CCCC736023E42D8200FC03EE /* PasswordModify.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCCC735E23E42D8200FC03EE /* PasswordModify.storyboard */; };
 		FF8E32EC7686F078B8ABDE18 /* Pods_ColatourB2B.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A331B185DD2055D277F472F3 /* Pods_ColatourB2B.framework */; };
 /* End PBXBuildFile section */
 
@@ -488,6 +500,12 @@
 		C7C41C3D23C724C100F97057 /* NoticeDetailInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoticeDetailInfoCell.xib; sourceTree = "<group>"; };
 		C7C41C4223C724E900F97057 /* NoticeDetailContentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeDetailContentCell.swift; sourceTree = "<group>"; };
 		C7C41C4323C724E900F97057 /* NoticeDetailContentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoticeDetailContentCell.xib; sourceTree = "<group>"; };
+		CCCC734F23E42C2700FC03EE /* PasswordModifyProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordModifyProtocol.swift; sourceTree = "<group>"; };
+		CCCC735023E42C2700FC03EE /* PasswordModifyPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordModifyPresenter.swift; sourceTree = "<group>"; };
+		CCCC735123E42C2700FC03EE /* PasswordModifyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordModifyViewController.swift; sourceTree = "<group>"; };
+		CCCC735823E42C9500FC03EE /* PasswordModifyRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordModifyRequest.swift; sourceTree = "<group>"; };
+		CCCC735B23E42CDD00FC03EE /* PasswordModifyResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PasswordModifyResponse.swift; path = Member/PasswordModifyResponse.swift; sourceTree = "<group>"; };
+		CCCC735E23E42D8200FC03EE /* PasswordModify.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PasswordModify.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -692,6 +710,7 @@
 		387FBF0823ACCE5C005412F1 /* Member */ = {
 			isa = PBXGroup;
 			children = (
+				CCCC734E23E42C2700FC03EE /* PasswordModify */,
 				387FBF0D23ACCEE4005412F1 /* Login */,
 				387FBF0C23ACCEC7005412F1 /* MemberIndex */,
 			);
@@ -702,6 +721,7 @@
 			isa = PBXGroup;
 			children = (
 				387FBF0A23ACCEB7005412F1 /* Login.storyboard */,
+				CCCC735E23E42D8200FC03EE /* PasswordModify.storyboard */,
 			);
 			path = Member;
 			sourceTree = "<group>";
@@ -899,6 +919,7 @@
 				38E9922023B04F1400E28271 /* VersionRuleReponse.swift */,
 				38E9922323B04F2A00E28271 /* BulletinResponse.swift */,
 				38871EAC23D5553F007ED33D /* IndexResponse.swift */,
+				CCCC735B23E42CDD00FC03EE /* PasswordModifyResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -954,6 +975,7 @@
 			isa = PBXGroup;
 			children = (
 				38E9922D23B058CA00E28271 /* LoginRequest.swift */,
+				CCCC735823E42C9500FC03EE /* PasswordModifyRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -1015,6 +1037,16 @@
 				C7BBF4C023C7043D00023307 /* NoticeDetailResponse.swift */,
 			);
 			path = Notice;
+			sourceTree = "<group>";
+		};
+		CCCC734E23E42C2700FC03EE /* PasswordModify */ = {
+			isa = PBXGroup;
+			children = (
+				CCCC734F23E42C2700FC03EE /* PasswordModifyProtocol.swift */,
+				CCCC735023E42C2700FC03EE /* PasswordModifyPresenter.swift */,
+				CCCC735123E42C2700FC03EE /* PasswordModifyViewController.swift */,
+			);
+			path = PasswordModify;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1163,6 +1195,7 @@
 				3869544023BB002900F6E7D9 /* MemberIndexVersionCell.xib in Resources */,
 				382FD59F23D8038C001FF38E /* BottomLoadingView.xib in Resources */,
 				387FBEFD23ACA2A7005412F1 /* Notice.storyboard in Resources */,
+				CCCC735F23E42D8200FC03EE /* PasswordModify.storyboard in Resources */,
 				3802A19323C8522F00CD2EF2 /* Sales.storyboard in Resources */,
 				38871EB623D55E2F007ED33D /* GroupIndexHeaderImageCell.xib in Resources */,
 				38E68AC123B5AE30006BC4DD /* Common.storyboard in Resources */,
@@ -1219,6 +1252,7 @@
 				3869544123BB002900F6E7D9 /* MemberIndexVersionCell.xib in Resources */,
 				382FD5A023D8038C001FF38E /* BottomLoadingView.xib in Resources */,
 				387FBEFE23ACA2A7005412F1 /* Notice.storyboard in Resources */,
+				CCCC736023E42D8200FC03EE /* PasswordModify.storyboard in Resources */,
 				3802A19423C8522F00CD2EF2 /* Sales.storyboard in Resources */,
 				38871EB723D55E2F007ED33D /* GroupIndexHeaderImageCell.xib in Resources */,
 				38E68AC223B5AE30006BC4DD /* Common.storyboard in Resources */,
@@ -1418,6 +1452,7 @@
 				3869543E23BB002900F6E7D9 /* MemberIndexVersionCell.swift in Sources */,
 				38BCD99C23A363AB00D59910 /* MemberRepositoryProtocol.swift in Sources */,
 				381B12B223C466370030BACE /* NoticeViewController.swift in Sources */,
+				CCCC735223E42C2700FC03EE /* PasswordModifyProtocol.swift in Sources */,
 				384B110623C2BD46000E2B41 /* AirTicketPresenter.swift in Sources */,
 				C7BBF4BB23C7040900023307 /* NoticeDetailProtocol.swift in Sources */,
 				38E9921E23B04CF200E28271 /* GropeTourPresenter.swift in Sources */,
@@ -1436,6 +1471,7 @@
 				38E68AB723B5AC12006BC4DD /* GroupMenuResponse.swift in Sources */,
 				38E9921B23B04CD400E28271 /* GropeTourProtocol.swift in Sources */,
 				C711753D23BF407E00555D8C /* MoreProtocol.swift in Sources */,
+				CCCC735623E42C2700FC03EE /* PasswordModifyViewController.swift in Sources */,
 				3848DA8123C72FA600EA0ED0 /* NoticeRepository.swift in Sources */,
 				38E9922A23B053C400E28271 /* LoginPresenter.swift in Sources */,
 				381B12B523C48D360030BACE /* GroupNavigationView.swift in Sources */,
@@ -1482,6 +1518,9 @@
 				38BCDA2923A379DE00D59910 /* GroupTourViewController.swift in Sources */,
 				38BCD99923A3639500D59910 /* MemberRepository.swift in Sources */,
 				C7BBF4C123C7043D00023307 /* NoticeDetailResponse.swift in Sources */,
+				CCCC735923E42C9600FC03EE /* PasswordModifyRequest.swift in Sources */,
+				CCCC735423E42C2700FC03EE /* PasswordModifyPresenter.swift in Sources */,
+				CCCC735C23E42CDD00FC03EE /* PasswordModifyResponse.swift in Sources */,
 				38BCD98123A3484300D59910 /* UIViewExtension.swift in Sources */,
 				3869542E23BADC9000F6E7D9 /* MemberIndexResponse.swift in Sources */,
 				C7C41C4423C724E900F97057 /* NoticeDetailContentCell.swift in Sources */,
@@ -1550,6 +1589,7 @@
 				3869543F23BB002900F6E7D9 /* MemberIndexVersionCell.swift in Sources */,
 				38BCD99D23A363AB00D59910 /* MemberRepositoryProtocol.swift in Sources */,
 				381B12B323C466370030BACE /* NoticeViewController.swift in Sources */,
+				CCCC735323E42C2700FC03EE /* PasswordModifyProtocol.swift in Sources */,
 				384B110723C2BD46000E2B41 /* AirTicketPresenter.swift in Sources */,
 				C7BBF4BC23C7040900023307 /* NoticeDetailProtocol.swift in Sources */,
 				38E9921F23B04CF200E28271 /* GropeTourPresenter.swift in Sources */,
@@ -1568,6 +1608,7 @@
 				38E68AB823B5AC12006BC4DD /* GroupMenuResponse.swift in Sources */,
 				38E9921C23B04CD400E28271 /* GropeTourProtocol.swift in Sources */,
 				C711753E23BF407E00555D8C /* MoreProtocol.swift in Sources */,
+				CCCC735723E42C2700FC03EE /* PasswordModifyViewController.swift in Sources */,
 				3848DA8223C72FA600EA0ED0 /* NoticeRepository.swift in Sources */,
 				38E9922B23B053C400E28271 /* LoginPresenter.swift in Sources */,
 				381B12B623C48D360030BACE /* GroupNavigationView.swift in Sources */,
@@ -1614,6 +1655,9 @@
 				38BCDA2A23A379DE00D59910 /* GroupTourViewController.swift in Sources */,
 				38BCD99A23A3639500D59910 /* MemberRepository.swift in Sources */,
 				C7BBF4C223C7043D00023307 /* NoticeDetailResponse.swift in Sources */,
+				CCCC735A23E42C9600FC03EE /* PasswordModifyRequest.swift in Sources */,
+				CCCC735523E42C2700FC03EE /* PasswordModifyPresenter.swift in Sources */,
+				CCCC735D23E42CDD00FC03EE /* PasswordModifyResponse.swift in Sources */,
 				38BCD98223A3484300D59910 /* UIViewExtension.swift in Sources */,
 				3869542F23BADC9000F6E7D9 /* MemberIndexResponse.swift in Sources */,
 				C7C41C4523C724E900F97057 /* NoticeDetailContentCell.swift in Sources */,

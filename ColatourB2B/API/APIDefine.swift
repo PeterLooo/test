@@ -105,6 +105,7 @@ enum APIUrl {
     enum MemberApi: String {
         
         case memberIndex = "Index"
+        case passwordModify = "Password/Modify"
         case noticeDetail = "noticeDetail"
         
         static func urlWith(type: MemberApi, append:String) -> String {
