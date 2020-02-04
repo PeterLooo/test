@@ -29,4 +29,25 @@ class GroupReponsitory: NSObject {
             .flatMap{_ in api}
             .map{ GroupMenuResponse(JSON: $0)!}
     }
+    
+    func getGroupTourSearchInit(departureCode: String?) -> Single<GroupTourSearchInitResponse.GroupTourSearchInit> {
+        let api = APIManager.shared.getGroupTourSearchInit(departureCode: departureCode)
+        return AccountRepository.shared.getAccessToken()
+            .flatMap{_ in api}
+            .map{ GroupTourSearchInitResponse.GroupTourSearchInit(JSON: $0)!}
+    }
+    
+    func getGroupTourSearchUrl(groupTourSearchRequest: GroupTourSearchRequest) -> Single<GroupTourSearchUrlResponse.GroupTourSearchUrl> {
+        let api = APIManager.shared.getGroupTourSearchUrl(groupTourSearchRequest: groupTourSearchRequest)
+        return AccountRepository.shared.getAccessToken()
+            .flatMap{_ in api}
+            .map{ GroupTourSearchUrlResponse.GroupTourSearchUrl(JSON: $0)!}
+    }
+    
+    func getGroupTourSearchUrl(groupTourSearchKeywordAndTourCodeRequest: GroupTourSearchKeywordAndTourCodeRequest) -> Single<GroupTourSearchUrlResponse.GroupTourSearchUrl> {
+        let api = APIManager.shared.getGroupTourSearchUrl(groupTourSearchKeywordAndTourCodeRequest: groupTourSearchKeywordAndTourCodeRequest)
+        return AccountRepository.shared.getAccessToken()
+            .flatMap{_ in api}
+            .map{ GroupTourSearchUrlResponse.GroupTourSearchUrl(JSON: $0)!}
+    }
 }

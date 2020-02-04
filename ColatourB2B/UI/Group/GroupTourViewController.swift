@@ -253,7 +253,8 @@ extension GroupTourViewController: UIViewControllerTransitioningDelegate {
 }
 extension GroupTourViewController: GroupNavigationViewProtocol{
     func onTouchSearchView() {
-        ()
+        let vc = getVC(st: "GroupTourSearch", vc: "GroupTourSearchViewController") as! GroupTourSearchViewController
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 extension GroupTourViewController: GroupTableViewProtocol {
