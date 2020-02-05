@@ -328,6 +328,8 @@ class BaseViewController: UIViewController {
             self.handleApiFailError(handleType: handleType, alertMsg: apiError.alertMsg)
         case .presentLogin:
             self.logoutAndPopLoginVC()
+        case .cancelAllRequestDoNothing:
+            ()
         }
     }
 

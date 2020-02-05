@@ -186,6 +186,17 @@ class APIManager: NSObject {
         return requestUrl
     }
     
+    func cancelAllRequest () {
+        print("****** cancel all Request ******")
+        print("****** cancel all Request ******")
+        print("****** cancel all Request ******")
+        requestManager.session.getTasksWithCompletionHandler {
+            (sessionDataTask, uploadData, downloadData) in
+            sessionDataTask.forEach { $0.cancel() }
+            uploadData.forEach { $0.cancel() }
+            downloadData.forEach { $0.cancel() }
+        }
+    }
 }
 
 extension APIManager {
