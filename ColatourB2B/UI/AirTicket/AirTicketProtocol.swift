@@ -10,9 +10,11 @@ import Foundation
 protocol AirTicketViewProtocol: BaseViewProtocol {
     
     func onBindAirMenu(menu: GroupMenuResponse)
+    func onBindAirTicketIndex(moduleDataList : [IndexResponse.MultiModule])
 }
 
 protocol AirTicketPresenterProtocol: BasePresenterProtocol {
     
     func getAirMenu(toolBarType: ToolBarType)
+    func getAirTicketIndex()
 }
