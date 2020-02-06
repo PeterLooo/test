@@ -18,7 +18,7 @@ class GroupTourViewController: BaseViewController {
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var stackView: UIStackView!
-    private var presenter: GropeTourPresenter?
+    private var presenter: GropeTourPresenterProtocol?
     private var groupTableViews: [GroupTableView] = []
     private var needUpdateBannerImage = false
     private var menuList : GroupMenuResponse? {
@@ -62,7 +62,10 @@ class GroupTourViewController: BaseViewController {
     
     private func getVersionRule(){
         self.presenter?.getVersionRule()
-        
+    }
+    
+    private func getBulletin(){
+        presenter?.getBulletin()
     }
     
     private func setUpTableView() {
@@ -286,12 +289,54 @@ extension GroupTourViewController: GropeTourViewProtocol {
     }
     
     func onBindAccessTokenSuccess() {
+        getVersionRule()
+    }
+    
+    func onBindVersionRule(versionRule: VersionRuleReponse.Update?) {
+        if versionRule == nil {
+            getBulletin()
+            getGroupMenu()
+            NotificationCenter.default.post(name: Notification.Name("getUnreadCount"), object: nil)
+            return
+        }
+        
+        if let updateNo = UserDefaultUtil.shared.updateNo, updateNo >= versionRule!.updateNo! {
+            getBulletin()
+            getGroupMenu()
+            NotificationCenter.default.post(name: Notification.Name("getUnreadCount"), object: nil)
+            return
+        }
+        
+        let sb = UIStoryboard(name: "VersionRule", bundle:nil)
+        let vca = sb.instantiateViewController(withIdentifier: "VersionRuleViewController") as! VersionRuleViewController
+        vca.modalPresentationStyle = .overFullScreen
+        vca.setVersionRule(versionRule: versionRule!)
+        vca.delegate = self
+        self.present(vca, animated: true, completion: nil)
+    }
+    
+    func onBindVersionRuleError() {
+        getBulletin()
         getGroupMenu()
-        //getVersionRule()
         NotificationCenter.default.post(name: Notification.Name("getUnreadCount"), object: nil)
     }
-    func onBindVersionRule(versionRule: VersionRuleReponse.Update?) {
-        ()
+    
+    func onBindBulletin(bulletin: BulletinResponse.Bulletin?) {
+        if bulletin == nil {
+            return
+        }
+        
+        if let bulletinNo = UserDefaultUtil.shared.bulletinNo, bulletinNo >= bulletin!.bulletinNo! {
+            return
+        }
+        
+        let sb = UIStoryboard(name: "Bulletin", bundle:nil)
+        let vca = sb.instantiateViewController(withIdentifier: "BulletinViewController") as! BulletinViewController
+        vca.modalPresentationStyle = .overFullScreen
+        vca.delegate = self
+        vca.setVCWith(bulletin: bulletin!)
+        self.present(vca, animated: true, completion: nil)
+        UserDefaultUtil.shared.bulletinNo = bulletin!.bulletinNo ?? 0
     }
 }
 
@@ -313,5 +358,31 @@ extension GroupTourViewController: UIScrollViewDelegate {
         let percent = nowOffsetX / (wholeWidth / 3.0)
         scrollTopPageButtonBottomLine(percent: percent)
         switchPageButton(toPage: lround(Double(percent)))
+    }
+}
+
+extension GroupTourViewController: VersionRuleViewControllerProtocol {
+    func onDismissVersionRuleViewController() {
+        ()
+    }
+    
+    func onDismissVersionRuleViewControllerCompletion(){
+        getBulletin()
+        getGroupMenu()
+        NotificationCenter.default.post(name: Notification.Name("getUnreadCount"), object: nil)
+    }
+}
+
+extension GroupTourViewController: BulletinViewControllerProtocol {
+    func onTouchBulletinLink(linkType: LinkType, linkValue: String?, linkText: String?) {
+        self.handleLinkType(linkType: linkType, linkValue: linkValue, linkText: linkText)
+    }
+    
+    func onDismissBulletinViewController() {
+        ()
+    }
+    
+    func onDismissBulletinViewControllerCompletion() {
+        ()
     }
 }

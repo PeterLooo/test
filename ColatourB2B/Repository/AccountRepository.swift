@@ -180,6 +180,13 @@ class AccountRepository: NSObject {
             .map{ VersionRuleReponse(JSON: $0)!.update}
     }
     
+    func getBulletin() -> Single<BulletinResponse.Bulletin?> {
+        let api = APIManager.shared.getBulletin()
+        return AccountRepository.shared.apiToken
+            .flatMap{_ in api}
+            .map{ BulletinResponse(JSON: $0)!.bulletin}
+    }
+    
     func memberLogout() -> Single<Any> {
         
         let api = APIManager.shared.memberLogout()
