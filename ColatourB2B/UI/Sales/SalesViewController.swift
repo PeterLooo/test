@@ -27,6 +27,7 @@ class SalesViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setNavTitle(title: "會員專屬服務團隊")
+        self.setTabBarType(tabBarType: .hidden)
         tableView.register(UINib.init(nibName: "SalseInfoCell", bundle: nil), forCellReuseIdentifier: "SalseInfoCell")
         loadData()
     }

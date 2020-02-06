@@ -138,6 +138,7 @@ class AccountRepository: NSObject {
             respones.refreshToken = UserDefaultUtil.shared.refreshToken
             return  Single.just(respones)
         }
+        APIManager.shared.cancelAllRequest()
         let api = APIManager.shared.getAccessToken(refreshToken: refreshToken!)
         return AccountRepository.shared.apiToken
         .flatMap{ model -> Single<[String:Any]> in

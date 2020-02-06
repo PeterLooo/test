@@ -53,7 +53,7 @@ class MessageSendNotificationListCell: UITableViewCell {
         
         if userStatus.defaultMark == true {
             
-            checkButton.setBackgroundImage(UIImage(named: "checkbox_checked"), for: .normal)
+            checkButton.setBackgroundImage(UIImage(named: "check"), for: .normal)
         } else {
             
             checkButton.setBackgroundImage(UIImage(named: "check_hover"), for: .normal)

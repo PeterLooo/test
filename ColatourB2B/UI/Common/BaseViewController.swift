@@ -285,6 +285,9 @@ class BaseViewController: UIViewController {
         setUpToastView()
         setUpNilButton()
         
+        if #available(iOS 13.0, *) {
+            overrideUserInterfaceStyle = .light
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -328,6 +331,8 @@ class BaseViewController: UIViewController {
             self.handleApiFailError(handleType: handleType, alertMsg: apiError.alertMsg)
         case .presentLogin:
             self.logoutAndPopLoginVC()
+        case .cancelAllRequestDoNothing:
+            ()
         }
     }
 

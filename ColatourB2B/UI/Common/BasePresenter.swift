@@ -24,6 +24,7 @@ class BasePresenter: NSObject,BasePresenterProtocol {
     }
     
     func getAccessToken(){
+        self.delegate?.onStartLoadingHandle(handleType: .ignore)
         AccountRepository.shared.getAccessToken(getLocalToken:false).subscribe(onSuccess: { (_) in
             self.delegate?.loadData()
             self.delegate?.onCompletedLoadingHandle()
