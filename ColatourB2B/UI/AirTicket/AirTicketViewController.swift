@@ -34,6 +34,7 @@ class AirTicketViewController: BaseViewController {
         setIsNavShadowEnable(false)
         self.grayBlurView.alpha = 0
         setSearchBorder()
+        setSearchGes()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -136,7 +137,16 @@ class AirTicketViewController: BaseViewController {
     }
     
     @objc private func onTouchSearch(){
-        ()
+
+        let list = menuList?.serverList
+            .flatMap { $0 }
+            .filter { $0.linkName == "查詢票價表" }
+            .first
+        
+        if let searchAirTicket = list {
+            
+            self.handleLinkType(linkType: searchAirTicket.linkType, linkValue: searchAirTicket.linkValue, linkText: searchAirTicket.linkName)
+        }
     }
 }
 
