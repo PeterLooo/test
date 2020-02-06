@@ -67,7 +67,7 @@ class VersionRuleViewController: BaseViewController {
             self.cancelButton.isHidden = true
             self.updateNowButton.isHidden = true
             self.rightButton.isHidden = false
-            self.titleLabel.text = "系統維護中!"
+            self.titleLabel.text = "系統維護中！"
             self.imageView.image = UIImage(named: "remind_maintaining")
         case "Suggestion" :
             self.immediatlyButton.isHidden = true
@@ -88,7 +88,7 @@ class VersionRuleViewController: BaseViewController {
             self.cancelButton.isHidden = true
             self.updateNowButton.isHidden = true
             self.rightButton.isHidden = false
-            self.titleLabel.text = "系統維護中!"
+            self.titleLabel.text = "系統維護中！"
             self.imageView.image = UIImage(named: "remind_maintaining")
         }
     }
