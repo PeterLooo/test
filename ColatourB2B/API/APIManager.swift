@@ -186,6 +186,15 @@ class APIManager: NSObject {
         return requestUrl
     }
     
+    func cancelAllRequest () {
+        self.printLog(value: "cancel All Request")
+        requestManager.session.getTasksWithCompletionHandler {
+            (sessionDataTask, uploadData, downloadData) in
+            sessionDataTask.forEach { $0.cancel() }
+            uploadData.forEach { $0.cancel() }
+            downloadData.forEach { $0.cancel() }
+        }
+    }
 }
 
 extension APIManager {
@@ -371,6 +380,16 @@ extension APIManager {
         print("* View_OnError : \(String(describing:error))")
         print("* Error.code : \((error as NSError).code)")
         print("* AlertMsg : \(alertMsg)")
+        #endif
+    }
+    
+    private func printLog(value:String){
+        #if DEBUG
+        print("-------------------------------------------------------")
+        print("****** \(value) ******")
+        print("****** \(value) ******")
+        print("****** \(value) ******")
+        print("-------------------------------------------------------")
         #endif
     }
     
