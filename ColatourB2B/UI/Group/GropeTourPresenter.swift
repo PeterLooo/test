@@ -49,10 +49,23 @@ class GropeTourPresenter: GropeTourPresenterProtocol {
             self.delegate?.onBindVersionRule(versionRule: model)
             self.delegate?.onCompletedLoadingHandle()
         }, onError: { (error) in
-            self.delegate?.onApiErrorHandle(apiError: error as! APIError, handleType: .coverPlate)
+            self.delegate?.onBindVersionRuleError()
+            self.delegate?.onApiErrorHandle(apiError: error as! APIError, handleType: .custom)
             self.delegate?.onCompletedLoadingHandle()
         }).disposed(by: dispose)
     }
+    
+    func getBulletin() {
+        self.delegate?.onStartLoadingHandle(handleType: .ignore)
+        accountRepositouy.getBulletin().subscribe(onSuccess: { (model) in
+            self.delegate?.onBindBulletin(bulletin: model)
+            self.delegate?.onCompletedLoadingHandle()
+        }, onError: { (error) in
+            self.delegate?.onApiErrorHandle(apiError: error as! APIError, handleType: .custom)
+            self.delegate?.onCompletedLoadingHandle()
+        }).disposed(by: dispose)
+    }
+    
     func getTourIndex(tourType: TourType) {
         self.delegate?.onStartLoadingHandle(handleType: .coverPlate)
         

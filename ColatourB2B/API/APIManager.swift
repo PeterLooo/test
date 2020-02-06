@@ -221,6 +221,11 @@ extension APIManager {
         return manager(method: .get, appendUrl: "", url: APIUrl.authApi(type: .versionRule), parameters: nil, appendHeaders: nil)
     }
     
+    func getBulletin() -> Single<[String:Any]> {
+        let appendUrl = ""
+        return manager(method: .get, appendUrl: appendUrl, url: APIUrl.bulletinApi(type: .bulletin), parameters: nil, appendHeaders: nil)
+    }
+    
     func getRefreshToken(loginRequest: LoginRequest) -> Single<[String:Any]> {
         let params = ["Member_Idno":loginRequest.memberIdno!,
                       "Password":loginRequest.password!]
