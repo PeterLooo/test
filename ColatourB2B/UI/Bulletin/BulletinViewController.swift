@@ -88,7 +88,6 @@ class BulletinViewController: BaseViewController {
         
         self.titleView.isHidden = bulletin.bulletinTitle.isNilOrEmpty && bulletin.bulletinContent.isNilOrEmpty
         
-        
         if let picUrl = self.bulletin?.bulletinImage, let url = URL.init(string: picUrl) {
             let data: NSData! = NSData(contentsOf: url)
             if let data = data, let image = UIImage.init(data: data as Data) {
