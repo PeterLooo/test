@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ovE-f7-Vdc">
-                                <rect key="frame" x="27" y="120" width="321" height="324"/>
+                                <rect key="frame" x="27" y="100" width="321" height="324"/>
                                 <subviews>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PyR-4u-2jR">
                                         <rect key="frame" x="0.0" y="0.0" width="321" height="324"/>
@@ -31,13 +29,13 @@
                                                     <constraint firstAttribute="width" secondItem="Lcq-WK-SaI" secondAttribute="height" multiplier="114:122" id="z4h-i6-9PX"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YRL-WG-a60">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YRL-WG-a60">
                                                 <rect key="frame" x="16" y="221" width="289" height="20"/>
                                                 <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="14"/>
                                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="提醒您該更新囉！" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iQe-2L-dgX">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iQe-2L-dgX">
                                                 <rect key="frame" x="16" y="25" width="289" height="27"/>
                                                 <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="19"/>
                                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -68,7 +66,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IQh-h9-xop">
                                                 <rect key="frame" x="16" y="257" width="140.5" height="42"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="稍後在說" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ggA-CW-fz9">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="稍後再說" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ggA-CW-fz9">
                                                         <rect key="frame" x="40.5" y="10.5" width="60" height="21"/>
                                                         <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="15"/>
                                                         <color key="textColor" red="0.0" green="0.63921568627450975" blue="0.8784313725490196" alpha="1" colorSpace="calibratedRGB"/>
@@ -184,21 +182,14 @@
                         <viewLayoutGuide key="safeArea" id="e1v-eZ-ogp"/>
                     </view>
                     <connections>
-                        <outlet property="alertView" destination="PyR-4u-2jR" id="dxC-yg-AbD"/>
-                        <outlet property="cancelButton" destination="IQh-h9-xop" id="7bV-BO-jF5"/>
-                        <outlet property="cancelButtonHeight" destination="kge-A4-KbJ" id="vQf-x0-MFq"/>
-                        <outlet property="cancelButtonLabel" destination="ggA-CW-fz9" id="G1j-zW-clV"/>
+                        <outlet property="cardView" destination="ovE-f7-Vdc" id="ZE0-tb-xrD"/>
+                        <outlet property="confirmButton" destination="iG3-fy-MhF" id="b72-HC-deK"/>
                         <outlet property="imageView" destination="Lcq-WK-SaI" id="itA-EO-P9u"/>
-                        <outlet property="immediatlyButton" destination="gaW-PF-BVm" id="HD0-Sc-pI0"/>
-                        <outlet property="immediatlyButtonHeight" destination="uc7-0s-qfA" id="wlz-G0-G5p"/>
-                        <outlet property="immediatlyButtonLabel" destination="Qj5-Gk-qSe" id="qEt-OY-mQO"/>
-                        <outlet property="rightButton" destination="iG3-fy-MhF" id="b72-HC-deK"/>
-                        <outlet property="shadowView" destination="ovE-f7-Vdc" id="ZE0-tb-xrD"/>
+                        <outlet property="immediatlyUpdateButton" destination="gaW-PF-BVm" id="HD0-Sc-pI0"/>
                         <outlet property="titleLabel" destination="iQe-2L-dgX" id="DV4-Ru-1By"/>
+                        <outlet property="updateLaterButton" destination="IQh-h9-xop" id="7bV-BO-jF5"/>
                         <outlet property="updateMessage" destination="YRL-WG-a60" id="pMi-au-e9P"/>
                         <outlet property="updateNowButton" destination="Xet-kw-yfj" id="m3g-M0-57N"/>
-                        <outlet property="updateNowButtonLabel" destination="ksY-1A-Kzn" id="6JT-DY-H7z"/>
-                        <outlet property="updateNowHeight" destination="0zb-wY-XUH" id="4h5-hX-L9z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zNQ-ps-3wC" userLabel="First Responder" sceneMemberID="firstResponder"/>
