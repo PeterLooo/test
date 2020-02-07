@@ -18,6 +18,7 @@ class AirTicketViewController: BaseViewController {
         case BANNER = 0
         case HOMEAD1
         case HOMEAD2
+        case HOMEAD3
     }
     private var cellsHeight: [IndexPath : CGFloat] = [:]
     
@@ -27,12 +28,14 @@ class AirTicketViewController: BaseViewController {
             indexList = itemList.filter{$0.groupName == "首頁1"}.flatMap{$0.moduleList}
             homeAd1List = itemList.filter{$0.groupName == "HomeAd1"}.flatMap{$0.moduleList}
             homeAd2List = itemList.filter{$0.groupName == "HomeAd2"}.flatMap{$0.moduleList}
+            homeAd3List = itemList.filter{$0.groupName == "HomeAd3"}.flatMap{$0.moduleList}
             tableView.reloadData()
         }
     }
     private var indexList: [IndexResponse.Module] = []
     private var homeAd1List: [IndexResponse.Module] = []
     private var homeAd2List: [IndexResponse.Module] = []
+    private var homeAd3List: [IndexResponse.Module] = []
     private var needUpdateBannerImage = false
     private var presenter: AirTicketPresenter?
     
@@ -56,6 +59,7 @@ class AirTicketViewController: BaseViewController {
         tableView.register(UINib(nibName: "GroupIndexHeaderImageCell", bundle: nil), forCellReuseIdentifier: "GroupIndexHeaderImageCell")
         tableView.register(UINib(nibName: "HomeAd1Cell", bundle: nil), forCellReuseIdentifier: "HomeAd1Cell")
         tableView.register(UINib(nibName: "HomeAd2Cell", bundle: nil), forCellReuseIdentifier: "HomeAd2Cell")
+        tableView.register(UINib(nibName: "HomeAd3Cell", bundle: nil), forCellReuseIdentifier: "HomeAd3Cell")
         setSearchBorder()
         setSearchGes()
     }
@@ -262,19 +266,25 @@ extension AirTicketViewController : UITableViewDataSource {
        
         case .HOMEAD2:
             return self.homeAd2List.count
+        
+        case .HOMEAD3:
+            return self.homeAd3List.count
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell: UITableViewCell!
         let section = Section(rawValue: indexPath.section)!
+        
         switch section {
+        
         case .BANNER:
             cell = tableView.dequeueReusableCell(withIdentifier: "GroupIndexHeaderImageCell") as! GroupIndexHeaderImageCell
             
             (cell as! GroupIndexHeaderImageCell).setCell(itemList: indexList[indexPath.row].moduleItemList, needUpdateBannerImage: needUpdateBannerImage)
             (cell as! GroupIndexHeaderImageCell).delegate = self
             needUpdateBannerImage = false
+        
         case .HOMEAD1:
             cell = tableView.dequeueReusableCell(withIdentifier: "HomeAd1Cell") as! HomeAd1Cell
             (cell as! HomeAd1Cell).setCell(item: self.homeAd1List[indexPath.row])
@@ -284,9 +294,13 @@ extension AirTicketViewController : UITableViewDataSource {
             cell = tableView.dequeueReusableCell(withIdentifier: "HomeAd2Cell") as! HomeAd2Cell
             (cell as! HomeAd2Cell).setCell(item: self.homeAd2List[indexPath.row])
             (cell as! HomeAd2Cell).delegate = self
-            
+
+        case .HOMEAD3:
+            cell = tableView.dequeueReusableCell(withIdentifier: "HomeAd3Cell") as! HomeAd3Cell
+            (cell as! HomeAd3Cell).setCell(item: self.homeAd3List[indexPath.row])
+            (cell as! HomeAd3Cell).delegate = self
         }
-        return cell
         
+        return cell
     }
 }
