@@ -73,6 +73,7 @@ class NotificationTableView: UIView {
     func setViewWith(itemList: [NotiItem],notiType: NotiType){
         self.itemList = itemList
         self.notiType = notiType
+        cellsHeight = [:]
         self.tableView.refreshControl?.endRefreshing()
         tableView.reloadData()
     }
