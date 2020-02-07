@@ -7,9 +7,11 @@
 //
 
 import UIKit
+
 protocol EmptyDataCellPortocol: NSObjectProtocol {
     func onTouchRefresh()
 }
+
 class EmptyDataCell: UITableViewCell {
     @IBOutlet weak var icon: UIImageView!
     @IBOutlet weak var message: UILabel!
@@ -24,8 +26,8 @@ class EmptyDataCell: UITableViewCell {
         self.message.text = message
         self.iconTopConstraint.constant = iconTopConstraint
         self.refreshButton.isHidden = !needRefreshButton
-        
     }
+    
     @IBAction func onTouchRefresh(_ sender: Any) {
         self.delegate?.onTouchRefresh()
     }
