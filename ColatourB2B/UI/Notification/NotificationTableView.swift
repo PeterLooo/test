@@ -22,6 +22,11 @@ class NotificationTableView: UIView {
     private var itemList: [NotiItem] = []
     private var notiType: NotiType!
     
+    enum Section: Int, CaseIterable{
+        case notiItem = 0
+        case empty
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -43,6 +48,7 @@ class NotificationTableView: UIView {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: "NotificationItemCell", bundle: nil), forCellReuseIdentifier: "NotificationItemCell")
+        tableView.register(UINib(nibName: "EmptyDataCell", bundle: nil), forCellReuseIdentifier: "EmptyDataCell")
         tableView.backgroundColor = UIColor.init(named: "背景灰")
         return tableView
     }()
@@ -67,6 +73,7 @@ class NotificationTableView: UIView {
     func setViewWith(itemList: [NotiItem],notiType: NotiType){
         self.itemList = itemList
         self.notiType = notiType
+        cellsHeight = [:]
         self.tableView.refreshControl?.endRefreshing()
         tableView.reloadData()
     }
@@ -107,12 +114,22 @@ extension NotificationTableView : UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        if Section(rawValue: indexPath.section) == .empty {
+            return self.frame.height
+        }
+        
         guard let height = cellsHeight[indexPath] else { return UITableView.automaticDimension }
         
         return height
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        if Section(rawValue: indexPath.section) == .empty {
+            return self.frame.height
+        }
+        
         guard let height = cellsHeight[indexPath] else { return UITableView.automaticDimension }
         
         return height
@@ -122,17 +139,33 @@ extension NotificationTableView : UITableViewDelegate {
 extension NotificationTableView : UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return Section.allCases.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.itemList.count
+        switch Section(rawValue: section)! {
+        case .notiItem:
+            return self.itemList.count
+        case .empty:
+            return itemList.count == 0 ? 1 : 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "NotificationItemCell", for: indexPath) as! NotificationItemCell
-        cell.setCell(item: itemList[indexPath.row])
-        cell.delegate = self
-        return cell
+        
+        switch Section(rawValue: indexPath.section)! {
+        case .notiItem:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "NotificationItemCell", for: indexPath) as! NotificationItemCell
+            cell.setCell(item: itemList[indexPath.row])
+            cell.delegate = self
+            return cell
+        case .empty:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "EmptyDataCell", for: indexPath) as! EmptyDataCell
+            let image = UIImage.init(named: "notification_none")!
+            cell.setCellWith(image: image,
+                             message: "目前沒有任何訂單通知！",
+                             iconTopConstraint: 90)
+            return cell
+        }
     }
 }
