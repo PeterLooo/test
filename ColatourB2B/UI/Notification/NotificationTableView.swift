@@ -124,6 +124,7 @@ extension NotificationTableView : UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
         if Section(rawValue: indexPath.section) == .empty {
             return self.frame.height
         }
