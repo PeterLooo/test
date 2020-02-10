@@ -21,7 +21,6 @@ class GroupTableView: UIView {
     private var cellsHeight: [IndexPath : CGFloat] = [:]
     
     weak var delegate : GroupTableViewProtocol?
-    weak var baseViewDelegate: BaseViewProtocol?
     private var itemList: [IndexResponse.MultiModule] = [] {
         didSet {
             indexList = itemList.filter{$0.groupName == "首頁1"}.flatMap{$0.moduleList}
