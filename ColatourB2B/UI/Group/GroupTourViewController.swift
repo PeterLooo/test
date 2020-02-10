@@ -270,24 +270,6 @@ extension GroupTourViewController: GroupTableViewProtocol {
     }
 }
 extension GroupTourViewController: GropeTourViewProtocol {
-    func onGetTourIndexError(tourType: TourType, apiError: APIError) {
-        switch tourType {
-        case .tour:
-            self.groupTableViews[0].handleApiError(apiError: apiError)
-            self.groupTableViews[0].endRefreshContolRefreshing()
-        case .taichung:
-            self.groupTableViews[1].handleApiError(apiError: apiError)
-            self.groupTableViews[1].endRefreshContolRefreshing()
-        case .kaohsiung:
-            self.groupTableViews[2].handleApiError(apiError: apiError)
-            self.groupTableViews[2].endRefreshContolRefreshing()
-        }
-    }
-    
-    func onGetGroupMenuError() {
-        self.menuList = nil
-    }
-    
     func onBindTourIndex(moduleDataList: [IndexResponse.MultiModule], tourType: TourType) {
         switch tourType {
         case .tour:
@@ -306,9 +288,26 @@ extension GroupTourViewController: GropeTourViewProtocol {
         }
     }
     
+    func onGetTourIndexError(tourType: TourType, apiError: APIError) {
+        switch tourType {
+        case .tour:
+            self.groupTableViews[0].handleApiError(apiError: apiError)
+            self.groupTableViews[0].endRefreshContolRefreshing()
+        case .taichung:
+            self.groupTableViews[1].handleApiError(apiError: apiError)
+            self.groupTableViews[1].endRefreshContolRefreshing()
+        case .kaohsiung:
+            self.groupTableViews[2].handleApiError(apiError: apiError)
+            self.groupTableViews[2].endRefreshContolRefreshing()
+        }
+    }
+    
     func onBindGroupMenu(menu: GroupMenuResponse) {
-        
         self.menuList = menu
+    }
+    
+    func onGetGroupMenuError() {
+        self.menuList = nil
     }
     
     func onBindApiTokenComplete() {
