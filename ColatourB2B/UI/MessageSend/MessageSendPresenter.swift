@@ -23,7 +23,7 @@ class MessageSendPresenter: MessageSendPresenterProtocol {
     
     func getSendUserList(messageSendType: String) {
         
-        self.delegate?.onStartLoadingHandle(handleType: .ignore)
+        self.delegate?.onStartLoadingHandle(handleType: .coverPlate)
         messageSendRepository.getMessageSendUserList(messageSendType: messageSendType)
             .subscribe(
                 
@@ -40,7 +40,7 @@ class MessageSendPresenter: MessageSendPresenterProtocol {
     
     func messageSend(messageSendRequest: MessageSendRequest) {
         
-         self.delegate?.onStartLoadingHandle(handleType: .ignore)
+         self.delegate?.onStartLoadingHandle(handleType: .coverPlateAlpha)
          messageSendRepository.messageSend(messageSendRequest: messageSendRequest)
         .subscribe(
             
