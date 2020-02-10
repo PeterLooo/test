@@ -28,6 +28,7 @@ class SalesResponse: BaseModel {
         var officePhone : String?
         var salesName : String?
         var salesType : String?
+        var linkType : LinkType?
         var officePhoneExt : String?
         
         override func mapping(map: Map) {
@@ -41,6 +42,10 @@ class SalesResponse: BaseModel {
             officePhone <- map["Office_Phone"]
             salesName <- map["Sales_Name"]
             salesType <- map["Sales_Type"]
+            linkType = LinkType(rawValue: salesType!)
+            if linkType == nil {
+                linkType = .unknown
+            }
             officePhoneExt <- map["Office_Phone_Ext"]
         }
     }

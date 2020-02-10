@@ -9,8 +9,11 @@
 import UIKit
 
 class ApiFailErrorView: UIView {
-    @IBOutlet weak var reload: UIButton!
+    
     weak var delegate: BaseViewProtocol?
+    
+    @IBOutlet weak var midReload: UIButton!
+    @IBOutlet weak var midService: UIButton!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -35,14 +38,24 @@ class ApiFailErrorView: UIView {
         view.frame = bounds
         view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         self.addSubview(view)
+        setButtonBorder()
     }
     
     func setUpApiFailErrorView(){
         self.isHidden = true
-        self.reload.addTarget(self, action: #selector(self.onTouchReload), for: .touchUpInside)
+        self.midReload.addTarget(self, action: #selector(self.onTouchReload), for: .touchUpInside)
+        self.midService.addTarget(self, action: #selector(self.onTouchService), for: .touchUpInside)
+    }
+    
+    func setButtonBorder(){
+        self.midService.setBorder(width: 1, radius: 21, color: UIColor.init(named: "通用綠"))
     }
     
     @objc func onTouchReload(){
         self.delegate?.loadData()
+    }
+    
+    @objc func onTouchService(){
+        self.delegate?.onTouchService()
     }
 }
