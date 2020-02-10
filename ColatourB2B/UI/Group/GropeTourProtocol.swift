@@ -15,7 +15,9 @@ protocol GropeTourViewProtocol: BaseViewProtocol {
     func onBindVersionRuleError()
     func onBindBulletin(bulletin:BulletinResponse.Bulletin?)
     func onBindTourIndex(moduleDataList : [IndexResponse.MultiModule],tourType: TourType)
+    func onGetTourIndexError(tourType: TourType, apiError: APIError)
     func onBindGroupMenu(menu: GroupMenuResponse)
+    func onGetGroupMenuError()
 }
 
 protocol GropeTourPresenterProtocol: BasePresenterProtocol {

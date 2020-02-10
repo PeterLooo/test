@@ -43,16 +43,14 @@ class GroupTourViewController: BaseViewController {
         self.setNavBarItem(left: .defaultType, mid: .custom, right: .custom)
         setUpTableView()
         setSearchView()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+        
         needUpdateBannerImage = true
-        getApiToken()
+        loadData()
     }
-    
+
     override func loadData() {
         super.loadData()
+        
         getApiToken()
     }
     
@@ -74,6 +72,8 @@ class GroupTourViewController: BaseViewController {
             let view = GroupTableView()
             view.setViewWith(itemList: [], needUpdateBannerImage: needUpdateBannerImage)
             view.delegate = self
+            view.apiFailErrorView.delegate = self
+            view.noInternetErrorView.delegate = self
             
             stackView.addArrangedSubview(view)
             groupTableViews.append(view)
@@ -140,7 +140,7 @@ class GroupTourViewController: BaseViewController {
         vc.modalPresentationStyle = .overCurrentContext
         vc.transitioningDelegate = self
         
-        vc.setVC(menuResponse: self.menuList!)
+        vc.setVC(menuResponse: self.menuList)
         present(vc, animated: true)
     }
     
@@ -264,16 +264,44 @@ extension GroupTourViewController: GroupTableViewProtocol {
     func onTouchItem(item: IndexResponse.ModuleItem) {
         self.handleLinkType(linkType: item.linkType, linkValue: item.linkParams, linkText: nil)
     }
+    
+    func onPullToRefresh(){
+        loadData()
+    }
 }
 extension GroupTourViewController: GropeTourViewProtocol {
+    func onGetTourIndexError(tourType: TourType, apiError: APIError) {
+        switch tourType {
+        case .tour:
+            self.groupTableViews[0].handleApiError(apiError: apiError)
+            self.groupTableViews[0].endRefreshContolRefreshing()
+        case .taichung:
+            self.groupTableViews[1].handleApiError(apiError: apiError)
+            self.groupTableViews[1].endRefreshContolRefreshing()
+        case .kaohsiung:
+            self.groupTableViews[2].handleApiError(apiError: apiError)
+            self.groupTableViews[2].endRefreshContolRefreshing()
+        }
+    }
+    
+    func onGetGroupMenuError() {
+        self.menuList = nil
+    }
+    
     func onBindTourIndex(moduleDataList: [IndexResponse.MultiModule], tourType: TourType) {
         switch tourType {
         case .tour:
             self.groupTableViews[0].setViewWith(itemList: moduleDataList, needUpdateBannerImage: needUpdateBannerImage)
+            self.groupTableViews[0].closeErrorView()
+            self.groupTableViews[0].endRefreshContolRefreshing()
         case .taichung:
             self.groupTableViews[1].setViewWith(itemList: moduleDataList, needUpdateBannerImage: needUpdateBannerImage)
+            self.groupTableViews[1].closeErrorView()
+            self.groupTableViews[1].endRefreshContolRefreshing()
         case .kaohsiung:
             self.groupTableViews[2].setViewWith(itemList: moduleDataList, needUpdateBannerImage: needUpdateBannerImage)
+            self.groupTableViews[2].closeErrorView()
+            self.groupTableViews[2].endRefreshContolRefreshing()
         
         }
     }
