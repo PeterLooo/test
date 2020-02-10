@@ -307,6 +307,14 @@
 		38E9923A23B0B5DF00E28271 /* BooleanButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E9923923B0B5DF00E28271 /* BooleanButton.swift */; };
 		38E9923B23B0B5DF00E28271 /* BooleanButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E9923923B0B5DF00E28271 /* BooleanButton.swift */; };
 		9196F236CE205CFA47F4C95B /* Pods_ColatourB2BDev.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00BEF28893EA23CD1FFC87FB /* Pods_ColatourB2BDev.framework */; };
+		C70EEF5023EA545300D67FF4 /* VersionRule.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C70EEF4D23EA545200D67FF4 /* VersionRule.storyboard */; };
+		C70EEF5123EA545300D67FF4 /* VersionRule.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C70EEF4D23EA545200D67FF4 /* VersionRule.storyboard */; };
+		C70EEF5223EA545300D67FF4 /* Bulletin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C70EEF4F23EA545300D67FF4 /* Bulletin.storyboard */; };
+		C70EEF5323EA545300D67FF4 /* Bulletin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C70EEF4F23EA545300D67FF4 /* Bulletin.storyboard */; };
+		C70EEF5723EA549200D67FF4 /* BulletinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70EEF5623EA549200D67FF4 /* BulletinViewController.swift */; };
+		C70EEF5823EA549200D67FF4 /* BulletinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70EEF5623EA549200D67FF4 /* BulletinViewController.swift */; };
+		C70EEF5A23EA549800D67FF4 /* VersionRuleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70EEF5923EA549700D67FF4 /* VersionRuleViewController.swift */; };
+		C70EEF5B23EA549800D67FF4 /* VersionRuleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70EEF5923EA549700D67FF4 /* VersionRuleViewController.swift */; };
 		C711753D23BF407E00555D8C /* MoreProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C711753C23BF407D00555D8C /* MoreProtocol.swift */; };
 		C711753E23BF407E00555D8C /* MoreProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C711753C23BF407D00555D8C /* MoreProtocol.swift */; };
 		C711754023BF40DA00555D8C /* MorePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C711753F23BF40DA00555D8C /* MorePresenter.swift */; };
@@ -327,6 +335,10 @@
 		C7BBF4BC23C7040900023307 /* NoticeDetailProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BBF4BA23C7040900023307 /* NoticeDetailProtocol.swift */; };
 		C7BBF4C123C7043D00023307 /* NoticeDetailResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BBF4C023C7043D00023307 /* NoticeDetailResponse.swift */; };
 		C7BBF4C223C7043D00023307 /* NoticeDetailResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BBF4C023C7043D00023307 /* NoticeDetailResponse.swift */; };
+		C7BD648E23ED453200FEE538 /* EmptyDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BD648C23ED453100FEE538 /* EmptyDataCell.swift */; };
+		C7BD648F23ED453200FEE538 /* EmptyDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BD648C23ED453100FEE538 /* EmptyDataCell.swift */; };
+		C7BD649023ED453200FEE538 /* EmptyDataCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7BD648D23ED453200FEE538 /* EmptyDataCell.xib */; };
+		C7BD649123ED453200FEE538 /* EmptyDataCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7BD648D23ED453200FEE538 /* EmptyDataCell.xib */; };
 		C7C41C4423C724E900F97057 /* NoticeDetailContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C41C4223C724E900F97057 /* NoticeDetailContentCell.swift */; };
 		C7C41C4523C724E900F97057 /* NoticeDetailContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C41C4223C724E900F97057 /* NoticeDetailContentCell.swift */; };
 		C7C41C4623C724E900F97057 /* NoticeDetailContentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7C41C4323C724E900F97057 /* NoticeDetailContentCell.xib */; };
@@ -553,6 +565,10 @@
 		987A0E450DD4AC32A30375C6 /* Pods-ColatourB2B.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ColatourB2B.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ColatourB2B/Pods-ColatourB2B.debug.xcconfig"; sourceTree = "<group>"; };
 		A331B185DD2055D277F472F3 /* Pods_ColatourB2B.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ColatourB2B.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B09E7C65A225E6FF958329EA /* Pods-ColatourB2BDev.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ColatourB2BDev.release.xcconfig"; path = "Pods/Target Support Files/Pods-ColatourB2BDev/Pods-ColatourB2BDev.release.xcconfig"; sourceTree = "<group>"; };
+		C70EEF4D23EA545200D67FF4 /* VersionRule.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = VersionRule.storyboard; sourceTree = "<group>"; };
+		C70EEF4F23EA545300D67FF4 /* Bulletin.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Bulletin.storyboard; sourceTree = "<group>"; };
+		C70EEF5623EA549200D67FF4 /* BulletinViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BulletinViewController.swift; sourceTree = "<group>"; };
+		C70EEF5923EA549700D67FF4 /* VersionRuleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VersionRuleViewController.swift; sourceTree = "<group>"; };
 		C711753C23BF407D00555D8C /* MoreProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreProtocol.swift; sourceTree = "<group>"; };
 		C711753F23BF40DA00555D8C /* MorePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MorePresenter.swift; sourceTree = "<group>"; };
 		C74FC80023C5AEE100E2250D /* NoticeDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NoticeDetail.storyboard; sourceTree = "<group>"; };
@@ -563,6 +579,8 @@
 		C78F071B23E8204E009C1183 /* PopText.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PopText.storyboard; sourceTree = "<group>"; };
 		C7BBF4BA23C7040900023307 /* NoticeDetailProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeDetailProtocol.swift; sourceTree = "<group>"; };
 		C7BBF4C023C7043D00023307 /* NoticeDetailResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeDetailResponse.swift; sourceTree = "<group>"; };
+		C7BD648C23ED453100FEE538 /* EmptyDataCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyDataCell.swift; sourceTree = "<group>"; };
+		C7BD648D23ED453200FEE538 /* EmptyDataCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmptyDataCell.xib; sourceTree = "<group>"; };
 		C7C41C4223C724E900F97057 /* NoticeDetailContentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeDetailContentCell.swift; sourceTree = "<group>"; };
 		C7C41C4323C724E900F97057 /* NoticeDetailContentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoticeDetailContentCell.xib; sourceTree = "<group>"; };
 		C7C623CC23E2C71600A2D8B0 /* GroupTourSearchUrlResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTourSearchUrlResponse.swift; sourceTree = "<group>"; };
@@ -962,6 +980,8 @@
 		38BCDA2123A3760000D59910 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				C70EEF5523EA548900D67FF4 /* Bulletin */,
+				C70EEF5423EA548000D67FF4 /* VersionRule */,
 				3802A18D23C8517C00CD2EF2 /* Sales */,
 				C74FC80623C5AF1400E2250D /* Notice */,
 				385B54F223BDC1D900BE1476 /* Notification */,
@@ -978,6 +998,8 @@
 		38BCDA2223A3760900D59910 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				C7BD648C23ED453100FEE538 /* EmptyDataCell.swift */,
+				C7BD648D23ED453200FEE538 /* EmptyDataCell.xib */,
 				387FBF1223ACD046005412F1 /* CustomTextField.swift */,
 				38BCD9D623A366EC00D59910 /* TabBarViewController.swift */,
 				38BCDA1A23A36AC100D59910 /* TabBarProtocol.swift */,
@@ -996,6 +1018,8 @@
 		38BCDA2323A3766100D59910 /* StroyBoard */ = {
 			isa = PBXGroup;
 			children = (
+				C70EEF4E23EA545300D67FF4 /* Bulletin */,
+				C70EEF4C23EA545200D67FF4 /* VersionRule */,
 				3802A19123C8521F00CD2EF2 /* Salse */,
 				C74FC7FF23C5AEC100E2250D /* Notice */,
 				38E68AB923B5AE30006BC4DD /* Common */,
@@ -1119,6 +1143,38 @@
 				B09E7C65A225E6FF958329EA /* Pods-ColatourB2BDev.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		C70EEF4C23EA545200D67FF4 /* VersionRule */ = {
+			isa = PBXGroup;
+			children = (
+				C70EEF4D23EA545200D67FF4 /* VersionRule.storyboard */,
+			);
+			path = VersionRule;
+			sourceTree = "<group>";
+		};
+		C70EEF4E23EA545300D67FF4 /* Bulletin */ = {
+			isa = PBXGroup;
+			children = (
+				C70EEF4F23EA545300D67FF4 /* Bulletin.storyboard */,
+			);
+			path = Bulletin;
+			sourceTree = "<group>";
+		};
+		C70EEF5423EA548000D67FF4 /* VersionRule */ = {
+			isa = PBXGroup;
+			children = (
+				C70EEF5923EA549700D67FF4 /* VersionRuleViewController.swift */,
+			);
+			path = VersionRule;
+			sourceTree = "<group>";
+		};
+		C70EEF5523EA548900D67FF4 /* Bulletin */ = {
+			isa = PBXGroup;
+			children = (
+				C70EEF5623EA549200D67FF4 /* BulletinViewController.swift */,
+			);
+			path = Bulletin;
 			sourceTree = "<group>";
 		};
 		C711754223BF47B700555D8C /* More */ = {
@@ -1314,7 +1370,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C7C41C4623C724E900F97057 /* NoticeDetailContentCell.xib in Resources */,
+				C70EEF5223EA545300D67FF4 /* Bulletin.storyboard in Resources */,
 				38E68ABF23B5AE30006BC4DD /* Calendar.storyboard in Resources */,
+				C7BD649023ED453200FEE538 /* EmptyDataCell.xib in Resources */,
 				3817E50123A33C8500ED8609 /* LaunchScreen.storyboard in Resources */,
 				38BCDA2623A3796800D59910 /* GroupTour.storyboard in Resources */,
 				387FBF0B23ACCEB7005412F1 /* Login.storyboard in Resources */,
@@ -1354,6 +1412,7 @@
 				3869543A23BAF85900F6E7D9 /* MemberIndexServiceCell.xib in Resources */,
 				38BCDA0923A367D000D59910 /* ToastView.xib in Resources */,
 				38871EC323D5B061007ED33D /* HomeAd1Cell.xib in Resources */,
+				C70EEF5023EA545300D67FF4 /* VersionRule.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1380,9 +1439,12 @@
 				06DA4F8B23E92260001B7DF1 /* MessageSendNotificationListCell.xib in Resources */,
 				3817E52A23A33C9500ED8609 /* LaunchScreen.storyboard in Resources */,
 				06DA4F9323E922C0001B7DF1 /* MessageSend.storyboard in Resources */,
+				C70EEF5323EA545300D67FF4 /* Bulletin.storyboard in Resources */,
 				38BCDA2723A3796800D59910 /* GroupTour.storyboard in Resources */,
 				387FBF1123ACCF00005412F1 /* Login.storyboard in Resources */,
 				38871ECA23D5B524007ED33D /* HomeAd1View.xib in Resources */,
+				C7BD649123ED453200FEE538 /* EmptyDataCell.xib in Resources */,
+				C70EEF5123EA545300D67FF4 /* VersionRule.storyboard in Resources */,
 				38AA456123D68E0A00BE3F95 /* HomeAd2Cell.xib in Resources */,
 				06DA4F8523E92260001B7DF1 /* MessageSendContentCell.xib in Resources */,
 				38E68AAE23B5AB80006BC4DD /* Group.json in Resources */,
@@ -1640,6 +1702,7 @@
 				C7DCA71F23D1BBC400F415B8 /* GroupTourSearchProtocol.swift in Sources */,
 				38BCD9CA23A3647E00D59910 /* BaseModel.swift in Sources */,
 				382FD59923D7F48F001FF38E /* NewsResponse.swift in Sources */,
+				C70EEF5723EA549200D67FF4 /* BulletinViewController.swift in Sources */,
 				38BCD97923A3484300D59910 /* UIViewExtenstion.swift in Sources */,
 				C7DA175A23D70245006A8803 /* GroupTourSearchKeywordAndTourCodeRequest.swift in Sources */,
 				38E9922423B04F2A00E28271 /* BulletinResponse.swift in Sources */,
@@ -1671,6 +1734,7 @@
 				38BCDA2923A379DE00D59910 /* GroupTourViewController.swift in Sources */,
 				38BCD99923A3639500D59910 /* MemberRepository.swift in Sources */,
 				C7BBF4C123C7043D00023307 /* NoticeDetailResponse.swift in Sources */,
+				C7BD648E23ED453200FEE538 /* EmptyDataCell.swift in Sources */,
 				CCCC735923E42C9600FC03EE /* PasswordModifyRequest.swift in Sources */,
 				CCCC735423E42C2700FC03EE /* PasswordModifyPresenter.swift in Sources */,
 				CCCC735C23E42CDD00FC03EE /* PasswordModifyResponse.swift in Sources */,
@@ -1704,6 +1768,7 @@
 				38BCD97523A3484300D59910 /* UIColorExtension.swift in Sources */,
 				3802A18F23C8520C00CD2EF2 /* SalesViewController.swift in Sources */,
 				38BCDA0323A367D000D59910 /* ApiFailErrorView.swift in Sources */,
+				C70EEF5A23EA549800D67FF4 /* VersionRuleViewController.swift in Sources */,
 				38BCDA2F23A37B7100D59910 /* MemberIndexViewController.swift in Sources */,
 				38871EAD23D5553F007ED33D /* IndexResponse.swift in Sources */,
 				06DA4F7E23E92260001B7DF1 /* MessageSendProtocol.swift in Sources */,
@@ -1797,6 +1862,7 @@
 				C7DCA72023D1BBC400F415B8 /* GroupTourSearchProtocol.swift in Sources */,
 				38BCD9CB23A3647E00D59910 /* BaseModel.swift in Sources */,
 				382FD59A23D7F48F001FF38E /* NewsResponse.swift in Sources */,
+				C70EEF5823EA549200D67FF4 /* BulletinViewController.swift in Sources */,
 				38BCD97A23A3484300D59910 /* UIViewExtenstion.swift in Sources */,
 				C7DA175B23D70245006A8803 /* GroupTourSearchKeywordAndTourCodeRequest.swift in Sources */,
 				38E9922523B04F2A00E28271 /* BulletinResponse.swift in Sources */,
@@ -1828,6 +1894,7 @@
 				38BCDA2A23A379DE00D59910 /* GroupTourViewController.swift in Sources */,
 				38BCD99A23A3639500D59910 /* MemberRepository.swift in Sources */,
 				C7BBF4C223C7043D00023307 /* NoticeDetailResponse.swift in Sources */,
+				C7BD648F23ED453200FEE538 /* EmptyDataCell.swift in Sources */,
 				CCCC735A23E42C9600FC03EE /* PasswordModifyRequest.swift in Sources */,
 				CCCC735523E42C2700FC03EE /* PasswordModifyPresenter.swift in Sources */,
 				CCCC735D23E42CDD00FC03EE /* PasswordModifyResponse.swift in Sources */,
@@ -1861,6 +1928,7 @@
 				38BCD97623A3484300D59910 /* UIColorExtension.swift in Sources */,
 				3802A19023C8520C00CD2EF2 /* SalesViewController.swift in Sources */,
 				38BCDA0423A367D000D59910 /* ApiFailErrorView.swift in Sources */,
+				C70EEF5B23EA549800D67FF4 /* VersionRuleViewController.swift in Sources */,
 				38BCDA3023A37B7100D59910 /* MemberIndexViewController.swift in Sources */,
 				38871EAE23D5553F007ED33D /* IndexResponse.swift in Sources */,
 				06DA4F7F23E92260001B7DF1 /* MessageSendProtocol.swift in Sources */,

@@ -84,6 +84,7 @@ class NoticeViewController: BaseViewController {
         noticeList = []
         newsList = []
         importantList = []
+        NotificationCenter.default.post(name: Notification.Name("getUnreadCount"), object: nil)
         presenter?.getNoticeList(pageIndex: 1, handleType: .coverPlate)
         presenter?.getNewsList(pageIndex: 1, handleType: .coverPlate)
         presenter?.getImportantList(pageIndex: 1, handleType: .coverPlate)
