@@ -10,7 +10,7 @@ import Foundation
 
 protocol ContactServiceViewProtocol: BaseViewProtocol {
     
-    func setContactServiceList(contactServiceResponse: ContactServiceResponse)
+    func onBindContactServiceList(contactServiceResponse: ContactServiceResponse)
 }
 
 protocol ContactServicePresenterProtocol: BasePresenterProtocol {

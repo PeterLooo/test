@@ -10,6 +10,8 @@ import Foundation
 
 class ContactServiceRepository: NSObject {
     
+    static let shared = ContactServiceRepository()
+    
     func getContactService() -> ContactServiceResponse {
         
         let contactServiceResponse = ContactServiceResponse()

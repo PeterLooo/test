@@ -71,7 +71,7 @@ extension ContactServiceViewController: UITableViewDelegate {
 
 extension ContactServiceViewController: ContactServiceViewProtocol {
     
-    func setContactServiceList(contactServiceResponse: ContactServiceResponse) {
+    func onBindContactServiceList(contactServiceResponse: ContactServiceResponse) {
         
         contactService = contactServiceResponse
     }

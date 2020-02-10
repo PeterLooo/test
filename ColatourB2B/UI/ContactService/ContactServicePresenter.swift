@@ -10,7 +10,7 @@ import Foundation
 
 class  ContactServicePresenter: ContactServicePresenterProtocol {
     
-    let contactServiceRepository = ContactServiceRepository()
+    let contactServiceRepository = ContactServiceRepository.shared
     var contactServiceResponse: ContactServiceResponse?
     
     weak var delegate: ContactServiceViewProtocol?
@@ -26,7 +26,7 @@ class  ContactServicePresenter: ContactServicePresenterProtocol {
         
         if let response = contactServiceResponse {
             
-             delegate?.setContactServiceList(contactServiceResponse: response)
+             delegate?.onBindContactServiceList(contactServiceResponse: response)
         }
     }
 }
