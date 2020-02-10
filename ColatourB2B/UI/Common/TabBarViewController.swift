@@ -17,7 +17,9 @@ class TabBarViewController: UITabBarController {
         
         if #available(iOS 13.0, *) {
             overrideUserInterfaceStyle = .light
-        } 
+        }
+        
+        presenter = TabBarPresenter.init(delegate: self)
     }
     
     override func viewWillLayoutSubviews() {
