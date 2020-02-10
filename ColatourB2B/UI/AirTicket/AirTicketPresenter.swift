@@ -31,5 +31,17 @@ class AirTicketPresenter: AirTicketPresenterProtocol {
             self.delegate?.onCompletedLoadingHandle()
         }).disposed(by: dispose)
     }
+    
+    func getAirTicketIndex() {
+        self.delegate?.onStartLoadingHandle(handleType: .coverPlate)
+        
+        groupReponsitory.getTourIndex(tourType: TourType.tkt).subscribe(onSuccess: { (model) in
+            self.delegate?.onBindAirTicketIndex(moduleDataList: model.moduleDataList)
+            self.delegate?.onCompletedLoadingHandle()
+        }, onError: { (error) in
+            self.delegate?.onApiErrorHandle(apiError: error as! APIError, handleType: .coverPlate)
+            self.delegate?.onCompletedLoadingHandle()
+        }).disposed(by: dispose)
+    }
 
 }

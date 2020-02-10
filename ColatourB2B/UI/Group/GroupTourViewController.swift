@@ -281,7 +281,8 @@ extension GroupTourViewController: GropeTourViewProtocol {
             self.groupTableViews[2].setViewWith(itemList: moduleDataList, needUpdateBannerImage: needUpdateBannerImage)
             self.groupTableViews[2].closeErrorView()
             self.groupTableViews[2].endRefreshContolRefreshing()
-        
+        default:
+            ()
         }
     }
     
@@ -296,6 +297,8 @@ extension GroupTourViewController: GropeTourViewProtocol {
         case .kaohsiung:
             self.groupTableViews[2].handleApiError(apiError: apiError)
             self.groupTableViews[2].endRefreshContolRefreshing()
+        default:
+            ()
         }
     }
     
