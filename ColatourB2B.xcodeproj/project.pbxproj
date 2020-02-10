@@ -7,14 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		06130EAB23ECFCBC008D20D9 /* HomeAd3Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06130EA923ECFCBC008D20D9 /* HomeAd3Cell.swift */; };
-		06130EAC23ECFCBC008D20D9 /* HomeAd3Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06130EA923ECFCBC008D20D9 /* HomeAd3Cell.swift */; };
-		06130EAD23ECFCBC008D20D9 /* HomeAd3Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06130EAA23ECFCBC008D20D9 /* HomeAd3Cell.xib */; };
-		06130EAE23ECFCBC008D20D9 /* HomeAd3Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06130EAA23ECFCBC008D20D9 /* HomeAd3Cell.xib */; };
-		06130EB023ED0455008D20D9 /* HomeAd3View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06130EAF23ED0455008D20D9 /* HomeAd3View.swift */; };
-		06130EB123ED0455008D20D9 /* HomeAd3View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06130EAF23ED0455008D20D9 /* HomeAd3View.swift */; };
-		0656634E23ED14B7009618ED /* HomeAd3View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0656634D23ED14B7009618ED /* HomeAd3View.xib */; };
-		0656634F23ED14B7009618ED /* HomeAd3View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0656634D23ED14B7009618ED /* HomeAd3View.xib */; };
 		06DA4F6823E921D4001B7DF1 /* MessageSendRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DA4F6723E921D4001B7DF1 /* MessageSendRequest.swift */; };
 		06DA4F6923E921D4001B7DF1 /* MessageSendRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DA4F6723E921D4001B7DF1 /* MessageSendRequest.swift */; };
 		06DA4F6B23E921F8001B7DF1 /* MessageSendRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DA4F6A23E921F8001B7DF1 /* MessageSendRepository.swift */; };
@@ -391,10 +383,6 @@
 
 /* Begin PBXFileReference section */
 		00BEF28893EA23CD1FFC87FB /* Pods_ColatourB2BDev.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ColatourB2BDev.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		06130EA923ECFCBC008D20D9 /* HomeAd3Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAd3Cell.swift; sourceTree = "<group>"; };
-		06130EAA23ECFCBC008D20D9 /* HomeAd3Cell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeAd3Cell.xib; sourceTree = "<group>"; };
-		06130EAF23ED0455008D20D9 /* HomeAd3View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAd3View.swift; sourceTree = "<group>"; };
-		0656634D23ED14B7009618ED /* HomeAd3View.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeAd3View.xib; sourceTree = "<group>"; };
 		06DA4F6723E921D4001B7DF1 /* MessageSendRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageSendRequest.swift; sourceTree = "<group>"; };
 		06DA4F6A23E921F8001B7DF1 /* MessageSendRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageSendRepository.swift; sourceTree = "<group>"; };
 		06DA4F6E23E9222F001B7DF1 /* MessageSendUserListResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageSendUserListResponse.swift; sourceTree = "<group>"; };
@@ -1074,10 +1062,6 @@
 				38AA455D23D68E0A00BE3F95 /* HomeAd2Cell.xib */,
 				38AA456223D6905900BE3F95 /* HomeAd2View.swift */,
 				38AA456523D6906400BE3F95 /* HomeAd2View.xib */,
-				06130EA923ECFCBC008D20D9 /* HomeAd3Cell.swift */,
-				06130EAA23ECFCBC008D20D9 /* HomeAd3Cell.xib */,
-				06130EAF23ED0455008D20D9 /* HomeAd3View.swift */,
-				0656634D23ED14B7009618ED /* HomeAd3View.xib */,
 			);
 			path = Group;
 			sourceTree = "<group>";
@@ -1342,7 +1326,6 @@
 				06DA4F8423E92260001B7DF1 /* MessageSendContentCell.xib in Resources */,
 				3869544023BB002900F6E7D9 /* MemberIndexVersionCell.xib in Resources */,
 				382FD59F23D8038C001FF38E /* BottomLoadingView.xib in Resources */,
-				06130EAD23ECFCBC008D20D9 /* HomeAd3Cell.xib in Resources */,
 				387FBEFD23ACA2A7005412F1 /* Notice.storyboard in Resources */,
 				CCCC735F23E42D8200FC03EE /* PasswordModify.storyboard in Resources */,
 				3802A19323C8522F00CD2EF2 /* Sales.storyboard in Resources */,
@@ -1360,7 +1343,6 @@
 				38BCDA0B23A367D000D59910 /* ApiFailErrorView.xib in Resources */,
 				C78F071C23E8204E009C1183 /* PopText.storyboard in Resources */,
 				3802A19D23C8542800CD2EF2 /* SalseInfoCell.xib in Resources */,
-				0656634E23ED14B7009618ED /* HomeAd3View.xib in Resources */,
 				385B54FA23BDC4C800BE1476 /* NotificationItemCell.xib in Resources */,
 				381B12B823C48D440030BACE /* GroupNavigationView.xib in Resources */,
 				3817E4FE23A33C8500ED8609 /* Assets.xcassets in Resources */,
@@ -1409,9 +1391,7 @@
 				3869544123BB002900F6E7D9 /* MemberIndexVersionCell.xib in Resources */,
 				382FD5A023D8038C001FF38E /* BottomLoadingView.xib in Resources */,
 				387FBEFE23ACA2A7005412F1 /* Notice.storyboard in Resources */,
-				0656634F23ED14B7009618ED /* HomeAd3View.xib in Resources */,
 				CCCC736023E42D8200FC03EE /* PasswordModify.storyboard in Resources */,
-				06130EAE23ECFCBC008D20D9 /* HomeAd3Cell.xib in Resources */,
 				3802A19423C8522F00CD2EF2 /* Sales.storyboard in Resources */,
 				38871EB723D55E2F007ED33D /* GroupIndexHeaderImageCell.xib in Resources */,
 				38E68AC223B5AE30006BC4DD /* Common.storyboard in Resources */,
@@ -1622,7 +1602,6 @@
 				384B110623C2BD46000E2B41 /* AirTicketPresenter.swift in Sources */,
 				C7BBF4BB23C7040900023307 /* NoticeDetailProtocol.swift in Sources */,
 				38E9921E23B04CF200E28271 /* GropeTourPresenter.swift in Sources */,
-				06130EB023ED0455008D20D9 /* HomeAd3View.swift in Sources */,
 				3848DA7B23C7280500EA0ED0 /* NoticeProtocol.swift in Sources */,
 				38BCD9D423A366D500D59910 /* BaseViewController.swift in Sources */,
 				38BCDA1223A3684E00D59910 /* BaseProtocol.swift in Sources */,
@@ -1678,7 +1657,6 @@
 				38BCD92B23A345FA00D59910 /* DeviceUtil.swift in Sources */,
 				3869542B23BADC0F00F6E7D9 /* MemberIndexPresenter.swift in Sources */,
 				38BCD98923A3484300D59910 /* OptionalStringExtension.swift in Sources */,
-				06130EAB23ECFCBC008D20D9 /* HomeAd3Cell.swift in Sources */,
 				382FD59C23D80382001FF38E /* BottomLoadingView.swift in Sources */,
 				38BCDA0123A367D000D59910 /* NoInternetErrorView.swift in Sources */,
 				38BCD98323A3484300D59910 /* DateComponentExtension.swift in Sources */,
@@ -1781,7 +1759,6 @@
 				384B110723C2BD46000E2B41 /* AirTicketPresenter.swift in Sources */,
 				C7BBF4BC23C7040900023307 /* NoticeDetailProtocol.swift in Sources */,
 				38E9921F23B04CF200E28271 /* GropeTourPresenter.swift in Sources */,
-				06130EB123ED0455008D20D9 /* HomeAd3View.swift in Sources */,
 				3848DA7C23C7280500EA0ED0 /* NoticeProtocol.swift in Sources */,
 				38BCD9D523A366D500D59910 /* BaseViewController.swift in Sources */,
 				38BCDA1323A3684E00D59910 /* BaseProtocol.swift in Sources */,
@@ -1837,7 +1814,6 @@
 				38BCD92C23A345FA00D59910 /* DeviceUtil.swift in Sources */,
 				3869542C23BADC0F00F6E7D9 /* MemberIndexPresenter.swift in Sources */,
 				38BCD98A23A3484300D59910 /* OptionalStringExtension.swift in Sources */,
-				06130EAC23ECFCBC008D20D9 /* HomeAd3Cell.swift in Sources */,
 				382FD59D23D80382001FF38E /* BottomLoadingView.swift in Sources */,
 				38BCDA0223A367D000D59910 /* NoInternetErrorView.swift in Sources */,
 				38BCD98423A3484300D59910 /* DateComponentExtension.swift in Sources */,

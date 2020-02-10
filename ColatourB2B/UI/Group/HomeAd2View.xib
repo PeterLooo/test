@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -31,38 +32,54 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JGr-Lu-Z6E">
                     <rect key="frame" x="16" y="5" width="339" height="122"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="item_Textitem_Textitem_Textitem_Textitem_Textitem_Textitem_Textitem_Textitem_Textitem_Text" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MVo-yy-y0O">
-                            <rect key="frame" x="12" y="10" width="315" height="63"/>
-                            <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="15"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="  Item_Promotion  " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ps-0R-KxE">
-                            <rect key="frame" x="12" y="93.5" width="115" height="18.5"/>
-                            <color key="backgroundColor" red="1" green="0.43529411764705883" blue="0.0" alpha="0.80316245719178081" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                            <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="13"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Item_Price" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bhb-Zr-022">
-                            <rect key="frame" x="251.5" y="81" width="75.5" height="31"/>
-                            <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="15"/>
-                            <color key="textColor" red="0.9882352941176471" green="0.29803921568627451" blue="0.0078431372549019607" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="7Ew-c5-7h0">
+                            <rect key="frame" x="12" y="10" width="315" height="102"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="item_Textitem_Textitem_Textitem_Textitem_Textitem_Textitem_Textitem_Textitem_Textitem_Text" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MVo-yy-y0O">
+                                    <rect key="frame" x="0.0" y="0.0" width="315" height="57"/>
+                                    <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="15"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xoj-1a-H4d">
+                                    <rect key="frame" x="0.0" y="65" width="315" height="37"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Item_Promotion  " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ps-0R-KxE">
+                                            <rect key="frame" x="0.0" y="0.0" width="115" height="37"/>
+                                            <color key="backgroundColor" red="1" green="0.43529411764705883" blue="0.0" alpha="0.80316245719178081" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                            <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="13"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Item_Price" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bhb-Zr-022">
+                                            <rect key="frame" x="239.5" y="0.0" width="75.5" height="37"/>
+                                            <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="15"/>
+                                            <color key="textColor" red="0.9882352941176471" green="0.29803921568627451" blue="0.0078431372549019607" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    <constraints>
+                                        <constraint firstItem="4ps-0R-KxE" firstAttribute="bottom" secondItem="Xoj-1a-H4d" secondAttribute="bottom" id="5Qw-qa-9T9"/>
+                                        <constraint firstItem="bhb-Zr-022" firstAttribute="bottom" secondItem="Xoj-1a-H4d" secondAttribute="bottom" id="6eC-mY-zeN"/>
+                                        <constraint firstItem="bhb-Zr-022" firstAttribute="trailing" secondItem="Xoj-1a-H4d" secondAttribute="trailing" id="8GM-cY-NKi"/>
+                                        <constraint firstItem="bhb-Zr-022" firstAttribute="centerY" secondItem="Xoj-1a-H4d" secondAttribute="centerY" id="Koq-zl-fgt"/>
+                                        <constraint firstItem="4ps-0R-KxE" firstAttribute="leading" secondItem="Xoj-1a-H4d" secondAttribute="leading" id="LMz-3p-tsb"/>
+                                        <constraint firstItem="4ps-0R-KxE" firstAttribute="top" secondItem="Xoj-1a-H4d" secondAttribute="top" id="gPM-Dd-CgH"/>
+                                        <constraint firstItem="bhb-Zr-022" firstAttribute="top" secondItem="Xoj-1a-H4d" secondAttribute="top" id="hhy-Hd-cXN"/>
+                                        <constraint firstItem="bhb-Zr-022" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="4ps-0R-KxE" secondAttribute="trailing" constant="12" id="o6H-WS-s8T"/>
+                                        <constraint firstItem="4ps-0R-KxE" firstAttribute="centerY" secondItem="Xoj-1a-H4d" secondAttribute="centerY" id="vrl-vD-FCQ"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                        </stackView>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     <constraints>
-                        <constraint firstItem="MVo-yy-y0O" firstAttribute="top" secondItem="JGr-Lu-Z6E" secondAttribute="top" constant="10" id="7uB-ix-sBS"/>
-                        <constraint firstItem="MVo-yy-y0O" firstAttribute="leading" secondItem="JGr-Lu-Z6E" secondAttribute="leading" constant="12" id="Bjn-Bg-MkY"/>
-                        <constraint firstItem="4ps-0R-KxE" firstAttribute="leading" secondItem="JGr-Lu-Z6E" secondAttribute="leading" constant="12" id="Dch-yn-4I2"/>
-                        <constraint firstItem="4ps-0R-KxE" firstAttribute="top" relation="greaterThanOrEqual" secondItem="MVo-yy-y0O" secondAttribute="bottom" constant="8" id="DvO-jB-qcq"/>
-                        <constraint firstAttribute="trailing" secondItem="bhb-Zr-022" secondAttribute="trailing" constant="12" id="E73-Cg-8St"/>
-                        <constraint firstAttribute="bottom" secondItem="4ps-0R-KxE" secondAttribute="bottom" constant="10" id="RbR-sr-16H"/>
-                        <constraint firstItem="bhb-Zr-022" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="4ps-0R-KxE" secondAttribute="trailing" constant="8" id="Sv4-yr-Tpy"/>
-                        <constraint firstAttribute="trailing" secondItem="MVo-yy-y0O" secondAttribute="trailing" constant="12" id="T0H-uJ-xQP"/>
-                        <constraint firstAttribute="bottom" secondItem="bhb-Zr-022" secondAttribute="bottom" constant="10" id="rPX-ak-Rki"/>
-                        <constraint firstItem="bhb-Zr-022" firstAttribute="top" secondItem="MVo-yy-y0O" secondAttribute="bottom" constant="8" id="zKx-At-XYf"/>
+                        <constraint firstItem="7Ew-c5-7h0" firstAttribute="bottom" secondItem="JGr-Lu-Z6E" secondAttribute="bottom" constant="-10" id="0h1-re-acI"/>
+                        <constraint firstItem="7Ew-c5-7h0" firstAttribute="top" secondItem="JGr-Lu-Z6E" secondAttribute="top" constant="10" id="Ca7-n6-QXz"/>
+                        <constraint firstItem="7Ew-c5-7h0" firstAttribute="trailing" secondItem="JGr-Lu-Z6E" secondAttribute="trailing" constant="-12" id="F2q-ae-1ob"/>
+                        <constraint firstItem="7Ew-c5-7h0" firstAttribute="leading" secondItem="JGr-Lu-Z6E" secondAttribute="leading" constant="12" id="IPv-OT-7ua"/>
                     </constraints>
                 </view>
             </subviews>
@@ -71,7 +88,7 @@
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="JGr-Lu-Z6E" secondAttribute="bottom" priority="999" constant="5" id="4i4-dc-67K"/>
                 <constraint firstItem="JGr-Lu-Z6E" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="9bY-F1-VuV"/>
                 <constraint firstItem="jA4-JK-15G" firstAttribute="bottom" secondItem="JGr-Lu-Z6E" secondAttribute="bottom" id="BEo-4A-FRv"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="JGr-Lu-Z6E" secondAttribute="trailing" priority="999" constant="16" id="U1p-qt-QWr"/>
+                <constraint firstItem="JGr-Lu-Z6E" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" priority="999" constant="-16" id="U1p-qt-QWr"/>
                 <constraint firstItem="jA4-JK-15G" firstAttribute="top" secondItem="JGr-Lu-Z6E" secondAttribute="top" id="Ztt-b9-0Ae"/>
                 <constraint firstItem="jA4-JK-15G" firstAttribute="trailing" secondItem="JGr-Lu-Z6E" secondAttribute="trailing" id="mOg-PB-3Up"/>
                 <constraint firstItem="JGr-Lu-Z6E" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="5" id="uIm-20-YoD"/>

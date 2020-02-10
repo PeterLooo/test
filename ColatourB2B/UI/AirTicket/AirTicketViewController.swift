@@ -59,7 +59,6 @@ class AirTicketViewController: BaseViewController {
         tableView.register(UINib(nibName: "GroupIndexHeaderImageCell", bundle: nil), forCellReuseIdentifier: "GroupIndexHeaderImageCell")
         tableView.register(UINib(nibName: "HomeAd1Cell", bundle: nil), forCellReuseIdentifier: "HomeAd1Cell")
         tableView.register(UINib(nibName: "HomeAd2Cell", bundle: nil), forCellReuseIdentifier: "HomeAd2Cell")
-        tableView.register(UINib(nibName: "HomeAd3Cell", bundle: nil), forCellReuseIdentifier: "HomeAd3Cell")
         setSearchBorder()
         setSearchGes()
     }
@@ -296,9 +295,9 @@ extension AirTicketViewController : UITableViewDataSource {
             (cell as! HomeAd2Cell).delegate = self
 
         case .HOMEAD3:
-            cell = tableView.dequeueReusableCell(withIdentifier: "HomeAd3Cell") as! HomeAd3Cell
-            (cell as! HomeAd3Cell).setCell(item: self.homeAd3List[indexPath.row])
-            (cell as! HomeAd3Cell).delegate = self
+            cell = tableView.dequeueReusableCell(withIdentifier: "HomeAd2Cell") as! HomeAd2Cell
+            (cell as! HomeAd2Cell).setCell(item: self.homeAd3List[indexPath.row])
+            (cell as! HomeAd2Cell).delegate = self
         }
         
         return cell
