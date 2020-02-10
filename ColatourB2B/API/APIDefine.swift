@@ -72,6 +72,7 @@ enum APIUrl {
         case groupTourIndex   = "/Portal/Tour/首頁1"
         case groupTaichungIndex   = "/Portal/Taichung/首頁1"
         case groupKaohsiungIndex   = "/Portal/Kaohsiung/首頁1"
+        case tktIndex = "/Portal/TKT/首頁1"
         case serviceTourWindowList   = "/Service/Tour/WindowList"
 
         static func urlWith(type: PortalApi, append: String) -> String {

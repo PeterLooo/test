@@ -274,7 +274,8 @@ extension GroupTourViewController: GropeTourViewProtocol {
             self.groupTableViews[1].setViewWith(itemList: moduleDataList, needUpdateBannerImage: needUpdateBannerImage)
         case .kaohsiung:
             self.groupTableViews[2].setViewWith(itemList: moduleDataList, needUpdateBannerImage: needUpdateBannerImage)
-        
+        default:
+            ()
         }
     }
     

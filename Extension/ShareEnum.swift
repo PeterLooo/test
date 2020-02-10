@@ -46,6 +46,7 @@ public enum TourType {
     case tour
     case taichung
     case kaohsiung
+    case tkt
     
     func getApiUrl() -> APIUrl {
         switch self {
@@ -55,6 +56,8 @@ public enum TourType {
             return APIUrl.portalApi(type: .groupTaichungIndex)
         case .kaohsiung:
             return APIUrl.portalApi(type: .groupKaohsiungIndex)
+        case .tkt:
+            return APIUrl.portalApi(type: .tktIndex)
         }
     }
 }
