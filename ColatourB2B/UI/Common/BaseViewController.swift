@@ -446,7 +446,8 @@ extension BaseViewController: MemberLoginOnTouchNavCloseProtocol {
 }
 extension BaseViewController: BaseViewProtocol {
     func onTouchService() {
-        // To Serviec VC
+        let vc = getVC(st: "ContactService", vc: "ContactService") as! ContactServiceViewController
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     func onBindAccessWebUrl(url: String, title: String) {
