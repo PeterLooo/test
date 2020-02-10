@@ -21,11 +21,7 @@ class GroupTourViewController: BaseViewController {
     private var presenter: GropeTourPresenterProtocol?
     private var groupTableViews: [GroupTableView] = []
     private var needUpdateBannerImage = false
-    private var menuList : GroupMenuResponse? {
-        didSet{
-            setNavIcon()
-        }
-    }
+    private var menuList : GroupMenuResponse?
     
     let transiton = GroupSlideInTransition()
     
@@ -40,17 +36,18 @@ class GroupTourViewController: BaseViewController {
         super.viewDidLoad()
         
         setIsNavShadowEnable(false)
-        self.setNavBarItem(left: .defaultType, mid: .custom, right: .custom)
+        self.setNavBarItem(left: .custom, mid: .custom, right: .custom)
+        setNavIcon()
         setUpTableView()
         setSearchView()
         
-        needUpdateBannerImage = true
         loadData()
     }
 
     override func loadData() {
         super.loadData()
         
+        needUpdateBannerImage = true
         getApiToken()
     }
     
@@ -109,7 +106,8 @@ class GroupTourViewController: BaseViewController {
 
         var contaceBarButtonItem = UIBarButtonItem(customView: contaceButtonView)
         contaceBarButtonItem = UIBarButtonItem(image: rightImage, style: .plain, target: self, action: #selector(self.onTouchContact))
-        self.navigationItem.rightBarButtonItem = contaceBarButtonItem
+        
+        self.setCustomRightBarButtonItem(barButtonItem: contaceBarButtonItem)
         
         let menuButtonView = UIButton(type: .system)
         
@@ -120,8 +118,7 @@ class GroupTourViewController: BaseViewController {
         var menuBarButtonItem = UIBarButtonItem(customView: menuButtonView)
         menuBarButtonItem = UIBarButtonItem(image: leftImage, style: .plain, target: self, action: #selector(self.onTouchMenu))
         
-        self.navigationItem.leftBarButtonItem = menuBarButtonItem
-        
+        self.setCustomLeftBarButtonItem(barButtonItem: menuBarButtonItem)
     }
     
     @IBAction func screenEdge(_ sender: UIScreenEdgePanGestureRecognizer) {
