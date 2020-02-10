@@ -416,7 +416,10 @@ class BaseViewController: UIViewController {
         let vc = getVC(st: "Login", vc: "LoginViewController") as! LoginViewController
         vc.modalPresentationStyle = .fullScreen
         vc.loginSuccessDelegate = self
-        self.present(vc, animated: false)
+        let nav = UINavigationController(rootViewController: vc)
+        nav.modalPresentationStyle = .fullScreen
+        nav.restorationIdentifier = "LoginViewControllerNavigationController"
+        self.present(nav, animated: true)
     }
 
     func logoutAndPopLoginVC(linkType: LinkType) {
