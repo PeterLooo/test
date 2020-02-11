@@ -45,7 +45,7 @@ class HomeAd2View: UIView {
         self.isUserInteractionEnabled = true
     }
     
-    func setView(item: IndexResponse.ModuleItem, isFirst: Bool, isLast: Bool){
+    func setView(item: IndexResponse.ModuleItem, isLast: Bool){
         self.adItem = item
         self.itemText.text = item.itemText
         self.itemPromotion.text = item.itemPromotion.isNilOrEmpty == false ? "  \(item.itemPromotion ?? "")  ":""
