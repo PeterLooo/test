@@ -322,13 +322,13 @@ class BaseViewController: UIViewController {
             basePresenter?.getAccessToken()
 
         case .apiFailException:
-            self.handleApiFailError(handleType: handleType, alertMsg: apiError.alertMsg)
+            self.handleApiFailError(handleType: handleType, alertMsg: apiError.alertMsg, isAlertWithContactService: true)
         case .apiFailForUserException:
-            self.handleApiFailError(handleType: handleType, alertMsg: apiError.alertMsg)
+            self.handleApiFailError(handleType: handleType, alertMsg: apiError.alertMsg, isAlertWithContactService: false)
         case .requestTimeOut:
-            self.handleApiFailError(handleType: handleType, alertMsg: apiError.alertMsg)
+            self.handleApiFailError(handleType: handleType, alertMsg: apiError.alertMsg, isAlertWithContactService: true)
         case .otherException:
-            self.handleApiFailError(handleType: handleType, alertMsg: apiError.alertMsg)
+            self.handleApiFailError(handleType: handleType, alertMsg: apiError.alertMsg, isAlertWithContactService: true)
         case .presentLogin:
             self.logoutAndPopLoginVC()
         case .cancelAllRequestDoNothing:
@@ -416,7 +416,10 @@ class BaseViewController: UIViewController {
         let vc = getVC(st: "Login", vc: "LoginViewController") as! LoginViewController
         vc.modalPresentationStyle = .fullScreen
         vc.loginSuccessDelegate = self
-        self.present(vc, animated: false)
+        let nav = UINavigationController(rootViewController: vc)
+        nav.modalPresentationStyle = .fullScreen
+        nav.restorationIdentifier = "LoginViewControllerNavigationController"
+        self.present(nav, animated: true)
     }
 
     func logoutAndPopLoginVC(linkType: LinkType) {
@@ -450,14 +453,19 @@ extension BaseViewController: BaseViewProtocol {
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    func onBindAccessWebUrl(url: String, title: String) {
-        let vc = getVC(st: "Common", vc: "WebViewController") as! WebViewController
-        vc.setVCwith(url: url, title: title)
-        vc.setDismissButton()
-        let nav = UINavigationController(rootViewController: vc)
-        nav.modalPresentationStyle = .fullScreen
-        nav.restorationIdentifier = "WebViewControllerNavigationController"
-        self.present(nav, animated: true)
+    func onBindAccessWebUrl(url: String, title: String, openBrowserOrAppWebView: OpenBrowserOrAppWebView) {
+        switch openBrowserOrAppWebView {
+        case .openAppWebView:
+            let vc = getVC(st: "Common", vc: "WebViewController") as! WebViewController
+            vc.setVCwith(url: url, title: title)
+            vc.setDismissButton()
+            let nav = UINavigationController(rootViewController: vc)
+            nav.modalPresentationStyle = .fullScreen
+            nav.restorationIdentifier = "WebViewControllerNavigationController"
+            self.present(nav, animated: true)
+        case .openBrowser:
+            handleLinkType(linkType: .openBrowser, linkValue: url, linkText: title)
+        }
     }
     
     func onBindAccessToken(response: AccessTokenResponse) {
@@ -636,7 +644,7 @@ extension BaseViewController {
     }
 
     //Note: 除了onApiErrorHandle Function，其他地方盡量不要用到他
-    func handleApiFailError(handleType: APIErrorHandleType, alertMsg: String?) {
+    func handleApiFailError(handleType: APIErrorHandleType, alertMsg: String?, isAlertWithContactService: Bool) {
         var msg = alertMsg ?? "系統異常，請稍後再試。"
         var title = "請修正錯誤"
         if (msg == "") {
@@ -649,12 +657,19 @@ extension BaseViewController {
             self.apiFailErrorView.isHidden = false
         case .alert:
             let alertSeverError: UIAlertController = UIAlertController(title: title, message: msg, preferredStyle: .alert)
-            let actions = UIAlertAction(title: "聯絡客服", style: .default) { (_) in
+            let contactServiceAction = UIAlertAction(title: "聯絡客服", style: .default) { (_) in
                 self.onTouchService()
             }
-            alertSeverError.addAction(actions)
-            let action = UIAlertAction(title: "稍後再試", style: UIAlertAction.Style.default, handler: nil)
-            alertSeverError.addAction(action)
+            let tryLaterAction = UIAlertAction(title: "稍後再試", style: UIAlertAction.Style.default, handler: nil)
+            let confirmAction = UIAlertAction(title: "確定", style: UIAlertAction.Style.default, handler: nil)
+            
+            if isAlertWithContactService {
+                alertSeverError.addAction(contactServiceAction)
+                alertSeverError.addAction(tryLaterAction)
+            } else {
+                alertSeverError.addAction(confirmAction)
+            }
+            
             self.present(alertSeverError, animated: true)
         case .toast:
             self.toastView.toast(text: msg)
@@ -676,7 +691,7 @@ extension BaseViewController {
     private func handleLinkTypePush(linkType: LinkType, linkValue: String?, linkText: String?, paxToken: String?, source: String?) {
         var vc: UIViewController?
         switch linkType {
-        case .web:
+        case .openAppWebView:
             if let url = linkValue {
                 if let browserUrl = URL(string: url) {
                     if browserUrl.scheme == "http"{
@@ -696,9 +711,12 @@ extension BaseViewController {
             }
         case .salesPage:
             vc = getVC(st: "Sales", vc: "SalesViewController") as! SalesViewController
-        case .getApiUrl:
+        case .getApiUrlThenOpenAppWebView:
+            self.basePresenter?.getAccessWebUrl(webUrl: linkValue!, title: linkText ?? "", openBrowserOrAppWebView: .openAppWebView)
             
-            self.basePresenter?.getAccessWebUrl(webUrl: linkValue!, title: linkText ?? "")
+        case .getApiUrlThenOpenBrowser:
+            self.basePresenter?.getAccessWebUrl(webUrl: linkValue!, title: linkText ?? "", openBrowserOrAppWebView: .openBrowser)
+            
         case .passwordModify:
             
             let passwordModifyViewController = getVC(st: "PasswordModify", vc: "PasswordModify") as! PasswordModifyViewController

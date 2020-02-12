@@ -177,7 +177,6 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         
         completionHandler()
     }
-    
 }
 extension AppDelegate {
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
@@ -195,7 +194,7 @@ extension AppDelegate {
         // Print full message.
         printLog("userInfo", userInfo)
     }
-
+    
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any],
                      fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         // If you are receiving a notification message while your app is in the background,
@@ -216,10 +215,32 @@ extension AppDelegate {
         completionHandler(UIBackgroundFetchResult.newData)
     }
 }
+
 extension AppDelegate {
+        func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+
+            let tokenString = deviceToken.map {
+                String(format: "%02.2hhx", $0)
+            }.joined()
+            self.printLog("deviceToken", tokenString)
+
+            //? InstanceID.instanceID().setAPNSToken(deviceToken, type: InstanceIDAPNSTokenType.sandbox)
+            Messaging.messaging().apnsToken = deviceToken
+        }
+
+        func tokenRefreshNotification(notification: NSNotification) {
+            // NOTE: It can be nil here
+            //let refreshedToken = InstanceID.instanceID().token()
+            //printLog("InstanceID token", refreshedToken)
+            printLog("TokenRefreshNotification", "TokenRefreshNotification")
+
+            connectToFcm()
+        }
+
     func connectToFcm() {
         Messaging.messaging().shouldEstablishDirectChannel = true
     }
+    
     private func printFireBaseToken(_ granted: Bool, _ error: Error?) {
         #if DEBUG
         printLog("granted", granted)

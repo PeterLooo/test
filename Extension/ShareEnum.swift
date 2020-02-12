@@ -9,20 +9,26 @@
 import UIKit
 
 public enum LinkType: String {
-    case web = "00"
-    case getApiUrl = "003"
-    case passwordModify = "031"
+    case openAppWebView = "001"
+    case openBrowser = "002"
+    case getApiUrlThenOpenAppWebView = "003"
+    case getApiUrlThenOpenBrowser = "004"
     case salesPage = "011"
+    case passwordModify = "031"
     case updateDate = "032"
-    case openBrowser
     case unknown
+}
+
+public enum OpenBrowserOrAppWebView {
+    case openBrowser
+    case openAppWebView
 }
 
 public enum NotiType {
     case important
     case noti
-    case news
-    
+    case groupNews
+    case airNews
 }
 
 public enum ToolBarType {
@@ -46,6 +52,7 @@ public enum TourType {
     case tour
     case taichung
     case kaohsiung
+    case tkt
     
     func getApiUrl() -> APIUrl {
         switch self {
@@ -55,6 +62,8 @@ public enum TourType {
             return APIUrl.portalApi(type: .groupTaichungIndex)
         case .kaohsiung:
             return APIUrl.portalApi(type: .groupKaohsiungIndex)
+        case .tkt:
+            return APIUrl.portalApi(type: .tktIndex)
         }
     }
 }

@@ -10,17 +10,34 @@ import UIKit
 
 class AirTicketViewController: BaseViewController {
     
-    @IBOutlet weak var grayBlurView: UIView!
+    
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var airSearchView: UIView!
     
+    enum Section : Int, CaseIterable {
+        case BANNER = 0
+        case HOMEAD1
+        case HOMEAD2
+    }
+    private var cellsHeight: [IndexPath : CGFloat] = [:]
+    
+    weak var delegate : GroupTableViewProtocol?
+    private var itemList: [IndexResponse.MultiModule] = [] {
+        didSet {
+            indexList = itemList.filter{$0.groupName == "首頁1"}.flatMap{$0.moduleList}
+            homeAd1List = itemList.filter{$0.groupName == "HomeAd1"}.flatMap{$0.moduleList}
+            homeAd2List = itemList.filter{$0.groupName == "HomeAd2"}.flatMap{$0.moduleList}
+            tableView.reloadData()
+        }
+    }
+    private var indexList: [IndexResponse.Module] = []
+    private var homeAd1List: [IndexResponse.Module] = []
+    private var homeAd2List: [IndexResponse.Module] = []
+    private var needUpdateBannerImage = false
     private var presenter: AirTicketPresenter?
     
     let transiton = GroupSlideInTransition()
-    private var menuList : GroupMenuResponse? {
-        didSet{
-            setNavIcon()
-        }
-    }
+    private var menuList : GroupMenuResponse?
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -32,23 +49,32 @@ class AirTicketViewController: BaseViewController {
         super.viewDidLoad()
         
         setIsNavShadowEnable(false)
-        self.grayBlurView.alpha = 0
+        setNavBarItem(left: .custom, mid: .custom, right: .custom)
+        setNavIcon()
+        tableView.register(UINib(nibName: "GroupIndexHeaderImageCell", bundle: nil), forCellReuseIdentifier: "GroupIndexHeaderImageCell")
+        tableView.register(UINib(nibName: "HomeAd1Cell", bundle: nil), forCellReuseIdentifier: "HomeAd1Cell")
+        tableView.register(UINib(nibName: "HomeAd2Cell", bundle: nil), forCellReuseIdentifier: "HomeAd2Cell")
         setSearchBorder()
         setSearchGes()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+        addRefreshControlToTableView()
+        
         loadData()
     }
-    
+
     override func loadData() {
         super.loadData()
+        
+        needUpdateBannerImage = true
         getAirMenu()
+        gatTktIndex()
     }
     
     private func getAirMenu(){
         self.presenter?.getAirMenu(toolBarType: .tkt)
+    }
+    
+    private func gatTktIndex(){
+        self.presenter?.getAirTicketIndex()
     }
     
     private func setSearchBorder(){
@@ -66,7 +92,7 @@ class AirTicketViewController: BaseViewController {
         
         var contaceBarButtonItem = UIBarButtonItem(customView: contaceButtonView)
         contaceBarButtonItem = UIBarButtonItem(image: rightImage, style: .plain, target: self, action: #selector(self.onTouchContact))
-        self.navigationItem.rightBarButtonItem = contaceBarButtonItem
+        self.setCustomRightBarButtonItem(barButtonItem: contaceBarButtonItem)
         
         let menuButtonView = UIButton(type: .system)
         
@@ -77,8 +103,18 @@ class AirTicketViewController: BaseViewController {
         var menuBarButtonItem = UIBarButtonItem(customView: menuButtonView)
         menuBarButtonItem = UIBarButtonItem(image: leftImage, style: .plain, target: self, action: #selector(self.onTouchMenu))
         
-        self.navigationItem.leftBarButtonItem = menuBarButtonItem
-        
+        self.setCustomLeftBarButtonItem(barButtonItem: menuBarButtonItem)
+    }
+    
+    private func addRefreshControlToTableView(){
+        let refreshControl = UIRefreshControl()
+        refreshControl.tintColor = UIColor.gray
+        refreshControl.addTarget(self, action: #selector(self.pullToRefresh) ,for: .valueChanged)
+        self.tableView.refreshControl = refreshControl
+    }
+    
+    @objc private func pullToRefresh() {
+        loadData()
     }
     
     @IBAction func screenEdge(_ sender: UIScreenEdgePanGestureRecognizer) {
@@ -98,7 +134,7 @@ class AirTicketViewController: BaseViewController {
         vc.delegate = self
         vc.modalPresentationStyle = .overCurrentContext
         vc.transitioningDelegate = self
-        vc.setVC(menuResponse: self.menuList!)
+        vc.setVC(menuResponse: self.menuList)
         present(vc, animated: true)
     }
     
@@ -155,10 +191,33 @@ extension AirTicketViewController: GroupSliderViewControllerProtocol {
         self.handleLinkType(linkType: serverData.linkType, linkValue: serverData.linkValue, linkText: serverData.linkName ?? "")
     }
 }
-
+extension AirTicketViewController: GroupIndexHeaderImageCellProtocol {
+    func onTouchItem(item: IndexResponse.ModuleItem) {
+        self.handleLinkType(linkType: item.linkType, linkValue: item.linkParams, linkText: nil)
+    }
+}
+extension AirTicketViewController : HomeAd1CellProtocol {
+    func onTouchItem(adItem: IndexResponse.ModuleItem) {
+        self.handleLinkType(linkType: adItem.linkType, linkValue: adItem.linkParams, linkText: nil)
+    }
+}
 extension AirTicketViewController: AirTicketViewProtocol {
+    func onBindAirTicketIndex(moduleDataList: [IndexResponse.MultiModule]) {
+        self.itemList = moduleDataList
+        self.tableView.refreshControl?.endRefreshing()
+    }
+    
+    func onBindAirTicketIndexError(){
+        self.itemList = []
+        self.tableView.refreshControl?.endRefreshing()
+    }
+    
     func onBindAirMenu(menu: GroupMenuResponse) {
         self.menuList = menu
+    }
+    
+    func onGetAirMenuError() {
+        self.menuList = nil
     }
 }
 
@@ -183,5 +242,69 @@ extension AirTicketViewController: MessageSendToastDelegate {
     func setMessageSendToastText(text: String) {
         
         self.toast(text: text)
+    }
+}
+extension AirTicketViewController : UITableViewDelegate {
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cellsHeight[indexPath] = cell.frame.size.height
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        guard let height = cellsHeight[indexPath] else { return UITableView.automaticDimension }
+        
+        return height
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        guard let height = cellsHeight[indexPath] else { return UITableView.automaticDimension }
+        
+        return height
+    }
+}
+
+extension AirTicketViewController : UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return Section.allCases.count
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        let section = Section(rawValue: section)!
+        switch section {
+        case .BANNER:
+            return self.indexList.isEmpty ? 0 : 1
+            
+        case .HOMEAD1:
+            return self.homeAd1List.count
+       
+        case .HOMEAD2:
+            return self.homeAd2List.count
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        var cell: UITableViewCell!
+        let section = Section(rawValue: indexPath.section)!
+        
+        switch section {
+        
+        case .BANNER:
+            cell = tableView.dequeueReusableCell(withIdentifier: "GroupIndexHeaderImageCell") as! GroupIndexHeaderImageCell
+            (cell as! GroupIndexHeaderImageCell).setCell(itemList: indexList[indexPath.row].moduleItemList, needUpdateBannerImage: needUpdateBannerImage)
+            (cell as! GroupIndexHeaderImageCell).delegate = self
+            needUpdateBannerImage = false
+        
+        case .HOMEAD1:
+            cell = tableView.dequeueReusableCell(withIdentifier: "HomeAd1Cell") as! HomeAd1Cell
+            (cell as! HomeAd1Cell).setCell(item: self.homeAd1List[indexPath.row])
+            (cell as! HomeAd1Cell).delegate = self
+        
+        case .HOMEAD2:
+            cell = tableView.dequeueReusableCell(withIdentifier: "HomeAd2Cell") as! HomeAd2Cell
+            (cell as! HomeAd2Cell).setCell(item: self.homeAd2List[indexPath.row], isLastSection: tableView.numberOfSections - 1 == section.rawValue)
+            (cell as! HomeAd2Cell).delegate = self
+        }
+        return cell
     }
 }

@@ -10,15 +10,18 @@ import Foundation
 
 protocol NoticeViewProtocol: BaseViewProtocol {
     
-    func onBindNoticeListComplete(noticeList: [NotiItem])
-    func onBindNewsListComplete(newsList: [NotiItem])
     func onBindImportantComplete(importantList: [NotiItem])
+    func onBindNoticeListComplete(noticeList: [NotiItem])
+    func onBindGroupNewsListComplete(groupNewsList: [NotiItem])
+    func onBindAirNewsListComplete(airNewsList: [NotiItem])
     func onBindSetNotiRead()
 }
 
 protocol NoticePresenterProtocol: BasePresenterProtocol {
-    func getNoticeList(pageIndex:Int, handleType: APILoadingHandleType)
-    func getNewsList(pageIndex:Int, handleType: APILoadingHandleType)
+    
     func getImportantList(pageIndex:Int, handleType: APILoadingHandleType)
+    func getNoticeList(pageIndex:Int, handleType: APILoadingHandleType)
+    func getGroupNewsList(pageIndex:Int, handleType: APILoadingHandleType)
+    func getAirNewsList(pageIndex:Int, handleType: APILoadingHandleType)
     func setNoticeRead(noticeIdList: [String])
 }
