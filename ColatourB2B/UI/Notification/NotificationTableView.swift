@@ -7,11 +7,13 @@
 //
 
 import UIKit
+
 protocol NotificationTableViewProtocol: NSObjectProtocol {
     func onTouchNoti(item: NotiItem)
     func onStartLoading(notiType: NotiType)
     func pullRefresh(notiType: NotiType)
 }
+
 class NotificationTableView: UIView {
     
     private var cellsHeight: [IndexPath : CGFloat] = [:]
@@ -77,9 +79,11 @@ class NotificationTableView: UIView {
         self.tableView.refreshControl?.endRefreshing()
         tableView.reloadData()
     }
+    
     @objc private func pullToRefresh(){
         self.delegate?.pullRefresh(notiType: self.notiType)
     }
+    
     private func startBottomLoadingView(){
         self.tableView.tableFooterView = bottomLoadingView
         
@@ -100,7 +104,6 @@ extension NotificationTableView : NotificationItemCellProtocol {
     func onTouchItem(item: NotiItem) {
         self.delegate?.onTouchNoti(item: item)
     }
-    
 }
 
 extension NotificationTableView : UITableViewDelegate {
@@ -120,7 +123,7 @@ extension NotificationTableView : UITableViewDelegate {
         }
         
         guard let height = cellsHeight[indexPath] else { return UITableView.automaticDimension }
-        
+    
         return height
     }
     
@@ -152,7 +155,6 @@ extension NotificationTableView : UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         switch Section(rawValue: indexPath.section)! {
         case .notiItem:
             let cell = tableView.dequeueReusableCell(withIdentifier: "NotificationItemCell", for: indexPath) as! NotificationItemCell
