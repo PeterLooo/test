@@ -316,13 +316,20 @@ extension APIManager {
         return manager(method: .get, appendUrl: appendUrl, url: APIUrl.noticeApi(type: .notice), parameters: nil, appendHeaders: nil)
     }
     
-    func getNewsList(pageIndex: Int) -> Single<[String:Any]> {
+    func getGroupNewsList(pageIndex: Int) -> Single<[String:Any]> {
         let pageSize = "Page_Size=10"
         var appendUrl = ""
         appendUrl = "Page_Index=" + "\(String(pageIndex))" + "&" + pageSize
         
-        return manager(method: .get, appendUrl: appendUrl, url: APIUrl.noticeApi(type: .news), parameters: nil, appendHeaders: nil)
-
+        return manager(method: .get, appendUrl: appendUrl, url: APIUrl.noticeApi(type: .groupNews), parameters: nil, appendHeaders: nil)
+    }
+    
+    func getAirNewsList(pageIndex: Int) -> Single<[String:Any]> {
+        let pageSize = "Page_Size=10"
+        var appendUrl = ""
+        appendUrl = "Page_Index=" + "\(String(pageIndex))" + "&" + pageSize
+        
+        return manager(method: .get, appendUrl: appendUrl, url: APIUrl.noticeApi(type: .airNews), parameters: nil, appendHeaders: nil)
     }
     
     func getImportantList(pageIndex: Int) -> Single<[String:Any]> {

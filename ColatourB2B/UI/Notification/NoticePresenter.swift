@@ -18,31 +18,8 @@ class NoticePresenter: NoticePresenterProtocol {
         self.delegate = delegate
     }
     
-    func getNoticeList(pageIndex: Int, handleType: APILoadingHandleType) {
-        self.delegate?.onStartLoadingHandle(handleType: handleType)
-        
-        NoticeRepository.shared.getNoticeList(pageIndex: pageIndex).subscribe(onSuccess: { (model) in
-            self.delegate?.onBindNoticeListComplete(noticeList: self.processNotificationResponse(model: model))
-            self.delegate?.onCompletedLoadingHandle()
-        }, onError: { (error) in
-            self.delegate?.onApiErrorHandle(apiError: error as! APIError, handleType: .coverPlate)
-            self.delegate?.onCompletedLoadingHandle()
-        }).disposed(by: dispose)
-    }
-    
-    func getNewsList(pageIndex: Int, handleType: APILoadingHandleType) {
-        self.delegate?.onStartLoadingHandle(handleType: handleType)
-        
-        NoticeRepository.shared.getNewsList(pageIndex: pageIndex).subscribe(onSuccess: { (model) in
-            self.delegate?.onBindNewsListComplete(newsList: self.processNewsResponse(model: model))
-            self.delegate?.onCompletedLoadingHandle()
-        }, onError: { (error) in
-            self.delegate?.onApiErrorHandle(apiError: error as! APIError, handleType: .coverPlate)
-            self.delegate?.onCompletedLoadingHandle()
-        }).disposed(by: dispose)
-    }
-    
     func getImportantList(pageIndex: Int, handleType: APILoadingHandleType) {
+
         self.delegate?.onStartLoadingHandle(handleType: handleType)
         
         NoticeRepository.shared.getImportantList(pageIndex: pageIndex).subscribe(onSuccess: { (model) in
@@ -54,7 +31,47 @@ class NoticePresenter: NoticePresenterProtocol {
         }).disposed(by: dispose)
     }
     
+    func getNoticeList(pageIndex: Int, handleType: APILoadingHandleType) {
+        
+        self.delegate?.onStartLoadingHandle(handleType: handleType)
+        
+        NoticeRepository.shared.getNoticeList(pageIndex: pageIndex).subscribe(onSuccess: { (model) in
+            self.delegate?.onBindNoticeListComplete(noticeList: self.processNotificationResponse(model: model))
+            self.delegate?.onCompletedLoadingHandle()
+        }, onError: { (error) in
+            self.delegate?.onApiErrorHandle(apiError: error as! APIError, handleType: .coverPlate)
+            self.delegate?.onCompletedLoadingHandle()
+        }).disposed(by: dispose)
+    }
+    
+    func getGroupNewsList(pageIndex: Int, handleType: APILoadingHandleType) {
+        
+        self.delegate?.onStartLoadingHandle(handleType: handleType)
+        
+        NoticeRepository.shared.getGroupNewsList(pageIndex: pageIndex).subscribe(onSuccess: { (model) in
+            self.delegate?.onBindGroupNewsListComplete(groupNewsList: self.processNewsResponse(model: model))
+            self.delegate?.onCompletedLoadingHandle()
+        }, onError: { (error) in
+            self.delegate?.onApiErrorHandle(apiError: error as! APIError, handleType: .coverPlate)
+            self.delegate?.onCompletedLoadingHandle()
+        }).disposed(by: dispose)
+    }
+    
+    func getAirNewsList(pageIndex: Int, handleType: APILoadingHandleType) {
+        
+        self.delegate?.onStartLoadingHandle(handleType: handleType)
+        
+        NoticeRepository.shared.getAirNewsList(pageIndex: pageIndex).subscribe(onSuccess: { (model) in
+            self.delegate?.onBindAirNewsListComplete(airNewsList: self.processNewsResponse(model: model))
+            self.delegate?.onCompletedLoadingHandle()
+        }, onError: { (error) in
+            self.delegate?.onApiErrorHandle(apiError: error as! APIError, handleType: .coverPlate)
+            self.delegate?.onCompletedLoadingHandle()
+            }).disposed(by: dispose)
+      }
+    
     func setNoticeRead(noticeIdList: [String]) {
+        
         self.delegate?.onStartLoadingHandle(handleType: .ignore)
         
         NoticeRepository.shared.setNotiRead(notiId: noticeIdList).subscribe(onSuccess: { (_) in
@@ -67,14 +84,19 @@ class NoticePresenter: NoticePresenterProtocol {
     }
 
     private func processNotificationResponse(model:NoticeResponse) -> [NotiItem] {
+        
         var items:[NotiItem] = []
+        
         model.notification?.notiItemList.forEach({ (item) in
             items.append(NotiItem(notiTitle: item.pushTitle, notiContent: item.pushContent, notiId: item.notiId, notiDate: item.inputTime, unreadMark: item.unreadMark, linkType: item.linkType, linkValue: item.linkValue, notiType: item.notiType))
         })
         return items
     }
+    
     private func processNewsResponse(model:NewsResponse) -> [NotiItem] {
+        
         var items:[NotiItem] = []
+        
         model.newsList.forEach({ (item) in
             
             items.append(NotiItem(notiTitle: item.eDMTitle, notiContent: item.publishDate , notiId: nil, notiDate: item.publishDate, unreadMark: item.unreadMark, linkType: item.linkType, linkValue: item.linkValue, notiType: nil))

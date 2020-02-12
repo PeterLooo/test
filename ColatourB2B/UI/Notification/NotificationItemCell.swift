@@ -7,9 +7,11 @@
 //
 
 import UIKit
+
 protocol NotificationItemCellProtocol: NSObjectProtocol {
     func onTouchItem(item: NotiItem)
 }
+
 class NotificationItemCell: UITableViewCell {
 
     weak var delegate: NotificationItemCellProtocol?
@@ -31,7 +33,6 @@ class NotificationItemCell: UITableViewCell {
         self.notiTitle.text = item.notiTitle
         self.notiContent.text = item.notiContent
         self.unReadView.backgroundColor = item.unreadMark != false ? UIColor.init(named: "通用綠") : UIColor.white
-        
     }
     
     @objc func onTouchItem(){

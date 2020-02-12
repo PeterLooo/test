@@ -27,8 +27,8 @@ public enum OpenBrowserOrAppWebView {
 public enum NotiType {
     case important
     case noti
-    case news
-
+    case groupNews
+    case airNews
 }
 
 public enum ToolBarType {
