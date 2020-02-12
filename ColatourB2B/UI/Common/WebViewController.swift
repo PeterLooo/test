@@ -247,6 +247,7 @@ extension WebViewController : WKUIDelegate {
     
     func webViewDidClose(_ webView: WKWebView) {
         pringLog("webViewDidClose")
+        self.navigationController?.popViewController(animated: true)
     }
     
     //Note: 警告 javaScript視窗
@@ -254,12 +255,12 @@ extension WebViewController : WKUIDelegate {
         pringLog("runJavaScriptAlertPanelWithMessage : \(message)")
         
         let alertSeverError:UIAlertController = UIAlertController(title: "", message: message, preferredStyle: .alert)
-        let action = UIAlertAction(title: "確認", style: UIAlertAction.Style.default, handler: nil)
+        let action = UIAlertAction(title: "確認", style: UIAlertAction.Style.default, handler: { action in
+            completionHandler()
+        })
         alertSeverError.addAction(action)
         
         self.present(alertSeverError, animated: true)
-        
-        completionHandler()
     }
     
     //Note: 確認 javaScript視窗
