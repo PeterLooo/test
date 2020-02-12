@@ -13,14 +13,14 @@ protocol ContactServiceCellProtocol: NSObjectProtocol {
     func onTouchPhoneNum(url:URL)
 }
 
-class ContactServiceCell: UITableViewCell {
+class ContactInfoCell: UITableViewCell {
     
     @IBOutlet weak var serviceName: UILabel!
     @IBOutlet weak var subTitle: UILabel!
     @IBOutlet weak var phoneNumber: UILabel!
     
     weak var delegate: ContactServiceCellProtocol?
-    private var contactService: ContactService?
+    private var contactService: ContactInfo?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -32,10 +32,10 @@ class ContactServiceCell: UITableViewCell {
 
     }
     
-    func setCell(contactService: ContactService) {
+    func setCell(contactService: ContactInfo) {
         
-        serviceName.text = contactService.serviceName
-        subTitle.text = contactService.subTitle
+        serviceName.text = contactService.contactInfoTitle
+        subTitle.text = contactService.contactInfoDataList
         phoneNumber.text = contactService.phoneNumber
         
         let ges = UITapGestureRecognizer(target: self, action: #selector(onTouchPhoneNumber))

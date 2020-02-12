@@ -150,10 +150,11 @@ enum APIUrl {
     
     enum ServiceApi: String {
         
-        case messageSend = "Send"
+        case messageSend = "Message/Send"
+        case contactInformation = "ContactInformation"
 
         static func urlWith(type: ServiceApi, append: String) -> String {
-            let base =  MAIN_WEB_HOST + "Service/Message/"
+            let base =  MAIN_WEB_HOST + "Service/"
             return "\(base)\(type.rawValue)\(append)"
         }
         

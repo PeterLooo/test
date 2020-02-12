@@ -8,16 +8,16 @@
 
 import UIKit
 
-class ContactServiceViewController: BaseViewController {
+class ContactInfoViewController: BaseViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    private var presenter: ContactServicePresenter?
-    private var contactService: ContactServiceResponse?
+    private var presenter: ContactInfoPresenter?
+    private var contactInfo: ContactInfoResponse?
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        presenter = ContactServicePresenter(delegate: self)
+        presenter = ContactInfoPresenter(delegate: self)
     }
     
     override func viewDidLoad() {
@@ -26,7 +26,7 @@ class ContactServiceViewController: BaseViewController {
         setNavBarItem(left: .defaultType, mid: .textTitle, right: .nothing)
         setNavTitle(title: "請電洽可樂B2B同業網客服中心")
         
-        presenter?.getContactServiceList()
+        presenter?.getContactInfoList()
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -35,29 +35,29 @@ class ContactServiceViewController: BaseViewController {
     }
 }
 
-extension ContactServiceViewController: UITableViewDataSource {
+extension ContactInfoViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return (contactService?.contactServiceList.count)!
+        return (contactInfo?.contactInfoList.count)!
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "ContactServiceCell") as! ContactServiceCell
-        cell.setCell(contactService: (contactService?.contactServiceList[indexPath.row])!)
+        cell.setCell(contactService: (contactInfo?.contactInfoList[indexPath.row])!)
         cell.delegate = self
         
         return cell
     }
 }
 
-extension ContactServiceViewController: UITableViewDelegate {
+extension ContactInfoViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "ContactServiceCell") as! ContactServiceCell
-        cell.setCell(contactService: (contactService?.contactServiceList[indexPath.row])!)
+        cell.setCell(contactService: (contactInfo?.contactInfoList[indexPath.row])!)
         
         if cell.subTitle.text == nil {
             
@@ -69,15 +69,15 @@ extension ContactServiceViewController: UITableViewDelegate {
     }
 }
 
-extension ContactServiceViewController: ContactServiceViewProtocol {
+extension ContactInfoViewController: ContactInfoViewProtocol {
     
-    func onBindContactServiceList(contactServiceResponse: ContactServiceResponse) {
+    func onBindContactServiceList(contactServiceResponse: ContactInfoResponse) {
         
-        contactService = contactServiceResponse
+        contactInfo = contactServiceResponse
     }
 }
 
-extension ContactServiceViewController: ContactServiceCellProtocol {
+extension ContactInfoViewController: ContactServiceCellProtocol {
     
     func onTouchPhoneNum(url: URL) {
         
