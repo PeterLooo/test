@@ -72,7 +72,7 @@ class NotificationTableView: UIView {
         self.tableView.refreshControl = refreshControl
     }
     
-    func setViewWith(itemList: [NotiItem],notiType: NotiType){
+    func setViewWith(itemList: [NotiItem], notiType: NotiType){
         self.itemList = itemList
         self.notiType = notiType
         cellsHeight = [:]
@@ -155,6 +155,26 @@ extension NotificationTableView : UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        var notiTypeText: String?
+        
+        switch notiType {
+        case .important:
+            notiTypeText = "訂單"
+            
+        case .noti:
+            notiTypeText = "訊息"
+            
+        case .groupNews:
+            notiTypeText = "團體快訊"
+            
+        case .airNews:
+            notiTypeText = "機票快訊"
+        
+        case .none:
+            ()
+        }
+        
         switch Section(rawValue: indexPath.section)! {
         case .notiItem:
             let cell = tableView.dequeueReusableCell(withIdentifier: "NotificationItemCell", for: indexPath) as! NotificationItemCell
@@ -165,7 +185,7 @@ extension NotificationTableView : UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: "EmptyDataCell", for: indexPath) as! EmptyDataCell
             let image = UIImage.init(named: "notification_none")!
             cell.setCellWith(image: image,
-                             message: "目前沒有任何訂單通知！",
+                             message: "目前沒有任何\(notiTypeText!)通知！",
                              iconTopConstraint: 90)
             return cell
         }
