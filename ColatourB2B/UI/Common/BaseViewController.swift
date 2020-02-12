@@ -652,12 +652,12 @@ extension BaseViewController {
             let contactServiceAction = UIAlertAction(title: "聯絡客服", style: .default) { (_) in
                 self.onTouchService()
             }
-            let tryLayerAction = UIAlertAction(title: "稍後再試", style: UIAlertAction.Style.default, handler: nil)
+            let tryLaterAction = UIAlertAction(title: "稍後再試", style: UIAlertAction.Style.default, handler: nil)
             let confirmAction = UIAlertAction(title: "確定", style: UIAlertAction.Style.default, handler: nil)
             
             if isAlertWithContactService {
                 alertSeverError.addAction(contactServiceAction)
-                alertSeverError.addAction(tryLayerAction)
+                alertSeverError.addAction(tryLaterAction)
             } else {
                 alertSeverError.addAction(confirmAction)
             }
