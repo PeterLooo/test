@@ -7,22 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0650774F23ED4EE70067377C /* ContactService.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0650774E23ED4EE70067377C /* ContactService.storyboard */; };
-		0650775023ED4EE70067377C /* ContactService.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0650774E23ED4EE70067377C /* ContactService.storyboard */; };
-		0650775223ED4F1E0067377C /* ContactServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0650775123ED4F1E0067377C /* ContactServiceViewController.swift */; };
-		0650775323ED4F1E0067377C /* ContactServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0650775123ED4F1E0067377C /* ContactServiceViewController.swift */; };
-		0650775523ED4FD50067377C /* ContactServiceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0650775423ED4FD50067377C /* ContactServiceResponse.swift */; };
-		0650775623ED4FD50067377C /* ContactServiceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0650775423ED4FD50067377C /* ContactServiceResponse.swift */; };
-		0650775923ED52970067377C /* ContactServiceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0650775723ED52970067377C /* ContactServiceCell.swift */; };
-		0650775A23ED52970067377C /* ContactServiceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0650775723ED52970067377C /* ContactServiceCell.swift */; };
-		0650775B23ED52970067377C /* ContactServiceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0650775823ED52970067377C /* ContactServiceCell.xib */; };
-		0650775C23ED52970067377C /* ContactServiceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0650775823ED52970067377C /* ContactServiceCell.xib */; };
-		0650775E23ED55F60067377C /* ContactServiceRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0650775D23ED55F60067377C /* ContactServiceRepository.swift */; };
-		0650775F23ED55F60067377C /* ContactServiceRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0650775D23ED55F60067377C /* ContactServiceRepository.swift */; };
-		0650776123ED5E6B0067377C /* ContactServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0650776023ED5E6B0067377C /* ContactServiceProtocol.swift */; };
-		0650776223ED5E6B0067377C /* ContactServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0650776023ED5E6B0067377C /* ContactServiceProtocol.swift */; };
-		0650776423ED5F300067377C /* ContactServicePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0650776323ED5F300067377C /* ContactServicePresenter.swift */; };
-		0650776523ED5F300067377C /* ContactServicePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0650776323ED5F300067377C /* ContactServicePresenter.swift */; };
+		0626031B23F3E5570026DC59 /* DeviceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0626031923F3E5570026DC59 /* DeviceCell.swift */; };
+		0626031C23F3E5570026DC59 /* DeviceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0626031923F3E5570026DC59 /* DeviceCell.swift */; };
+		0626031D23F3E5570026DC59 /* DeviceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0626031A23F3E5570026DC59 /* DeviceCell.xib */; };
+		0626031E23F3E5570026DC59 /* DeviceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0626031A23F3E5570026DC59 /* DeviceCell.xib */; };
+		0626032023F401A70026DC59 /* ContactInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0626031F23F401A70026DC59 /* ContactInfoCell.swift */; };
+		0626032123F401A70026DC59 /* ContactInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0626031F23F401A70026DC59 /* ContactInfoCell.swift */; };
+		0650774F23ED4EE70067377C /* ContactInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0650774E23ED4EE70067377C /* ContactInfo.storyboard */; };
+		0650775023ED4EE70067377C /* ContactInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0650774E23ED4EE70067377C /* ContactInfo.storyboard */; };
+		0650775223ED4F1E0067377C /* ContactInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0650775123ED4F1E0067377C /* ContactInfoViewController.swift */; };
+		0650775323ED4F1E0067377C /* ContactInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0650775123ED4F1E0067377C /* ContactInfoViewController.swift */; };
+		0650775523ED4FD50067377C /* ContactInfoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0650775423ED4FD50067377C /* ContactInfoResponse.swift */; };
+		0650775623ED4FD50067377C /* ContactInfoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0650775423ED4FD50067377C /* ContactInfoResponse.swift */; };
+		0650775B23ED52970067377C /* ContactInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0650775823ED52970067377C /* ContactInfoCell.xib */; };
+		0650775C23ED52970067377C /* ContactInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0650775823ED52970067377C /* ContactInfoCell.xib */; };
+		0650775E23ED55F60067377C /* ContactInfoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0650775D23ED55F60067377C /* ContactInfoRepository.swift */; };
+		0650775F23ED55F60067377C /* ContactInfoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0650775D23ED55F60067377C /* ContactInfoRepository.swift */; };
+		0650776123ED5E6B0067377C /* ContactInfoProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0650776023ED5E6B0067377C /* ContactInfoProtocol.swift */; };
+		0650776223ED5E6B0067377C /* ContactInfoProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0650776023ED5E6B0067377C /* ContactInfoProtocol.swift */; };
+		0650776423ED5F300067377C /* ContactInfoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0650776323ED5F300067377C /* ContactInfoPresenter.swift */; };
+		0650776523ED5F300067377C /* ContactInfoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0650776323ED5F300067377C /* ContactInfoPresenter.swift */; };
 		06DA4F6823E921D4001B7DF1 /* MessageSendRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DA4F6723E921D4001B7DF1 /* MessageSendRequest.swift */; };
 		06DA4F6923E921D4001B7DF1 /* MessageSendRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DA4F6723E921D4001B7DF1 /* MessageSendRequest.swift */; };
 		06DA4F6B23E921F8001B7DF1 /* MessageSendRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DA4F6A23E921F8001B7DF1 /* MessageSendRepository.swift */; };
@@ -411,14 +415,16 @@
 
 /* Begin PBXFileReference section */
 		00BEF28893EA23CD1FFC87FB /* Pods_ColatourB2BDev.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ColatourB2BDev.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		0650774E23ED4EE70067377C /* ContactService.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ContactService.storyboard; sourceTree = "<group>"; };
-		0650775123ED4F1E0067377C /* ContactServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactServiceViewController.swift; sourceTree = "<group>"; };
-		0650775423ED4FD50067377C /* ContactServiceResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactServiceResponse.swift; sourceTree = "<group>"; };
-		0650775723ED52970067377C /* ContactServiceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ContactServiceCell.swift; path = ../MessageSend/ContactServiceCell.swift; sourceTree = "<group>"; };
-		0650775823ED52970067377C /* ContactServiceCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactServiceCell.xib; sourceTree = "<group>"; };
-		0650775D23ED55F60067377C /* ContactServiceRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactServiceRepository.swift; sourceTree = "<group>"; };
-		0650776023ED5E6B0067377C /* ContactServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactServiceProtocol.swift; sourceTree = "<group>"; };
-		0650776323ED5F300067377C /* ContactServicePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactServicePresenter.swift; sourceTree = "<group>"; };
+		0626031923F3E5570026DC59 /* DeviceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceCell.swift; sourceTree = "<group>"; };
+		0626031A23F3E5570026DC59 /* DeviceCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeviceCell.xib; sourceTree = "<group>"; };
+		0626031F23F401A70026DC59 /* ContactInfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactInfoCell.swift; sourceTree = "<group>"; };
+		0650774E23ED4EE70067377C /* ContactInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ContactInfo.storyboard; sourceTree = "<group>"; };
+		0650775123ED4F1E0067377C /* ContactInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactInfoViewController.swift; sourceTree = "<group>"; };
+		0650775423ED4FD50067377C /* ContactInfoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactInfoResponse.swift; sourceTree = "<group>"; };
+		0650775823ED52970067377C /* ContactInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactInfoCell.xib; sourceTree = "<group>"; };
+		0650775D23ED55F60067377C /* ContactInfoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactInfoRepository.swift; sourceTree = "<group>"; };
+		0650776023ED5E6B0067377C /* ContactInfoProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactInfoProtocol.swift; sourceTree = "<group>"; };
+		0650776323ED5F300067377C /* ContactInfoPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactInfoPresenter.swift; sourceTree = "<group>"; };
 		06DA4F6723E921D4001B7DF1 /* MessageSendRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageSendRequest.swift; sourceTree = "<group>"; };
 		06DA4F6A23E921F8001B7DF1 /* MessageSendRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageSendRepository.swift; sourceTree = "<group>"; };
 		06DA4F6E23E9222F001B7DF1 /* MessageSendUserListResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageSendUserListResponse.swift; sourceTree = "<group>"; };
@@ -658,22 +664,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0650776623ED6B810067377C /* ContactService */ = {
+		0650776623ED6B810067377C /* ContactInfo */ = {
 			isa = PBXGroup;
 			children = (
-				0650776023ED5E6B0067377C /* ContactServiceProtocol.swift */,
-				0650776323ED5F300067377C /* ContactServicePresenter.swift */,
-				0650775123ED4F1E0067377C /* ContactServiceViewController.swift */,
-				0650775723ED52970067377C /* ContactServiceCell.swift */,
-				0650775823ED52970067377C /* ContactServiceCell.xib */,
+				0650776023ED5E6B0067377C /* ContactInfoProtocol.swift */,
+				0650776323ED5F300067377C /* ContactInfoPresenter.swift */,
+				0650775123ED4F1E0067377C /* ContactInfoViewController.swift */,
+				0626031F23F401A70026DC59 /* ContactInfoCell.swift */,
+				0650775823ED52970067377C /* ContactInfoCell.xib */,
+				0626031923F3E5570026DC59 /* DeviceCell.swift */,
+				0626031A23F3E5570026DC59 /* DeviceCell.xib */,
 			);
-			path = ContactService;
+			path = ContactInfo;
 			sourceTree = "<group>";
 		};
 		0650776723ED6BB80067377C /* ContactService */ = {
 			isa = PBXGroup;
 			children = (
-				0650775423ED4FD50067377C /* ContactServiceResponse.swift */,
+				0650775423ED4FD50067377C /* ContactInfoResponse.swift */,
 			);
 			path = ContactService;
 			sourceTree = "<group>";
@@ -681,7 +689,7 @@
 		0650776823ED6BFB0067377C /* ContactService */ = {
 			isa = PBXGroup;
 			children = (
-				0650774E23ED4EE70067377C /* ContactService.storyboard */,
+				0650774E23ED4EE70067377C /* ContactInfo.storyboard */,
 			);
 			path = ContactService;
 			sourceTree = "<group>";
@@ -940,7 +948,7 @@
 				06DA4F6A23E921F8001B7DF1 /* MessageSendRepository.swift */,
 				382EF48223BEF93A0002BAB0 /* GroupReponsitory.swift */,
 				3848DA8023C72FA600EA0ED0 /* NoticeRepository.swift */,
-				0650775D23ED55F60067377C /* ContactServiceRepository.swift */,
+				0650775D23ED55F60067377C /* ContactInfoRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -1033,7 +1041,7 @@
 		38BCDA2123A3760000D59910 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				0650776623ED6B810067377C /* ContactService */,
+				0650776623ED6B810067377C /* ContactInfo */,
 				C70EEF5523EA548900D67FF4 /* Bulletin */,
 				C70EEF5423EA548000D67FF4 /* VersionRule */,
 				3802A18D23C8517C00CD2EF2 /* Sales */,
@@ -1426,7 +1434,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C7C41C4623C724E900F97057 /* NoticeDetailContentCell.xib in Resources */,
-				0650774F23ED4EE70067377C /* ContactService.storyboard in Resources */,
+				0650774F23ED4EE70067377C /* ContactInfo.storyboard in Resources */,
 				C70EEF5223EA545300D67FF4 /* Bulletin.storyboard in Resources */,
 				38E68ABF23B5AE30006BC4DD /* Calendar.storyboard in Resources */,
 				C7BD649023ED453200FEE538 /* EmptyDataCell.xib in Resources */,
@@ -1439,6 +1447,7 @@
 				C77282F323CC502500067EB4 /* GroupTourSearch.storyboard in Resources */,
 				38AA456623D6906400BE3F95 /* HomeAd2View.xib in Resources */,
 				06DA4F8423E92260001B7DF1 /* MessageSendContentCell.xib in Resources */,
+				0626031D23F3E5570026DC59 /* DeviceCell.xib in Resources */,
 				3869544023BB002900F6E7D9 /* MemberIndexVersionCell.xib in Resources */,
 				382FD59F23D8038C001FF38E /* BottomLoadingView.xib in Resources */,
 				387FBEFD23ACA2A7005412F1 /* Notice.storyboard in Resources */,
@@ -1457,7 +1466,7 @@
 				06DA4F9223E922C0001B7DF1 /* MessageSend.storyboard in Resources */,
 				38BCDA0B23A367D000D59910 /* ApiFailErrorView.xib in Resources */,
 				C78F071C23E8204E009C1183 /* PopText.storyboard in Resources */,
-				0650775B23ED52970067377C /* ContactServiceCell.xib in Resources */,
+				0650775B23ED52970067377C /* ContactInfoCell.xib in Resources */,
 				3802A19D23C8542800CD2EF2 /* SalseInfoCell.xib in Resources */,
 				385B54FA23BDC4C800BE1476 /* NotificationItemCell.xib in Resources */,
 				381B12B823C48D440030BACE /* GroupNavigationView.xib in Resources */,
@@ -1521,11 +1530,11 @@
 				38AA8E0723CC4FE600A7EB07 /* Dev_Info.plist in Resources */,
 				38E68AB023B5AB80006BC4DD /* GroupSliderItemCell.xib in Resources */,
 				06DA4F8123E92260001B7DF1 /* MessageSendTopicCell.xib in Resources */,
-				0650775023ED4EE70067377C /* ContactService.storyboard in Resources */,
+				0650775023ED4EE70067377C /* ContactInfo.storyboard in Resources */,
 				387FBEF823ACA201005412F1 /* AirTicket.storyboard in Resources */,
 				387FBF0423ACA327005412F1 /* More.storyboard in Resources */,
 				3869543523BAE5F500F6E7D9 /* MemberTopCell.xib in Resources */,
-				0650775C23ED52970067377C /* ContactServiceCell.xib in Resources */,
+				0650775C23ED52970067377C /* ContactInfoCell.xib in Resources */,
 				38BCDA1023A367D000D59910 /* NoInternetErrorView.xib in Resources */,
 				38BCDA0C23A367D000D59910 /* ApiFailErrorView.xib in Resources */,
 				C78F071D23E8204E009C1183 /* PopText.storyboard in Resources */,
@@ -1539,6 +1548,7 @@
 				3869543B23BAF85900F6E7D9 /* MemberIndexServiceCell.xib in Resources */,
 				38BCDA0A23A367D000D59910 /* ToastView.xib in Resources */,
 				38871EC423D5B061007ED33D /* HomeAd1Cell.xib in Resources */,
+				0626031E23F3E5570026DC59 /* DeviceCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1732,7 +1742,7 @@
 				C7DCA71623D1B76200F415B8 /* GroupTourSearchInputCell.swift in Sources */,
 				38E68AB423B5ABE9006BC4DD /* AppHelper.swift in Sources */,
 				38BCDA0D23A367D000D59910 /* LoadingView.swift in Sources */,
-				0650776123ED5E6B0067377C /* ContactServiceProtocol.swift in Sources */,
+				0650776123ED5E6B0067377C /* ContactInfoProtocol.swift in Sources */,
 				3848DA7E23C7289A00EA0ED0 /* NoticePresenter.swift in Sources */,
 				38BCD91C23A3457900D59910 /* AccountRepository.swift in Sources */,
 				38AFC40623CD521C00983886 /* SalesPresenter.swift in Sources */,
@@ -1747,7 +1757,7 @@
 				381B12B523C48D360030BACE /* GroupNavigationView.swift in Sources */,
 				38E9923423B05A0700E28271 /* LoginResponse.swift in Sources */,
 				38E68AA923B5AB80006BC4DD /* GroupSliderViewController.swift in Sources */,
-				0650775223ED4F1E0067377C /* ContactServiceViewController.swift in Sources */,
+				0650775223ED4F1E0067377C /* ContactInfoViewController.swift in Sources */,
 				38BCD93123A345FA00D59910 /* UserDefaultUtil.swift in Sources */,
 				38BCD98B23A3484300D59910 /* UINavigationBarExtension.swift in Sources */,
 				06DA4F7023E9222F001B7DF1 /* MessageSendUserListResponse.swift in Sources */,
@@ -1759,10 +1769,12 @@
 				38BCD98523A3484300D59910 /* ShareEnum.swift in Sources */,
 				38BCDA1E23A36ADC00D59910 /* TabBarPresenter.swift in Sources */,
 				C7DCA72223D1BBE300F415B8 /* GroupTourSearchPresenter.swift in Sources */,
+				0626031B23F3E5570026DC59 /* DeviceCell.swift in Sources */,
 				38871EC623D5B50F007ED33D /* HomeAd1View.swift in Sources */,
 				38BCD94423A346B800D59910 /* APIManager.swift in Sources */,
 				C7DCA71F23D1BBC400F415B8 /* GroupTourSearchProtocol.swift in Sources */,
 				38BCD9CA23A3647E00D59910 /* BaseModel.swift in Sources */,
+				0626032023F401A70026DC59 /* ContactInfoCell.swift in Sources */,
 				382FD59923D7F48F001FF38E /* NewsResponse.swift in Sources */,
 				C70EEF5723EA549200D67FF4 /* BulletinViewController.swift in Sources */,
 				38BCD97923A3484300D59910 /* UIViewExtenstion.swift in Sources */,
@@ -1772,7 +1784,7 @@
 				3817E4F723A33C8400ED8609 /* AppDelegate.swift in Sources */,
 				38BCD98F23A3484300D59910 /* DateFormatterExtenstion.swift in Sources */,
 				382EF48323BEF93A0002BAB0 /* GroupReponsitory.swift in Sources */,
-				0650775523ED4FD50067377C /* ContactServiceResponse.swift in Sources */,
+				0650775523ED4FD50067377C /* ContactInfoResponse.swift in Sources */,
 				38BCD96F23A3484300D59910 /* CAGradientLayerExtension.swift in Sources */,
 				387FBF1323ACD047005412F1 /* CustomTextField.swift in Sources */,
 				38871EBC23D581AA007ED33D /* BannerImageView.swift in Sources */,
@@ -1806,14 +1818,14 @@
 				06DA4F8223E92260001B7DF1 /* MessageSendContentCell.swift in Sources */,
 				C7C41C4423C724E900F97057 /* NoticeDetailContentCell.swift in Sources */,
 				38E9922123B04F1400E28271 /* VersionRuleReponse.swift in Sources */,
-				0650776423ED5F300067377C /* ContactServicePresenter.swift in Sources */,
+				0650776423ED5F300067377C /* ContactInfoPresenter.swift in Sources */,
 				38BCD93523A345FA00D59910 /* GTMBase64.m in Sources */,
 				382ADF1923C5D02C00E886B4 /* NoticeResponse.swift in Sources */,
 				38871EC123D5B061007ED33D /* HomeAd1Cell.swift in Sources */,
 				38BCD9D723A366EC00D59910 /* TabBarViewController.swift in Sources */,
 				C7DA175723D6E5C9006A8803 /* GroupTourSearchKeywordAndTourCodeInputCell.swift in Sources */,
 				C7C623CD23E2C71600A2D8B0 /* GroupTourSearchUrlResponse.swift in Sources */,
-				0650775E23ED55F60067377C /* ContactServiceRepository.swift in Sources */,
+				0650775E23ED55F60067377C /* ContactInfoRepository.swift in Sources */,
 				38BCD98D23A3484300D59910 /* ShareFunc.swift in Sources */,
 				384B110323C2BD33000E2B41 /* AirTicketProtocol.swift in Sources */,
 				387FBF0F23ACCEF4005412F1 /* LoginViewController.swift in Sources */,
@@ -1830,7 +1842,6 @@
 				C711754023BF40DA00555D8C /* MorePresenter.swift in Sources */,
 				38BCD94623A346B800D59910 /* APIDefine.swift in Sources */,
 				C74FC80423C5AF0E00E2250D /* NoticeDetailViewController.swift in Sources */,
-				0650775923ED52970067377C /* ContactServiceCell.swift in Sources */,
 				38BCD97523A3484300D59910 /* UIColorExtension.swift in Sources */,
 				3802A18F23C8520C00CD2EF2 /* SalesViewController.swift in Sources */,
 				38BCDA0323A367D000D59910 /* ApiFailErrorView.swift in Sources */,
@@ -1898,7 +1909,7 @@
 				C7DCA71723D1B76200F415B8 /* GroupTourSearchInputCell.swift in Sources */,
 				38E68AB523B5ABE9006BC4DD /* AppHelper.swift in Sources */,
 				38BCDA0E23A367D000D59910 /* LoadingView.swift in Sources */,
-				0650776223ED5E6B0067377C /* ContactServiceProtocol.swift in Sources */,
+				0650776223ED5E6B0067377C /* ContactInfoProtocol.swift in Sources */,
 				3848DA7F23C7289A00EA0ED0 /* NoticePresenter.swift in Sources */,
 				38BCD91D23A3457900D59910 /* AccountRepository.swift in Sources */,
 				38AFC40723CD521C00983886 /* SalesPresenter.swift in Sources */,
@@ -1913,7 +1924,7 @@
 				381B12B623C48D360030BACE /* GroupNavigationView.swift in Sources */,
 				38E9923523B05A0700E28271 /* LoginResponse.swift in Sources */,
 				38E68AAA23B5AB80006BC4DD /* GroupSliderViewController.swift in Sources */,
-				0650775323ED4F1E0067377C /* ContactServiceViewController.swift in Sources */,
+				0650775323ED4F1E0067377C /* ContactInfoViewController.swift in Sources */,
 				38BCD93223A345FA00D59910 /* UserDefaultUtil.swift in Sources */,
 				38BCD98C23A3484300D59910 /* UINavigationBarExtension.swift in Sources */,
 				06DA4F7123E9222F001B7DF1 /* MessageSendUserListResponse.swift in Sources */,
@@ -1925,10 +1936,12 @@
 				38BCD98623A3484300D59910 /* ShareEnum.swift in Sources */,
 				38BCDA1F23A36ADC00D59910 /* TabBarPresenter.swift in Sources */,
 				C7DCA72323D1BBE300F415B8 /* GroupTourSearchPresenter.swift in Sources */,
+				0626031C23F3E5570026DC59 /* DeviceCell.swift in Sources */,
 				38871EC723D5B50F007ED33D /* HomeAd1View.swift in Sources */,
 				38BCD94523A346B800D59910 /* APIManager.swift in Sources */,
 				C7DCA72023D1BBC400F415B8 /* GroupTourSearchProtocol.swift in Sources */,
 				38BCD9CB23A3647E00D59910 /* BaseModel.swift in Sources */,
+				0626032123F401A70026DC59 /* ContactInfoCell.swift in Sources */,
 				382FD59A23D7F48F001FF38E /* NewsResponse.swift in Sources */,
 				C70EEF5823EA549200D67FF4 /* BulletinViewController.swift in Sources */,
 				38BCD97A23A3484300D59910 /* UIViewExtenstion.swift in Sources */,
@@ -1938,7 +1951,7 @@
 				3817E52723A33C9500ED8609 /* AppDelegate.swift in Sources */,
 				38BCD99023A3484300D59910 /* DateFormatterExtenstion.swift in Sources */,
 				382EF48423BEF93A0002BAB0 /* GroupReponsitory.swift in Sources */,
-				0650775623ED4FD50067377C /* ContactServiceResponse.swift in Sources */,
+				0650775623ED4FD50067377C /* ContactInfoResponse.swift in Sources */,
 				38BCD97023A3484300D59910 /* CAGradientLayerExtension.swift in Sources */,
 				387FBF1423ACD047005412F1 /* CustomTextField.swift in Sources */,
 				38871EBD23D581AA007ED33D /* BannerImageView.swift in Sources */,
@@ -1972,14 +1985,14 @@
 				06DA4F8323E92260001B7DF1 /* MessageSendContentCell.swift in Sources */,
 				C7C41C4523C724E900F97057 /* NoticeDetailContentCell.swift in Sources */,
 				38E9922223B04F1400E28271 /* VersionRuleReponse.swift in Sources */,
-				0650776523ED5F300067377C /* ContactServicePresenter.swift in Sources */,
+				0650776523ED5F300067377C /* ContactInfoPresenter.swift in Sources */,
 				38BCD93623A345FA00D59910 /* GTMBase64.m in Sources */,
 				382ADF1A23C5D02C00E886B4 /* NoticeResponse.swift in Sources */,
 				38871EC223D5B061007ED33D /* HomeAd1Cell.swift in Sources */,
 				38BCD9D823A366EC00D59910 /* TabBarViewController.swift in Sources */,
 				C7DA175823D6E5C9006A8803 /* GroupTourSearchKeywordAndTourCodeInputCell.swift in Sources */,
 				C7C623CE23E2C71600A2D8B0 /* GroupTourSearchUrlResponse.swift in Sources */,
-				0650775F23ED55F60067377C /* ContactServiceRepository.swift in Sources */,
+				0650775F23ED55F60067377C /* ContactInfoRepository.swift in Sources */,
 				38BCD98E23A3484300D59910 /* ShareFunc.swift in Sources */,
 				384B110423C2BD33000E2B41 /* AirTicketProtocol.swift in Sources */,
 				387FBF1023ACCEF4005412F1 /* LoginViewController.swift in Sources */,
@@ -1996,7 +2009,6 @@
 				C711754123BF40DA00555D8C /* MorePresenter.swift in Sources */,
 				38BCD94723A346B800D59910 /* APIDefine.swift in Sources */,
 				C74FC80523C5AF0E00E2250D /* NoticeDetailViewController.swift in Sources */,
-				0650775A23ED52970067377C /* ContactServiceCell.swift in Sources */,
 				38BCD97623A3484300D59910 /* UIColorExtension.swift in Sources */,
 				3802A19023C8520C00CD2EF2 /* SalesViewController.swift in Sources */,
 				38BCDA0423A367D000D59910 /* ApiFailErrorView.swift in Sources */,

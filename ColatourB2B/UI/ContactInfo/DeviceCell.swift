@@ -9,16 +9,23 @@
 import UIKit
 
 class DeviceCell: UITableViewCell {
-
+    
+    @IBOutlet weak var iosVersion: UILabel!
+    @IBOutlet weak var appVersion: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
     }
     
+    func setCell() {
+        
+        iosVersion.text = DeviceUtil.osVersion()
+        appVersion.text = DeviceUtil.appVersion()
+    }
 }

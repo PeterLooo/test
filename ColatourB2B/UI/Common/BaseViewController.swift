@@ -446,7 +446,7 @@ extension BaseViewController: MemberLoginOnTouchNavCloseProtocol {
 }
 extension BaseViewController: BaseViewProtocol {
     func onTouchService() {
-        let vc = getVC(st: "ContactService", vc: "ContactService") as! ContactServiceViewController
+        let vc = getVC(st: "ContactInfo", vc: "ContactInfo") as! ContactInfoViewController
         navigationController?.pushViewController(vc, animated: true)
     }
     
