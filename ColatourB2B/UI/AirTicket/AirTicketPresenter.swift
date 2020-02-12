@@ -27,7 +27,8 @@ class AirTicketPresenter: AirTicketPresenterProtocol {
             self.delegate?.onBindAirMenu(menu: model)
             self.delegate?.onCompletedLoadingHandle()
         }, onError: { (error) in
-            self.delegate?.onApiErrorHandle(apiError: error as! APIError, handleType: .coverPlate)
+            self.delegate?.onGetAirMenuError()
+            self.delegate?.onApiErrorHandle(apiError: error as! APIError, handleType: .custom)
             self.delegate?.onCompletedLoadingHandle()
         }).disposed(by: dispose)
     }
@@ -39,6 +40,7 @@ class AirTicketPresenter: AirTicketPresenterProtocol {
             self.delegate?.onBindAirTicketIndex(moduleDataList: model.moduleDataList)
             self.delegate?.onCompletedLoadingHandle()
         }, onError: { (error) in
+            self.delegate?.onBindAirTicketIndexError()
             self.delegate?.onApiErrorHandle(apiError: error as! APIError, handleType: .coverPlate)
             self.delegate?.onCompletedLoadingHandle()
         }).disposed(by: dispose)

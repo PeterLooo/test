@@ -12,7 +12,7 @@ protocol GroupSliderViewControllerProtocol: NSObjectProtocol {
     func onTouchData(serverData: ServerData)
 }
 extension GroupSliderViewController {
-    func setVC(menuResponse: GroupMenuResponse) {
+    func setVC(menuResponse: GroupMenuResponse?) {
         self.menuResponse = menuResponse
     }
 }
@@ -51,6 +51,7 @@ extension GroupSliderViewController: GroupSliderItemCellProtocol {
 }
 extension GroupSliderViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
+        if menuResponse == nil { return 0 }
         return (menuResponse?.serverList.count)!
     }
     

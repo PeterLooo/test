@@ -9,6 +9,7 @@
 import UIKit
 protocol GroupTableViewProtocol: NSObjectProtocol {
     func onTouchItem(item: IndexResponse.ModuleItem)
+    func onPullToRefresh()
 }
 class GroupTableView: UIView {
     
@@ -58,6 +59,9 @@ class GroupTableView: UIView {
         return tableView
     }()
     
+    let apiFailErrorView = ApiFailErrorView(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
+    let noInternetErrorView = NoInternetErrorView(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
+    
     fileprivate func setUp(){
         
         self.addSubview(tableView)
@@ -69,12 +73,63 @@ class GroupTableView: UIView {
             tableView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0),
             tableView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0)
         ])
+        
+        addRefreshControlToTableView()
+        
+        setUpErrorViews()
+    }
+    
+    private func setUpErrorViews() {
+        apiFailErrorView.setUpApiFailErrorView()
+        self.addSubview(apiFailErrorView)
+
+        noInternetErrorView.setUpNoInternetErrorView()
+        self.addSubview(noInternetErrorView)
+        
+        bringSubviewToFront(apiFailErrorView)
+        bringSubviewToFront(noInternetErrorView)
+
     }
     
     func setViewWith(itemList: [IndexResponse.MultiModule],needUpdateBannerImage:Bool){
         self.itemList = itemList
         self.needUpdateBannerImage = needUpdateBannerImage
         tableView.reloadData()
+    }
+    
+    func handleApiError(apiError: APIError) {
+        bringSubviewToFront(apiFailErrorView)
+        bringSubviewToFront(noInternetErrorView)
+        
+        if apiError.type == .noInternetException {
+            self.apiFailErrorView.isHidden = true
+            self.noInternetErrorView.isHidden = false
+        } else if apiError.type == .cancelAllRequestDoNothing {
+            ()
+        } else {
+            self.apiFailErrorView.isHidden = false
+            self.noInternetErrorView.isHidden = true
+        }
+    }
+    
+    func closeErrorView(){
+        self.apiFailErrorView.isHidden = true
+        self.noInternetErrorView.isHidden = true
+    }
+    
+    private func addRefreshControlToTableView(){
+        let refreshControl = UIRefreshControl()
+        refreshControl.tintColor = UIColor.gray
+        refreshControl.addTarget(self, action: #selector(self.pullToRefresh) ,for: .valueChanged)
+        self.tableView.refreshControl = refreshControl
+    }
+    
+    @objc private func pullToRefresh() {
+        delegate?.onPullToRefresh()
+    }
+    
+    @objc func endRefreshContolRefreshing(){
+        self.tableView.refreshControl?.endRefreshing()
     }
 }
 

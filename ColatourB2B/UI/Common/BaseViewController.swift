@@ -416,7 +416,10 @@ class BaseViewController: UIViewController {
         let vc = getVC(st: "Login", vc: "LoginViewController") as! LoginViewController
         vc.modalPresentationStyle = .fullScreen
         vc.loginSuccessDelegate = self
-        self.present(vc, animated: false)
+        let nav = UINavigationController(rootViewController: vc)
+        nav.modalPresentationStyle = .fullScreen
+        nav.restorationIdentifier = "LoginViewControllerNavigationController"
+        self.present(nav, animated: true)
     }
 
     func logoutAndPopLoginVC(linkType: LinkType) {
@@ -450,14 +453,19 @@ extension BaseViewController: BaseViewProtocol {
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    func onBindAccessWebUrl(url: String, title: String) {
-        let vc = getVC(st: "Common", vc: "WebViewController") as! WebViewController
-        vc.setVCwith(url: url, title: title)
-        vc.setDismissButton()
-        let nav = UINavigationController(rootViewController: vc)
-        nav.modalPresentationStyle = .fullScreen
-        nav.restorationIdentifier = "WebViewControllerNavigationController"
-        self.present(nav, animated: true)
+    func onBindAccessWebUrl(url: String, title: String, openBrowserOrAppWebView: OpenBrowserOrAppWebView) {
+        switch openBrowserOrAppWebView {
+        case .openAppWebView:
+            let vc = getVC(st: "Common", vc: "WebViewController") as! WebViewController
+            vc.setVCwith(url: url, title: title)
+            vc.setDismissButton()
+            let nav = UINavigationController(rootViewController: vc)
+            nav.modalPresentationStyle = .fullScreen
+            nav.restorationIdentifier = "WebViewControllerNavigationController"
+            self.present(nav, animated: true)
+        case .openBrowser:
+            handleLinkType(linkType: .openBrowser, linkValue: url, linkText: title)
+        }
     }
     
     func onBindAccessToken(response: AccessTokenResponse) {
@@ -676,7 +684,7 @@ extension BaseViewController {
     private func handleLinkTypePush(linkType: LinkType, linkValue: String?, linkText: String?, paxToken: String?, source: String?) {
         var vc: UIViewController?
         switch linkType {
-        case .web:
+        case .openAppWebView:
             if let url = linkValue {
                 if let browserUrl = URL(string: url) {
                     if browserUrl.scheme == "http"{
@@ -696,9 +704,12 @@ extension BaseViewController {
             }
         case .salesPage:
             vc = getVC(st: "Sales", vc: "SalesViewController") as! SalesViewController
-        case .getApiUrl:
+        case .getApiUrlThenOpenAppWebView:
+            self.basePresenter?.getAccessWebUrl(webUrl: linkValue!, title: linkText ?? "", openBrowserOrAppWebView: .openAppWebView)
             
-            self.basePresenter?.getAccessWebUrl(webUrl: linkValue!, title: linkText ?? "")
+        case .getApiUrlThenOpenBrowser:
+            self.basePresenter?.getAccessWebUrl(webUrl: linkValue!, title: linkText ?? "", openBrowserOrAppWebView: .openBrowser)
+            
         case .passwordModify:
             
             let passwordModifyViewController = getVC(st: "PasswordModify", vc: "PasswordModify") as! PasswordModifyViewController
