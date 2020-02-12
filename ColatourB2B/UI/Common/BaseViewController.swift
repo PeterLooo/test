@@ -322,13 +322,13 @@ class BaseViewController: UIViewController {
             basePresenter?.getAccessToken()
 
         case .apiFailException:
-            self.handleApiFailError(handleType: handleType, alertMsg: apiError.alertMsg)
+            self.handleApiFailError(handleType: handleType, alertMsg: apiError.alertMsg, isAlertWithContactService: true)
         case .apiFailForUserException:
-            self.handleApiFailError(handleType: handleType, alertMsg: apiError.alertMsg)
+            self.handleApiFailError(handleType: handleType, alertMsg: apiError.alertMsg, isAlertWithContactService: false)
         case .requestTimeOut:
-            self.handleApiFailError(handleType: handleType, alertMsg: apiError.alertMsg)
+            self.handleApiFailError(handleType: handleType, alertMsg: apiError.alertMsg, isAlertWithContactService: true)
         case .otherException:
-            self.handleApiFailError(handleType: handleType, alertMsg: apiError.alertMsg)
+            self.handleApiFailError(handleType: handleType, alertMsg: apiError.alertMsg, isAlertWithContactService: true)
         case .presentLogin:
             self.logoutAndPopLoginVC()
         case .cancelAllRequestDoNothing:
@@ -644,7 +644,7 @@ extension BaseViewController {
     }
 
     //Note: 除了onApiErrorHandle Function，其他地方盡量不要用到他
-    func handleApiFailError(handleType: APIErrorHandleType, alertMsg: String?) {
+    func handleApiFailError(handleType: APIErrorHandleType, alertMsg: String?, isAlertWithContactService: Bool) {
         var msg = alertMsg ?? "系統異常，請稍後再試。"
         var title = "請修正錯誤"
         if (msg == "") {
@@ -657,12 +657,19 @@ extension BaseViewController {
             self.apiFailErrorView.isHidden = false
         case .alert:
             let alertSeverError: UIAlertController = UIAlertController(title: title, message: msg, preferredStyle: .alert)
-            let actions = UIAlertAction(title: "聯絡客服", style: .default) { (_) in
+            let contactServiceAction = UIAlertAction(title: "聯絡客服", style: .default) { (_) in
                 self.onTouchService()
             }
-            alertSeverError.addAction(actions)
-            let action = UIAlertAction(title: "稍後再試", style: UIAlertAction.Style.default, handler: nil)
-            alertSeverError.addAction(action)
+            let tryLaterAction = UIAlertAction(title: "稍後再試", style: UIAlertAction.Style.default, handler: nil)
+            let confirmAction = UIAlertAction(title: "確定", style: UIAlertAction.Style.default, handler: nil)
+            
+            if isAlertWithContactService {
+                alertSeverError.addAction(contactServiceAction)
+                alertSeverError.addAction(tryLaterAction)
+            } else {
+                alertSeverError.addAction(confirmAction)
+            }
+            
             self.present(alertSeverError, animated: true)
         case .toast:
             self.toastView.toast(text: msg)
