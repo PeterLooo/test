@@ -169,7 +169,8 @@ enum APIUrl {
     
     enum NoticeApi: String {
         case notice = "/Notification?"
-        case news = "/eDM/Tour?"
+        case groupNews = "/eDM/TOUR?"
+        case airNews = "/eDM/TKT?"
         case important = "/Notification/important?"
         case unreadCount = "/Notification/Unread"
         case setNotiRead = "/Notification/Modify/Status"
