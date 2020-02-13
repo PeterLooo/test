@@ -132,6 +132,8 @@ class NoticeViewController: BaseViewController {
                 break
             }
             view.delegate = self
+            view.apiFailErrorView.delegate = self
+            view.noInternetErrorView.delegate = self
             stackView.addArrangedSubview(view)
             tableViews.append(view)
         }
@@ -219,7 +221,21 @@ class NoticeViewController: BaseViewController {
 
 extension NoticeViewController: NoticeViewProtocol {
     func onGetNotiListError(notiType: NotiType, apiError: APIError) {
-        ()
+        switch notiType {
+        case .important:
+            self.tableViews[0].handleApiError(apiError: apiError)
+            self.tableViews[0].endRefreshContolRefreshing()
+        case .noti:
+            self.tableViews[0].handleApiError(apiError: apiError)
+            self.tableViews[0].endRefreshContolRefreshing()
+        case .groupNews:
+            self.tableViews[0].handleApiError(apiError: apiError)
+            self.tableViews[0].endRefreshContolRefreshing()
+        case .airNews:
+            self.tableViews[0].handleApiError(apiError: apiError)
+            self.tableViews[0].endRefreshContolRefreshing()
+        
+        }
     }
     
     func onBindSetNotiRead() {
@@ -234,6 +250,7 @@ extension NoticeViewController: NoticeViewProtocol {
         }
         isImportantLastPage = importantList.count < pageSize
         tableViews[0].setViewWith(itemList: self.importantList, notiType: .important)
+        tableViews[0].closeErrorView()
     }
     
     func onBindNoticeListComplete(noticeList: [NotiItem]) {
@@ -244,6 +261,7 @@ extension NoticeViewController: NoticeViewProtocol {
         }
         isNotiLastPage = noticeList.count < pageSize
         tableViews[1].setViewWith(itemList: self.noticeList, notiType: .noti)
+        tableViews[1].closeErrorView()
     }
     
     func onBindGroupNewsListComplete(groupNewsList: [NotiItem]) {
@@ -254,6 +272,7 @@ extension NoticeViewController: NoticeViewProtocol {
         }
         isGroupNewsLastPage = groupNewsList.count < pageSize
         tableViews[2].setViewWith(itemList: self.groupNewsList, notiType: .groupNews)
+        tableViews[2].closeErrorView()
     }
     
     func onBindAirNewsListComplete(airNewsList: [NotiItem]) {
@@ -264,6 +283,7 @@ extension NoticeViewController: NoticeViewProtocol {
         }
         isGroupNewsLastPage = airNewsList.count < pageSize
         tableViews[3].setViewWith(itemList: self.airNewsList, notiType: .airNews)
+        tableViews[3].closeErrorView()
     }
 }
 
