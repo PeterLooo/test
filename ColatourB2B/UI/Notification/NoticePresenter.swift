@@ -26,7 +26,8 @@ class NoticePresenter: NoticePresenterProtocol {
             self.delegate?.onBindImportantComplete(importantList: self.processNotificationResponse(model: model))
             self.delegate?.onCompletedLoadingHandle()
         }, onError: { (error) in
-            self.delegate?.onApiErrorHandle(apiError: error as! APIError, handleType: .coverPlate)
+            self.delegate?.onGetNotiListError(notiType: .important, apiError: error as! APIError)
+            self.delegate?.onApiErrorHandle(apiError: error as! APIError, handleType: .custom)
             self.delegate?.onCompletedLoadingHandle()
         }).disposed(by: dispose)
     }
@@ -39,7 +40,8 @@ class NoticePresenter: NoticePresenterProtocol {
             self.delegate?.onBindNoticeListComplete(noticeList: self.processNotificationResponse(model: model))
             self.delegate?.onCompletedLoadingHandle()
         }, onError: { (error) in
-            self.delegate?.onApiErrorHandle(apiError: error as! APIError, handleType: .coverPlate)
+            self.delegate?.onGetNotiListError(notiType: .noti, apiError: error as! APIError)
+            self.delegate?.onApiErrorHandle(apiError: error as! APIError, handleType: .custom)
             self.delegate?.onCompletedLoadingHandle()
         }).disposed(by: dispose)
     }
@@ -52,7 +54,8 @@ class NoticePresenter: NoticePresenterProtocol {
             self.delegate?.onBindGroupNewsListComplete(groupNewsList: self.processNewsResponse(model: model))
             self.delegate?.onCompletedLoadingHandle()
         }, onError: { (error) in
-            self.delegate?.onApiErrorHandle(apiError: error as! APIError, handleType: .coverPlate)
+            self.delegate?.onGetNotiListError(notiType: .groupNews, apiError: error as! APIError)
+            self.delegate?.onApiErrorHandle(apiError: error as! APIError, handleType: .custom)
             self.delegate?.onCompletedLoadingHandle()
         }).disposed(by: dispose)
     }
@@ -65,7 +68,8 @@ class NoticePresenter: NoticePresenterProtocol {
             self.delegate?.onBindAirNewsListComplete(airNewsList: self.processNewsResponse(model: model))
             self.delegate?.onCompletedLoadingHandle()
         }, onError: { (error) in
-            self.delegate?.onApiErrorHandle(apiError: error as! APIError, handleType: .coverPlate)
+            self.delegate?.onGetNotiListError(notiType: .airNews, apiError: error as! APIError)
+            self.delegate?.onApiErrorHandle(apiError: error as! APIError, handleType: .custom)
             self.delegate?.onCompletedLoadingHandle()
             }).disposed(by: dispose)
       }

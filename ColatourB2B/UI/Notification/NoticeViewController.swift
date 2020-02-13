@@ -218,6 +218,9 @@ class NoticeViewController: BaseViewController {
 }
 
 extension NoticeViewController: NoticeViewProtocol {
+    func onGetNotiListError(notiType: NotiType, apiError: APIError) {
+        ()
+    }
     
     func onBindSetNotiRead() {
         NotificationCenter.default.post(name: Notification.Name("getUnreadCount"), object: nil)

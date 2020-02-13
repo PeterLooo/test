@@ -14,6 +14,7 @@ protocol NoticeViewProtocol: BaseViewProtocol {
     func onBindNoticeListComplete(noticeList: [NotiItem])
     func onBindGroupNewsListComplete(groupNewsList: [NotiItem])
     func onBindAirNewsListComplete(airNewsList: [NotiItem])
+    func onGetNotiListError(notiType: NotiType, apiError: APIError)
     func onBindSetNotiRead()
 }
 
