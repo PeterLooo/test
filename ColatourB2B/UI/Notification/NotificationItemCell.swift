@@ -32,6 +32,7 @@ class NotificationItemCell: UITableViewCell {
         self.item = item
         self.notiTitle.text = item.notiTitle
         self.notiContent.text = item.notiContent
+        self.notiContent.numberOfLines = item.apiNotiType == "Message" ? 1 : 0
         self.unReadView.backgroundColor = item.unreadMark != false ? UIColor.init(named: "通用綠") : UIColor.white
     }
     

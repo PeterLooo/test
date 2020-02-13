@@ -349,7 +349,7 @@ extension NoticeViewController: NotificationTableViewProtocol {
             presenter?.setNoticeRead(noticeIdList: [item.notiId!])
         }
         
-        if item.notiType == "Message" {
+        if item.apiNotiType == "Message" {
             let vc = self.getVC(st: "NoticeDetail", vc: "NoticeDetailViewController") as! NoticeDetailViewController
             vc.setVCwith(navTitle: "訊息明細",
                          notiTitle: item.notiTitle ?? "",

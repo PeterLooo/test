@@ -92,7 +92,7 @@ class NoticePresenter: NoticePresenterProtocol {
         var items:[NotiItem] = []
         
         model.notification?.notiItemList.forEach({ (item) in
-            items.append(NotiItem(notiTitle: item.pushTitle, notiContent: item.pushContent, notiId: item.notiId, notiDate: item.inputTime, unreadMark: item.unreadMark, linkType: item.linkType, linkValue: item.linkValue, notiType: item.notiType))
+            items.append(NotiItem(notiTitle: item.pushTitle, notiContent: item.pushContent, notiId: item.notiId, notiDate: item.inputTime, unreadMark: item.unreadMark, linkType: item.linkType, linkValue: item.linkValue, apiNotiType: item.notiType))
         })
         return items
     }
@@ -103,7 +103,7 @@ class NoticePresenter: NoticePresenterProtocol {
         
         model.newsList.forEach({ (item) in
             
-            items.append(NotiItem(notiTitle: item.eDMTitle, notiContent: item.publishDate , notiId: nil, notiDate: item.publishDate, unreadMark: item.unreadMark, linkType: item.linkType, linkValue: item.linkValue, notiType: nil))
+            items.append(NotiItem(notiTitle: item.eDMTitle, notiContent: item.publishDate , notiId: nil, notiDate: item.publishDate, unreadMark: item.unreadMark, linkType: item.linkType, linkValue: item.linkValue, apiNotiType: nil))
         })
         return items
     }

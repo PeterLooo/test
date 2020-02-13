@@ -77,7 +77,7 @@ class NotiItem: NSObject {
     var notiTitle : String?
     var notiContent : String?
     var notiId: String?
-    var notiType: String?
+    var apiNotiType: String?
     
     convenience init(notiTitle : String?,
                      notiContent : String?,
@@ -86,7 +86,7 @@ class NotiItem: NSObject {
                      unreadMark : Bool?,
                      linkType : LinkType!,
                      linkValue : String?,
-                     notiType: String?) {
+                     apiNotiType: String?) {
         
         self.init()
         self.notiTitle = notiTitle
@@ -96,6 +96,6 @@ class NotiItem: NSObject {
         self.unreadMark = unreadMark
         self.linkType = linkType
         self.linkValue = linkValue
-        self.notiType = notiType
+        self.apiNotiType = apiNotiType
     }
 }

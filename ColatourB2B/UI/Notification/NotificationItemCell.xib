@@ -25,7 +25,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aie-2A-sXs">
-                        <rect key="frame" x="26" y="30.5" width="255" height="33"/>
+                        <rect key="frame" x="26" y="34.5" width="255" height="29"/>
                         <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="16"/>
                         <color key="textColor" red="0.015686274509803921" green="0.015686274509803921" blue="0.058823529411764705" alpha="0.45000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
@@ -67,7 +67,7 @@
                     <constraint firstItem="NJH-3Q-kD3" firstAttribute="leading" secondItem="Rvc-as-Hn7" secondAttribute="trailing" constant="16" id="aDb-1z-ci7"/>
                     <constraint firstItem="aie-2A-sXs" firstAttribute="leading" secondItem="Rvc-as-Hn7" secondAttribute="leading" id="e8i-1W-jkd"/>
                     <constraint firstItem="aie-2A-sXs" firstAttribute="trailing" secondItem="Rvc-as-Hn7" secondAttribute="trailing" id="gQf-vc-877"/>
-                    <constraint firstItem="aie-2A-sXs" firstAttribute="top" secondItem="Rvc-as-Hn7" secondAttribute="bottom" constant="-4" id="iph-TR-yrq"/>
+                    <constraint firstItem="aie-2A-sXs" firstAttribute="top" secondItem="Rvc-as-Hn7" secondAttribute="bottom" id="iph-TR-yrq"/>
                     <constraint firstAttribute="bottom" secondItem="1NI-w4-dYh" secondAttribute="bottom" id="lpu-36-g1U"/>
                     <constraint firstAttribute="trailing" secondItem="NJH-3Q-kD3" secondAttribute="trailing" constant="16" id="m1u-5R-3TL"/>
                     <constraint firstItem="1NI-w4-dYh" firstAttribute="top" secondItem="aie-2A-sXs" secondAttribute="bottom" constant="10" id="qcd-lf-T2f"/>
