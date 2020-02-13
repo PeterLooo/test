@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Contact Service View Controller-->
+        <!--Contact Info View Controller-->
         <scene sceneID="zFS-2o-mgT">
             <objects>
-                <viewController storyboardIdentifier="ContactService" id="rj7-7Q-RGu" customClass="ContactServiceViewController" customModule="ColatourB2B" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ContactInfo" id="rj7-7Q-RGu" customClass="ContactInfoViewController" customModule="ColatourB2B" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cRj-R0-Jq6">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

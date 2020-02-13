@@ -1,5 +1,5 @@
 //
-//  ContactServiceCell.swift
+//  ContactInfoCell.swift
 //  ColatourB2B
 //
 //  Created by 7635 邱郁雯 on 2020/2/7.
@@ -8,19 +8,18 @@
 
 import UIKit
 
-protocol ContactServiceCellProtocol: NSObjectProtocol {
+protocol ContactInfoCellProtocol: NSObjectProtocol {
     
     func onTouchPhoneNum(url:URL)
 }
 
-class ContactServiceCell: UITableViewCell {
+class ContactInfoCell: UITableViewCell {
     
-    @IBOutlet weak var serviceName: UILabel!
-    @IBOutlet weak var subTitle: UILabel!
-    @IBOutlet weak var phoneNumber: UILabel!
+    @IBOutlet weak var infoName: UILabel!
+    @IBOutlet weak var infoPhone: UILabel!
     
-    weak var delegate: ContactServiceCellProtocol?
-    private var contactService: ContactService?
+    weak var delegate: ContactInfoCellProtocol?
+    private var contactInfo: ContactInfo?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -32,20 +31,19 @@ class ContactServiceCell: UITableViewCell {
 
     }
     
-    func setCell(contactService: ContactService) {
+    func setCell(info: Info) {
         
-        serviceName.text = contactService.serviceName
-        subTitle.text = contactService.subTitle
-        phoneNumber.text = contactService.phoneNumber
+        infoName.text = info.infoName
+        infoPhone.text = info.infoPhone
         
         let ges = UITapGestureRecognizer(target: self, action: #selector(onTouchPhoneNumber))
-        phoneNumber.addGestureRecognizer(ges)
-        phoneNumber.isUserInteractionEnabled = true
+        infoPhone.addGestureRecognizer(ges)
+        infoPhone.isUserInteractionEnabled = true
     }
     
     @objc func onTouchPhoneNumber() {
         
-        if let phoneNum = phoneNumber.text {
+        if let phoneNum = infoPhone.text {
             
             if let url = URL.init(string: "tel://\(phoneNum)") {
                 

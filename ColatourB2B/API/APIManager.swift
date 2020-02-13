@@ -352,7 +352,11 @@ extension APIManager {
         
         return manager(method: .post, appendUrl: "", url: APIUrl.noticeApi(type: .setNotiRead), parameters: params, appendHeaders: nil)
     }
-
+    
+    func getContactInfo() -> Single<[String: Any]> {
+        
+        return manager(method: .get, appendUrl: "", url: APIUrl.serviceApi(type: .contactInformation), parameters: nil, appendHeaders: nil)
+    }
 }
 
 extension APIManager {
