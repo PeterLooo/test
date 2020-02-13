@@ -20,6 +20,9 @@ class NotificationTableView: UIView {
     
     weak var delegate : NotificationTableViewProtocol?
     
+    let apiFailErrorView = ApiFailErrorView(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
+    let noInternetErrorView = NoInternetErrorView(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
+    
     private let bottomLoadingView = BottomLoadingView()
     private var itemList: [NotiItem] = []
     private var notiType: NotiType!
@@ -70,6 +73,8 @@ class NotificationTableView: UIView {
         refreshControl.tintColor = UIColor.lightGray
         refreshControl.addTarget(self, action: #selector(self.pullToRefresh) ,for: .valueChanged)
         self.tableView.refreshControl = refreshControl
+        
+        setUpErrorViews()
     }
     
     func setViewWith(itemList: [NotiItem], notiType: NotiType){
@@ -94,9 +99,44 @@ class NotificationTableView: UIView {
         self.tableView.contentSize = totalSize
     }
     
+    private func setUpErrorViews() {
+        apiFailErrorView.setUpApiFailErrorView()
+        self.addSubview(apiFailErrorView)
+
+        noInternetErrorView.setUpNoInternetErrorView()
+        self.addSubview(noInternetErrorView)
+        
+        bringSubviewToFront(apiFailErrorView)
+        bringSubviewToFront(noInternetErrorView)
+
+    }
+    
+    func handleApiError(apiError: APIError) {
+        bringSubviewToFront(apiFailErrorView)
+        bringSubviewToFront(noInternetErrorView)
+        
+        if apiError.type == .noInternetException {
+            self.apiFailErrorView.isHidden = true
+            self.noInternetErrorView.isHidden = false
+        } else if apiError.type == .cancelAllRequestDoNothing {
+            ()
+        } else {
+            self.apiFailErrorView.isHidden = false
+            self.noInternetErrorView.isHidden = true
+        }
+    }
+    
+    func closeErrorView(){
+        self.apiFailErrorView.isHidden = true
+        self.noInternetErrorView.isHidden = true
+    }
+    
     private func stopBottonLoadingView(){
         
         self.tableView.tableFooterView = nil
+    }
+    @objc func endRefreshContolRefreshing(){
+        self.tableView.refreshControl?.endRefreshing()
     }
 }
 

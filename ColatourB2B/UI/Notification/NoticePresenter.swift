@@ -26,7 +26,8 @@ class NoticePresenter: NoticePresenterProtocol {
             self.delegate?.onBindImportantComplete(importantList: self.processNotificationResponse(model: model))
             self.delegate?.onCompletedLoadingHandle()
         }, onError: { (error) in
-            self.delegate?.onApiErrorHandle(apiError: error as! APIError, handleType: .coverPlate)
+            self.delegate?.onGetNotiListError(notiType: .important, apiError: error as! APIError)
+            self.delegate?.onApiErrorHandle(apiError: error as! APIError, handleType: .custom)
             self.delegate?.onCompletedLoadingHandle()
         }).disposed(by: dispose)
     }
@@ -39,7 +40,8 @@ class NoticePresenter: NoticePresenterProtocol {
             self.delegate?.onBindNoticeListComplete(noticeList: self.processNotificationResponse(model: model))
             self.delegate?.onCompletedLoadingHandle()
         }, onError: { (error) in
-            self.delegate?.onApiErrorHandle(apiError: error as! APIError, handleType: .coverPlate)
+            self.delegate?.onGetNotiListError(notiType: .noti, apiError: error as! APIError)
+            self.delegate?.onApiErrorHandle(apiError: error as! APIError, handleType: .custom)
             self.delegate?.onCompletedLoadingHandle()
         }).disposed(by: dispose)
     }
@@ -52,7 +54,8 @@ class NoticePresenter: NoticePresenterProtocol {
             self.delegate?.onBindGroupNewsListComplete(groupNewsList: self.processNewsResponse(model: model))
             self.delegate?.onCompletedLoadingHandle()
         }, onError: { (error) in
-            self.delegate?.onApiErrorHandle(apiError: error as! APIError, handleType: .coverPlate)
+            self.delegate?.onGetNotiListError(notiType: .groupNews, apiError: error as! APIError)
+            self.delegate?.onApiErrorHandle(apiError: error as! APIError, handleType: .custom)
             self.delegate?.onCompletedLoadingHandle()
         }).disposed(by: dispose)
     }
@@ -65,7 +68,8 @@ class NoticePresenter: NoticePresenterProtocol {
             self.delegate?.onBindAirNewsListComplete(airNewsList: self.processNewsResponse(model: model))
             self.delegate?.onCompletedLoadingHandle()
         }, onError: { (error) in
-            self.delegate?.onApiErrorHandle(apiError: error as! APIError, handleType: .coverPlate)
+            self.delegate?.onGetNotiListError(notiType: .airNews, apiError: error as! APIError)
+            self.delegate?.onApiErrorHandle(apiError: error as! APIError, handleType: .custom)
             self.delegate?.onCompletedLoadingHandle()
             }).disposed(by: dispose)
       }
@@ -88,7 +92,7 @@ class NoticePresenter: NoticePresenterProtocol {
         var items:[NotiItem] = []
         
         model.notification?.notiItemList.forEach({ (item) in
-            items.append(NotiItem(notiTitle: item.pushTitle, notiContent: item.pushContent, notiId: item.notiId, notiDate: item.inputTime, unreadMark: item.unreadMark, linkType: item.linkType, linkValue: item.linkValue, notiType: item.notiType))
+            items.append(NotiItem(notiTitle: item.pushTitle, notiContent: item.pushContent, notiId: item.notiId, notiDate: item.inputTime, unreadMark: item.unreadMark, linkType: item.linkType, linkValue: item.linkValue, apiNotiType: item.notiType))
         })
         return items
     }
@@ -99,7 +103,7 @@ class NoticePresenter: NoticePresenterProtocol {
         
         model.newsList.forEach({ (item) in
             
-            items.append(NotiItem(notiTitle: item.eDMTitle, notiContent: item.publishDate , notiId: nil, notiDate: item.publishDate, unreadMark: item.unreadMark, linkType: item.linkType, linkValue: item.linkValue, notiType: nil))
+            items.append(NotiItem(notiTitle: item.eDMTitle, notiContent: item.publishDate , notiId: nil, notiDate: item.publishDate, unreadMark: item.unreadMark, linkType: item.linkType, linkValue: item.linkValue, apiNotiType: nil))
         })
         return items
     }
