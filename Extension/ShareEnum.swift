@@ -9,20 +9,26 @@
 import UIKit
 
 public enum LinkType: String {
-    case web = "00"
-    case getApiUrl = "003"
-    case passwordModify = "031"
+    case openAppWebView = "001"
+    case openBrowser = "002"
+    case getApiUrlThenOpenAppWebView = "003"
+    case getApiUrlThenOpenBrowser = "004"
     case salesPage = "011"
+    case passwordModify = "031"
     case updateDate = "032"
-    case openBrowser
     case unknown
+}
+
+public enum OpenBrowserOrAppWebView {
+    case openBrowser
+    case openAppWebView
 }
 
 public enum NotiType {
     case important
     case noti
-    case news
-    
+    case groupNews
+    case airNews
 }
 
 public enum ToolBarType {

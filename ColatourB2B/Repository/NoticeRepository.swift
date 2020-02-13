@@ -11,6 +11,7 @@ import RxSwift
 import RxCocoa
 
 class NoticeRepository: NSObject {
+    
     static let shared = NoticeRepository()
     
     func getNoticeList(pageIndex: Int) -> Single<NoticeResponse> {
@@ -20,11 +21,18 @@ class NoticeRepository: NSObject {
             .map{ NoticeResponse(JSON: $0)!}
     }
     
-    func getNewsList(pageIndex: Int) -> Single<NewsResponse> {
-        let api = APIManager.shared.getNewsList(pageIndex: pageIndex)
+    func getGroupNewsList(pageIndex: Int) -> Single<NewsResponse> {
+        let api = APIManager.shared.getGroupNewsList(pageIndex: pageIndex)
         return AccountRepository.shared.getAccessToken()
             .flatMap{_ in api}
             .map{ NewsResponse(JSON: $0)!}
+    }
+    
+    func getAirNewsList(pageIndex: Int) -> Single<NewsResponse> {
+        let api = APIManager.shared.getAirNewsList(pageIndex: pageIndex)
+        return AccountRepository.shared.getAccessToken()
+            .flatMap{ _ in api }
+            .map{ NewsResponse(JSON: $0)! }
     }
     
     func getImportantList(pageIndex: Int) -> Single<NoticeResponse> {

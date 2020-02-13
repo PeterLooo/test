@@ -73,7 +73,9 @@ class GropeTourPresenter: GropeTourPresenterProtocol {
             self.delegate?.onBindTourIndex(moduleDataList: model.moduleDataList, tourType: tourType)
             self.delegate?.onCompletedLoadingHandle()
         }, onError: { (error) in
-            self.delegate?.onApiErrorHandle(apiError: error as! APIError, handleType: .coverPlate)
+            self.delegate?.onGetTourIndexError(tourType: tourType,
+                                               apiError: error as! APIError)
+            self.delegate?.onApiErrorHandle(apiError: error as! APIError, handleType: .custom)
             self.delegate?.onCompletedLoadingHandle()
         }).disposed(by: dispose)
     }
@@ -85,7 +87,8 @@ class GropeTourPresenter: GropeTourPresenterProtocol {
             self.delegate?.onBindGroupMenu(menu: model)
             self.delegate?.onCompletedLoadingHandle()
         }, onError: { (error) in
-            self.delegate?.onApiErrorHandle(apiError: error as! APIError, handleType: .coverPlate)
+            self.delegate?.onGetGroupMenuError()
+            self.delegate?.onApiErrorHandle(apiError: error as! APIError, handleType: .custom)
             self.delegate?.onCompletedLoadingHandle()
         }).disposed(by: dispose)
     }
