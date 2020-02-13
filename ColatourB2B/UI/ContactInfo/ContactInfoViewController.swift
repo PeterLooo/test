@@ -118,7 +118,7 @@ extension ContactInfoViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         
-        if section == Section.allCases.count - 1 {
+        if section == Section.Device.rawValue {
             
             return 16
         } else {
