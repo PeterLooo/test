@@ -18,6 +18,7 @@ class WebViewController: BaseViewController, UIGestureRecognizerDelegate {
     var webViewTitle = ""
     var webView: WKWebView!
     var navLeftButtonType: NavLeftType = .defaultType
+    
     private var isNeedToDimiss = false
     
     override func viewDidLoad() {
@@ -70,11 +71,13 @@ class WebViewController: BaseViewController, UIGestureRecognizerDelegate {
         
         let backImage = #imageLiteral(resourceName: "arrow_back_purple").withRenderingMode(.alwaysOriginal)
         let nextImage = #imageLiteral(resourceName: "arrow_next_purple").withRenderingMode(.alwaysOriginal)
-        let closeImage = #imageLiteral(resourceName: "close").withRenderingMode(.alwaysOriginal)
+        let closeImage = #imageLiteral(resourceName: "close")
         
         let back = UIBarButtonItem.init(image: backImage, style: .plain, target: self, action: #selector(self.goBack))
         let forward = UIBarButtonItem.init(image: nextImage, style: .plain, target: self, action: #selector(self.goForward))
         let close = UIBarButtonItem.init(image: closeImage, style: .plain, target: self, action: #selector(self.popView))
+        close.tintColor = UIColor(named: "通用綠")
+        
         if #available(iOS 11, *) {
             back.imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
             forward.imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 10)
