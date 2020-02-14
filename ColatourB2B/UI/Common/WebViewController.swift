@@ -40,7 +40,7 @@ class WebViewController: BaseViewController, UIGestureRecognizerDelegate {
             webView.trailingAnchor.constraint(equalTo: trailingAnchor),
             webView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
             
-            ])
+        ])
         
         webView.backgroundColor = UIColor.white
         webView.isOpaque = false
@@ -108,7 +108,7 @@ class WebViewController: BaseViewController, UIGestureRecognizerDelegate {
         self.url = url
         self.webViewTitle = title
     }
-
+    
     func setDismissButton(){
         navLeftButtonType = .defaultType
         isNeedToDimiss = true
@@ -152,14 +152,55 @@ class WebViewController: BaseViewController, UIGestureRecognizerDelegate {
         self.webView?.uiDelegate = nil
         self.webView?.navigationDelegate = nil
     }
+    
+    private func loadAndDisplayDocumentFrom(url downloadUrl : URL) {
+        let localFileURL = FileManager.default.temporaryDirectory.appendingPathComponent(downloadUrl.lastPathComponent)
+        
+        URLSession.shared.dataTask(with: downloadUrl) { data, response, err in
+            guard let data = data, err == nil else {
+                debugPrint("Error while downloading document from url=\(downloadUrl.absoluteString): \(err.debugDescription)")
+                return
+            }
+            
+            if let httpResponse = response as? HTTPURLResponse {
+                debugPrint("Download http status=\(httpResponse.statusCode)")
+            }
+            
+            do {
+                try data.write(to: localFileURL, options: .atomic)
+                debugPrint("Stored document from url=\(downloadUrl.absoluteString) in folder=\(localFileURL.absoluteString)")
+                
+                DispatchQueue.main.async {
+                    let document = UIDocumentInteractionController(url: localFileURL)
+                    document.delegate = self
+                    document.presentPreview(animated: true)
+                    
+                }
+            } catch {
+                debugPrint(error)
+                return
+            }
+        }.resume()
+    }
+}
+
+extension WebViewController : UIDocumentInteractionControllerDelegate{
+    public func documentInteractionControllerViewControllerForPreview(_ controller: UIDocumentInteractionController) -> UIViewController{
+        return self
+    }
 }
 
 extension WebViewController : WKNavigationDelegate {
     
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
         pringLog("decidePolicyFor navigationAction : \(navigationAction.request)")
-        
-        decisionHandler(.allow)
+        let url = navigationAction.request.url
+        if url?.pathExtension == "doc" || url?.pathExtension == "pdf" || url?.pathExtension == "docx" {
+            loadAndDisplayDocumentFrom(url: url!)
+            decisionHandler(.cancel)
+        }else{
+            decisionHandler(.allow)
+        }
     }
     
     func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
@@ -230,7 +271,10 @@ extension WebViewController : WKUIDelegate {
         
         if navigationAction.targetFrame == nil {
             let url = navigationAction.request.url
-            if let url = url {
+            if url?.pathExtension == "doc" || url?.pathExtension == "pdf" || url?.pathExtension == "docx" {
+                loadAndDisplayDocumentFrom(url: url!)
+            }else if let url = url {
+                
                 let request = URLRequest(url:url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 30)
                 
                 let newWebView = WKWebView(frame: webView.frame, configuration: configuration)
