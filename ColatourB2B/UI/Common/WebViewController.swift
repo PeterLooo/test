@@ -195,20 +195,6 @@ extension WebViewController : WKNavigationDelegate {
         
         setNavigationItem()
         self.activityIndicator.stopAnimating()
-        
-        //Note: 暫時用，記得之後刪除
-        let hideHeaderScript = "document.getElementsByClassName(\"navbar navbar-default bk-w\")[0].style.display = \"none\";"
-        
-        let hideToolBarTourScript = "document.getElementById(\"Div_ToolBar_Tour\").style.display = \"none\";"
-        
-        let hideFooterScript = "document.getElementsByClassName(\"container footer-container\")[0].style.display = \"none\";"
-
-        webView.evaluateJavaScript(hideHeaderScript,
-                                   completionHandler: nil)
-        webView.evaluateJavaScript(hideToolBarTourScript,
-                                   completionHandler: nil)
-        webView.evaluateJavaScript(hideFooterScript,
-                                   completionHandler: nil)
     }
     
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
