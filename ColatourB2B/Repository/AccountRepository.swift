@@ -113,9 +113,9 @@ class AccountRepository: NSObject {
     
     private func procressRefreshToken(loginResponse: LoginResponse) -> Single<LoginResponse> {
         
-        MemberRepository.shared.setEmployeeMark(emloyeeMark: loginResponse.employeeMark!)
-        MemberRepository.shared.setAllowTour(allowTour: loginResponse.allowTour!)
-        MemberRepository.shared.setAllowTkt(allowTkt: loginResponse.allowTkt!)
+        MemberRepository.shared.setEmployeeMark(emloyeeMark: loginResponse.employeeMark ?? false)
+        MemberRepository.shared.setAllowTour(allowTour: loginResponse.allowTour ?? false)
+        MemberRepository.shared.setAllowTkt(allowTkt: loginResponse.allowTkt ?? false)
         MemberRepository.shared.setTabBarLinkType(linkType: loginResponse.linkType!.rawValue)
         
         switch loginResponse.passwordReset == true {
@@ -161,6 +161,9 @@ class AccountRepository: NSObject {
     
     private func procressAccessToken(loginResponse: LoginResponse) -> Single<LoginResponse> {
         
+        MemberRepository.shared.setAllowTour(allowTour: loginResponse.allowTour ?? false)
+        MemberRepository.shared.setAllowTkt(allowTkt: loginResponse.allowTkt ?? false)
+        
         switch loginResponse.accessToken.isNilOrEmpty {
         case true:
             MemberRepository.shared.removeLocalAccessToken()
@@ -170,7 +173,6 @@ class AccountRepository: NSObject {
             MemberRepository.shared.setLocalUserToken(refreshToken: loginResponse.refreshToken!, accessToken: loginResponse.accessToken!)
             return Single.just(loginResponse)
         }
-
     }
     
     func getAccessWeb(webUrl:String) -> Single<String> {
