@@ -441,7 +441,7 @@ extension BaseViewController: MemberLoginSuccessViewProtocol {
             
             switch tabBarLinkType {
             case .tour:
-                tabbarVC.selectedIndex = 4
+                tabbarVC.selectedIndex = 0
                 
             case .ticket:
                 tabbarVC.selectedIndex = 1
