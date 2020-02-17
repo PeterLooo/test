@@ -13,6 +13,10 @@ enum UserDefaultKey: String {
     case apiToken = "API_TOKEN"
     case refreshToken = "REFRESH_TOLEN"
     case accessToken = "ACCESS_TOKEN"
+    case employeeMark = "EMPLOYEE_MARK"
+    case allowTour = "ALLOW_TOUR"
+    case allowTkt = "ALLOW_TKT"
+    case tabBarLinkType = "TAB_BAR_LINK_TYPE"
     case leaveAppTicketIndexTime = "LEAVE_APP_TICKET_INDEX_TIME"
     case leaveAppColatourIndexTime = "LEAVE_APP_CALATOUR_INDEX_TIME"
     case traceLastReceiveTime = "TRACE_LAST_RECEIVE_TIME"
@@ -43,7 +47,7 @@ class UserDefaultUtil: NSObject {
             update(object: apiToken, key: .apiToken)
         }
     }
-
+    
     var refreshToken: String? {
         get{
             return getObject(classType: String(), key: .refreshToken)
@@ -59,6 +63,43 @@ class UserDefaultUtil: NSObject {
         }
         set(memberToken){
             update(object: memberToken, key: .accessToken)
+        }
+    }
+    
+    var employeeMark: Bool? {
+        get {
+            return getObject(classType: Bool(), key: .employeeMark)
+        }
+        set(employeeMark) {
+            update(object: employeeMark, key: .employeeMark)
+            NotificationCenter.default.post(name: Notification.Name("getEmployeeMark"), object: nil)
+        }
+    }
+    
+    var allowTour: Bool? {
+        get {
+            return getObject(classType: Bool(), key: .allowTour)
+        }
+        set(allowTour) {
+            update(object: allowTour, key: .allowTour)
+        }
+    }
+    
+    var allowTkt: Bool? {
+        get {
+            return getObject(classType: Bool(), key: .allowTkt)
+        }
+        set(allowTkt) {
+            update(object: allowTkt, key: .allowTkt)
+        }
+    }
+    
+    var tabBarLinkType: String? {
+        get {
+            return getObject(classType: String(), key: .tabBarLinkType)
+        }
+        set(tabBarLinkType) {
+            update(object: tabBarLinkType, key: .tabBarLinkType)
         }
     }
     

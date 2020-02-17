@@ -112,6 +112,12 @@ class AccountRepository: NSObject {
     }
     
     private func procressRefreshToken(loginResponse: LoginResponse) -> Single<LoginResponse> {
+        
+        MemberRepository.shared.setEmployeeMark(emloyeeMark: loginResponse.employeeMark!)
+        MemberRepository.shared.setAllowTour(allowTour: loginResponse.allowTour!)
+        MemberRepository.shared.setAllowTkt(allowTkt: loginResponse.allowTkt!)
+        MemberRepository.shared.setTabBarLinkType(linkType: loginResponse.linkType!.rawValue)
+        
         switch loginResponse.passwordReset == true {
         case true:
             MemberRepository.shared.removeLocalAccessToken()
