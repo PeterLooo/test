@@ -43,32 +43,16 @@ class TabBarViewController: UITabBarController {
         creatSubViewControllers()
         
         self.tabBar.tintColor = UIColor(named: "TabBar綠")
-        
-        switch tabBarLinkType {
-        case .tour:
-            self.selectedIndex = 0
-            
-        case .ticket:
-            self.selectedIndex = 1
-            
-        case .notification:
-            self.selectedIndex = 2
-            
-        case .unknown:
-            self.selectedIndex = 3
-        }
     }
     
     func creatSubViewControllers(){
         let v1  = getVC(st: "GroupTour", vc: "GroupTourNavigationController")
         let item1 : UITabBarItem = UITabBarItem (title: "團體旅遊", image: UIImage(named: "tourgroup_Inactive"), selectedImage: UIImage(named: "tourgroup_active"))
         v1.tabBarItem = item1
-        v1.tabBarItem.isEnabled = (isAllowTour ?? false) ? true : false
         
         let v2 = getVC(st: "AirTicket", vc: "AirTicketNavigationController")
         let item2 : UITabBarItem = UITabBarItem (title: "機票", image: UIImage(named: "flight_inactive"), selectedImage: UIImage(named: "flight_active"))
         v2.tabBarItem = item2
-        v2.tabBarItem.isEnabled = (isAllowTkt ?? false) ? true : false
 
         let v3 = getVC(st: "Notice", vc: "NoticeNavigationController")
         let item3 : UITabBarItem = UITabBarItem (title: "通知", image: UIImage(named: "notice_Inactive"), selectedImage: UIImage(named: "notice_active"))

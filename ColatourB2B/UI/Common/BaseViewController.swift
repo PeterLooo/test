@@ -453,8 +453,8 @@ extension BaseViewController: MemberLoginSuccessViewProtocol {
                 tabbarVC.selectedIndex = 3
             }
             
-            tabbarVC.viewControllers?[0].tabBarItem.isEnabled = (isAllowTour ?? false) ? true : false
-            tabbarVC.viewControllers?[1].tabBarItem.isEnabled = (isAllowTkt ?? false) ? true : false
+            tabbarVC.viewControllers?[0].tabBarItem.isEnabled = isAllowTour ?? false
+            tabbarVC.viewControllers?[1].tabBarItem.isEnabled = isAllowTkt ?? false
         }
     }
 }
