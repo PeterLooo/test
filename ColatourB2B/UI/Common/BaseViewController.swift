@@ -434,6 +434,29 @@ extension BaseViewController: MemberLoginSuccessViewProtocol {
     @objc func onLoginSuccess() {
         ()
     }
+    
+    func setDefaultTabBar() {
+        
+        if let tabbarVC = self.tabBarController as? TabBarViewController {
+            
+            switch tabBarLinkType {
+            case .tour:
+                tabbarVC.selectedIndex = 4
+                
+            case .ticket:
+                tabbarVC.selectedIndex = 1
+                
+            case .notification:
+                tabbarVC.selectedIndex = 2
+                
+            case .unknown:
+                tabbarVC.selectedIndex = 3
+            }
+            
+            tabbarVC.viewControllers?[0].tabBarItem.isEnabled = (isAllowTour ?? false) ? true : false
+            tabbarVC.viewControllers?[1].tabBarItem.isEnabled = (isAllowTkt ?? false) ? true : false
+        }
+    }
 }
 extension BaseViewController: MemberLoginOnTouchNavCloseProtocol {
     @objc func onTouchLoginNavClose() {

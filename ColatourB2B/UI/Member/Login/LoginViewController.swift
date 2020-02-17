@@ -10,6 +10,7 @@ import UIKit
 protocol MemberLoginSuccessViewProtocol : NSObjectProtocol{
     func onLoginSuccess()
     func onLoginSuccess(linkType: LinkType , linkValue: String? )
+    func setDefaultTabBar()
 }
 protocol MemberLoginOnTouchNavCloseProtocol : NSObjectProtocol{
     func onTouchLoginNavClose()
@@ -88,10 +89,12 @@ extension LoginViewController : LoginViewProtocol {
                 self.toast(text: resultMessage)
             }
         }else{
+            self.loginSuccessDelegate?.setDefaultTabBar()
             presenter?.pushDevice()
             NotificationCenter.default.post(name: Notification.Name("noticeLoadDate"), object: nil)
             NotificationCenter.default.post(name: Notification.Name("getUnreadCount"), object: nil)
             self.dismiss(animated: true, completion: {
+                
                 if let linkType = self.linkType{
                     self.loginSuccessDelegate?.onLoginSuccess(linkType: linkType, linkValue: self.linkValue)
                 }else{

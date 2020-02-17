@@ -34,25 +34,41 @@ class TabBarViewController: UITabBarController {
         tabFrame.size.height = bottomInset + 49
         tabFrame.origin.y = self.view.frame.size.height - ( bottomInset + 49 )
         tabBar.frame = tabFrame
-
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         NotificationCenter.default.addObserver(self, selector: #selector(self.getUnreadCount), name: Notification.Name("getUnreadCount"), object: nil)
         creatSubViewControllers()
         
         self.tabBar.tintColor = UIColor(named: "TabBar綠")
+        
+        switch tabBarLinkType {
+        case .tour:
+            self.selectedIndex = 0
+            
+        case .ticket:
+            self.selectedIndex = 1
+            
+        case .notification:
+            self.selectedIndex = 2
+            
+        case .unknown:
+            self.selectedIndex = 3
+        }
     }
     
     func creatSubViewControllers(){
         let v1  = getVC(st: "GroupTour", vc: "GroupTourNavigationController")
         let item1 : UITabBarItem = UITabBarItem (title: "團體旅遊", image: UIImage(named: "tourgroup_Inactive"), selectedImage: UIImage(named: "tourgroup_active"))
         v1.tabBarItem = item1
+        v1.tabBarItem.isEnabled = (isAllowTour ?? false) ? true : false
         
         let v2 = getVC(st: "AirTicket", vc: "AirTicketNavigationController")
         let item2 : UITabBarItem = UITabBarItem (title: "機票", image: UIImage(named: "flight_inactive"), selectedImage: UIImage(named: "flight_active"))
         v2.tabBarItem = item2
+        v2.tabBarItem.isEnabled = (isAllowTkt ?? false) ? true : false
 
         let v3 = getVC(st: "Notice", vc: "NoticeNavigationController")
         let item3 : UITabBarItem = UITabBarItem (title: "通知", image: UIImage(named: "notice_Inactive"), selectedImage: UIImage(named: "notice_active"))
@@ -65,6 +81,7 @@ class TabBarViewController: UITabBarController {
         let v5 = getVC(st: "More", vc: "MoreNavigationController")
         let item5 : UITabBarItem = UITabBarItem (title: "更多", image: UIImage(named: "more_inactive"), selectedImage: UIImage(named: "more_active"))
         v5.tabBarItem = item5
+        
         let tabArray = [v1, v2, v3, v4, v5]
         self.viewControllers = tabArray
         self.tabBar.tintColor = UIColor.lightGray
@@ -91,7 +108,6 @@ class TabBarViewController: UITabBarController {
             enableTabBarNotificationBadgeNumber(false)
         }
     }
-    
 }
 
 extension TabBarViewController: TabBarViewProtocol{
