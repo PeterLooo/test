@@ -92,7 +92,7 @@ class NotiItem: NSObject {
         self.notiTitle = notiTitle
         self.notiContent = notiContent
         self.notiId = notiId
-        self.notiDate = FormatUtil.convertStringToString(dateStringFrom: notiDate!, dateFormatTo: "MM/dd HH:mm")
+        self.notiDate = FormatUtil.convertStringToString(dateStringFrom: notiDate!, dateFormatTo: "MM/dd")
         self.unreadMark = unreadMark
         self.linkType = linkType
         self.linkValue = linkValue
