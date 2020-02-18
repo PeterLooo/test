@@ -48,6 +48,13 @@ public enum ToolBarType {
     }
 }
 
+public enum TabBarLinkType: String {
+    case tour = "012"
+    case ticket = "051"
+    case notification = "005"
+    case unknown
+}
+
 public enum TourType {
     case tour
     case taichung
