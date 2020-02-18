@@ -39,6 +39,23 @@ class TabBarViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        switch tabBarLinkType {
+        case .tour:
+            self.selectedIndex = (isAllowTour == true) ? 0 : 3
+            
+        case .ticket:
+            self.selectedIndex = (isAllowTkt == true) ? 1 : 3
+            
+        case .notification:
+            self.selectedIndex = 2
+            
+        case .unknown:
+            self.selectedIndex = 3
+        }
+        
+        self.viewControllers?[0].tabBarItem.isEnabled = isAllowTour ?? false
+        self.viewControllers?[1].tabBarItem.isEnabled = isAllowTkt ?? false
+        
         NotificationCenter.default.addObserver(self, selector: #selector(self.getUnreadCount), name: Notification.Name("getUnreadCount"), object: nil)
         creatSubViewControllers()
         
