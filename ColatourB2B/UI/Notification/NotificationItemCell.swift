@@ -18,6 +18,7 @@ class NotificationItemCell: UITableViewCell {
     @IBOutlet weak var unReadView: UIView!
     @IBOutlet weak var notiTitle: UILabel!
     @IBOutlet weak var notiContent: UILabel!
+    @IBOutlet weak var notiDate: UILabel!
     
     private var item: NotiItem?
     
@@ -33,6 +34,7 @@ class NotificationItemCell: UITableViewCell {
         self.notiTitle.text = item.notiTitle
         self.notiContent.text = item.notiContent
         self.notiContent.numberOfLines = item.apiNotiType == "Message" ? 1 : 0
+        self.notiDate.text = item.notiDate
         self.unReadView.backgroundColor = item.unreadMark != false ? UIColor.init(named: "通用綠") : UIColor.white
     }
     

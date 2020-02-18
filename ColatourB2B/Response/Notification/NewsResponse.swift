@@ -27,6 +27,7 @@ class NewsResponse: BaseModel {
         var unreadMark : Bool?
         var eDMTitle : String?
         var eDMType : String?
+        var eDMSource : String?
         
         override func mapping(map: Map) {
             super.mapping(map: map)
@@ -36,7 +37,7 @@ class NewsResponse: BaseModel {
             unreadMark <- map["Unread_Mark"]
             eDMTitle <- map["eDM_Title"]
             eDMType <- map["eDM_Type"]
-            
+            eDMSource <- map["eDM_Source"]
             var type = ""
             type <- map["Link_Type"]
             linkType = LinkType(rawValue: type)
