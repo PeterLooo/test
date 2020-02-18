@@ -146,7 +146,9 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         printLog("===didReceive===", "")
         printLog("userInfo", userInfo)
         
-        
+        if isLogin == true, let noticeIdIndex = userInfo.index(forKey: "NotiId") {
+            setNotificationRead(noticeId: [userInfo[noticeIdIndex].value as! String])
+        }
         var linkType: LinkType = .unknown
         if let index = userInfo.index(forKey: "Link_Type") {
             linkType = LinkType(rawValue: userInfo[index].value as! String) ?? .unknown
@@ -176,6 +178,11 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         })
         
         completionHandler()
+    }
+    
+    private func setNotificationRead(noticeId: [String]) {
+        NoticeRepository.shared.setNotiRead(notiId: noticeId).subscribe().disposed(by: disposebag)
+
     }
 }
 extension AppDelegate {
