@@ -38,7 +38,6 @@ class GroupTourViewController: BaseViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.getEmployeeMark), name: Notification.Name("getEmployeeMark"), object: nil)
         
-        setDefaultTabBar()
         setIsNavShadowEnable(false)
         self.setNavBarItem(left: .custom, mid: .custom, right: .custom)
         setNavIcon()
