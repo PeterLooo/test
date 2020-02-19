@@ -281,7 +281,7 @@ extension NoticeViewController: NoticeViewProtocol {
         }else{
             self.airNewsList += airNewsList
         }
-        isGroupNewsLastPage = airNewsList.count < pageSize
+        isAirNewsLastPage = airNewsList.count < pageSize
         tableViews[3].setViewWith(itemList: self.airNewsList, notiType: .airNews)
         tableViews[3].closeErrorView()
     }
@@ -308,7 +308,7 @@ extension NoticeViewController: NotificationTableViewProtocol {
             self.presenter?.getGroupNewsList(pageIndex: 1, handleType: .coverPlateAlpha)
             
         case .airNews:
-            isGroupNewsLastPage = false
+            isAirNewsLastPage = false
             self.airNewsList = []
             self.presenter?.getAirNewsList(pageIndex: 1, handleType: .coverPlateAlpha)
         }
@@ -336,7 +336,7 @@ extension NoticeViewController: NotificationTableViewProtocol {
             }
         
         case .airNews:
-            if isGroupNewsLastPage {return}
+            if isAirNewsLastPage {return}
             if self.airNewsList.count % pageSize == 0 {
                 self.presenter?.getAirNewsList(pageIndex: (self.airNewsList.count / 10) + 1, handleType: .ignore)
             }
