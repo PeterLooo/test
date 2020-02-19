@@ -62,6 +62,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        UIApplication.shared.applicationIconBadgeNumber = 0
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
@@ -146,7 +147,9 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         printLog("===didReceive===", "")
         printLog("userInfo", userInfo)
         
-        
+        if isLogin == true, let noticeIdIndex = userInfo.index(forKey: "NotiId") {
+            setNotificationRead(noticeId: [userInfo[noticeIdIndex].value as! String])
+        }
         var linkType: LinkType = .unknown
         if let index = userInfo.index(forKey: "Link_Type") {
             linkType = LinkType(rawValue: userInfo[index].value as! String) ?? .unknown
@@ -176,6 +179,11 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         })
         
         completionHandler()
+    }
+    
+    private func setNotificationRead(noticeId: [String]) {
+        NoticeRepository.shared.setNotiRead(notiId: noticeId).subscribe().disposed(by: disposebag)
+
     }
 }
 extension AppDelegate {

@@ -732,8 +732,19 @@ extension BaseViewController {
             if let browserUrl = URL(string: url) {
                 UIApplication.shared.open(browserUrl, options: [:], completionHandler: nil)
             }
+            
+        case .tourIndex:
+            self.tabBarController?.selectedIndex = 0
+            
+        case .tktIndex:
+            self.tabBarController?.selectedIndex = 1
+            
+        case .notification:
+            self.tabBarController?.selectedIndex = 2
+            
         case .salesPage:
             vc = getVC(st: "Sales", vc: "SalesViewController") as! SalesViewController
+            
         case .getApiUrlThenOpenAppWebView:
             self.basePresenter?.getAccessWebUrl(webUrl: linkValue!, title: linkText ?? "", openBrowserOrAppWebView: .openAppWebView)
             
