@@ -7,7 +7,11 @@
 //
 
 import UIKit
-
+extension NoticeViewController {
+    func setVC(defaultNoti: NotiType) {
+        self.defaultNotiType = defaultNoti
+    }
+}
 class NoticeViewController: BaseViewController {
     
     @IBOutlet weak var topButtonView: UIView!
@@ -24,7 +28,7 @@ class NoticeViewController: BaseViewController {
     @IBOutlet weak var airNewsUnreadHint: UIView!
     
     var presenter: NoticePresenter?
-    
+    private var defaultNotiType: NotiType?
     private var importantList: [NotiItem] = [] {
         didSet{
             self.orderUnreadHint.isHidden = true
@@ -89,6 +93,8 @@ class NoticeViewController: BaseViewController {
             loadData()
             needReloadData = false
         }
+        
+        setDefaultNotyTypeToScroll()
     }
     
     override func loadData() {
@@ -195,6 +201,16 @@ class NoticeViewController: BaseViewController {
             
         default:
             ()
+        }
+    }
+    
+    private func setDefaultNotyTypeToScroll() {
+        if self.defaultNotiType != nil {
+            scrollView.layoutIfNeeded()
+            switchPageButton(toPage: NotiType(rawValue: self.defaultNotiType!.rawValue)!.rawValue)
+            let contentOffset = CGFloat(self.defaultNotiType!.rawValue) * screenWidth
+            scrollView.setContentOffset(CGPoint(x: contentOffset, y: 0), animated: false)
+            self.defaultNotiType = nil
         }
     }
     

@@ -27,8 +27,8 @@ public enum OpenBrowserOrAppWebView {
     case openAppWebView
 }
 
-public enum NotiType {
-    case important
+public enum NotiType: Int ,CaseIterable {
+    case important = 0
     case noti
     case groupNews
     case airNews

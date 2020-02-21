@@ -164,6 +164,8 @@ class GroupTourViewController: BaseViewController {
     }
     
     @objc func onTouchContact (){
+        self.handleLinkType(linkType: .unknown, linkValue: nil, linkText: nil)
+        return
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
         alert.addAction(UIAlertAction(title: "聯絡業務(團體)" , style: .default, handler: { (_) in

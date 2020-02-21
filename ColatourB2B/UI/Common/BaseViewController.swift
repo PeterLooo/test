@@ -766,6 +766,13 @@ extension BaseViewController {
         case .unknown:
             //Note: doNothing
             ()
+            if self.tabBarController?.viewControllers?[2].restorationIdentifier == "NoticeNavigationController" {
+                if let notiNav = self.tabBarController?.viewControllers?[2] {
+                    let notiVc = (notiNav as! UINavigationController).viewControllers.first
+                    (notiVc as! NoticeViewController).setVC(defaultNoti: .groupNews)
+                }
+            }
+            self.tabBarController?.selectedIndex = 2
         }
 
         if let v = vc {
