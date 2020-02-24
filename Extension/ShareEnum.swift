@@ -17,6 +17,8 @@ public enum LinkType: String {
     case passwordModify = "031"
     case updateDate = "032"
     case tourIndex = "012"
+    case groupNoti = "013"
+    case airNoti = "052"
     case tktIndex = "051"
     case notification = "005"
     case unknown
