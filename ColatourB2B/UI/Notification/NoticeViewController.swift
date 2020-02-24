@@ -143,6 +143,8 @@ class NoticeViewController: BaseViewController {
             stackView.addArrangedSubview(view)
             tableViews.append(view)
         }
+        stackView.layoutIfNeeded()
+        scrollView.layoutIfNeeded()
     }
     
     @objc private func reLoadData() {
@@ -206,26 +208,24 @@ class NoticeViewController: BaseViewController {
     
     private func setDefaultNotyTypeToScroll() {
         if self.defaultNotiType != nil {
-            scrollView.layoutIfNeeded()
+
             switchPageButton(toPage: NotiType(rawValue: self.defaultNotiType!.rawValue)!.rawValue)
-            let contentOffset = CGFloat(self.defaultNotiType!.rawValue) * screenWidth
+            let contentOffset = CGFloat(self.defaultNotiType?.rawValue ?? 0) * screenWidth
             scrollView.setContentOffset(CGPoint(x: contentOffset, y: 0), animated: false)
             self.defaultNotiType = nil
         }
     }
     
     private func enableButton(_ button: UIButton){
-        button.tintColor = UIColor.init(named: "通用綠")
-        button.setTitleColor(UIColor.init(named: "通用綠"), for: .normal)
+        let tittle = NSAttributedString(string: button.titleLabel?.text ?? "", attributes: [NSAttributedString.Key.foregroundColor:UIColor.init(named: "通用綠")!])
+        button.setAttributedTitle(tittle, for: .normal)
         button.titleLabel?.font = UIFont.init(name: "PingFang-TC-Semibold", size: 16.0)
-        
     }
     
     private func disableButton(_ button: UIButton){
-        button.tintColor = UIColor.init(named: "標題黑")
-        button.setTitleColor(UIColor.init(named: "標題黑"), for: .normal)
+        let tittle = NSAttributedString(string: button.titleLabel?.text ?? "", attributes: [NSAttributedString.Key.foregroundColor:UIColor.init(named: "標題黑")!])
+        button.setAttributedTitle(tittle, for: .normal)
         button.titleLabel?.font = UIFont.init(name: "PingFang-TC-Regular", size: 16.0)
-        
     }
     
     private func scrollTopPageButtonBottomLine(percent: CGFloat){

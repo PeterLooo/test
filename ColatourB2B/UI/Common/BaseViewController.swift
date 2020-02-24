@@ -763,9 +763,8 @@ extension BaseViewController {
         case .updateDate:
             
             ()
-        case .unknown:
-            //Note: doNothing
-            ()
+        
+        case .groupNoti:
             if self.tabBarController?.viewControllers?[2].restorationIdentifier == "NoticeNavigationController" {
                 if let notiNav = self.tabBarController?.viewControllers?[2] {
                     let notiVc = (notiNav as! UINavigationController).viewControllers.first
@@ -773,6 +772,19 @@ extension BaseViewController {
                 }
             }
             self.tabBarController?.selectedIndex = 2
+            
+        case .airNoti:
+            if self.tabBarController?.viewControllers?[2].restorationIdentifier == "NoticeNavigationController" {
+                if let notiNav = self.tabBarController?.viewControllers?[2] {
+                    let notiVc = (notiNav as! UINavigationController).viewControllers.first
+                    (notiVc as! NoticeViewController).setVC(defaultNoti: .airNews)
+                }
+            }
+            self.tabBarController?.selectedIndex = 2
+            
+        case .unknown:
+        //Note: doNothing
+        ()
         }
 
         if let v = vc {
