@@ -16,6 +16,7 @@ protocol BaseViewProtocol: NSObjectProtocol {
     func onTouchService()
     func onBindAccessToken(response: AccessTokenResponse)
     func onBindAccessWebUrl(url: String, title: String, openBrowserOrAppWebView: OpenBrowserOrAppWebView)
+    func onBindAccessToken(linkType: LinkType, linkValue: String?)
 }
 
 protocol BasePresenterProtocol {
