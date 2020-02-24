@@ -35,6 +35,7 @@ class AirTicketViewController: BaseViewController {
     private var homeAd2List: [IndexResponse.Module] = []
     private var needUpdateBannerImage = false
     private var presenter: AirTicketPresenter?
+    private var needRefreshNavRight: Bool = true
     
     let transiton = GroupSlideInTransition()
     private var menuList : GroupMenuResponse?
@@ -47,6 +48,8 @@ class AirTicketViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.getEmployeeMark), name: Notification.Name("getEmployeeMark"), object: nil)
         
         setIsNavShadowEnable(false)
         setNavBarItem(left: .custom, mid: .custom, right: .custom)
@@ -69,6 +72,21 @@ class AirTicketViewController: BaseViewController {
         gatTktIndex()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        
+        if needRefreshNavRight {
+            
+            setContaceBarButtonItem()
+            needRefreshNavRight = false
+        }
+        super.viewWillAppear(animated)
+    }
+    
+    @objc private func getEmployeeMark() {
+        
+        needRefreshNavRight = true
+    }
+    
     private func getAirMenu(){
         self.presenter?.getAirMenu(toolBarType: .tkt)
     }
@@ -84,16 +102,6 @@ class AirTicketViewController: BaseViewController {
     private func setNavIcon(){
         self.setNavTitle(title: "機票")
         
-        let contaceButtonView = UIButton(type: .system)
-        
-        let rightImage = #imageLiteral(resourceName: "home_contavt")
-        contaceButtonView.setImage(rightImage, for: .normal)
-        contaceButtonView.addTarget(self, action: #selector(self.onTouchContact), for: .touchUpInside)
-        
-        var contaceBarButtonItem = UIBarButtonItem(customView: contaceButtonView)
-        contaceBarButtonItem = UIBarButtonItem(image: rightImage, style: .plain, target: self, action: #selector(self.onTouchContact))
-        self.setCustomRightBarButtonItem(barButtonItem: contaceBarButtonItem)
-        
         let menuButtonView = UIButton(type: .system)
         
         let leftImage = #imageLiteral(resourceName: "home_menu")
@@ -104,6 +112,20 @@ class AirTicketViewController: BaseViewController {
         menuBarButtonItem = UIBarButtonItem(image: leftImage, style: .plain, target: self, action: #selector(self.onTouchMenu))
         
         self.setCustomLeftBarButtonItem(barButtonItem: menuBarButtonItem)
+    }
+    
+    private func setContaceBarButtonItem() {
+        
+        let contaceButtonView = UIButton(type: .system)
+        
+        let rightImage = #imageLiteral(resourceName: "home_contavt")
+        contaceButtonView.setImage(rightImage, for: .normal)
+        contaceButtonView.addTarget(self, action: #selector(self.onTouchContact), for: .touchUpInside)
+
+        var contaceBarButtonItem = UIBarButtonItem(customView: contaceButtonView)
+        contaceBarButtonItem = UIBarButtonItem(image: rightImage, style: .plain, target: self, action: #selector(self.onTouchContact))
+        
+        self.setCustomRightBarButtonItem(barButtonItem: (isEmployee == true) ? nil : contaceBarButtonItem)
     }
     
     private func addRefreshControlToTableView(){

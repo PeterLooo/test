@@ -22,6 +22,7 @@ class GroupTourViewController: BaseViewController {
     private var groupTableViews: [GroupTableView] = []
     private var needUpdateBannerImage = false
     private var menuList : GroupMenuResponse?
+    private var needRefreshNavRight: Bool = true
     
     let transiton = GroupSlideInTransition()
     
@@ -35,6 +36,8 @@ class GroupTourViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        NotificationCenter.default.addObserver(self, selector: #selector(self.getEmployeeMark), name: Notification.Name("getEmployeeMark"), object: nil)
+        
         setIsNavShadowEnable(false)
         self.setNavBarItem(left: .custom, mid: .custom, right: .custom)
         setNavIcon()
@@ -43,7 +46,22 @@ class GroupTourViewController: BaseViewController {
         
         loadData()
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        if needRefreshNavRight {
+            
+            setContaceBarButtonItem()
+            needRefreshNavRight = false
+        }
+        super.viewWillAppear(animated)
+    }
+    
+    @objc private func getEmployeeMark() {
+        
+        needRefreshNavRight = true
+    }
+    
     override func loadData() {
         super.loadData()
         
@@ -98,16 +116,6 @@ class GroupTourViewController: BaseViewController {
     }
     
     private func setNavIcon(){
-        let contaceButtonView = UIButton(type: .system)
-        
-        let rightImage = #imageLiteral(resourceName: "home_contavt")
-        contaceButtonView.setImage(rightImage, for: .normal)
-        contaceButtonView.addTarget(self, action: #selector(self.onTouchContact), for: .touchUpInside)
-
-        var contaceBarButtonItem = UIBarButtonItem(customView: contaceButtonView)
-        contaceBarButtonItem = UIBarButtonItem(image: rightImage, style: .plain, target: self, action: #selector(self.onTouchContact))
-        
-        self.setCustomRightBarButtonItem(barButtonItem: contaceBarButtonItem)
         
         let menuButtonView = UIButton(type: .system)
         
@@ -119,6 +127,20 @@ class GroupTourViewController: BaseViewController {
         menuBarButtonItem = UIBarButtonItem(image: leftImage, style: .plain, target: self, action: #selector(self.onTouchMenu))
         
         self.setCustomLeftBarButtonItem(barButtonItem: menuBarButtonItem)
+    }
+    
+    private func setContaceBarButtonItem() {
+        
+        let contaceButtonView = UIButton(type: .system)
+        
+        let rightImage = #imageLiteral(resourceName: "home_contavt")
+        contaceButtonView.setImage(rightImage, for: .normal)
+        contaceButtonView.addTarget(self, action: #selector(self.onTouchContact), for: .touchUpInside)
+
+        var contaceBarButtonItem = UIBarButtonItem(customView: contaceButtonView)
+        contaceBarButtonItem = UIBarButtonItem(image: rightImage, style: .plain, target: self, action: #selector(self.onTouchContact))
+        
+        self.setCustomRightBarButtonItem(barButtonItem: (isEmployee == true) ? nil : contaceBarButtonItem)
     }
     
     @IBAction func screenEdge(_ sender: UIScreenEdgePanGestureRecognizer) {

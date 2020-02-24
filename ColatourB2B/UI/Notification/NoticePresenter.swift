@@ -103,7 +103,7 @@ class NoticePresenter: NoticePresenterProtocol {
         
         model.newsList.forEach({ (item) in
             
-            items.append(NotiItem(notiTitle: item.eDMTitle, notiContent: item.publishDate , notiId: nil, notiDate: item.publishDate, unreadMark: item.unreadMark, linkType: item.linkType, linkValue: item.linkValue, apiNotiType: nil))
+            items.append(NotiItem(notiTitle: item.eDMType == "團體" ? "":item.eDMSource, notiContent: item.eDMTitle , notiId: nil, notiDate: item.publishDate, unreadMark: item.unreadMark, linkType: item.linkType, linkValue: item.linkValue, apiNotiType: nil))
         })
         return items
     }

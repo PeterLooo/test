@@ -34,11 +34,28 @@ class TabBarViewController: UITabBarController {
         tabFrame.size.height = bottomInset + 49
         tabFrame.origin.y = self.view.frame.size.height - ( bottomInset + 49 )
         tabBar.frame = tabFrame
-
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        switch tabBarLinkType {
+        case .tour:
+            self.selectedIndex = (isAllowTour == true) ? 0 : 3
+            
+        case .ticket:
+            self.selectedIndex = (isAllowTkt == true) ? 1 : 3
+            
+        case .notification:
+            self.selectedIndex = 2
+            
+        case .unknown:
+            self.selectedIndex = 3
+        }
+        
+        self.viewControllers?[0].tabBarItem.isEnabled = isAllowTour ?? false
+        self.viewControllers?[1].tabBarItem.isEnabled = isAllowTkt ?? false
+        
         NotificationCenter.default.addObserver(self, selector: #selector(self.getUnreadCount), name: Notification.Name("getUnreadCount"), object: nil)
         creatSubViewControllers()
         
@@ -65,6 +82,7 @@ class TabBarViewController: UITabBarController {
         let v5 = getVC(st: "More", vc: "MoreNavigationController")
         let item5 : UITabBarItem = UITabBarItem (title: "更多", image: UIImage(named: "more_inactive"), selectedImage: UIImage(named: "more_active"))
         v5.tabBarItem = item5
+        
         let tabArray = [v1, v2, v3, v4, v5]
         self.viewControllers = tabArray
         self.tabBar.tintColor = UIColor.lightGray
@@ -91,7 +109,6 @@ class TabBarViewController: UITabBarController {
             enableTabBarNotificationBadgeNumber(false)
         }
     }
-    
 }
 
 extension TabBarViewController: TabBarViewProtocol{

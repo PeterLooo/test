@@ -48,6 +48,28 @@ var isLogin: Bool {
     }
 }
 
+var isEmployee: Bool? {
+    let employeeMark = UserDefaultUtil.shared.employeeMark
+    return employeeMark
+}
+
+var isAllowTour: Bool? {
+    let allowTour = UserDefaultUtil.shared.allowTour
+    return allowTour
+}
+
+var isAllowTkt: Bool? {
+    let allowTkt = UserDefaultUtil.shared.allowTkt
+    return allowTkt
+}
+
+var tabBarLinkType: TabBarLinkType {
+    let linkType = UserDefaultUtil.shared.tabBarLinkType ?? ""
+    let tabbarType = TabBarLinkType(rawValue: linkType)
+    if tabbarType == nil {return .unknown}
+    return tabbarType!
+}
+
 var leaveAppSeconds: Double {
     let minutes = 10.0
     let seconds = minutes * 60.0

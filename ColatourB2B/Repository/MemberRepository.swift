@@ -51,7 +51,22 @@ class MemberRepository: MemberRepositoryProtocol {
     func setLocalUserToken(refreshToken: String, accessToken: String) {
         UserDefaultUtil.shared.refreshToken = refreshToken
         UserDefaultUtil.shared.accessToken = accessToken
-        
+    }
+    
+    func setEmployeeMark(emloyeeMark: Bool) {
+        UserDefaultUtil.shared.employeeMark = emloyeeMark
+    }
+    
+    func setAllowTour(allowTour: Bool) {
+        UserDefaultUtil.shared.allowTour = allowTour
+    }
+    
+    func setAllowTkt(allowTkt: Bool) {
+        UserDefaultUtil.shared.allowTkt = allowTkt
+    }
+    
+    func setTabBarLinkType(linkType: String) {
+        UserDefaultUtil.shared.tabBarLinkType = linkType
     }
     
     func getSalesList() -> Single<SalesResponse> {

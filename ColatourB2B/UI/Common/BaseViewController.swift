@@ -434,6 +434,29 @@ extension BaseViewController: MemberLoginSuccessViewProtocol {
     @objc func onLoginSuccess() {
         ()
     }
+    
+    func setDefaultTabBar() {
+        
+        if let tabbarVC = self.tabBarController as? TabBarViewController {
+            
+            switch tabBarLinkType {
+            case .tour:
+                tabbarVC.selectedIndex = (isAllowTour == true) ? 0 : 3
+                
+            case .ticket:
+                tabbarVC.selectedIndex = (isAllowTkt == true) ? 1 : 3
+                
+            case .notification:
+                tabbarVC.selectedIndex = 2
+                
+            case .unknown:
+                tabbarVC.selectedIndex = 3
+            }
+            
+            tabbarVC.viewControllers?[0].tabBarItem.isEnabled = isAllowTour ?? false
+            tabbarVC.viewControllers?[1].tabBarItem.isEnabled = isAllowTkt ?? false
+        }
+    }
 }
 extension BaseViewController: MemberLoginOnTouchNavCloseProtocol {
     @objc func onTouchLoginNavClose() {
@@ -709,8 +732,19 @@ extension BaseViewController {
             if let browserUrl = URL(string: url) {
                 UIApplication.shared.open(browserUrl, options: [:], completionHandler: nil)
             }
+            
+        case .tourIndex:
+            self.tabBarController?.selectedIndex = 0
+            
+        case .tktIndex:
+            self.tabBarController?.selectedIndex = 1
+            
+        case .notification:
+            self.tabBarController?.selectedIndex = 2
+            
         case .salesPage:
             vc = getVC(st: "Sales", vc: "SalesViewController") as! SalesViewController
+            
         case .getApiUrlThenOpenAppWebView:
             self.basePresenter?.getAccessWebUrl(webUrl: linkValue!, title: linkText ?? "", openBrowserOrAppWebView: .openAppWebView)
             
