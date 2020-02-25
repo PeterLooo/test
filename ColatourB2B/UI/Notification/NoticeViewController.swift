@@ -79,7 +79,6 @@ class NoticeViewController: BaseViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(self.reLoadData), name: Notification.Name("noticeLoadDate"), object: nil)
         setIsNavShadowEnable(false)
         setNavTitle(title: "通知")
-        switchPageButton(toPage: 0)
         setTableView()
     }
     
@@ -166,28 +165,28 @@ class NoticeViewController: BaseViewController {
         scrollView.setContentOffset(CGPoint.init(x: contentOffset, y: 0), animated: true)
     }
     
-    private func switchPageButton(toPage: Int){
+    private func switchPageButton(sliderLeading: CGFloat){
         
-        switch toPage {
-        case 0:
+        switch sliderLeading {
+        case (screenWidth / 4 * 0):
             enableButton(topOrderButton)
             disableButton(topMessageButton)
             disableButton(topGroupNewsButton)
             disableButton(topAirNewsButton)
         
-        case 1:
+        case (screenWidth / 4 * 1):
             disableButton(topOrderButton)
             enableButton(topMessageButton)
             disableButton(topGroupNewsButton)
             disableButton(topAirNewsButton)
             
-        case 2:
+        case (screenWidth / 4 * 2):
             disableButton(topOrderButton)
             disableButton(topMessageButton)
             enableButton(topGroupNewsButton)
             disableButton(topAirNewsButton)
             
-        case 3:
+        case (screenWidth / 4 * 3):
             disableButton(topOrderButton)
             disableButton(topMessageButton)
             disableButton(topGroupNewsButton)
@@ -216,6 +215,7 @@ class NoticeViewController: BaseViewController {
         let maxOffset = UIScreen.main.bounds.width / 4.0
         let scrollOffset = maxOffset * percent
         self.pageButtonBottomLineLeading.constant = scrollOffset
+        self.switchPageButton(sliderLeading: scrollOffset)
     }
 }
 
@@ -375,6 +375,5 @@ extension NoticeViewController: UIScrollViewDelegate {
         
         let percent = nowOffsetX / (wholeWidth / 4.0)
         scrollTopPageButtonBottomLine(percent: percent)
-        switchPageButton(toPage: lround(Double(percent)))
     }
 }
