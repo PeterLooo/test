@@ -180,7 +180,8 @@ class BaseViewController: UIViewController {
     private var navLeftType: NavLeftType = .defaultType
     private var navMidType: NavMidType = .textTitle
     private var navRightType: NavRightType = .nothing
-
+    private var baseLinkType: LinkType?
+    private var baseLinkValue: String?
     private var isNavHideWhenSwipe = false
     private var isNavShadowEnable = true
     private var isNavHidesBarsOnSwipe = false
@@ -319,8 +320,9 @@ class BaseViewController: UIViewController {
             self.handleNoInternetError(handleType: handleType)
 
         case .apiForbiddenException:
-            basePresenter?.getAccessToken()
-
+            
+            basePresenter?.getAccessToken(linkType: baseLinkType, linkValue: baseLinkValue)
+            
         case .apiFailException:
             self.handleApiFailError(handleType: handleType, alertMsg: apiError.alertMsg, isAlertWithContactService: true)
         case .apiFailForUserException:
@@ -409,6 +411,11 @@ class BaseViewController: UIViewController {
     @objc func loadData() {
         self.noInternetErrorView.isHidden = true
         self.apiFailErrorView.isHidden = true
+        if self.baseLinkValue != nil {
+            self.handleLinkType(linkType: baseLinkType!, linkValue: baseLinkValue, linkText: "")
+            baseLinkValue = nil
+            baseLinkType = nil
+        }
     }
 
     //Note: 注意如果直接使用，要小心設計isNeedToPopVCwhenLoginClose事件
@@ -471,6 +478,11 @@ extension BaseViewController: MemberLoginOnTouchNavCloseProtocol {
     }
 }
 extension BaseViewController: BaseViewProtocol {
+    func onBindAccessToken(linkType: LinkType, linkValue: String?) {
+        self.baseLinkValue = linkValue
+        self.baseLinkType = linkType
+    }
+    
     func onTouchService() {
         let vc = getVC(st: "ContactInfo", vc: "ContactInfo") as! ContactInfoViewController
         navigationController?.pushViewController(vc, animated: true)
@@ -703,6 +715,11 @@ extension BaseViewController {
 }
 
 extension BaseViewController {
+    
+    func getNotiAccessTokenWithLink(linkType: LinkType, linkValue: String?) {
+        self.basePresenter?.getAccessToken(linkType: linkType, linkValue: linkValue)
+    }
+    
     func handleLinkType(linkType: LinkType, linkValue: String?, linkText: String?, source: String? = nil) {
         handleLinkTypePush(linkType: linkType, linkValue: linkValue, linkText: linkText, paxToken: nil, source: source)
     }
@@ -713,6 +730,8 @@ extension BaseViewController {
 
     private func handleLinkTypePush(linkType: LinkType, linkValue: String?, linkText: String?, paxToken: String?, source: String?) {
         var vc: UIViewController?
+        self.baseLinkType = linkType
+        self.baseLinkValue = linkValue
         switch linkType {
         case .openAppWebView:
             if let url = linkValue {
@@ -767,7 +786,7 @@ extension BaseViewController {
             //Note: doNothing
             ()
         }
-
+        
         if let v = vc {
             self.navigationController?.pushViewController(v, animated: true)
         }
