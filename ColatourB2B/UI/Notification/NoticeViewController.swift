@@ -83,6 +83,7 @@ class NoticeViewController: BaseViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(self.reLoadData), name: Notification.Name("noticeLoadDate"), object: nil)
         setIsNavShadowEnable(false)
         setNavTitle(title: "通知")
+        switchPageButton(sliderLeading: 0)
         setTableView()
     }
     
@@ -208,7 +209,6 @@ class NoticeViewController: BaseViewController {
     private func setDefaultNotyTypeToScroll() {
         if self.defaultNotiType != nil {
 
-            switchPageButton(toPage: NotiType(rawValue: self.defaultNotiType!.rawValue)!.rawValue)
             let contentOffset = CGFloat(self.defaultNotiType?.rawValue ?? 0) * screenWidth
             scrollView.setContentOffset(CGPoint(x: contentOffset, y: 0), animated: false)
             self.defaultNotiType = nil
