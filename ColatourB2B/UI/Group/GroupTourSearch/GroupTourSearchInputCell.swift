@@ -24,7 +24,8 @@ class GroupTourSearchInputCell: UITableViewCell, UITextFieldDelegate {
     @IBOutlet weak var airLineCode: UILabel!
     @IBOutlet weak var tourType: UILabel!
     @IBOutlet weak var tourDaysTextField: UITextField!
-    
+    @IBOutlet weak var priceView: UIView!
+    var priceRangeSlider: PriceRangeSlider?
     weak var delegate: GroupTourSearchInputCellProtocol?
     
     override func awakeFromNib() {
@@ -32,6 +33,7 @@ class GroupTourSearchInputCell: UITableViewCell, UITextFieldDelegate {
         
         self.backgroundColor = UIColor.clear
         tourDaysTextField.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: UIControl.Event.editingDidEnd)
+        creatPriceView()
     }
     
     func setCellWith(groupTourSearchRequest: GroupTourSearchRequest)
@@ -66,6 +68,15 @@ class GroupTourSearchInputCell: UITableViewCell, UITextFieldDelegate {
             tourDaysTextField.text = ""
         }
 
+    }
+    
+    private func creatPriceView(){
+        let sliderWidth: CGFloat = screenWidth - 112
+        let rangeSlider = PriceRangeSlider(frame: CGRect(x: 0, y: 0, width: sliderWidth, height: 44))
+        rangeSlider.setRange(minRange: 0, maxRange: 200000, accuracy: 1000)
+        self.priceView.addSubview(rangeSlider)
+        rangeSlider.setCurrentValue(left: 0, right: 200000)
+        priceRangeSlider = rangeSlider
     }
     
     @IBAction func onTouchTourDays(_ sender: UIButton) {

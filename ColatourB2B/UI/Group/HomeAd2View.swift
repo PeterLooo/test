@@ -51,7 +51,8 @@ class HomeAd2View: UIView {
         self.itemPromotion.text = item.itemPromotion.isNilOrEmpty == false ? "  \(item.itemPromotion ?? "")  ":""
         self.itemPromotion.layer.cornerRadius = 4
         self.itemPromotion.layer.masksToBounds = true
-        self.itemPrice.text = item.itemPrice != 0 ? "同業 $\(item.itemPrice!)起":""
+        let priceFormat = FormatUtil.priceFormat(price: item.itemPrice)
+        self.itemPrice.text = item.itemPrice != 0 ? "同業 $\(priceFormat)起":""
         self.bottomConstraint.constant = isLast == true ? 40:5
         self.borderView.setBorder(width: 0.1, radius: 4, color: UIColor.lightGray)
         
