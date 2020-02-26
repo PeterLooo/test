@@ -43,8 +43,12 @@ class GroupTourViewController: BaseViewController {
         setNavIcon()
         setUpTableView()
         setSearchView()
-        
-        loadData()
+        // 為了不讓點推播重複去要 accessToken 先判斷 cancelLoadData
+        if cancelLoadData == true {
+            cancelLoadData = false
+        }else{
+            loadData()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
