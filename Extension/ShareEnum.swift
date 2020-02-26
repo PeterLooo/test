@@ -17,6 +17,8 @@ public enum LinkType: String {
     case passwordModify = "031"
     case updateDate = "032"
     case tourIndex = "012"
+    case groupNoti = "013"
+    case airNoti = "052"
     case tktIndex = "051"
     case notification = "005"
     case unknown
@@ -27,8 +29,8 @@ public enum OpenBrowserOrAppWebView {
     case openAppWebView
 }
 
-public enum NotiType {
-    case important
+public enum NotiType: Int ,CaseIterable {
+    case important = 0
     case noti
     case groupNews
     case airNews
