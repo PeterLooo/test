@@ -182,6 +182,13 @@ class AccountRepository: NSObject {
         .map{ WebUrl(JSON: $0)!.webUrl!}
     }
     
+    func getWebViewTourShareList(tourCode: String, tourDate: String) -> Single<WebViewTourShareResponse.ItineraryShareData>{
+        let api = APIManager.shared.getWebViewTourShareList(tourCode: tourCode, tourDate: tourDate)
+        return AccountRepository.shared.getAccessToken()
+            .flatMap{ _ in api}
+            .map{WebViewTourShareResponse(JSON: $0)!.itineraryShareData!}
+    }
+    
     func getVersionRule() -> Single<VersionRuleReponse.Update?> {
         let api = APIManager.shared.getVersionRule()
         return AccountRepository.shared.getAccessToken()
