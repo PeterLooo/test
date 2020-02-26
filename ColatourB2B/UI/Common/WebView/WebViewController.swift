@@ -18,9 +18,14 @@ class WebViewController: BaseViewController, UIGestureRecognizerDelegate {
     var webViewTitle = ""
     var webView: WKWebView!
     var navLeftButtonType: NavLeftType = .defaultType
-    
+    private var presenter: WebViewPresenterProtocol?
     private var isNeedToDimiss = false
     
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        
+        presenter = WebViewPresenter(delegate: self)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -182,8 +187,26 @@ class WebViewController: BaseViewController, UIGestureRecognizerDelegate {
             }
         }.resume()
     }
+    
+    private func checkUrlToGetApi(url:URL?){
+        var urlPathComponents = url?.pathComponents.joined(separator: "/")
+        urlPathComponents?.removeFirst()
+        let urlHost = url?.host
+        let compareUrl = "\(urlHost ?? "")\(urlPathComponents ?? "")"
+        let tourUrlDev = "ntestb2b.colatour.com.tw/R10T_TourSale/R10T13_TourItinerary.aspx"
+        let tourUrlProd = "b2b.colatour.com.tw/R10T_TourSale/R10T13_TourItinerary.aspx"
+        if compareUrl == tourUrlDev || compareUrl == tourUrlProd {
+            if let tourCode = url?.valueOf("TourCode"), let tourDate = url?.valueOf("TourDate") {
+                self.presenter?.getTourShareList(tourCode: tourCode, tourDate: tourDate)
+            }
+        }
+    }
 }
-
+extension WebViewController : WebViewProtocol {
+    func onBindTourShareList(shareList: WebViewTourShareResponse.ItineraryShareData) {
+        print(shareList)
+    }
+}
 extension WebViewController : UIDocumentInteractionControllerDelegate{
     public func documentInteractionControllerViewControllerForPreview(_ controller: UIDocumentInteractionController) -> UIViewController{
         return self
@@ -195,6 +218,7 @@ extension WebViewController : WKNavigationDelegate {
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
         pringLog("decidePolicyFor navigationAction : \(navigationAction.request)")
         let url = navigationAction.request.url
+        checkUrlToGetApi(url: url)
         if url?.pathExtension == "doc" || url?.pathExtension == "pdf" || url?.pathExtension == "docx" {
             loadAndDisplayDocumentFrom(url: url!)
             decisionHandler(.cancel)
@@ -342,5 +366,11 @@ extension WebViewController {
         #if DEBUG
         print("======> \(text)")
         #endif
+    }
+}
+extension URL {
+    func valueOf(_ queryParamaterName: String) -> String? {
+        guard let url = URLComponents(string: self.absoluteString) else { return nil }
+        return url.queryItems?.first(where: { $0.name == queryParamaterName })?.value
     }
 }
