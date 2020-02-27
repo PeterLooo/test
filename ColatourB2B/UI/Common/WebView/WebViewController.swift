@@ -14,12 +14,17 @@ class WebViewController: BaseViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var borderView: UIView!
     @IBOutlet weak var progressView: UIProgressView!
     
+    var ges: UITapGestureRecognizer?
+    let grayView = UIView()
+    var expandableButtonView: ExpandableButtonView?
+    
     var url: String?
     var webViewTitle = ""
     var webView: WKWebView!
     var navLeftButtonType: NavLeftType = .defaultType
     private var presenter: WebViewPresenterProtocol?
     private var isNeedToDimiss = false
+    private var shareList: WebViewTourShareResponse.ItineraryShareData?
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -201,10 +206,74 @@ class WebViewController: BaseViewController, UIGestureRecognizerDelegate {
             }
         }
     }
+    
+    @objc func onTouchGrayView() {
+        
+        expandableButtonView?.onTouchBaseButton()
+    }
+
+    func setUpGrayView() {
+        
+        ges = UITapGestureRecognizer(target: self, action: #selector(onTouchGrayView))
+        
+        grayView.isUserInteractionEnabled = true
+        grayView.addGestureRecognizer(ges!)
+        grayView.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+        grayView.backgroundColor = .lightGray
+        grayView.alpha = 0
+        webView.addSubview(grayView)
+    }
+    
+    func setUpExpandableButtonView(shareList: WebViewTourShareResponse.ItineraryShareData) {
+
+        let navHieght = self.navigationController?.navigationBar.frame.height
+        
+        expandableButtonView = ExpandableButtonView(frame: CGRect(x: screenWidth - 75,
+                                                                  y: screenHeight - self.view.safeAreaInsets.bottom - statusBarHeight - navHieght! - 280,
+                                                                  width: 56, height: 256))
+        
+        expandableButtonView?.delegate = self
+        expandableButtonView?.setUpButtons(shareList: shareList)
+        webView.addSubview(expandableButtonView!)
+    }
+    
+    func shareInfo() {
+        
+        let activityVC = UIActivityViewController(activityItems: [shareList?.shareInfo ?? "Share", shareList?.shareUrl ?? ""], applicationActivities: nil)
+        self.present(activityVC, animated: true, completion: nil)
+    }
 }
+
+extension WebViewController: ExpandableButtonViewDelegate {
+
+    func webViewTurnGraySwitch() {
+        
+       grayView.alpha = (grayView.alpha == 0) ? 0.7 : 0
+    }
+    
+    func didTapExpandableButton(buttonType: ExpandableButtonType, url: URL) {
+        
+        switch buttonType {
+        case .Forward:
+            webView.load(URLRequest(url: url))
+            
+        case .DownloadWord:
+            webView.load(URLRequest(url: url))
+            
+        case .Share:
+            shareInfo()
+            
+        case .Booking:
+            webView.load(URLRequest(url: url))
+        }
+    }
+}
+
 extension WebViewController : WebViewProtocol {
     func onBindTourShareList(shareList: WebViewTourShareResponse.ItineraryShareData) {
-        print(shareList)
+        self.shareList = shareList
+        setUpGrayView()
+        setUpExpandableButtonView(shareList: shareList)
     }
 }
 extension WebViewController : UIDocumentInteractionControllerDelegate{
