@@ -9,7 +9,7 @@ let MainWindow = appDelegate?.window!
 
 let screenWidth = UIScreen.main.bounds.width
 let screenHeight = UIScreen.main.bounds.height
-
+var cancelLoadData = false
 var statusBarHeight: CGFloat {
     if #available(iOS 13.0, *) {
         let app = UIApplication.shared

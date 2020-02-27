@@ -146,7 +146,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         let userInfo = response.notification.request.content.userInfo
         printLog("===didReceive===", "")
         printLog("userInfo", userInfo)
-        
+        cancelLoadData = true
         if isLogin == true, let noticeIdIndex = userInfo.index(forKey: "NotiId") {
             setNotificationRead(noticeId: [userInfo[noticeIdIndex].value as! String])
         }
