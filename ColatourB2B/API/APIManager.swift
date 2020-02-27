@@ -360,7 +360,7 @@ extension APIManager {
     
     func getWebViewTourShareList(tourCode:String,tourDate:String) -> Single<[String:Any]> {
         var appendUrl = ""
-        appendUrl = "?Tour_Code=HDS032705BR0B&Tour_Date=2020/03/27"//"?Tour_Code=\(tourCode)&Tour_Date=\(tourDate)"
+        appendUrl = "?Tour_Code=\(tourCode)&Tour_Date=\(tourDate)"
         return manager(method: .get, appendUrl: appendUrl, url: APIUrl.portalApi(type: .tourShare), parameters: nil, appendHeaders: nil)
     }
 }
