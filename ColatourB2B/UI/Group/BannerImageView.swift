@@ -111,23 +111,7 @@ class BannerImageView: UIView {
             }
             
             downloadPic(imageView: imageView, url: url)
-
-//            imageView.sd_setImage(with: URL(string: url)) { (image, error, cacheType, imageURL) in
-//
-//                SDWebImageManager.shared.loadImage(with: URL(string: url), options: SDWebImageOptions.retryFailed, progress: nil, completed: { (image, data, error, cacheType, bool, imageURL) in
-//
-//                    if error == nil {
-//
-//                        imageView.image = image
-//                        imageView.backgroundColor = UIColor.white
-//                    } else {
-//
-//                        imageView.image = nil
-//                        imageView.backgroundColor = UIColor.white
-//                    }
-//                })
-//            }
-            
+    
             imageView.tag = imageTag
             imageView.contentMode = .scaleAspectFill
             imageView.clipsToBounds = true
@@ -145,7 +129,7 @@ class BannerImageView: UIView {
 
             if error == nil {
 
-                imageView.image = self.resizeImage(image: image!)
+                imageView.image = image
                 imageView.backgroundColor = UIColor.white
             } else {
 
@@ -169,9 +153,9 @@ class BannerImageView: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        
-        scrollView.frame = CGRect(x: 0, y: 0, width: screenWidth, height: self.bounds.height)
-        scrollView.contentSize = CGSize(width: screenWidth * CGFloat(imageViewsURL.count + 2), height: self.bounds.height)
+        let height = screenWidth / (800/628)
+        scrollView.frame = CGRect(x: 0, y: 0, width: screenWidth, height: height)
+        scrollView.contentSize = CGSize(width: screenWidth * CGFloat(imageViewsURL.count + 2), height: height)
     }
     
     @objc func touchEvent(gesture: UITapGestureRecognizer) {
