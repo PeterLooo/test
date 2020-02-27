@@ -54,7 +54,6 @@ class GroupTourSearchViewController: BaseViewController {
     @IBOutlet weak var groupTourPageView: UIView!
     @IBOutlet weak var keywrodOrTourCodePageView: UIView!
     
-    @IBOutlet weak var aboveBackgroundView: UIView!
     @IBOutlet weak var groupTourTableView: UITableView!
     @IBOutlet weak var keywordOrTourCodeTableView: UITableView!
     
@@ -353,6 +352,9 @@ class GroupTourSearchViewController: BaseViewController {
     private func getTourSearchUrl(searchByType: SearchByType){
         switch searchByType {
         case .groupTour:
+            let groupTourSearchInputCell = self.groupTourTableView.cellForRow(at: IndexPath.init(row: 0, section: 0)) as! GroupTourSearchInputCell
+            groupTourSearchRequest.maxPrice = groupTourSearchInputCell.priceRangeSlider?.getMaxPrice()
+            groupTourSearchRequest.minPrice = groupTourSearchInputCell.priceRangeSlider?.getMinPrice()
             presenter?.getGroupTourSearchUrl(groupTourSearchRequest: groupTourSearchRequest)
             
         case .keyword,

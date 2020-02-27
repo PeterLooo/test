@@ -326,7 +326,7 @@ extension WebViewController : WKNavigationDelegate {
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         pringLog("didFinish")
-        
+        self.webViewTitle = self.webView.title!
         setNavigationItem()
         self.activityIndicator.stopAnimating()
     }

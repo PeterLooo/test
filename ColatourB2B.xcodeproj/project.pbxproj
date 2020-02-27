@@ -335,6 +335,8 @@
 		A1DB93E224066B8E00AE427C /* WebViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DB93E024066B8E00AE427C /* WebViewPresenter.swift */; };
 		A1DB93E424066EC500AE427C /* WebViewTourShareResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DB93E324066EC500AE427C /* WebViewTourShareResponse.swift */; };
 		A1DB93E524066EC500AE427C /* WebViewTourShareResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DB93E324066EC500AE427C /* WebViewTourShareResponse.swift */; };
+		A12808A823F7937100287B9F /* PriceRangeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12808A723F7937100287B9F /* PriceRangeSlider.swift */; };
+		A12808A923F7937100287B9F /* PriceRangeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12808A723F7937100287B9F /* PriceRangeSlider.swift */; };
 		C70EEF5023EA545300D67FF4 /* VersionRule.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C70EEF4D23EA545200D67FF4 /* VersionRule.storyboard */; };
 		C70EEF5123EA545300D67FF4 /* VersionRule.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C70EEF4D23EA545200D67FF4 /* VersionRule.storyboard */; };
 		C70EEF5223EA545300D67FF4 /* Bulletin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C70EEF4F23EA545300D67FF4 /* Bulletin.storyboard */; };
@@ -605,6 +607,7 @@
 		A1DB93DD24066B5D00AE427C /* WebViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewProtocol.swift; sourceTree = "<group>"; };
 		A1DB93E024066B8E00AE427C /* WebViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewPresenter.swift; sourceTree = "<group>"; };
 		A1DB93E324066EC500AE427C /* WebViewTourShareResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewTourShareResponse.swift; sourceTree = "<group>"; };
+		A12808A723F7937100287B9F /* PriceRangeSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceRangeSlider.swift; sourceTree = "<group>"; };
 		A331B185DD2055D277F472F3 /* Pods_ColatourB2B.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ColatourB2B.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B09E7C65A225E6FF958329EA /* Pods-ColatourB2BDev.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ColatourB2BDev.release.xcconfig"; path = "Pods/Target Support Files/Pods-ColatourB2BDev/Pods-ColatourB2BDev.release.xcconfig"; sourceTree = "<group>"; };
 		C70EEF4D23EA545200D67FF4 /* VersionRule.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = VersionRule.storyboard; sourceTree = "<group>"; };
@@ -1302,6 +1305,7 @@
 				C7DCA71E23D1BBC300F415B8 /* GroupTourSearchProtocol.swift */,
 				C7DCA72123D1BBE300F415B8 /* GroupTourSearchPresenter.swift */,
 				C7DA175623D6E5C9006A8803 /* GroupTourSearchKeywordAndTourCodeInputCell.swift */,
+				A12808A723F7937100287B9F /* PriceRangeSlider.swift */,
 			);
 			path = GroupTourSearch;
 			sourceTree = "<group>";
@@ -1844,6 +1848,7 @@
 				3869542E23BADC9000F6E7D9 /* MemberIndexResponse.swift in Sources */,
 				06DA4F8223E92260001B7DF1 /* MessageSendContentCell.swift in Sources */,
 				C7C41C4423C724E900F97057 /* NoticeDetailContentCell.swift in Sources */,
+				A12808A823F7937100287B9F /* PriceRangeSlider.swift in Sources */,
 				38E9922123B04F1400E28271 /* VersionRuleReponse.swift in Sources */,
 				0650776423ED5F300067377C /* ContactInfoPresenter.swift in Sources */,
 				38BCD93523A345FA00D59910 /* GTMBase64.m in Sources */,
@@ -2015,6 +2020,7 @@
 				3869542F23BADC9000F6E7D9 /* MemberIndexResponse.swift in Sources */,
 				06DA4F8323E92260001B7DF1 /* MessageSendContentCell.swift in Sources */,
 				C7C41C4523C724E900F97057 /* NoticeDetailContentCell.swift in Sources */,
+				A12808A923F7937100287B9F /* PriceRangeSlider.swift in Sources */,
 				38E9922223B04F1400E28271 /* VersionRuleReponse.swift in Sources */,
 				0650776523ED5F300067377C /* ContactInfoPresenter.swift in Sources */,
 				38BCD93623A345FA00D59910 /* GTMBase64.m in Sources */,
@@ -2214,7 +2220,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ColatourB2B/ColatourB2B.entitlements;
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 02;
+				CURRENT_PROJECT_VERSION = 03;
 				DEVELOPMENT_TEAM = 83357CEQAU;
 				INFOPLIST_FILE = ColatourB2B/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -2240,7 +2246,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ColatourB2B/ColatourB2B.entitlements;
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 02;
+				CURRENT_PROJECT_VERSION = 03;
 				DEVELOPMENT_TEAM = 83357CEQAU;
 				INFOPLIST_FILE = ColatourB2B/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -2348,7 +2354,7 @@
 				CODE_SIGN_ENTITLEMENTS = ColatourB2BDev.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 02;
+				CURRENT_PROJECT_VERSION = 03;
 				DEVELOPMENT_TEAM = 83357CEQAU;
 				INFOPLIST_FILE = ColatourB2B/ColatourB2BDev/Dev_Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -2375,7 +2381,7 @@
 				CODE_SIGN_ENTITLEMENTS = ColatourB2BDev.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 02;
+				CURRENT_PROJECT_VERSION = 03;
 				DEVELOPMENT_TEAM = 83357CEQAU;
 				INFOPLIST_FILE = "ColatourB2B copy-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
