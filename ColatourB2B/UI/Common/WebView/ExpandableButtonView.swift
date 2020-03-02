@@ -45,13 +45,13 @@ class ExpandableButtonView: UIView {
 
     func setUpButtons(shareList: WebViewTourShareResponse.ItineraryShareData) {
         
-        forwardURL = shareList.forwardUrl!
-        downloadWordURL = shareList.wordUrl!
-        shareURL = shareList.shareUrl!
-        bookingURL = shareList.bookingUrl!
+        forwardURL = shareList.forwardUrl ?? ""
+        downloadWordURL = shareList.wordUrl ?? ""
+        shareURL = shareList.shareUrl ?? ""
+        bookingURL = shareList.bookingUrl ?? ""
         
         buttonURLs = [forwardURL, downloadWordURL, shareURL, bookingURL]
-        buttonURLs = buttonURLs.compactMap {$0}
+        buttonURLs = buttonURLs.filter {$0.isEmpty == false}
         
         for index in 0 ..< buttonURLs.count {
             
@@ -73,8 +73,7 @@ class ExpandableButtonView: UIView {
             }
         }
         
-        baseButton.frame = CGRect(x: 0, y: 50 * buttonImages.count, width: 56, height: 56)
-        baseButton.tag = 0
+        baseButton.frame = CGRect(x: 0, y: 200, width: 56, height: 56)
         baseButton.setImage(openButtonsImage, for: .normal)
         baseButton.layer.backgroundColor = UIColor.systemGreen.cgColor
         baseButton.addTarget(self, action: #selector(onTouchBaseButton), for: .touchUpInside)
@@ -88,7 +87,8 @@ class ExpandableButtonView: UIView {
             let buttonImage = buttonImages[index]
 
             button.alpha = 0
-            button.frame = CGRect(x: 8, y: 50 * buttonImages.count, width: 40, height: 40)
+            button.tag = index
+            button.frame = CGRect(x: 8, y: 200, width: 40, height: 40)
             button.setImage(buttonImage, for: .normal)
             button.accessibilityValue = buttonURLs[index]
             button.layer.backgroundColor = UIColor.white.cgColor
@@ -115,7 +115,7 @@ class ExpandableButtonView: UIView {
             
             self.buttons.forEach {
                 $0.frame = CGRect(x: 8,
-                                  y: 50 * ((self.openButtons) ? ($0.tag - 1) : (self.buttonImages.count)),
+                                  y: (self.openButtons) ? (200 - 50 * (self.buttonImages.count - $0.tag)) : 200,
                                   width: 40, height: 40)
                 $0.alpha = ($0.alpha == 0) ? 1 : 0
             }
