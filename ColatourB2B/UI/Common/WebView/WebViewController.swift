@@ -229,9 +229,14 @@ class WebViewController: BaseViewController, UIGestureRecognizerDelegate {
     }
     
     func setUpExpandableButtonView(shareList: WebViewTourShareResponse.ItineraryShareData) {
+        
+        for duplicateView in webView.subviews {
+            if duplicateView is ExpandableButtonView {
+               duplicateView.removeFromSuperview()
+           }
+        }
 
         let navHieght = self.navigationController?.navigationBar.frame.height
-        
         expandableButtonView = ExpandableButtonView(frame: CGRect(x: screenWidth - 75,
                                                                   y: screenHeight - self.view.safeAreaInsets.bottom - statusBarHeight - navHieght! - 280,
                                                                   width: 56, height: 256))
