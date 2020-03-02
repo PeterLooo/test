@@ -741,6 +741,12 @@ extension BaseViewController {
                     }else{
                         vc = getVC(st: "Common", vc: "WebViewController") as! WebViewController
                         (vc as! WebViewController).setVCwith(url: url, title: linkText ?? "")
+                        (vc as! WebViewController).setDismissButton()
+                        let nav = UINavigationController(rootViewController: vc!)
+                        nav.modalPresentationStyle = .fullScreen
+                        nav.restorationIdentifier = "WebViewControllerNavigationController"
+                        self.present(nav, animated: true)
+                        return
                     }
                 }
             }
