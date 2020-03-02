@@ -14,13 +14,23 @@ class WebViewController: BaseViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var borderView: UIView!
     @IBOutlet weak var progressView: UIProgressView!
     
+    var ges: UITapGestureRecognizer?
+    let grayView = UIView()
+    var expandableButtonView: ExpandableButtonView?
+    
     var url: String?
     var webViewTitle = ""
     var webView: WKWebView!
     var navLeftButtonType: NavLeftType = .defaultType
-    
+    private var presenter: WebViewPresenterProtocol?
     private var isNeedToDimiss = false
+    private var shareList: WebViewTourShareResponse.ItineraryShareData?
     
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        
+        presenter = WebViewPresenter(delegate: self)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -182,6 +192,94 @@ class WebViewController: BaseViewController, UIGestureRecognizerDelegate {
             }
         }.resume()
     }
+    
+    private func checkUrlToGetApi(url:URL?){
+        var urlPathComponents = url?.pathComponents.joined(separator: "/")
+        urlPathComponents?.removeFirst()
+        let urlHost = url?.host
+        let compareUrl = "\(urlHost ?? "")\(urlPathComponents ?? "")"
+        let tourUrlDev = "ntestb2b.colatour.com.tw/R10T_TourSale/R10T13_TourItinerary.aspx"
+        let tourUrlProd = "b2b.colatour.com.tw/R10T_TourSale/R10T13_TourItinerary.aspx"
+        if compareUrl == tourUrlDev || compareUrl == tourUrlProd {
+            if let tourCode = url?.valueOf("TourCode"), let tourDate = url?.valueOf("TourDate") {
+                self.presenter?.getTourShareList(tourCode: tourCode, tourDate: tourDate)
+            }
+        } else {
+            grayView.isHidden = true
+            expandableButtonView?.isHidden = true
+        }
+    }
+    
+    @objc func onTouchGrayView() {
+        
+        expandableButtonView?.onTouchBaseButton()
+    }
+
+    func setUpGrayView() {
+        
+        ges = UITapGestureRecognizer(target: self, action: #selector(onTouchGrayView))
+        
+        grayView.isUserInteractionEnabled = true
+        grayView.addGestureRecognizer(ges!)
+        grayView.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+        grayView.backgroundColor = UIColor.black.withAlphaComponent(0.3)
+        grayView.alpha = 0
+        grayView.isHidden = false
+        webView.addSubview(grayView)
+    }
+    
+    func setUpExpandableButtonView(shareList: WebViewTourShareResponse.ItineraryShareData) {
+
+        let navHieght = self.navigationController?.navigationBar.frame.height
+        
+        expandableButtonView = ExpandableButtonView(frame: CGRect(x: screenWidth - 75,
+                                                                  y: screenHeight - self.view.safeAreaInsets.bottom - statusBarHeight - navHieght! - 280,
+                                                                  width: 56, height: 256))
+        
+        expandableButtonView?.delegate = self
+        expandableButtonView?.setUpButtons(shareList: shareList)
+        webView.addSubview(expandableButtonView!)
+    }
+    
+    func shareInfo() {
+        
+        let activityVC = UIActivityViewController(activityItems: [shareList?.shareInfo ?? "Share", shareList?.shareUrl ?? ""], applicationActivities: nil)
+        self.present(activityVC, animated: true, completion: nil)
+    }
+}
+
+extension WebViewController: ExpandableButtonViewDelegate {
+
+    func webViewTurnGraySwitch() {
+        
+        grayView.alpha = (grayView.alpha == 0) ? 1 : 0
+    }
+    
+    func didTapExpandableButton(buttonType: ExpandableButtonType, url: URL) {
+        
+        switch buttonType {
+        case .Forward:
+            webView.load(URLRequest(url: url))
+            
+        case .DownloadWord:
+            webView.load(URLRequest(url: url))
+            
+        case .Share:
+            shareInfo()
+            
+        case .Booking:
+            webView.load(URLRequest(url: url))
+        }
+    }
+}
+
+extension WebViewController : WebViewProtocol {
+    func onBindTourShareList(shareList: WebViewTourShareResponse.ItineraryShareData) {
+        self.shareList = shareList
+        setUpGrayView()
+        setUpExpandableButtonView(shareList: shareList)
+        expandableButtonView?.isHidden = false
+    }
 }
 
 extension WebViewController : UIDocumentInteractionControllerDelegate{
@@ -195,6 +293,7 @@ extension WebViewController : WKNavigationDelegate {
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
         pringLog("decidePolicyFor navigationAction : \(navigationAction.request)")
         let url = navigationAction.request.url
+        checkUrlToGetApi(url: url)
         if url?.pathExtension == "doc" || url?.pathExtension == "pdf" || url?.pathExtension == "docx" {
             loadAndDisplayDocumentFrom(url: url!)
             decisionHandler(.cancel)
@@ -342,5 +441,11 @@ extension WebViewController {
         #if DEBUG
         print("======> \(text)")
         #endif
+    }
+}
+extension URL {
+    func valueOf(_ queryParamaterName: String) -> String? {
+        guard let url = URLComponents(string: self.absoluteString) else { return nil }
+        return url.queryItems?.first(where: { $0.name == queryParamaterName })?.value
     }
 }

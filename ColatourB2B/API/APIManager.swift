@@ -357,6 +357,12 @@ extension APIManager {
         
         return manager(method: .get, appendUrl: "", url: APIUrl.serviceApi(type: .contactInformation), parameters: nil, appendHeaders: nil)
     }
+    
+    func getWebViewTourShareList(tourCode:String,tourDate:String) -> Single<[String:Any]> {
+        var appendUrl = ""
+        appendUrl = "?Tour_Code=\(tourCode)&Tour_Date=\(tourDate)"
+        return manager(method: .get, appendUrl: appendUrl, url: APIUrl.portalApi(type: .tourShare), parameters: nil, appendHeaders: nil)
+    }
 }
 
 extension APIManager {
