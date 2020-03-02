@@ -113,6 +113,7 @@ class BannerImageView: UIView {
             downloadPic(imageView: imageView, url: url)
     
             imageView.tag = imageTag
+            imageView.backgroundColor = UIColor.white
             imageView.contentMode = .scaleAspectFill
             imageView.clipsToBounds = true
             imageView.isUserInteractionEnabled = true
@@ -130,30 +131,18 @@ class BannerImageView: UIView {
             if error == nil {
 
                 imageView.image = image
-                imageView.backgroundColor = UIColor.white
             } else {
 
                 imageView.image = nil
-                imageView.backgroundColor = UIColor.white
             }
         })
-    }
-
-    func resizeImage(image: UIImage) -> UIImage {
-
-        let size = CGSize(width: screenWidth, height: scrollView.frame.height)
-        let renderer = UIGraphicsImageRenderer(size: size)
-
-        let newImage = renderer.image { (context) in
-            image.draw(in: renderer.format.bounds)
-        }
-
-        return newImage
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        
         let height = screenWidth / (800/628)
+        
         scrollView.frame = CGRect(x: 0, y: 0, width: screenWidth, height: height)
         scrollView.contentSize = CGSize(width: screenWidth * CGFloat(imageViewsURL.count + 2), height: height)
     }
