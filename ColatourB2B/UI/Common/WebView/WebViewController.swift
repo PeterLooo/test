@@ -204,6 +204,9 @@ class WebViewController: BaseViewController, UIGestureRecognizerDelegate {
             if let tourCode = url?.valueOf("TourCode"), let tourDate = url?.valueOf("TourDate") {
                 self.presenter?.getTourShareList(tourCode: tourCode, tourDate: tourDate)
             }
+        } else {
+            grayView.isHidden = true
+            expandableButtonView?.isHidden = true
         }
     }
     
@@ -219,8 +222,9 @@ class WebViewController: BaseViewController, UIGestureRecognizerDelegate {
         grayView.isUserInteractionEnabled = true
         grayView.addGestureRecognizer(ges!)
         grayView.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
-        grayView.backgroundColor = .lightGray
+        grayView.backgroundColor = UIColor.black.withAlphaComponent(0.3)
         grayView.alpha = 0
+        grayView.isHidden = false
         webView.addSubview(grayView)
     }
     
@@ -274,8 +278,10 @@ extension WebViewController : WebViewProtocol {
         self.shareList = shareList
         setUpGrayView()
         setUpExpandableButtonView(shareList: shareList)
+        expandableButtonView?.isHidden = false
     }
 }
+
 extension WebViewController : UIDocumentInteractionControllerDelegate{
     public func documentInteractionControllerViewControllerForPreview(_ controller: UIDocumentInteractionController) -> UIViewController{
         return self
