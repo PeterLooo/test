@@ -411,11 +411,6 @@ class BaseViewController: UIViewController {
     @objc func loadData() {
         self.noInternetErrorView.isHidden = true
         self.apiFailErrorView.isHidden = true
-        if self.baseLinkValue != nil {
-            self.handleLinkType(linkType: baseLinkType!, linkValue: baseLinkValue, linkText: "")
-            baseLinkValue = nil
-            baseLinkType = nil
-        }
     }
 
     //Note: 注意如果直接使用，要小心設計isNeedToPopVCwhenLoginClose事件
@@ -479,8 +474,9 @@ extension BaseViewController: MemberLoginOnTouchNavCloseProtocol {
 }
 extension BaseViewController: BaseViewProtocol {
     func onBindAccessToken(linkType: LinkType, linkValue: String?) {
-        self.baseLinkValue = linkValue
-        self.baseLinkType = linkType
+        handleLinkType(linkType: linkType, linkValue: linkValue, linkText: "")
+        baseLinkType = nil
+        baseLinkValue = nil
     }
     
     func onTouchService() {
@@ -722,10 +718,6 @@ extension BaseViewController {
     
     func handleLinkType(linkType: LinkType, linkValue: String?, linkText: String?, source: String? = nil) {
         handleLinkTypePush(linkType: linkType, linkValue: linkValue, linkText: linkText, paxToken: nil, source: source)
-    }
-
-    func handleLinkType(linkType: LinkType, linkValue: String?, linkText: String?, paxToken: String?, source: String? = nil) {
-        handleLinkTypePush(linkType: linkType, linkValue: linkValue, linkText: linkText, paxToken: paxToken, source: source)
     }
 
     private func handleLinkTypePush(linkType: LinkType, linkValue: String?, linkText: String?, paxToken: String?, source: String?) {
