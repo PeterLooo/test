@@ -252,7 +252,7 @@ extension WebViewController: ExpandableButtonViewDelegate {
 
     func webViewTurnGraySwitch() {
         
-       grayView.alpha = (grayView.alpha == 0) ? 0.7 : 0
+        grayView.alpha = (grayView.alpha == 0) ? 1 : 0
     }
     
     func didTapExpandableButton(buttonType: ExpandableButtonType, url: URL) {
