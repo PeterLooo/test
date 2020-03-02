@@ -2331,7 +2331,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = ColatourB2BDev_20191218;
 				SWIFT_OBJC_BRIDGING_HEADER = "ColatourB2B-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -2357,7 +2357,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = ColatourB2B_Dev_Profile_Distribution20200108;
 				SWIFT_OBJC_BRIDGING_HEADER = "ColatourB2B-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
