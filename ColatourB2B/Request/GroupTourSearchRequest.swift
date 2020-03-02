@@ -14,6 +14,8 @@ class GroupTourSearchRequest: NSObject {
     var selectedAirlineCode: GroupTourSearchInitResponse.AirlineCode?
     var selectedTourType: GroupTourSearchInitResponse.TourType?
     var isBookingTour: Bool = true
+    var minPrice: Int?
+    var maxPrice: Int?
     
     func getDictionary() -> [String:Any] {
         let params = ["Tour_Date": "\(startTourDate ?? "")"
@@ -22,7 +24,9 @@ class GroupTourSearchRequest: NSObject {
             , "Region_Code": selectedRegionCode?.regionCode ?? ""
             , "TourType_Code": selectedTourType?.tourTypeCode ?? ""
             , "BookingTour_Mark": isBookingTour
-            , "Tour_Days": tourDays ?? ""] as [String : Any]
+            , "Tour_Days": tourDays ?? ""
+            , "Max_Price": maxPrice ?? 200000
+            , "Min_Price": minPrice ?? 0] as [String : Any]
         
         return params
     }

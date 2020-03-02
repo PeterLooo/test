@@ -7,9 +7,11 @@
 //
 
 import UIKit
+
 protocol GroupIndexHeaderImageCellProtocol : NSObjectProtocol{
     func onTouchItem(item: IndexResponse.ModuleItem)
 }
+
 class GroupIndexHeaderImageCell: UITableViewCell {
 
     @IBOutlet weak var bannerImageView: BannerImageView!
@@ -22,10 +24,12 @@ class GroupIndexHeaderImageCell: UITableViewCell {
     private var itemList: [IndexResponse.ModuleItem] = []
     
     func setCell(itemList: [IndexResponse.ModuleItem], needUpdateBannerImage:Bool){
+        
         self.itemList = itemList
         urls = []
         smallUrls = []
         pageControl.numberOfPages = itemList.count
+        
         itemList.forEach({ (pic) in
             urls.append(pic.picUrl!)
         })
@@ -33,14 +37,15 @@ class GroupIndexHeaderImageCell: UITableViewCell {
         itemList.forEach { (smallPic) in
             smallUrls.append(smallPic.smallPicUrl!)
         }
-        bannerImageView.setImageWithUrl(picUrl: urls, smallPicUrl: smallUrls, isSkeleton: false, needUpdateBannerImage: needUpdateBannerImage)
         
+        bannerImageView.imageViewsURL = urls
+        bannerImageView.setImageWithUrl(picUrl: urls, smallPicUrl: smallUrls, isSkeleton: false, needUpdateBannerImage: needUpdateBannerImage)
         bannerImageView.delegate = self
     }
-    
 }
 
 extension GroupIndexHeaderImageCell: BannerImageViewProtocol {
+    
     func changePageControlFocus(index: Int) {
         self.pageControl.currentPage = index
     }

@@ -26,10 +26,11 @@ class BasePresenter: NSObject,BasePresenterProtocol {
     func getAccessToken(linkType: LinkType?, linkValue: String?){
         self.delegate?.onStartLoadingHandle(handleType: .ignore)
         AccountRepository.shared.getAccessToken(getLocalToken:false).subscribe(onSuccess: { (_) in
-            self.delegate?.loadData()
+            
             if linkType != nil {
                 self.delegate?.onBindAccessToken(linkType: linkType!, linkValue: linkValue)
             }
+            self.delegate?.loadData()
             self.delegate?.onCompletedLoadingHandle()
         }, onError: { (error) in
             self.delegate?.onApiErrorHandle(apiError: error as! APIError, handleType: .coverPlate)
