@@ -31,42 +31,30 @@ class NoticeViewController: BaseViewController {
     private var defaultNotiType: NotiType?
     private var importantList: [NotiItem] = [] {
         didSet{
-            self.orderUnreadHint.isHidden = true
-            if let _ = importantList.filter({$0.unreadMark == true}).first {
-                self.orderUnreadHint.isHidden = false
-            }
+            setTopPageSheetStatus(notiType: .important)
         }
     }
     
     private var noticeList: [NotiItem] = [] {
         didSet{
-            self.messageUnreadHint.isHidden = true
-            if let _ = noticeList.filter({$0.unreadMark == true}).first {
-                self.messageUnreadHint.isHidden = false
-            }
+            setTopPageSheetStatus(notiType: .noti)
         }
     }
     
     private var groupNewsList: [NotiItem] = [] {
         didSet{
-            self.groupNewsUnreadHint.isHidden = true
-            if let _ = groupNewsList.filter({$0.unreadMark == true}).first {
-                self.groupNewsUnreadHint.isHidden = false
-            }
+            setTopPageSheetStatus(notiType: .groupNews)
         }
     }
     
     private var airNewsList: [NotiItem] = [] {
         didSet{
-            self.airNewsUnreadHint.isHidden = true
-            if let _ = airNewsList.filter({$0.unreadMark == true}).first {
-                self.airNewsUnreadHint.isHidden = false
-            }
+            setTopPageSheetStatus(notiType: .airNews)
         }
     }
     
     private var tableViews:[NotificationTableView] = []
-    private var pageSize = 10
+    private var pageSize = 30
     private var isImportantLastPage = false
     private var isNotiLastPage = false
     private var isGroupNewsLastPage = false
@@ -233,6 +221,33 @@ class NoticeViewController: BaseViewController {
         self.pageButtonBottomLineLeading.constant = scrollOffset
         self.switchPageButton(sliderLeading: scrollOffset)
     }
+    
+    private func setTopPageSheetStatus(notiType: NotiType){
+        
+        switch notiType {
+        case .important:
+            self.orderUnreadHint.isHidden = true
+            if let _ = importantList.filter({$0.unreadMark == true}).first {
+                self.orderUnreadHint.isHidden = false
+            }
+        case .noti:
+            self.messageUnreadHint.isHidden = true
+            if let _ = noticeList.filter({$0.unreadMark == true}).first {
+                self.messageUnreadHint.isHidden = false
+            }
+        case .groupNews:
+            self.groupNewsUnreadHint.isHidden = true
+            if let _ = groupNewsList.filter({$0.unreadMark == true}).first {
+                self.groupNewsUnreadHint.isHidden = false
+            }
+        case .airNews:
+            self.airNewsUnreadHint.isHidden = true
+            if let _ = airNewsList.filter({$0.unreadMark == true}).first {
+                self.airNewsUnreadHint.isHidden = false
+            }
+        }
+    }
+    
 }
 
 extension NoticeViewController: NoticeViewProtocol {
@@ -359,11 +374,14 @@ extension NoticeViewController: NotificationTableViewProtocol {
         }
     }
     
-    func onTouchNoti(item: NotiItem) {
+    func onTouchNoti(item: NotiItem, notiType: NotiType) {
         
         if item.unreadMark == true {
             presenter?.setNoticeRead(noticeIdList: [item.notiId!])
+            item.unreadMark = false
         }
+        
+        setTopPageSheetStatus(notiType: notiType)
         
         if item.apiNotiType == "Message" {
             let vc = self.getVC(st: "NoticeDetail", vc: "NoticeDetailViewController") as! NoticeDetailViewController
