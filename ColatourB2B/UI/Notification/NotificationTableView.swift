@@ -9,7 +9,7 @@
 import UIKit
 
 protocol NotificationTableViewProtocol: NSObjectProtocol {
-    func onTouchNoti(item: NotiItem)
+    func onTouchNoti(item: NotiItem, notiType: NotiType)
     func onStartLoading(notiType: NotiType)
     func pullRefresh(notiType: NotiType)
 }
@@ -142,7 +142,7 @@ class NotificationTableView: UIView {
 
 extension NotificationTableView : NotificationItemCellProtocol {
     func onTouchItem(item: NotiItem) {
-        self.delegate?.onTouchNoti(item: item)
+        self.delegate?.onTouchNoti(item: item, notiType: self.notiType)
     }
 }
 
