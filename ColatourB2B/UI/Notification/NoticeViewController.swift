@@ -54,7 +54,7 @@ class NoticeViewController: BaseViewController {
     }
     
     private var tableViews:[NotificationTableView] = []
-    private var pageSize = 10
+    private var pageSize = 30
     private var isImportantLastPage = false
     private var isNotiLastPage = false
     private var isGroupNewsLastPage = false
