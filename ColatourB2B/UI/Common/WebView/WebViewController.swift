@@ -14,7 +14,8 @@ class WebViewController: BaseViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var borderView: UIView!
     @IBOutlet weak var progressView: UIProgressView!
     
-    var ges: UITapGestureRecognizer?
+    var swipeGes: UISwipeGestureRecognizer?
+    var tapGes: UITapGestureRecognizer?
     let grayView = UIView()
     var expandableButtonView: ExpandableButtonView?
     
@@ -213,14 +214,23 @@ class WebViewController: BaseViewController, UIGestureRecognizerDelegate {
 
     func setUpGrayView() {
         
-        ges = UITapGestureRecognizer(target: self, action: #selector(onTouchGrayView))
+        let directions: [UISwipeGestureRecognizer.Direction] = [.up, .down, .left, .right]
+        directions.forEach {
+            swipeGes = UISwipeGestureRecognizer(target: self, action: #selector(onTouchGrayView))
+            swipeGes?.direction = $0
+            grayView.addGestureRecognizer(swipeGes!)
+        }
         
+        tapGes = UITapGestureRecognizer(target: self, action: #selector(onTouchGrayView))
+        grayView.addGestureRecognizer(tapGes!)
+        
+        grayView.isMultipleTouchEnabled = true
         grayView.isUserInteractionEnabled = true
-        grayView.addGestureRecognizer(ges!)
         grayView.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
         grayView.backgroundColor = UIColor.black.withAlphaComponent(0.3)
         grayView.alpha = 0
         grayView.isHidden = false
+        
         webView.addSubview(grayView)
     }
     
@@ -294,7 +304,8 @@ extension WebViewController : WKNavigationDelegate {
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
         pringLog("decidePolicyFor navigationAction : \(navigationAction.request)")
         let url = navigationAction.request.url
-        checkUrlToGetApi(url: url)
+        let mainUrl = navigationAction.request.mainDocumentURL
+        checkUrlToGetApi(url: mainUrl)
         if url?.pathExtension == "doc" || url?.pathExtension == "pdf" || url?.pathExtension == "docx" {
             loadAndDisplayDocumentFrom(url: url!)
             decisionHandler(.cancel)
