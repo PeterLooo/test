@@ -24,6 +24,7 @@ class WebViewController: BaseViewController, UIGestureRecognizerDelegate {
     private var presenter: WebViewPresenterProtocol?
     private var isNeedToDimiss = false
     private var shareList: WebViewTourShareResponse.ItineraryShareData?
+    private var popUpWebView: WKWebView?
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -118,6 +119,14 @@ class WebViewController: BaseViewController, UIGestureRecognizerDelegate {
     }
     
     @objc func goBack(){
+        if popUpWebView != nil {
+            if popUpWebView?.canGoBack == false {
+                webViewDidClose(popUpWebView!)
+            } else {
+                self.popUpWebView?.goBack()
+            }
+            return
+        }
         if webView.canGoBack == false {
             self.dismiss(animated: true, completion: nil)
         } else {
@@ -126,10 +135,18 @@ class WebViewController: BaseViewController, UIGestureRecognizerDelegate {
     }
     
     @objc func goForward(){
+        if popUpWebView != nil {
+            popUpWebView?.goForward()
+            return
+        }
         self.webView.goForward()
     }
     
     @objc func popView(){
+        if popUpWebView != nil {
+            webViewDidClose(popUpWebView!)
+            return
+        }
         if isNeedToDimiss {
             self.dismiss(animated: true, completion: nil)
         }else{
@@ -368,20 +385,15 @@ extension WebViewController : WKUIDelegate {
             let url = navigationAction.request.url
             if url?.pathExtension == "doc" || url?.pathExtension == "pdf" || url?.pathExtension == "docx" {
                 loadAndDisplayDocumentFrom(url: url!)
-            }else if let url = url {
+            } else {
                 
-                let request = URLRequest(url:url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 30)
+                popUpWebView = WKWebView(frame: webView.frame, configuration: configuration)
+                popUpWebView!.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+                popUpWebView?.uiDelegate = self
+                popUpWebView?.navigationDelegate = self
+                view.addSubview(popUpWebView!)
                 
-                let newWebView = WKWebView(frame: webView.frame, configuration: configuration)
-                newWebView.load(request)
-                newWebView.uiDelegate = self
-                newWebView.navigationDelegate = self
-                
-                let vc = BaseViewController()
-                vc.view.addSubview(newWebView)
-                navigationController?.pushViewController(vc, animated: true)
-                
-                return newWebView
+                return popUpWebView
             }
         }
         return nil
@@ -389,7 +401,8 @@ extension WebViewController : WKUIDelegate {
     
     func webViewDidClose(_ webView: WKWebView) {
         pringLog("webViewDidClose")
-        self.navigationController?.popViewController(animated: true)
+        popUpWebView = nil
+        webView.removeFromSuperview()
     }
     
     //Note: 警告 javaScript視窗
