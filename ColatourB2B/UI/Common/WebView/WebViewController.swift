@@ -285,14 +285,14 @@ extension WebViewController: ExpandableButtonViewDelegate {
     func didTapExpandableButton(buttonType: ExpandableButtonType, url: URL) {
         
         switch buttonType {
+        case .Share:
+            shareInfo()
+            
         case .Forward:
             webView.load(URLRequest(url: url))
             
         case .DownloadWord:
             webView.load(URLRequest(url: url))
-            
-        case .Share:
-            shareInfo()
             
         case .Booking:
             webView.load(URLRequest(url: url))
