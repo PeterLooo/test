@@ -14,7 +14,6 @@ class WebViewController: BaseViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var borderView: UIView!
     @IBOutlet weak var progressView: UIProgressView!
     
-    var ges: UITapGestureRecognizer?
     let grayView = UIView()
     var expandableButtonView: ExpandableButtonView?
     
@@ -67,6 +66,8 @@ class WebViewController: BaseViewController, UIGestureRecognizerDelegate {
             let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalAndRemoteCacheData, timeoutInterval: 30)
             webView.load(request)
         }
+        
+        setUpGrayView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -201,7 +202,6 @@ class WebViewController: BaseViewController, UIGestureRecognizerDelegate {
                 self.presenter?.getTourShareList(tourCode: tourCode, tourDate: tourDate)
             }
         } else {
-            grayView.isHidden = true
             expandableButtonView?.isHidden = true
         }
     }
@@ -213,14 +213,23 @@ class WebViewController: BaseViewController, UIGestureRecognizerDelegate {
 
     func setUpGrayView() {
         
-        ges = UITapGestureRecognizer(target: self, action: #selector(onTouchGrayView))
-        
-        grayView.isUserInteractionEnabled = true
-        grayView.addGestureRecognizer(ges!)
         grayView.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
         grayView.backgroundColor = UIColor.black.withAlphaComponent(0.3)
         grayView.alpha = 0
-        grayView.isHidden = false
+        grayView.isMultipleTouchEnabled = true
+        grayView.isUserInteractionEnabled = true
+        
+        let tapGes = UITapGestureRecognizer(target: self, action: #selector(onTouchGrayView))
+        grayView.addGestureRecognizer(tapGes)
+        
+        var swipeGes = UISwipeGestureRecognizer()
+        let directions: [UISwipeGestureRecognizer.Direction] = [.up, .down, .left, .right]
+        directions.forEach {
+            swipeGes = UISwipeGestureRecognizer(target: self, action: #selector(onTouchGrayView))
+            swipeGes.direction = $0
+            grayView.addGestureRecognizer(swipeGes)
+        }
+        
         webView.addSubview(grayView)
     }
     
@@ -277,7 +286,6 @@ extension WebViewController: ExpandableButtonViewDelegate {
 extension WebViewController : WebViewProtocol {
     func onBindTourShareList(shareList: WebViewTourShareResponse.ItineraryShareData) {
         self.shareList = shareList
-        setUpGrayView()
         setUpExpandableButtonView(shareList: shareList)
         expandableButtonView?.isHidden = false
     }
@@ -294,7 +302,8 @@ extension WebViewController : WKNavigationDelegate {
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
         pringLog("decidePolicyFor navigationAction : \(navigationAction.request)")
         let url = navigationAction.request.url
-        checkUrlToGetApi(url: url)
+        let mainUrl = navigationAction.request.mainDocumentURL
+        checkUrlToGetApi(url: mainUrl)
         if url?.pathExtension == "doc" || url?.pathExtension == "pdf" || url?.pathExtension == "docx" {
             loadAndDisplayDocumentFrom(url: url!)
             decisionHandler(.cancel)
