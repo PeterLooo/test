@@ -30,40 +30,40 @@ class ExpandableButtonView: UIView {
     var buttonURLs: [String] = []
     var openButtons = true
     
+    var shareURL: String = ""
     var forwardURL: String = ""
     var downloadWordURL: String = ""
-    var shareURL: String = ""
     var bookingURL: String = ""
     
     let openButtonsImage = UIImage(named: "b2b_fab")
     let closeButtonsImage = UIImage(named: "b2b_fab_close")
     
+    let shareImage = UIImage(named: "b2b_fab_share")
     let forwardImage = UIImage(named: "b2b_fab_forward")
     let downloadWordImage = UIImage(named: "b2b_fab_download_word")
-    let shareImage = UIImage(named: "b2b_fab_share")
     let bookingImage = UIImage(named: "b2b_fab_form")
 
     func setUpButtons(shareList: WebViewTourShareResponse.ItineraryShareData) {
         
+        shareURL = shareList.shareUrl ?? ""
         forwardURL = shareList.forwardUrl ?? ""
         downloadWordURL = shareList.wordUrl ?? ""
-        shareURL = shareList.shareUrl ?? ""
         bookingURL = shareList.bookingUrl ?? ""
         
-        buttonURLs = [forwardURL, downloadWordURL, shareURL, bookingURL]
+        buttonURLs = [shareURL, forwardURL, downloadWordURL, bookingURL]
         buttonURLs = buttonURLs.filter {$0.isEmpty == false}
         
         for index in 0 ..< buttonURLs.count {
             
             switch buttonURLs[index] {
+            case shareURL:
+                buttonImages.append(shareImage!)
+                
             case forwardURL:
                 buttonImages.append(forwardImage!)
                 
             case downloadWordURL:
                 buttonImages.append(downloadWordImage!)
-                
-            case shareURL:
-                buttonImages.append(shareImage!)
                 
             case bookingURL:
                 buttonImages.append(bookingImage!)
@@ -132,18 +132,18 @@ class ExpandableButtonView: UIView {
         guard let okURL = URL(string: (button.accessibilityValue?.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed))!) else { return }
         
         switch button.accessibilityValue {
+        case shareURL:
+            self.delegate?.didTapExpandableButton(buttonType: .Share, url: okURL)
+            
         case forwardURL:
             self.delegate?.didTapExpandableButton(buttonType: .Forward, url: okURL)
             
         case downloadWordURL:
             self.delegate?.didTapExpandableButton(buttonType: .DownloadWord, url: okURL)
             
-        case shareURL:
-            self.delegate?.didTapExpandableButton(buttonType: .Share, url: okURL)
-            
         case bookingURL:
             self.delegate?.didTapExpandableButton(buttonType: .Booking, url: okURL)
-
+            
         default:
             ()
         }
