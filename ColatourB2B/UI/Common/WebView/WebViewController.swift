@@ -252,7 +252,7 @@ class WebViewController: BaseViewController, UIGestureRecognizerDelegate {
             grayView.addGestureRecognizer(swipeGes)
         }
         
-        webView.addSubview(grayView)
+        view.addSubview(grayView)
     }
     
     func setUpExpandableButtonView(shareList: WebViewTourShareResponse.ItineraryShareData) {
@@ -396,6 +396,7 @@ extension WebViewController : WKUIDelegate {
                 popUpWebView?.uiDelegate = self
                 popUpWebView?.navigationDelegate = self
                 view.addSubview(popUpWebView!)
+                view.bringSubviewToFront(grayView)
                 
                 return popUpWebView
             }
