@@ -16,6 +16,7 @@ class WebViewController: BaseViewController, UIGestureRecognizerDelegate {
     
     let grayView = UIView()
     var expandableButtonView: ExpandableButtonView?
+    private var lastContentOffset: CGFloat = 0
     
     var url: String?
     var webViewTitle = ""
@@ -217,9 +218,13 @@ class WebViewController: BaseViewController, UIGestureRecognizerDelegate {
         if compareUrl == tourUrlDev || compareUrl == tourUrlProd {
             if let tourCode = url?.valueOf("TourCode"), let tourDate = url?.valueOf("TourDate") {
                 self.presenter?.getTourShareList(tourCode: tourCode, tourDate: tourDate)
+                webView.scrollView.delegate = self
+                popUpWebView?.scrollView.delegate = self
             }
         } else {
             expandableButtonView?.isHidden = true
+            webView.scrollView.delegate = nil
+            popUpWebView?.scrollView.delegate = nil
         }
     }
     
@@ -254,18 +259,17 @@ class WebViewController: BaseViewController, UIGestureRecognizerDelegate {
         
         for duplicateView in webView.subviews {
             if duplicateView is ExpandableButtonView {
-               duplicateView.removeFromSuperview()
-           }
+                duplicateView.removeFromSuperview()
+            }
         }
-
-        let navHieght = self.navigationController?.navigationBar.frame.height
-        expandableButtonView = ExpandableButtonView(frame: CGRect(x: screenWidth - 75,
-                                                                  y: screenHeight - self.view.safeAreaInsets.bottom - statusBarHeight - navHieght! - 280,
-                                                                  width: 56, height: 256))
         
+        expandableButtonView = ExpandableButtonView(frame: CGRect(x: screenWidth - 75, y: screenHeight - 280, width: 56, height: 256))
         expandableButtonView?.delegate = self
         expandableButtonView?.setUpButtons(shareList: shareList)
-        webView.addSubview(expandableButtonView!)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.view.addSubview(self.expandableButtonView!)
+        }
     }
     
     func shareInfo() {
@@ -403,6 +407,7 @@ extension WebViewController : WKUIDelegate {
         pringLog("webViewDidClose")
         popUpWebView = nil
         webView.removeFromSuperview()
+        checkUrlToGetApi(url: self.webView.url)
     }
     
     //Note: 警告 javaScript視窗
@@ -456,6 +461,16 @@ extension WebViewController : WKUIDelegate {
         }))
         
         self.present(alertController, animated: true, completion: nil)
+    }
+}
+
+extension WebViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        if scrollView.contentOffset.y < 0 { return }
+        
+        expandableButtonView?.isHidden = lastContentOffset < scrollView.contentOffset.y
+        lastContentOffset = scrollView.contentOffset.y
     }
 }
 
