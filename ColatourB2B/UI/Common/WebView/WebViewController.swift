@@ -260,7 +260,7 @@ class WebViewController: BaseViewController, UIGestureRecognizerDelegate {
     
     func setUpExpandableButtonView(shareList: WebViewTourShareResponse.ItineraryShareData) {
         
-        for duplicateView in webView.subviews {
+        for duplicateView in view.subviews {
             if duplicateView is ExpandableButtonView {
                 duplicateView.removeFromSuperview()
             }
