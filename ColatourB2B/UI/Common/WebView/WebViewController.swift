@@ -120,6 +120,9 @@ class WebViewController: BaseViewController, UIGestureRecognizerDelegate {
     }
     
     @objc func goBack(){
+        
+        grayView.alpha = 0
+        
         if popUpWebView != nil {
             if popUpWebView?.canGoBack == false {
                 webViewDidClose(popUpWebView!)
@@ -268,7 +271,7 @@ class WebViewController: BaseViewController, UIGestureRecognizerDelegate {
         expandableButtonView?.delegate = self
         expandableButtonView?.setUpButtons(shareList: shareList)
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             self.view.addSubview(self.expandableButtonView!)
         }
     }
@@ -294,12 +297,24 @@ extension WebViewController: ExpandableButtonViewDelegate {
             shareInfo()
             
         case .Forward:
+            if popUpWebView != nil {
+                popUpWebView?.load(URLRequest(url: url))
+                return
+            }
             webView.load(URLRequest(url: url))
             
         case .DownloadWord:
+            if popUpWebView != nil {
+                popUpWebView?.load(URLRequest(url: url))
+                return
+            }
             webView.load(URLRequest(url: url))
             
         case .Booking:
+            if popUpWebView != nil {
+                popUpWebView?.load(URLRequest(url: url))
+                return
+            }
             webView.load(URLRequest(url: url))
         }
     }
