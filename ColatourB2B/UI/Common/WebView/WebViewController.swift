@@ -263,7 +263,8 @@ class WebViewController: BaseViewController, UIGestureRecognizerDelegate {
             }
         }
         
-        expandableButtonView = ExpandableButtonView(frame: CGRect(x: screenWidth - 75, y: screenHeight - 280, width: 56, height: 256))
+        let navHieght = self.navigationController?.navigationBar.frame.height
+        expandableButtonView = ExpandableButtonView(frame: CGRect(x: screenWidth - 75, y: screenHeight - statusBarHeight - navHieght! - 220, width: 56, height: 256))
         expandableButtonView?.delegate = self
         expandableButtonView?.setUpButtons(shareList: shareList)
         
