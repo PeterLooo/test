@@ -26,7 +26,8 @@ class WebViewController: BaseViewController, UIGestureRecognizerDelegate {
     private var isNeedToDimiss = false
     private var shareList: WebViewTourShareResponse.ItineraryShareData?
     private var popUpWebViews: [WKWebView] = []
-    private var mainUrl: URL?
+    
+    private var isFromExpandableButtonPopUpWebView = false
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -297,18 +298,15 @@ extension WebViewController: ExpandableButtonViewDelegate {
         case .Share:
             shareInfo()
             
-        case .Forward:
+        case .Forward, .Booking:
             if popUpWebViews.isEmpty == false {
                 popUpWebViews.last?.load(URLRequest(url: url))
+                isFromExpandableButtonPopUpWebView = true
                 return
             }
+            isFromExpandableButtonPopUpWebView = false
             webView.load(URLRequest(url: url))
-        case .Booking:
-            if popUpWebViews.isEmpty == false {
-                popUpWebViews.last?.load(URLRequest(url: url))
-                return
-            }
-            webView.load(URLRequest(url: url))
+        
         }
             
     }
@@ -333,8 +331,7 @@ extension WebViewController : WKNavigationDelegate {
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
         pringLog("decidePolicyFor navigationAction : \(navigationAction.request)")
         let url = navigationAction.request.url
-        mainUrl = navigationAction.request.mainDocumentURL
-//        checkUrlToGetApi(url: mainUrl)
+        
         if url?.pathExtension == "doc" || url?.pathExtension == "pdf" || url?.pathExtension == "docx" {
             loadAndDisplayDocumentFrom(url: url!)
             decisionHandler(.cancel)
@@ -378,7 +375,7 @@ extension WebViewController : WKNavigationDelegate {
         if popUpWebViews.isEmpty == false {
             checkUrlToGetApi(url: popUpWebViews.last?.url)
         }else{
-            checkUrlToGetApi(url: mainUrl)
+            checkUrlToGetApi(url: self.webView.url)
         }
         self.activityIndicator.stopAnimating()
     }
@@ -421,15 +418,15 @@ extension WebViewController : WKUIDelegate {
     
     func webViewDidClose(_ webView: WKWebView) {
         pringLog("webViewDidClose")
-        if popUpWebViews.last?.canGoBack == true {
+        if popUpWebViews.last?.canGoBack == true && isFromExpandableButtonPopUpWebView {
             goBack()
-            checkUrlToGetApi(url: mainUrl)
+            
         }else{
             popUpWebViews.removeLast()
             webView.removeFromSuperview()
-            checkUrlToGetApi(url: self.webView.url)
+            
         }
-        
+        checkUrlToGetApi(url: self.webView.url)
     }
     
     //Note: 警告 javaScript視窗
