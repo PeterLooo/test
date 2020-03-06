@@ -24,7 +24,7 @@ class WebViewPresenter: WebViewPresenterProtocol {
         accountRepositouy.getWebViewTourShareList(tourCode: tourCode, tourDate: tourDate).subscribe(onSuccess: { (model) in
             self.delegate?.onBindTourShareList(shareList: model)
         }, onError: { (error) in
-            ()
+            self.delegate?.onApiErrorHandle(apiError: error as! APIError, handleType: .custom)
         }).disposed(by: dispose)
     }
 }

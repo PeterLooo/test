@@ -11,7 +11,6 @@ import RxSwift
 
 enum ExpandableButtonType {
     case Forward
-    case DownloadWord
     case Share
     case Booking
 }
@@ -32,7 +31,6 @@ class ExpandableButtonView: UIView {
     
     var shareURL: String = ""
     var forwardURL: String = ""
-    var downloadWordURL: String = ""
     var bookingURL: String = ""
     
     let openButtonsImage = UIImage(named: "b2b_fab")
@@ -40,17 +38,15 @@ class ExpandableButtonView: UIView {
     
     let shareImage = UIImage(named: "b2b_fab_share")
     let forwardImage = UIImage(named: "b2b_fab_forward")
-    let downloadWordImage = UIImage(named: "b2b_fab_download_word")
     let bookingImage = UIImage(named: "b2b_fab_form")
 
     func setUpButtons(shareList: WebViewTourShareResponse.ItineraryShareData) {
         
         shareURL = shareList.shareUrl ?? ""
         forwardURL = shareList.forwardUrl ?? ""
-        downloadWordURL = shareList.wordUrl ?? ""
         bookingURL = shareList.bookingUrl ?? ""
         
-        buttonURLs = [shareURL, forwardURL, downloadWordURL, bookingURL]
+        buttonURLs = [shareURL, forwardURL, bookingURL]
         buttonURLs = buttonURLs.filter {$0.isEmpty == false}
         
         for index in 0 ..< buttonURLs.count {
@@ -61,9 +57,6 @@ class ExpandableButtonView: UIView {
                 
             case forwardURL:
                 buttonImages.append(forwardImage!)
-                
-            case downloadWordURL:
-                buttonImages.append(downloadWordImage!)
                 
             case bookingURL:
                 buttonImages.append(bookingImage!)
@@ -137,9 +130,6 @@ class ExpandableButtonView: UIView {
             
         case forwardURL:
             self.delegate?.didTapExpandableButton(buttonType: .Forward, url: okURL)
-            
-        case downloadWordURL:
-            self.delegate?.didTapExpandableButton(buttonType: .DownloadWord, url: okURL)
             
         case bookingURL:
             self.delegate?.didTapExpandableButton(buttonType: .Booking, url: okURL)
