@@ -363,6 +363,11 @@ extension APIManager {
         appendUrl = "?Tour_Code=\(tourCode)&Tour_Date=\(tourDate)"
         return manager(method: .get, appendUrl: appendUrl, url: APIUrl.portalApi(type: .tourShare), parameters: nil, appendHeaders: nil)
     }
+    
+    func getAirSearchInit()-> Single<[String: Any]> {
+        return AppHelper.shared.getJson(forResource: "TKTSearchInit")
+        
+    }
 }
 
 extension APIManager {

@@ -329,12 +329,23 @@
 		38E9923A23B0B5DF00E28271 /* BooleanButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E9923923B0B5DF00E28271 /* BooleanButton.swift */; };
 		38E9923B23B0B5DF00E28271 /* BooleanButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E9923923B0B5DF00E28271 /* BooleanButton.swift */; };
 		9196F236CE205CFA47F4C95B /* Pods_ColatourB2BDev.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00BEF28893EA23CD1FFC87FB /* Pods_ColatourB2BDev.framework */; };
+		A1068F4A24161A2F00710DC4 /* TKTSearchInit.json in Resources */ = {isa = PBXBuildFile; fileRef = A1068F4924161A2F00710DC4 /* TKTSearchInit.json */; };
 		A12808A823F7937100287B9F /* PriceRangeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12808A723F7937100287B9F /* PriceRangeSlider.swift */; };
 		A12808A923F7937100287B9F /* PriceRangeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12808A723F7937100287B9F /* PriceRangeSlider.swift */; };
 		A1876A842415D67D00855DE6 /* AirTicketSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1876A832415D67D00855DE6 /* AirTicketSearchViewController.swift */; };
 		A1876A852415D67D00855DE6 /* AirTicketSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1876A832415D67D00855DE6 /* AirTicketSearchViewController.swift */; };
 		A1876A882415D71400855DE6 /* AirTicketSearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1876A872415D71400855DE6 /* AirTicketSearchResponse.swift */; };
 		A1876A892415D71400855DE6 /* AirTicketSearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1876A872415D71400855DE6 /* AirTicketSearchResponse.swift */; };
+		A1876A8C2415E40300855DE6 /* TKTSearch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1876A8B2415E40300855DE6 /* TKTSearch.storyboard */; };
+		A1876A8D2415E40300855DE6 /* TKTSearch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1876A8B2415E40300855DE6 /* TKTSearch.storyboard */; };
+		A1876A8F2415EFEE00855DE6 /* GroupAirCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1876A8E2415EFEE00855DE6 /* GroupAirCell.swift */; };
+		A1876A902415EFEE00855DE6 /* GroupAirCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1876A8E2415EFEE00855DE6 /* GroupAirCell.swift */; };
+		A1876A922415FC9A00855DE6 /* AirTicketSearchProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1876A912415FC9A00855DE6 /* AirTicketSearchProtocol.swift */; };
+		A1876A932415FC9A00855DE6 /* AirTicketSearchProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1876A912415FC9A00855DE6 /* AirTicketSearchProtocol.swift */; };
+		A1876A952415FCA700855DE6 /* AirTicketSearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1876A942415FCA700855DE6 /* AirTicketSearchPresenter.swift */; };
+		A1876A962415FCA700855DE6 /* AirTicketSearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1876A942415FCA700855DE6 /* AirTicketSearchPresenter.swift */; };
+		A1876A982415FDCA00855DE6 /* TKTRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1876A972415FDCA00855DE6 /* TKTRepository.swift */; };
+		A1876A992415FDCA00855DE6 /* TKTRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1876A972415FDCA00855DE6 /* TKTRepository.swift */; };
 		A1DB93DE24066B5D00AE427C /* WebViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DB93DD24066B5D00AE427C /* WebViewProtocol.swift */; };
 		A1DB93DF24066B5D00AE427C /* WebViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DB93DD24066B5D00AE427C /* WebViewProtocol.swift */; };
 		A1DB93E124066B8E00AE427C /* WebViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DB93E024066B8E00AE427C /* WebViewPresenter.swift */; };
@@ -608,9 +619,15 @@
 		38E9923923B0B5DF00E28271 /* BooleanButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BooleanButton.swift; sourceTree = "<group>"; };
 		732B40A95C148E8D08B6AD90 /* Pods-ColatourB2BDev.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ColatourB2BDev.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ColatourB2BDev/Pods-ColatourB2BDev.debug.xcconfig"; sourceTree = "<group>"; };
 		987A0E450DD4AC32A30375C6 /* Pods-ColatourB2B.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ColatourB2B.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ColatourB2B/Pods-ColatourB2B.debug.xcconfig"; sourceTree = "<group>"; };
+		A1068F4924161A2F00710DC4 /* TKTSearchInit.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = TKTSearchInit.json; path = ../../../../../Colatour/colatourTests/Mock/TKTSearchInit.json; sourceTree = "<group>"; };
 		A12808A723F7937100287B9F /* PriceRangeSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceRangeSlider.swift; sourceTree = "<group>"; };
 		A1876A832415D67D00855DE6 /* AirTicketSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirTicketSearchViewController.swift; sourceTree = "<group>"; };
 		A1876A872415D71400855DE6 /* AirTicketSearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirTicketSearchResponse.swift; sourceTree = "<group>"; };
+		A1876A8B2415E40300855DE6 /* TKTSearch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TKTSearch.storyboard; sourceTree = "<group>"; };
+		A1876A8E2415EFEE00855DE6 /* GroupAirCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupAirCell.swift; sourceTree = "<group>"; };
+		A1876A912415FC9A00855DE6 /* AirTicketSearchProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirTicketSearchProtocol.swift; sourceTree = "<group>"; };
+		A1876A942415FCA700855DE6 /* AirTicketSearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirTicketSearchPresenter.swift; sourceTree = "<group>"; };
+		A1876A972415FDCA00855DE6 /* TKTRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TKTRepository.swift; sourceTree = "<group>"; };
 		A1DB93DD24066B5D00AE427C /* WebViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewProtocol.swift; sourceTree = "<group>"; };
 		A1DB93E024066B8E00AE427C /* WebViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewPresenter.swift; sourceTree = "<group>"; };
 		A1DB93E324066EC500AE427C /* WebViewTourShareResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewTourShareResponse.swift; sourceTree = "<group>"; };
@@ -971,6 +988,7 @@
 				382EF48223BEF93A0002BAB0 /* GroupReponsitory.swift */,
 				3848DA8023C72FA600EA0ED0 /* NoticeRepository.swift */,
 				0650775D23ED55F60067377C /* ContactInfoRepository.swift */,
+				A1876A972415FDCA00855DE6 /* TKTRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -1102,6 +1120,7 @@
 		38BCDA2323A3766100D59910 /* StroyBoard */ = {
 			isa = PBXGroup;
 			children = (
+				A1876A8A2415E32100855DE6 /* TKT */,
 				0650776823ED6BFB0067377C /* ContactService */,
 				C70EEF4E23EA545300D67FF4 /* Bulletin */,
 				C70EEF4C23EA545200D67FF4 /* VersionRule */,
@@ -1236,7 +1255,11 @@
 		A1876A822415D63C00855DE6 /* TKTSearch */ = {
 			isa = PBXGroup;
 			children = (
+				A1068F4924161A2F00710DC4 /* TKTSearchInit.json */,
 				A1876A832415D67D00855DE6 /* AirTicketSearchViewController.swift */,
+				A1876A912415FC9A00855DE6 /* AirTicketSearchProtocol.swift */,
+				A1876A942415FCA700855DE6 /* AirTicketSearchPresenter.swift */,
+				A1876A8E2415EFEE00855DE6 /* GroupAirCell.swift */,
 			);
 			path = TKTSearch;
 			sourceTree = "<group>";
@@ -1247,6 +1270,14 @@
 				A1876A872415D71400855DE6 /* AirTicketSearchResponse.swift */,
 			);
 			path = AirTIcket;
+			sourceTree = "<group>";
+		};
+		A1876A8A2415E32100855DE6 /* TKT */ = {
+			isa = PBXGroup;
+			children = (
+				A1876A8B2415E40300855DE6 /* TKTSearch.storyboard */,
+			);
+			path = TKT;
 			sourceTree = "<group>";
 		};
 		A1DB93E6240675D000AE427C /* WebView */ = {
@@ -1521,6 +1552,7 @@
 				0650775B23ED52970067377C /* ContactInfoCell.xib in Resources */,
 				3802A19D23C8542800CD2EF2 /* SalseInfoCell.xib in Resources */,
 				385B54FA23BDC4C800BE1476 /* NotificationItemCell.xib in Resources */,
+				A1876A8C2415E40300855DE6 /* TKTSearch.storyboard in Resources */,
 				381B12B823C48D440030BACE /* GroupNavigationView.xib in Resources */,
 				3817E4FE23A33C8500ED8609 /* Assets.xcassets in Resources */,
 				06DA4F8A23E92260001B7DF1 /* MessageSendNotificationListCell.xib in Resources */,
@@ -1555,6 +1587,7 @@
 			files = (
 				C7C41C4723C724E900F97057 /* NoticeDetailContentCell.xib in Resources */,
 				38E68AC023B5AE30006BC4DD /* Calendar.storyboard in Resources */,
+				A1876A8D2415E40300855DE6 /* TKTSearch.storyboard in Resources */,
 				06DA4F8B23E92260001B7DF1 /* MessageSendNotificationListCell.xib in Resources */,
 				3817E52A23A33C9500ED8609 /* LaunchScreen.storyboard in Resources */,
 				06DA4F9323E922C0001B7DF1 /* MessageSend.storyboard in Resources */,
@@ -1576,6 +1609,7 @@
 				3802A19423C8522F00CD2EF2 /* Sales.storyboard in Resources */,
 				38871EB723D55E2F007ED33D /* GroupIndexHeaderImageCell.xib in Resources */,
 				38E68AC223B5AE30006BC4DD /* Common.storyboard in Resources */,
+				A1068F4A24161A2F00710DC4 /* TKTSearchInit.json in Resources */,
 				38E68ABE23B5AE30006BC4DD /* SelectOption.storyboard in Resources */,
 				38BCDA0823A367D000D59910 /* LoadingView.xib in Resources */,
 				38BCDA2D23A37B5D00D59910 /* MemberIndex.storyboard in Resources */,
@@ -1798,6 +1832,7 @@
 				3848DA7E23C7289A00EA0ED0 /* NoticePresenter.swift in Sources */,
 				38BCD91C23A3457900D59910 /* AccountRepository.swift in Sources */,
 				38AFC40623CD521C00983886 /* SalesPresenter.swift in Sources */,
+				A1876A922415FC9A00855DE6 /* AirTicketSearchProtocol.swift in Sources */,
 				06610FDA240775AC00E87225 /* ExpandableButtonView.swift in Sources */,
 				38BCDA1B23A36AC100D59910 /* TabBarProtocol.swift in Sources */,
 				38BCD9D023A3652200D59910 /* VerifyModel.swift in Sources */,
@@ -1854,6 +1889,7 @@
 				38BCD98323A3484300D59910 /* DateComponentExtension.swift in Sources */,
 				38BCD97123A3484300D59910 /* FirebaseEvent.swift in Sources */,
 				381B12AF23C465AE0030BACE /* AirTicketViewController.swift in Sources */,
+				A1876A952415FCA700855DE6 /* AirTicketSearchPresenter.swift in Sources */,
 				38BCDA1823A3696800D59910 /* WebViewController.swift in Sources */,
 				C78F071923E7F2AD009C1183 /* PopTextViewController.swift in Sources */,
 				38E9923723B06AFA00E28271 /* BasePresenter.swift in Sources */,
@@ -1884,6 +1920,7 @@
 				C7C623CD23E2C71600A2D8B0 /* GroupTourSearchUrlResponse.swift in Sources */,
 				0650775E23ED55F60067377C /* ContactInfoRepository.swift in Sources */,
 				38BCD98D23A3484300D59910 /* ShareFunc.swift in Sources */,
+				A1876A982415FDCA00855DE6 /* TKTRepository.swift in Sources */,
 				384B110323C2BD33000E2B41 /* AirTicketProtocol.swift in Sources */,
 				387FBF0F23ACCEF4005412F1 /* LoginViewController.swift in Sources */,
 				C7DA175D23D70261006A8803 /* GroupTourSearchRequest.swift in Sources */,
@@ -1896,6 +1933,7 @@
 				38BCD97F23A3484300D59910 /* UIFontExtenstion.swift in Sources */,
 				C7E15BF123D18CB0004C20A0 /* CustomPickerView.swift in Sources */,
 				38BCD92F23A345FA00D59910 /* ColorHexUtil.swift in Sources */,
+				A1876A8F2415EFEE00855DE6 /* GroupAirCell.swift in Sources */,
 				C711754023BF40DA00555D8C /* MorePresenter.swift in Sources */,
 				A1876A882415D71400855DE6 /* AirTicketSearchResponse.swift in Sources */,
 				38BCD94623A346B800D59910 /* APIDefine.swift in Sources */,
@@ -1972,6 +2010,7 @@
 				3848DA7F23C7289A00EA0ED0 /* NoticePresenter.swift in Sources */,
 				38BCD91D23A3457900D59910 /* AccountRepository.swift in Sources */,
 				38AFC40723CD521C00983886 /* SalesPresenter.swift in Sources */,
+				A1876A932415FC9A00855DE6 /* AirTicketSearchProtocol.swift in Sources */,
 				06610FDB240775AC00E87225 /* ExpandableButtonView.swift in Sources */,
 				38BCDA1C23A36AC100D59910 /* TabBarProtocol.swift in Sources */,
 				38BCD9D123A3652200D59910 /* VerifyModel.swift in Sources */,
@@ -2028,6 +2067,7 @@
 				38BCD98423A3484300D59910 /* DateComponentExtension.swift in Sources */,
 				38BCD97223A3484300D59910 /* FirebaseEvent.swift in Sources */,
 				381B12B023C465AE0030BACE /* AirTicketViewController.swift in Sources */,
+				A1876A962415FCA700855DE6 /* AirTicketSearchPresenter.swift in Sources */,
 				38BCDA1923A3696800D59910 /* WebViewController.swift in Sources */,
 				C78F071A23E7F2AD009C1183 /* PopTextViewController.swift in Sources */,
 				38E9923823B06AFA00E28271 /* BasePresenter.swift in Sources */,
@@ -2058,6 +2098,7 @@
 				C7C623CE23E2C71600A2D8B0 /* GroupTourSearchUrlResponse.swift in Sources */,
 				0650775F23ED55F60067377C /* ContactInfoRepository.swift in Sources */,
 				38BCD98E23A3484300D59910 /* ShareFunc.swift in Sources */,
+				A1876A992415FDCA00855DE6 /* TKTRepository.swift in Sources */,
 				384B110423C2BD33000E2B41 /* AirTicketProtocol.swift in Sources */,
 				387FBF1023ACCEF4005412F1 /* LoginViewController.swift in Sources */,
 				C7DA175E23D70261006A8803 /* GroupTourSearchRequest.swift in Sources */,
@@ -2070,6 +2111,7 @@
 				38BCD98023A3484300D59910 /* UIFontExtenstion.swift in Sources */,
 				C7E15BF223D18CB0004C20A0 /* CustomPickerView.swift in Sources */,
 				38BCD93023A345FA00D59910 /* ColorHexUtil.swift in Sources */,
+				A1876A902415EFEE00855DE6 /* GroupAirCell.swift in Sources */,
 				C711754123BF40DA00555D8C /* MorePresenter.swift in Sources */,
 				A1876A892415D71400855DE6 /* AirTicketSearchResponse.swift in Sources */,
 				38BCD94723A346B800D59910 /* APIDefine.swift in Sources */,
