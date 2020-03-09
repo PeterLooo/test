@@ -180,7 +180,8 @@ class BaseViewController: UIViewController {
     private var navLeftType: NavLeftType = .defaultType
     private var navMidType: NavMidType = .textTitle
     private var navRightType: NavRightType = .nothing
-
+    private var baseLinkType: LinkType?
+    private var baseLinkValue: String?
     private var isNavHideWhenSwipe = false
     private var isNavShadowEnable = true
     private var isNavHidesBarsOnSwipe = false
@@ -319,8 +320,9 @@ class BaseViewController: UIViewController {
             self.handleNoInternetError(handleType: handleType)
 
         case .apiForbiddenException:
-            basePresenter?.getAccessToken()
-
+            
+            basePresenter?.getAccessToken(linkType: baseLinkType, linkValue: baseLinkValue)
+            
         case .apiFailException:
             self.handleApiFailError(handleType: handleType, alertMsg: apiError.alertMsg, isAlertWithContactService: true)
         case .apiFailForUserException:
@@ -471,6 +473,12 @@ extension BaseViewController: MemberLoginOnTouchNavCloseProtocol {
     }
 }
 extension BaseViewController: BaseViewProtocol {
+    func onBindAccessToken(linkType: LinkType, linkValue: String?) {
+        handleLinkType(linkType: linkType, linkValue: linkValue, linkText: "")
+        baseLinkType = nil
+        baseLinkValue = nil
+    }
+    
     func onTouchService() {
         let vc = getVC(st: "ContactInfo", vc: "ContactInfo") as! ContactInfoViewController
         navigationController?.pushViewController(vc, animated: true)
@@ -703,16 +711,19 @@ extension BaseViewController {
 }
 
 extension BaseViewController {
+    
+    func getNotiAccessTokenWithLink(linkType: LinkType, linkValue: String?) {
+        self.basePresenter?.getAccessToken(linkType: linkType, linkValue: linkValue)
+    }
+    
     func handleLinkType(linkType: LinkType, linkValue: String?, linkText: String?, source: String? = nil) {
         handleLinkTypePush(linkType: linkType, linkValue: linkValue, linkText: linkText, paxToken: nil, source: source)
     }
 
-    func handleLinkType(linkType: LinkType, linkValue: String?, linkText: String?, paxToken: String?, source: String? = nil) {
-        handleLinkTypePush(linkType: linkType, linkValue: linkValue, linkText: linkText, paxToken: paxToken, source: source)
-    }
-
     private func handleLinkTypePush(linkType: LinkType, linkValue: String?, linkText: String?, paxToken: String?, source: String?) {
         var vc: UIViewController?
+        self.baseLinkType = linkType
+        self.baseLinkValue = linkValue
         switch linkType {
         case .openAppWebView:
             if let url = linkValue {
@@ -722,6 +733,12 @@ extension BaseViewController {
                     }else{
                         vc = getVC(st: "Common", vc: "WebViewController") as! WebViewController
                         (vc as! WebViewController).setVCwith(url: url, title: linkText ?? "")
+                        (vc as! WebViewController).setDismissButton()
+                        let nav = UINavigationController(rootViewController: vc!)
+                        nav.modalPresentationStyle = .fullScreen
+                        nav.restorationIdentifier = "WebViewControllerNavigationController"
+                        self.present(nav, animated: true)
+                        return
                     }
                 }
             }
@@ -763,11 +780,30 @@ extension BaseViewController {
         case .updateDate:
             
             ()
+        
+        case .groupNoti:
+            if self.tabBarController?.viewControllers?[2].restorationIdentifier == "NoticeNavigationController" {
+                if let notiNav = self.tabBarController?.viewControllers?[2] {
+                    let notiVc = (notiNav as! UINavigationController).viewControllers.first
+                    (notiVc as! NoticeViewController).setVC(defaultNoti: .groupNews)
+                }
+            }
+            self.tabBarController?.selectedIndex = 2
+            
+        case .airNoti:
+            if self.tabBarController?.viewControllers?[2].restorationIdentifier == "NoticeNavigationController" {
+                if let notiNav = self.tabBarController?.viewControllers?[2] {
+                    let notiVc = (notiNav as! UINavigationController).viewControllers.first
+                    (notiVc as! NoticeViewController).setVC(defaultNoti: .airNews)
+                }
+            }
+            self.tabBarController?.selectedIndex = 2
+            
         case .unknown:
-            //Note: doNothing
-            ()
+        //Note: doNothing
+        ()
         }
-
+        
         if let v = vc {
             self.navigationController?.pushViewController(v, animated: true)
         }

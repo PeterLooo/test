@@ -14,13 +14,24 @@ class WebViewController: BaseViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var borderView: UIView!
     @IBOutlet weak var progressView: UIProgressView!
     
+    let grayView = UIView()
+    var expandableButtonView: ExpandableButtonView?
+    private var lastContentOffset: CGFloat = 0
+    
     var url: String?
     var webViewTitle = ""
     var webView: WKWebView!
     var navLeftButtonType: NavLeftType = .defaultType
-    
+    private var presenter: WebViewPresenterProtocol?
     private var isNeedToDimiss = false
+    private var shareList: WebViewTourShareResponse.ItineraryShareData?
+    private var popUpWebView: WKWebView?
     
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        
+        presenter = WebViewPresenter(delegate: self)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -57,6 +68,8 @@ class WebViewController: BaseViewController, UIGestureRecognizerDelegate {
             let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalAndRemoteCacheData, timeoutInterval: 30)
             webView.load(request)
         }
+        
+        setUpGrayView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -69,26 +82,18 @@ class WebViewController: BaseViewController, UIGestureRecognizerDelegate {
     
     func setNavigationItem(){
         
-        let backImage = #imageLiteral(resourceName: "arrow_back_purple").withRenderingMode(.alwaysOriginal)
-        let nextImage = #imageLiteral(resourceName: "arrow_next_purple").withRenderingMode(.alwaysOriginal)
-        let closeImage = #imageLiteral(resourceName: "close")
+        let backImage = #imageLiteral(resourceName: "arrow_back_purple").withRenderingMode(.alwaysTemplate)
+        let nextImage = #imageLiteral(resourceName: "arrow_next_purple").withRenderingMode(.alwaysTemplate)
+        let closeImage = #imageLiteral(resourceName: "close").withRenderingMode(.alwaysTemplate)
         
         let back = UIBarButtonItem.init(image: backImage, style: .plain, target: self, action: #selector(self.goBack))
         let forward = UIBarButtonItem.init(image: nextImage, style: .plain, target: self, action: #selector(self.goForward))
         let close = UIBarButtonItem.init(image: closeImage, style: .plain, target: self, action: #selector(self.popView))
-        close.tintColor = UIColor(named: "通用綠")
         
         if #available(iOS 11, *) {
             back.imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
             forward.imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 10)
             close.imageInsets = UIEdgeInsets(top: 1, left: 0, bottom: 0, right: 0)
-        }
-        if self.webView.canGoBack == true{
-            back.image = UIImage(named: "arrow_back_purple")
-            back.isEnabled = true
-        }else{
-            back.image = UIImage(named: "arrow_back_gray")
-            back.isEnabled = false
         }
         
         if self.webView.canGoForward == true{
@@ -115,14 +120,37 @@ class WebViewController: BaseViewController, UIGestureRecognizerDelegate {
     }
     
     @objc func goBack(){
-        self.webView.goBack()
+        
+        grayView.alpha = 0
+        
+        if popUpWebView != nil {
+            if popUpWebView?.canGoBack == false {
+                webViewDidClose(popUpWebView!)
+            } else {
+                self.popUpWebView?.goBack()
+            }
+            return
+        }
+        if webView.canGoBack == false {
+            self.dismiss(animated: true, completion: nil)
+        } else {
+            self.webView.goBack()
+        }
     }
     
     @objc func goForward(){
+        if popUpWebView != nil {
+            popUpWebView?.goForward()
+            return
+        }
         self.webView.goForward()
     }
     
     @objc func popView(){
+        if popUpWebView != nil {
+            webViewDidClose(popUpWebView!)
+            return
+        }
         if isNeedToDimiss {
             self.dismiss(animated: true, completion: nil)
         }else{
@@ -182,6 +210,122 @@ class WebViewController: BaseViewController, UIGestureRecognizerDelegate {
             }
         }.resume()
     }
+    
+    private func checkUrlToGetApi(url:URL?){
+        var urlPathComponents = url?.pathComponents.joined(separator: "/")
+        urlPathComponents?.removeFirst()
+        let urlHost = url?.host
+        let compareUrl = "\(urlHost ?? "")\(urlPathComponents ?? "")"
+        let tourUrlDev = "ntestb2b.colatour.com.tw/R10T_TourSale/R10T13_TourItinerary.aspx"
+        let tourUrlProd = "b2b.colatour.com.tw/R10T_TourSale/R10T13_TourItinerary.aspx"
+        if compareUrl == tourUrlDev || compareUrl == tourUrlProd {
+            if let tourCode = url?.valueOf("TourCode"), let tourDate = url?.valueOf("TourDate") {
+                self.presenter?.getTourShareList(tourCode: tourCode, tourDate: tourDate)
+                webView.scrollView.delegate = self
+                popUpWebView?.scrollView.delegate = self
+            }
+        } else {
+            expandableButtonView?.isHidden = true
+            webView.scrollView.delegate = nil
+            popUpWebView?.scrollView.delegate = nil
+        }
+    }
+    
+    @objc func onTouchGrayView() {
+        
+        expandableButtonView?.onTouchBaseButton()
+    }
+
+    func setUpGrayView() {
+        
+        grayView.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+        grayView.backgroundColor = UIColor.black.withAlphaComponent(0.3)
+        grayView.alpha = 0
+        grayView.isMultipleTouchEnabled = true
+        grayView.isUserInteractionEnabled = true
+        
+        let tapGes = UITapGestureRecognizer(target: self, action: #selector(onTouchGrayView))
+        grayView.addGestureRecognizer(tapGes)
+        
+        var swipeGes = UISwipeGestureRecognizer()
+        let directions: [UISwipeGestureRecognizer.Direction] = [.up, .down, .left, .right]
+        directions.forEach {
+            swipeGes = UISwipeGestureRecognizer(target: self, action: #selector(onTouchGrayView))
+            swipeGes.direction = $0
+            grayView.addGestureRecognizer(swipeGes)
+        }
+        
+        view.addSubview(grayView)
+    }
+    
+    func setUpExpandableButtonView(shareList: WebViewTourShareResponse.ItineraryShareData) {
+        
+        for duplicateView in view.subviews {
+            if duplicateView is ExpandableButtonView {
+                duplicateView.removeFromSuperview()
+            }
+        }
+        
+        let navHieght = self.navigationController?.navigationBar.frame.height
+        expandableButtonView = ExpandableButtonView(frame: CGRect(x: screenWidth - 75, y: screenHeight - statusBarHeight - navHieght! - 220, width: 56, height: 256))
+        expandableButtonView?.delegate = self
+        expandableButtonView?.setUpButtons(shareList: shareList)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.view.addSubview(self.expandableButtonView!)
+        }
+    }
+    
+    func shareInfo() {
+        
+        let activityVC = UIActivityViewController(activityItems: [shareList?.shareInfo ?? "Share", shareList?.shareUrl ?? ""], applicationActivities: nil)
+        self.present(activityVC, animated: true, completion: nil)
+    }
+}
+
+extension WebViewController: ExpandableButtonViewDelegate {
+
+    func webViewTurnGraySwitch() {
+        
+        grayView.alpha = (grayView.alpha == 0) ? 1 : 0
+    }
+    
+    func didTapExpandableButton(buttonType: ExpandableButtonType, url: URL) {
+        
+        switch buttonType {
+        case .Share:
+            shareInfo()
+            
+        case .Forward:
+            if popUpWebView != nil {
+                popUpWebView?.load(URLRequest(url: url))
+                return
+            }
+            webView.load(URLRequest(url: url))
+            
+        case .DownloadWord:
+            if popUpWebView != nil {
+                popUpWebView?.load(URLRequest(url: url))
+                return
+            }
+            webView.load(URLRequest(url: url))
+            
+        case .Booking:
+            if popUpWebView != nil {
+                popUpWebView?.load(URLRequest(url: url))
+                return
+            }
+            webView.load(URLRequest(url: url))
+        }
+    }
+}
+
+extension WebViewController : WebViewProtocol {
+    func onBindTourShareList(shareList: WebViewTourShareResponse.ItineraryShareData) {
+        self.shareList = shareList
+        setUpExpandableButtonView(shareList: shareList)
+        expandableButtonView?.isHidden = false
+    }
 }
 
 extension WebViewController : UIDocumentInteractionControllerDelegate{
@@ -195,6 +339,8 @@ extension WebViewController : WKNavigationDelegate {
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
         pringLog("decidePolicyFor navigationAction : \(navigationAction.request)")
         let url = navigationAction.request.url
+        let mainUrl = navigationAction.request.mainDocumentURL
+        checkUrlToGetApi(url: mainUrl)
         if url?.pathExtension == "doc" || url?.pathExtension == "pdf" || url?.pathExtension == "docx" {
             loadAndDisplayDocumentFrom(url: url!)
             decisionHandler(.cancel)
@@ -233,7 +379,7 @@ extension WebViewController : WKNavigationDelegate {
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         pringLog("didFinish")
-        self.webViewTitle = webView.title!
+        self.webViewTitle = self.webView.title!
         setNavigationItem()
         self.activityIndicator.stopAnimating()
     }
@@ -259,20 +405,16 @@ extension WebViewController : WKUIDelegate {
             let url = navigationAction.request.url
             if url?.pathExtension == "doc" || url?.pathExtension == "pdf" || url?.pathExtension == "docx" {
                 loadAndDisplayDocumentFrom(url: url!)
-            }else if let url = url {
+            } else {
                 
-                let request = URLRequest(url:url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 30)
+                popUpWebView = WKWebView(frame: webView.frame, configuration: configuration)
+                popUpWebView!.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+                popUpWebView?.uiDelegate = self
+                popUpWebView?.navigationDelegate = self
+                view.addSubview(popUpWebView!)
+                view.bringSubviewToFront(grayView)
                 
-                let newWebView = WKWebView(frame: webView.frame, configuration: configuration)
-                newWebView.load(request)
-                newWebView.uiDelegate = self
-                newWebView.navigationDelegate = self
-                
-                let vc = BaseViewController()
-                vc.view.addSubview(newWebView)
-                navigationController?.pushViewController(vc, animated: true)
-                
-                return newWebView
+                return popUpWebView
             }
         }
         return nil
@@ -280,7 +422,9 @@ extension WebViewController : WKUIDelegate {
     
     func webViewDidClose(_ webView: WKWebView) {
         pringLog("webViewDidClose")
-        self.navigationController?.popViewController(animated: true)
+        popUpWebView = nil
+        webView.removeFromSuperview()
+        checkUrlToGetApi(url: self.webView.url)
     }
     
     //Note: 警告 javaScript視窗
@@ -337,10 +481,26 @@ extension WebViewController : WKUIDelegate {
     }
 }
 
+extension WebViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        if scrollView.contentOffset.y < 0 { return }
+        
+        expandableButtonView?.isHidden = lastContentOffset < scrollView.contentOffset.y
+        lastContentOffset = scrollView.contentOffset.y
+    }
+}
+
 extension WebViewController {
     func pringLog(_ text: String){
         #if DEBUG
         print("======> \(text)")
         #endif
+    }
+}
+extension URL {
+    func valueOf(_ queryParamaterName: String) -> String? {
+        guard let url = URLComponents(string: self.absoluteString) else { return nil }
+        return url.queryItems?.first(where: { $0.name == queryParamaterName })?.value
     }
 }

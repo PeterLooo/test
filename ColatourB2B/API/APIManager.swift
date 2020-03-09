@@ -309,7 +309,7 @@ extension APIManager {
     }
 
     func getNoticeList(pageIndex: Int) -> Single<[String:Any]> {
-        let pageSize = "PageSize=10"
+        let pageSize = "PageSize=30"
         var appendUrl = ""
         appendUrl = "PageIndex=" + "\(String(pageIndex))" + "&" + pageSize
         
@@ -317,7 +317,7 @@ extension APIManager {
     }
     
     func getGroupNewsList(pageIndex: Int) -> Single<[String:Any]> {
-        let pageSize = "Page_Size=10"
+        let pageSize = "Page_Size=30"
         var appendUrl = ""
         appendUrl = "Page_Index=" + "\(String(pageIndex))" + "&" + pageSize
         
@@ -325,7 +325,7 @@ extension APIManager {
     }
     
     func getAirNewsList(pageIndex: Int) -> Single<[String:Any]> {
-        let pageSize = "Page_Size=10"
+        let pageSize = "Page_Size=30"
         var appendUrl = ""
         appendUrl = "Page_Index=" + "\(String(pageIndex))" + "&" + pageSize
         
@@ -333,7 +333,7 @@ extension APIManager {
     }
     
     func getImportantList(pageIndex: Int) -> Single<[String:Any]> {
-        let pageSize = "PageSize=10"
+        let pageSize = "PageSize=30"
         var appendUrl = ""
         appendUrl = "PageIndex=" + "\(String(pageIndex))" + "&" + pageSize
         
@@ -356,6 +356,12 @@ extension APIManager {
     func getContactInfo() -> Single<[String: Any]> {
         
         return manager(method: .get, appendUrl: "", url: APIUrl.serviceApi(type: .contactInformation), parameters: nil, appendHeaders: nil)
+    }
+    
+    func getWebViewTourShareList(tourCode:String,tourDate:String) -> Single<[String:Any]> {
+        var appendUrl = ""
+        appendUrl = "?Tour_Code=\(tourCode)&Tour_Date=\(tourDate)"
+        return manager(method: .get, appendUrl: appendUrl, url: APIUrl.portalApi(type: .tourShare), parameters: nil, appendHeaders: nil)
     }
 }
 

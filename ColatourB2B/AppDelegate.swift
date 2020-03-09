@@ -146,7 +146,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         let userInfo = response.notification.request.content.userInfo
         printLog("===didReceive===", "")
         printLog("userInfo", userInfo)
-        
+        cancelLoadData = true
         if isLogin == true, let noticeIdIndex = userInfo.index(forKey: "NotiId") {
             setNotificationRead(noticeId: [userInfo[noticeIdIndex].value as! String])
         }
@@ -171,8 +171,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         let navigationController = (vc.selectedViewController) as! UINavigationController
         let presentingViewController = navigationController.viewControllers.last
         let baseViewController = (presentingViewController as! BaseViewController)
-        baseViewController.handleLinkType(linkType: linkType, linkValue: linkParams, linkText: "")
-        
+        baseViewController.getNotiAccessTokenWithLink(linkType: linkType, linkValue: linkParams)
         
         UIView.transition(with: appDelegate!.window!, duration: 0.5, options: .transitionCrossDissolve, animations: {
             appDelegate?.window?.rootViewController = vc

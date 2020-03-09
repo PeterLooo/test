@@ -7,7 +7,11 @@
 //
 
 import UIKit
-
+extension NoticeViewController {
+    func setVC(defaultNoti: NotiType) {
+        self.defaultNotiType = defaultNoti
+    }
+}
 class NoticeViewController: BaseViewController {
     
     @IBOutlet weak var topButtonView: UIView!
@@ -24,45 +28,33 @@ class NoticeViewController: BaseViewController {
     @IBOutlet weak var airNewsUnreadHint: UIView!
     
     var presenter: NoticePresenter?
-    
+    private var defaultNotiType: NotiType?
     private var importantList: [NotiItem] = [] {
         didSet{
-            self.orderUnreadHint.isHidden = true
-            if let _ = importantList.filter({$0.unreadMark == true}).first {
-                self.orderUnreadHint.isHidden = false
-            }
+            setTopPageSheetStatus(notiType: .important)
         }
     }
     
     private var noticeList: [NotiItem] = [] {
         didSet{
-            self.messageUnreadHint.isHidden = true
-            if let _ = noticeList.filter({$0.unreadMark == true}).first {
-                self.messageUnreadHint.isHidden = false
-            }
+            setTopPageSheetStatus(notiType: .noti)
         }
     }
     
     private var groupNewsList: [NotiItem] = [] {
         didSet{
-            self.groupNewsUnreadHint.isHidden = true
-            if let _ = groupNewsList.filter({$0.unreadMark == true}).first {
-                self.groupNewsUnreadHint.isHidden = false
-            }
+            setTopPageSheetStatus(notiType: .groupNews)
         }
     }
     
     private var airNewsList: [NotiItem] = [] {
         didSet{
-            self.airNewsUnreadHint.isHidden = true
-            if let _ = airNewsList.filter({$0.unreadMark == true}).first {
-                self.airNewsUnreadHint.isHidden = false
-            }
+            setTopPageSheetStatus(notiType: .airNews)
         }
     }
     
     private var tableViews:[NotificationTableView] = []
-    private var pageSize = 10
+    private var pageSize = 30
     private var isImportantLastPage = false
     private var isNotiLastPage = false
     private var isGroupNewsLastPage = false
@@ -79,7 +71,7 @@ class NoticeViewController: BaseViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(self.reLoadData), name: Notification.Name("noticeLoadDate"), object: nil)
         setIsNavShadowEnable(false)
         setNavTitle(title: "通知")
-        switchPageButton(toPage: 0)
+        switchPageButton(sliderLeading: 0)
         setTableView()
     }
     
@@ -89,6 +81,8 @@ class NoticeViewController: BaseViewController {
             loadData()
             needReloadData = false
         }
+        
+        setDefaultNotyTypeToScroll()
     }
     
     override func loadData() {
@@ -137,6 +131,8 @@ class NoticeViewController: BaseViewController {
             stackView.addArrangedSubview(view)
             tableViews.append(view)
         }
+        stackView.layoutIfNeeded()
+        scrollView.layoutIfNeeded()
     }
     
     @objc private func reLoadData() {
@@ -166,28 +162,28 @@ class NoticeViewController: BaseViewController {
         scrollView.setContentOffset(CGPoint.init(x: contentOffset, y: 0), animated: true)
     }
     
-    private func switchPageButton(toPage: Int){
+    private func switchPageButton(sliderLeading: CGFloat){
         
-        switch toPage {
-        case 0:
+        switch sliderLeading {
+        case (screenWidth / 4 * 0):
             enableButton(topOrderButton)
             disableButton(topMessageButton)
             disableButton(topGroupNewsButton)
             disableButton(topAirNewsButton)
         
-        case 1:
+        case (screenWidth / 4 * 1):
             disableButton(topOrderButton)
             enableButton(topMessageButton)
             disableButton(topGroupNewsButton)
             disableButton(topAirNewsButton)
             
-        case 2:
+        case (screenWidth / 4 * 2):
             disableButton(topOrderButton)
             disableButton(topMessageButton)
             enableButton(topGroupNewsButton)
             disableButton(topAirNewsButton)
             
-        case 3:
+        case (screenWidth / 4 * 3):
             disableButton(topOrderButton)
             disableButton(topMessageButton)
             disableButton(topGroupNewsButton)
@@ -198,25 +194,60 @@ class NoticeViewController: BaseViewController {
         }
     }
     
+    private func setDefaultNotyTypeToScroll() {
+        if self.defaultNotiType != nil {
+
+            let contentOffset = CGFloat(self.defaultNotiType?.rawValue ?? 0) * screenWidth
+            scrollView.setContentOffset(CGPoint(x: contentOffset, y: 0), animated: false)
+            self.defaultNotiType = nil
+        }
+    }
+    
     private func enableButton(_ button: UIButton){
-        button.tintColor = UIColor.init(named: "通用綠")
-        button.setTitleColor(UIColor.init(named: "通用綠"), for: .normal)
+        let tittle = NSAttributedString(string: button.titleLabel?.text ?? "", attributes: [NSAttributedString.Key.foregroundColor:UIColor.init(named: "通用綠")!])
+        button.setAttributedTitle(tittle, for: .normal)
         button.titleLabel?.font = UIFont.init(name: "PingFang-TC-Semibold", size: 16.0)
-        
     }
     
     private func disableButton(_ button: UIButton){
-        button.tintColor = UIColor.init(named: "標題黑")
-        button.setTitleColor(UIColor.init(named: "標題黑"), for: .normal)
+        let tittle = NSAttributedString(string: button.titleLabel?.text ?? "", attributes: [NSAttributedString.Key.foregroundColor:UIColor.init(named: "標題黑")!])
+        button.setAttributedTitle(tittle, for: .normal)
         button.titleLabel?.font = UIFont.init(name: "PingFang-TC-Regular", size: 16.0)
-        
     }
     
     private func scrollTopPageButtonBottomLine(percent: CGFloat){
         let maxOffset = UIScreen.main.bounds.width / 4.0
         let scrollOffset = maxOffset * percent
         self.pageButtonBottomLineLeading.constant = scrollOffset
+        self.switchPageButton(sliderLeading: scrollOffset)
     }
+    
+    private func setTopPageSheetStatus(notiType: NotiType){
+        
+        switch notiType {
+        case .important:
+            self.orderUnreadHint.isHidden = true
+            if let _ = importantList.filter({$0.unreadMark == true}).first {
+                self.orderUnreadHint.isHidden = false
+            }
+        case .noti:
+            self.messageUnreadHint.isHidden = true
+            if let _ = noticeList.filter({$0.unreadMark == true}).first {
+                self.messageUnreadHint.isHidden = false
+            }
+        case .groupNews:
+            self.groupNewsUnreadHint.isHidden = true
+            if let _ = groupNewsList.filter({$0.unreadMark == true}).first {
+                self.groupNewsUnreadHint.isHidden = false
+            }
+        case .airNews:
+            self.airNewsUnreadHint.isHidden = true
+            if let _ = airNewsList.filter({$0.unreadMark == true}).first {
+                self.airNewsUnreadHint.isHidden = false
+            }
+        }
+    }
+    
 }
 
 extension NoticeViewController: NoticeViewProtocol {
@@ -343,11 +374,14 @@ extension NoticeViewController: NotificationTableViewProtocol {
         }
     }
     
-    func onTouchNoti(item: NotiItem) {
+    func onTouchNoti(item: NotiItem, notiType: NotiType) {
         
         if item.unreadMark == true {
             presenter?.setNoticeRead(noticeIdList: [item.notiId!])
+            item.unreadMark = false
         }
+        
+        setTopPageSheetStatus(notiType: notiType)
         
         if item.apiNotiType == "Message" {
             let vc = self.getVC(st: "NoticeDetail", vc: "NoticeDetailViewController") as! NoticeDetailViewController
@@ -375,6 +409,5 @@ extension NoticeViewController: UIScrollViewDelegate {
         
         let percent = nowOffsetX / (wholeWidth / 4.0)
         scrollTopPageButtonBottomLine(percent: percent)
-        switchPageButton(toPage: lround(Double(percent)))
     }
 }

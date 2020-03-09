@@ -44,7 +44,13 @@ class GroupTourViewController: BaseViewController {
         setUpTableView()
         setSearchView()
         
-        loadData()
+        // 為了不讓點推播重複去要 accessToken 先判斷 cancelLoadData
+        if cancelLoadData == true {
+            cancelLoadData = false
+        }else{
+            loadData()
+        }
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -164,6 +170,7 @@ class GroupTourViewController: BaseViewController {
     }
     
     @objc func onTouchContact (){
+        
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
         alert.addAction(UIAlertAction(title: "聯絡業務(團體)" , style: .default, handler: { (_) in
@@ -194,19 +201,19 @@ class GroupTourViewController: BaseViewController {
         scrollView.setContentOffset(CGPoint.init(x: contentOffset, y: 0), animated: true)
     }
     
-    private func switchPageButton(toPage: Int){
-        switch toPage {
-        case 0:
+    private func switchPageButton(sliderLeading: CGFloat){
+        switch sliderLeading {
+        case (screenWidth / 3 * 0):
             enableButton(topGroupButton)
             disableButton(topTCButton)
             disableButton(topKSButton)
             
-        case 1:
+        case (screenWidth / 3 * 1):
             enableButton(topTCButton)
             disableButton(topGroupButton)
             disableButton(topKSButton)
             
-        case 2:
+        case (screenWidth / 3 * 2):
             enableButton(topKSButton)
             disableButton(topTCButton)
             disableButton(topGroupButton)
@@ -234,6 +241,7 @@ class GroupTourViewController: BaseViewController {
         let maxOffset = UIScreen.main.bounds.width / 3.0
         let scrollOffset = maxOffset * percent
         self.pageButtonBottomLineLeading.constant = scrollOffset
+        self.switchPageButton(sliderLeading: scrollOffset)
     }
     
     private func onPopContactVC(messageSendType: String, navTitle: String){
@@ -406,7 +414,6 @@ extension GroupTourViewController: UIScrollViewDelegate {
         
         let percent = nowOffsetX / (wholeWidth / 3.0)
         scrollTopPageButtonBottomLine(percent: percent)
-        switchPageButton(toPage: lround(Double(percent)))
     }
 }
 
