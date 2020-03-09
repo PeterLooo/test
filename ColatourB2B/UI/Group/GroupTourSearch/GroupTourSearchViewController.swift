@@ -383,6 +383,14 @@ class GroupTourSearchViewController: BaseViewController {
         touchInputField = .tourType
     }
     
+    @IBAction func onTouchPriceLimit(_ sender: UIButton) {
+        groupTourSearchRequest.isPriceLimit = !groupTourSearchRequest.isPriceLimit
+        
+        touchInputField = nil
+        
+        groupTourTableView?.reloadData()
+    }
+    
     @IBAction func onTouchBookingTourView(_ sender: UIButton) {
         groupTourSearchRequest.isBookingTour = !groupTourSearchRequest.isBookingTour
         

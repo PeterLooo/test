@@ -15,6 +15,8 @@ protocol GroupTourSearchInputCellProtocol: NSObjectProtocol {
 
 class GroupTourSearchInputCell: UITableViewCell, UITextFieldDelegate {
     
+
+    @IBOutlet weak var priceLimitCheckBoxImageView: UIImageView!
     @IBOutlet weak var bookingTourCheckBoxImageView: UIImageView!
     
     @IBOutlet weak var startTourDate: UILabel!
@@ -38,7 +40,7 @@ class GroupTourSearchInputCell: UITableViewCell, UITextFieldDelegate {
     
     func setCellWith(groupTourSearchRequest: GroupTourSearchRequest)
     {
-        
+        priceLimitCheckBoxImageView.image = groupTourSearchRequest.isPriceLimit ? #imageLiteral(resourceName: "check") : #imageLiteral(resourceName: "check_hover")
         bookingTourCheckBoxImageView.image = groupTourSearchRequest.isBookingTour ? #imageLiteral(resourceName: "check") : #imageLiteral(resourceName: "check_hover")
         
         self.regionCode.text = groupTourSearchRequest
