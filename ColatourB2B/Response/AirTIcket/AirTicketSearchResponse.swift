@@ -23,7 +23,7 @@ class AirTicketSearchResponse: BaseModel {
     override func mapping(map: Map) {
         super.mapping(map: map)
         groupAir <- map["Group_Air"]
-        daterange <- map["Daterange"]
+        daterange <- map["Date_Range"]
         identity <- map["Identity"]
         lCC <- map["LCC"]
         maxDate <- map["Max_Date"]
