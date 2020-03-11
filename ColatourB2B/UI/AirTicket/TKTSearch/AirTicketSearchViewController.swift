@@ -541,13 +541,61 @@ extension AirTicketSearchViewController: LccCellProtocol {
     }
     
     func onTouchDate() {
-        ()
+        let vc = getVC(st: "Calendar", vc: "CalendarForTicketViewController") as! CalendarForTicketViewController
+        
+        let startDateString = FormatUtil.convertDateToString(dateFormatTo: "yyyy/MM/dd", date: Date())
+        let startDate = FormatUtil.convertStringToDate(dateFormatFrom: "yyyy/MM/dd", dateString: startDateString)!
+        let endDate = calendar.date(byAdding: .month, value: 18, to: startDate)!
+        
+        let type:CalendarSingeleOrMutipleType = lccTicketRequest.isToAndFro ? .mutiple:.single
+
+        let calendarDateAttribute = CalendarDateAttribute(startDate: startDate, endDate: endDate, limitDates: [], limitWeekdays: [], dateMemo: [:])
+        let calendarType = CalendarType(singleOrMituple: type
+            , isBeforeTodayLimitSelect: true
+            , isAcceptLimitDateInMiddle: false
+            , confirmTextShowDayOrNight: .nights
+            , isAcceptStartDayEqualEndDay: false
+            , isEnableTapEvent: true
+            , isConfirmButtonHidden: false
+            , isDateNoteHiddenWhenDisableDate: true
+            , colorDef: CalendarColorForHotel()
+            , maxLimitedDays: (false , nil)
+            , dateNoteAtSelectedStartEndDate: (isEnable: true, startNote: "出發", endNote: "回程")
+        )
+        
+        var selectedDates = CalendarSelectedDates()
+        if let selctedDates = lccTicketRequest.startTourDate {
+            let selectedStartDate = FormatUtil.convertStringToDate(dateFormatFrom: "yyyy/MM/dd", dateString: selctedDates)
+            let selectedEndDate = FormatUtil.convertStringToDate(dateFormatFrom: "yyyy/MM/dd", dateString: lccTicketRequest.endTourDate!)
+            selectedDates = CalendarSelectedDates(selectedSingleDate: type == .single ? selectedStartDate : nil, selectedStartDate: type == .single ? nil : selectedStartDate, selectedEndDate: type == .single ? nil : type == .single ? nil : selectedEndDate)
+        }
+
+        let calendarAllAttribute = CalendarAllAttribute(calendarDateAttribute: calendarDateAttribute, calendarType: calendarType, calendarSelectedDates: selectedDates)
+        
+        vc.setVCwith(delegate: self,calendarAllAttribute: calendarAllAttribute)
+        vc.setVCNavBarItem(navMode: .present, navTitle: "選擇日期")
+        vc.setIsPageSheetPresenting(isPresentVC: true)
+        let nav = UINavigationController(rootViewController: vc)
+        nav.restorationIdentifier = "HotelCalendarNivagationController"
+        
+        self.present(nav, animated: true, completion: nil)
+
     }
     
     func onTouchRadio(isToAndFor: Bool) {
         lccTicketRequest.isToAndFro = isToAndFor
         tableViewLCC.reloadData()
     }
+}
+extension AirTicketSearchViewController: CalendarDataDestinationViewControllerProtocol{
+    func setSelectedDate(selectedYearMonthDaysToString: CalendarSelectedYearMonthDaysString) {
+        lccTicketRequest.startTourDate = lccTicketRequest.isToAndFro ? selectedYearMonthDaysToString.startDayString:selectedYearMonthDaysToString.singleDayString
+        let defaultStartDate = FormatUtil.convertStringToDate(dateFormatFrom: "yyyy/MM/dd", dateString:lccTicketRequest.startTourDate! )
+        let defaultMaxDate = Calendar.current.date(byAdding: .day, value: 2, to: defaultStartDate!)
+        lccTicketRequest.endTourDate = lccTicketRequest.isToAndFro ? selectedYearMonthDaysToString.endDayString: FormatUtil.convertDateToString(dateFormatTo: "yyyy/MM/dd", date: defaultMaxDate!)
+        tableViewLCC.reloadData()
+    }
+    
 }
 extension AirTicketSearchViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {

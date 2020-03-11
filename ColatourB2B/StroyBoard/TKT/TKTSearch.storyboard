@@ -1382,7 +1382,7 @@
                                                                                             </constraints>
                                                                                             <fontDescription key="fontDescription" name="PingFangTC-Medium" family="PingFang TC" pointSize="15"/>
                                                                                             <state key="normal" title="搜尋">
-                                                                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                                <color key="titleColor" red="0.77647058823529413" green="0.93725490196078431" blue="0.85098039215686272" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                             </state>
                                                                                             <userDefinedRuntimeAttributes>
                                                                                                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
