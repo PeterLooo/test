@@ -19,7 +19,7 @@ enum TKTInputFieldType {
     
 }
 enum KeyboardType {
-    case typekeyboard
+    
     case pickerView
     case datePicker
     case hide
@@ -266,16 +266,6 @@ class AirTicketSearchViewController: BaseViewController {
     
     private func showKeyBoardWith(inputFieldType: TKTInputFieldType?){
         func showKeyboard(keyboardType : KeyboardType) {
-            var isNumberpadKeyboardShow: Bool = false {
-                didSet {
-                    switch isNumberpadKeyboardShow {
-                    case true :
-                        ()
-                    case false:
-                        self.view.endEditing(true)
-                    }
-                }
-            }
             
             var isDatePickerViewShow: Bool = false {
                 didSet {
@@ -300,20 +290,15 @@ class AirTicketSearchViewController: BaseViewController {
             }
             
             switch keyboardType {
-            case .typekeyboard:
-                isNumberpadKeyboardShow = true
-                isPickerViewShow = false
-                isDatePickerViewShow = false
             case .pickerView:
-                isNumberpadKeyboardShow = false
                 isPickerViewShow = true
                 isDatePickerViewShow = false
+                
             case .datePicker:
-                isNumberpadKeyboardShow = false
                 isPickerViewShow = false
                 isDatePickerViewShow = true
+                
             case .hide:
-                isNumberpadKeyboardShow = false
                 isPickerViewShow = false
                 isDatePickerViewShow = false
             }
@@ -334,12 +319,11 @@ class AirTicketSearchViewController: BaseViewController {
             showKeyboard(keyboardType: .pickerView)
         case .tourType:
             showKeyboard(keyboardType: .pickerView)
-        
+        case .sotoArrival:
+            showKeyboard(keyboardType: .pickerView)
         case nil:
             showKeyboard(keyboardType: .hide)
         
-        case .sotoArrival:
-            showKeyboard(keyboardType: .pickerView)
         }
     }
     required init?(coder: NSCoder) {
@@ -377,22 +361,8 @@ class AirTicketSearchViewController: BaseViewController {
 extension AirTicketSearchViewController: AirTicketSearchViewProtocol {
     func onBindAirTicketSearchInit(groupTourSearchInit: AirTicketSearchResponse) {
         self.tktSearchInit = groupTourSearchInit
-        groupTicketRequest.selectedID = groupTourSearchInit.identity.first
-        groupTicketRequest.selectedSitClass = groupTourSearchInit.sitClass.first
-        groupTicketRequest.selectedAirlineCode = groupTourSearchInit.groupAir?.airline.first
-        groupTicketRequest.startTourDate = groupTourSearchInit.minDate
-        groupTicketRequest.selectedDateRange = groupTourSearchInit.daterange.first
-        groupTicketRequest.selectedTourWay = groupTourSearchInit.groupAir?.tourType.first
-        groupTicketRequest.selectedDeparture = groupTourSearchInit.groupAir?.departure.first
-        
-        sotoTicketRequest.selectedID = groupTourSearchInit.identity.first
-        sotoTicketRequest.selectedSitClass = groupTourSearchInit.sitClass.first
-        sotoTicketRequest.selectedAirlineCode = groupTourSearchInit.sOTOTicket?.airline.first
-        sotoTicketRequest.startTourDate = groupTourSearchInit.minDate
-        sotoTicketRequest.selectedDateRange = groupTourSearchInit.daterange.first
-        sotoTicketRequest.selectedTourWay = groupTourSearchInit.sOTOTicket?.tourType.first
-        sotoTicketRequest.selectedDeparture = groupTourSearchInit.sOTOTicket?.departure.first
-        sotoTicketRequest.selectedDestinatione = groupTourSearchInit.sOTOTicket?.arrivals.first
+        self.groupTicketRequest = TKTSearchRequest().getGroupTicketRequest(response: groupTourSearchInit)
+        self.sotoTicketRequest = TKTSearchRequest().getSOTOTicketRequest(response: groupTourSearchInit)
         let defaultMinDate = Calendar.current.date(byAdding: .day, value: 1, to: Date())
         let defaultMaxDate = Calendar.current.date(byAdding: .day, value: 2, to: defaultMinDate!)
         lccTicketRequest.startTourDate = FormatUtil.convertDateToString(dateFormatTo: "yyyy/MM/dd", date: defaultMinDate!)
@@ -535,6 +505,31 @@ extension AirTicketSearchViewController: GroupAirCellProtocol {
     
 }
 extension AirTicketSearchViewController: LccCellProtocol {
+    func onTouchLccDeparture() {
+        ()
+    }
+    
+    func onTouchLccDestination() {
+        ()
+    }
+    
+    func onTouchLccSearch() {
+        onTouchSearch(searchType: .lcc)
+    }
+    
+    func onTouchPax() {
+        let vc = getVC(st: "TKTSearch", vc: "AirPaxViewController") as! AirPaxViewController
+        vc.modalPresentationStyle = .overCurrentContext
+        vc.setTextWith(lccTicketRequest: self.lccTicketRequest)
+        vc.delegate = self
+        
+        present(vc, animated: true)
+    }
+    
+    func onTouchLccRequestByPerson() {
+        ()
+    }
+    
     func onTouchAirlineSwitch() {
         self.lccTicketRequest.isSameAirline.toggle()
         self.tableViewLCC.reloadData()
@@ -589,13 +584,19 @@ extension AirTicketSearchViewController: LccCellProtocol {
 }
 extension AirTicketSearchViewController: CalendarDataDestinationViewControllerProtocol{
     func setSelectedDate(selectedYearMonthDaysToString: CalendarSelectedYearMonthDaysString) {
-        lccTicketRequest.startTourDate = lccTicketRequest.isToAndFro ? selectedYearMonthDaysToString.startDayString:selectedYearMonthDaysToString.singleDayString
+        lccTicketRequest.startTourDate = lccTicketRequest.isToAndFro ? selectedYearMonthDaysToString.startDayString : selectedYearMonthDaysToString.singleDayString
         let defaultStartDate = FormatUtil.convertStringToDate(dateFormatFrom: "yyyy/MM/dd", dateString:lccTicketRequest.startTourDate! )
         let defaultMaxDate = Calendar.current.date(byAdding: .day, value: 2, to: defaultStartDate!)
         lccTicketRequest.endTourDate = lccTicketRequest.isToAndFro ? selectedYearMonthDaysToString.endDayString: FormatUtil.convertDateToString(dateFormatTo: "yyyy/MM/dd", date: defaultMaxDate!)
         tableViewLCC.reloadData()
     }
     
+}
+extension AirTicketSearchViewController: AirPaxViewControllerProtocol{
+    func onTouchBottomButton(lccTicketRequest: LCCTicketRequest) {
+        self.lccTicketRequest = lccTicketRequest
+        tableViewLCC.reloadData()
+    }
 }
 extension AirTicketSearchViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {

@@ -33,7 +33,6 @@ class SotoAirCell: UITableViewCell {
         destination.text = info.selectedDestinatione?.text
         isNonStop.image = info.isNonStop ? #imageLiteral(resourceName: "check") : #imageLiteral(resourceName: "check_hover")
         
-        
     }
     
     @IBAction func onTouchTopSelection(_ sender: UIButton) {

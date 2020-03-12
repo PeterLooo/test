@@ -11,6 +11,11 @@ protocol LccCellProtocol: NSObjectProtocol {
     func onTouchRadio(isToAndFor:Bool)
     func onTouchDate()
     func onTouchAirlineSwitch()
+    func onTouchLccRequestByPerson()
+    func onTouchPax()
+    func onTouchLccSearch()
+    func onTouchLccDeparture()
+    func onTouchLccDestination()
 }
 class LccCell: UITableViewCell {
 
@@ -18,19 +23,17 @@ class LccCell: UITableViewCell {
     @IBOutlet weak var oneWayRadio: UIImageView!
     @IBOutlet weak var tourDate: UILabel!
     @IBOutlet weak var sameAirlineSwitch: UISwitch!
+    @IBOutlet weak var paxInfo: UILabel!
     
     weak var delegate: LccCellProtocol?
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
 
     func setCell(lccInfo:LCCTicketRequest){
         toAndForRadio.image = lccInfo.isToAndFro ? #imageLiteral(resourceName: "radio_on"):#imageLiteral(resourceName: "radio_off")
         oneWayRadio.image = lccInfo.isToAndFro ? #imageLiteral(resourceName: "radio_off"):#imageLiteral(resourceName: "radio_on")
         tourDate.text = lccInfo.isToAndFro ? "\(lccInfo.startTourDate ?? "") ~ \(lccInfo.endTourDate ?? "")":"\(lccInfo.startTourDate ?? "")"
         sameAirlineSwitch.isOn = lccInfo.isSameAirline
+        
+        paxInfo.text = "\(lccInfo.adultCount) 大人 \(lccInfo.childCount) 小孩 \(lccInfo.infanCount) 嬰兒"
     }
     
     @IBAction func onTouchDate(_ sender: Any) {
@@ -50,5 +53,19 @@ class LccCell: UITableViewCell {
     @IBAction func onTouchAirlineSwithc(_ sender: Any) {
         self.delegate?.onTouchAirlineSwitch()
     }
-    
+    @IBAction func onTouchPax(_ sender: Any) {
+        self.delegate?.onTouchPax()
+    }
+    @IBAction func onTouchLccRequestByPerson(_ sender: Any) {
+        self.delegate?.onTouchLccRequestByPerson()
+    }
+    @IBAction func onTouchSearch(){
+        self.delegate?.onTouchLccSearch()
+    }
+    @IBAction func onTouchDeparture(_ sender: Any) {
+        self.delegate?.onTouchLccDeparture()
+    }
+    @IBAction func onTouchDestination(_ sender: Any) {
+        self.delegate?.onTouchLccDestination()
+    }
 }

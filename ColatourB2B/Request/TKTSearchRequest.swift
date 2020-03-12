@@ -20,6 +20,29 @@ class TKTSearchRequest: NSObject {
     var selectedBackDeparture: AirTicketSearchResponse.AirInfo?
     var isNonStop: Bool = true
     
+    convenience init(startTourDate: String?,
+                     selectedID: AirTicketSearchResponse.AirInfo?,
+                     selectedSitClass: AirTicketSearchResponse.AirInfo?,
+                     selectedAirlineCode: AirTicketSearchResponse.AirInfo?,
+                     selectedDateRange: AirTicketSearchResponse.AirInfo?,
+                     selectedTourWay: AirTicketSearchResponse.AirInfo?,
+                     selectedDeparture: AirTicketSearchResponse.AirInfo?,
+                     selectedDestinatione: AirTicketSearchResponse.AirInfo?,
+                     selectedBackDeparture: AirTicketSearchResponse.AirInfo?,
+                     isNonStop: Bool) {
+        self.init()
+        self.startTourDate = startTourDate
+        self.selectedID = selectedID
+        self.selectedSitClass = selectedSitClass
+        self.selectedAirlineCode = selectedAirlineCode
+        self.selectedDateRange = selectedDateRange
+        self.selectedTourWay = selectedTourWay
+        self.selectedDestinatione = selectedDestinatione
+        self.selectedDeparture = selectedDeparture
+        self.selectedBackDeparture = selectedBackDeparture
+        self.isNonStop = isNonStop
+    }
+    
     func getDictionary() -> [String:Any] {
         var params = ["Tour_Date": "\(startTourDate ?? "")"
             , "Sit_Class": selectedSitClass?.value ?? ""
@@ -33,5 +56,31 @@ class TKTSearchRequest: NSObject {
         params["Destination"] =  selectedDestinatione?.value ?? ""
         params["Back_Departure"] =  selectedBackDeparture?.value ?? ""
         return params
+    }
+    
+    func getGroupTicketRequest(response: AirTicketSearchResponse) -> TKTSearchRequest {
+        return TKTSearchRequest(startTourDate: response.minDate,
+                                selectedID: response.identity.first,
+                                selectedSitClass: response.sitClass.first,
+                                selectedAirlineCode: response.groupAir?.airline.first,
+                                selectedDateRange: response.daterange.first,
+                                selectedTourWay: response.groupAir?.tourType.first,
+                                selectedDeparture: response.groupAir?.departure.first,
+                                selectedDestinatione: nil,
+                                selectedBackDeparture: nil,
+                                isNonStop: true)
+    }
+    
+    func getSOTOTicketRequest(response: AirTicketSearchResponse) -> TKTSearchRequest {
+        return TKTSearchRequest(startTourDate: response.minDate,
+                                selectedID: response.identity.first,
+                                selectedSitClass: response.sitClass.first,
+                                selectedAirlineCode: response.sOTOTicket?.airline.first,
+                                selectedDateRange: response.daterange.first,
+                                selectedTourWay: response.sOTOTicket?.tourType.first,
+                                selectedDeparture: response.sOTOTicket?.departure.first,
+                                selectedDestinatione: response.sOTOTicket?.arrivals.first,
+                                selectedBackDeparture: nil,
+                                isNonStop: true)
     }
 }
