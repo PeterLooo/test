@@ -214,7 +214,7 @@ extension LCCSearchLocationViewController: UICollectionViewDataSource {
         case .Airport:
             let airports = LCCInfo?.countryList.filter { $0.isSelected == true }.first
             return airports?.airportList?.count ?? 0
-
+            
         case .SearchEmpty:
             return 0
             
@@ -277,6 +277,7 @@ extension LCCSearchLocationViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         
+        // 搜尋之後要記得重新給UIEdgeInsets
         switch Section(rawValue: section) {
         case .Country:
             return UIEdgeInsets(top: 12, left: 16, bottom: 12, right: 16)
