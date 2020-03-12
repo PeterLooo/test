@@ -8,7 +8,9 @@
 
 import Foundation
 import UIKit
-
+protocol PriceRangeSliderPortocol: NSObjectProtocol {
+    func sliderDown()
+}
 class PriceRangeSlider: UIControl {
     
     private var leftHandleLayer: CALayer!
@@ -34,6 +36,7 @@ class PriceRangeSlider: UIControl {
     private var isRightSelected = false
     
     var valueChangeClosure: ((_ minValue: Int, _ maxValue: Int) -> ())?
+    weak var delegate : PriceRangeSliderPortocol?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -195,6 +198,7 @@ extension PriceRangeSlider {
     override func endTracking(_ touch: UITouch?, with event: UIEvent?) {
         isLeftSelected = false
         isRightSelected = false
+        self.delegate?.sliderDown()
     }
 }
 

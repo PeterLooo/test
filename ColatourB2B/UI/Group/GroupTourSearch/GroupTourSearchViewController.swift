@@ -562,6 +562,11 @@ extension GroupTourSearchViewController: UIScrollViewDelegate {
 }
 
 extension GroupTourSearchViewController: GroupTourSearchInputCellProtocol {
+    func sliderDown() {
+        self.groupTourSearchRequest.isPriceLimit = false
+        self.groupTourTableView.reloadData()
+    }
+    
     func onTouchTourDaysView(_ sender: UIButton) {
         touchInputField = .tourDays
     }
