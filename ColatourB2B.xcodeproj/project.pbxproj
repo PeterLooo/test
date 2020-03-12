@@ -13,6 +13,10 @@
 		0626031E23F3E5570026DC59 /* DeviceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0626031A23F3E5570026DC59 /* DeviceCell.xib */; };
 		0626032023F401A70026DC59 /* ContactInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0626031F23F401A70026DC59 /* ContactInfoCell.swift */; };
 		0626032123F401A70026DC59 /* ContactInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0626031F23F401A70026DC59 /* ContactInfoCell.swift */; };
+		062DFCBF2419C1AE006882BE /* LCCSearchLocationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062DFCBE2419C1AE006882BE /* LCCSearchLocationProtocol.swift */; };
+		062DFCC02419C1AE006882BE /* LCCSearchLocationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062DFCBE2419C1AE006882BE /* LCCSearchLocationProtocol.swift */; };
+		062DFCC22419C4D6006882BE /* LCCSearchLocationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062DFCC12419C4D6006882BE /* LCCSearchLocationPresenter.swift */; };
+		062DFCC32419C4D6006882BE /* LCCSearchLocationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062DFCC12419C4D6006882BE /* LCCSearchLocationPresenter.swift */; };
 		0650774F23ED4EE70067377C /* ContactInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0650774E23ED4EE70067377C /* ContactInfo.storyboard */; };
 		0650775023ED4EE70067377C /* ContactInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0650774E23ED4EE70067377C /* ContactInfo.storyboard */; };
 		0650775223ED4F1E0067377C /* ContactInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0650775123ED4F1E0067377C /* ContactInfoViewController.swift */; };
@@ -29,6 +33,27 @@
 		0650776523ED5F300067377C /* ContactInfoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0650776323ED5F300067377C /* ContactInfoPresenter.swift */; };
 		06610FDA240775AC00E87225 /* ExpandableButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06610FD9240775AC00E87225 /* ExpandableButtonView.swift */; };
 		06610FDB240775AC00E87225 /* ExpandableButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06610FD9240775AC00E87225 /* ExpandableButtonView.swift */; };
+		06AA658B2418E553001CDA37 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06AA65892418E553001CDA37 /* SearchResultCell.swift */; };
+		06AA658C2418E553001CDA37 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06AA65892418E553001CDA37 /* SearchResultCell.swift */; };
+		06AA658D2418E553001CDA37 /* SearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06AA658A2418E553001CDA37 /* SearchResultCell.xib */; };
+		06AA658E2418E553001CDA37 /* SearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06AA658A2418E553001CDA37 /* SearchResultCell.xib */; };
+		06AA65912418E6EA001CDA37 /* SearchEmptyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06AA658F2418E6EA001CDA37 /* SearchEmptyCell.swift */; };
+		06AA65922418E6EA001CDA37 /* SearchEmptyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06AA658F2418E6EA001CDA37 /* SearchEmptyCell.swift */; };
+		06AA65932418E6EA001CDA37 /* SearchEmptyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06AA65902418E6EA001CDA37 /* SearchEmptyCell.xib */; };
+		06AA65942418E6EA001CDA37 /* SearchEmptyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06AA65902418E6EA001CDA37 /* SearchEmptyCell.xib */; };
+		06B05CA42416233600C8F447 /* LCCSearchLocation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06B05CA32416233600C8F447 /* LCCSearchLocation.storyboard */; };
+		06B05CA52416233600C8F447 /* LCCSearchLocation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06B05CA32416233600C8F447 /* LCCSearchLocation.storyboard */; };
+		06B05CA82416287D00C8F447 /* LCCCountryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B05CA62416287D00C8F447 /* LCCCountryCell.swift */; };
+		06B05CA92416287D00C8F447 /* LCCCountryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B05CA62416287D00C8F447 /* LCCCountryCell.swift */; };
+		06B05CAA2416287D00C8F447 /* LCCCountryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06B05CA72416287D00C8F447 /* LCCCountryCell.xib */; };
+		06B05CAB2416287D00C8F447 /* LCCCountryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06B05CA72416287D00C8F447 /* LCCCountryCell.xib */; };
+		06B05CB02416293B00C8F447 /* LCCSearchLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B05CAF2416293B00C8F447 /* LCCSearchLocationViewController.swift */; };
+		06B05CB12416293B00C8F447 /* LCCSearchLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B05CAF2416293B00C8F447 /* LCCSearchLocationViewController.swift */; };
+		06B05CB3241632E400C8F447 /* TKTSearchInit.json in Resources */ = {isa = PBXBuildFile; fileRef = 06B05CB2241632E300C8F447 /* TKTSearchInit.json */; };
+		06B05CB62416470900C8F447 /* LCCAirportCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B05CB42416470900C8F447 /* LCCAirportCell.swift */; };
+		06B05CB72416470900C8F447 /* LCCAirportCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B05CB42416470900C8F447 /* LCCAirportCell.swift */; };
+		06B05CB82416470900C8F447 /* LCCAirportCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06B05CB52416470900C8F447 /* LCCAirportCell.xib */; };
+		06B05CB92416470900C8F447 /* LCCAirportCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06B05CB52416470900C8F447 /* LCCAirportCell.xib */; };
 		06DA4F6823E921D4001B7DF1 /* MessageSendRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DA4F6723E921D4001B7DF1 /* MessageSendRequest.swift */; };
 		06DA4F6923E921D4001B7DF1 /* MessageSendRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DA4F6723E921D4001B7DF1 /* MessageSendRequest.swift */; };
 		06DA4F6B23E921F8001B7DF1 /* MessageSendRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DA4F6A23E921F8001B7DF1 /* MessageSendRepository.swift */; };
@@ -329,7 +354,6 @@
 		38E9923A23B0B5DF00E28271 /* BooleanButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E9923923B0B5DF00E28271 /* BooleanButton.swift */; };
 		38E9923B23B0B5DF00E28271 /* BooleanButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E9923923B0B5DF00E28271 /* BooleanButton.swift */; };
 		9196F236CE205CFA47F4C95B /* Pods_ColatourB2BDev.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00BEF28893EA23CD1FFC87FB /* Pods_ColatourB2BDev.framework */; };
-		A1068F4A24161A2F00710DC4 /* TKTSearchInit.json in Resources */ = {isa = PBXBuildFile; fileRef = A1068F4924161A2F00710DC4 /* TKTSearchInit.json */; };
 		A12808A823F7937100287B9F /* PriceRangeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12808A723F7937100287B9F /* PriceRangeSlider.swift */; };
 		A12808A923F7937100287B9F /* PriceRangeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12808A723F7937100287B9F /* PriceRangeSlider.swift */; };
 		A1876A842415D67D00855DE6 /* AirTicketSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1876A832415D67D00855DE6 /* AirTicketSearchViewController.swift */; };
@@ -443,6 +467,8 @@
 		0626031923F3E5570026DC59 /* DeviceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceCell.swift; sourceTree = "<group>"; };
 		0626031A23F3E5570026DC59 /* DeviceCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeviceCell.xib; sourceTree = "<group>"; };
 		0626031F23F401A70026DC59 /* ContactInfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactInfoCell.swift; sourceTree = "<group>"; };
+		062DFCBE2419C1AE006882BE /* LCCSearchLocationProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCCSearchLocationProtocol.swift; sourceTree = "<group>"; };
+		062DFCC12419C4D6006882BE /* LCCSearchLocationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCCSearchLocationPresenter.swift; sourceTree = "<group>"; };
 		0650774E23ED4EE70067377C /* ContactInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ContactInfo.storyboard; sourceTree = "<group>"; };
 		0650775123ED4F1E0067377C /* ContactInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactInfoViewController.swift; sourceTree = "<group>"; };
 		0650775423ED4FD50067377C /* ContactInfoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactInfoResponse.swift; sourceTree = "<group>"; };
@@ -451,6 +477,17 @@
 		0650776023ED5E6B0067377C /* ContactInfoProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactInfoProtocol.swift; sourceTree = "<group>"; };
 		0650776323ED5F300067377C /* ContactInfoPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactInfoPresenter.swift; sourceTree = "<group>"; };
 		06610FD9240775AC00E87225 /* ExpandableButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableButtonView.swift; sourceTree = "<group>"; };
+		06AA65892418E553001CDA37 /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
+		06AA658A2418E553001CDA37 /* SearchResultCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchResultCell.xib; sourceTree = "<group>"; };
+		06AA658F2418E6EA001CDA37 /* SearchEmptyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchEmptyCell.swift; sourceTree = "<group>"; };
+		06AA65902418E6EA001CDA37 /* SearchEmptyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchEmptyCell.xib; sourceTree = "<group>"; };
+		06B05CA32416233600C8F447 /* LCCSearchLocation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LCCSearchLocation.storyboard; sourceTree = "<group>"; };
+		06B05CA62416287D00C8F447 /* LCCCountryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCCCountryCell.swift; sourceTree = "<group>"; };
+		06B05CA72416287D00C8F447 /* LCCCountryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LCCCountryCell.xib; sourceTree = "<group>"; };
+		06B05CAF2416293B00C8F447 /* LCCSearchLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCCSearchLocationViewController.swift; sourceTree = "<group>"; };
+		06B05CB2241632E300C8F447 /* TKTSearchInit.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TKTSearchInit.json; sourceTree = "<group>"; };
+		06B05CB42416470900C8F447 /* LCCAirportCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCCAirportCell.swift; sourceTree = "<group>"; };
+		06B05CB52416470900C8F447 /* LCCAirportCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LCCAirportCell.xib; sourceTree = "<group>"; };
 		06DA4F6723E921D4001B7DF1 /* MessageSendRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageSendRequest.swift; sourceTree = "<group>"; };
 		06DA4F6A23E921F8001B7DF1 /* MessageSendRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageSendRepository.swift; sourceTree = "<group>"; };
 		06DA4F6E23E9222F001B7DF1 /* MessageSendUserListResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageSendUserListResponse.swift; sourceTree = "<group>"; };
@@ -619,7 +656,6 @@
 		38E9923923B0B5DF00E28271 /* BooleanButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BooleanButton.swift; sourceTree = "<group>"; };
 		732B40A95C148E8D08B6AD90 /* Pods-ColatourB2BDev.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ColatourB2BDev.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ColatourB2BDev/Pods-ColatourB2BDev.debug.xcconfig"; sourceTree = "<group>"; };
 		987A0E450DD4AC32A30375C6 /* Pods-ColatourB2B.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ColatourB2B.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ColatourB2B/Pods-ColatourB2B.debug.xcconfig"; sourceTree = "<group>"; };
-		A1068F4924161A2F00710DC4 /* TKTSearchInit.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = TKTSearchInit.json; path = ../../../../../Colatour/colatourTests/Mock/TKTSearchInit.json; sourceTree = "<group>"; };
 		A12808A723F7937100287B9F /* PriceRangeSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceRangeSlider.swift; sourceTree = "<group>"; };
 		A1876A832415D67D00855DE6 /* AirTicketSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirTicketSearchViewController.swift; sourceTree = "<group>"; };
 		A1876A872415D71400855DE6 /* AirTicketSearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirTicketSearchResponse.swift; sourceTree = "<group>"; };
@@ -1255,11 +1291,22 @@
 		A1876A822415D63C00855DE6 /* TKTSearch */ = {
 			isa = PBXGroup;
 			children = (
-				A1068F4924161A2F00710DC4 /* TKTSearchInit.json */,
+				06B05CB2241632E300C8F447 /* TKTSearchInit.json */,
 				A1876A832415D67D00855DE6 /* AirTicketSearchViewController.swift */,
 				A1876A912415FC9A00855DE6 /* AirTicketSearchProtocol.swift */,
 				A1876A942415FCA700855DE6 /* AirTicketSearchPresenter.swift */,
 				A1876A8E2415EFEE00855DE6 /* GroupAirCell.swift */,
+				06B05CAF2416293B00C8F447 /* LCCSearchLocationViewController.swift */,
+				062DFCBE2419C1AE006882BE /* LCCSearchLocationProtocol.swift */,
+				062DFCC12419C4D6006882BE /* LCCSearchLocationPresenter.swift */,
+				06B05CA62416287D00C8F447 /* LCCCountryCell.swift */,
+				06B05CA72416287D00C8F447 /* LCCCountryCell.xib */,
+				06B05CB42416470900C8F447 /* LCCAirportCell.swift */,
+				06B05CB52416470900C8F447 /* LCCAirportCell.xib */,
+				06AA658F2418E6EA001CDA37 /* SearchEmptyCell.swift */,
+				06AA65902418E6EA001CDA37 /* SearchEmptyCell.xib */,
+				06AA65892418E553001CDA37 /* SearchResultCell.swift */,
+				06AA658A2418E553001CDA37 /* SearchResultCell.xib */,
 			);
 			path = TKTSearch;
 			sourceTree = "<group>";
@@ -1276,6 +1323,7 @@
 			isa = PBXGroup;
 			children = (
 				A1876A8B2415E40300855DE6 /* TKTSearch.storyboard */,
+				06B05CA32416233600C8F447 /* LCCSearchLocation.storyboard */,
 			);
 			path = TKT;
 			sourceTree = "<group>";
@@ -1516,10 +1564,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06B05CA42416233600C8F447 /* LCCSearchLocation.storyboard in Resources */,
 				C7C41C4623C724E900F97057 /* NoticeDetailContentCell.xib in Resources */,
 				0650774F23ED4EE70067377C /* ContactInfo.storyboard in Resources */,
 				C70EEF5223EA545300D67FF4 /* Bulletin.storyboard in Resources */,
 				38E68ABF23B5AE30006BC4DD /* Calendar.storyboard in Resources */,
+				06B05CAA2416287D00C8F447 /* LCCCountryCell.xib in Resources */,
 				C7BD649023ED453200FEE538 /* EmptyDataCell.xib in Resources */,
 				3817E50123A33C8500ED8609 /* LaunchScreen.storyboard in Resources */,
 				38BCDA2623A3796800D59910 /* GroupTour.storyboard in Resources */,
@@ -1528,6 +1578,7 @@
 				38AA456023D68E0A00BE3F95 /* HomeAd2Cell.xib in Resources */,
 				38E68AAD23B5AB80006BC4DD /* Group.json in Resources */,
 				C77282F323CC502500067EB4 /* GroupTourSearch.storyboard in Resources */,
+				06AA658D2418E553001CDA37 /* SearchResultCell.xib in Resources */,
 				38AA456623D6906400BE3F95 /* HomeAd2View.xib in Resources */,
 				06DA4F8423E92260001B7DF1 /* MessageSendContentCell.xib in Resources */,
 				0626031D23F3E5570026DC59 /* DeviceCell.xib in Resources */,
@@ -1544,8 +1595,10 @@
 				38E68AAF23B5AB80006BC4DD /* GroupSliderItemCell.xib in Resources */,
 				387FBEF723ACA201005412F1 /* AirTicket.storyboard in Resources */,
 				387FBF0323ACA327005412F1 /* More.storyboard in Resources */,
+				06AA65932418E6EA001CDA37 /* SearchEmptyCell.xib in Resources */,
 				3869543423BAE5F500F6E7D9 /* MemberTopCell.xib in Resources */,
 				38BCDA0F23A367D000D59910 /* NoInternetErrorView.xib in Resources */,
+				06B05CB82416470900C8F447 /* LCCAirportCell.xib in Resources */,
 				06DA4F9223E922C0001B7DF1 /* MessageSend.storyboard in Resources */,
 				38BCDA0B23A367D000D59910 /* ApiFailErrorView.xib in Resources */,
 				C78F071C23E8204E009C1183 /* PopText.storyboard in Resources */,
@@ -1589,6 +1642,7 @@
 				38E68AC023B5AE30006BC4DD /* Calendar.storyboard in Resources */,
 				A1876A8D2415E40300855DE6 /* TKTSearch.storyboard in Resources */,
 				06DA4F8B23E92260001B7DF1 /* MessageSendNotificationListCell.xib in Resources */,
+				06AA658E2418E553001CDA37 /* SearchResultCell.xib in Resources */,
 				3817E52A23A33C9500ED8609 /* LaunchScreen.storyboard in Resources */,
 				06DA4F9323E922C0001B7DF1 /* MessageSend.storyboard in Resources */,
 				C70EEF5323EA545300D67FF4 /* Bulletin.storyboard in Resources */,
@@ -1607,12 +1661,14 @@
 				387FBEFE23ACA2A7005412F1 /* Notice.storyboard in Resources */,
 				CCCC736023E42D8200FC03EE /* PasswordModify.storyboard in Resources */,
 				3802A19423C8522F00CD2EF2 /* Sales.storyboard in Resources */,
+				06AA65942418E6EA001CDA37 /* SearchEmptyCell.xib in Resources */,
 				38871EB723D55E2F007ED33D /* GroupIndexHeaderImageCell.xib in Resources */,
 				38E68AC223B5AE30006BC4DD /* Common.storyboard in Resources */,
-				A1068F4A24161A2F00710DC4 /* TKTSearchInit.json in Resources */,
 				38E68ABE23B5AE30006BC4DD /* SelectOption.storyboard in Resources */,
+				06B05CA52416233600C8F447 /* LCCSearchLocation.storyboard in Resources */,
 				38BCDA0823A367D000D59910 /* LoadingView.xib in Resources */,
 				38BCDA2D23A37B5D00D59910 /* MemberIndex.storyboard in Resources */,
+				06B05CB92416470900C8F447 /* LCCAirportCell.xib in Resources */,
 				38AA8E0723CC4FE600A7EB07 /* Dev_Info.plist in Resources */,
 				38E68AB023B5AB80006BC4DD /* GroupSliderItemCell.xib in Resources */,
 				06DA4F8123E92260001B7DF1 /* MessageSendTopicCell.xib in Resources */,
@@ -1629,8 +1685,10 @@
 				381B12B923C48D440030BACE /* GroupNavigationView.xib in Resources */,
 				3817E52B23A33C9500ED8609 /* Assets.xcassets in Resources */,
 				2AF496B623AB7EBB0053EA45 /* GoogleService-Info.plist in Resources */,
+				06B05CAB2416287D00C8F447 /* LCCCountryCell.xib in Resources */,
 				3817E52C23A33C9500ED8609 /* Main.storyboard in Resources */,
 				C74FC80223C5AEE100E2250D /* NoticeDetail.storyboard in Resources */,
+				06B05CB3241632E400C8F447 /* TKTSearchInit.json in Resources */,
 				3869543B23BAF85900F6E7D9 /* MemberIndexServiceCell.xib in Resources */,
 				38BCDA0A23A367D000D59910 /* ToastView.xib in Resources */,
 				38871EC423D5B061007ED33D /* HomeAd1Cell.xib in Resources */,
@@ -1846,7 +1904,9 @@
 				381B12B523C48D360030BACE /* GroupNavigationView.swift in Sources */,
 				38E9923423B05A0700E28271 /* LoginResponse.swift in Sources */,
 				38E68AA923B5AB80006BC4DD /* GroupSliderViewController.swift in Sources */,
+				062DFCBF2419C1AE006882BE /* LCCSearchLocationProtocol.swift in Sources */,
 				0650775223ED4F1E0067377C /* ContactInfoViewController.swift in Sources */,
+				06B05CB02416293B00C8F447 /* LCCSearchLocationViewController.swift in Sources */,
 				38BCD93123A345FA00D59910 /* UserDefaultUtil.swift in Sources */,
 				38BCD98B23A3484300D59910 /* UINavigationBarExtension.swift in Sources */,
 				06DA4F7023E9222F001B7DF1 /* MessageSendUserListResponse.swift in Sources */,
@@ -1858,6 +1918,7 @@
 				38BCD98523A3484300D59910 /* ShareEnum.swift in Sources */,
 				38BCDA1E23A36ADC00D59910 /* TabBarPresenter.swift in Sources */,
 				C7DCA72223D1BBE300F415B8 /* GroupTourSearchPresenter.swift in Sources */,
+				062DFCC22419C4D6006882BE /* LCCSearchLocationPresenter.swift in Sources */,
 				0626031B23F3E5570026DC59 /* DeviceCell.swift in Sources */,
 				38871EC623D5B50F007ED33D /* HomeAd1View.swift in Sources */,
 				38BCD94423A346B800D59910 /* APIManager.swift in Sources */,
@@ -1881,6 +1942,7 @@
 				38BCDA1523A3689500D59910 /* ColorDef.swift in Sources */,
 				385B54F423BDC3A400BE1476 /* NotificationTableView.swift in Sources */,
 				38E68AAB23B5AB80006BC4DD /* GroupSliderItemCell.swift in Sources */,
+				06B05CA82416287D00C8F447 /* LCCCountryCell.swift in Sources */,
 				38BCD92B23A345FA00D59910 /* DeviceUtil.swift in Sources */,
 				3869542B23BADC0F00F6E7D9 /* MemberIndexPresenter.swift in Sources */,
 				38BCD98923A3484300D59910 /* OptionalStringExtension.swift in Sources */,
@@ -1909,6 +1971,7 @@
 				06DA4F8223E92260001B7DF1 /* MessageSendContentCell.swift in Sources */,
 				C7C41C4423C724E900F97057 /* NoticeDetailContentCell.swift in Sources */,
 				A12808A823F7937100287B9F /* PriceRangeSlider.swift in Sources */,
+				06B05CB62416470900C8F447 /* LCCAirportCell.swift in Sources */,
 				38E9922123B04F1400E28271 /* VersionRuleReponse.swift in Sources */,
 				0650776423ED5F300067377C /* ContactInfoPresenter.swift in Sources */,
 				38BCD93523A345FA00D59910 /* GTMBase64.m in Sources */,
@@ -1942,11 +2005,13 @@
 				3802A18F23C8520C00CD2EF2 /* SalesViewController.swift in Sources */,
 				38BCDA0323A367D000D59910 /* ApiFailErrorView.swift in Sources */,
 				A1DB93E424066EC500AE427C /* WebViewTourShareResponse.swift in Sources */,
+				06AA65912418E6EA001CDA37 /* SearchEmptyCell.swift in Sources */,
 				C70EEF5A23EA549800D67FF4 /* VersionRuleViewController.swift in Sources */,
 				38BCDA2F23A37B7100D59910 /* MemberIndexViewController.swift in Sources */,
 				38871EAD23D5553F007ED33D /* IndexResponse.swift in Sources */,
 				06DA4F7E23E92260001B7DF1 /* MessageSendProtocol.swift in Sources */,
 				38BCD93E23A346B800D59910 /* APIError.swift in Sources */,
+				06AA658B2418E553001CDA37 /* SearchResultCell.swift in Sources */,
 				C7DCA71C23D1BBAB00F415B8 /* GroupTourSearchInitResponse.swift in Sources */,
 				06DA4F6B23E921F8001B7DF1 /* MessageSendRepository.swift in Sources */,
 				3802A19723C8530100CD2EF2 /* SalesResponse.swift in Sources */,
@@ -2024,7 +2089,9 @@
 				381B12B623C48D360030BACE /* GroupNavigationView.swift in Sources */,
 				38E9923523B05A0700E28271 /* LoginResponse.swift in Sources */,
 				38E68AAA23B5AB80006BC4DD /* GroupSliderViewController.swift in Sources */,
+				062DFCC02419C1AE006882BE /* LCCSearchLocationProtocol.swift in Sources */,
 				0650775323ED4F1E0067377C /* ContactInfoViewController.swift in Sources */,
+				06B05CB12416293B00C8F447 /* LCCSearchLocationViewController.swift in Sources */,
 				38BCD93223A345FA00D59910 /* UserDefaultUtil.swift in Sources */,
 				38BCD98C23A3484300D59910 /* UINavigationBarExtension.swift in Sources */,
 				06DA4F7123E9222F001B7DF1 /* MessageSendUserListResponse.swift in Sources */,
@@ -2036,6 +2103,7 @@
 				38BCD98623A3484300D59910 /* ShareEnum.swift in Sources */,
 				38BCDA1F23A36ADC00D59910 /* TabBarPresenter.swift in Sources */,
 				C7DCA72323D1BBE300F415B8 /* GroupTourSearchPresenter.swift in Sources */,
+				062DFCC32419C4D6006882BE /* LCCSearchLocationPresenter.swift in Sources */,
 				0626031C23F3E5570026DC59 /* DeviceCell.swift in Sources */,
 				38871EC723D5B50F007ED33D /* HomeAd1View.swift in Sources */,
 				38BCD94523A346B800D59910 /* APIManager.swift in Sources */,
@@ -2059,6 +2127,7 @@
 				38BCDA1623A3689500D59910 /* ColorDef.swift in Sources */,
 				385B54F523BDC3A400BE1476 /* NotificationTableView.swift in Sources */,
 				38E68AAC23B5AB80006BC4DD /* GroupSliderItemCell.swift in Sources */,
+				06B05CA92416287D00C8F447 /* LCCCountryCell.swift in Sources */,
 				38BCD92C23A345FA00D59910 /* DeviceUtil.swift in Sources */,
 				3869542C23BADC0F00F6E7D9 /* MemberIndexPresenter.swift in Sources */,
 				38BCD98A23A3484300D59910 /* OptionalStringExtension.swift in Sources */,
@@ -2087,6 +2156,7 @@
 				06DA4F8323E92260001B7DF1 /* MessageSendContentCell.swift in Sources */,
 				C7C41C4523C724E900F97057 /* NoticeDetailContentCell.swift in Sources */,
 				A12808A923F7937100287B9F /* PriceRangeSlider.swift in Sources */,
+				06B05CB72416470900C8F447 /* LCCAirportCell.swift in Sources */,
 				38E9922223B04F1400E28271 /* VersionRuleReponse.swift in Sources */,
 				0650776523ED5F300067377C /* ContactInfoPresenter.swift in Sources */,
 				38BCD93623A345FA00D59910 /* GTMBase64.m in Sources */,
@@ -2120,11 +2190,13 @@
 				3802A19023C8520C00CD2EF2 /* SalesViewController.swift in Sources */,
 				38BCDA0423A367D000D59910 /* ApiFailErrorView.swift in Sources */,
 				A1DB93E524066EC500AE427C /* WebViewTourShareResponse.swift in Sources */,
+				06AA65922418E6EA001CDA37 /* SearchEmptyCell.swift in Sources */,
 				C70EEF5B23EA549800D67FF4 /* VersionRuleViewController.swift in Sources */,
 				38BCDA3023A37B7100D59910 /* MemberIndexViewController.swift in Sources */,
 				38871EAE23D5553F007ED33D /* IndexResponse.swift in Sources */,
 				06DA4F7F23E92260001B7DF1 /* MessageSendProtocol.swift in Sources */,
 				38BCD93F23A346B800D59910 /* APIError.swift in Sources */,
+				06AA658C2418E553001CDA37 /* SearchResultCell.swift in Sources */,
 				C7DCA71D23D1BBAB00F415B8 /* GroupTourSearchInitResponse.swift in Sources */,
 				06DA4F6C23E921F8001B7DF1 /* MessageSendRepository.swift in Sources */,
 				3802A19823C8530100CD2EF2 /* SalesResponse.swift in Sources */,
