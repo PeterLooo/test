@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="CalendarDayCollectionViewCell" customModule="colatour" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fwr-L0-bOU">
+                        <rect key="frame" x="1" y="1" width="48" height="48"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SYa-6x-7yL">
+                        <rect key="frame" x="4.5" y="7" width="41.5" height="22.5"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="16"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3pO-sT-iX4">
+                        <rect key="frame" x="1" y="31.5" width="48" height="11.5"/>
+                        <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="12"/>
+                        <color key="textColor" red="0.70588235294117641" green="0.70588235294117641" blue="0.70588235294117641" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="3pO-sT-iX4" firstAttribute="top" relation="greaterThanOrEqual" secondItem="SYa-6x-7yL" secondAttribute="bottom" constant="2" id="4JM-Ft-Qjd"/>
+                <constraint firstItem="fwr-L0-bOU" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" constant="-2" id="7J1-CN-SdQ"/>
+                <constraint firstItem="SYa-6x-7yL" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="7" id="8Hp-vh-ZSC"/>
+                <constraint firstItem="3pO-sT-iX4" firstAttribute="centerX" secondItem="ZTg-uK-7eu" secondAttribute="centerX" id="GQ4-7v-bXi"/>
+                <constraint firstItem="fwr-L0-bOU" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="RmR-w3-gsh"/>
+                <constraint firstItem="3pO-sT-iX4" firstAttribute="leading" secondItem="ZTg-uK-7eu" secondAttribute="leading" constant="1" id="UC0-0e-wEL"/>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="bottom" secondItem="3pO-sT-iX4" secondAttribute="bottom" constant="7" id="arX-Sk-H01"/>
+                <constraint firstItem="fwr-L0-bOU" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="cZy-sE-QSE"/>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="trailing" secondItem="3pO-sT-iX4" secondAttribute="trailing" constant="1" id="fxy-hK-Ojt"/>
+                <constraint firstItem="SYa-6x-7yL" firstAttribute="centerX" secondItem="ZTg-uK-7eu" secondAttribute="centerX" id="waO-UY-PhW"/>
+                <constraint firstItem="fwr-L0-bOU" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" constant="-2" id="y20-kk-R0y"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <connections>
+                <outlet property="button" destination="fwr-L0-bOU" id="cRh-kP-P7L"/>
+                <outlet property="day" destination="SYa-6x-7yL" id="5wq-0l-X2g"/>
+                <outlet property="note" destination="3pO-sT-iX4" id="For-Vj-8wZ"/>
+            </connections>
+        </collectionViewCell>
+    </objects>
+</document>

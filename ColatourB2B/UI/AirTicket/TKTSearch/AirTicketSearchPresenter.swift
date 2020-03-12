@@ -11,7 +11,7 @@ import RxSwift
 class AirTicketSearchPresenter:AirTicketSearchPresenterProtocol {
     
     weak var delegate: AirTicketSearchViewProtocol?
-    private let response = TKTRepository.shared
+    private let repository = TKTRepository.shared
     fileprivate var dispose = DisposeBag()
     
     convenience init(delegate: AirTicketSearchViewProtocol?){
@@ -21,11 +21,10 @@ class AirTicketSearchPresenter:AirTicketSearchPresenterProtocol {
     
     func getAirTicketSearchInit() {
         self.delegate?.onStartLoadingHandle(handleType: .coverPlate)
-        response.getSearchInit().subscribe(onSuccess: { (model) in
+        repository.getSearchInit().subscribe(onSuccess: { (model) in
             self.delegate?.onBindAirTicketSearchInit(groupTourSearchInit: model)
             self.delegate?.onCompletedLoadingHandle()
         }, onError: { (error) in
-            
             self.delegate?.onApiErrorHandle(apiError: error as! APIError, handleType: .custom)
             self.delegate?.onCompletedLoadingHandle()
         }).disposed(by: dispose)

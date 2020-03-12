@@ -4,59 +4,59 @@
   "Group_Air": {
     "Departure": [
       {
-        "Value": "",
+        "Value": "台北",
         "Text": "台北"
       },
       {
-        "Value": "",
+        "Value": "松山",
         "Text": "松山"
       },
       {
-        "Value": "",
+        "Value": "桃園",
         "Text": "桃園"
       },
       {
-        "Value": "",
+        "Value": "高雄",
         "Text": "高雄"
       }
     ],
     "Airline": [
       {
-        "Value": "",
+        "Value": "《不指定航空公司》",
         "Text": "《不指定航空公司》"
       },
       {
-        "Value": "",
+        "Value": "AA－美國航空",
         "Text": "AA－美國航空"
       },
       {
-        "Value": "",
+        "Value": "AC－加拿大航空",
         "Text": "AC－加拿大航空"
       },
       {
-        "Value": "",
+        "Value": "AE－華信航空",
         "Text": "AE－華信航空"
       },
       {
-        "Value": "",
+        "Value": "AF－法國航空",
         "Text": "AF－法國航空"
       }
     ],
     "Tour_Type": [
       {
-        "Value": "",
+        "Value": "單程",
         "Text": "單程"
       },
       {
-        "Value": "",
+        "Value": "來回",
         "Text": "來回"
       },
       {
-        "Value": "",
+        "Value": "雙程",
         "Text": "雙程"
       },
       {
-        "Value": "",
+        "Value": "旅遊",
         "Text": "旅遊"
       }
     ],
@@ -124,33 +124,33 @@
   "SOTO_Ticket": {
     "Airline": [
       {
-        "Value": "",
+        "Value": "《不指定航空公司》",
         "Text": "《不指定航空公司》"
       },
       {
-        "Value": "",
+        "Value": "AA－美國航空",
         "Text": "AA－美國航空"
       },
       {
-        "Value": "",
+        "Value": "AA－美國航空",
         "Text": "AC－加拿大航空"
       },
       {
-        "Value": "",
+        "Value": "AE－華信航空",
         "Text": "AE－華信航空"
       },
       {
-        "Value": "",
+        "Value": "AF－法國航空",
         "Text": "AF－法國航空"
       }
     ],
     "Tour_Type": [
       {
-        "Value": "",
+        "Value": "單程",
         "Text": "單程"
       },
       {
-        "Value": "",
+        "Value": "來回",
         "Text": "來回"
       }
     ],
@@ -290,67 +290,67 @@
     },
   "Sit_Class": [
     {
-      "Value": "",
+      "Value": "不限",
       "Text": "不限"
     },
     {
-      "Value": "",
+      "Value": "經濟艙",
       "Text": "經濟艙"
     },
     {
-      "Value": "",
+      "Value": "豪經艙",
       "Text": "豪經艙"
     },
     {
-      "Value": "",
+      "Value": "商務艙",
       "Text": "商務艙"
     },
     {
-      "Value": "",
+      "Value": "頭等艙",
       "Text": "頭等艙"
     }
   ],
   "Identity": [
     {
-      "Value": "",
+      "Value": "一般身份",
       "Text": "一般身份"
     },
     {
-      "Value": "",
+      "Value": "學生票",
       "Text": "學生票"
     },
     {
-      "Value": "",
+      "Value": "外勞票",
       "Text": "外勞票"
     },
     {
-      "Value": "",
+      "Value": "敬老票",
       "Text": "敬老票"
     },
     {
-      "Value": "",
+      "Value": "移民票",
       "Text": "移民票"
     },
     {
-      "Value": "",
+      "Value": "外籍人士",
       "Text": "外籍人士"
     }
   ],
-  "Date range": [
+  "Date_Range": [
     {
-      "Value": "",
+      "Value": "當日",
       "Text": "當日"
     },
     {
-      "Value": "",
+      "Value": "1周內",
       "Text": "1周內"
     },
     {
-      "Value": "",
+      "Value": "2周內",
       "Text": "2周內"
     },
     {
-      "Value": "",
+      "Value": "6周內",
       "Text": "6周內"
     }
   ]
