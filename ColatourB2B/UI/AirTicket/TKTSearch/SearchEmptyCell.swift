@@ -19,6 +19,6 @@ class SearchEmptyCell: UICollectionViewCell {
     
     func setEmptyHint() {
         
-        resultHint.text = "很抱歉，沒有查到您要搜尋的"
+        resultHint.text = "很抱歉，沒有查到您要搜尋的\n若仍然找不到您想要的城市，請以訂位系統查詢"
     }
 }
