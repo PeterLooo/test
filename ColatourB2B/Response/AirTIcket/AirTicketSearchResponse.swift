@@ -97,6 +97,7 @@ class AirTicketSearchResponse: BaseModel {
         
         var airportList : [AirInfo]?
         var country : String?
+        var isSelected = false
         
         override func mapping(map: Map) {
             super.mapping(map: map)
