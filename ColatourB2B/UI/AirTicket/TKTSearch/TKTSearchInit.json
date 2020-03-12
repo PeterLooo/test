@@ -198,6 +198,91 @@
             {
               "Text": "東京",
               "Value": "TKO"
+            },
+            {
+              "Text": "成田",
+              "Value": "TKO"
+            },
+            {
+              "Text": "羽田",
+              "Value": "TKO"
+            },
+            {
+              "Text": "岡山",
+              "Value": "TKO"
+            }
+          ]
+        },
+        {
+          "Country": "韓國",
+          "Airport_List": [
+            {
+              "Text": "仁川",
+              "Value": "TKO"
+            },
+            {
+              "Text": "金浦",
+              "Value": "TKO"
+            }
+          ]
+        },
+        {
+          "Country": "新加坡",
+          "Airport_List": [
+            {
+              "Text": "樟宜",
+              "Value": "TKO"
+            }
+          ]
+        },
+        {
+          "Country": "馬來西亞",
+          "Airport_List": [
+            {
+              "Text": "吉隆坡",
+              "Value": "TKO"
+            },
+            {
+              "Text": "蘇丹阿都阿茲沙",
+              "Value": "TKO"
+            }
+          ]
+        },
+        {
+          "Country": "瑞典",
+          "Airport_List": [
+            {
+              "Text": "阿蘭達",
+              "Value": "TKO"
+            },
+            {
+              "Text": "蘇丹斯卡夫司塔",
+              "Value": "TKO"
+            },
+            {
+              "Text": "布魯瑪",
+              "Value": "TKO"
+            },
+            {
+              "Text": "韋斯特羅斯",
+              "Value": "TKO"
+            }
+          ]
+        },
+        {
+          "Country": "烏克蘭",
+          "Airport_List": [
+            {
+              "Text": "鮑里斯波爾",
+              "Value": "TKO"
+            },
+            {
+              "Text": "基輔蘇拿尼",
+              "Value": "TKO"
+            },
+            {
+              "Text": "使基都聲",
+              "Value": "TKO"
             }
           ]
         }
