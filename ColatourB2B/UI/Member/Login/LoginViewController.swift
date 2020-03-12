@@ -47,6 +47,30 @@ class LoginViewController: BaseViewController {
         memberIdno.someController?.placeholderText = "會員帳號"
         password.someController?.placeholderText = "密碼"
         registerButton.setBorder(width: 1, radius: 4, color: UIColor.init(named: "通用綠"))
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    @objc private func keyboardWillShow(_ notification: Notification) {
+        
+        UIView.animate(withDuration: 0.05, animations: {
+            if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+                self.scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardFrame.cgRectValue.height + 25, right: 0)
+            }
+        })
+    }
+    
+    @objc private func keyboardWillHide(_ notification: Notification) {
+        
+        UIView.animate(withDuration: 0.05, animations: {
+            self.scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        })
     }
     
     @objc private func onTouchScrollView(_ sender: UIScrollView) {
@@ -106,7 +130,8 @@ extension LoginViewController : LoginViewProtocol {
 }
 
 extension LoginViewController : UIScrollViewDelegate {
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        
         self.view.endEditing(true)
     }
 }
