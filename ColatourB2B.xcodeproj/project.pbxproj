@@ -402,6 +402,12 @@
 		A1A7F3242418882100263E42 /* YearMonthDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A7F3172418882000263E42 /* YearMonthDay.swift */; };
 		A1A7F3252418882100263E42 /* CustomCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A7F3182418882000263E42 /* CustomCalendar.swift */; };
 		A1A7F3262418882100263E42 /* CustomCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A7F3182418882000263E42 /* CustomCalendar.swift */; };
+		A1A7F32A2418DDCC00263E42 /* ChooseCountButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1A7F3282418DDCC00263E42 /* ChooseCountButton.xib */; };
+		A1A7F32B2418DDCC00263E42 /* ChooseCountButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1A7F3282418DDCC00263E42 /* ChooseCountButton.xib */; };
+		A1A7F32C2418DDCC00263E42 /* ChooseCountButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A7F3292418DDCC00263E42 /* ChooseCountButton.swift */; };
+		A1A7F32D2418DDCC00263E42 /* ChooseCountButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A7F3292418DDCC00263E42 /* ChooseCountButton.swift */; };
+		A1A7F32F2418E11100263E42 /* AirPaxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A7F32E2418E11100263E42 /* AirPaxViewController.swift */; };
+		A1A7F3302418E11100263E42 /* AirPaxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A7F32E2418E11100263E42 /* AirPaxViewController.swift */; };
 		A1DB93DE24066B5D00AE427C /* WebViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DB93DD24066B5D00AE427C /* WebViewProtocol.swift */; };
 		A1DB93DF24066B5D00AE427C /* WebViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DB93DD24066B5D00AE427C /* WebViewProtocol.swift */; };
 		A1DB93E124066B8E00AE427C /* WebViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DB93E024066B8E00AE427C /* WebViewPresenter.swift */; };
@@ -716,6 +722,9 @@
 		A1A7F3152418882000263E42 /* YearMonth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YearMonth.swift; sourceTree = "<group>"; };
 		A1A7F3172418882000263E42 /* YearMonthDay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YearMonthDay.swift; sourceTree = "<group>"; };
 		A1A7F3182418882000263E42 /* CustomCalendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCalendar.swift; sourceTree = "<group>"; };
+		A1A7F3282418DDCC00263E42 /* ChooseCountButton.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChooseCountButton.xib; sourceTree = "<group>"; };
+		A1A7F3292418DDCC00263E42 /* ChooseCountButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseCountButton.swift; sourceTree = "<group>"; };
+		A1A7F32E2418E11100263E42 /* AirPaxViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirPaxViewController.swift; sourceTree = "<group>"; };
 		A1DB93DD24066B5D00AE427C /* WebViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewProtocol.swift; sourceTree = "<group>"; };
 		A1DB93E024066B8E00AE427C /* WebViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewPresenter.swift; sourceTree = "<group>"; };
 		A1DB93E324066EC500AE427C /* WebViewTourShareResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewTourShareResponse.swift; sourceTree = "<group>"; };
@@ -1190,6 +1199,7 @@
 		38BCDA2223A3760900D59910 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				A1A7F3272418DDCC00263E42 /* ChooseCountButton */,
 				A1A7F2CA2418854C00263E42 /* Calendar */,
 				A1DB93E6240675D000AE427C /* WebView */,
 				C7BD648C23ED453100FEE538 /* EmptyDataCell.swift */,
@@ -1356,6 +1366,7 @@
 				A1876A8E2415EFEE00855DE6 /* GroupAirCell.swift */,
 				A1F6E88224176BB90015279F /* SotoAirCell.swift */,
 				A1F6E885241787510015279F /* LccCell.swift */,
+				A1A7F32E2418E11100263E42 /* AirPaxViewController.swift */,
 			);
 			path = TKTSearch;
 			sourceTree = "<group>";
@@ -1446,6 +1457,15 @@
 				A1A7F3182418882000263E42 /* CustomCalendar.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		A1A7F3272418DDCC00263E42 /* ChooseCountButton */ = {
+			isa = PBXGroup;
+			children = (
+				A1A7F3282418DDCC00263E42 /* ChooseCountButton.xib */,
+				A1A7F3292418DDCC00263E42 /* ChooseCountButton.swift */,
+			);
+			path = ChooseCountButton;
 			sourceTree = "<group>";
 		};
 		A1DB93E6240675D000AE427C /* WebView */ = {
@@ -1712,6 +1732,7 @@
 				38BCDA0723A367D000D59910 /* LoadingView.xib in Resources */,
 				38BCDA2C23A37B5D00D59910 /* MemberIndex.storyboard in Resources */,
 				38E68AAF23B5AB80006BC4DD /* GroupSliderItemCell.xib in Resources */,
+				A1A7F32A2418DDCC00263E42 /* ChooseCountButton.xib in Resources */,
 				387FBEF723ACA201005412F1 /* AirTicket.storyboard in Resources */,
 				387FBF0323ACA327005412F1 /* More.storyboard in Resources */,
 				3869543423BAE5F500F6E7D9 /* MemberTopCell.xib in Resources */,
@@ -1786,6 +1807,7 @@
 				38E68ABE23B5AE30006BC4DD /* SelectOption.storyboard in Resources */,
 				38BCDA0823A367D000D59910 /* LoadingView.xib in Resources */,
 				38BCDA2D23A37B5D00D59910 /* MemberIndex.storyboard in Resources */,
+				A1A7F32B2418DDCC00263E42 /* ChooseCountButton.xib in Resources */,
 				38AA8E0723CC4FE600A7EB07 /* Dev_Info.plist in Resources */,
 				38E68AB023B5AB80006BC4DD /* GroupSliderItemCell.xib in Resources */,
 				06DA4F8123E92260001B7DF1 /* MessageSendTopicCell.xib in Resources */,
@@ -1999,6 +2021,7 @@
 				384B110623C2BD46000E2B41 /* AirTicketPresenter.swift in Sources */,
 				C7BBF4BB23C7040900023307 /* NoticeDetailProtocol.swift in Sources */,
 				38E9921E23B04CF200E28271 /* GropeTourPresenter.swift in Sources */,
+				A1A7F32C2418DDCC00263E42 /* ChooseCountButton.swift in Sources */,
 				3848DA7B23C7280500EA0ED0 /* NoticeProtocol.swift in Sources */,
 				38BCD9D423A366D500D59910 /* BaseViewController.swift in Sources */,
 				38BCDA1223A3684E00D59910 /* BaseProtocol.swift in Sources */,
@@ -2130,6 +2153,7 @@
 				38BCD97F23A3484300D59910 /* UIFontExtenstion.swift in Sources */,
 				A1A7F3092418854D00263E42 /* CalendarViewControllerProtocol.swift in Sources */,
 				C7E15BF123D18CB0004C20A0 /* CustomPickerView.swift in Sources */,
+				A1A7F32F2418E11100263E42 /* AirPaxViewController.swift in Sources */,
 				A1A7F3072418854D00263E42 /* CalendarView.swift in Sources */,
 				38BCD92F23A345FA00D59910 /* ColorHexUtil.swift in Sources */,
 				A1A7F2F12418854D00263E42 /* CalendarAllAttribute.swift in Sources */,
@@ -2204,6 +2228,7 @@
 				384B110723C2BD46000E2B41 /* AirTicketPresenter.swift in Sources */,
 				C7BBF4BC23C7040900023307 /* NoticeDetailProtocol.swift in Sources */,
 				38E9921F23B04CF200E28271 /* GropeTourPresenter.swift in Sources */,
+				A1A7F32D2418DDCC00263E42 /* ChooseCountButton.swift in Sources */,
 				3848DA7C23C7280500EA0ED0 /* NoticeProtocol.swift in Sources */,
 				38BCD9D523A366D500D59910 /* BaseViewController.swift in Sources */,
 				38BCDA1323A3684E00D59910 /* BaseProtocol.swift in Sources */,
@@ -2335,6 +2360,7 @@
 				38BCD98023A3484300D59910 /* UIFontExtenstion.swift in Sources */,
 				A1A7F30A2418854D00263E42 /* CalendarViewControllerProtocol.swift in Sources */,
 				C7E15BF223D18CB0004C20A0 /* CustomPickerView.swift in Sources */,
+				A1A7F3302418E11100263E42 /* AirPaxViewController.swift in Sources */,
 				A1A7F3082418854D00263E42 /* CalendarView.swift in Sources */,
 				38BCD93023A345FA00D59910 /* ColorHexUtil.swift in Sources */,
 				A1A7F2F22418854D00263E42 /* CalendarAllAttribute.swift in Sources */,
