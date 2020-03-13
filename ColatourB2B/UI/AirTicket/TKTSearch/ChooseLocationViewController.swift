@@ -32,6 +32,7 @@ class ChooseLocationViewController: BaseViewController {
        }
     
     private var searchType: SearchByType?
+    private var startEndType: StartEndType?
     private var airTicketInfo: AirTicketSearchResponse?
     private var groupAirInfo: AirTicketSearchResponse.GroupAir?
     private var lCCInfo: AirTicketSearchResponse.LCC?
@@ -63,9 +64,6 @@ class ChooseLocationViewController: BaseViewController {
         collectionView.register(UINib(nibName: "BrickCell", bundle: nil), forCellWithReuseIdentifier: "BrickCell")
         collectionView.register(UINib(nibName: "SearchEmptyCell", bundle: nil), forCellWithReuseIdentifier: "SearchEmptyCell")
         collectionView.register(UINib(nibName: "SearchResultCell", bundle: nil), forCellWithReuseIdentifier: "SearchResultCell")
-        
-        groupAirInfo?.continentList.first?.isSelected = true
-        lCCInfo?.countryList.first?.isSelected = true
     }
     
     override func loadData() {
@@ -77,7 +75,6 @@ class ChooseLocationViewController: BaseViewController {
             self.searchBar.text = self.searchResultText
             searchBar((self.searchBar), textDidChange: self.searchResultText!)
         }
-        
         presenter?.getSearchResult()
     }
     
@@ -111,14 +108,51 @@ class ChooseLocationViewController: BaseViewController {
         
         self.collectionView.setCollectionViewLayout(UICollectionViewFlowLayout(), animated: false)
     }
+    
+    func infoSort() {
+        
+        switch startEndType {
+        case .Departure:
+            if searchType == SearchByType.lcc {
+                var tempInfo: [AirTicketSearchResponse.CountryInfo] = []
+                let taiwan = (lCCInfo?.countryList.filter { $0.country == "台灣" }.first)!
+                
+                tempInfo = (lCCInfo?.countryList.filter { $0.country != "台灣" })!
+                tempInfo.insert(taiwan, at: 0)
+                
+                lCCInfo?.countryList = tempInfo
+            }
+
+        case .Destination:
+            var tempInfo: [AirTicketSearchResponse.CountryInfo] = []
+            let japan = (lCCInfo?.countryList.filter { $0.country == "日本" }.first)!
+            let taiwan = (lCCInfo?.countryList.filter { $0.country == "台灣" }.first)!
+
+            tempInfo = (lCCInfo?.countryList.filter { $0.country != "日本" })!
+            tempInfo = tempInfo.filter { $0.country != "台灣" }
+            tempInfo.insert(japan, at: 0)
+            tempInfo.append(taiwan)
+
+            lCCInfo?.countryList = tempInfo
+
+        default:
+            ()
+        }
+        
+        groupAirInfo?.continentList.forEach { $0.isSelected = false }
+        groupAirInfo?.continentList.first?.isSelected = true
+        lCCInfo?.countryList.forEach { $0.isSelected = false }
+        lCCInfo?.countryList.first?.isSelected = true
+    }
 }
 
 extension ChooseLocationViewController: ChooseLocationViewProtocol {
     
-    func onBindAirTicketInfo(response: AirTicketSearchResponse, searchType: SearchByType) {
+    func onBindAirTicketInfo(response: AirTicketSearchResponse, searchType: SearchByType, startEndType: StartEndType) {
         
-        self.searchType = searchType
         airTicketInfo = response
+        self.searchType = searchType
+        self.startEndType = startEndType
         
         switch searchType {
         case .groupAir:
@@ -129,8 +163,9 @@ extension ChooseLocationViewController: ChooseLocationViewProtocol {
             
         case .lcc:
             lCCInfo = response.lCC
-            
         }
+        
+        infoSort()
     }
     
     func onBindSearchResult() {
@@ -207,6 +242,7 @@ extension ChooseLocationViewController: CapsuleCellProtocol {
                 country.isSelected = false
             }
         })
+        
         collectionView.reloadData()
         setCollectionViewLayout()
     }
@@ -220,13 +256,13 @@ extension ChooseLocationViewController: BrickCellProtocol {
     }
 
     func onTouchBrick(airportInfo: AirTicketSearchResponse.AirInfo) {
-
+        
         self.lCCInfo?.countryList.forEach({ (country) in
-
+            
             country.airportList?.forEach({ (airport) in
-
+                
                 if airport == airportInfo {
-
+                    
                     self.delegate?.setLocation(airportInfo: airportInfo)
                     self.dismiss(animated: true, completion: nil)
                 }
@@ -256,7 +292,7 @@ extension ChooseLocationViewController: UICollectionViewDataSource {
                 
             case .lcc:
                 return lCCInfo?.countryList.count ?? 0
-                
+ 
             default:
                 return 0
             }
