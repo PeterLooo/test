@@ -10,7 +10,6 @@ import UIKit
 
 class AirTicketViewController: BaseViewController {
     
-    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var airSearchView: UIView!
     
@@ -25,13 +24,13 @@ class AirTicketViewController: BaseViewController {
     private var itemList: [IndexResponse.MultiModule] = [] {
         didSet {
             indexList = itemList.filter{$0.groupName == "首頁1"}.flatMap{$0.moduleList}
-            homeAd1List = itemList.filter{$0.groupName == "HomeAd1"}.flatMap{$0.moduleList}
+            airPopCityList = itemList.filter{$0.groupName == "HomeAd1"}.flatMap{$0.moduleList}
             homeAd2List = itemList.filter{$0.groupName == "HomeAd2"}.flatMap{$0.moduleList}
             tableView.reloadData()
         }
     }
     private var indexList: [IndexResponse.Module] = []
-    private var homeAd1List: [IndexResponse.Module] = []
+    private var airPopCityList: [IndexResponse.Module] = []
     private var homeAd2List: [IndexResponse.Module] = []
     private var needUpdateBannerImage = false
     private var presenter: AirTicketPresenter?
@@ -55,6 +54,7 @@ class AirTicketViewController: BaseViewController {
         setNavBarItem(left: .custom, mid: .custom, right: .custom)
         setNavIcon()
         tableView.register(UINib(nibName: "GroupIndexHeaderImageCell", bundle: nil), forCellReuseIdentifier: "GroupIndexHeaderImageCell")
+        tableView.register(UINib(nibName: "AirPopCityCell", bundle: nil), forCellReuseIdentifier: "AirPopCityCell")
         tableView.register(UINib(nibName: "HomeAd1Cell", bundle: nil), forCellReuseIdentifier: "HomeAd1Cell")
         tableView.register(UINib(nibName: "HomeAd2Cell", bundle: nil), forCellReuseIdentifier: "HomeAd2Cell")
         setSearchBorder()
@@ -297,7 +297,7 @@ extension AirTicketViewController : UITableViewDataSource {
             return self.indexList.isEmpty ? 0 : 1
             
         case .HOMEAD1:
-            return self.homeAd1List.count
+            return self.airPopCityList.count
        
         case .HOMEAD2:
             return self.homeAd2List.count
@@ -318,9 +318,9 @@ extension AirTicketViewController : UITableViewDataSource {
             needUpdateBannerImage = false
         
         case .HOMEAD1:
-            cell = tableView.dequeueReusableCell(withIdentifier: "HomeAd1Cell") as! HomeAd1Cell
-            (cell as! HomeAd1Cell).setCell(item: self.homeAd1List[indexPath.row])
-            (cell as! HomeAd1Cell).delegate = self
+            cell = tableView.dequeueReusableCell(withIdentifier: "AirPopCityCell") as! AirPopCityCell
+            (cell as! AirPopCityCell).setCell(item: self.airPopCityList[indexPath.row], numOfIndex: 0)
+            (cell as! AirPopCityCell).delegate = self
         
         case .HOMEAD2:
             cell = tableView.dequeueReusableCell(withIdentifier: "HomeAd2Cell") as! HomeAd2Cell
