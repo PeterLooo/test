@@ -53,7 +53,7 @@ class AirTicketViewController: BaseViewController {
         setIsNavShadowEnable(false)
         setNavBarItem(left: .custom, mid: .custom, right: .custom)
         setNavIcon()
-        tableView.register(UINib(nibName: "GroupIndexHeaderImageCell", bundle: nil), forCellReuseIdentifier: "GroupIndexHeaderImageCell")
+        tableView.register(UINib(nibName: "AirIndexCell", bundle: nil), forCellReuseIdentifier: "AirIndexCell")
         tableView.register(UINib(nibName: "AirPopCityCell", bundle: nil), forCellReuseIdentifier: "AirPopCityCell")
         tableView.register(UINib(nibName: "HomeAd1Cell", bundle: nil), forCellReuseIdentifier: "HomeAd1Cell")
         tableView.register(UINib(nibName: "HomeAd2Cell", bundle: nil), forCellReuseIdentifier: "HomeAd2Cell")
@@ -312,10 +312,10 @@ extension AirTicketViewController : UITableViewDataSource {
         switch section {
         
         case .BANNER:
-            cell = tableView.dequeueReusableCell(withIdentifier: "GroupIndexHeaderImageCell") as! GroupIndexHeaderImageCell
-            (cell as! GroupIndexHeaderImageCell).setCell(itemList: indexList[indexPath.row].moduleItemList, needUpdateBannerImage: needUpdateBannerImage)
-            (cell as! GroupIndexHeaderImageCell).delegate = self
-            needUpdateBannerImage = false
+            cell = tableView.dequeueReusableCell(withIdentifier: "AirIndexCell") as! AirIndexCell
+            
+            (cell as! AirIndexCell).setCell(item: indexList[indexPath.row])
+            
         
         case .HOMEAD1:
             cell = tableView.dequeueReusableCell(withIdentifier: "AirPopCityCell") as! AirPopCityCell
