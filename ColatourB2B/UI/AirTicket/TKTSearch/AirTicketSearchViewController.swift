@@ -34,6 +34,10 @@ enum ArrivalType {
     case departureCity
     case backStartingCity
 }
+enum StartEndType {
+    case Departure
+    case Destination
+}
 class AirTicketSearchViewController: BaseViewController {
     @IBOutlet weak var topPageScrollView: UIScrollView!
     @IBOutlet weak var topPageButtonView: UIView!
@@ -484,7 +488,7 @@ extension AirTicketSearchViewController: GroupAirCellProtocol {
             ()
         case .departureCity:
              let vc = getVC(st: "ChooseLocation", vc: "ChooseLocation") as! ChooseLocationViewController
-             vc.onBindAirTicketInfo(response: tktSearchInit!, searchType: SearchByType.groupAir)
+             vc.onBindAirTicketInfo(response: tktSearchInit!, searchType: SearchByType.groupAir, startEndType: StartEndType.Departure)
                     
             let nav = UINavigationController(rootViewController: vc)
             nav.modalPresentationStyle = .fullScreen
@@ -512,7 +516,7 @@ extension AirTicketSearchViewController: LccCellProtocol {
     func onTouchLccDeparture() {
         
         let vc = getVC(st: "ChooseLocation", vc: "ChooseLocation") as! ChooseLocationViewController
-        vc.onBindAirTicketInfo(response: tktSearchInit!, searchType: SearchByType.lcc)
+        vc.onBindAirTicketInfo(response: tktSearchInit!, searchType: SearchByType.lcc, startEndType: StartEndType.Departure)
                 
         let nav = UINavigationController(rootViewController: vc)
         nav.modalPresentationStyle = .fullScreen
@@ -523,7 +527,7 @@ extension AirTicketSearchViewController: LccCellProtocol {
     func onTouchLccDestination() {
         
         let vc = getVC(st: "ChooseLocation", vc: "ChooseLocation") as! ChooseLocationViewController
-         vc.onBindAirTicketInfo(response: tktSearchInit!, searchType: SearchByType.lcc)
+         vc.onBindAirTicketInfo(response: tktSearchInit!, searchType: SearchByType.lcc, startEndType: StartEndType.Destination)
                 
         let nav = UINavigationController(rootViewController: vc)
         nav.modalPresentationStyle = .fullScreen
