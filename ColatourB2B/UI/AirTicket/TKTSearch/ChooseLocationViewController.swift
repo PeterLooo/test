@@ -1,5 +1,5 @@
 //
-//  LCCSearchLocationViewController.swift
+//  ChooseLocationViewController.swift
 //  ColatourB2B
 //
 //  Created by 7635 邱郁雯 on 2020/3/9.
@@ -13,25 +13,28 @@ protocol SetLCCSearchLocationProtocol: NSObjectProtocol {
     func setLocation(airportInfo: AirTicketSearchResponse.AirInfo)
 }
 
-class LCCSearchLocationViewController: BaseViewController {
+class ChooseLocationViewController: BaseViewController {
     
     enum Section: Int, CaseIterable {
-        case Country = 0
-        case Airport
+        case Capsule = 0
+        case Brick
         case SearchEmpty
         case SearchResult
     }
     
     weak var delegate: SetLCCSearchLocationProtocol?
     
-    private var presenter: LCCSearchLocationPresenter?
+    private var presenter: ChooseLocationPresenter?
     required init?(coder: NSCoder) {
            super.init(coder: coder)
            
-           presenter = LCCSearchLocationPresenter(delegate: self)
+           presenter = ChooseLocationPresenter(delegate: self)
        }
     
-    private var LCCInfo: AirTicketSearchResponse.LCC?
+    private var searchType: SearchByType?
+    private var airTicketInfo: AirTicketSearchResponse?
+    private var groupAirInfo: AirTicketSearchResponse.GroupAir?
+    private var lCCInfo: AirTicketSearchResponse.LCC?
     private var countryIndex = 0
     private var searchText = ""
     
@@ -56,12 +59,13 @@ class LCCSearchLocationViewController: BaseViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         
-        collectionView.register(UINib(nibName: "LCCCountryCell", bundle: nil), forCellWithReuseIdentifier: "LCCCountryCell")
-        collectionView.register(UINib(nibName: "LCCAirportCell", bundle: nil), forCellWithReuseIdentifier: "LCCAirportCell")
+        collectionView.register(UINib(nibName: "CapsuleCell", bundle: nil), forCellWithReuseIdentifier: "CapsuleCell")
+        collectionView.register(UINib(nibName: "BrickCell", bundle: nil), forCellWithReuseIdentifier: "BrickCell")
         collectionView.register(UINib(nibName: "SearchEmptyCell", bundle: nil), forCellWithReuseIdentifier: "SearchEmptyCell")
         collectionView.register(UINib(nibName: "SearchResultCell", bundle: nil), forCellWithReuseIdentifier: "SearchResultCell")
         
-        LCCInfo?.countryList.first?.isSelected = true
+        groupAirInfo?.continentList.first?.isSelected = true
+        lCCInfo?.countryList.first?.isSelected = true
     }
     
     override func loadData() {
@@ -109,11 +113,24 @@ class LCCSearchLocationViewController: BaseViewController {
     }
 }
 
-extension LCCSearchLocationViewController: LCCSearchLocationViewProtocol {
+extension ChooseLocationViewController: ChooseLocationViewProtocol {
     
-    func onBindLCCInfo(response: AirTicketSearchResponse) {
+    func onBindAirTicketInfo(response: AirTicketSearchResponse, searchType: SearchByType) {
         
-        LCCInfo = response.lCC
+        self.searchType = searchType
+        airTicketInfo = response
+        
+        switch searchType {
+        case .groupAir:
+            groupAirInfo = response.groupAir
+            
+        case .soto:
+            ()
+            
+        case .lcc:
+            lCCInfo = response.lCC
+            
+        }
     }
     
     func onBindSearchResult() {
@@ -132,7 +149,7 @@ extension LCCSearchLocationViewController: LCCSearchLocationViewProtocol {
 }
 
 // UISearchBarDelegate
-extension LCCSearchLocationViewController {
+extension ChooseLocationViewController {
     
    override func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
        return true
@@ -160,36 +177,56 @@ extension LCCSearchLocationViewController {
    }
 }
 
-extension LCCSearchLocationViewController: LCCCountryCellProtocol {
+extension ChooseLocationViewController: CapsuleCellProtocol {
     
-    func onTouchConutry(countryInfo: AirTicketSearchResponse.CountryInfo) {
+    func onTouchCapsule(continentInfo: AirTicketSearchResponse.ContinentInfo) {
         
-        self.LCCInfo?.countryList.forEach({ (country) in
+        self.groupAirInfo?.continentList.forEach({ (continent) in
             
-            if country == countryInfo {
+            if continent == continentInfo {
                 
-                country.isSelected = true
+                continent.isSelected = true
             } else {
                 
+                continent.isSelected = false
+            }
+        })
+        collectionView.reloadData()
+        setCollectionViewLayout()
+    }
+    
+    func onTouchCapsule(countryInfo: AirTicketSearchResponse.CountryInfo) {
+
+        self.lCCInfo?.countryList.forEach({ (country) in
+
+            if country == countryInfo {
+
+                country.isSelected = true
+            } else {
+
                 country.isSelected = false
             }
         })
-        
         collectionView.reloadData()
         setCollectionViewLayout()
     }
 }
 
-extension LCCSearchLocationViewController: LCCAirportCellProtocol {
-    
-    func onTouchAirport(airportInfo: AirTicketSearchResponse.AirInfo) {
-        
-        self.LCCInfo?.countryList.forEach({ (country) in
-            
+extension ChooseLocationViewController: BrickCellProtocol {
+
+    func onTouchBrick(countryInfo: AirTicketSearchResponse.CountryInfo) {
+        ()
+
+    }
+
+    func onTouchBrick(airportInfo: AirTicketSearchResponse.AirInfo) {
+
+        self.lCCInfo?.countryList.forEach({ (country) in
+
             country.airportList?.forEach({ (airport) in
-                
+
                 if airport == airportInfo {
-                    
+
                     self.delegate?.setLocation(airportInfo: airportInfo)
                     self.dismiss(animated: true, completion: nil)
                 }
@@ -198,7 +235,7 @@ extension LCCSearchLocationViewController: LCCAirportCellProtocol {
     }
 }
 
-extension LCCSearchLocationViewController: UICollectionViewDataSource {
+extension ChooseLocationViewController: UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         
@@ -208,12 +245,39 @@ extension LCCSearchLocationViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         switch Section(rawValue: section) {
-        case .Country:
-            return LCCInfo?.countryList.count ?? 0
+        case .Capsule:
             
-        case .Airport:
-            let airports = LCCInfo?.countryList.filter { $0.isSelected == true }.first
-            return airports?.airportList?.count ?? 0
+            switch searchType {
+            case .groupAir:
+                return groupAirInfo?.continentList.count ?? 0
+                
+            case .soto:
+                return 0
+                
+            case .lcc:
+                return lCCInfo?.countryList.count ?? 0
+                
+            default:
+                return 0
+            }
+            
+        case .Brick:
+            
+            switch searchType {
+            case .groupAir:
+                let continent = groupAirInfo?.continentList.filter { $0.isSelected == true }.first
+                return continent?.countryList.count ?? 0
+                
+            case .soto:
+                return 0
+                
+            case .lcc:
+                let country = lCCInfo?.countryList.filter { $0.isSelected == true }.first
+                return country?.airportList?.count ?? 0
+                
+            default:
+                return 0
+            }
             
         case .SearchEmpty:
             return 0
@@ -229,19 +293,18 @@ extension LCCSearchLocationViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         switch Section(rawValue: indexPath.section) {
-        case .Country:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LCCCountryCell", for: indexPath) as! LCCCountryCell
-            cell.setCellWith(countryInfo: (LCCInfo?.countryList[indexPath.row])!)
+        case .Capsule:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CapsuleCell", for: indexPath) as! CapsuleCell
             cell.delegate = self
-            
+            cell.setCellWith(airTicketInfo: airTicketInfo!, searchType: searchType!, row: indexPath.row)
+                
             return cell
             
-        case .Airport:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LCCAirportCell", for: indexPath) as! LCCAirportCell
-            let countryInfo = LCCInfo?.countryList.filter { $0.isSelected == true }.first
-            cell.setCellWith(airportInfo: (countryInfo?.airportList?[indexPath.row])!)
+        case .Brick:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BrickCell", for: indexPath) as! BrickCell
+            cell.setCellWith(airTicketInfo: airTicketInfo!, searchType: searchType!, row: indexPath.row)
             cell.delegate = self
-
+            
             return cell
             
         case .SearchEmpty:
@@ -262,7 +325,7 @@ extension LCCSearchLocationViewController: UICollectionViewDataSource {
     }
 }
 
-extension LCCSearchLocationViewController: UICollectionViewDelegate {
+extension ChooseLocationViewController: UICollectionViewDelegate {
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         
@@ -273,16 +336,16 @@ extension LCCSearchLocationViewController: UICollectionViewDelegate {
     }
 }
 
-extension LCCSearchLocationViewController: UICollectionViewDelegateFlowLayout {
+extension ChooseLocationViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         
         // 搜尋之後要記得重新給UIEdgeInsets
         switch Section(rawValue: section) {
-        case .Country:
+        case .Capsule:
             return UIEdgeInsets(top: 12, left: 16, bottom: 12, right: 16)
             
-        case .Airport:
+        case .Brick:
             return UIEdgeInsets(top: 4, left: 16, bottom: 4, right: 16)
             
         case .SearchEmpty:
@@ -301,18 +364,33 @@ extension LCCSearchLocationViewController: UICollectionViewDelegateFlowLayout {
         var cellSize = CGSize()
         
         switch Section(rawValue: indexPath.section) {
-        case .Country:
+        case .Capsule:
+            var textString: String?
+            
+            switch searchType {
+            case .groupAir:
+                textString = groupAirInfo?.continentList[indexPath.item].continent
+                
+            case .soto:
+                ()
+                
+            case .lcc:
+                textString = lCCInfo?.countryList[indexPath.item].country ?? ""
+                
+            default:
+                ()
+            }
+            
             let textFont = UIFont.init(name: "PingFang-TC-Regular", size: 14)!
-            let textString = LCCInfo?.countryList[indexPath.item].country ?? ""
             let textMaxSize = CGSize(width: 100, height: CGFloat(MAXFLOAT))
-            let textLabelSize = self.textSize(text: textString, font: textFont, maxSize: textMaxSize)
+            let textLabelSize = self.textSize(text: textString ?? "", font: textFont, maxSize: textMaxSize)
 
             cellSize.width = textLabelSize.width + 24
             cellSize.height = 28
 
             return cellSize
 
-        case .Airport:
+        case .Brick:
             cellSize.width = 155
             cellSize.height = 36
             
@@ -338,10 +416,10 @@ extension LCCSearchLocationViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         
         switch Section(rawValue: section) {
-        case .Country:
+        case .Capsule:
             return 12
             
-        case .Airport:
+        case .Brick:
             return 8
             
         case .SearchEmpty:
@@ -358,10 +436,10 @@ extension LCCSearchLocationViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         
         switch Section(rawValue: section) {
-        case .Country:
+        case .Capsule:
             return 8
             
-        case .Airport:
+        case .Brick:
             return 33
             
         case .SearchEmpty:

@@ -1,5 +1,5 @@
 //
-//  LCCSearchLocationPresenter.swift
+//  ChooseLocationPresenter.swift
 //  ColatourB2B
 //
 //  Created by 7635 邱郁雯 on 2020/3/12.
@@ -8,11 +8,11 @@
 
 import Foundation
 
-class LCCSearchLocationPresenter: LCCSearchLocationPresenterProtocol {
+class ChooseLocationPresenter: ChooseLocationPresenterProtocol {
     
-    weak var delegate: LCCSearchLocationViewProtocol?
+    weak var delegate: ChooseLocationViewProtocol?
     
-    convenience init(delegate: LCCSearchLocationViewProtocol) {
+    convenience init(delegate: ChooseLocationViewProtocol) {
         self.init()
         self.delegate = delegate
     }
