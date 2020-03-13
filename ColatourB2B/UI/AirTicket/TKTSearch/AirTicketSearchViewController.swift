@@ -483,8 +483,13 @@ extension AirTicketSearchViewController: GroupAirCellProtocol {
         case .backStartingCity:
             ()
         case .departureCity:
-            ()
-
+             let vc = getVC(st: "ChooseLocation", vc: "ChooseLocation") as! ChooseLocationViewController
+             vc.onBindAirTicketInfo(response: tktSearchInit!, searchType: SearchByType.groupAir)
+                    
+            let nav = UINavigationController(rootViewController: vc)
+            nav.modalPresentationStyle = .fullScreen
+                    
+            self.navigationController?.present(nav, animated: true)
         }
     }
     
@@ -502,15 +507,28 @@ extension AirTicketSearchViewController: GroupAirCellProtocol {
         tableViewGroupAir.reloadData()
         tableViewSotoAir.reloadData()
     }
-    
 }
 extension AirTicketSearchViewController: LccCellProtocol {
     func onTouchLccDeparture() {
-        ()
+        
+        let vc = getVC(st: "ChooseLocation", vc: "ChooseLocation") as! ChooseLocationViewController
+        vc.onBindAirTicketInfo(response: tktSearchInit!, searchType: SearchByType.lcc)
+                
+        let nav = UINavigationController(rootViewController: vc)
+        nav.modalPresentationStyle = .fullScreen
+                
+        self.navigationController?.present(nav, animated: true)
     }
     
     func onTouchLccDestination() {
-        ()
+        
+        let vc = getVC(st: "ChooseLocation", vc: "ChooseLocation") as! ChooseLocationViewController
+         vc.onBindAirTicketInfo(response: tktSearchInit!, searchType: SearchByType.lcc)
+                
+        let nav = UINavigationController(rootViewController: vc)
+        nav.modalPresentationStyle = .fullScreen
+                
+        self.navigationController?.present(nav, animated: true)
     }
     
     func onTouchLccSearch() {
