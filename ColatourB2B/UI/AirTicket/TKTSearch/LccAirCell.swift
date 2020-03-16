@@ -29,13 +29,13 @@ class LccAirCell: UITableViewCell {
     
     weak var delegate: LccCellProtocol?
 
-    func setCell(lccInfo:LccTicketRequest){
-        toAndForRadio.image = lccInfo.isToAndFro ? #imageLiteral(resourceName: "radio_on"):#imageLiteral(resourceName: "radio_off")
-        oneWayRadio.image = lccInfo.isToAndFro ? #imageLiteral(resourceName: "radio_off"):#imageLiteral(resourceName: "radio_on")
-        tourDate.text = lccInfo.isToAndFro ? "\(lccInfo.startTourDate ?? "") ~ \(lccInfo.endTourDate ?? "")":"\(lccInfo.startTourDate ?? "")"
-        sameAirlineSwitch.isOn = lccInfo.isSameAirline
-        
-        paxInfo.text = "\(lccInfo.adultCount) 大人 \(lccInfo.childCount) 小孩 \(lccInfo.infanCount) 嬰兒"
+    func setCell(lccInfo: LccTicketRequest){
+//        toAndForRadio.image = lccInfo.isToAndFro ? #imageLiteral(resourceName: "radio_on"):#imageLiteral(resourceName: "radio_off")
+//        oneWayRadio.image = lccInfo.isToAndFro ? #imageLiteral(resourceName: "radio_off"):#imageLiteral(resourceName: "radio_on")
+//        tourDate.text = lccInfo.isToAndFro ? "\(lccInfo.startTourDate ?? "") ~ \(lccInfo.endTourDate ?? "")":"\(lccInfo.startTourDate ?? "")"
+//        sameAirlineSwitch.isOn = lccInfo.isSameAirline
+//        
+//        paxInfo.text = "\(lccInfo.adultCount) 大人 \(lccInfo.childCount) 小孩 \(lccInfo.infanCount) 嬰兒"
     }
     
     @IBAction func onTouchDate(_ sender: Any) {

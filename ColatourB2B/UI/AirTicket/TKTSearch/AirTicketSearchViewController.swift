@@ -7,6 +7,7 @@
 //
 
 import UIKit
+
 enum TKTInputFieldType {
     case startTourDate
     case dateRange
@@ -16,29 +17,32 @@ enum TKTInputFieldType {
     case sotoArrival
     case airlineCode
     case tourType
-    
 }
+
 enum KeyboardType {
-    
     case pickerView
     case datePicker
     case hide
 }
 
 enum SearchByType {
-    case groupAir
+    case airTkt
     case soto
     case lcc
 }
+
 enum ArrivalType {
     case departureCity
     case backStartingCity
 }
+
 enum StartEndType {
     case Departure
     case Destination
 }
+
 class AirTicketSearchViewController: BaseViewController {
+    
     @IBOutlet weak var topPageScrollView: UIScrollView!
     @IBOutlet weak var topPageButtonView: UIView!
     @IBOutlet weak var topPageGroupAirButton: UIButton!
@@ -50,10 +54,12 @@ class AirTicketSearchViewController: BaseViewController {
     @IBOutlet weak var tableViewLCC: UITableView!
     
     private var presenter: AirTicketSearchPresenterProtocol?
-    private var tktSearchInit: AirTicketSearchResponse?
-    private var groupTicketRequest = TKTSearchRequest()
-    private var sotoTicketRequest = TKTSearchRequest()
-    private var lccTicketRequest = LCCTicketRequest()
+    private var airSearchInit: TKTInitResponse.TicketResponse?
+    private var sotoSearchInit: TKTInitResponse.TicketResponse?
+    private var lccSearchInit: TKTInitResponse.TicketResponse?
+    private var airTicketRequest = TKTSearchRequest()
+    private var sotoTicketRequest = SotoTicketRequest()
+    private var lccTicketRequest = LccTicketRequest()
     private var searchType: SearchByType?
     private var pickerViewTop: NSLayoutConstraint!
     private var datePickerTop: NSLayoutConstraint!
@@ -87,10 +93,10 @@ class AirTicketSearchViewController: BaseViewController {
     @objc private func datePickerChanged(picker: UIDatePicker) {
         
         switch searchType {
-        case .groupAir:
-            groupTicketRequest.startTourDate = FormatUtil.convertDateToString(dateFormatTo: "yyyy/MM/dd", date: picker.date)
+        case .airTkt:
+            airTicketRequest.startTravelDate = FormatUtil.convertDateToString(dateFormatTo: "yyyy/MM/dd", date: picker.date)
         case .soto:
-            sotoTicketRequest.startTourDate = FormatUtil.convertDateToString(dateFormatTo: "yyyy/MM/dd", date: picker.date)
+            sotoTicketRequest.startTravelDate = FormatUtil.convertDateToString(dateFormatTo: "yyyy/MM/dd", date: picker.date)
         default:
             ()
         }
@@ -162,19 +168,19 @@ class AirTicketSearchViewController: BaseViewController {
     }
     
     private func reloadPickerViewAndDatePicker(inputFieldType: TKTInputFieldType?){
-        var shareOptionList:[ShareOption] = []
+        var shareOptionList: [ShareOption] = []
         var selectedKey: String?
         let textAlign: NSTextAlignment = .center
        
         switch inputFieldType {
         case .startTourDate:
             switch searchType {
-            case .groupAir:
-                if let date = groupTicketRequest.startTourDate {
+            case .airTkt:
+                if let date = airTicketRequest.startTravelDate {
                     datePicker.date = FormatUtil.convertStringToDate(dateFormatFrom: "yyyy/MM/dd", dateString: date) ?? Date()
                 }
             case .soto:
-                if let date = sotoTicketRequest.startTourDate {
+                if let date = sotoTicketRequest.startTravelDate {
                     datePicker.date = FormatUtil.convertStringToDate(dateFormatFrom: "yyyy/MM/dd", dateString: date) ?? Date()
                 }
             default:
@@ -183,71 +189,76 @@ class AirTicketSearchViewController: BaseViewController {
             
     
         case .id:
-            shareOptionList = tktSearchInit?.identity.map({ ShareOption(optionKey: $0.value!, optionValue: $0.text!) }) ?? []
+            
+            shareOptionList = sotoSearchInit?.identityTypeList.map({ ShareOption(optionKey: $0, optionValue: $0) }) ?? []
             switch searchType {
-            case .groupAir:
-                selectedKey = groupTicketRequest.selectedID?.value
+            case .airTkt:
+                selectedKey = airTicketRequest.identityType
             case .soto:
-                selectedKey = sotoTicketRequest.selectedID?.value
+                selectedKey = sotoTicketRequest.identityType
             default:
                 ()
             }
             
         case .departureCity:
-           
             switch searchType {
-            case .groupAir:
-                 shareOptionList = tktSearchInit?.groupAir?.departure.map({ ShareOption(optionKey: $0.value!, optionValue: $0.text!) }) ?? []
-                 selectedKey = groupTicketRequest.selectedDeparture?.value
+            case .airTkt:
+                 
+                shareOptionList = airSearchInit?.departureCodeList.map({ ShareOption(optionKey: $0.departureCodeId!, optionValue: $0.departureCodeName!) }) ?? []
+                 selectedKey = airTicketRequest.departure?.departureCodeId
             case .soto:
-                 shareOptionList = tktSearchInit?.sOTOTicket?.departure.map({ ShareOption(optionKey: $0.value!, optionValue: $0.text!) }) ?? []
-                 selectedKey = sotoTicketRequest.selectedDeparture?.value
+                  shareOptionList = sotoSearchInit?.departureCodeList.map({ ShareOption(optionKey: $0.departureCodeId!, optionValue: $0.departureCodeName!) }) ?? []
+                 selectedKey = sotoTicketRequest.departure?.departureCodeId
             default:
                 ()
             }
            
         case .sitClass:
-            shareOptionList = tktSearchInit?.sitClass.map({ ShareOption(optionKey: $0.value!, optionValue: $0.text!) }) ?? []
+            
             switch searchType {
-            case .groupAir:
-                selectedKey = groupTicketRequest.selectedSitClass?.value
+            case .airTkt:
+                shareOptionList = airSearchInit?.serviceClassList.map({ ShareOption(optionKey: $0.serviceId!, optionValue: $0.serviceName!) }) ?? []
+                selectedKey = airTicketRequest.service?.serviceId
             case .soto:
-                selectedKey = sotoTicketRequest.selectedSitClass?.value
+                shareOptionList = sotoSearchInit?.serviceClassList.map({ ShareOption(optionKey: $0.serviceId!, optionValue: $0.serviceName!) }) ?? []
+                selectedKey = sotoTicketRequest.service?.serviceId
             default:
                 ()
             }
             
         case .airlineCode:
             switch searchType {
-            case .groupAir:
-                 shareOptionList = tktSearchInit?.groupAir?.airline.map({ ShareOption(optionKey: $0.value!, optionValue: $0.text!) }) ?? []
-                 selectedKey = groupTicketRequest.selectedAirlineCode?.value
+            case .airTkt:
+                shareOptionList = airSearchInit?.airlineList.map({ ShareOption(optionKey: $0.airlineId!, optionValue: $0.airlineName!) }) ?? []
+                 selectedKey = airTicketRequest.airline?.airlineId
             case .soto:
-                 shareOptionList = tktSearchInit?.sOTOTicket?.airline.map({ ShareOption(optionKey: $0.value!, optionValue: $0.text!) }) ?? []
-                 selectedKey = sotoTicketRequest.selectedAirlineCode?.value
+                 shareOptionList = sotoSearchInit?.airlineList.map({ ShareOption(optionKey: $0.airlineId!, optionValue: $0.airlineName!) }) ?? []
+                 selectedKey = sotoTicketRequest.airline?.airlineId
             default:
                 ()
             }
             
         case .tourType:
             switch searchType {
-            case .groupAir:
-                 shareOptionList = tktSearchInit?.groupAir?.tourType.map({ ShareOption(optionKey: $0.value!, optionValue: $0.text!) }) ?? []
-                 selectedKey = groupTicketRequest.selectedTourWay?.value
+            case .airTkt:
+                 shareOptionList = airSearchInit?.journeyTypeList.map({ ShareOption(optionKey: $0, optionValue: $0) }) ?? []
+                 selectedKey = airTicketRequest.journeyType
             case .soto:
-                 shareOptionList = tktSearchInit?.sOTOTicket?.tourType.map({ ShareOption(optionKey: $0.value!, optionValue: $0.text!) }) ?? []
-                 selectedKey = sotoTicketRequest.selectedTourWay?.value
+                 shareOptionList = sotoSearchInit?.journeyTypeList.map({ ShareOption(optionKey: $0, optionValue: $0) }) ?? []
+                 selectedKey = sotoTicketRequest.journeyType
             default:
                 ()
             }
             
         case .dateRange:
-            shareOptionList = tktSearchInit?.daterange.map({ ShareOption(optionKey: $0.value!, optionValue: $0.text!) }) ?? []
+           
             switch searchType {
-            case .groupAir:
-                selectedKey = groupTicketRequest.selectedDateRange?.value
+            case .airTkt:
+                shareOptionList = airSearchInit?.endTravelDateList.map({ ShareOption(optionKey: $0.endTravelDateId!, optionValue: $0.endTravelDateName!) }) ?? []
+                selectedKey = airTicketRequest.endTravelDate?.endTravelDateId
             case .soto:
-                selectedKey = sotoTicketRequest.selectedDateRange?.value
+                shareOptionList = sotoSearchInit?.endTravelDateList.map({ ShareOption(optionKey: $0.endTravelDateId!, optionValue: $0.endTravelDateName!) }) ?? []
+                selectedKey = sotoTicketRequest.endTravelDate?.endTravelDateId
             default:
                 ()
             }
@@ -256,8 +267,8 @@ class AirTicketSearchViewController: BaseViewController {
             ()
         
         case .sotoArrival:
-            shareOptionList = tktSearchInit?.sOTOTicket?.arrivals.map({ ShareOption(optionKey: $0.value!, optionValue: $0.text!) }) ?? []
-            selectedKey = sotoTicketRequest.selectedDestinatione?.value
+            shareOptionList = sotoSearchInit?.destinationCodeList.map({ ShareOption(optionKey: $0.destinationCodeId!, optionValue: $0.destinationCodeId!) }) ?? []
+            selectedKey = sotoTicketRequest.destination?.destinationCodeId
         }
         pickerView.setOptionList(optionList: shareOptionList)
         pickerView.textAlign = textAlign
@@ -345,6 +356,8 @@ class AirTicketSearchViewController: BaseViewController {
         self.setIsNavShadowEnable(false)
         setUpTopPageScrollView()
         presenter?.getAirTicketSearchInit()
+        presenter?.getSotoAirSearchInit()
+        //presenter?.getLccAirSearchInit()
         pickerView.backgroundColor = UIColor.white
         datePicker.backgroundColor = UIColor.white
         layoutDatePicker()
@@ -354,6 +367,8 @@ class AirTicketSearchViewController: BaseViewController {
     override func loadData() {
         super.loadData()
         presenter?.getAirTicketSearchInit()
+        presenter?.getSotoAirSearchInit()
+        //presenter?.getLccAirSearchInit()
     }
 
     private func setUpTopPageScrollView(){
@@ -362,18 +377,35 @@ class AirTicketSearchViewController: BaseViewController {
         switchPageButton(sliderLeading: 0)
     }
 }
+
 extension AirTicketSearchViewController: AirTicketSearchViewProtocol {
-    func onBindAirTicketSearchInit(groupTourSearchInit: AirTicketSearchResponse) {
-        self.tktSearchInit = groupTourSearchInit
-        self.groupTicketRequest = TKTSearchRequest().getGroupTicketRequest(response: groupTourSearchInit)
-        self.sotoTicketRequest = TKTSearchRequest().getSOTOTicketRequest(response: groupTourSearchInit)
-        let defaultMinDate = Calendar.current.date(byAdding: .day, value: 1, to: Date())
-        let defaultMaxDate = Calendar.current.date(byAdding: .day, value: 2, to: defaultMinDate!)
-        lccTicketRequest.startTourDate = FormatUtil.convertDateToString(dateFormatTo: "yyyy/MM/dd", date: defaultMinDate!)
-        lccTicketRequest.endTourDate = FormatUtil.convertDateToString(dateFormatTo: "yyyy/MM/dd", date: defaultMaxDate!)
+    func onBindAirTicketSearchInit(tktSearchInit: TKTInitResponse) {
+        self.airSearchInit = tktSearchInit.initResponse
+        self.airTicketRequest = TKTSearchRequest().getAirTicketRequest(response: tktSearchInit.initResponse!)
+
         tableViewGroupAir.reloadData()
     }
+    
+    func onBindSotoAirSearchInit(sotoSearchInit: TKTInitResponse) {
+        self.sotoSearchInit = sotoSearchInit.initResponse
+        self.sotoTicketRequest = SotoTicketRequest().getSotoTicketRequest(response: sotoSearchInit.initResponse!)
+        
+        tableViewSotoAir.reloadData()
+    }
+    
+//    func onBindLccAirSearchInit(lccSearchInit: LccTicketResponse) {
+//
+//        self.lccSearchInit = lccSearchInit
+//        self.lccTicketRequest = lccTicketRequest().
+//        let defaultMinDate = Calendar.current.date(byAdding: .day, value: 1, to: Date())
+//        let defaultMaxDate = Calendar.current.date(byAdding: .day, value: 2, to: defaultMinDate!)
+//        lccTicketRequest.startTourDate = FormatUtil.convertDateToString(dateFormatTo: "yyyy/MM/dd", date: defaultMinDate!)
+//        lccTicketRequest.endTourDate = FormatUtil.convertDateToString(dateFormatTo: "yyyy/MM/dd", date: defaultMaxDate!)
+//
+//        tableViewLCC.reloadData()
+//    }
 }
+
 extension AirTicketSearchViewController: CustomPickerViewProtocol{
     func onKeyChanged(key: String) {
         
@@ -383,78 +415,104 @@ extension AirTicketSearchViewController: CustomPickerViewProtocol{
             ()
         case .id:
             switch searchType {
-            case .groupAir:
-                let keyValue = tktSearchInit!.identity.first{ $0.value == key }!
-                self.groupTicketRequest.selectedID = keyValue
+            case .airTkt:
+                //let keyValue = tktSearchInit!.identity.first{ $0.value == key }!
+                //self.groupTicketRequest.selectedID = keyValue
+                let keyValue = airSearchInit?.identityTypeList.filter{ $0 == key }.first
+                self.airTicketRequest.identityType = keyValue
             case .soto:
-                let keyValue = tktSearchInit!.identity.first{ $0.value == key }!
-                self.sotoTicketRequest.selectedID = keyValue
+                //let keyValue = tktSearchInit!.identity.first{ $0.value == key }!
+                //self.sotoTicketRequest.selectedID = keyValue
+                let keyValue = sotoSearchInit?.identityTypeList.filter{ $0 == key }.first
+                self.sotoTicketRequest.identityType = keyValue
             default:
                 ()
             }
             
         case .airlineCode:
             switch searchType {
-            case .groupAir:
-                let keyValue = tktSearchInit!.groupAir?.airline.first{ $0.value == key }!
-                self.groupTicketRequest.selectedAirlineCode = keyValue
+            case .airTkt:
+                //let keyValue = tktSearchInit!.groupAir?.airline.first{ $0.value == key }!
+                //self.groupTicketRequest.selectedAirlineCode = keyValue
+                let keyValue = airSearchInit?.airlineList.filter{ $0.airlineId == key }.first
+                self.airTicketRequest.airline = keyValue
             case .soto:
-                let keyValue = tktSearchInit!.sOTOTicket?.airline.first{ $0.value == key }!
-                self.sotoTicketRequest.selectedAirlineCode = keyValue
+                //let keyValue = tktSearchInit!.sOTOTicket?.airline.first{ $0.value == key }!
+                //self.sotoTicketRequest.selectedAirlineCode = keyValue
+                let keyValue = sotoSearchInit?.airlineList.filter{ $0.airlineId == key }.first
+                self.sotoTicketRequest.airline = keyValue
             default:
                 ()
             }
             
         case .sitClass:
             switch searchType {
-            case .groupAir:
-                let keyValue = tktSearchInit!.sitClass.first{ $0.value == key }!
-                self.groupTicketRequest.selectedSitClass = keyValue
+            case .airTkt:
+                //let keyValue = tktSearchInit!.sitClass.first{ $0.value == key }!
+                //self.groupTicketRequest.selectedSitClass = keyValue
+                let keyValue = airSearchInit?.serviceClassList.filter{ $0.serviceId == key }.first
+                self.airTicketRequest.service = keyValue
             case .soto:
-                let keyValue = tktSearchInit!.sitClass.first{ $0.value == key }!
-                self.sotoTicketRequest.selectedSitClass = keyValue
+                //let keyValue = tktSearchInit!.sitClass.first{ $0.value == key }!
+                //self.sotoTicketRequest.selectedSitClass = keyValue
+                let keyValue = sotoSearchInit?.serviceClassList.filter{ $0.serviceId == key }.first
+                self.sotoTicketRequest.service = keyValue
             default:
                 ()
             }
             
         case .tourType:
             switch searchType {
-            case .groupAir:
-                let keyValue = tktSearchInit!.groupAir?.tourType.first{ $0.value == key }!
-                self.groupTicketRequest.selectedTourWay = keyValue
+            case .airTkt:
+                //let keyValue = tktSearchInit!.groupAir?.tourType.first{ $0.value == key }!
+                //self.groupTicketRequest.selectedTourWay = keyValue
+                let keyValue = airSearchInit?.journeyTypeList.filter{ $0 == key }.first
+                self.airTicketRequest.journeyType = keyValue
             case .soto:
-                let keyValue = tktSearchInit!.sOTOTicket?.tourType.first{ $0.value == key }!
-                self.sotoTicketRequest.selectedTourWay = keyValue
+                //let keyValue = tktSearchInit!.sOTOTicket?.tourType.first{ $0.value == key }!
+                //self.sotoTicketRequest.selectedTourWay = keyValue
+                let keyValue = sotoSearchInit?.journeyTypeList.filter{ $0 == key }.first
+                self.sotoTicketRequest.journeyType = keyValue
             default:
                 ()
             }
             
         case .dateRange:
             switch searchType {
-            case .groupAir:
-                let keyValue = tktSearchInit!.daterange.first{ $0.value == key }!
-                self.groupTicketRequest.selectedDateRange = keyValue
+            case .airTkt:
+                //let keyValue = tktSearchInit!.daterange.first{ $0.value == key }!
+                //self.groupTicketRequest.selectedDateRange = keyValue
+                let keyValue = airSearchInit?.endTravelDateList.filter{ $0.endTravelDateId == key }.first
+                self.airTicketRequest.endTravelDate = keyValue
             case .soto:
-                let keyValue = tktSearchInit!.daterange.first{ $0.value == key }!
-                self.sotoTicketRequest.selectedDateRange = keyValue
+                //let keyValue = tktSearchInit!.daterange.first{ $0.value == key }!
+                //self.sotoTicketRequest.selectedDateRange = keyValue
+                let keyValue = sotoSearchInit?.endTravelDateList.filter{ $0.endTravelDateId == key }.first
+                self.sotoTicketRequest.endTravelDate = keyValue
             default:
                 ()
             }
             
         case .departureCity:
             switch searchType {
-            case .groupAir:
-                let keyValue = tktSearchInit!.groupAir?.departure.first{ $0.value == key }!
-                self.groupTicketRequest.selectedDeparture = keyValue
+            case .airTkt:
+                //let keyValue = tktSearchInit!.groupAir?.departure.first{ $0.value == key }!
+                //self.groupTicketRequest.selectedDeparture = keyValue
+                let keyValue = airSearchInit?.departureCodeList.filter{ $0.departureCodeId == key }.first
+                self.airTicketRequest.departure = keyValue
             case .soto:
-                let keyValue = tktSearchInit!.sOTOTicket?.departure.first{ $0.value == key }!
-                self.sotoTicketRequest.selectedDeparture = keyValue
+                //let keyValue = tktSearchInit!.sOTOTicket?.departure.first{ $0.value == key }!
+                //self.sotoTicketRequest.selectedDeparture = keyValue
+                let keyValue = sotoSearchInit?.departureCodeList.filter{ $0.departureCodeId == key }.first
+                self.sotoTicketRequest.departure = keyValue
             default:
                 ()
             }
         case .sotoArrival:
-            let keyValue = tktSearchInit!.sOTOTicket?.arrivals.first{ $0.value == key }!
-            self.sotoTicketRequest.selectedDestinatione = keyValue
+            //let keyValue = tktSearchInit!.sOTOTicket?.arrivals.first{ $0.value == key }!
+            //self.sotoTicketRequest.selectedDestinatione = keyValue
+            let keyValue = sotoSearchInit?.destinationCodeList.filter{ $0.destinationCodeId == key }.first
+            self.sotoTicketRequest.destination = keyValue
             
         default:
             ()
@@ -464,7 +522,8 @@ extension AirTicketSearchViewController: CustomPickerViewProtocol{
         tableViewSotoAir.reloadData()
     }
 }
-extension AirTicketSearchViewController: GroupAirCellProtocol {
+
+extension AirTicketSearchViewController: AirTktCellProtocol {
     func onTouchSelection(selection: TKTInputFieldType, searchType: SearchByType) {
         self.searchType = searchType
         self.touchInputField = selection
@@ -472,7 +531,7 @@ extension AirTicketSearchViewController: GroupAirCellProtocol {
     
     func onTouchSearch(searchType: SearchByType) {
         switch searchType {
-        case .groupAir:
+        case .airTkt:
             ()
         case .soto:
             ()
@@ -488,7 +547,7 @@ extension AirTicketSearchViewController: GroupAirCellProtocol {
             ()
         case .departureCity:
              let vc = getVC(st: "ChooseLocation", vc: "ChooseLocation") as! ChooseLocationViewController
-             vc.onBindAirTicketInfo(response: tktSearchInit!, searchType: SearchByType.groupAir, startEndType: StartEndType.Departure)
+             vc.onBindAirTicketInfo(tktSearchInit: airSearchInit!, searchType: SearchByType.airTkt, startEndType: StartEndType.Departure)
                     
             let nav = UINavigationController(rootViewController: vc)
             nav.modalPresentationStyle = .fullScreen
@@ -499,8 +558,8 @@ extension AirTicketSearchViewController: GroupAirCellProtocol {
     
     func onTouchNonStop(searchType: SearchByType) {
         switch searchType {
-        case .groupAir:
-            self.groupTicketRequest.isNonStop = !self.groupTicketRequest.isNonStop
+        case .airTkt:
+            self.airTicketRequest.isNonStop = !self.airTicketRequest.isNonStop
         case .soto:
             self.sotoTicketRequest.isNonStop = !self.sotoTicketRequest.isNonStop
         default:
@@ -512,27 +571,26 @@ extension AirTicketSearchViewController: GroupAirCellProtocol {
         tableViewSotoAir.reloadData()
     }
 }
+
 extension AirTicketSearchViewController: LccCellProtocol {
     func onTouchLccDeparture() {
-        
-        let vc = getVC(st: "ChooseLocation", vc: "ChooseLocation") as! ChooseLocationViewController
-        vc.onBindAirTicketInfo(response: tktSearchInit!, searchType: SearchByType.lcc, startEndType: StartEndType.Departure)
-                
-        let nav = UINavigationController(rootViewController: vc)
-        nav.modalPresentationStyle = .fullScreen
-                
-        self.navigationController?.present(nav, animated: true)
+//        let vc = getVC(st: "ChooseLocation", vc: "ChooseLocation") as! ChooseLocationViewController
+//        vc.onBindAirTicketInfo(response: airSearchInit!, searchType: SearchByType.lcc, startEndType: StartEndType.Departure)
+//
+//        let nav = UINavigationController(rootViewController: vc)
+//        nav.modalPresentationStyle = .fullScreen
+//
+//        self.navigationController?.present(nav, animated: true)
     }
     
     func onTouchLccDestination() {
-        
-        let vc = getVC(st: "ChooseLocation", vc: "ChooseLocation") as! ChooseLocationViewController
-         vc.onBindAirTicketInfo(response: tktSearchInit!, searchType: SearchByType.lcc, startEndType: StartEndType.Destination)
-                
-        let nav = UINavigationController(rootViewController: vc)
-        nav.modalPresentationStyle = .fullScreen
-                
-        self.navigationController?.present(nav, animated: true)
+//        let vc = getVC(st: "ChooseLocation", vc: "ChooseLocation") as! ChooseLocationViewController
+//        vc.onBindAirTicketInfo(response: airSearchInit!, searchType: SearchByType.lcc, startEndType: StartEndType.Destination)
+//                
+//        let nav = UINavigationController(rootViewController: vc)
+//        nav.modalPresentationStyle = .fullScreen
+//                
+//        self.navigationController?.present(nav, animated: true)
     }
     
     func onTouchLccSearch() {
@@ -553,7 +611,7 @@ extension AirTicketSearchViewController: LccCellProtocol {
     }
     
     func onTouchAirlineSwitch() {
-        self.lccTicketRequest.isSameAirline.toggle()
+        //self.lccTicketRequest.isSameAirline.toggle()
         self.tableViewLCC.reloadData()
     }
     
@@ -564,32 +622,32 @@ extension AirTicketSearchViewController: LccCellProtocol {
         let startDate = FormatUtil.convertStringToDate(dateFormatFrom: "yyyy/MM/dd", dateString: startDateString)!
         let endDate = calendar.date(byAdding: .month, value: 18, to: startDate)!
         
-        let type:CalendarSingeleOrMutipleType = lccTicketRequest.isToAndFro ? .mutiple:.single
+        //let type:CalendarSingeleOrMutipleType = lccTicketRequest.isToAndFro ? .mutiple:.single
 
         let calendarDateAttribute = CalendarDateAttribute(startDate: startDate, endDate: endDate, limitDates: [], limitWeekdays: [], dateMemo: [:])
-        let calendarType = CalendarType(singleOrMituple: type
-            , isBeforeTodayLimitSelect: true
-            , isAcceptLimitDateInMiddle: false
-            , confirmTextShowDayOrNight: .nights
-            , isAcceptStartDayEqualEndDay: false
-            , isEnableTapEvent: true
-            , isConfirmButtonHidden: false
-            , isDateNoteHiddenWhenDisableDate: true
-            , colorDef: CalendarColorForHotel()
-            , maxLimitedDays: (false , nil)
-            , dateNoteAtSelectedStartEndDate: (isEnable: true, startNote: "出發", endNote: "回程")
-        )
+//        let calendarType = CalendarType(singleOrMituple: type
+//            , isBeforeTodayLimitSelect: true
+//            , isAcceptLimitDateInMiddle: false
+//            , confirmTextShowDayOrNight: .nights
+//            , isAcceptStartDayEqualEndDay: false
+//            , isEnableTapEvent: true
+//            , isConfirmButtonHidden: false
+//            , isDateNoteHiddenWhenDisableDate: true
+//            , colorDef: CalendarColorForHotel()
+//            , maxLimitedDays: (false , nil)
+//            , dateNoteAtSelectedStartEndDate: (isEnable: true, startNote: "出發", endNote: "回程")
+//        )
         
-        var selectedDates = CalendarSelectedDates()
-        if let selctedDates = lccTicketRequest.startTourDate {
-            let selectedStartDate = FormatUtil.convertStringToDate(dateFormatFrom: "yyyy/MM/dd", dateString: selctedDates)
-            let selectedEndDate = FormatUtil.convertStringToDate(dateFormatFrom: "yyyy/MM/dd", dateString: lccTicketRequest.endTourDate!)
-            selectedDates = CalendarSelectedDates(selectedSingleDate: type == .single ? selectedStartDate : nil, selectedStartDate: type == .single ? nil : selectedStartDate, selectedEndDate: type == .single ? nil : type == .single ? nil : selectedEndDate)
-        }
-
-        let calendarAllAttribute = CalendarAllAttribute(calendarDateAttribute: calendarDateAttribute, calendarType: calendarType, calendarSelectedDates: selectedDates)
+//        var selectedDates = CalendarSelectedDates()
+//        if let selctedDates = lccTicketRequest.startTourDate {
+//            let selectedStartDate = FormatUtil.convertStringToDate(dateFormatFrom: "yyyy/MM/dd", dateString: selctedDates)
+//            let selectedEndDate = FormatUtil.convertStringToDate(dateFormatFrom: "yyyy/MM/dd", dateString: lccTicketRequest.endTourDate!)
+//            selectedDates = CalendarSelectedDates(selectedSingleDate: type == .single ? selectedStartDate : nil, selectedStartDate: type == .single ? nil : selectedStartDate, selectedEndDate: type == .single ? nil : type == .single ? nil : selectedEndDate)
+//        }
+//
+//        let calendarAllAttribute = CalendarAllAttribute(calendarDateAttribute: calendarDateAttribute, calendarType: calendarType, calendarSelectedDates: selectedDates)
         
-        vc.setVCwith(delegate: self,calendarAllAttribute: calendarAllAttribute)
+//        vc.setVCwith(delegate: self,calendarAllAttribute: calendarAllAttribute)
         vc.setVCNavBarItem(navMode: .present, navTitle: "選擇日期")
         vc.setIsPageSheetPresenting(isPresentVC: true)
         let nav = UINavigationController(rootViewController: vc)
@@ -600,26 +658,28 @@ extension AirTicketSearchViewController: LccCellProtocol {
     }
     
     func onTouchRadio(isToAndFor: Bool) {
-        lccTicketRequest.isToAndFro = isToAndFor
+        //lccTicketRequest.isToAndFro = isToAndFor
         tableViewLCC.reloadData()
     }
 }
-extension AirTicketSearchViewController: CalendarDataDestinationViewControllerProtocol{
-    func setSelectedDate(selectedYearMonthDaysToString: CalendarSelectedYearMonthDaysString) {
-        lccTicketRequest.startTourDate = lccTicketRequest.isToAndFro ? selectedYearMonthDaysToString.startDayString : selectedYearMonthDaysToString.singleDayString
-        let defaultStartDate = FormatUtil.convertStringToDate(dateFormatFrom: "yyyy/MM/dd", dateString:lccTicketRequest.startTourDate! )
-        let defaultMaxDate = Calendar.current.date(byAdding: .day, value: 2, to: defaultStartDate!)
-        lccTicketRequest.endTourDate = lccTicketRequest.isToAndFro ? selectedYearMonthDaysToString.endDayString: FormatUtil.convertDateToString(dateFormatTo: "yyyy/MM/dd", date: defaultMaxDate!)
-        tableViewLCC.reloadData()
-    }
-    
-}
+
+//extension AirTicketSearchViewController: CalendarDataDestinationViewControllerProtocol{
+//    func setSelectedDate(selectedYearMonthDaysToString: CalendarSelectedYearMonthDaysString) {
+//        lccTicketRequest.startTourDate = lccTicketRequest.isToAndFro ? selectedYearMonthDaysToString.startDayString : selectedYearMonthDaysToString.singleDayString
+//        let defaultStartDate = FormatUtil.convertStringToDate(dateFormatFrom: "yyyy/MM/dd", dateString:lccTicketRequest.startTourDate! )
+//        let defaultMaxDate = Calendar.current.date(byAdding: .day, value: 2, to: defaultStartDate!)
+//        lccTicketRequest.endTourDate = lccTicketRequest.isToAndFro ? selectedYearMonthDaysToString.endDayString: FormatUtil.convertDateToString(dateFormatTo: "yyyy/MM/dd", date: defaultMaxDate!)
+//        tableViewLCC.reloadData()
+//    }
+//}
+
 extension AirTicketSearchViewController: AirPaxViewControllerProtocol{
-    func onTouchBottomButton(lccTicketRequest: LCCTicketRequest) {
+    func onTouchBottomButton(lccTicketRequest: LccTicketRequest) {
         self.lccTicketRequest = lccTicketRequest
         tableViewLCC.reloadData()
     }
 }
+
 extension AirTicketSearchViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -632,8 +692,8 @@ extension AirTicketSearchViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch tableView {
         case tableViewGroupAir:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "GroupAirCell") as! GroupAirCell
-            cell.setCell(info: self.groupTicketRequest, searchType: .groupAir)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "AirTktCell") as! AirTktCell
+            cell.setCell(info: self.airTicketRequest, searchType: .airTkt)
             cell.delegate = self
             return cell
         case tableViewSotoAir:
@@ -642,16 +702,16 @@ extension AirTicketSearchViewController: UITableViewDataSource {
             cell.delegate = self
             return cell
         case tableViewLCC:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "LccCell") as! LccCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "LccAirCell") as! LccAirCell
             cell.setCell(lccInfo: self.lccTicketRequest)
             cell.delegate = self
             return cell
         default:
            return UITableViewCell()
         }
-        
     }
 }
+
 extension AirTicketSearchViewController: UITableViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         touchInputField = nil
@@ -663,6 +723,7 @@ extension AirTicketSearchViewController: UITableViewDelegate {
         scrollTopPageButtonBottomLine(percent: percent)
     }
 }
+
 extension AirTicketSearchViewController {
     @IBAction func onTouchGroupAir(_ sender: Any) {
          self.scrollToPage(scrollView: topPageScrollView, page: 0, animated: true)
