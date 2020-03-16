@@ -10,64 +10,64 @@ import Foundation
 
 class SotoTicketRequest: NSObject {
     
+    var service: TKTInitResponse.TicketResponse.ServiceClass?
     var identityType: String?
-    var service: SotoTicketResponse.ServiceClass?
-    var airline: SotoTicketResponse.Airline?
-    var startTravelDate: String?
-    var endTravelDate: SotoTicketResponse.EndTravelDate?
     var journeyType: String?
-    var departure: SotoTicketResponse.OriginCode?
-    var destination: SotoTicketResponse.DestinationCode?
+    var airline: TKTInitResponse.TicketResponse.Airline?
+    var departure: TKTInitResponse.TicketResponse.OriginCode?
+    var destination: TKTInitResponse.TicketResponse.DestinationCode?
+    var startTravelDate: String?
+    var endTravelDate: TKTInitResponse.TicketResponse.EndTravelDate?
     var isNonStop: Bool = true
     
-    convenience init(identityType: String?,
-                     service: SotoTicketResponse.ServiceClass?,
-                     airline: SotoTicketResponse.Airline?,
-                     startTravelDate: String?,
-                     endTravelDate: SotoTicketResponse.EndTravelDate?,
+    convenience init(service: TKTInitResponse.TicketResponse.ServiceClass?,
+                     identityType: String?,
                      journeyType: String?,
-                     departure: SotoTicketResponse.OriginCode?,
-                     destination: SotoTicketResponse.DestinationCode?,
+                     airline: TKTInitResponse.TicketResponse.Airline?,
+                     departure: TKTInitResponse.TicketResponse.OriginCode?,
+                     destination: TKTInitResponse.TicketResponse.DestinationCode?,
+                     startTravelDate: String?,
+                     endTravelDate: TKTInitResponse.TicketResponse.EndTravelDate?,
                      isNonStop: Bool) {
         self.init()
-        self.identityType = identityType
         self.service = service
-        self.airline = airline
-        self.startTravelDate = startTravelDate
-        self.endTravelDate = endTravelDate
+        self.identityType = identityType
         self.journeyType = journeyType
+        self.airline = airline
         self.departure = departure
         self.destination = destination
+        self.startTravelDate = startTravelDate
+        self.endTravelDate = endTravelDate
         self.isNonStop = isNonStop
     }
     
     func getDictionary() -> [String : Any] {
         
-        let params = ["Source_Info" : "Ticket",
-                      "Service_Class" : service?.serviceId ?? "",
-                      "Identity_Type" : identityType ?? "",
+        var params = ["Source_Info": "SOTO",
+                      "Service_Class": service?.serviceId ?? "",
+                      "Identity_Type": identityType ?? "",
                       "Journey_Type" : journeyType ?? "",
-                      "Airline_Id" : "",
+                      "Airline_Id" : airline?.airlineId ?? "",
                       "Origin_Code" : departure?.departureCodeId ?? "",
-                      "Destination_Code" : "HKD",
-                      "Return_Code" : "",
-                      "Start_Date" : startTravelDate ?? "",
-                      "End_Date" : endTravelDate?.endTravelDateId ?? "",
-                      "Transit_Mark" : isNonStop] as [String : Any]
+                      "Destination_Code" : destination?.destinationCodeId ?? ""] as [String : Any]
+        params["Return_Code"] = ""
+        params["Start_Date"] = startTravelDate ?? ""
+        params["End_Date"] = endTravelDate?.endTravelDateId ?? ""
+        params["Transit_Mark"] = isNonStop
         
         return params
     }
     
-    func getSotoTicketRequest(response: SotoTicketResponse) -> SotoTicketRequest {
+    func getSotoTicketRequest(response: TKTInitResponse.TicketResponse) -> SotoTicketRequest {
         
-        return SotoTicketRequest(identityType: response.identityTypeList.first,
-                                 service: response.serviceClassList.first,
-                                 airline: response.airlineList.first,
-                                 startTravelDate: response.startTravelDate,
-                                 endTravelDate: response.endTravelDateList.first,
+        return SotoTicketRequest(service: response.serviceClassList.first,
+                                 identityType: response.identityTypeList.first,
                                  journeyType: response.journeyTypeList.first,
+                                 airline: response.airlineList.first,
                                  departure: response.departureCodeList.first,
                                  destination: response.destinationCodeList.first,
+                                 startTravelDate: response.startTravelDate,
+                                 endTravelDate: response.endTravelDateList.first,
                                  isNonStop: true)
     }
 }
