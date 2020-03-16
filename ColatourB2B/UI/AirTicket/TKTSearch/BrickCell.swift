@@ -39,6 +39,7 @@ class BrickCell: UICollectionViewCell {
     func setCellWithCountry(countryInfo: TKTInitResponse.TicketResponse.Country, searchType: SearchByType) {
         
         self.searchType = searchType
+        self.countryInfo = countryInfo
         brickName.text = countryInfo.countryName
     }
     
@@ -50,7 +51,7 @@ class BrickCell: UICollectionViewCell {
         
         switch searchType {
         case .airTkt:
-            ()//delegate?.onTouchBrick(countryInfo: countryInfo!)
+            delegate?.onTouchBrick(countryInfo: countryInfo!)
             
         case .lcc:
             () //delegate?.onTouchBrick(airportInfo: airportInfo!)

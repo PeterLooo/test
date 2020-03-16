@@ -564,6 +564,7 @@ extension AirTicketSearchViewController: AirTktCellProtocol {
         case .departureCity:
              let vc = getVC(st: "ChooseLocation", vc: "ChooseLocation") as! ChooseLocationViewController
              vc.onBindAirTicketInfo(tktSearchInit: airSearchInit!, searchType: SearchByType.airTkt, startEndType: StartEndType.Departure)
+             vc.delegate = self
                     
             let nav = UINavigationController(rootViewController: vc)
             nav.modalPresentationStyle = .fullScreen
@@ -602,10 +603,10 @@ extension AirTicketSearchViewController: LccCellProtocol {
     func onTouchLccDestination() {
 //        let vc = getVC(st: "ChooseLocation", vc: "ChooseLocation") as! ChooseLocationViewController
 //        vc.onBindAirTicketInfo(response: airSearchInit!, searchType: SearchByType.lcc, startEndType: StartEndType.Destination)
-//                
+//
 //        let nav = UINavigationController(rootViewController: vc)
 //        nav.modalPresentationStyle = .fullScreen
-//                
+//
 //        self.navigationController?.present(nav, animated: true)
     }
     
@@ -798,5 +799,14 @@ extension AirTicketSearchViewController {
             button.setTitleColor(color, for: .normal)
             button.titleLabel?.font = UIFont.init(thickness: .regular, size: 15.0)
         }
+    }
+}
+
+extension AirTicketSearchViewController: SetChooseLocationProtocol {
+    
+    func setLocation(cityInfo: TKTInitResponse.TicketResponse.City) {
+        airTicketRequest.destination = cityInfo
+        
+        tableViewGroupAir.reloadData()
     }
 }

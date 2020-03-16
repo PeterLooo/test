@@ -39,6 +39,7 @@ class AirTktCell: UITableViewCell {
         dateRange.text = info.endTravelDate?.endTravelDateName
         tourWay.text = info.journeyType
         departure.text = info.departure?.departureCodeName
+        destination.text = info.destination?.cityName
         isNonStop.image = info.isNonStop ? #imageLiteral(resourceName: "check") : #imageLiteral(resourceName: "check_hover")
         backView.isHidden = !(info.journeyType == "雙程" || info.journeyType == "環遊")
         self.backView.layoutIfNeeded()
