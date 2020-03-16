@@ -798,7 +798,12 @@ extension BaseViewController {
                 }
             }
             self.tabBarController?.selectedIndex = 2
-            
+        case .airTicket:
+            ()
+        case .sotoTicket:
+            ()
+        case .lccTicket:
+            ()
         case .unknown:
         //Note: doNothing
         ()
