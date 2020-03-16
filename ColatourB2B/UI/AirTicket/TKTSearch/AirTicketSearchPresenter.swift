@@ -14,10 +14,6 @@ class AirTicketSearchPresenter: AirTicketSearchPresenterProtocol {
     private let repository = TKTRepository.shared
     fileprivate var dispose = DisposeBag()
     
-    private var tktSearchInit: AirTicketSearchResponse?
-    private var sotoSearchInit: SotoTicketResponse?
-    private var lccSearchInit: LccTicketResponse?
-    
     convenience init(delegate: AirTicketSearchViewProtocol?){
         self.init()
         self.delegate = delegate
@@ -25,35 +21,38 @@ class AirTicketSearchPresenter: AirTicketSearchPresenterProtocol {
     
     func getAirTicketSearchInit() {
         self.delegate?.onStartLoadingHandle(handleType: .coverPlate)
-        repository.getAirSearchInit().subscribe(onSuccess: { (tktSearchInit) in
-            
-            self.tktSearchInit = tktSearchInit
+        
+        repository.getAirSearchInit().subscribe(onSuccess: { (model) in
+            self.delegate?.onBindAirTicketSearchInit(tktSearchInit: model)
             self.delegate?.onCompletedLoadingHandle()
         }, onError: { (error) in
             self.delegate?.onApiErrorHandle(apiError: error as! APIError, handleType: .custom)
             self.delegate?.onCompletedLoadingHandle()
         }).disposed(by: dispose)
-        
-        self.delegate?.onStartLoadingHandle(handleType: .coverPlate)
-        repository.getSotoSearchInit().subscribe(onSuccess: { (sotoSearchInit) in
-            
-            self.sotoSearchInit = sotoSearchInit
-            self.delegate?.onCompletedLoadingHandle()
-        }, onError: { (error) in
-            self.delegate?.onApiErrorHandle(apiError: error as! APIError, handleType: .custom)
-            self.delegate?.onCompletedLoadingHandle()
-        }).disposed(by: dispose)
-        
-        self.delegate?.onStartLoadingHandle(handleType: .coverPlate)
-        repository.getLccSearchInit().subscribe(onSuccess: { (lccSearchInit) in
-            
-            self.lccSearchInit = lccSearchInit
-            self.delegate?.onCompletedLoadingHandle()
-        }, onError: { (error) in
-            self.delegate?.onApiErrorHandle(apiError: error as! APIError, handleType: .custom)
-            self.delegate?.onCompletedLoadingHandle()
-        }).disposed(by: dispose)
-        
-        self.delegate?.onBindAirTicketSearchInit(tktSearchInit: tktSearchInit!, sotoSearchInit: sotoSearchInit!, lccSearchInit: lccSearchInit!)
     }
+    
+    func getSotoAirSearchInit() {
+         self.delegate?.onStartLoadingHandle(handleType: .coverPlate)
+        
+        repository.getSotoSearchInit().subscribe(onSuccess: { (model) in
+            self.delegate?.onBindSotoAirSearchInit(sotoSearchInit: model)
+            self.delegate?.onCompletedLoadingHandle()
+        }, onError: { (error) in
+            self.delegate?.onApiErrorHandle(apiError: error as! APIError, handleType: .custom)
+            self.delegate?.onCompletedLoadingHandle()
+        }).disposed(by: dispose)
+    }
+    
+//    func getLccAirSearchInit() {
+//        self.delegate?.onStartLoadingHandle(handleType: .coverPlate)
+//
+//        repository.getLccSearchInit().subscribe(onSuccess: { (model) in
+//
+//            self.delegate?.onBindLccAirSearchInit(lccSearchInit: model)
+//            self.delegate?.onCompletedLoadingHandle()
+//        }, onError: { (error) in
+//            self.delegate?.onApiErrorHandle(apiError: error as! APIError, handleType: .custom)
+//            self.delegate?.onCompletedLoadingHandle()
+//        }).disposed(by: dispose)
+//    }
 }
