@@ -38,7 +38,7 @@ class CapsuleCell: UICollectionViewCell {
         self.searchType = searchType
         
         switch searchType {
-        case .groupAir:
+        case .airTkt:
             continentInfo = airTicketInfo.groupAir?.continentList[row]
             capsuleName.text = continentInfo?.continent
             selectedSign = continentInfo?.isSelected
@@ -72,7 +72,7 @@ class CapsuleCell: UICollectionViewCell {
     @objc func onTouchCapsule() {
 
         switch searchType {
-        case .groupAir:
+        case .airTkt:
             delegate?.onTouchCapsule(continentInfo: continentInfo!)
             
         case .soto:

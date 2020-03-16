@@ -364,9 +364,16 @@ extension APIManager {
         return manager(method: .get, appendUrl: appendUrl, url: APIUrl.portalApi(type: .tourShare), parameters: nil, appendHeaders: nil)
     }
     
-    func getAirSearchInit()-> Single<[String: Any]> {
+    func getAirSearchInit() -> Single<[String: Any]> {
         return AppHelper.shared.getJson(forResource: "TKTSearchInit")
-        
+    }
+    
+    func getSotoSearchInit() -> Single<[String: Any]> {
+        return AppHelper.shared.getJson(forResource: "TKTSearchInit")
+    }
+    
+    func getLccSearchInit() -> Single<[String: Any]> {
+        return AppHelper.shared.getJson(forResource: "TKTSearchInit")
     }
 }
 

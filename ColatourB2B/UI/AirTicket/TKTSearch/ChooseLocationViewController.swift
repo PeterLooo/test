@@ -8,9 +8,9 @@
 
 import UIKit
 
-protocol SetLCCSearchLocationProtocol: NSObjectProtocol {
+protocol SetChooseLocationProtocol: NSObjectProtocol {
     
-    func setLocation(airportInfo: AirTicketSearchResponse.AirInfo)
+    func setLocation(airportInfo: AirTicketSearchResponse.AirInfo, startEndType: StartEndType)
 }
 
 class ChooseLocationViewController: BaseViewController {
@@ -22,7 +22,7 @@ class ChooseLocationViewController: BaseViewController {
         case SearchResult
     }
     
-    weak var delegate: SetLCCSearchLocationProtocol?
+    weak var delegate: SetChooseLocationProtocol?
     
     private var presenter: ChooseLocationPresenter?
     required init?(coder: NSCoder) {
@@ -155,7 +155,7 @@ extension ChooseLocationViewController: ChooseLocationViewProtocol {
         self.startEndType = startEndType
         
         switch searchType {
-        case .groupAir:
+        case .airTkt:
             groupAirInfo = response.groupAir
             
         case .soto:
@@ -263,7 +263,7 @@ extension ChooseLocationViewController: BrickCellProtocol {
                 
                 if airport == airportInfo {
                     
-                    self.delegate?.setLocation(airportInfo: airportInfo)
+                    self.delegate?.setLocation(airportInfo: airportInfo, startEndType: startEndType!)
                     self.dismiss(animated: true, completion: nil)
                 }
             })
@@ -284,7 +284,7 @@ extension ChooseLocationViewController: UICollectionViewDataSource {
         case .Capsule:
             
             switch searchType {
-            case .groupAir:
+            case .airTkt:
                 return groupAirInfo?.continentList.count ?? 0
                 
             case .soto:
@@ -300,7 +300,7 @@ extension ChooseLocationViewController: UICollectionViewDataSource {
         case .Brick:
             
             switch searchType {
-            case .groupAir:
+            case .airTkt:
                 let continent = groupAirInfo?.continentList.filter { $0.isSelected == true }.first
                 return continent?.countryList.count ?? 0
                 
@@ -404,7 +404,7 @@ extension ChooseLocationViewController: UICollectionViewDelegateFlowLayout {
             var textString: String?
             
             switch searchType {
-            case .groupAir:
+            case .airTkt:
                 textString = groupAirInfo?.continentList[indexPath.item].continent
                 
             case .soto:

@@ -7,9 +7,10 @@
 //
 
 protocol AirTicketSearchViewProtocol: BaseViewProtocol {
-    func onBindAirTicketSearchInit(groupTourSearchInit: AirTicketSearchResponse)
     
+    func onBindAirTicketSearchInit(tktSearchInit: AirTicketSearchResponse, sotoSearchInit: SotoTicketResponse, lccSearchInit: LccTicketResponse)
 }
+
 protocol AirTicketSearchPresenterProtocol : BasePresenterProtocol {
     
     func getAirTicketSearchInit()

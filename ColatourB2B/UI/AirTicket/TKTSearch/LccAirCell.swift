@@ -1,5 +1,5 @@
 //
-//  LccCell.swift
+//  LccAirCell.swift
 //  ColatourB2B
 //
 //  Created by 6985 吳思賢 on 2020/3/10.
@@ -29,7 +29,7 @@ class LccAirCell: UITableViewCell {
     
     weak var delegate: LccCellProtocol?
 
-    func setCell(lccInfo:LCCTicketRequest){
+    func setCell(lccInfo:LccTicketRequest){
         toAndForRadio.image = lccInfo.isToAndFro ? #imageLiteral(resourceName: "radio_on"):#imageLiteral(resourceName: "radio_off")
         oneWayRadio.image = lccInfo.isToAndFro ? #imageLiteral(resourceName: "radio_off"):#imageLiteral(resourceName: "radio_on")
         tourDate.text = lccInfo.isToAndFro ? "\(lccInfo.startTourDate ?? "") ~ \(lccInfo.endTourDate ?? "")":"\(lccInfo.startTourDate ?? "")"

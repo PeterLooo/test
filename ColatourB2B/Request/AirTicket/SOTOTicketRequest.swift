@@ -1,5 +1,5 @@
 //
-//  SOTOTicketRequest.swift
+//  SotoTicketRequest.swift
 //  ColatourB2B
 //
 //  Created by 7635 邱郁雯 on 2020/3/13.
@@ -8,26 +8,26 @@
 
 import Foundation
 
-class SOTOTicketRequest: NSObject {
+class SotoTicketRequest: NSObject {
     
     var identityType: String?
-    var service: SOTOTicketResponse.ServiceClass?
-    var airline: SOTOTicketResponse.Airline?
+    var service: SotoTicketResponse.ServiceClass?
+    var airline: SotoTicketResponse.Airline?
     var startTravelDate: String?
-    var endTravelDate: SOTOTicketResponse.EndTravelDate?
+    var endTravelDate: SotoTicketResponse.EndTravelDate?
     var journeyType: String?
-    var departure: SOTOTicketResponse.OriginCode?
-    var destination: SOTOTicketResponse.DestinationCode?
+    var departure: SotoTicketResponse.OriginCode?
+    var destination: SotoTicketResponse.DestinationCode?
     var isNonStop: Bool = true
     
     convenience init(identityType: String?,
-                     service: SOTOTicketResponse.ServiceClass?,
-                     airline: SOTOTicketResponse.Airline?,
+                     service: SotoTicketResponse.ServiceClass?,
+                     airline: SotoTicketResponse.Airline?,
                      startTravelDate: String?,
-                     endTravelDate: SOTOTicketResponse.EndTravelDate?,
+                     endTravelDate: SotoTicketResponse.EndTravelDate?,
                      journeyType: String?,
-                     departure: SOTOTicketResponse.OriginCode?,
-                     destination: SOTOTicketResponse.DestinationCode?,
+                     departure: SotoTicketResponse.OriginCode?,
+                     destination: SotoTicketResponse.DestinationCode?,
                      isNonStop: Bool) {
         self.init()
         self.identityType = identityType
@@ -58,9 +58,9 @@ class SOTOTicketRequest: NSObject {
         return params
     }
     
-    func getSOTOTicketRequest(response: SOTOTicketResponse) -> SOTOTicketRequest {
+    func getSotoTicketRequest(response: SotoTicketResponse) -> SotoTicketRequest {
         
-        return SOTOTicketRequest(identityType: response.identityTypeList.first,
+        return SotoTicketRequest(identityType: response.identityTypeList.first,
                                  service: response.serviceClassList.first,
                                  airline: response.airlineList.first,
                                  startTravelDate: response.startTravelDate,

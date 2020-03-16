@@ -41,7 +41,7 @@ class BrickCell: UICollectionViewCell {
         self.searchType = searchType
         
         switch searchType {
-        case .groupAir:
+        case .airTkt:
             let continent = airTicketInfo.groupAir?.continentList.filter { $0.isSelected == true }.first
             countryInfo = continent?.countryList[row]
             brickName.text = countryInfo?.country
@@ -59,7 +59,7 @@ class BrickCell: UICollectionViewCell {
     @objc func onTouchBrick() {
         
         switch searchType {
-        case .groupAir:
+        case .airTkt:
             delegate?.onTouchBrick(countryInfo: countryInfo!)
             
         case .soto:

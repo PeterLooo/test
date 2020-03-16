@@ -8,7 +8,7 @@
 
 import UIKit
 protocol AirPaxViewControllerProtocol: NSObjectProtocol {
-    func onTouchBottomButton(lccTicketRequest: LCCTicketRequest)
+    func onTouchBottomButton(lccTicketRequest: LccTicketRequest)
 }
 
 class AirPaxViewController: UIViewController {
@@ -21,7 +21,7 @@ class AirPaxViewController: UIViewController {
     @IBOutlet weak var childCount: ChooseCountButton!
     @IBOutlet weak var infanCount: ChooseCountButton!
     
-    private var lccTicketRequest = LCCTicketRequest()
+    private var lccTicketRequest = LccTicketRequest()
     private var bottomButtonTitle: String?
     
     weak var delegate: AirPaxViewControllerProtocol?
@@ -50,7 +50,7 @@ class AirPaxViewController: UIViewController {
         layout()
     }
     
-    func setTextWith(lccTicketRequest: LCCTicketRequest){
+    func setTextWith(lccTicketRequest: LccTicketRequest){
         
         self.lccTicketRequest = lccTicketRequest
     }
