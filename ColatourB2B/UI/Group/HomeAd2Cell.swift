@@ -15,13 +15,13 @@ class HomeAd2Cell: UITableViewCell {
     
     weak var delegate: HomeAd1CellProtocol?
     
-    func setCell(item:IndexResponse.Module, isLastSection: Bool){
+    func setCell(item:IndexResponse.Module, isLastSection: Bool, needLogoImage:Bool){
         self.stackView.subviews.forEach { $0.removeFromSuperview() }
         moduleText.text = item.moduleText
         
         item.moduleItemList.forEach { (module) in
             let view = HomeAd2View()
-            view.setView(item: module, isLast: (isLastSection) ? item.moduleItemList.last == module : false)
+            view.setView(item: module, isLast: (isLastSection) ? item.moduleItemList.last == module : false, needLogoImage: needLogoImage)
             view.delegate = self
             self.stackView.addArrangedSubview(view)
         }

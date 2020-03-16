@@ -14,9 +14,11 @@
             <connections>
                 <outlet property="borderView" destination="JGr-Lu-Z6E" id="nEf-aB-npc"/>
                 <outlet property="bottomConstraint" destination="4i4-dc-67K" id="U2K-WE-LfG"/>
+                <outlet property="imageWidth" destination="yWu-Yg-grS" id="eza-os-ak5"/>
                 <outlet property="itemPrice" destination="bhb-Zr-022" id="9oa-Iy-b5Q"/>
                 <outlet property="itemPromotion" destination="4ps-0R-KxE" id="LWo-Io-d9a"/>
                 <outlet property="itemText" destination="MVo-yy-y0O" id="fpp-fx-iHL"/>
+                <outlet property="logoImage" destination="Hhf-Lo-6aI" id="td1-mo-JWn"/>
                 <outlet property="shadowView" destination="jA4-JK-15G" id="XFv-Ij-zdl"/>
             </connections>
         </placeholder>
@@ -33,26 +35,26 @@
                     <rect key="frame" x="16" y="5" width="339" height="122"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="7Ew-c5-7h0">
-                            <rect key="frame" x="12" y="10" width="315" height="102"/>
+                            <rect key="frame" x="35" y="10" width="292" height="102"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="item_Textitem_Textitem_Textitem_Textitem_Textitem_Textitem_Textitem_Textitem_Textitem_Text" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MVo-yy-y0O">
-                                    <rect key="frame" x="0.0" y="0.0" width="315" height="57"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="item_Textitem_Textitem_Textite" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MVo-yy-y0O">
+                                    <rect key="frame" x="0.0" y="0.0" width="292" height="23.5"/>
                                     <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="15"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xoj-1a-H4d">
-                                    <rect key="frame" x="0.0" y="65" width="315" height="37"/>
+                                    <rect key="frame" x="0.0" y="31.5" width="292" height="70.5"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Item_Promotion  " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ps-0R-KxE">
-                                            <rect key="frame" x="0.0" y="0.0" width="115" height="37"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="115" height="70.5"/>
                                             <color key="backgroundColor" red="1" green="0.43529411764705883" blue="0.0" alpha="0.80316245719178081" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                             <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="13"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Item_Price" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bhb-Zr-022">
-                                            <rect key="frame" x="239.5" y="0.0" width="75.5" height="37"/>
+                                            <rect key="frame" x="216.5" y="0.0" width="75.5" height="70.5"/>
                                             <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="15"/>
                                             <color key="textColor" red="0.9882352941176471" green="0.29803921568627451" blue="0.0078431372549019607" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -73,13 +75,22 @@
                                 </view>
                             </subviews>
                         </stackView>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Hhf-Lo-6aI">
+                            <rect key="frame" x="10" y="13" width="20" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="20" id="aTD-OV-HfI"/>
+                                <constraint firstAttribute="width" constant="20" id="yWu-Yg-grS"/>
+                            </constraints>
+                        </imageView>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     <constraints>
                         <constraint firstItem="7Ew-c5-7h0" firstAttribute="bottom" secondItem="JGr-Lu-Z6E" secondAttribute="bottom" constant="-10" id="0h1-re-acI"/>
                         <constraint firstItem="7Ew-c5-7h0" firstAttribute="top" secondItem="JGr-Lu-Z6E" secondAttribute="top" constant="10" id="Ca7-n6-QXz"/>
                         <constraint firstItem="7Ew-c5-7h0" firstAttribute="trailing" secondItem="JGr-Lu-Z6E" secondAttribute="trailing" constant="-12" id="F2q-ae-1ob"/>
-                        <constraint firstItem="7Ew-c5-7h0" firstAttribute="leading" secondItem="JGr-Lu-Z6E" secondAttribute="leading" constant="12" id="IPv-OT-7ua"/>
+                        <constraint firstItem="7Ew-c5-7h0" firstAttribute="leading" secondItem="Hhf-Lo-6aI" secondAttribute="trailing" constant="5" id="IvZ-TN-AiC"/>
+                        <constraint firstItem="Hhf-Lo-6aI" firstAttribute="top" secondItem="MVo-yy-y0O" secondAttribute="top" constant="3" id="WuK-i5-42t"/>
+                        <constraint firstItem="Hhf-Lo-6aI" firstAttribute="leading" secondItem="JGr-Lu-Z6E" secondAttribute="leading" constant="10" id="isr-gG-lGn"/>
                     </constraints>
                 </view>
             </subviews>
