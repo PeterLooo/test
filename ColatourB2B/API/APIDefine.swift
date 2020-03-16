@@ -138,6 +138,7 @@ enum APIUrl {
         case tourKeywordSearch = "Tour/Keyword/Search"
         case airTktSearch = "AirTicket/Search/Initial/Ticket"
         case sotoAirSearch = "AirTicket/Search/Initial/SOTO"
+        case airTicketSearch = "AirTicket/Search"
         //case lccAirSearch =
         
         static func urlWith(type: MainApi, append: String) -> String {

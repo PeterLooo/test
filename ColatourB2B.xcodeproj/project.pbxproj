@@ -366,6 +366,8 @@
 		A10C824E24186CD80092DACA /* LccTicketRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10C824C24186CD80092DACA /* LccTicketRequest.swift */; };
 		A12808A823F7937100287B9F /* PriceRangeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12808A723F7937100287B9F /* PriceRangeSlider.swift */; };
 		A12808A923F7937100287B9F /* PriceRangeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12808A723F7937100287B9F /* PriceRangeSlider.swift */; };
+		A14F56EA241F708700BF40DA /* AirSearchUrlResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14F56E9241F708700BF40DA /* AirSearchUrlResponse.swift */; };
+		A14F56EB241F708700BF40DA /* AirSearchUrlResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14F56E9241F708700BF40DA /* AirSearchUrlResponse.swift */; };
 		A1876A842415D67D00855DE6 /* AirTicketSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1876A832415D67D00855DE6 /* AirTicketSearchViewController.swift */; };
 		A1876A852415D67D00855DE6 /* AirTicketSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1876A832415D67D00855DE6 /* AirTicketSearchViewController.swift */; };
 		A1876A8C2415E40300855DE6 /* TKTSearch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1876A8B2415E40300855DE6 /* TKTSearch.storyboard */; };
@@ -730,6 +732,7 @@
 		A1068F4B241625C800710DC4 /* TKTSearchRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TKTSearchRequest.swift; sourceTree = "<group>"; };
 		A10C824C24186CD80092DACA /* LccTicketRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LccTicketRequest.swift; sourceTree = "<group>"; };
 		A12808A723F7937100287B9F /* PriceRangeSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceRangeSlider.swift; sourceTree = "<group>"; };
+		A14F56E9241F708700BF40DA /* AirSearchUrlResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirSearchUrlResponse.swift; sourceTree = "<group>"; };
 		A1876A832415D67D00855DE6 /* AirTicketSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirTicketSearchViewController.swift; sourceTree = "<group>"; };
 		A1876A8B2415E40300855DE6 /* TKTSearch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TKTSearch.storyboard; sourceTree = "<group>"; };
 		A1876A912415FC9A00855DE6 /* AirTicketSearchProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirTicketSearchProtocol.swift; sourceTree = "<group>"; };
@@ -1309,6 +1312,7 @@
 		38BCDA3123A37FDA00D59910 /* Response */ = {
 			isa = PBXGroup;
 			children = (
+				A14F56E8241F703800BF40DA /* TKT */,
 				A1A7F3112418882000263E42 /* Common */,
 				0650776723ED6BB80067377C /* ContactService */,
 				3802A19523C852F000CD2EF2 /* Salse */,
@@ -1317,7 +1321,6 @@
 				3833F41D23B9EA96003B26EF /* Group */,
 				3833F41C23B9EA7A003B26EF /* Member */,
 				06DA4F6D23E9222F001B7DF1 /* MessageSend */,
-				0655CD28241B643E006092AB /* TKTInitResponse.swift */,
 				38BCD9CF23A3652200D59910 /* VerifyModel.swift */,
 				38BCD9CC23A3648B00D59910 /* BaseModelProtocol.swift */,
 				38BCD9C923A3647E00D59910 /* BaseModel.swift */,
@@ -1410,6 +1413,15 @@
 				B09E7C65A225E6FF958329EA /* Pods-ColatourB2BDev.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		A14F56E8241F703800BF40DA /* TKT */ = {
+			isa = PBXGroup;
+			children = (
+				0655CD28241B643E006092AB /* TKTInitResponse.swift */,
+				A14F56E9241F708700BF40DA /* AirSearchUrlResponse.swift */,
+			);
+			path = TKT;
 			sourceTree = "<group>";
 		};
 		A1876A822415D63C00855DE6 /* TKTSearch */ = {
@@ -2084,6 +2096,7 @@
 				A1A7F2EF2418854D00263E42 /* CalendarSelectedYearMonthDays.swift in Sources */,
 				38BCD99C23A363AB00D59910 /* MemberRepositoryProtocol.swift in Sources */,
 				381B12B223C466370030BACE /* NoticeViewController.swift in Sources */,
+				A14F56EA241F708700BF40DA /* AirSearchUrlResponse.swift in Sources */,
 				CCCC735223E42C2700FC03EE /* PasswordModifyProtocol.swift in Sources */,
 				06DA4F8823E92260001B7DF1 /* MessageSendPresenter.swift in Sources */,
 				06DA4F8C23E92260001B7DF1 /* MessageSendTopicCell.swift in Sources */,
@@ -2299,6 +2312,7 @@
 				A1A7F2F02418854D00263E42 /* CalendarSelectedYearMonthDays.swift in Sources */,
 				38BCD99D23A363AB00D59910 /* MemberRepositoryProtocol.swift in Sources */,
 				381B12B323C466370030BACE /* NoticeViewController.swift in Sources */,
+				A14F56EB241F708700BF40DA /* AirSearchUrlResponse.swift in Sources */,
 				CCCC735323E42C2700FC03EE /* PasswordModifyProtocol.swift in Sources */,
 				06DA4F8923E92260001B7DF1 /* MessageSendPresenter.swift in Sources */,
 				06DA4F8D23E92260001B7DF1 /* MessageSendTopicCell.swift in Sources */,

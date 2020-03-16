@@ -43,6 +43,28 @@ class AirTicketSearchPresenter: AirTicketSearchPresenterProtocol {
         }).disposed(by: dispose)
     }
     
+    func postAirTicketSearch(request: TKTSearchRequest) {
+        self.delegate?.onStartLoadingHandle(handleType: .coverPlate)
+        repository.postAirTicketSearch(request: request).subscribe(onSuccess: { (model) in
+            self.delegate?.onBindSearchUrlResult(result: model)
+            self.delegate?.onCompletedLoadingHandle()
+        }, onError: { (error) in
+            self.delegate?.onApiErrorHandle(apiError: error as! APIError, handleType: .custom)
+            self.delegate?.onCompletedLoadingHandle()
+        }).disposed(by: dispose)
+    }
+    
+    func postSotoTicketSearch(request: SotoTicketRequest) {
+        self.delegate?.onStartLoadingHandle(handleType: .coverPlate)
+        repository.postSotoTicketSearch(request: request).subscribe(onSuccess: { (model) in
+            self.delegate?.onBindSearchUrlResult(result: model)
+            self.delegate?.onCompletedLoadingHandle()
+        }, onError: { (error) in
+            self.delegate?.onApiErrorHandle(apiError: error as! APIError, handleType: .custom)
+            self.delegate?.onCompletedLoadingHandle()
+        }).disposed(by: dispose)
+    }
+    
 //    func getLccAirSearchInit() {
 //        self.delegate?.onStartLoadingHandle(handleType: .coverPlate)
 //

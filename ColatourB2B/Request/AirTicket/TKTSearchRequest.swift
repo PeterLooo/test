@@ -18,6 +18,7 @@ class TKTSearchRequest: NSObject {
     var destination: TKTInitResponse.TicketResponse.City?
     var startTravelDate: String?
     var endTravelDate: TKTInitResponse.TicketResponse.EndTravelDate?
+    var returnCode:TKTInitResponse.TicketResponse.City?
     var isNonStop: Bool = true
     
     convenience init(service: TKTInitResponse.TicketResponse.ServiceClass?,
@@ -28,6 +29,7 @@ class TKTSearchRequest: NSObject {
                      destination: TKTInitResponse.TicketResponse.City?,
                      startTravelDate: String?,
                      endTravelDate: TKTInitResponse.TicketResponse.EndTravelDate?,
+                     returnCode: TKTInitResponse.TicketResponse.City?,
                      isNonStop: Bool) {
         self.init()
         self.service = service
@@ -38,6 +40,7 @@ class TKTSearchRequest: NSObject {
         self.destination = destination
         self.startTravelDate = startTravelDate
         self.endTravelDate = endTravelDate
+        self.returnCode = returnCode
         self.isNonStop = isNonStop
     }
     
@@ -53,7 +56,7 @@ class TKTSearchRequest: NSObject {
         params["Return_Code"] = ""
         params["Start_Date"] = startTravelDate ?? ""
         params["End_Date"] = endTravelDate?.endTravelDateId ?? ""
-        params["Transit_Mark"] = isNonStop
+        params["Transit_Mark"] = !isNonStop
         
         return params
     }
@@ -65,9 +68,10 @@ class TKTSearchRequest: NSObject {
                                 journeyType: response.journeyTypeList.first,
                                 airline: response.airlineList.first,
                                 departure: response.departureCodeList.first,
-                                destination: response.countryList.first?.cityList.first,
+                                destination: nil,
                                 startTravelDate: response.startTravelDate,
                                 endTravelDate: response.endTravelDateList.first,
+                                returnCode:nil,
                                 isNonStop: true)
     }
 }

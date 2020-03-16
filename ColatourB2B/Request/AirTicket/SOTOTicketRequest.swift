@@ -53,7 +53,7 @@ class SotoTicketRequest: NSObject {
         params["Return_Code"] = ""
         params["Start_Date"] = startTravelDate ?? ""
         params["End_Date"] = endTravelDate?.endTravelDateId ?? ""
-        params["Transit_Mark"] = isNonStop
+        params["Transit_Mark"] = !isNonStop
         
         return params
     }
