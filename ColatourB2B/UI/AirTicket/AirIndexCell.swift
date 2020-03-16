@@ -11,16 +11,7 @@ import UIKit
 class AirIndexCell: UITableViewCell {
 
     @IBOutlet weak var stackView: UIStackView!
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
+    weak var delegate: HomeAd1CellProtocol?
     
     func setCell(item:IndexResponse.Module){
         self.stackView.subviews.forEach{$0.removeFromSuperview()}
@@ -29,13 +20,19 @@ class AirIndexCell: UITableViewCell {
             let moduleInde = item.moduleItemList.firstIndex(of: module)!
             if moduleInde % 3 == 0 {
                 let view = AirIndexView()
-                view.setView(item: (module), moduleIndex: moduleInde)
+                view.setView(item: (module), moduleIndex: moduleInde % 3)
+                view.delegate = self
                 stackView.addArrangedSubview(view)
             }else{
                 let lastView = stackView.subviews.last as! AirIndexView
-                lastView.setView(item: (module), moduleIndex: moduleInde)
+                lastView.setView(item: (module), moduleIndex: moduleInde % 3)
             }
         }
     }
-    
+}
+
+extension AirIndexCell: HomeAd1ViewProcotol {
+    func onTouchHotelAdItem(adItem: IndexResponse.ModuleItem) {
+        self.delegate?.onTouchItem(adItem: adItem)
+    }
 }
