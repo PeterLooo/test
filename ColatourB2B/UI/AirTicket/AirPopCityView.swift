@@ -71,7 +71,7 @@ class AirPopCityView: UIView {
         self.itemSecContent.text = ""
         self.itemSecContent.backgroundColor = UIColor.init(named: "背景灰")
         self.imageSecView.image = nil
-        self.imageSecView.backgroundColor = UIColor.init(named: "背景灰")
+        self.imageSecView.backgroundColor = UIColor.init(named: "ImageBackColor")
         self.boderView.layoutIfNeeded()
         self.borderSecView.layoutIfNeeded()
         self.boderView.layer.masksToBounds = true
@@ -82,7 +82,7 @@ class AirPopCityView: UIView {
         self.adSecItem = item
         self.itemSecContent.backgroundColor = UIColor.white
         self.itemSecContent.text = item.itemText
-        self.imageSecView.backgroundColor = UIColor.lightGray
+        self.imageSecView.backgroundColor = UIColor.init(named: "ImageBackColor")
         self.imageSecView.sd_setImage(with: URL.init(string: item.smallPicUrl ?? "")) { (image, error, cacheType, imageURL) in
             SDWebImageManager.shared.loadImage(with: URL(string: item.picUrl ?? ""), options: SDWebImageOptions(rawValue: 0), progress: nil, completed: { (image, data, error, cacheType, bool, imageURL) in
                 if error == nil {
