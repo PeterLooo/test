@@ -178,6 +178,8 @@ class AirTicketSearchViewController: BaseViewController {
             case .airTkt:
                 if let date = airTicketRequest.startTravelDate {
                     datePicker.date = FormatUtil.convertStringToDate(dateFormatFrom: "yyyy/MM/dd", dateString: date) ?? Date()
+                    datePicker.minimumDate = FormatUtil.convertStringToDate(dateFormatFrom: "yyyy/MM/dd", dateString: date) ?? Date()
+                    datePicker.maximumDate = calendar.date(byAdding: .month, value: 18, to: datePicker.minimumDate!)
                 }
             case .soto:
                 if let date = sotoTicketRequest.startTravelDate {
@@ -376,9 +378,41 @@ class AirTicketSearchViewController: BaseViewController {
         scrollTopPageButtonBottomLine(percent: 0)
         switchPageButton(sliderLeading: 0)
     }
+    
+    private func checkAirTicketRequest() -> Bool{
+        var allowToSearch = true
+        var errorText:[String] = []
+        if airTicketRequest.destination?.cityId == nil{
+            errorText.append("請輸入目的地")
+            allowToSearch = false
+        }
+        if airTicketRequest.journeyType == "雙程" || airTicketRequest.journeyType == "環遊" {
+            if airTicketRequest.returnCode?.cityId == nil {
+                errorText.append("請輸入回程目的地")
+                allowToSearch = false
+            }
+            
+            if airTicketRequest.returnCode?.cityId == airTicketRequest.destination?.cityId {
+                errorText.append("回程起點城市代碼不可與目的地相同")
+                allowToSearch = false
+            }
+        }
+        if errorText.isEmpty == false {
+            let errorResult = errorText.joined(separator: "\n")
+            let alertSeverError: UIAlertController = UIAlertController(title: "修正錯誤", message: errorResult, preferredStyle: .alert)
+            let action = UIAlertAction(title: "確定", style: UIAlertAction.Style.default, handler: nil)
+            alertSeverError.addAction(action)
+            self.present(alertSeverError, animated: true)
+        }
+        return allowToSearch
+    }
 }
 
 extension AirTicketSearchViewController: AirTicketSearchViewProtocol {
+    func onBindSearchUrlResult(result: AirSearchUrlResponse) {
+        handleLinkType(linkType: result.airUrlResult!.linkType!, linkValue: result.airUrlResult!.linkValue, linkText: nil)
+    }
+    
     func onBindAirTicketSearchInit(tktSearchInit: TKTInitResponse) {
         self.airSearchInit = tktSearchInit.initResponse
         self.airTicketRequest = TKTSearchRequest().getAirTicketRequest(response: tktSearchInit.initResponse!)
@@ -416,13 +450,11 @@ extension AirTicketSearchViewController: CustomPickerViewProtocol{
         case .id:
             switch searchType {
             case .airTkt:
-                //let keyValue = tktSearchInit!.identity.first{ $0.value == key }!
-                //self.groupTicketRequest.selectedID = keyValue
+                
                 let keyValue = airSearchInit?.identityTypeList.filter{ $0 == key }.first
                 self.airTicketRequest.identityType = keyValue
             case .soto:
-                //let keyValue = tktSearchInit!.identity.first{ $0.value == key }!
-                //self.sotoTicketRequest.selectedID = keyValue
+                
                 let keyValue = sotoSearchInit?.identityTypeList.filter{ $0 == key }.first
                 self.sotoTicketRequest.identityType = keyValue
             default:
@@ -432,13 +464,9 @@ extension AirTicketSearchViewController: CustomPickerViewProtocol{
         case .airlineCode:
             switch searchType {
             case .airTkt:
-                //let keyValue = tktSearchInit!.groupAir?.airline.first{ $0.value == key }!
-                //self.groupTicketRequest.selectedAirlineCode = keyValue
                 let keyValue = airSearchInit?.airlineList.filter{ $0.airlineId == key }.first
                 self.airTicketRequest.airline = keyValue
             case .soto:
-                //let keyValue = tktSearchInit!.sOTOTicket?.airline.first{ $0.value == key }!
-                //self.sotoTicketRequest.selectedAirlineCode = keyValue
                 let keyValue = sotoSearchInit?.airlineList.filter{ $0.airlineId == key }.first
                 self.sotoTicketRequest.airline = keyValue
             default:
@@ -448,13 +476,10 @@ extension AirTicketSearchViewController: CustomPickerViewProtocol{
         case .sitClass:
             switch searchType {
             case .airTkt:
-                //let keyValue = tktSearchInit!.sitClass.first{ $0.value == key }!
-                //self.groupTicketRequest.selectedSitClass = keyValue
                 let keyValue = airSearchInit?.serviceClassList.filter{ $0.serviceId == key }.first
                 self.airTicketRequest.service = keyValue
             case .soto:
-                //let keyValue = tktSearchInit!.sitClass.first{ $0.value == key }!
-                //self.sotoTicketRequest.selectedSitClass = keyValue
+                
                 let keyValue = sotoSearchInit?.serviceClassList.filter{ $0.serviceId == key }.first
                 self.sotoTicketRequest.service = keyValue
             default:
@@ -464,13 +489,9 @@ extension AirTicketSearchViewController: CustomPickerViewProtocol{
         case .tourType:
             switch searchType {
             case .airTkt:
-                //let keyValue = tktSearchInit!.groupAir?.tourType.first{ $0.value == key }!
-                //self.groupTicketRequest.selectedTourWay = keyValue
                 let keyValue = airSearchInit?.journeyTypeList.filter{ $0 == key }.first
                 self.airTicketRequest.journeyType = keyValue
             case .soto:
-                //let keyValue = tktSearchInit!.sOTOTicket?.tourType.first{ $0.value == key }!
-                //self.sotoTicketRequest.selectedTourWay = keyValue
                 let keyValue = sotoSearchInit?.journeyTypeList.filter{ $0 == key }.first
                 self.sotoTicketRequest.journeyType = keyValue
             default:
@@ -480,13 +501,11 @@ extension AirTicketSearchViewController: CustomPickerViewProtocol{
         case .dateRange:
             switch searchType {
             case .airTkt:
-                //let keyValue = tktSearchInit!.daterange.first{ $0.value == key }!
-                //self.groupTicketRequest.selectedDateRange = keyValue
+                
                 let keyValue = airSearchInit?.endTravelDateList.filter{ $0.endTravelDateId == key }.first
                 self.airTicketRequest.endTravelDate = keyValue
             case .soto:
-                //let keyValue = tktSearchInit!.daterange.first{ $0.value == key }!
-                //self.sotoTicketRequest.selectedDateRange = keyValue
+                
                 let keyValue = sotoSearchInit?.endTravelDateList.filter{ $0.endTravelDateId == key }.first
                 self.sotoTicketRequest.endTravelDate = keyValue
             default:
@@ -496,21 +515,16 @@ extension AirTicketSearchViewController: CustomPickerViewProtocol{
         case .departureCity:
             switch searchType {
             case .airTkt:
-                //let keyValue = tktSearchInit!.groupAir?.departure.first{ $0.value == key }!
-                //self.groupTicketRequest.selectedDeparture = keyValue
                 let keyValue = airSearchInit?.departureCodeList.filter{ $0.departureCodeId == key }.first
                 self.airTicketRequest.departure = keyValue
             case .soto:
-                //let keyValue = tktSearchInit!.sOTOTicket?.departure.first{ $0.value == key }!
-                //self.sotoTicketRequest.selectedDeparture = keyValue
                 let keyValue = sotoSearchInit?.departureCodeList.filter{ $0.departureCodeId == key }.first
                 self.sotoTicketRequest.departure = keyValue
             default:
                 ()
             }
         case .sotoArrival:
-            //let keyValue = tktSearchInit!.sOTOTicket?.arrivals.first{ $0.value == key }!
-            //self.sotoTicketRequest.selectedDestinatione = keyValue
+            
             let keyValue = sotoSearchInit?.destinationCodeList.filter{ $0.destinationCodeId == key }.first
             self.sotoTicketRequest.destination = keyValue
             
@@ -532,9 +546,11 @@ extension AirTicketSearchViewController: AirTktCellProtocol {
     func onTouchSearch(searchType: SearchByType) {
         switch searchType {
         case .airTkt:
-            ()
+            if checkAirTicketRequest() {
+                self.presenter?.postAirTicketSearch(request: self.airTicketRequest)
+            }
         case .soto:
-            ()
+            self.presenter?.postSotoTicketSearch(request: self.sotoTicketRequest)
         case .lcc:
             ()
         }

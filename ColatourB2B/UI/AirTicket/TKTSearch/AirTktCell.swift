@@ -40,7 +40,9 @@ class AirTktCell: UITableViewCell {
         tourWay.text = info.journeyType
         departure.text = info.departure?.departureCodeName
         isNonStop.image = info.isNonStop ? #imageLiteral(resourceName: "check") : #imageLiteral(resourceName: "check_hover")
-        backView.isHidden = !(info.journeyType == "雙程" || info.journeyType == "旅遊")
+        backView.isHidden = !(info.journeyType == "雙程" || info.journeyType == "環遊")
+        self.backView.layoutIfNeeded()
+        
     }
     
     @IBAction func onTouchTopSelection(_ sender: UIButton) {
