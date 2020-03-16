@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol WebViewProtocol: NSObjectProtocol {
+protocol WebViewProtocol: BaseViewProtocol {
     func onBindTourShareList(shareList:WebViewTourShareResponse.ItineraryShareData)
 }
 

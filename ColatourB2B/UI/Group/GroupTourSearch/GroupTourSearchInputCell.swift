@@ -11,10 +11,12 @@ import UIKit
 protocol GroupTourSearchInputCellProtocol: NSObjectProtocol {
     func onTouchTourDaysView(_ sender: UIButton)
     func onTourDaysTextFieldDidChange(text: String)
+    func sliderDown()
 }
 
 class GroupTourSearchInputCell: UITableViewCell, UITextFieldDelegate {
-    
+
+    @IBOutlet weak var priceLimitCheckBoxImageView: UIImageView!
     @IBOutlet weak var bookingTourCheckBoxImageView: UIImageView!
     
     @IBOutlet weak var startTourDate: UILabel!
@@ -38,7 +40,7 @@ class GroupTourSearchInputCell: UITableViewCell, UITextFieldDelegate {
     
     func setCellWith(groupTourSearchRequest: GroupTourSearchRequest)
     {
-        
+        priceLimitCheckBoxImageView.image = groupTourSearchRequest.isPriceLimit ? #imageLiteral(resourceName: "check") : #imageLiteral(resourceName: "check_hover")
         bookingTourCheckBoxImageView.image = groupTourSearchRequest.isBookingTour ? #imageLiteral(resourceName: "check") : #imageLiteral(resourceName: "check_hover")
         
         self.regionCode.text = groupTourSearchRequest
@@ -77,6 +79,7 @@ class GroupTourSearchInputCell: UITableViewCell, UITextFieldDelegate {
         self.priceView.addSubview(rangeSlider)
         rangeSlider.setCurrentValue(left: 0, right: 200000)
         priceRangeSlider = rangeSlider
+        priceRangeSlider?.delegate = self
     }
     
     @IBAction func onTouchTourDays(_ sender: UIButton) {
@@ -86,5 +89,10 @@ class GroupTourSearchInputCell: UITableViewCell, UITextFieldDelegate {
     
     @objc func textFieldDidChange(_ textField: UITextField) {
         delegate?.onTourDaysTextFieldDidChange(text: textField.text ?? "")
+    }
+}
+extension GroupTourSearchInputCell : PriceRangeSliderPortocol {
+    func sliderDown() {
+        self.delegate?.sliderDown()
     }
 }

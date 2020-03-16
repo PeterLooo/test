@@ -13,6 +13,7 @@ class GroupTourSearchRequest: NSObject {
     var selectedDepartureCity: GroupTourSearchInitResponse.DepartureCity?
     var selectedAirlineCode: GroupTourSearchInitResponse.AirlineCode?
     var selectedTourType: GroupTourSearchInitResponse.TourType?
+    var isPriceLimit: Bool = true
     var isBookingTour: Bool = true
     var minPrice: Int?
     var maxPrice: Int?
@@ -23,6 +24,7 @@ class GroupTourSearchRequest: NSObject {
             , "Airline_Code": selectedAirlineCode?.airlineCode ?? ""
             , "Region_Code": selectedRegionCode?.regionCode ?? ""
             , "TourType_Code": selectedTourType?.tourTypeCode ?? ""
+            , "PriceRange_Mark": !isPriceLimit
             , "BookingTour_Mark": isBookingTour
             , "Tour_Days": tourDays ?? ""
             , "Max_Price": maxPrice ?? 200000
