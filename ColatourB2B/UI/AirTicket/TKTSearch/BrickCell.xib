@@ -28,10 +28,10 @@
                 </subviews>
             </view>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="qTZ-41-qrs" secondAttribute="bottom" id="92k-Fb-6aB"/>
+                <constraint firstItem="qTZ-41-qrs" firstAttribute="bottom" secondItem="gTV-IL-0wX" secondAttribute="bottom" id="92k-Fb-6aB"/>
                 <constraint firstItem="qTZ-41-qrs" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="d43-hD-QgO"/>
                 <constraint firstItem="qTZ-41-qrs" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="qY3-YL-jyf"/>
-                <constraint firstAttribute="trailing" secondItem="qTZ-41-qrs" secondAttribute="trailing" id="yiG-r9-8kB"/>
+                <constraint firstItem="qTZ-41-qrs" firstAttribute="trailing" secondItem="gTV-IL-0wX" secondAttribute="trailing" id="yiG-r9-8kB"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="148" height="50"/>

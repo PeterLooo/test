@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		061CD2AF241F04D800BD0DE1 /* AirTktCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061CD2AE241F04D800BD0DE1 /* AirTktCell.swift */; };
 		061CD2B0241F04D800BD0DE1 /* AirTktCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061CD2AE241F04D800BD0DE1 /* AirTktCell.swift */; };
+		061CD2B2241F6C1400BD0DE1 /* LocationDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 061CD2B1241F6C1400BD0DE1 /* LocationDetail.storyboard */; };
+		061CD2B3241F6C1400BD0DE1 /* LocationDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 061CD2B1241F6C1400BD0DE1 /* LocationDetail.storyboard */; };
+		061CD2B5241F6C9200BD0DE1 /* LocationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061CD2B4241F6C9200BD0DE1 /* LocationDetailViewController.swift */; };
+		061CD2B6241F6C9200BD0DE1 /* LocationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061CD2B4241F6C9200BD0DE1 /* LocationDetailViewController.swift */; };
 		0626031B23F3E5570026DC59 /* DeviceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0626031923F3E5570026DC59 /* DeviceCell.swift */; };
 		0626031C23F3E5570026DC59 /* DeviceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0626031923F3E5570026DC59 /* DeviceCell.swift */; };
 		0626031D23F3E5570026DC59 /* DeviceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0626031A23F3E5570026DC59 /* DeviceCell.xib */; };
@@ -19,6 +23,10 @@
 		062DFCC02419C1AE006882BE /* ChooseLocationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062DFCBE2419C1AE006882BE /* ChooseLocationProtocol.swift */; };
 		062DFCC22419C4D6006882BE /* ChooseLocationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062DFCC12419C4D6006882BE /* ChooseLocationPresenter.swift */; };
 		062DFCC32419C4D6006882BE /* ChooseLocationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062DFCC12419C4D6006882BE /* ChooseLocationPresenter.swift */; };
+		06468514241F710600104346 /* LocationDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06468512241F710600104346 /* LocationDetailCell.swift */; };
+		06468515241F710600104346 /* LocationDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06468512241F710600104346 /* LocationDetailCell.swift */; };
+		06468516241F710600104346 /* LocationDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06468513241F710600104346 /* LocationDetailCell.xib */; };
+		06468517241F710600104346 /* LocationDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06468513241F710600104346 /* LocationDetailCell.xib */; };
 		0650774F23ED4EE70067377C /* ContactInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0650774E23ED4EE70067377C /* ContactInfo.storyboard */; };
 		0650775023ED4EE70067377C /* ContactInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0650774E23ED4EE70067377C /* ContactInfo.storyboard */; };
 		0650775223ED4F1E0067377C /* ContactInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0650775123ED4F1E0067377C /* ContactInfoViewController.swift */; };
@@ -533,11 +541,15 @@
 /* Begin PBXFileReference section */
 		00BEF28893EA23CD1FFC87FB /* Pods_ColatourB2BDev.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ColatourB2BDev.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		061CD2AE241F04D800BD0DE1 /* AirTktCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirTktCell.swift; sourceTree = "<group>"; };
+		061CD2B1241F6C1400BD0DE1 /* LocationDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LocationDetail.storyboard; sourceTree = "<group>"; };
+		061CD2B4241F6C9200BD0DE1 /* LocationDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailViewController.swift; sourceTree = "<group>"; };
 		0626031923F3E5570026DC59 /* DeviceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceCell.swift; sourceTree = "<group>"; };
 		0626031A23F3E5570026DC59 /* DeviceCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeviceCell.xib; sourceTree = "<group>"; };
 		0626031F23F401A70026DC59 /* ContactInfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactInfoCell.swift; sourceTree = "<group>"; };
 		062DFCBE2419C1AE006882BE /* ChooseLocationProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseLocationProtocol.swift; sourceTree = "<group>"; };
 		062DFCC12419C4D6006882BE /* ChooseLocationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseLocationPresenter.swift; sourceTree = "<group>"; };
+		06468512241F710600104346 /* LocationDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailCell.swift; sourceTree = "<group>"; };
+		06468513241F710600104346 /* LocationDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationDetailCell.xib; sourceTree = "<group>"; };
 		0650774E23ED4EE70067377C /* ContactInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ContactInfo.storyboard; sourceTree = "<group>"; };
 		0650775123ED4F1E0067377C /* ContactInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactInfoViewController.swift; sourceTree = "<group>"; };
 		0650775423ED4FD50067377C /* ContactInfoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactInfoResponse.swift; sourceTree = "<group>"; };
@@ -1433,6 +1445,9 @@
 				06AA65902418E6EA001CDA37 /* SearchEmptyCell.xib */,
 				06AA65892418E553001CDA37 /* SearchResultCell.swift */,
 				06AA658A2418E553001CDA37 /* SearchResultCell.xib */,
+				061CD2B4241F6C9200BD0DE1 /* LocationDetailViewController.swift */,
+				06468512241F710600104346 /* LocationDetailCell.swift */,
+				06468513241F710600104346 /* LocationDetailCell.xib */,
 				A1A7F32E2418E11100263E42 /* AirPaxViewController.swift */,
 			);
 			path = TKTSearch;
@@ -1443,6 +1458,7 @@
 			children = (
 				A1876A8B2415E40300855DE6 /* TKTSearch.storyboard */,
 				06B05CA32416233600C8F447 /* ChooseLocation.storyboard */,
+				061CD2B1241F6C1400BD0DE1 /* LocationDetail.storyboard */,
 			);
 			path = TKT;
 			sourceTree = "<group>";
@@ -1782,6 +1798,7 @@
 				C77282F323CC502500067EB4 /* GroupTourSearch.storyboard in Resources */,
 				06AA658D2418E553001CDA37 /* SearchResultCell.xib in Resources */,
 				38AA456623D6906400BE3F95 /* HomeAd2View.xib in Resources */,
+				061CD2B2241F6C1400BD0DE1 /* LocationDetail.storyboard in Resources */,
 				06DA4F8423E92260001B7DF1 /* MessageSendContentCell.xib in Resources */,
 				0626031D23F3E5570026DC59 /* DeviceCell.xib in Resources */,
 				3869544023BB002900F6E7D9 /* MemberIndexVersionCell.xib in Resources */,
@@ -1812,6 +1829,7 @@
 				381B12B823C48D440030BACE /* GroupNavigationView.xib in Resources */,
 				3817E4FE23A33C8500ED8609 /* Assets.xcassets in Resources */,
 				06DA4F8A23E92260001B7DF1 /* MessageSendNotificationListCell.xib in Resources */,
+				06468516241F710600104346 /* LocationDetailCell.xib in Resources */,
 				2AF496B423AB7EA50053EA45 /* GoogleService-Info.plist in Resources */,
 				A1A7F2FF2418854D00263E42 /* CalendarTableViewCell.xib in Resources */,
 				3817E4FC23A33C8400ED8609 /* Main.storyboard in Resources */,
@@ -1881,6 +1899,7 @@
 				38AA8E0723CC4FE600A7EB07 /* Dev_Info.plist in Resources */,
 				38E68AB023B5AB80006BC4DD /* GroupSliderItemCell.xib in Resources */,
 				06DA4F8123E92260001B7DF1 /* MessageSendTopicCell.xib in Resources */,
+				06468517241F710600104346 /* LocationDetailCell.xib in Resources */,
 				0650775023ED4EE70067377C /* ContactInfo.storyboard in Resources */,
 				387FBEF823ACA201005412F1 /* AirTicket.storyboard in Resources */,
 				387FBF0423ACA327005412F1 /* More.storyboard in Resources */,
@@ -1898,6 +1917,7 @@
 				3817E52C23A33C9500ED8609 /* Main.storyboard in Resources */,
 				C74FC80223C5AEE100E2250D /* NoticeDetail.storyboard in Resources */,
 				3869543B23BAF85900F6E7D9 /* MemberIndexServiceCell.xib in Resources */,
+				061CD2B3241F6C1400BD0DE1 /* LocationDetail.storyboard in Resources */,
 				38BCDA0A23A367D000D59910 /* ToastView.xib in Resources */,
 				38871EC423D5B061007ED33D /* HomeAd1Cell.xib in Resources */,
 				0626031E23F3E5570026DC59 /* DeviceCell.xib in Resources */,
@@ -2069,6 +2089,7 @@
 				3869543823BAF85900F6E7D9 /* MemberIndexServiceCell.swift in Sources */,
 				38BCD94223A346B800D59910 /* APILoadingHandleType.swift in Sources */,
 				38BCD9CD23A3648B00D59910 /* BaseModelProtocol.swift in Sources */,
+				06468514241F710600104346 /* LocationDetailCell.swift in Sources */,
 				38E9922723B053A200E28271 /* LoginProtocol.swift in Sources */,
 				3802A19B23C8542800CD2EF2 /* SalseInfoCell.swift in Sources */,
 				38BCD97723A3484300D59910 /* NSObjectExtension.swift in Sources */,
@@ -2191,6 +2212,7 @@
 				CCCC735923E42C9600FC03EE /* PasswordModifyRequest.swift in Sources */,
 				CCCC735423E42C2700FC03EE /* PasswordModifyPresenter.swift in Sources */,
 				CCCC735C23E42CDD00FC03EE /* PasswordModifyResponse.swift in Sources */,
+				061CD2B5241F6C9200BD0DE1 /* LocationDetailViewController.swift in Sources */,
 				38BCD98123A3484300D59910 /* UIViewExtension.swift in Sources */,
 				3869542E23BADC9000F6E7D9 /* MemberIndexResponse.swift in Sources */,
 				06DA4F8223E92260001B7DF1 /* MessageSendContentCell.swift in Sources */,
@@ -2284,6 +2306,7 @@
 				3869543923BAF85900F6E7D9 /* MemberIndexServiceCell.swift in Sources */,
 				38BCD94323A346B800D59910 /* APILoadingHandleType.swift in Sources */,
 				38BCD9CE23A3648B00D59910 /* BaseModelProtocol.swift in Sources */,
+				06468515241F710600104346 /* LocationDetailCell.swift in Sources */,
 				38E9922823B053A200E28271 /* LoginProtocol.swift in Sources */,
 				3802A19C23C8542800CD2EF2 /* SalseInfoCell.swift in Sources */,
 				38BCD97823A3484300D59910 /* NSObjectExtension.swift in Sources */,
@@ -2406,6 +2429,7 @@
 				CCCC735A23E42C9600FC03EE /* PasswordModifyRequest.swift in Sources */,
 				CCCC735523E42C2700FC03EE /* PasswordModifyPresenter.swift in Sources */,
 				CCCC735D23E42CDD00FC03EE /* PasswordModifyResponse.swift in Sources */,
+				061CD2B6241F6C9200BD0DE1 /* LocationDetailViewController.swift in Sources */,
 				38BCD98223A3484300D59910 /* UIViewExtension.swift in Sources */,
 				3869542F23BADC9000F6E7D9 /* MemberIndexResponse.swift in Sources */,
 				06DA4F8323E92260001B7DF1 /* MessageSendContentCell.swift in Sources */,
