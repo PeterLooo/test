@@ -10,7 +10,7 @@ import UIKit
 
 protocol SetChooseLocationProtocol: NSObjectProtocol {
     
-    func setLocation(airportInfo: AirTicketSearchResponse.AirInfo, startEndType: StartEndType)
+    //func setLocation(airportInfo: AirTicketSearchResponse.AirInfo, startEndType: StartEndType)
 }
 
 class ChooseLocationViewController: BaseViewController {
@@ -33,10 +33,11 @@ class ChooseLocationViewController: BaseViewController {
     
     private var searchType: SearchByType?
     private var startEndType: StartEndType?
-    private var airTicketInfo: AirTicketSearchResponse?
-    private var groupAirInfo: AirTicketSearchResponse.GroupAir?
-    private var lCCInfo: AirTicketSearchResponse.LCC?
-    private var countryIndex = 0
+    private var airTicketInfo: TKTInitResponse.TicketResponse?
+    private var lccAirInfo: TKTInitResponse.TicketResponse?
+    private var area: TKTInitResponse.TicketResponse.Area?
+    private var countryList: [TKTInitResponse.TicketResponse.Country]?
+    private var cityList: [TKTInitResponse.TicketResponse.City]?
     private var searchText = ""
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -111,58 +112,57 @@ class ChooseLocationViewController: BaseViewController {
     
     func infoSort() {
         
-        switch startEndType {
-        case .Departure:
-            if searchType == SearchByType.lcc {
-                var tempInfo: [AirTicketSearchResponse.CountryInfo] = []
-                let taiwan = (lCCInfo?.countryList.filter { $0.country == "台灣" }.first)!
-                
-                tempInfo = (lCCInfo?.countryList.filter { $0.country != "台灣" })!
-                tempInfo.insert(taiwan, at: 0)
-                
-                lCCInfo?.countryList = tempInfo
-            }
-
-        case .Destination:
-            var tempInfo: [AirTicketSearchResponse.CountryInfo] = []
-            let japan = (lCCInfo?.countryList.filter { $0.country == "日本" }.first)!
-            let taiwan = (lCCInfo?.countryList.filter { $0.country == "台灣" }.first)!
-
-            tempInfo = (lCCInfo?.countryList.filter { $0.country != "日本" })!
-            tempInfo = tempInfo.filter { $0.country != "台灣" }
-            tempInfo.insert(japan, at: 0)
-            tempInfo.append(taiwan)
-
-            lCCInfo?.countryList = tempInfo
-
-        default:
-            ()
-        }
+//        switch startEndType {
+//        case .Departure:
+//            if searchType == SearchByType.lcc {
+//                var tempInfo: [AirTicketSearchResponse.CountryInfo] = []
+//                let taiwan = (lccAirInfo?.countryList.filter { $0.country == "台灣" }.first)!
+//
+//                tempInfo = (lccAirInfo?.countryList.filter { $0.country != "台灣" })!
+//                tempInfo.insert(taiwan, at: 0)
+//
+//                lccAirInfo?.countryList = tempInfo
+//            }
+//
+//        case .Destination:
+//            var tempInfo: [AirTicketSearchResponse.CountryInfo] = []
+//            let japan = (lccAirInfo?.countryList.filter { $0.country == "日本" }.first)!
+//            let taiwan = (lccAirInfo?.countryList.filter { $0.country == "台灣" }.first)!
+//
+//            tempInfo = (lccAirInfo?.countryList.filter { $0.country != "日本" })!
+//            tempInfo = tempInfo.filter { $0.country != "台灣" }
+//            tempInfo.insert(japan, at: 0)
+//            tempInfo.append(taiwan)
+//
+//            lccAirInfo?.countryList = tempInfo
+//
+//        default:
+//            ()
+//        }
         
-        groupAirInfo?.continentList.forEach { $0.isSelected = false }
-        groupAirInfo?.continentList.first?.isSelected = true
-        lCCInfo?.countryList.forEach { $0.isSelected = false }
-        lCCInfo?.countryList.first?.isSelected = true
+        airTicketInfo?.areaList.forEach { $0.isSelected = false }
+        airTicketInfo?.areaList.first?.isSelected = true
+//        lccAirInfo?.countryList.forEach { $0.isSelected = false }
+//        lccAirInfo?.countryList.first?.isSelected = true
     }
 }
 
 extension ChooseLocationViewController: ChooseLocationViewProtocol {
     
-    func onBindAirTicketInfo(response: AirTicketSearchResponse, searchType: SearchByType, startEndType: StartEndType) {
+    func onBindAirTicketInfo(tktSearchInit: TKTInitResponse.TicketResponse, searchType: SearchByType, startEndType: StartEndType) {
         
-        airTicketInfo = response
         self.searchType = searchType
         self.startEndType = startEndType
         
         switch searchType {
         case .airTkt:
-            groupAirInfo = response.groupAir
-            
+            airTicketInfo = tktSearchInit
+//            airTicketInfo?.areaList.first?.isSelected = true
         case .soto:
             ()
             
         case .lcc:
-            lCCInfo = response.lCC
+            lccAirInfo = tktSearchInit
         }
         
         infoSort()
@@ -214,61 +214,61 @@ extension ChooseLocationViewController {
 
 extension ChooseLocationViewController: CapsuleCellProtocol {
     
-    func onTouchCapsule(continentInfo: AirTicketSearchResponse.ContinentInfo) {
+    func onTouchCapsule(areaInfo: TKTInitResponse.TicketResponse.Area) {
         
-        self.groupAirInfo?.continentList.forEach({ (continent) in
+        self.airTicketInfo?.areaList.forEach({ (area) in
             
-            if continent == continentInfo {
+            if area == areaInfo {
                 
-                continent.isSelected = true
+                area.isSelected = true
             } else {
                 
-                continent.isSelected = false
+                area.isSelected = false
             }
         })
         collectionView.reloadData()
         setCollectionViewLayout()
     }
     
-    func onTouchCapsule(countryInfo: AirTicketSearchResponse.CountryInfo) {
-
-        self.lCCInfo?.countryList.forEach({ (country) in
-
-            if country == countryInfo {
-
-                country.isSelected = true
-            } else {
-
-                country.isSelected = false
-            }
-        })
-        
-        collectionView.reloadData()
-        setCollectionViewLayout()
-    }
+//    func onTouchCapsule(countryInfo: AirTicketSearchResponse.CountryInfo) {
+//
+//        self.lccAirInfo?.countryList.forEach({ (country) in
+//
+//            if country == countryInfo {
+//
+//                country.isSelected = true
+//            } else {
+//
+//                country.isSelected = false
+//            }
+//        })
+//
+//        collectionView.reloadData()
+//        setCollectionViewLayout()
+//    }
 }
 
 extension ChooseLocationViewController: BrickCellProtocol {
 
-    func onTouchBrick(countryInfo: AirTicketSearchResponse.CountryInfo) {
+    func onTouchBrick(countryInfo: TKTInitResponse.TicketResponse.Country) {
         ()
 
     }
 
-    func onTouchBrick(airportInfo: AirTicketSearchResponse.AirInfo) {
-        
-        self.lCCInfo?.countryList.forEach({ (country) in
-            
-            country.airportList?.forEach({ (airport) in
-                
-                if airport == airportInfo {
-                    
-                    self.delegate?.setLocation(airportInfo: airportInfo, startEndType: startEndType!)
-                    self.dismiss(animated: true, completion: nil)
-                }
-            })
-        })
-    }
+//    func onTouchBrick(airportInfo: AirTicketSearchResponse.AirInfo) {
+//
+//        self.lccAirInfo?.countryList.forEach({ (country) in
+//
+//            country.airportList?.forEach({ (airport) in
+//
+//                if airport == airportInfo {
+//
+//                    self.delegate?.setLocation(airportInfo: airportInfo, startEndType: startEndType!)
+//                    self.dismiss(animated: true, completion: nil)
+//                }
+//            })
+//        })
+//    }
 }
 
 extension ChooseLocationViewController: UICollectionViewDataSource {
@@ -285,13 +285,10 @@ extension ChooseLocationViewController: UICollectionViewDataSource {
             
             switch searchType {
             case .airTkt:
-                return groupAirInfo?.continentList.count ?? 0
-                
-            case .soto:
-                return 0
+                return airTicketInfo?.areaList.count ?? 0
                 
             case .lcc:
-                return lCCInfo?.countryList.count ?? 0
+                return 0 //lccAirInfo?.countryList.count ?? 0
  
             default:
                 return 0
@@ -301,15 +298,14 @@ extension ChooseLocationViewController: UICollectionViewDataSource {
             
             switch searchType {
             case .airTkt:
-                let continent = groupAirInfo?.continentList.filter { $0.isSelected == true }.first
-                return continent?.countryList.count ?? 0
-                
-            case .soto:
-                return 0
+                area = airTicketInfo?.areaList.filter{ $0.isSelected == true }.first
+                countryList = airTicketInfo?.countryList.filter{ $0.areaId == area?.areaId }
+                return countryList?.count ?? 0
                 
             case .lcc:
-                let country = lCCInfo?.countryList.filter { $0.isSelected == true }.first
-                return country?.airportList?.count ?? 0
+//                let country = lccAirInfo?.countryList.filter { $0.isSelected == true }.first
+//                return country?.airportList?.count ?? 0
+                return 0
                 
             default:
                 return 0
@@ -338,8 +334,21 @@ extension ChooseLocationViewController: UICollectionViewDataSource {
             
         case .Brick:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BrickCell", for: indexPath) as! BrickCell
-            cell.setCellWith(airTicketInfo: airTicketInfo!, searchType: searchType!, row: indexPath.row)
             cell.delegate = self
+            
+            switch searchType {
+            case .airTkt:
+                
+                cell.setCellWithCountry(countryInfo: (countryList?[indexPath.row])!, searchType: searchType!)
+                
+                return cell
+                
+            case .lcc:
+                ()
+                
+            default:
+                ()
+            }
             
             return cell
             
@@ -405,13 +414,10 @@ extension ChooseLocationViewController: UICollectionViewDelegateFlowLayout {
             
             switch searchType {
             case .airTkt:
-                textString = groupAirInfo?.continentList[indexPath.item].continent
-                
-            case .soto:
-                ()
+                textString = airTicketInfo?.areaList[indexPath.item].areaName
                 
             case .lcc:
-                textString = lCCInfo?.countryList[indexPath.item].country ?? ""
+                () //textString = lccAirInfo?.countryList[indexPath.item].country ?? ""
                 
             default:
                 ()
