@@ -8,7 +8,7 @@
 
 import RxSwift
 
-class AirTicketSearchPresenter:AirTicketSearchPresenterProtocol {
+class AirTicketSearchPresenter: AirTicketSearchPresenterProtocol {
     
     weak var delegate: AirTicketSearchViewProtocol?
     private let repository = TKTRepository.shared
@@ -21,8 +21,9 @@ class AirTicketSearchPresenter:AirTicketSearchPresenterProtocol {
     
     func getAirTicketSearchInit() {
         self.delegate?.onStartLoadingHandle(handleType: .coverPlate)
-        repository.getSearchInit().subscribe(onSuccess: { (model) in
-            self.delegate?.onBindAirTicketSearchInit(groupTourSearchInit: model)
+        
+        repository.getAirSearchInit().subscribe(onSuccess: { (model) in
+            self.delegate?.onBindAirTicketSearchInit(tktSearchInit: model)
             self.delegate?.onCompletedLoadingHandle()
         }, onError: { (error) in
             self.delegate?.onApiErrorHandle(apiError: error as! APIError, handleType: .custom)
@@ -30,4 +31,28 @@ class AirTicketSearchPresenter:AirTicketSearchPresenterProtocol {
         }).disposed(by: dispose)
     }
     
+    func getSotoAirSearchInit() {
+         self.delegate?.onStartLoadingHandle(handleType: .coverPlate)
+        
+        repository.getSotoSearchInit().subscribe(onSuccess: { (model) in
+            self.delegate?.onBindSotoAirSearchInit(sotoSearchInit: model)
+            self.delegate?.onCompletedLoadingHandle()
+        }, onError: { (error) in
+            self.delegate?.onApiErrorHandle(apiError: error as! APIError, handleType: .custom)
+            self.delegate?.onCompletedLoadingHandle()
+        }).disposed(by: dispose)
+    }
+    
+//    func getLccAirSearchInit() {
+//        self.delegate?.onStartLoadingHandle(handleType: .coverPlate)
+//
+//        repository.getLccSearchInit().subscribe(onSuccess: { (model) in
+//
+//            self.delegate?.onBindLccAirSearchInit(lccSearchInit: model)
+//            self.delegate?.onCompletedLoadingHandle()
+//        }, onError: { (error) in
+//            self.delegate?.onApiErrorHandle(apiError: error as! APIError, handleType: .custom)
+//            self.delegate?.onCompletedLoadingHandle()
+//        }).disposed(by: dispose)
+//    }
 }

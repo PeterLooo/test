@@ -13,12 +13,30 @@ class TKTRepository: NSObject {
     
     static let shared = TKTRepository()
     
-    func getSearchInit() -> Single<AirTicketSearchResponse> {
+    func getAirSearchInit() -> Single<TKTInitResponse> {
         
         let api = APIManager.shared.getAirSearchInit()
         
         return AccountRepository.shared.getAccessToken()
             .flatMap { _ in api }
-            .map{ AirTicketSearchResponse(JSON: $0)! }
+            .map{ TKTInitResponse(JSON: $0)! }
+    }
+    
+    func getSotoSearchInit() -> Single<TKTInitResponse> {
+        
+        let api = APIManager.shared.getSotoSearchInit()
+        
+        return AccountRepository.shared.getAccessToken()
+            .flatMap { _ in api }
+            .map{ TKTInitResponse(JSON: $0)! }
+    }
+    
+    func getLccSearchInit() -> Single<TKTInitResponse> {
+        
+        let api = APIManager.shared.getLccSearchInit()
+        
+        return AccountRepository.shared.getAccessToken()
+            .flatMap { _ in api }
+            .map{ TKTInitResponse(JSON: $0)! }
     }
 }

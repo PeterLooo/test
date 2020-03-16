@@ -20,19 +20,18 @@ class SotoAirCell: UITableViewCell {
     @IBOutlet weak var destination: UILabel!
     @IBOutlet weak var isNonStop: UIImageView!
     
-    weak var delegate: GroupAirCellProtocol?
+    weak var delegate: AirTktCellProtocol?
     
-    func setCell(info:TKTSearchRequest, searchType:SearchByType){
-        identity.text = info.selectedID?.text
-        sitClass.text = info.selectedSitClass?.text
-        airline.text = info.selectedAirlineCode?.text
-        startDate.text = info.startTourDate
-        dateRange.text = info.selectedDateRange?.text
-        tourWay.text = info.selectedTourWay?.text
-        departure.text = info.selectedDeparture?.text
-        destination.text = info.selectedDestinatione?.text
+    func setCell(info: SotoTicketRequest, searchType: SearchByType){
+        identity.text = info.identityType
+        sitClass.text = info.service?.serviceName
+        airline.text = info.airline?.airlineName
+        startDate.text = info.startTravelDate
+        dateRange.text = info.endTravelDate?.endTravelDateName
+        tourWay.text = info.journeyType
+        departure.text = info.departure?.departureCodeName
+        destination.text = info.destination?.destinationCodeName
         isNonStop.image = info.isNonStop ? #imageLiteral(resourceName: "check") : #imageLiteral(resourceName: "check_hover")
-        
     }
     
     @IBAction func onTouchTopSelection(_ sender: UIButton) {
@@ -57,12 +56,12 @@ class SotoAirCell: UITableViewCell {
             ()
         }
     }
+    
     @IBAction func onTouchArrvial(_ sender: UIButton) {
         self.delegate?.onTouchSelection(selection: .sotoArrival, searchType: .soto)
     }
     
     @IBAction func onTouchSearch(_ sender: UIButton) {
         self.delegate?.onTouchSearch(searchType: .soto)
-        
     }
 }

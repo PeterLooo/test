@@ -21,6 +21,7 @@ public enum LinkType: String {
     case airNoti = "052"
     case tktIndex = "051"
     case notification = "005"
+    case keyword = "20"
     case unknown
 }
 
