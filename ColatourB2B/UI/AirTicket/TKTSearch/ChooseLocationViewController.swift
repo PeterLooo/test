@@ -10,7 +10,7 @@ import UIKit
 
 protocol SetChooseLocationProtocol: NSObjectProtocol {
     
-    //func setLocation(airportInfo: AirTicketSearchResponse.AirInfo, startEndType: StartEndType)
+    func setLocation(cityInfo: TKTInitResponse.TicketResponse.City)
 }
 
 class ChooseLocationViewController: BaseViewController {
@@ -251,8 +251,11 @@ extension ChooseLocationViewController: CapsuleCellProtocol {
 extension ChooseLocationViewController: BrickCellProtocol {
 
     func onTouchBrick(countryInfo: TKTInitResponse.TicketResponse.Country) {
-        ()
+        let vc = getVC(st: "LocationDetail", vc: "LocationDetail") as! LocationDetailViewController
+        vc.onBindCountryInfo(countryInfo: countryInfo)
+        vc.delegate = self
 
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 
 //    func onTouchBrick(airportInfo: AirTicketSearchResponse.AirInfo) {
@@ -269,6 +272,14 @@ extension ChooseLocationViewController: BrickCellProtocol {
 //            })
 //        })
 //    }
+}
+
+extension ChooseLocationViewController: SetChooseCityProtocol {
+    
+    func setChooseCity(cityInfo: TKTInitResponse.TicketResponse.City) {
+        
+        delegate?.setLocation(cityInfo: cityInfo)
+    }
 }
 
 extension ChooseLocationViewController: UICollectionViewDataSource {
