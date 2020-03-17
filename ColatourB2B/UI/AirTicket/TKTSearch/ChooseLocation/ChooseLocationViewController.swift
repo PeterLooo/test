@@ -10,7 +10,7 @@ import UIKit
 
 protocol SetChooseLocationProtocol: NSObjectProtocol {
     
-    func setLocation(cityInfo: TKTInitResponse.TicketResponse.City,arrival: ArrivalType?)
+    func setLocation(cityInfo: TKTInitResponse.TicketResponse.City, arrival: ArrivalType?)
 }
 
 class ChooseLocationViewController: BaseViewController {
@@ -447,7 +447,7 @@ extension ChooseLocationViewController: UICollectionViewDelegateFlowLayout {
             return cellSize
 
         case .Brick:
-            cellSize.width = 155
+            cellSize.width = (collectionView.frame.width - 65) / 2
             cellSize.height = 36
             
             return cellSize
