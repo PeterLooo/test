@@ -559,7 +559,7 @@ extension AirTicketSearchViewController: AirTktCellProtocol {
         self.searchType = searchType
         let vc = getVC(st: "ChooseLocation", vc: "ChooseLocation") as! ChooseLocationViewController
         
-        vc.onBindAirTicketInfo(tktSearchInit: airSearchInit!, searchType: .airTkt, startEndType: .Departure, arrival: arrival)
+        vc.setVC(tktSearchInit: airSearchInit!, searchType: .airTkt, startEndType: .Departure, arrival: arrival)
         vc.delegate = self
         
         let nav = UINavigationController(rootViewController: vc)

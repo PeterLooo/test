@@ -147,11 +147,8 @@ class ChooseLocationViewController: BaseViewController {
 //        lccAirInfo?.countryList.forEach { $0.isSelected = false }
 //        lccAirInfo?.countryList.first?.isSelected = true
     }
-}
-
-extension ChooseLocationViewController: ChooseLocationViewProtocol {
     
-    func onBindAirTicketInfo(tktSearchInit: TKTInitResponse.TicketResponse, searchType: SearchByType, startEndType: StartEndType, arrival: ArrivalType? = nil) {
+    func setVC(tktSearchInit: TKTInitResponse.TicketResponse, searchType: SearchByType, startEndType: StartEndType, arrival: ArrivalType? = nil) {
         
         self.searchType = searchType
         self.startEndType = startEndType
@@ -159,7 +156,7 @@ extension ChooseLocationViewController: ChooseLocationViewProtocol {
         switch searchType {
         case .airTkt:
             airTicketInfo = tktSearchInit
-//            airTicketInfo?.areaList.first?.isSelected = true
+        //            airTicketInfo?.areaList.first?.isSelected = true
         case .soto:
             ()
             
@@ -169,6 +166,9 @@ extension ChooseLocationViewController: ChooseLocationViewProtocol {
         
         infoSort()
     }
+}
+
+extension ChooseLocationViewController: ChooseLocationViewProtocol {
     
     func onBindSearchResult() {
         
