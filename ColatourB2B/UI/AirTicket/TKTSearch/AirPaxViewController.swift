@@ -89,7 +89,6 @@ class AirPaxViewController: UIViewController {
     
     private func layout(){
        
-        
         cardView.layoutIfNeeded()
         let safeAreaBottom = UIApplication.shared.keyWindow?.safeAreaInsets.bottom ?? 0
         cardViewTop.constant = screenHeight - statusBarHeight - cardView.frame.height - safeAreaBottom
@@ -119,7 +118,6 @@ extension AirPaxViewController: UIScrollViewDelegate {
         if (velocity.y < criticalVelocityY) && (scrollView.contentOffset.y < criticalContentY) {
             dismiss()
         }
-        
         
         //Note: 往上拉，停止時歸位，待確認兩邊都寫才有效果的原因
         if scrollView.contentOffset.y > 0  {
