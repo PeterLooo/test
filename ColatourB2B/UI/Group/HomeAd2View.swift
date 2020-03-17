@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import SDWebImage
 class HomeAd2View: UIView {
 
     @IBOutlet weak var borderView: UIView!
@@ -16,6 +16,8 @@ class HomeAd2View: UIView {
     @IBOutlet weak var itemPromotion: UILabel!
     @IBOutlet weak var itemPrice: UILabel!
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var logoImage: UIImageView!
+    @IBOutlet weak var imageWidth: NSLayoutConstraint!
     
     weak var delegate: HomeAd1ViewProcotol?
     
@@ -43,9 +45,10 @@ class HomeAd2View: UIView {
         let ges = UITapGestureRecognizer(target: self, action: #selector(onTouchAdView))
         self.addGestureRecognizer(ges)
         self.isUserInteractionEnabled = true
+        self.logoImage.contentMode = .scaleAspectFill
     }
     
-    func setView(item: IndexResponse.ModuleItem, isLast: Bool){
+    func setView(item: IndexResponse.ModuleItem, isLast: Bool, needLogoImage:Bool){
         self.adItem = item
         self.itemText.text = item.itemText
         self.itemPromotion.text = item.itemPromotion.isNilOrEmpty == false ? "  \(item.itemPromotion ?? "")  ":""
@@ -57,7 +60,14 @@ class HomeAd2View: UIView {
         self.borderView.setBorder(width: 0.1, radius: 4, color: UIColor.lightGray)
         
         self.shadowView.setShadow(offset: CGSize(width:0, height:1), opacity: 0.4,shadowRadius: 4 , color: UIColor.lightGray)
-        
+        if needLogoImage && item.picUrl.isNilOrEmpty == false{
+            self.logoImage.sd_setImage(with: URL.init(string: item.picUrl!), completed: nil)
+            self.imageWidth.constant = 20
+        }else{
+            self.logoImage.image = nil
+            self.imageWidth.constant = 0
+        }
+       
     }
     @objc func onTouchAdView(){
         self.delegate?.onTouchHotelAdItem(adItem: adItem!)

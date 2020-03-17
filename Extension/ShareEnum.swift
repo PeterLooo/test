@@ -22,6 +22,9 @@ public enum LinkType: String {
     case tktIndex = "051"
     case notification = "005"
     case keyword = "20"
+    case airTicket = "053"
+    case sotoTicket = "054"
+    case lccTicket = "055"
     case unknown
 }
 

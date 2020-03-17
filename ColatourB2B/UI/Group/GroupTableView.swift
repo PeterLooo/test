@@ -199,7 +199,7 @@ extension GroupTableView : UITableViewDataSource {
         
         case .HOMEAD2:
             cell = tableView.dequeueReusableCell(withIdentifier: "HomeAd2Cell") as! HomeAd2Cell
-            (cell as! HomeAd2Cell).setCell(item: self.homeAd2List[indexPath.row], isLastSection: tableView.numberOfSections - 1 == section.rawValue)
+            (cell as! HomeAd2Cell).setCell(item: self.homeAd2List[indexPath.row], isLastSection: tableView.numberOfSections - 1 == section.rawValue, needLogoImage: false)
             (cell as! HomeAd2Cell).delegate = self
             
         }

@@ -10,7 +10,6 @@ import UIKit
 
 class AirTicketViewController: BaseViewController {
     
-    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var airSearchView: UIView!
     
@@ -18,6 +17,7 @@ class AirTicketViewController: BaseViewController {
         case BANNER = 0
         case HOMEAD1
         case HOMEAD2
+        case HOMEAD3
     }
     private var cellsHeight: [IndexPath : CGFloat] = [:]
     
@@ -25,14 +25,17 @@ class AirTicketViewController: BaseViewController {
     private var itemList: [IndexResponse.MultiModule] = [] {
         didSet {
             indexList = itemList.filter{$0.groupName == "首頁1"}.flatMap{$0.moduleList}
-            homeAd1List = itemList.filter{$0.groupName == "HomeAd1"}.flatMap{$0.moduleList}
+            airPopCityList = itemList.filter{$0.groupName == "HomeAd1"}.flatMap{$0.moduleList}
             homeAd2List = itemList.filter{$0.groupName == "HomeAd2"}.flatMap{$0.moduleList}
+            homeAd3List = itemList.filter{$0.groupName == "HomeAd3"}.flatMap{$0.moduleList}
             tableView.reloadData()
         }
     }
     private var indexList: [IndexResponse.Module] = []
-    private var homeAd1List: [IndexResponse.Module] = []
+    private var airPopCityList: [IndexResponse.Module] = []
+    
     private var homeAd2List: [IndexResponse.Module] = []
+    private var homeAd3List: [IndexResponse.Module] = []
     private var needUpdateBannerImage = false
     private var presenter: AirTicketPresenter?
     private var needRefreshNavRight: Bool = true
@@ -54,7 +57,8 @@ class AirTicketViewController: BaseViewController {
         setIsNavShadowEnable(false)
         setNavBarItem(left: .custom, mid: .custom, right: .custom)
         setNavIcon()
-        tableView.register(UINib(nibName: "GroupIndexHeaderImageCell", bundle: nil), forCellReuseIdentifier: "GroupIndexHeaderImageCell")
+        tableView.register(UINib(nibName: "AirIndexCell", bundle: nil), forCellReuseIdentifier: "AirIndexCell")
+        tableView.register(UINib(nibName: "AirPopCityCell", bundle: nil), forCellReuseIdentifier: "AirPopCityCell")
         tableView.register(UINib(nibName: "HomeAd1Cell", bundle: nil), forCellReuseIdentifier: "HomeAd1Cell")
         tableView.register(UINib(nibName: "HomeAd2Cell", bundle: nil), forCellReuseIdentifier: "HomeAd2Cell")
         setSearchBorder()
@@ -290,10 +294,12 @@ extension AirTicketViewController : UITableViewDataSource {
             return self.indexList.isEmpty ? 0 : 1
             
         case .HOMEAD1:
-            return self.homeAd1List.count
+            return self.airPopCityList.count
        
         case .HOMEAD2:
             return self.homeAd2List.count
+        case .HOMEAD3:
+            return self.homeAd3List.count
         }
     }
     
@@ -305,19 +311,24 @@ extension AirTicketViewController : UITableViewDataSource {
         switch section {
         
         case .BANNER:
-            cell = tableView.dequeueReusableCell(withIdentifier: "GroupIndexHeaderImageCell") as! GroupIndexHeaderImageCell
-            (cell as! GroupIndexHeaderImageCell).setCell(itemList: indexList[indexPath.row].moduleItemList, needUpdateBannerImage: needUpdateBannerImage)
-            (cell as! GroupIndexHeaderImageCell).delegate = self
-            needUpdateBannerImage = false
+            cell = tableView.dequeueReusableCell(withIdentifier: "AirIndexCell") as! AirIndexCell
+            
+            (cell as! AirIndexCell).setCell(item: indexList[indexPath.row])
+            (cell as! AirIndexCell).delegate = self
         
         case .HOMEAD1:
-            cell = tableView.dequeueReusableCell(withIdentifier: "HomeAd1Cell") as! HomeAd1Cell
-            (cell as! HomeAd1Cell).setCell(item: self.homeAd1List[indexPath.row])
-            (cell as! HomeAd1Cell).delegate = self
+            cell = tableView.dequeueReusableCell(withIdentifier: "AirPopCityCell") as! AirPopCityCell
+            (cell as! AirPopCityCell).setCell(item: self.airPopCityList[indexPath.row], numOfIndex: 0)
+            (cell as! AirPopCityCell).delegate = self
         
         case .HOMEAD2:
+            cell = tableView.dequeueReusableCell(withIdentifier: "HomeAd1Cell") as! HomeAd1Cell
+            (cell as! HomeAd1Cell).setCell(item: self.homeAd2List[indexPath.row])
+            (cell as! HomeAd1Cell).delegate = self
+
+        case .HOMEAD3:
             cell = tableView.dequeueReusableCell(withIdentifier: "HomeAd2Cell") as! HomeAd2Cell
-            (cell as! HomeAd2Cell).setCell(item: self.homeAd2List[indexPath.row], isLastSection: tableView.numberOfSections - 1 == section.rawValue)
+            (cell as! HomeAd2Cell).setCell(item: self.homeAd3List[indexPath.row], isLastSection: tableView.numberOfSections - 1 == section.rawValue, needLogoImage: true)
             (cell as! HomeAd2Cell).delegate = self
         }
         return cell
