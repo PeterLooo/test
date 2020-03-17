@@ -1436,16 +1436,9 @@
 			path = TKT;
 			sourceTree = "<group>";
 		};
-		A1876A822415D63C00855DE6 /* TKTSearch */ = {
+		A14F56EC241F831500BF40DA /* ChooseLocation */ = {
 			isa = PBXGroup;
 			children = (
-				069D7498241A13EF0047EA03 /* TKTSearchInit.json */,
-				A1876A832415D67D00855DE6 /* AirTicketSearchViewController.swift */,
-				A1876A912415FC9A00855DE6 /* AirTicketSearchProtocol.swift */,
-				A1876A942415FCA700855DE6 /* AirTicketSearchPresenter.swift */,
-				061CD2AE241F04D800BD0DE1 /* AirTktCell.swift */,
-				A1F6E88224176BB90015279F /* SotoAirCell.swift */,
-				A1F6E885241787510015279F /* LccAirCell.swift */,
 				06B05CAF2416293B00C8F447 /* ChooseLocationViewController.swift */,
 				062DFCBE2419C1AE006882BE /* ChooseLocationProtocol.swift */,
 				062DFCC12419C4D6006882BE /* ChooseLocationPresenter.swift */,
@@ -1460,6 +1453,21 @@
 				061CD2B4241F6C9200BD0DE1 /* LocationDetailViewController.swift */,
 				06468512241F710600104346 /* LocationDetailCell.swift */,
 				06468513241F710600104346 /* LocationDetailCell.xib */,
+			);
+			path = ChooseLocation;
+			sourceTree = "<group>";
+		};
+		A1876A822415D63C00855DE6 /* TKTSearch */ = {
+			isa = PBXGroup;
+			children = (
+				A14F56EC241F831500BF40DA /* ChooseLocation */,
+				069D7498241A13EF0047EA03 /* TKTSearchInit.json */,
+				A1876A832415D67D00855DE6 /* AirTicketSearchViewController.swift */,
+				A1876A912415FC9A00855DE6 /* AirTicketSearchProtocol.swift */,
+				A1876A942415FCA700855DE6 /* AirTicketSearchPresenter.swift */,
+				061CD2AE241F04D800BD0DE1 /* AirTktCell.swift */,
+				A1F6E88224176BB90015279F /* SotoAirCell.swift */,
+				A1F6E885241787510015279F /* LccAirCell.swift */,
 				A1A7F32E2418E11100263E42 /* AirPaxViewController.swift */,
 			);
 			path = TKTSearch;
