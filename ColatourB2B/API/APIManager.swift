@@ -371,6 +371,16 @@ extension APIManager {
         return manager(method: .get, appendUrl: "", url: APIUrl.mainApi(type: .sotoAirSearch), parameters: nil, appendHeaders: nil)
     }
     
+    func postAirTicketSearch(request:TKTSearchRequest) -> Single<[String: Any]>  {
+        let params = request.getDictionary()
+        return manager(method: .post, appendUrl: "", url: APIUrl.mainApi(type: .airTicketSearch), parameters: params, appendHeaders: nil)
+    }
+    
+    func postSotoTicketSearch(request:SotoTicketRequest) -> Single<[String: Any]>  {
+        let params = request.getDictionary()
+        return manager(method: .post, appendUrl: "", url: APIUrl.mainApi(type: .airTicketSearch), parameters: params, appendHeaders: nil)
+    }
+    
     func getLccSearchInit() -> Single<[String: Any]> {
         return AppHelper.shared.getJson(forResource: "TKTSearchInit")
     }

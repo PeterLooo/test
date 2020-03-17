@@ -39,9 +39,14 @@ class AirTktCell: UITableViewCell {
         dateRange.text = info.endTravelDate?.endTravelDateName
         tourWay.text = info.journeyType
         departure.text = info.departure?.departureCodeName
-        destination.text = info.destination?.cityName
+        destination.text = info.destination == nil ? "輸入 目的城市/機場代碼":info.destination?.cityName
+        destination.textColor = info.destination == nil ? UIColor.init(named: "預設文字"):UIColor.init(named: "標題黑" )
+        backDeparture.text = info.returnCode == nil ? "輸入 目的城市/機場代碼":info.returnCode?.cityName
+        backDeparture.textColor = info.returnCode == nil ? UIColor.init(named: "預設文字"):UIColor.init(named: "標題黑" )
         isNonStop.image = info.isNonStop ? #imageLiteral(resourceName: "check") : #imageLiteral(resourceName: "check_hover")
-        backView.isHidden = !(info.journeyType == "雙程" || info.journeyType == "旅遊")
+        backView.isHidden = !(info.journeyType == "雙程" || info.journeyType == "環遊")
+        self.backView.layoutIfNeeded()
+        
     }
     
     @IBAction func onTouchTopSelection(_ sender: UIButton) {

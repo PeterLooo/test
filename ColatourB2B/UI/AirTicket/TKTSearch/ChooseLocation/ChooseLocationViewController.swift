@@ -10,7 +10,7 @@ import UIKit
 
 protocol SetChooseLocationProtocol: NSObjectProtocol {
     
-    func setLocation(cityInfo: TKTInitResponse.TicketResponse.City)
+    func setLocation(cityInfo: TKTInitResponse.TicketResponse.City,arrival: ArrivalType?)
 }
 
 class ChooseLocationViewController: BaseViewController {
@@ -39,7 +39,7 @@ class ChooseLocationViewController: BaseViewController {
     private var countryList: [TKTInitResponse.TicketResponse.Country]?
     private var cityList: [TKTInitResponse.TicketResponse.City]?
     private var searchText = ""
-    
+    private var arrival: ArrivalType?
     @IBOutlet weak var collectionView: UICollectionView!
     
     var keyWord = ""
@@ -151,11 +151,11 @@ class ChooseLocationViewController: BaseViewController {
 
 extension ChooseLocationViewController: ChooseLocationViewProtocol {
     
-    func onBindAirTicketInfo(tktSearchInit: TKTInitResponse.TicketResponse, searchType: SearchByType, startEndType: StartEndType) {
+    func onBindAirTicketInfo(tktSearchInit: TKTInitResponse.TicketResponse, searchType: SearchByType, startEndType: StartEndType, arrival: ArrivalType? = nil) {
         
         self.searchType = searchType
         self.startEndType = startEndType
-        
+        self.arrival = arrival
         switch searchType {
         case .airTkt:
             airTicketInfo = tktSearchInit
@@ -280,7 +280,7 @@ extension ChooseLocationViewController: SetChooseCityProtocol {
     
     func setChooseCity(cityInfo: TKTInitResponse.TicketResponse.City) {
         
-        delegate?.setLocation(cityInfo: cityInfo)
+        delegate?.setLocation(cityInfo: cityInfo, arrival: self.arrival)
     }
 }
 

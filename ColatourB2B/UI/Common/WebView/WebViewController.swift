@@ -25,7 +25,9 @@ class WebViewController: BaseViewController, UIGestureRecognizerDelegate {
     private var presenter: WebViewPresenterProtocol?
     private var isNeedToDimiss = false
     private var shareList: WebViewTourShareResponse.ItineraryShareData?
-    private var popUpWebView: WKWebView?
+    private var popUpWebViews: [WKWebView] = []
+    
+    private var isFromExpandableButtonPopUpWebView = false
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -123,11 +125,11 @@ class WebViewController: BaseViewController, UIGestureRecognizerDelegate {
         
         grayView.alpha = 0
         
-        if popUpWebView != nil {
-            if popUpWebView?.canGoBack == false {
-                webViewDidClose(popUpWebView!)
+        if popUpWebViews.isEmpty == false {
+            if popUpWebViews.last?.canGoBack == false {
+                webViewDidClose( popUpWebViews.last!)
             } else {
-                self.popUpWebView?.goBack()
+                self.popUpWebViews.last?.goBack()
             }
             return
         }
@@ -139,16 +141,16 @@ class WebViewController: BaseViewController, UIGestureRecognizerDelegate {
     }
     
     @objc func goForward(){
-        if popUpWebView != nil {
-            popUpWebView?.goForward()
+        if popUpWebViews.isEmpty == false  {
+            popUpWebViews.last?.goForward()
             return
         }
         self.webView.goForward()
     }
     
     @objc func popView(){
-        if popUpWebView != nil {
-            webViewDidClose(popUpWebView!)
+        if popUpWebViews.isEmpty == false  {
+            webViewDidClose(popUpWebViews.last!)
             return
         }
         if isNeedToDimiss {
@@ -222,12 +224,12 @@ class WebViewController: BaseViewController, UIGestureRecognizerDelegate {
             if let tourCode = url?.valueOf("TourCode"), let tourDate = url?.valueOf("TourDate") {
                 self.presenter?.getTourShareList(tourCode: tourCode, tourDate: tourDate)
                 webView.scrollView.delegate = self
-                popUpWebView?.scrollView.delegate = self
+                popUpWebViews.last?.scrollView.delegate = self
             }
         } else {
             expandableButtonView?.isHidden = true
             webView.scrollView.delegate = nil
-            popUpWebView?.scrollView.delegate = nil
+            popUpWebViews.last?.scrollView.delegate = nil
         }
     }
     
@@ -296,27 +298,17 @@ extension WebViewController: ExpandableButtonViewDelegate {
         case .Share:
             shareInfo()
             
-        case .Forward:
-            if popUpWebView != nil {
-                popUpWebView?.load(URLRequest(url: url))
+        case .Forward, .Booking:
+            if popUpWebViews.isEmpty == false {
+                popUpWebViews.last?.load(URLRequest(url: url))
+                isFromExpandableButtonPopUpWebView = true
                 return
             }
+            isFromExpandableButtonPopUpWebView = false
             webView.load(URLRequest(url: url))
-            
-        case .DownloadWord:
-            if popUpWebView != nil {
-                popUpWebView?.load(URLRequest(url: url))
-                return
-            }
-            webView.load(URLRequest(url: url))
-            
-        case .Booking:
-            if popUpWebView != nil {
-                popUpWebView?.load(URLRequest(url: url))
-                return
-            }
-            webView.load(URLRequest(url: url))
+        
         }
+            
     }
 }
 
@@ -339,8 +331,7 @@ extension WebViewController : WKNavigationDelegate {
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
         pringLog("decidePolicyFor navigationAction : \(navigationAction.request)")
         let url = navigationAction.request.url
-        let mainUrl = navigationAction.request.mainDocumentURL
-        checkUrlToGetApi(url: mainUrl)
+        
         if url?.pathExtension == "doc" || url?.pathExtension == "pdf" || url?.pathExtension == "docx" {
             loadAndDisplayDocumentFrom(url: url!)
             decisionHandler(.cancel)
@@ -381,6 +372,11 @@ extension WebViewController : WKNavigationDelegate {
         pringLog("didFinish")
         self.webViewTitle = self.webView.title!
         setNavigationItem()
+        if popUpWebViews.isEmpty == false {
+            checkUrlToGetApi(url: popUpWebViews.last?.url)
+        }else{
+            checkUrlToGetApi(url: self.webView.url)
+        }
         self.activityIndicator.stopAnimating()
     }
     
@@ -407,14 +403,14 @@ extension WebViewController : WKUIDelegate {
                 loadAndDisplayDocumentFrom(url: url!)
             } else {
                 
-                popUpWebView = WKWebView(frame: webView.frame, configuration: configuration)
-                popUpWebView!.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-                popUpWebView?.uiDelegate = self
-                popUpWebView?.navigationDelegate = self
-                view.addSubview(popUpWebView!)
+                let popUpWebView = WKWebView(frame: webView.frame, configuration: configuration)
+                popUpWebView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+                popUpWebView.uiDelegate = self
+                popUpWebView.navigationDelegate = self
+                view.addSubview(popUpWebView)
                 view.bringSubviewToFront(grayView)
-                
-                return popUpWebView
+                popUpWebViews.append(popUpWebView)
+                return popUpWebViews.last!
             }
         }
         return nil
@@ -422,8 +418,14 @@ extension WebViewController : WKUIDelegate {
     
     func webViewDidClose(_ webView: WKWebView) {
         pringLog("webViewDidClose")
-        popUpWebView = nil
-        webView.removeFromSuperview()
+        if popUpWebViews.last?.canGoBack == true && isFromExpandableButtonPopUpWebView {
+            goBack()
+            
+        }else{
+            popUpWebViews.removeLast()
+            webView.removeFromSuperview()
+            
+        }
         checkUrlToGetApi(url: self.webView.url)
     }
     
