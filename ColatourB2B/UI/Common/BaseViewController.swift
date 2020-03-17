@@ -848,18 +848,20 @@ extension BaseViewController {
             }
             self.tabBarController?.selectedIndex = 2
         case .airTicket:
-            ()
+            vc = getVC(st: "TKTSearch", vc: "AirTicketSearchViewController") as! AirTicketSearchViewController
+            (vc as! AirTicketSearchViewController).setVC(searchType: .airTkt)
         case .sotoTicket:
-            ()
+            vc = getVC(st: "TKTSearch", vc: "AirTicketSearchViewController") as! AirTicketSearchViewController
+            (vc as! AirTicketSearchViewController).setVC(searchType: .soto)
         case .lccTicket:
-            ()
+            vc = getVC(st: "TKTSearch", vc: "AirTicketSearchViewController") as! AirTicketSearchViewController
+            (vc as! AirTicketSearchViewController).setVC(searchType: .lcc)
         case .unknown:
             //Note: doNothing
             ()
-            
-            if let v = vc {
-                self.navigationController?.pushViewController(v, animated: true)
-            }
+        }
+        if let v = vc {
+            self.navigationController?.pushViewController(v, animated: true)
         }
     }
 }

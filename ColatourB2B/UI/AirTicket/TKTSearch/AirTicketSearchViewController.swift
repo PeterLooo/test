@@ -40,7 +40,11 @@ enum StartEndType {
     case Departure
     case Destination
 }
-
+extension AirTicketSearchViewController {
+    func setVC(searchType: SearchByType){
+        self.searchType = searchType
+    }
+}
 class AirTicketSearchViewController: BaseViewController {
     
     @IBOutlet weak var topPageScrollView: UIScrollView!
@@ -286,7 +290,9 @@ class AirTicketSearchViewController: BaseViewController {
             var isDatePickerViewShow: Bool = false {
                 didSet {
                     let constant = isDatePickerViewShow ? -datePicker.frame.height - toolBarOnDatePicker.frame.height : 0
-                    datePickerTop.constant = constant
+                    if datePickerTop != nil {
+                        datePickerTop.constant = constant
+                    }
                     
                     UIView.animate(withDuration: 0.3) {
                         self.view.layoutIfNeeded()
@@ -297,7 +303,9 @@ class AirTicketSearchViewController: BaseViewController {
             var isPickerViewShow: Bool = false {
                 didSet {
                     let constant = isPickerViewShow ? -pickerView.frame.height - toolBarOnPickerView.frame.height : 0
-                    pickerViewTop.constant = constant
+                    if pickerViewTop != nil {
+                        pickerViewTop.constant = constant
+                    }
                     
                     UIView.animate(withDuration: 0.3) {
                         self.view.layoutIfNeeded()
@@ -363,6 +371,7 @@ class AirTicketSearchViewController: BaseViewController {
         datePicker.backgroundColor = UIColor.white
         layoutDatePicker()
         layoutPickerView()
+        
     }
     
     override func loadData() {
@@ -374,8 +383,24 @@ class AirTicketSearchViewController: BaseViewController {
 
     private func setUpTopPageScrollView(){
         self.topPageScrollView.delegate = self
-        scrollTopPageButtonBottomLine(percent: 0)
-        switchPageButton(sliderLeading: 0)
+        var contentOffset = CGFloat.zero
+        switch searchType {
+        case .airTkt:
+            scrollTopPageButtonBottomLine(percent: 0)
+            switchPageButton(sliderLeading: 0)
+        case .soto:
+            scrollTopPageButtonBottomLine(percent: 1)
+            switchPageButton(sliderLeading: 1)
+            contentOffset = screenWidth * 1
+        case .lcc:
+            scrollTopPageButtonBottomLine(percent: 2)
+            switchPageButton(sliderLeading: 2)
+            contentOffset = screenWidth * 2
+        default:
+            ()
+        }
+        topPageScrollView.layoutIfNeeded()
+        topPageScrollView.setContentOffset(CGPoint.init(x: contentOffset, y: 0), animated: true)
     }
     
     private func checkAirTicketRequest() -> Bool{
