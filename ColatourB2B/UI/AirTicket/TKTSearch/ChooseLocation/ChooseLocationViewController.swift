@@ -153,17 +153,18 @@ class ChooseLocationViewController: BaseViewController {
         self.searchType = searchType
         self.startEndType = startEndType
         self.arrival = arrival
+        
         switch searchType {
         case .airTkt:
             airTicketInfo = tktSearchInit
-        //            airTicketInfo?.areaList.first?.isSelected = true
+            
         case .soto:
             ()
             
         case .lcc:
             lccAirInfo = tktSearchInit
+            
         }
-        
         infoSort()
     }
 }
