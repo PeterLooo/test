@@ -331,12 +331,28 @@
 		9196F236CE205CFA47F4C95B /* Pods_ColatourB2BDev.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00BEF28893EA23CD1FFC87FB /* Pods_ColatourB2BDev.framework */; };
 		A12808A823F7937100287B9F /* PriceRangeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12808A723F7937100287B9F /* PriceRangeSlider.swift */; };
 		A12808A923F7937100287B9F /* PriceRangeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12808A723F7937100287B9F /* PriceRangeSlider.swift */; };
+		A17CFADB241B387C00922CC2 /* AirIndexCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17CFAD9241B387C00922CC2 /* AirIndexCell.swift */; };
+		A17CFADC241B387C00922CC2 /* AirIndexCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17CFAD9241B387C00922CC2 /* AirIndexCell.swift */; };
+		A17CFADD241B387C00922CC2 /* AirIndexCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A17CFADA241B387C00922CC2 /* AirIndexCell.xib */; };
+		A17CFADE241B387C00922CC2 /* AirIndexCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A17CFADA241B387C00922CC2 /* AirIndexCell.xib */; };
+		A17CFAE0241B396B00922CC2 /* AirIndexView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17CFADF241B396B00922CC2 /* AirIndexView.swift */; };
+		A17CFAE1241B396B00922CC2 /* AirIndexView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17CFADF241B396B00922CC2 /* AirIndexView.swift */; };
+		A17CFAE3241B398A00922CC2 /* AirIndexView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A17CFAE2241B398A00922CC2 /* AirIndexView.xib */; };
+		A17CFAE4241B398A00922CC2 /* AirIndexView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A17CFAE2241B398A00922CC2 /* AirIndexView.xib */; };
 		A1DB93DE24066B5D00AE427C /* WebViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DB93DD24066B5D00AE427C /* WebViewProtocol.swift */; };
 		A1DB93DF24066B5D00AE427C /* WebViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DB93DD24066B5D00AE427C /* WebViewProtocol.swift */; };
 		A1DB93E124066B8E00AE427C /* WebViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DB93E024066B8E00AE427C /* WebViewPresenter.swift */; };
 		A1DB93E224066B8E00AE427C /* WebViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DB93E024066B8E00AE427C /* WebViewPresenter.swift */; };
 		A1DB93E424066EC500AE427C /* WebViewTourShareResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DB93E324066EC500AE427C /* WebViewTourShareResponse.swift */; };
 		A1DB93E524066EC500AE427C /* WebViewTourShareResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DB93E324066EC500AE427C /* WebViewTourShareResponse.swift */; };
+		A1E449B5241B168B00895AF6 /* AirPopCityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E449B3241B168B00895AF6 /* AirPopCityCell.swift */; };
+		A1E449B6241B168B00895AF6 /* AirPopCityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E449B3241B168B00895AF6 /* AirPopCityCell.swift */; };
+		A1E449B7241B168B00895AF6 /* AirPopCityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1E449B4241B168B00895AF6 /* AirPopCityCell.xib */; };
+		A1E449B8241B168B00895AF6 /* AirPopCityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1E449B4241B168B00895AF6 /* AirPopCityCell.xib */; };
+		A1E449BA241B17B100895AF6 /* AirPopCityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E449B9241B17B100895AF6 /* AirPopCityView.swift */; };
+		A1E449BB241B17B100895AF6 /* AirPopCityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E449B9241B17B100895AF6 /* AirPopCityView.swift */; };
+		A1E449BD241B17BE00895AF6 /* AirPopCityView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1E449BC241B17BE00895AF6 /* AirPopCityView.xib */; };
+		A1E449BE241B17BE00895AF6 /* AirPopCityView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1E449BC241B17BE00895AF6 /* AirPopCityView.xib */; };
 		C70EEF5023EA545300D67FF4 /* VersionRule.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C70EEF4D23EA545200D67FF4 /* VersionRule.storyboard */; };
 		C70EEF5123EA545300D67FF4 /* VersionRule.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C70EEF4D23EA545200D67FF4 /* VersionRule.storyboard */; };
 		C70EEF5223EA545300D67FF4 /* Bulletin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C70EEF4F23EA545300D67FF4 /* Bulletin.storyboard */; };
@@ -605,9 +621,17 @@
 		732B40A95C148E8D08B6AD90 /* Pods-ColatourB2BDev.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ColatourB2BDev.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ColatourB2BDev/Pods-ColatourB2BDev.debug.xcconfig"; sourceTree = "<group>"; };
 		987A0E450DD4AC32A30375C6 /* Pods-ColatourB2B.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ColatourB2B.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ColatourB2B/Pods-ColatourB2B.debug.xcconfig"; sourceTree = "<group>"; };
 		A12808A723F7937100287B9F /* PriceRangeSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceRangeSlider.swift; sourceTree = "<group>"; };
+		A17CFAD9241B387C00922CC2 /* AirIndexCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirIndexCell.swift; sourceTree = "<group>"; };
+		A17CFADA241B387C00922CC2 /* AirIndexCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AirIndexCell.xib; sourceTree = "<group>"; };
+		A17CFADF241B396B00922CC2 /* AirIndexView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirIndexView.swift; sourceTree = "<group>"; };
+		A17CFAE2241B398A00922CC2 /* AirIndexView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AirIndexView.xib; sourceTree = "<group>"; };
 		A1DB93DD24066B5D00AE427C /* WebViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewProtocol.swift; sourceTree = "<group>"; };
 		A1DB93E024066B8E00AE427C /* WebViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewPresenter.swift; sourceTree = "<group>"; };
 		A1DB93E324066EC500AE427C /* WebViewTourShareResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewTourShareResponse.swift; sourceTree = "<group>"; };
+		A1E449B3241B168B00895AF6 /* AirPopCityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirPopCityCell.swift; sourceTree = "<group>"; };
+		A1E449B4241B168B00895AF6 /* AirPopCityCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AirPopCityCell.xib; sourceTree = "<group>"; };
+		A1E449B9241B17B100895AF6 /* AirPopCityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirPopCityView.swift; sourceTree = "<group>"; };
+		A1E449BC241B17BE00895AF6 /* AirPopCityView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AirPopCityView.xib; sourceTree = "<group>"; };
 		A331B185DD2055D277F472F3 /* Pods_ColatourB2B.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ColatourB2B.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B09E7C65A225E6FF958329EA /* Pods-ColatourB2BDev.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ColatourB2BDev.release.xcconfig"; path = "Pods/Target Support Files/Pods-ColatourB2BDev/Pods-ColatourB2BDev.release.xcconfig"; sourceTree = "<group>"; };
 		C70EEF4D23EA545200D67FF4 /* VersionRule.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = VersionRule.storyboard; sourceTree = "<group>"; };
@@ -793,6 +817,14 @@
 				381B12AE23C465AE0030BACE /* AirTicketViewController.swift */,
 				384B110223C2BD33000E2B41 /* AirTicketProtocol.swift */,
 				384B110523C2BD46000E2B41 /* AirTicketPresenter.swift */,
+				A1E449B3241B168B00895AF6 /* AirPopCityCell.swift */,
+				A1E449B4241B168B00895AF6 /* AirPopCityCell.xib */,
+				A1E449B9241B17B100895AF6 /* AirPopCityView.swift */,
+				A1E449BC241B17BE00895AF6 /* AirPopCityView.xib */,
+				A17CFAD9241B387C00922CC2 /* AirIndexCell.swift */,
+				A17CFADA241B387C00922CC2 /* AirIndexCell.xib */,
+				A17CFADF241B396B00922CC2 /* AirIndexView.swift */,
+				A17CFAE2241B398A00922CC2 /* AirIndexView.xib */,
 			);
 			path = AirTicket;
 			sourceTree = "<group>";
@@ -1468,6 +1500,7 @@
 				C7BD649023ED453200FEE538 /* EmptyDataCell.xib in Resources */,
 				3817E50123A33C8500ED8609 /* LaunchScreen.storyboard in Resources */,
 				38BCDA2623A3796800D59910 /* GroupTour.storyboard in Resources */,
+				A1E449B7241B168B00895AF6 /* AirPopCityCell.xib in Resources */,
 				387FBF0B23ACCEB7005412F1 /* Login.storyboard in Resources */,
 				38871EC923D5B524007ED33D /* HomeAd1View.xib in Resources */,
 				38AA456023D68E0A00BE3F95 /* HomeAd2Cell.xib in Resources */,
@@ -1485,6 +1518,7 @@
 				38E68AC123B5AE30006BC4DD /* Common.storyboard in Resources */,
 				38E68ABD23B5AE30006BC4DD /* SelectOption.storyboard in Resources */,
 				38BCDA0723A367D000D59910 /* LoadingView.xib in Resources */,
+				A17CFADD241B387C00922CC2 /* AirIndexCell.xib in Resources */,
 				38BCDA2C23A37B5D00D59910 /* MemberIndex.storyboard in Resources */,
 				38E68AAF23B5AB80006BC4DD /* GroupSliderItemCell.xib in Resources */,
 				387FBEF723ACA201005412F1 /* AirTicket.storyboard in Resources */,
@@ -1495,11 +1529,13 @@
 				38BCDA0B23A367D000D59910 /* ApiFailErrorView.xib in Resources */,
 				C78F071C23E8204E009C1183 /* PopText.storyboard in Resources */,
 				0650775B23ED52970067377C /* ContactInfoCell.xib in Resources */,
+				A1E449BD241B17BE00895AF6 /* AirPopCityView.xib in Resources */,
 				3802A19D23C8542800CD2EF2 /* SalseInfoCell.xib in Resources */,
 				385B54FA23BDC4C800BE1476 /* NotificationItemCell.xib in Resources */,
 				381B12B823C48D440030BACE /* GroupNavigationView.xib in Resources */,
 				3817E4FE23A33C8500ED8609 /* Assets.xcassets in Resources */,
 				06DA4F8A23E92260001B7DF1 /* MessageSendNotificationListCell.xib in Resources */,
+				A17CFAE3241B398A00922CC2 /* AirIndexView.xib in Resources */,
 				2AF496B423AB7EA50053EA45 /* GoogleService-Info.plist in Resources */,
 				3817E4FC23A33C8400ED8609 /* Main.storyboard in Resources */,
 				06DA4F8023E92260001B7DF1 /* MessageSendTopicCell.xib in Resources */,
@@ -1542,7 +1578,9 @@
 				C70EEF5123EA545300D67FF4 /* VersionRule.storyboard in Resources */,
 				38AA456123D68E0A00BE3F95 /* HomeAd2Cell.xib in Resources */,
 				06DA4F8523E92260001B7DF1 /* MessageSendContentCell.xib in Resources */,
+				A1E449B8241B168B00895AF6 /* AirPopCityCell.xib in Resources */,
 				38E68AAE23B5AB80006BC4DD /* Group.json in Resources */,
+				A17CFADE241B387C00922CC2 /* AirIndexCell.xib in Resources */,
 				C77282F423CC502500067EB4 /* GroupTourSearch.storyboard in Resources */,
 				38AA456723D6906400BE3F95 /* HomeAd2View.xib in Resources */,
 				3869544123BB002900F6E7D9 /* MemberIndexVersionCell.xib in Resources */,
@@ -1563,7 +1601,9 @@
 				387FBF0423ACA327005412F1 /* More.storyboard in Resources */,
 				3869543523BAE5F500F6E7D9 /* MemberTopCell.xib in Resources */,
 				0650775C23ED52970067377C /* ContactInfoCell.xib in Resources */,
+				A17CFAE4241B398A00922CC2 /* AirIndexView.xib in Resources */,
 				38BCDA1023A367D000D59910 /* NoInternetErrorView.xib in Resources */,
+				A1E449BE241B17BE00895AF6 /* AirPopCityView.xib in Resources */,
 				38BCDA0C23A367D000D59910 /* ApiFailErrorView.xib in Resources */,
 				C78F071D23E8204E009C1183 /* PopText.storyboard in Resources */,
 				3802A19E23C8542800CD2EF2 /* SalseInfoCell.xib in Resources */,
@@ -1750,6 +1790,7 @@
 				38BCD97723A3484300D59910 /* NSObjectExtension.swift in Sources */,
 				38871EB423D55E2F007ED33D /* GroupIndexHeaderImageCell.swift in Sources */,
 				38871EB023D55D16007ED33D /* GroupTableView.swift in Sources */,
+				A1E449BA241B17B100895AF6 /* AirPopCityView.swift in Sources */,
 				38E68AA723B5AB80006BC4DD /* GroupSlideInTransition.swift in Sources */,
 				3869542823BADBFC00F6E7D9 /* MemberIndexProtocol.swift in Sources */,
 				38BCD92D23A345FA00D59910 /* EncryptionUtils.m in Sources */,
@@ -1803,6 +1844,7 @@
 				38871EC623D5B50F007ED33D /* HomeAd1View.swift in Sources */,
 				38BCD94423A346B800D59910 /* APIManager.swift in Sources */,
 				C7DCA71F23D1BBC400F415B8 /* GroupTourSearchProtocol.swift in Sources */,
+				A17CFAE0241B396B00922CC2 /* AirIndexView.swift in Sources */,
 				38BCD9CA23A3647E00D59910 /* BaseModel.swift in Sources */,
 				0626032023F401A70026DC59 /* ContactInfoCell.swift in Sources */,
 				382FD59923D7F48F001FF38E /* NewsResponse.swift in Sources */,
@@ -1871,6 +1913,7 @@
 				38BCD97F23A3484300D59910 /* UIFontExtenstion.swift in Sources */,
 				C7E15BF123D18CB0004C20A0 /* CustomPickerView.swift in Sources */,
 				38BCD92F23A345FA00D59910 /* ColorHexUtil.swift in Sources */,
+				A1E449B5241B168B00895AF6 /* AirPopCityCell.swift in Sources */,
 				C711754023BF40DA00555D8C /* MorePresenter.swift in Sources */,
 				38BCD94623A346B800D59910 /* APIDefine.swift in Sources */,
 				C74FC80423C5AF0E00E2250D /* NoticeDetailViewController.swift in Sources */,
@@ -1881,6 +1924,7 @@
 				C70EEF5A23EA549800D67FF4 /* VersionRuleViewController.swift in Sources */,
 				38BCDA2F23A37B7100D59910 /* MemberIndexViewController.swift in Sources */,
 				38871EAD23D5553F007ED33D /* IndexResponse.swift in Sources */,
+				A17CFADB241B387C00922CC2 /* AirIndexCell.swift in Sources */,
 				06DA4F7E23E92260001B7DF1 /* MessageSendProtocol.swift in Sources */,
 				38BCD93E23A346B800D59910 /* APIError.swift in Sources */,
 				C7DCA71C23D1BBAB00F415B8 /* GroupTourSearchInitResponse.swift in Sources */,
@@ -1922,6 +1966,7 @@
 				38BCD97823A3484300D59910 /* NSObjectExtension.swift in Sources */,
 				38871EB523D55E2F007ED33D /* GroupIndexHeaderImageCell.swift in Sources */,
 				38871EB123D55D16007ED33D /* GroupTableView.swift in Sources */,
+				A1E449BB241B17B100895AF6 /* AirPopCityView.swift in Sources */,
 				38E68AA823B5AB80006BC4DD /* GroupSlideInTransition.swift in Sources */,
 				3869542923BADBFC00F6E7D9 /* MemberIndexProtocol.swift in Sources */,
 				38BCD92E23A345FA00D59910 /* EncryptionUtils.m in Sources */,
@@ -1975,6 +2020,7 @@
 				38871EC723D5B50F007ED33D /* HomeAd1View.swift in Sources */,
 				38BCD94523A346B800D59910 /* APIManager.swift in Sources */,
 				C7DCA72023D1BBC400F415B8 /* GroupTourSearchProtocol.swift in Sources */,
+				A17CFAE1241B396B00922CC2 /* AirIndexView.swift in Sources */,
 				38BCD9CB23A3647E00D59910 /* BaseModel.swift in Sources */,
 				0626032123F401A70026DC59 /* ContactInfoCell.swift in Sources */,
 				382FD59A23D7F48F001FF38E /* NewsResponse.swift in Sources */,
@@ -2043,6 +2089,7 @@
 				38BCD98023A3484300D59910 /* UIFontExtenstion.swift in Sources */,
 				C7E15BF223D18CB0004C20A0 /* CustomPickerView.swift in Sources */,
 				38BCD93023A345FA00D59910 /* ColorHexUtil.swift in Sources */,
+				A1E449B6241B168B00895AF6 /* AirPopCityCell.swift in Sources */,
 				C711754123BF40DA00555D8C /* MorePresenter.swift in Sources */,
 				38BCD94723A346B800D59910 /* APIDefine.swift in Sources */,
 				C74FC80523C5AF0E00E2250D /* NoticeDetailViewController.swift in Sources */,
@@ -2053,6 +2100,7 @@
 				C70EEF5B23EA549800D67FF4 /* VersionRuleViewController.swift in Sources */,
 				38BCDA3023A37B7100D59910 /* MemberIndexViewController.swift in Sources */,
 				38871EAE23D5553F007ED33D /* IndexResponse.swift in Sources */,
+				A17CFADC241B387C00922CC2 /* AirIndexCell.swift in Sources */,
 				06DA4F7F23E92260001B7DF1 /* MessageSendProtocol.swift in Sources */,
 				38BCD93F23A346B800D59910 /* APIError.swift in Sources */,
 				C7DCA71D23D1BBAB00F415B8 /* GroupTourSearchInitResponse.swift in Sources */,
