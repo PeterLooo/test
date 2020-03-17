@@ -13,7 +13,7 @@ def colatourb2b_pods
     pod 'FirebaseMessaging', '4.0.2'
     pod 'FirebaseAnalytics', '6.0.1'
     pod 'MaterialComponents/TextFields', '55.1.0'
-    pod 'Crashlytics', '3.12.0'
+    pod 'Crashlytics', '3.14.0'
 end
 
 # Pods for ColatourB2B
