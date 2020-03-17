@@ -7,12 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		061CD2AF241F04D800BD0DE1 /* AirTktCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061CD2AE241F04D800BD0DE1 /* AirTktCell.swift */; };
+		061CD2B0241F04D800BD0DE1 /* AirTktCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061CD2AE241F04D800BD0DE1 /* AirTktCell.swift */; };
+		061CD2B2241F6C1400BD0DE1 /* LocationDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 061CD2B1241F6C1400BD0DE1 /* LocationDetail.storyboard */; };
+		061CD2B3241F6C1400BD0DE1 /* LocationDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 061CD2B1241F6C1400BD0DE1 /* LocationDetail.storyboard */; };
+		061CD2B5241F6C9200BD0DE1 /* LocationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061CD2B4241F6C9200BD0DE1 /* LocationDetailViewController.swift */; };
+		061CD2B6241F6C9200BD0DE1 /* LocationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061CD2B4241F6C9200BD0DE1 /* LocationDetailViewController.swift */; };
 		0626031B23F3E5570026DC59 /* DeviceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0626031923F3E5570026DC59 /* DeviceCell.swift */; };
 		0626031C23F3E5570026DC59 /* DeviceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0626031923F3E5570026DC59 /* DeviceCell.swift */; };
 		0626031D23F3E5570026DC59 /* DeviceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0626031A23F3E5570026DC59 /* DeviceCell.xib */; };
 		0626031E23F3E5570026DC59 /* DeviceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0626031A23F3E5570026DC59 /* DeviceCell.xib */; };
 		0626032023F401A70026DC59 /* ContactInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0626031F23F401A70026DC59 /* ContactInfoCell.swift */; };
 		0626032123F401A70026DC59 /* ContactInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0626031F23F401A70026DC59 /* ContactInfoCell.swift */; };
+		062DFCBF2419C1AE006882BE /* ChooseLocationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062DFCBE2419C1AE006882BE /* ChooseLocationProtocol.swift */; };
+		062DFCC02419C1AE006882BE /* ChooseLocationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062DFCBE2419C1AE006882BE /* ChooseLocationProtocol.swift */; };
+		062DFCC22419C4D6006882BE /* ChooseLocationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062DFCC12419C4D6006882BE /* ChooseLocationPresenter.swift */; };
+		062DFCC32419C4D6006882BE /* ChooseLocationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062DFCC12419C4D6006882BE /* ChooseLocationPresenter.swift */; };
+		06468514241F710600104346 /* LocationDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06468512241F710600104346 /* LocationDetailCell.swift */; };
+		06468515241F710600104346 /* LocationDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06468512241F710600104346 /* LocationDetailCell.swift */; };
+		06468516241F710600104346 /* LocationDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06468513241F710600104346 /* LocationDetailCell.xib */; };
+		06468517241F710600104346 /* LocationDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06468513241F710600104346 /* LocationDetailCell.xib */; };
 		0650774F23ED4EE70067377C /* ContactInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0650774E23ED4EE70067377C /* ContactInfo.storyboard */; };
 		0650775023ED4EE70067377C /* ContactInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0650774E23ED4EE70067377C /* ContactInfo.storyboard */; };
 		0650775223ED4F1E0067377C /* ContactInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0650775123ED4F1E0067377C /* ContactInfoViewController.swift */; };
@@ -27,8 +41,33 @@
 		0650776223ED5E6B0067377C /* ContactInfoProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0650776023ED5E6B0067377C /* ContactInfoProtocol.swift */; };
 		0650776423ED5F300067377C /* ContactInfoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0650776323ED5F300067377C /* ContactInfoPresenter.swift */; };
 		0650776523ED5F300067377C /* ContactInfoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0650776323ED5F300067377C /* ContactInfoPresenter.swift */; };
+		0655CD29241B643E006092AB /* TKTInitResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0655CD28241B643E006092AB /* TKTInitResponse.swift */; };
+		0655CD2A241B643E006092AB /* TKTInitResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0655CD28241B643E006092AB /* TKTInitResponse.swift */; };
+		0655CD30241B6A77006092AB /* SotoTicketRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0655CD2F241B6A77006092AB /* SotoTicketRequest.swift */; };
+		0655CD31241B6A77006092AB /* SotoTicketRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0655CD2F241B6A77006092AB /* SotoTicketRequest.swift */; };
 		06610FDA240775AC00E87225 /* ExpandableButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06610FD9240775AC00E87225 /* ExpandableButtonView.swift */; };
 		06610FDB240775AC00E87225 /* ExpandableButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06610FD9240775AC00E87225 /* ExpandableButtonView.swift */; };
+		069D7499241A13EF0047EA03 /* TKTSearchInit.json in Resources */ = {isa = PBXBuildFile; fileRef = 069D7498241A13EF0047EA03 /* TKTSearchInit.json */; };
+		06AA658B2418E553001CDA37 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06AA65892418E553001CDA37 /* SearchResultCell.swift */; };
+		06AA658C2418E553001CDA37 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06AA65892418E553001CDA37 /* SearchResultCell.swift */; };
+		06AA658D2418E553001CDA37 /* SearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06AA658A2418E553001CDA37 /* SearchResultCell.xib */; };
+		06AA658E2418E553001CDA37 /* SearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06AA658A2418E553001CDA37 /* SearchResultCell.xib */; };
+		06AA65912418E6EA001CDA37 /* SearchEmptyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06AA658F2418E6EA001CDA37 /* SearchEmptyCell.swift */; };
+		06AA65922418E6EA001CDA37 /* SearchEmptyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06AA658F2418E6EA001CDA37 /* SearchEmptyCell.swift */; };
+		06AA65932418E6EA001CDA37 /* SearchEmptyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06AA65902418E6EA001CDA37 /* SearchEmptyCell.xib */; };
+		06AA65942418E6EA001CDA37 /* SearchEmptyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06AA65902418E6EA001CDA37 /* SearchEmptyCell.xib */; };
+		06B05CA42416233600C8F447 /* ChooseLocation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06B05CA32416233600C8F447 /* ChooseLocation.storyboard */; };
+		06B05CA52416233600C8F447 /* ChooseLocation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06B05CA32416233600C8F447 /* ChooseLocation.storyboard */; };
+		06B05CA82416287D00C8F447 /* CapsuleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B05CA62416287D00C8F447 /* CapsuleCell.swift */; };
+		06B05CA92416287D00C8F447 /* CapsuleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B05CA62416287D00C8F447 /* CapsuleCell.swift */; };
+		06B05CAA2416287D00C8F447 /* CapsuleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06B05CA72416287D00C8F447 /* CapsuleCell.xib */; };
+		06B05CAB2416287D00C8F447 /* CapsuleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06B05CA72416287D00C8F447 /* CapsuleCell.xib */; };
+		06B05CB02416293B00C8F447 /* ChooseLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B05CAF2416293B00C8F447 /* ChooseLocationViewController.swift */; };
+		06B05CB12416293B00C8F447 /* ChooseLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B05CAF2416293B00C8F447 /* ChooseLocationViewController.swift */; };
+		06B05CB62416470900C8F447 /* BrickCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B05CB42416470900C8F447 /* BrickCell.swift */; };
+		06B05CB72416470900C8F447 /* BrickCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B05CB42416470900C8F447 /* BrickCell.swift */; };
+		06B05CB82416470900C8F447 /* BrickCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06B05CB52416470900C8F447 /* BrickCell.xib */; };
+		06B05CB92416470900C8F447 /* BrickCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06B05CB52416470900C8F447 /* BrickCell.xib */; };
 		06DA4F6823E921D4001B7DF1 /* MessageSendRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DA4F6723E921D4001B7DF1 /* MessageSendRequest.swift */; };
 		06DA4F6923E921D4001B7DF1 /* MessageSendRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DA4F6723E921D4001B7DF1 /* MessageSendRequest.swift */; };
 		06DA4F6B23E921F8001B7DF1 /* MessageSendRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DA4F6A23E921F8001B7DF1 /* MessageSendRepository.swift */; };
@@ -329,8 +368,82 @@
 		38E9923A23B0B5DF00E28271 /* BooleanButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E9923923B0B5DF00E28271 /* BooleanButton.swift */; };
 		38E9923B23B0B5DF00E28271 /* BooleanButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E9923923B0B5DF00E28271 /* BooleanButton.swift */; };
 		9196F236CE205CFA47F4C95B /* Pods_ColatourB2BDev.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00BEF28893EA23CD1FFC87FB /* Pods_ColatourB2BDev.framework */; };
+		A1068F4C241625C900710DC4 /* TKTSearchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1068F4B241625C800710DC4 /* TKTSearchRequest.swift */; };
+		A1068F4D241625C900710DC4 /* TKTSearchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1068F4B241625C800710DC4 /* TKTSearchRequest.swift */; };
+		A10C824D24186CD80092DACA /* LccTicketRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10C824C24186CD80092DACA /* LccTicketRequest.swift */; };
+		A10C824E24186CD80092DACA /* LccTicketRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10C824C24186CD80092DACA /* LccTicketRequest.swift */; };
 		A12808A823F7937100287B9F /* PriceRangeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12808A723F7937100287B9F /* PriceRangeSlider.swift */; };
 		A12808A923F7937100287B9F /* PriceRangeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12808A723F7937100287B9F /* PriceRangeSlider.swift */; };
+		A14F56EA241F708700BF40DA /* AirSearchUrlResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14F56E9241F708700BF40DA /* AirSearchUrlResponse.swift */; };
+		A14F56EB241F708700BF40DA /* AirSearchUrlResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14F56E9241F708700BF40DA /* AirSearchUrlResponse.swift */; };
+		A1876A842415D67D00855DE6 /* AirTicketSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1876A832415D67D00855DE6 /* AirTicketSearchViewController.swift */; };
+		A1876A852415D67D00855DE6 /* AirTicketSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1876A832415D67D00855DE6 /* AirTicketSearchViewController.swift */; };
+		A1876A8C2415E40300855DE6 /* TKTSearch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1876A8B2415E40300855DE6 /* TKTSearch.storyboard */; };
+		A1876A8D2415E40300855DE6 /* TKTSearch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1876A8B2415E40300855DE6 /* TKTSearch.storyboard */; };
+		A1876A922415FC9A00855DE6 /* AirTicketSearchProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1876A912415FC9A00855DE6 /* AirTicketSearchProtocol.swift */; };
+		A1876A932415FC9A00855DE6 /* AirTicketSearchProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1876A912415FC9A00855DE6 /* AirTicketSearchProtocol.swift */; };
+		A1876A952415FCA700855DE6 /* AirTicketSearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1876A942415FCA700855DE6 /* AirTicketSearchPresenter.swift */; };
+		A1876A962415FCA700855DE6 /* AirTicketSearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1876A942415FCA700855DE6 /* AirTicketSearchPresenter.swift */; };
+		A1876A982415FDCA00855DE6 /* TKTRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1876A972415FDCA00855DE6 /* TKTRepository.swift */; };
+		A1876A992415FDCA00855DE6 /* TKTRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1876A972415FDCA00855DE6 /* TKTRepository.swift */; };
+		A1A7F2E52418854D00263E42 /* SelectCalendarManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A7F2CC2418854C00263E42 /* SelectCalendarManagerProtocol.swift */; };
+		A1A7F2E62418854D00263E42 /* SelectCalendarManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A7F2CC2418854C00263E42 /* SelectCalendarManagerProtocol.swift */; };
+		A1A7F2E72418854D00263E42 /* SelectCalendarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A7F2CD2418854C00263E42 /* SelectCalendarManager.swift */; };
+		A1A7F2E82418854D00263E42 /* SelectCalendarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A7F2CD2418854C00263E42 /* SelectCalendarManager.swift */; };
+		A1A7F2E92418854D00263E42 /* CalendarSelectedYearMonthDaysString.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A7F2CF2418854C00263E42 /* CalendarSelectedYearMonthDaysString.swift */; };
+		A1A7F2EA2418854D00263E42 /* CalendarSelectedYearMonthDaysString.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A7F2CF2418854C00263E42 /* CalendarSelectedYearMonthDaysString.swift */; };
+		A1A7F2EB2418854D00263E42 /* CalendarDateAttribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A7F2D02418854C00263E42 /* CalendarDateAttribute.swift */; };
+		A1A7F2EC2418854D00263E42 /* CalendarDateAttribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A7F2D02418854C00263E42 /* CalendarDateAttribute.swift */; };
+		A1A7F2ED2418854D00263E42 /* CalendarSingleOrMutipleType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A7F2D12418854C00263E42 /* CalendarSingleOrMutipleType.swift */; };
+		A1A7F2EE2418854D00263E42 /* CalendarSingleOrMutipleType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A7F2D12418854C00263E42 /* CalendarSingleOrMutipleType.swift */; };
+		A1A7F2EF2418854D00263E42 /* CalendarSelectedYearMonthDays.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A7F2D22418854C00263E42 /* CalendarSelectedYearMonthDays.swift */; };
+		A1A7F2F02418854D00263E42 /* CalendarSelectedYearMonthDays.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A7F2D22418854C00263E42 /* CalendarSelectedYearMonthDays.swift */; };
+		A1A7F2F12418854D00263E42 /* CalendarAllAttribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A7F2D32418854C00263E42 /* CalendarAllAttribute.swift */; };
+		A1A7F2F22418854D00263E42 /* CalendarAllAttribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A7F2D32418854C00263E42 /* CalendarAllAttribute.swift */; };
+		A1A7F2F32418854D00263E42 /* CalendarColorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A7F2D42418854C00263E42 /* CalendarColorType.swift */; };
+		A1A7F2F42418854D00263E42 /* CalendarColorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A7F2D42418854C00263E42 /* CalendarColorType.swift */; };
+		A1A7F2F52418854D00263E42 /* CalendarConfirmTextType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A7F2D52418854C00263E42 /* CalendarConfirmTextType.swift */; };
+		A1A7F2F62418854D00263E42 /* CalendarConfirmTextType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A7F2D52418854C00263E42 /* CalendarConfirmTextType.swift */; };
+		A1A7F2F72418854D00263E42 /* CalendarType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A7F2D62418854C00263E42 /* CalendarType.swift */; };
+		A1A7F2F82418854D00263E42 /* CalendarType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A7F2D62418854C00263E42 /* CalendarType.swift */; };
+		A1A7F2F92418854D00263E42 /* CalendarSelectedDates.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A7F2D72418854C00263E42 /* CalendarSelectedDates.swift */; };
+		A1A7F2FA2418854D00263E42 /* CalendarSelectedDates.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A7F2D72418854C00263E42 /* CalendarSelectedDates.swift */; };
+		A1A7F2FB2418854D00263E42 /* CalendarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1A7F2D92418854C00263E42 /* CalendarView.xib */; };
+		A1A7F2FC2418854D00263E42 /* CalendarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1A7F2D92418854C00263E42 /* CalendarView.xib */; };
+		A1A7F2FD2418854D00263E42 /* CalendarDayCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1A7F2DA2418854C00263E42 /* CalendarDayCollectionViewCell.xib */; };
+		A1A7F2FE2418854D00263E42 /* CalendarDayCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1A7F2DA2418854C00263E42 /* CalendarDayCollectionViewCell.xib */; };
+		A1A7F2FF2418854D00263E42 /* CalendarTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1A7F2DB2418854C00263E42 /* CalendarTableViewCell.xib */; };
+		A1A7F3002418854D00263E42 /* CalendarTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1A7F2DB2418854C00263E42 /* CalendarTableViewCell.xib */; };
+		A1A7F3012418854D00263E42 /* CalendarViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A7F2DC2418854C00263E42 /* CalendarViewProtocol.swift */; };
+		A1A7F3022418854D00263E42 /* CalendarViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A7F2DC2418854C00263E42 /* CalendarViewProtocol.swift */; };
+		A1A7F3032418854D00263E42 /* CalendarDayCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A7F2DD2418854C00263E42 /* CalendarDayCollectionViewCell.swift */; };
+		A1A7F3042418854D00263E42 /* CalendarDayCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A7F2DD2418854C00263E42 /* CalendarDayCollectionViewCell.swift */; };
+		A1A7F3052418854D00263E42 /* CalendarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A7F2DE2418854C00263E42 /* CalendarTableViewCell.swift */; };
+		A1A7F3062418854D00263E42 /* CalendarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A7F2DE2418854C00263E42 /* CalendarTableViewCell.swift */; };
+		A1A7F3072418854D00263E42 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A7F2DF2418854C00263E42 /* CalendarView.swift */; };
+		A1A7F3082418854D00263E42 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A7F2DF2418854C00263E42 /* CalendarView.swift */; };
+		A1A7F3092418854D00263E42 /* CalendarViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A7F2E12418854C00263E42 /* CalendarViewControllerProtocol.swift */; };
+		A1A7F30A2418854D00263E42 /* CalendarViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A7F2E12418854C00263E42 /* CalendarViewControllerProtocol.swift */; };
+		A1A7F30B2418854D00263E42 /* CalendarDataToBackwardPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A7F2E22418854C00263E42 /* CalendarDataToBackwardPageViewController.swift */; };
+		A1A7F30C2418854D00263E42 /* CalendarDataToBackwardPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A7F2E22418854C00263E42 /* CalendarDataToBackwardPageViewController.swift */; };
+		A1A7F30D2418854D00263E42 /* CalendarForTicketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A7F2E32418854C00263E42 /* CalendarForTicketViewController.swift */; };
+		A1A7F30E2418854D00263E42 /* CalendarForTicketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A7F2E32418854C00263E42 /* CalendarForTicketViewController.swift */; };
+		A1A7F30F2418854D00263E42 /* CalendarDataDestinationViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A7F2E42418854C00263E42 /* CalendarDataDestinationViewControllerProtocol.swift */; };
+		A1A7F3102418854D00263E42 /* CalendarDataDestinationViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A7F2E42418854C00263E42 /* CalendarDataDestinationViewControllerProtocol.swift */; };
+		A1A7F31D2418882100263E42 /* CalenderSelectStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A7F3142418882000263E42 /* CalenderSelectStatus.swift */; };
+		A1A7F31E2418882100263E42 /* CalenderSelectStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A7F3142418882000263E42 /* CalenderSelectStatus.swift */; };
+		A1A7F31F2418882100263E42 /* YearMonth.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A7F3152418882000263E42 /* YearMonth.swift */; };
+		A1A7F3202418882100263E42 /* YearMonth.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A7F3152418882000263E42 /* YearMonth.swift */; };
+		A1A7F3232418882100263E42 /* YearMonthDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A7F3172418882000263E42 /* YearMonthDay.swift */; };
+		A1A7F3242418882100263E42 /* YearMonthDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A7F3172418882000263E42 /* YearMonthDay.swift */; };
+		A1A7F3252418882100263E42 /* CustomCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A7F3182418882000263E42 /* CustomCalendar.swift */; };
+		A1A7F3262418882100263E42 /* CustomCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A7F3182418882000263E42 /* CustomCalendar.swift */; };
+		A1A7F32A2418DDCC00263E42 /* ChooseCountButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1A7F3282418DDCC00263E42 /* ChooseCountButton.xib */; };
+		A1A7F32B2418DDCC00263E42 /* ChooseCountButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1A7F3282418DDCC00263E42 /* ChooseCountButton.xib */; };
+		A1A7F32C2418DDCC00263E42 /* ChooseCountButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A7F3292418DDCC00263E42 /* ChooseCountButton.swift */; };
+		A1A7F32D2418DDCC00263E42 /* ChooseCountButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A7F3292418DDCC00263E42 /* ChooseCountButton.swift */; };
+		A1A7F32F2418E11100263E42 /* AirPaxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A7F32E2418E11100263E42 /* AirPaxViewController.swift */; };
+		A1A7F3302418E11100263E42 /* AirPaxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A7F32E2418E11100263E42 /* AirPaxViewController.swift */; };
 		A17CFADB241B387C00922CC2 /* AirIndexCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17CFAD9241B387C00922CC2 /* AirIndexCell.swift */; };
 		A17CFADC241B387C00922CC2 /* AirIndexCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17CFAD9241B387C00922CC2 /* AirIndexCell.swift */; };
 		A17CFADD241B387C00922CC2 /* AirIndexCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A17CFADA241B387C00922CC2 /* AirIndexCell.xib */; };
@@ -345,6 +458,10 @@
 		A1DB93E224066B8E00AE427C /* WebViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DB93E024066B8E00AE427C /* WebViewPresenter.swift */; };
 		A1DB93E424066EC500AE427C /* WebViewTourShareResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DB93E324066EC500AE427C /* WebViewTourShareResponse.swift */; };
 		A1DB93E524066EC500AE427C /* WebViewTourShareResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DB93E324066EC500AE427C /* WebViewTourShareResponse.swift */; };
+		A1F6E88324176BB90015279F /* SotoAirCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F6E88224176BB90015279F /* SotoAirCell.swift */; };
+		A1F6E88424176BB90015279F /* SotoAirCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F6E88224176BB90015279F /* SotoAirCell.swift */; };
+		A1F6E886241787510015279F /* LccAirCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F6E885241787510015279F /* LccAirCell.swift */; };
+		A1F6E887241787510015279F /* LccAirCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F6E885241787510015279F /* LccAirCell.swift */; };
 		A1E449B5241B168B00895AF6 /* AirPopCityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E449B3241B168B00895AF6 /* AirPopCityCell.swift */; };
 		A1E449B6241B168B00895AF6 /* AirPopCityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E449B3241B168B00895AF6 /* AirPopCityCell.swift */; };
 		A1E449B7241B168B00895AF6 /* AirPopCityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1E449B4241B168B00895AF6 /* AirPopCityCell.xib */; };
@@ -441,9 +558,16 @@
 
 /* Begin PBXFileReference section */
 		00BEF28893EA23CD1FFC87FB /* Pods_ColatourB2BDev.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ColatourB2BDev.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		061CD2AE241F04D800BD0DE1 /* AirTktCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirTktCell.swift; sourceTree = "<group>"; };
+		061CD2B1241F6C1400BD0DE1 /* LocationDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LocationDetail.storyboard; sourceTree = "<group>"; };
+		061CD2B4241F6C9200BD0DE1 /* LocationDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailViewController.swift; sourceTree = "<group>"; };
 		0626031923F3E5570026DC59 /* DeviceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceCell.swift; sourceTree = "<group>"; };
 		0626031A23F3E5570026DC59 /* DeviceCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeviceCell.xib; sourceTree = "<group>"; };
 		0626031F23F401A70026DC59 /* ContactInfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactInfoCell.swift; sourceTree = "<group>"; };
+		062DFCBE2419C1AE006882BE /* ChooseLocationProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseLocationProtocol.swift; sourceTree = "<group>"; };
+		062DFCC12419C4D6006882BE /* ChooseLocationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseLocationPresenter.swift; sourceTree = "<group>"; };
+		06468512241F710600104346 /* LocationDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailCell.swift; sourceTree = "<group>"; };
+		06468513241F710600104346 /* LocationDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationDetailCell.xib; sourceTree = "<group>"; };
 		0650774E23ED4EE70067377C /* ContactInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ContactInfo.storyboard; sourceTree = "<group>"; };
 		0650775123ED4F1E0067377C /* ContactInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactInfoViewController.swift; sourceTree = "<group>"; };
 		0650775423ED4FD50067377C /* ContactInfoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactInfoResponse.swift; sourceTree = "<group>"; };
@@ -451,7 +575,20 @@
 		0650775D23ED55F60067377C /* ContactInfoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactInfoRepository.swift; sourceTree = "<group>"; };
 		0650776023ED5E6B0067377C /* ContactInfoProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactInfoProtocol.swift; sourceTree = "<group>"; };
 		0650776323ED5F300067377C /* ContactInfoPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactInfoPresenter.swift; sourceTree = "<group>"; };
+		0655CD28241B643E006092AB /* TKTInitResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TKTInitResponse.swift; sourceTree = "<group>"; };
+		0655CD2F241B6A77006092AB /* SotoTicketRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SotoTicketRequest.swift; sourceTree = "<group>"; };
 		06610FD9240775AC00E87225 /* ExpandableButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableButtonView.swift; sourceTree = "<group>"; };
+		069D7498241A13EF0047EA03 /* TKTSearchInit.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TKTSearchInit.json; sourceTree = "<group>"; };
+		06AA65892418E553001CDA37 /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
+		06AA658A2418E553001CDA37 /* SearchResultCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchResultCell.xib; sourceTree = "<group>"; };
+		06AA658F2418E6EA001CDA37 /* SearchEmptyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchEmptyCell.swift; sourceTree = "<group>"; };
+		06AA65902418E6EA001CDA37 /* SearchEmptyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchEmptyCell.xib; sourceTree = "<group>"; };
+		06B05CA32416233600C8F447 /* ChooseLocation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChooseLocation.storyboard; sourceTree = "<group>"; };
+		06B05CA62416287D00C8F447 /* CapsuleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapsuleCell.swift; sourceTree = "<group>"; };
+		06B05CA72416287D00C8F447 /* CapsuleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CapsuleCell.xib; sourceTree = "<group>"; };
+		06B05CAF2416293B00C8F447 /* ChooseLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseLocationViewController.swift; sourceTree = "<group>"; };
+		06B05CB42416470900C8F447 /* BrickCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrickCell.swift; sourceTree = "<group>"; };
+		06B05CB52416470900C8F447 /* BrickCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BrickCell.xib; sourceTree = "<group>"; };
 		06DA4F6723E921D4001B7DF1 /* MessageSendRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageSendRequest.swift; sourceTree = "<group>"; };
 		06DA4F6A23E921F8001B7DF1 /* MessageSendRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageSendRepository.swift; sourceTree = "<group>"; };
 		06DA4F6E23E9222F001B7DF1 /* MessageSendUserListResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageSendUserListResponse.swift; sourceTree = "<group>"; };
@@ -620,7 +757,49 @@
 		38E9923923B0B5DF00E28271 /* BooleanButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BooleanButton.swift; sourceTree = "<group>"; };
 		732B40A95C148E8D08B6AD90 /* Pods-ColatourB2BDev.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ColatourB2BDev.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ColatourB2BDev/Pods-ColatourB2BDev.debug.xcconfig"; sourceTree = "<group>"; };
 		987A0E450DD4AC32A30375C6 /* Pods-ColatourB2B.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ColatourB2B.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ColatourB2B/Pods-ColatourB2B.debug.xcconfig"; sourceTree = "<group>"; };
+		A1068F4B241625C800710DC4 /* TKTSearchRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TKTSearchRequest.swift; sourceTree = "<group>"; };
+		A10C824C24186CD80092DACA /* LccTicketRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LccTicketRequest.swift; sourceTree = "<group>"; };
 		A12808A723F7937100287B9F /* PriceRangeSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceRangeSlider.swift; sourceTree = "<group>"; };
+		A14F56E9241F708700BF40DA /* AirSearchUrlResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirSearchUrlResponse.swift; sourceTree = "<group>"; };
+		A1876A832415D67D00855DE6 /* AirTicketSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirTicketSearchViewController.swift; sourceTree = "<group>"; };
+		A1876A8B2415E40300855DE6 /* TKTSearch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TKTSearch.storyboard; sourceTree = "<group>"; };
+		A1876A912415FC9A00855DE6 /* AirTicketSearchProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirTicketSearchProtocol.swift; sourceTree = "<group>"; };
+		A1876A942415FCA700855DE6 /* AirTicketSearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirTicketSearchPresenter.swift; sourceTree = "<group>"; };
+		A1876A972415FDCA00855DE6 /* TKTRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TKTRepository.swift; sourceTree = "<group>"; };
+		A1A7F2CC2418854C00263E42 /* SelectCalendarManagerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectCalendarManagerProtocol.swift; sourceTree = "<group>"; };
+		A1A7F2CD2418854C00263E42 /* SelectCalendarManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectCalendarManager.swift; sourceTree = "<group>"; };
+		A1A7F2CF2418854C00263E42 /* CalendarSelectedYearMonthDaysString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarSelectedYearMonthDaysString.swift; sourceTree = "<group>"; };
+		A1A7F2D02418854C00263E42 /* CalendarDateAttribute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarDateAttribute.swift; sourceTree = "<group>"; };
+		A1A7F2D12418854C00263E42 /* CalendarSingleOrMutipleType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarSingleOrMutipleType.swift; sourceTree = "<group>"; };
+		A1A7F2D22418854C00263E42 /* CalendarSelectedYearMonthDays.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarSelectedYearMonthDays.swift; sourceTree = "<group>"; };
+		A1A7F2D32418854C00263E42 /* CalendarAllAttribute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarAllAttribute.swift; sourceTree = "<group>"; };
+		A1A7F2D42418854C00263E42 /* CalendarColorType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarColorType.swift; sourceTree = "<group>"; };
+		A1A7F2D52418854C00263E42 /* CalendarConfirmTextType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarConfirmTextType.swift; sourceTree = "<group>"; };
+		A1A7F2D62418854C00263E42 /* CalendarType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarType.swift; sourceTree = "<group>"; };
+		A1A7F2D72418854C00263E42 /* CalendarSelectedDates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarSelectedDates.swift; sourceTree = "<group>"; };
+		A1A7F2D92418854C00263E42 /* CalendarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalendarView.xib; sourceTree = "<group>"; };
+		A1A7F2DA2418854C00263E42 /* CalendarDayCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalendarDayCollectionViewCell.xib; sourceTree = "<group>"; };
+		A1A7F2DB2418854C00263E42 /* CalendarTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalendarTableViewCell.xib; sourceTree = "<group>"; };
+		A1A7F2DC2418854C00263E42 /* CalendarViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewProtocol.swift; sourceTree = "<group>"; };
+		A1A7F2DD2418854C00263E42 /* CalendarDayCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarDayCollectionViewCell.swift; sourceTree = "<group>"; };
+		A1A7F2DE2418854C00263E42 /* CalendarTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarTableViewCell.swift; sourceTree = "<group>"; };
+		A1A7F2DF2418854C00263E42 /* CalendarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		A1A7F2E12418854C00263E42 /* CalendarViewControllerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewControllerProtocol.swift; sourceTree = "<group>"; };
+		A1A7F2E22418854C00263E42 /* CalendarDataToBackwardPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarDataToBackwardPageViewController.swift; sourceTree = "<group>"; };
+		A1A7F2E32418854C00263E42 /* CalendarForTicketViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarForTicketViewController.swift; sourceTree = "<group>"; };
+		A1A7F2E42418854C00263E42 /* CalendarDataDestinationViewControllerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarDataDestinationViewControllerProtocol.swift; sourceTree = "<group>"; };
+		A1A7F3142418882000263E42 /* CalenderSelectStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalenderSelectStatus.swift; sourceTree = "<group>"; };
+		A1A7F3152418882000263E42 /* YearMonth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YearMonth.swift; sourceTree = "<group>"; };
+		A1A7F3172418882000263E42 /* YearMonthDay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YearMonthDay.swift; sourceTree = "<group>"; };
+		A1A7F3182418882000263E42 /* CustomCalendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCalendar.swift; sourceTree = "<group>"; };
+		A1A7F3282418DDCC00263E42 /* ChooseCountButton.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChooseCountButton.xib; sourceTree = "<group>"; };
+		A1A7F3292418DDCC00263E42 /* ChooseCountButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseCountButton.swift; sourceTree = "<group>"; };
+		A1A7F32E2418E11100263E42 /* AirPaxViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirPaxViewController.swift; sourceTree = "<group>"; };
+		A1DB93DD24066B5D00AE427C /* WebViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewProtocol.swift; sourceTree = "<group>"; };
+		A1DB93E024066B8E00AE427C /* WebViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewPresenter.swift; sourceTree = "<group>"; };
+		A1DB93E324066EC500AE427C /* WebViewTourShareResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewTourShareResponse.swift; sourceTree = "<group>"; };
+		A1F6E88224176BB90015279F /* SotoAirCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SotoAirCell.swift; sourceTree = "<group>"; };
+		A1F6E885241787510015279F /* LccAirCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LccAirCell.swift; sourceTree = "<group>"; };
 		A17CFAD9241B387C00922CC2 /* AirIndexCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirIndexCell.swift; sourceTree = "<group>"; };
 		A17CFADA241B387C00922CC2 /* AirIndexCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AirIndexCell.xib; sourceTree = "<group>"; };
 		A17CFADF241B396B00922CC2 /* AirIndexView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirIndexView.swift; sourceTree = "<group>"; };
@@ -733,6 +912,23 @@
 			path = ContactService;
 			sourceTree = "<group>";
 		};
+		0655CD2E241B68D6006092AB /* AirTicket */ = {
+			isa = PBXGroup;
+			children = (
+				A1068F4B241625C800710DC4 /* TKTSearchRequest.swift */,
+				0655CD2F241B6A77006092AB /* SotoTicketRequest.swift */,
+				A10C824C24186CD80092DACA /* LccTicketRequest.swift */,
+			);
+			path = AirTicket;
+			sourceTree = "<group>";
+		};
+		069D7497241A13020047EA03 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 		06DA4F6D23E9222F001B7DF1 /* MessageSend */ = {
 			isa = PBXGroup;
 			children = (
@@ -814,6 +1010,7 @@
 		380C151223BD92B1008B4501 /* AirTicket */ = {
 			isa = PBXGroup;
 			children = (
+				A1876A822415D63C00855DE6 /* TKTSearch */,
 				381B12AE23C465AE0030BACE /* AirTicketViewController.swift */,
 				384B110223C2BD33000E2B41 /* AirTicketProtocol.swift */,
 				384B110523C2BD46000E2B41 /* AirTicketPresenter.swift */,
@@ -842,6 +1039,7 @@
 				3817E4F423A33C8400ED8609 /* Products */,
 				687293E662C9358AD1ECFF8A /* Pods */,
 				45720B246F780AA989A37ED1 /* Frameworks */,
+				069D7497241A13020047EA03 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -996,6 +1194,7 @@
 				382EF48223BEF93A0002BAB0 /* GroupReponsitory.swift */,
 				3848DA8023C72FA600EA0ED0 /* NoticeRepository.swift */,
 				0650775D23ED55F60067377C /* ContactInfoRepository.swift */,
+				A1876A972415FDCA00855DE6 /* TKTRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -1107,6 +1306,8 @@
 		38BCDA2223A3760900D59910 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				A1A7F3272418DDCC00263E42 /* ChooseCountButton */,
+				A1A7F2CA2418854C00263E42 /* Calendar */,
 				A1DB93E6240675D000AE427C /* WebView */,
 				C7BD648C23ED453100FEE538 /* EmptyDataCell.swift */,
 				C7BD648D23ED453200FEE538 /* EmptyDataCell.xib */,
@@ -1127,6 +1328,7 @@
 		38BCDA2323A3766100D59910 /* StroyBoard */ = {
 			isa = PBXGroup;
 			children = (
+				A1876A8A2415E32100855DE6 /* TKT */,
 				0650776823ED6BFB0067377C /* ContactService */,
 				C70EEF4E23EA545300D67FF4 /* Bulletin */,
 				C70EEF4C23EA545200D67FF4 /* VersionRule */,
@@ -1157,6 +1359,8 @@
 		38BCDA3123A37FDA00D59910 /* Response */ = {
 			isa = PBXGroup;
 			children = (
+				A14F56E8241F703800BF40DA /* TKT */,
+				A1A7F3112418882000263E42 /* Common */,
 				0650776723ED6BB80067377C /* ContactService */,
 				3802A19523C852F000CD2EF2 /* Salse */,
 				C7BBF4C623C704A500023307 /* Notice */,
@@ -1228,6 +1432,7 @@
 		38E9922C23B0589700E28271 /* Request */ = {
 			isa = PBXGroup;
 			children = (
+				0655CD2E241B68D6006092AB /* AirTicket */,
 				38E9922D23B058CA00E28271 /* LoginRequest.swift */,
 				C7DA175C23D70261006A8803 /* GroupTourSearchRequest.swift */,
 				C7DA175923D70245006A8803 /* GroupTourSearchKeywordAndTourCodeRequest.swift */,
@@ -1255,6 +1460,143 @@
 				B09E7C65A225E6FF958329EA /* Pods-ColatourB2BDev.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		A14F56E8241F703800BF40DA /* TKT */ = {
+			isa = PBXGroup;
+			children = (
+				0655CD28241B643E006092AB /* TKTInitResponse.swift */,
+				A14F56E9241F708700BF40DA /* AirSearchUrlResponse.swift */,
+			);
+			path = TKT;
+			sourceTree = "<group>";
+		};
+		A14F56EC241F831500BF40DA /* ChooseLocation */ = {
+			isa = PBXGroup;
+			children = (
+				06B05CAF2416293B00C8F447 /* ChooseLocationViewController.swift */,
+				062DFCBE2419C1AE006882BE /* ChooseLocationProtocol.swift */,
+				062DFCC12419C4D6006882BE /* ChooseLocationPresenter.swift */,
+				06B05CA62416287D00C8F447 /* CapsuleCell.swift */,
+				06B05CA72416287D00C8F447 /* CapsuleCell.xib */,
+				06B05CB42416470900C8F447 /* BrickCell.swift */,
+				06B05CB52416470900C8F447 /* BrickCell.xib */,
+				06AA658F2418E6EA001CDA37 /* SearchEmptyCell.swift */,
+				06AA65902418E6EA001CDA37 /* SearchEmptyCell.xib */,
+				06AA65892418E553001CDA37 /* SearchResultCell.swift */,
+				06AA658A2418E553001CDA37 /* SearchResultCell.xib */,
+				061CD2B4241F6C9200BD0DE1 /* LocationDetailViewController.swift */,
+				06468512241F710600104346 /* LocationDetailCell.swift */,
+				06468513241F710600104346 /* LocationDetailCell.xib */,
+			);
+			path = ChooseLocation;
+			sourceTree = "<group>";
+		};
+		A1876A822415D63C00855DE6 /* TKTSearch */ = {
+			isa = PBXGroup;
+			children = (
+				A14F56EC241F831500BF40DA /* ChooseLocation */,
+				069D7498241A13EF0047EA03 /* TKTSearchInit.json */,
+				A1876A832415D67D00855DE6 /* AirTicketSearchViewController.swift */,
+				A1876A912415FC9A00855DE6 /* AirTicketSearchProtocol.swift */,
+				A1876A942415FCA700855DE6 /* AirTicketSearchPresenter.swift */,
+				061CD2AE241F04D800BD0DE1 /* AirTktCell.swift */,
+				A1F6E88224176BB90015279F /* SotoAirCell.swift */,
+				A1F6E885241787510015279F /* LccAirCell.swift */,
+				A1A7F32E2418E11100263E42 /* AirPaxViewController.swift */,
+			);
+			path = TKTSearch;
+			sourceTree = "<group>";
+		};
+		A1876A8A2415E32100855DE6 /* TKT */ = {
+			isa = PBXGroup;
+			children = (
+				A1876A8B2415E40300855DE6 /* TKTSearch.storyboard */,
+				06B05CA32416233600C8F447 /* ChooseLocation.storyboard */,
+				061CD2B1241F6C1400BD0DE1 /* LocationDetail.storyboard */,
+			);
+			path = TKT;
+			sourceTree = "<group>";
+		};
+		A1A7F2CA2418854C00263E42 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				A1A7F2CB2418854C00263E42 /* Manager */,
+				A1A7F2CE2418854C00263E42 /* Model */,
+				A1A7F2D82418854C00263E42 /* CustomView */,
+				A1A7F2E02418854C00263E42 /* ViewController */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		A1A7F2CB2418854C00263E42 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				A1A7F2CC2418854C00263E42 /* SelectCalendarManagerProtocol.swift */,
+				A1A7F2CD2418854C00263E42 /* SelectCalendarManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		A1A7F2CE2418854C00263E42 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A1A7F2CF2418854C00263E42 /* CalendarSelectedYearMonthDaysString.swift */,
+				A1A7F2D02418854C00263E42 /* CalendarDateAttribute.swift */,
+				A1A7F2D12418854C00263E42 /* CalendarSingleOrMutipleType.swift */,
+				A1A7F2D22418854C00263E42 /* CalendarSelectedYearMonthDays.swift */,
+				A1A7F2D32418854C00263E42 /* CalendarAllAttribute.swift */,
+				A1A7F2D42418854C00263E42 /* CalendarColorType.swift */,
+				A1A7F2D52418854C00263E42 /* CalendarConfirmTextType.swift */,
+				A1A7F2D62418854C00263E42 /* CalendarType.swift */,
+				A1A7F2D72418854C00263E42 /* CalendarSelectedDates.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A1A7F2D82418854C00263E42 /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				A1A7F2D92418854C00263E42 /* CalendarView.xib */,
+				A1A7F2DA2418854C00263E42 /* CalendarDayCollectionViewCell.xib */,
+				A1A7F2DB2418854C00263E42 /* CalendarTableViewCell.xib */,
+				A1A7F2DC2418854C00263E42 /* CalendarViewProtocol.swift */,
+				A1A7F2DD2418854C00263E42 /* CalendarDayCollectionViewCell.swift */,
+				A1A7F2DE2418854C00263E42 /* CalendarTableViewCell.swift */,
+				A1A7F2DF2418854C00263E42 /* CalendarView.swift */,
+			);
+			path = CustomView;
+			sourceTree = "<group>";
+		};
+		A1A7F2E02418854C00263E42 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A1A7F2E12418854C00263E42 /* CalendarViewControllerProtocol.swift */,
+				A1A7F2E22418854C00263E42 /* CalendarDataToBackwardPageViewController.swift */,
+				A1A7F2E32418854C00263E42 /* CalendarForTicketViewController.swift */,
+				A1A7F2E42418854C00263E42 /* CalendarDataDestinationViewControllerProtocol.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		A1A7F3112418882000263E42 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				A1A7F3142418882000263E42 /* CalenderSelectStatus.swift */,
+				A1A7F3152418882000263E42 /* YearMonth.swift */,
+				A1A7F3172418882000263E42 /* YearMonthDay.swift */,
+				A1A7F3182418882000263E42 /* CustomCalendar.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		A1A7F3272418DDCC00263E42 /* ChooseCountButton */ = {
+			isa = PBXGroup;
+			children = (
+				A1A7F3282418DDCC00263E42 /* ChooseCountButton.xib */,
+				A1A7F3292418DDCC00263E42 /* ChooseCountButton.swift */,
+			);
+			path = ChooseCountButton;
 			sourceTree = "<group>";
 		};
 		A1DB93E6240675D000AE427C /* WebView */ = {
@@ -1493,12 +1835,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06B05CA42416233600C8F447 /* ChooseLocation.storyboard in Resources */,
 				C7C41C4623C724E900F97057 /* NoticeDetailContentCell.xib in Resources */,
 				0650774F23ED4EE70067377C /* ContactInfo.storyboard in Resources */,
 				C70EEF5223EA545300D67FF4 /* Bulletin.storyboard in Resources */,
 				38E68ABF23B5AE30006BC4DD /* Calendar.storyboard in Resources */,
+				06B05CAA2416287D00C8F447 /* CapsuleCell.xib in Resources */,
+				A1A7F2FB2418854D00263E42 /* CalendarView.xib in Resources */,
 				C7BD649023ED453200FEE538 /* EmptyDataCell.xib in Resources */,
 				3817E50123A33C8500ED8609 /* LaunchScreen.storyboard in Resources */,
+				A1A7F2FD2418854D00263E42 /* CalendarDayCollectionViewCell.xib in Resources */,
 				38BCDA2623A3796800D59910 /* GroupTour.storyboard in Resources */,
 				A1E449B7241B168B00895AF6 /* AirPopCityCell.xib in Resources */,
 				387FBF0B23ACCEB7005412F1 /* Login.storyboard in Resources */,
@@ -1506,7 +1852,9 @@
 				38AA456023D68E0A00BE3F95 /* HomeAd2Cell.xib in Resources */,
 				38E68AAD23B5AB80006BC4DD /* Group.json in Resources */,
 				C77282F323CC502500067EB4 /* GroupTourSearch.storyboard in Resources */,
+				06AA658D2418E553001CDA37 /* SearchResultCell.xib in Resources */,
 				38AA456623D6906400BE3F95 /* HomeAd2View.xib in Resources */,
+				061CD2B2241F6C1400BD0DE1 /* LocationDetail.storyboard in Resources */,
 				06DA4F8423E92260001B7DF1 /* MessageSendContentCell.xib in Resources */,
 				0626031D23F3E5570026DC59 /* DeviceCell.xib in Resources */,
 				3869544023BB002900F6E7D9 /* MemberIndexVersionCell.xib in Resources */,
@@ -1521,10 +1869,13 @@
 				A17CFADD241B387C00922CC2 /* AirIndexCell.xib in Resources */,
 				38BCDA2C23A37B5D00D59910 /* MemberIndex.storyboard in Resources */,
 				38E68AAF23B5AB80006BC4DD /* GroupSliderItemCell.xib in Resources */,
+				A1A7F32A2418DDCC00263E42 /* ChooseCountButton.xib in Resources */,
 				387FBEF723ACA201005412F1 /* AirTicket.storyboard in Resources */,
 				387FBF0323ACA327005412F1 /* More.storyboard in Resources */,
+				06AA65932418E6EA001CDA37 /* SearchEmptyCell.xib in Resources */,
 				3869543423BAE5F500F6E7D9 /* MemberTopCell.xib in Resources */,
 				38BCDA0F23A367D000D59910 /* NoInternetErrorView.xib in Resources */,
+				06B05CB82416470900C8F447 /* BrickCell.xib in Resources */,
 				06DA4F9223E922C0001B7DF1 /* MessageSend.storyboard in Resources */,
 				38BCDA0B23A367D000D59910 /* ApiFailErrorView.xib in Resources */,
 				C78F071C23E8204E009C1183 /* PopText.storyboard in Resources */,
@@ -1532,11 +1883,14 @@
 				A1E449BD241B17BE00895AF6 /* AirPopCityView.xib in Resources */,
 				3802A19D23C8542800CD2EF2 /* SalseInfoCell.xib in Resources */,
 				385B54FA23BDC4C800BE1476 /* NotificationItemCell.xib in Resources */,
+				A1876A8C2415E40300855DE6 /* TKTSearch.storyboard in Resources */,
 				381B12B823C48D440030BACE /* GroupNavigationView.xib in Resources */,
 				3817E4FE23A33C8500ED8609 /* Assets.xcassets in Resources */,
 				06DA4F8A23E92260001B7DF1 /* MessageSendNotificationListCell.xib in Resources */,
+				06468516241F710600104346 /* LocationDetailCell.xib in Resources */,
 				A17CFAE3241B398A00922CC2 /* AirIndexView.xib in Resources */,
 				2AF496B423AB7EA50053EA45 /* GoogleService-Info.plist in Resources */,
+				A1A7F2FF2418854D00263E42 /* CalendarTableViewCell.xib in Resources */,
 				3817E4FC23A33C8400ED8609 /* Main.storyboard in Resources */,
 				06DA4F8023E92260001B7DF1 /* MessageSendTopicCell.xib in Resources */,
 				C74FC80123C5AEE100E2250D /* NoticeDetail.storyboard in Resources */,
@@ -1567,12 +1921,16 @@
 			files = (
 				C7C41C4723C724E900F97057 /* NoticeDetailContentCell.xib in Resources */,
 				38E68AC023B5AE30006BC4DD /* Calendar.storyboard in Resources */,
+				A1876A8D2415E40300855DE6 /* TKTSearch.storyboard in Resources */,
 				06DA4F8B23E92260001B7DF1 /* MessageSendNotificationListCell.xib in Resources */,
+				06AA658E2418E553001CDA37 /* SearchResultCell.xib in Resources */,
+				A1A7F3002418854D00263E42 /* CalendarTableViewCell.xib in Resources */,
 				3817E52A23A33C9500ED8609 /* LaunchScreen.storyboard in Resources */,
 				06DA4F9323E922C0001B7DF1 /* MessageSend.storyboard in Resources */,
 				C70EEF5323EA545300D67FF4 /* Bulletin.storyboard in Resources */,
 				38BCDA2723A3796800D59910 /* GroupTour.storyboard in Resources */,
 				387FBF1123ACCF00005412F1 /* Login.storyboard in Resources */,
+				069D7499241A13EF0047EA03 /* TKTSearchInit.json in Resources */,
 				38871ECA23D5B524007ED33D /* HomeAd1View.xib in Resources */,
 				C7BD649123ED453200FEE538 /* EmptyDataCell.xib in Resources */,
 				C70EEF5123EA545300D67FF4 /* VersionRule.storyboard in Resources */,
@@ -1588,14 +1946,21 @@
 				387FBEFE23ACA2A7005412F1 /* Notice.storyboard in Resources */,
 				CCCC736023E42D8200FC03EE /* PasswordModify.storyboard in Resources */,
 				3802A19423C8522F00CD2EF2 /* Sales.storyboard in Resources */,
+				06AA65942418E6EA001CDA37 /* SearchEmptyCell.xib in Resources */,
 				38871EB723D55E2F007ED33D /* GroupIndexHeaderImageCell.xib in Resources */,
+				A1A7F2FE2418854D00263E42 /* CalendarDayCollectionViewCell.xib in Resources */,
 				38E68AC223B5AE30006BC4DD /* Common.storyboard in Resources */,
+				A1A7F2FC2418854D00263E42 /* CalendarView.xib in Resources */,
 				38E68ABE23B5AE30006BC4DD /* SelectOption.storyboard in Resources */,
+				06B05CA52416233600C8F447 /* ChooseLocation.storyboard in Resources */,
 				38BCDA0823A367D000D59910 /* LoadingView.xib in Resources */,
 				38BCDA2D23A37B5D00D59910 /* MemberIndex.storyboard in Resources */,
+				06B05CB92416470900C8F447 /* BrickCell.xib in Resources */,
+				A1A7F32B2418DDCC00263E42 /* ChooseCountButton.xib in Resources */,
 				38AA8E0723CC4FE600A7EB07 /* Dev_Info.plist in Resources */,
 				38E68AB023B5AB80006BC4DD /* GroupSliderItemCell.xib in Resources */,
 				06DA4F8123E92260001B7DF1 /* MessageSendTopicCell.xib in Resources */,
+				06468517241F710600104346 /* LocationDetailCell.xib in Resources */,
 				0650775023ED4EE70067377C /* ContactInfo.storyboard in Resources */,
 				387FBEF823ACA201005412F1 /* AirTicket.storyboard in Resources */,
 				387FBF0423ACA327005412F1 /* More.storyboard in Resources */,
@@ -1611,9 +1976,11 @@
 				381B12B923C48D440030BACE /* GroupNavigationView.xib in Resources */,
 				3817E52B23A33C9500ED8609 /* Assets.xcassets in Resources */,
 				2AF496B623AB7EBB0053EA45 /* GoogleService-Info.plist in Resources */,
+				06B05CAB2416287D00C8F447 /* CapsuleCell.xib in Resources */,
 				3817E52C23A33C9500ED8609 /* Main.storyboard in Resources */,
 				C74FC80223C5AEE100E2250D /* NoticeDetail.storyboard in Resources */,
 				3869543B23BAF85900F6E7D9 /* MemberIndexServiceCell.xib in Resources */,
+				061CD2B3241F6C1400BD0DE1 /* LocationDetail.storyboard in Resources */,
 				38BCDA0A23A367D000D59910 /* ToastView.xib in Resources */,
 				38871EC423D5B061007ED33D /* HomeAd1Cell.xib in Resources */,
 				0626031E23F3E5570026DC59 /* DeviceCell.xib in Resources */,
@@ -1785,6 +2152,7 @@
 				3869543823BAF85900F6E7D9 /* MemberIndexServiceCell.swift in Sources */,
 				38BCD94223A346B800D59910 /* APILoadingHandleType.swift in Sources */,
 				38BCD9CD23A3648B00D59910 /* BaseModelProtocol.swift in Sources */,
+				06468514241F710600104346 /* LocationDetailCell.swift in Sources */,
 				38E9922723B053A200E28271 /* LoginProtocol.swift in Sources */,
 				3802A19B23C8542800CD2EF2 /* SalseInfoCell.swift in Sources */,
 				38BCD97723A3484300D59910 /* NSObjectExtension.swift in Sources */,
@@ -1792,35 +2160,49 @@
 				38871EB023D55D16007ED33D /* GroupTableView.swift in Sources */,
 				A1E449BA241B17B100895AF6 /* AirPopCityView.swift in Sources */,
 				38E68AA723B5AB80006BC4DD /* GroupSlideInTransition.swift in Sources */,
+				A1A7F2E52418854D00263E42 /* SelectCalendarManagerProtocol.swift in Sources */,
 				3869542823BADBFC00F6E7D9 /* MemberIndexProtocol.swift in Sources */,
 				38BCD92D23A345FA00D59910 /* EncryptionUtils.m in Sources */,
+				A1068F4C241625C900710DC4 /* TKTSearchRequest.swift in Sources */,
+				A1A7F2F72418854D00263E42 /* CalendarType.swift in Sources */,
 				3869543E23BB002900F6E7D9 /* MemberIndexVersionCell.swift in Sources */,
+				A1A7F2EF2418854D00263E42 /* CalendarSelectedYearMonthDays.swift in Sources */,
 				38BCD99C23A363AB00D59910 /* MemberRepositoryProtocol.swift in Sources */,
 				381B12B223C466370030BACE /* NoticeViewController.swift in Sources */,
+				A14F56EA241F708700BF40DA /* AirSearchUrlResponse.swift in Sources */,
 				CCCC735223E42C2700FC03EE /* PasswordModifyProtocol.swift in Sources */,
 				06DA4F8823E92260001B7DF1 /* MessageSendPresenter.swift in Sources */,
 				06DA4F8C23E92260001B7DF1 /* MessageSendTopicCell.swift in Sources */,
+				A1A7F30F2418854D00263E42 /* CalendarDataDestinationViewControllerProtocol.swift in Sources */,
 				384B110623C2BD46000E2B41 /* AirTicketPresenter.swift in Sources */,
 				C7BBF4BB23C7040900023307 /* NoticeDetailProtocol.swift in Sources */,
 				38E9921E23B04CF200E28271 /* GropeTourPresenter.swift in Sources */,
+				A1A7F32C2418DDCC00263E42 /* ChooseCountButton.swift in Sources */,
 				3848DA7B23C7280500EA0ED0 /* NoticeProtocol.swift in Sources */,
 				38BCD9D423A366D500D59910 /* BaseViewController.swift in Sources */,
 				38BCDA1223A3684E00D59910 /* BaseProtocol.swift in Sources */,
 				38BCD98723A3484300D59910 /* UINavigationControllerExtension.swift in Sources */,
+				A1A7F2F52418854D00263E42 /* CalendarConfirmTextType.swift in Sources */,
 				38BCD94023A346B800D59910 /* APIErrorHandleType.swift in Sources */,
+				061CD2AF241F04D800BD0DE1 /* AirTktCell.swift in Sources */,
 				C7DCA71623D1B76200F415B8 /* GroupTourSearchInputCell.swift in Sources */,
 				38E68AB423B5ABE9006BC4DD /* AppHelper.swift in Sources */,
+				A1A7F2ED2418854D00263E42 /* CalendarSingleOrMutipleType.swift in Sources */,
 				38BCDA0D23A367D000D59910 /* LoadingView.swift in Sources */,
 				0650776123ED5E6B0067377C /* ContactInfoProtocol.swift in Sources */,
+				A1A7F2F32418854D00263E42 /* CalendarColorType.swift in Sources */,
 				3848DA7E23C7289A00EA0ED0 /* NoticePresenter.swift in Sources */,
 				38BCD91C23A3457900D59910 /* AccountRepository.swift in Sources */,
 				38AFC40623CD521C00983886 /* SalesPresenter.swift in Sources */,
+				A1876A922415FC9A00855DE6 /* AirTicketSearchProtocol.swift in Sources */,
 				06610FDA240775AC00E87225 /* ExpandableButtonView.swift in Sources */,
 				38BCDA1B23A36AC100D59910 /* TabBarProtocol.swift in Sources */,
 				38BCD9D023A3652200D59910 /* VerifyModel.swift in Sources */,
 				38E68AB723B5AC12006BC4DD /* GroupMenuResponse.swift in Sources */,
+				A1A7F2EB2418854D00263E42 /* CalendarDateAttribute.swift in Sources */,
 				38E9921B23B04CD400E28271 /* GropeTourProtocol.swift in Sources */,
 				A1DB93E124066B8E00AE427C /* WebViewPresenter.swift in Sources */,
+				A10C824D24186CD80092DACA /* LccTicketRequest.swift in Sources */,
 				C711753D23BF407E00555D8C /* MoreProtocol.swift in Sources */,
 				CCCC735623E42C2700FC03EE /* PasswordModifyViewController.swift in Sources */,
 				3848DA8123C72FA600EA0ED0 /* NoticeRepository.swift in Sources */,
@@ -1828,11 +2210,15 @@
 				381B12B523C48D360030BACE /* GroupNavigationView.swift in Sources */,
 				38E9923423B05A0700E28271 /* LoginResponse.swift in Sources */,
 				38E68AA923B5AB80006BC4DD /* GroupSliderViewController.swift in Sources */,
+				062DFCBF2419C1AE006882BE /* ChooseLocationProtocol.swift in Sources */,
 				0650775223ED4F1E0067377C /* ContactInfoViewController.swift in Sources */,
+				06B05CB02416293B00C8F447 /* ChooseLocationViewController.swift in Sources */,
 				38BCD93123A345FA00D59910 /* UserDefaultUtil.swift in Sources */,
 				38BCD98B23A3484300D59910 /* UINavigationBarExtension.swift in Sources */,
 				06DA4F7023E9222F001B7DF1 /* MessageSendUserListResponse.swift in Sources */,
 				38AA455E23D68E0A00BE3F95 /* HomeAd2Cell.swift in Sources */,
+				A1A7F30D2418854D00263E42 /* CalendarForTicketViewController.swift in Sources */,
+				A1A7F3232418882100263E42 /* YearMonthDay.swift in Sources */,
 				38BCD95723A3471600D59910 /* FirebaseAnalyticsManager.swift in Sources */,
 				38BCD99423A3499700D59910 /* Constant.swift in Sources */,
 				06DA4F8623E92260001B7DF1 /* MessageSendViewController.swift in Sources */,
@@ -1840,6 +2226,7 @@
 				38BCD98523A3484300D59910 /* ShareEnum.swift in Sources */,
 				38BCDA1E23A36ADC00D59910 /* TabBarPresenter.swift in Sources */,
 				C7DCA72223D1BBE300F415B8 /* GroupTourSearchPresenter.swift in Sources */,
+				062DFCC22419C4D6006882BE /* ChooseLocationPresenter.swift in Sources */,
 				0626031B23F3E5570026DC59 /* DeviceCell.swift in Sources */,
 				38871EC623D5B50F007ED33D /* HomeAd1View.swift in Sources */,
 				38BCD94423A346B800D59910 /* APIManager.swift in Sources */,
@@ -1850,6 +2237,8 @@
 				382FD59923D7F48F001FF38E /* NewsResponse.swift in Sources */,
 				C70EEF5723EA549200D67FF4 /* BulletinViewController.swift in Sources */,
 				38BCD97923A3484300D59910 /* UIViewExtenstion.swift in Sources */,
+				A1A7F2E92418854D00263E42 /* CalendarSelectedYearMonthDaysString.swift in Sources */,
+				A1A7F3252418882100263E42 /* CustomCalendar.swift in Sources */,
 				C7DA175A23D70245006A8803 /* GroupTourSearchKeywordAndTourCodeRequest.swift in Sources */,
 				38E9922423B04F2A00E28271 /* BulletinResponse.swift in Sources */,
 				381B12AC23C465950030BACE /* MoreViewController.swift in Sources */,
@@ -1860,10 +2249,12 @@
 				38BCD96F23A3484300D59910 /* CAGradientLayerExtension.swift in Sources */,
 				387FBF1323ACD047005412F1 /* CustomTextField.swift in Sources */,
 				38871EBC23D581AA007ED33D /* BannerImageView.swift in Sources */,
+				A1A7F30B2418854D00263E42 /* CalendarDataToBackwardPageViewController.swift in Sources */,
 				38AA456323D6905900BE3F95 /* HomeAd2View.swift in Sources */,
 				38BCDA1523A3689500D59910 /* ColorDef.swift in Sources */,
 				385B54F423BDC3A400BE1476 /* NotificationTableView.swift in Sources */,
 				38E68AAB23B5AB80006BC4DD /* GroupSliderItemCell.swift in Sources */,
+				06B05CA82416287D00C8F447 /* CapsuleCell.swift in Sources */,
 				38BCD92B23A345FA00D59910 /* DeviceUtil.swift in Sources */,
 				3869542B23BADC0F00F6E7D9 /* MemberIndexPresenter.swift in Sources */,
 				38BCD98923A3484300D59910 /* OptionalStringExtension.swift in Sources */,
@@ -1872,6 +2263,7 @@
 				38BCD98323A3484300D59910 /* DateComponentExtension.swift in Sources */,
 				38BCD97123A3484300D59910 /* FirebaseEvent.swift in Sources */,
 				381B12AF23C465AE0030BACE /* AirTicketViewController.swift in Sources */,
+				A1876A952415FCA700855DE6 /* AirTicketSearchPresenter.swift in Sources */,
 				38BCDA1823A3696800D59910 /* WebViewController.swift in Sources */,
 				C78F071923E7F2AD009C1183 /* PopTextViewController.swift in Sources */,
 				38E9923723B06AFA00E28271 /* BasePresenter.swift in Sources */,
@@ -1886,33 +2278,49 @@
 				CCCC735923E42C9600FC03EE /* PasswordModifyRequest.swift in Sources */,
 				CCCC735423E42C2700FC03EE /* PasswordModifyPresenter.swift in Sources */,
 				CCCC735C23E42CDD00FC03EE /* PasswordModifyResponse.swift in Sources */,
+				061CD2B5241F6C9200BD0DE1 /* LocationDetailViewController.swift in Sources */,
 				38BCD98123A3484300D59910 /* UIViewExtension.swift in Sources */,
 				3869542E23BADC9000F6E7D9 /* MemberIndexResponse.swift in Sources */,
 				06DA4F8223E92260001B7DF1 /* MessageSendContentCell.swift in Sources */,
+				A1F6E886241787510015279F /* LccAirCell.swift in Sources */,
 				C7C41C4423C724E900F97057 /* NoticeDetailContentCell.swift in Sources */,
 				A12808A823F7937100287B9F /* PriceRangeSlider.swift in Sources */,
+				06B05CB62416470900C8F447 /* BrickCell.swift in Sources */,
 				38E9922123B04F1400E28271 /* VersionRuleReponse.swift in Sources */,
 				0650776423ED5F300067377C /* ContactInfoPresenter.swift in Sources */,
+				A1A7F2F92418854D00263E42 /* CalendarSelectedDates.swift in Sources */,
+				A1A7F31F2418882100263E42 /* YearMonth.swift in Sources */,
 				38BCD93523A345FA00D59910 /* GTMBase64.m in Sources */,
 				382ADF1923C5D02C00E886B4 /* NoticeResponse.swift in Sources */,
+				A1876A842415D67D00855DE6 /* AirTicketSearchViewController.swift in Sources */,
 				38871EC123D5B061007ED33D /* HomeAd1Cell.swift in Sources */,
 				38BCD9D723A366EC00D59910 /* TabBarViewController.swift in Sources */,
 				C7DA175723D6E5C9006A8803 /* GroupTourSearchKeywordAndTourCodeInputCell.swift in Sources */,
 				C7C623CD23E2C71600A2D8B0 /* GroupTourSearchUrlResponse.swift in Sources */,
 				0650775E23ED55F60067377C /* ContactInfoRepository.swift in Sources */,
+				A1A7F2E72418854D00263E42 /* SelectCalendarManager.swift in Sources */,
 				38BCD98D23A3484300D59910 /* ShareFunc.swift in Sources */,
+				A1876A982415FDCA00855DE6 /* TKTRepository.swift in Sources */,
 				384B110323C2BD33000E2B41 /* AirTicketProtocol.swift in Sources */,
 				387FBF0F23ACCEF4005412F1 /* LoginViewController.swift in Sources */,
 				C7DA175D23D70261006A8803 /* GroupTourSearchRequest.swift in Sources */,
+				A1A7F3032418854D00263E42 /* CalendarDayCollectionViewCell.swift in Sources */,
+				A1A7F31D2418882100263E42 /* CalenderSelectStatus.swift in Sources */,
 				38BCD93323A345FA00D59910 /* FormatUtil.swift in Sources */,
 				3869543223BAE5F500F6E7D9 /* MemberTopCell.swift in Sources */,
+				A1A7F3052418854D00263E42 /* CalendarTableViewCell.swift in Sources */,
 				C77282F723CC505800067EB4 /* GroupTourSearchViewController.swift in Sources */,
 				38BCD97D23A3484300D59910 /* IntExtenstion.swift in Sources */,
 				38E9923A23B0B5DF00E28271 /* BooleanButton.swift in Sources */,
+				A1A7F3012418854D00263E42 /* CalendarViewProtocol.swift in Sources */,
 				38E9922E23B058CA00E28271 /* LoginRequest.swift in Sources */,
 				38BCD97F23A3484300D59910 /* UIFontExtenstion.swift in Sources */,
+				A1A7F3092418854D00263E42 /* CalendarViewControllerProtocol.swift in Sources */,
 				C7E15BF123D18CB0004C20A0 /* CustomPickerView.swift in Sources */,
+				A1A7F32F2418E11100263E42 /* AirPaxViewController.swift in Sources */,
+				A1A7F3072418854D00263E42 /* CalendarView.swift in Sources */,
 				38BCD92F23A345FA00D59910 /* ColorHexUtil.swift in Sources */,
+				A1A7F2F12418854D00263E42 /* CalendarAllAttribute.swift in Sources */,
 				A1E449B5241B168B00895AF6 /* AirPopCityCell.swift in Sources */,
 				C711754023BF40DA00555D8C /* MorePresenter.swift in Sources */,
 				38BCD94623A346B800D59910 /* APIDefine.swift in Sources */,
@@ -1921,16 +2329,21 @@
 				3802A18F23C8520C00CD2EF2 /* SalesViewController.swift in Sources */,
 				38BCDA0323A367D000D59910 /* ApiFailErrorView.swift in Sources */,
 				A1DB93E424066EC500AE427C /* WebViewTourShareResponse.swift in Sources */,
+				06AA65912418E6EA001CDA37 /* SearchEmptyCell.swift in Sources */,
 				C70EEF5A23EA549800D67FF4 /* VersionRuleViewController.swift in Sources */,
+				0655CD30241B6A77006092AB /* SotoTicketRequest.swift in Sources */,
 				38BCDA2F23A37B7100D59910 /* MemberIndexViewController.swift in Sources */,
 				38871EAD23D5553F007ED33D /* IndexResponse.swift in Sources */,
 				A17CFADB241B387C00922CC2 /* AirIndexCell.swift in Sources */,
 				06DA4F7E23E92260001B7DF1 /* MessageSendProtocol.swift in Sources */,
 				38BCD93E23A346B800D59910 /* APIError.swift in Sources */,
+				06AA658B2418E553001CDA37 /* SearchResultCell.swift in Sources */,
 				C7DCA71C23D1BBAB00F415B8 /* GroupTourSearchInitResponse.swift in Sources */,
 				06DA4F6B23E921F8001B7DF1 /* MessageSendRepository.swift in Sources */,
 				3802A19723C8530100CD2EF2 /* SalesResponse.swift in Sources */,
+				0655CD29241B643E006092AB /* TKTInitResponse.swift in Sources */,
 				38BCD95123A3471600D59910 /* FirebaseCrashManager.swift in Sources */,
+				A1F6E88324176BB90015279F /* SotoAirCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1961,6 +2374,7 @@
 				3869543923BAF85900F6E7D9 /* MemberIndexServiceCell.swift in Sources */,
 				38BCD94323A346B800D59910 /* APILoadingHandleType.swift in Sources */,
 				38BCD9CE23A3648B00D59910 /* BaseModelProtocol.swift in Sources */,
+				06468515241F710600104346 /* LocationDetailCell.swift in Sources */,
 				38E9922823B053A200E28271 /* LoginProtocol.swift in Sources */,
 				3802A19C23C8542800CD2EF2 /* SalseInfoCell.swift in Sources */,
 				38BCD97823A3484300D59910 /* NSObjectExtension.swift in Sources */,
@@ -1968,35 +2382,49 @@
 				38871EB123D55D16007ED33D /* GroupTableView.swift in Sources */,
 				A1E449BB241B17B100895AF6 /* AirPopCityView.swift in Sources */,
 				38E68AA823B5AB80006BC4DD /* GroupSlideInTransition.swift in Sources */,
+				A1A7F2E62418854D00263E42 /* SelectCalendarManagerProtocol.swift in Sources */,
 				3869542923BADBFC00F6E7D9 /* MemberIndexProtocol.swift in Sources */,
 				38BCD92E23A345FA00D59910 /* EncryptionUtils.m in Sources */,
+				A1068F4D241625C900710DC4 /* TKTSearchRequest.swift in Sources */,
+				A1A7F2F82418854D00263E42 /* CalendarType.swift in Sources */,
 				3869543F23BB002900F6E7D9 /* MemberIndexVersionCell.swift in Sources */,
+				A1A7F2F02418854D00263E42 /* CalendarSelectedYearMonthDays.swift in Sources */,
 				38BCD99D23A363AB00D59910 /* MemberRepositoryProtocol.swift in Sources */,
 				381B12B323C466370030BACE /* NoticeViewController.swift in Sources */,
+				A14F56EB241F708700BF40DA /* AirSearchUrlResponse.swift in Sources */,
 				CCCC735323E42C2700FC03EE /* PasswordModifyProtocol.swift in Sources */,
 				06DA4F8923E92260001B7DF1 /* MessageSendPresenter.swift in Sources */,
 				06DA4F8D23E92260001B7DF1 /* MessageSendTopicCell.swift in Sources */,
+				A1A7F3102418854D00263E42 /* CalendarDataDestinationViewControllerProtocol.swift in Sources */,
 				384B110723C2BD46000E2B41 /* AirTicketPresenter.swift in Sources */,
 				C7BBF4BC23C7040900023307 /* NoticeDetailProtocol.swift in Sources */,
 				38E9921F23B04CF200E28271 /* GropeTourPresenter.swift in Sources */,
+				A1A7F32D2418DDCC00263E42 /* ChooseCountButton.swift in Sources */,
 				3848DA7C23C7280500EA0ED0 /* NoticeProtocol.swift in Sources */,
 				38BCD9D523A366D500D59910 /* BaseViewController.swift in Sources */,
 				38BCDA1323A3684E00D59910 /* BaseProtocol.swift in Sources */,
 				38BCD98823A3484300D59910 /* UINavigationControllerExtension.swift in Sources */,
+				A1A7F2F62418854D00263E42 /* CalendarConfirmTextType.swift in Sources */,
 				38BCD94123A346B800D59910 /* APIErrorHandleType.swift in Sources */,
+				061CD2B0241F04D800BD0DE1 /* AirTktCell.swift in Sources */,
 				C7DCA71723D1B76200F415B8 /* GroupTourSearchInputCell.swift in Sources */,
 				38E68AB523B5ABE9006BC4DD /* AppHelper.swift in Sources */,
+				A1A7F2EE2418854D00263E42 /* CalendarSingleOrMutipleType.swift in Sources */,
 				38BCDA0E23A367D000D59910 /* LoadingView.swift in Sources */,
 				0650776223ED5E6B0067377C /* ContactInfoProtocol.swift in Sources */,
+				A1A7F2F42418854D00263E42 /* CalendarColorType.swift in Sources */,
 				3848DA7F23C7289A00EA0ED0 /* NoticePresenter.swift in Sources */,
 				38BCD91D23A3457900D59910 /* AccountRepository.swift in Sources */,
 				38AFC40723CD521C00983886 /* SalesPresenter.swift in Sources */,
+				A1876A932415FC9A00855DE6 /* AirTicketSearchProtocol.swift in Sources */,
 				06610FDB240775AC00E87225 /* ExpandableButtonView.swift in Sources */,
 				38BCDA1C23A36AC100D59910 /* TabBarProtocol.swift in Sources */,
 				38BCD9D123A3652200D59910 /* VerifyModel.swift in Sources */,
 				38E68AB823B5AC12006BC4DD /* GroupMenuResponse.swift in Sources */,
+				A1A7F2EC2418854D00263E42 /* CalendarDateAttribute.swift in Sources */,
 				38E9921C23B04CD400E28271 /* GropeTourProtocol.swift in Sources */,
 				A1DB93E224066B8E00AE427C /* WebViewPresenter.swift in Sources */,
+				A10C824E24186CD80092DACA /* LccTicketRequest.swift in Sources */,
 				C711753E23BF407E00555D8C /* MoreProtocol.swift in Sources */,
 				CCCC735723E42C2700FC03EE /* PasswordModifyViewController.swift in Sources */,
 				3848DA8223C72FA600EA0ED0 /* NoticeRepository.swift in Sources */,
@@ -2004,11 +2432,15 @@
 				381B12B623C48D360030BACE /* GroupNavigationView.swift in Sources */,
 				38E9923523B05A0700E28271 /* LoginResponse.swift in Sources */,
 				38E68AAA23B5AB80006BC4DD /* GroupSliderViewController.swift in Sources */,
+				062DFCC02419C1AE006882BE /* ChooseLocationProtocol.swift in Sources */,
 				0650775323ED4F1E0067377C /* ContactInfoViewController.swift in Sources */,
+				06B05CB12416293B00C8F447 /* ChooseLocationViewController.swift in Sources */,
 				38BCD93223A345FA00D59910 /* UserDefaultUtil.swift in Sources */,
 				38BCD98C23A3484300D59910 /* UINavigationBarExtension.swift in Sources */,
 				06DA4F7123E9222F001B7DF1 /* MessageSendUserListResponse.swift in Sources */,
 				38AA455F23D68E0A00BE3F95 /* HomeAd2Cell.swift in Sources */,
+				A1A7F30E2418854D00263E42 /* CalendarForTicketViewController.swift in Sources */,
+				A1A7F3242418882100263E42 /* YearMonthDay.swift in Sources */,
 				38BCD95823A3471600D59910 /* FirebaseAnalyticsManager.swift in Sources */,
 				38BCD99523A3499700D59910 /* Constant.swift in Sources */,
 				06DA4F8723E92260001B7DF1 /* MessageSendViewController.swift in Sources */,
@@ -2016,6 +2448,7 @@
 				38BCD98623A3484300D59910 /* ShareEnum.swift in Sources */,
 				38BCDA1F23A36ADC00D59910 /* TabBarPresenter.swift in Sources */,
 				C7DCA72323D1BBE300F415B8 /* GroupTourSearchPresenter.swift in Sources */,
+				062DFCC32419C4D6006882BE /* ChooseLocationPresenter.swift in Sources */,
 				0626031C23F3E5570026DC59 /* DeviceCell.swift in Sources */,
 				38871EC723D5B50F007ED33D /* HomeAd1View.swift in Sources */,
 				38BCD94523A346B800D59910 /* APIManager.swift in Sources */,
@@ -2026,6 +2459,8 @@
 				382FD59A23D7F48F001FF38E /* NewsResponse.swift in Sources */,
 				C70EEF5823EA549200D67FF4 /* BulletinViewController.swift in Sources */,
 				38BCD97A23A3484300D59910 /* UIViewExtenstion.swift in Sources */,
+				A1A7F2EA2418854D00263E42 /* CalendarSelectedYearMonthDaysString.swift in Sources */,
+				A1A7F3262418882100263E42 /* CustomCalendar.swift in Sources */,
 				C7DA175B23D70245006A8803 /* GroupTourSearchKeywordAndTourCodeRequest.swift in Sources */,
 				38E9922523B04F2A00E28271 /* BulletinResponse.swift in Sources */,
 				381B12AD23C465950030BACE /* MoreViewController.swift in Sources */,
@@ -2036,10 +2471,12 @@
 				38BCD97023A3484300D59910 /* CAGradientLayerExtension.swift in Sources */,
 				387FBF1423ACD047005412F1 /* CustomTextField.swift in Sources */,
 				38871EBD23D581AA007ED33D /* BannerImageView.swift in Sources */,
+				A1A7F30C2418854D00263E42 /* CalendarDataToBackwardPageViewController.swift in Sources */,
 				38AA456423D6905900BE3F95 /* HomeAd2View.swift in Sources */,
 				38BCDA1623A3689500D59910 /* ColorDef.swift in Sources */,
 				385B54F523BDC3A400BE1476 /* NotificationTableView.swift in Sources */,
 				38E68AAC23B5AB80006BC4DD /* GroupSliderItemCell.swift in Sources */,
+				06B05CA92416287D00C8F447 /* CapsuleCell.swift in Sources */,
 				38BCD92C23A345FA00D59910 /* DeviceUtil.swift in Sources */,
 				3869542C23BADC0F00F6E7D9 /* MemberIndexPresenter.swift in Sources */,
 				38BCD98A23A3484300D59910 /* OptionalStringExtension.swift in Sources */,
@@ -2048,6 +2485,7 @@
 				38BCD98423A3484300D59910 /* DateComponentExtension.swift in Sources */,
 				38BCD97223A3484300D59910 /* FirebaseEvent.swift in Sources */,
 				381B12B023C465AE0030BACE /* AirTicketViewController.swift in Sources */,
+				A1876A962415FCA700855DE6 /* AirTicketSearchPresenter.swift in Sources */,
 				38BCDA1923A3696800D59910 /* WebViewController.swift in Sources */,
 				C78F071A23E7F2AD009C1183 /* PopTextViewController.swift in Sources */,
 				38E9923823B06AFA00E28271 /* BasePresenter.swift in Sources */,
@@ -2062,33 +2500,49 @@
 				CCCC735A23E42C9600FC03EE /* PasswordModifyRequest.swift in Sources */,
 				CCCC735523E42C2700FC03EE /* PasswordModifyPresenter.swift in Sources */,
 				CCCC735D23E42CDD00FC03EE /* PasswordModifyResponse.swift in Sources */,
+				061CD2B6241F6C9200BD0DE1 /* LocationDetailViewController.swift in Sources */,
 				38BCD98223A3484300D59910 /* UIViewExtension.swift in Sources */,
 				3869542F23BADC9000F6E7D9 /* MemberIndexResponse.swift in Sources */,
 				06DA4F8323E92260001B7DF1 /* MessageSendContentCell.swift in Sources */,
+				A1F6E887241787510015279F /* LccAirCell.swift in Sources */,
 				C7C41C4523C724E900F97057 /* NoticeDetailContentCell.swift in Sources */,
 				A12808A923F7937100287B9F /* PriceRangeSlider.swift in Sources */,
+				06B05CB72416470900C8F447 /* BrickCell.swift in Sources */,
 				38E9922223B04F1400E28271 /* VersionRuleReponse.swift in Sources */,
 				0650776523ED5F300067377C /* ContactInfoPresenter.swift in Sources */,
+				A1A7F2FA2418854D00263E42 /* CalendarSelectedDates.swift in Sources */,
+				A1A7F3202418882100263E42 /* YearMonth.swift in Sources */,
 				38BCD93623A345FA00D59910 /* GTMBase64.m in Sources */,
 				382ADF1A23C5D02C00E886B4 /* NoticeResponse.swift in Sources */,
+				A1876A852415D67D00855DE6 /* AirTicketSearchViewController.swift in Sources */,
 				38871EC223D5B061007ED33D /* HomeAd1Cell.swift in Sources */,
 				38BCD9D823A366EC00D59910 /* TabBarViewController.swift in Sources */,
 				C7DA175823D6E5C9006A8803 /* GroupTourSearchKeywordAndTourCodeInputCell.swift in Sources */,
 				C7C623CE23E2C71600A2D8B0 /* GroupTourSearchUrlResponse.swift in Sources */,
 				0650775F23ED55F60067377C /* ContactInfoRepository.swift in Sources */,
+				A1A7F2E82418854D00263E42 /* SelectCalendarManager.swift in Sources */,
 				38BCD98E23A3484300D59910 /* ShareFunc.swift in Sources */,
+				A1876A992415FDCA00855DE6 /* TKTRepository.swift in Sources */,
 				384B110423C2BD33000E2B41 /* AirTicketProtocol.swift in Sources */,
 				387FBF1023ACCEF4005412F1 /* LoginViewController.swift in Sources */,
 				C7DA175E23D70261006A8803 /* GroupTourSearchRequest.swift in Sources */,
+				A1A7F3042418854D00263E42 /* CalendarDayCollectionViewCell.swift in Sources */,
+				A1A7F31E2418882100263E42 /* CalenderSelectStatus.swift in Sources */,
 				38BCD93423A345FA00D59910 /* FormatUtil.swift in Sources */,
 				3869543323BAE5F500F6E7D9 /* MemberTopCell.swift in Sources */,
+				A1A7F3062418854D00263E42 /* CalendarTableViewCell.swift in Sources */,
 				C77282F823CC505800067EB4 /* GroupTourSearchViewController.swift in Sources */,
 				38BCD97E23A3484300D59910 /* IntExtenstion.swift in Sources */,
 				38E9923B23B0B5DF00E28271 /* BooleanButton.swift in Sources */,
+				A1A7F3022418854D00263E42 /* CalendarViewProtocol.swift in Sources */,
 				38E9922F23B058CA00E28271 /* LoginRequest.swift in Sources */,
 				38BCD98023A3484300D59910 /* UIFontExtenstion.swift in Sources */,
+				A1A7F30A2418854D00263E42 /* CalendarViewControllerProtocol.swift in Sources */,
 				C7E15BF223D18CB0004C20A0 /* CustomPickerView.swift in Sources */,
+				A1A7F3302418E11100263E42 /* AirPaxViewController.swift in Sources */,
+				A1A7F3082418854D00263E42 /* CalendarView.swift in Sources */,
 				38BCD93023A345FA00D59910 /* ColorHexUtil.swift in Sources */,
+				A1A7F2F22418854D00263E42 /* CalendarAllAttribute.swift in Sources */,
 				A1E449B6241B168B00895AF6 /* AirPopCityCell.swift in Sources */,
 				C711754123BF40DA00555D8C /* MorePresenter.swift in Sources */,
 				38BCD94723A346B800D59910 /* APIDefine.swift in Sources */,
@@ -2097,16 +2551,21 @@
 				3802A19023C8520C00CD2EF2 /* SalesViewController.swift in Sources */,
 				38BCDA0423A367D000D59910 /* ApiFailErrorView.swift in Sources */,
 				A1DB93E524066EC500AE427C /* WebViewTourShareResponse.swift in Sources */,
+				06AA65922418E6EA001CDA37 /* SearchEmptyCell.swift in Sources */,
 				C70EEF5B23EA549800D67FF4 /* VersionRuleViewController.swift in Sources */,
+				0655CD31241B6A77006092AB /* SotoTicketRequest.swift in Sources */,
 				38BCDA3023A37B7100D59910 /* MemberIndexViewController.swift in Sources */,
 				38871EAE23D5553F007ED33D /* IndexResponse.swift in Sources */,
 				A17CFADC241B387C00922CC2 /* AirIndexCell.swift in Sources */,
 				06DA4F7F23E92260001B7DF1 /* MessageSendProtocol.swift in Sources */,
 				38BCD93F23A346B800D59910 /* APIError.swift in Sources */,
+				06AA658C2418E553001CDA37 /* SearchResultCell.swift in Sources */,
 				C7DCA71D23D1BBAB00F415B8 /* GroupTourSearchInitResponse.swift in Sources */,
 				06DA4F6C23E921F8001B7DF1 /* MessageSendRepository.swift in Sources */,
 				3802A19823C8530100CD2EF2 /* SalesResponse.swift in Sources */,
+				0655CD2A241B643E006092AB /* TKTInitResponse.swift in Sources */,
 				38BCD95223A3471600D59910 /* FirebaseCrashManager.swift in Sources */,
+				A1F6E88424176BB90015279F /* SotoAirCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

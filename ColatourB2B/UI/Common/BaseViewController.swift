@@ -14,19 +14,19 @@ extension BaseViewController {
     func setTabBarType(tabBarType: TabBarType) {
         self.tabBarType = tabBarType
     }
-
+    
     //非立即轉變
     func setNavType(navBarType: NavBarType) {
         self.navBarType = navBarType
     }
-
+    
     //非立即轉變
     func setNavBarItem(left: NavLeftType, mid: NavMidType, right: NavRightType) {
         self.navLeftType = left
         self.navMidType = mid
         self.navRightType = right
     }
-
+    
     func setBarAlpha(animate: Bool) {
         switch animate {
         case true:
@@ -41,12 +41,21 @@ extension BaseViewController {
             adjustNavShadow()
         }
     }
-
+    
     func setBarAlpha(alpha: CGFloat, animate: Bool) {
         self.navAlpha = alpha
         setBarAlpha(animate: animate)
     }
-
+    
+    func setSearchBarPlaceHolder(text: String) {
+        self.searchBarPlaceHolder = text
+        self.searchBar.placeholder = searchBarPlaceHolder
+    }
+    
+    func setSearchBarBecomeFirstResponder() {
+        self.searchBar.becomeFirstResponder()
+    }
+    
     func setNavTitle(title: String) {
         self.navTitle = title
         self.adjustNavTitle()
@@ -55,17 +64,17 @@ extension BaseViewController {
     func setNavTitleColor(_ color: UIColor) {
         self.navTitleColor = color
     }
-
+    
     //非立即轉變
     func setIsNavHideWhenSwipe(_ enable: Bool) {
         self.isNavHidesBarsOnSwipe = enable
     }
-
+    
     //非立即轉變
     func setIsNavShadowEnable(_ enable: Bool) {
         self.isNavShadowEnable = enable
     }
-
+    
     func setIsNeedToPopVCWhenLoginClose(_ enable: Bool) {
         self.isNeedToPopVCWhenLoginClose = enable
     }
@@ -74,7 +83,7 @@ extension BaseViewController {
     func setCustomLeftBarButtonItem(barButtonItem : UIBarButtonItem?) {
         self.customLeftBarButtonItem = barButtonItem
     }
-
+    
     //非立即轉變、使用前要setNavType .custom
     func setCustomMidBarButtonItem(view : UIView?) {
         self.customMidBarButtonItem = view
@@ -87,10 +96,10 @@ extension BaseViewController {
     
     func setBarTypeLayoutImmediately() {
         adjustViewAppearance()
-
+        
         adjustBarIsHiddenOrNot()
         adjustNavBarItem()
-
+        
         adjustNavTitle()
         adjustNavTitleColor()
         adjustBarAlpha()
@@ -99,17 +108,20 @@ extension BaseViewController {
         adjustNavHideWhenSwipe()
     }
     
+    func setSource(_ source: String?) {
+        self.source = source
+    }
 }
 
 extension BaseViewController {
     func toast(text: String) {
         self.toastView.toast(text: text)
     }
-
+    
     func addToastViewBottomHeight(height: CGFloat) {
         self.toastView.addToastViewBottomHeight(height)
     }
-
+    
     func resetToastViewBottomHeight() {
         self.toastView.resetToastViewBottomHeight()
     }
@@ -120,37 +132,37 @@ extension BaseViewController {
     func getVC(st: String, vc: String) -> UIViewController {
         let storyboard = UIStoryboard(name: st, bundle: Bundle.main)
         let viewController = storyboard.instantiateViewController(withIdentifier: vc)
-
+        
         return viewController
     }
-
+    
     func safeReload(tableView: UITableView, section: Int) {
         if (tableView.numberOfRows(inSection: section) == 0) {
             //如果Section中row數量為零，不reload
             return
         }
-
+        
         tableView.beginUpdates()
         tableView.reloadSections(NSIndexSet(index: section) as IndexSet, with: .fade)
         tableView.endUpdates()
     }
-
+    
     func safeReload(tableView: UITableView, section: Int, row: Int) {
         if (tableView.numberOfRows(inSection: section) == 0) {
             //如果Section中row數量為零，不reload
             return
         }
-
+        
         if (tableView.numberOfRows(inSection: section) < row + 1) {
             //如果Section中row數量不到row，不reload
             return
         }
-
+        
         tableView.beginUpdates()
         tableView.reloadRows(at: [IndexPath.init(row: row, section: section)], with: .fade)
         tableView.endUpdates()
     }
-
+    
     func safeReload(tableView: UITableView, numberOfSection: Int) {
         if (tableView.numberOfRows(inSection: numberOfSection) == 0) {
             //如果Section中row數量為零，不reload
@@ -158,23 +170,23 @@ extension BaseViewController {
         }
         let range = NSMakeRange(0, numberOfSection)
         let sections = NSIndexSet(indexesIn: range)
-
+        
         tableView.beginUpdates()
         tableView.reloadSections(sections as IndexSet, with: .fade)
         tableView.endUpdates()
     }
-
+    
 }
 
 class BaseViewController: UIViewController {
     
     private var loadingAPICount = 0
-
+    
     let loadingView = LoadingView(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
     let noInternetErrorView = NoInternetErrorView(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
     let apiFailErrorView = ApiFailErrorView(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
     let toastView = ToastView(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
-
+    
     private var tabBarType: TabBarType = .notHidden
     private var navBarType: NavBarType = .notHidden
     private var navLeftType: NavLeftType = .defaultType
@@ -202,18 +214,21 @@ class BaseViewController: UIViewController {
             return UIApplication.shared.value(forKey: "statusBar") as? UIView
         }
     }
-
+    
     private var navAlpha: CGFloat = 1.0
-
+    
     private var navTitle: String = ""
     private var navTitleColor: UIColor = UIColor.init(named: "標題黑")!
+    
+    var searchBar = UISearchBar()
+    private var searchBarPlaceHolder = ""
     
     private var nilButton: UIBarButtonItem?
     
     private var customLeftBarButtonItem : UIBarButtonItem?
     private var customMidBarButtonItem : UIView?
     private var customRightBarButtomItem : UIBarButtonItem?
-
+    
     private var isNeedToPopVCWhenLoginClose = false
     
     private var source: String?
@@ -249,51 +264,53 @@ class BaseViewController: UIViewController {
             return view.bottomAnchor
         }
     }
-
+    
     enum TabBarType {
         case notHidden
         case hidden
     }
-
+    
     enum NavBarType {
         case notHidden
         case hidden
     }
-
+    
     enum NavLeftType {
         case icon
         case defaultType
         case close
         case custom
     }
-
+    
     enum NavMidType {
+        case searchBar
         case textTitle
         case custom
     }
-
+    
     enum NavRightType {
         case nothing
         case custom
         case nothingWithEmptySpace
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-         basePresenter = BasePresenter(delegate: self)
+        basePresenter = BasePresenter(delegate: self)
         setUpLoadingView()
         setUpErrorViews()
         setUpToastView()
+        setUpSearchBar()
         setUpNilButton()
         
         if #available(iOS 13.0, *) {
             overrideUserInterfaceStyle = .light
         }
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
+        
         setBarTypeLayoutImmediately()
     }
     
@@ -305,20 +322,20 @@ class BaseViewController: UIViewController {
         view.bringSubviewToFront(noInternetErrorView)
         view.bringSubviewToFront(toastView)
     }
-
+    
     func adjustViewAppearance() {
         self.navigationController?.navigationBar.accessibilityIdentifier = "navigationBar"
     }
-
+    
     func onApiErrorHandle(apiError: APIError, handleType: APIErrorHandleType) {
         //Note: 務必連動BaseViewController onApiErrorHandle ，除了需要客製化的錯誤
         switch apiError.type {
         case .apiUnauthorizedException:
             AccountRepository.shared.removeLocalApiToken()
-
+            
         case .noInternetException:
             self.handleNoInternetError(handleType: handleType)
-
+            
         case .apiForbiddenException:
             
             basePresenter?.getAccessToken(linkType: baseLinkType, linkValue: baseLinkValue)
@@ -337,20 +354,20 @@ class BaseViewController: UIViewController {
             ()
         }
     }
-
+    
     func onStartLoadingHandle(handleType: APILoadingHandleType) {
         self.loadingAPICount += 1
         self.handleLoading(handleType: handleType)
         self.apiFailErrorView.isHidden = true
     }
-
+    
     func onCompletedLoadingHandle() {
         //TODO 由 presenter 或各自的view控管什麼時候要關
         self.loadingAPICount -= 1
         self.loadingView.isHidden = (self.loadingAPICount == 0) ? true : self.loadingView.isHidden
         self.view.isUserInteractionEnabled = (self.loadingAPICount == 0) ? true : self.view.isUserInteractionEnabled
     }
-
+    
     private func handleLoading(handleType: APILoadingHandleType) {
         switch handleType {
         case .coverPlate:
@@ -388,31 +405,31 @@ class BaseViewController: UIViewController {
             ()
         }
     }
-
+    
     private func setUpLoadingView() {
         self.loadingView.setUpLoadingView()
         self.view.addSubview(loadingView)
     }
-
+    
     private func setUpErrorViews() {
         apiFailErrorView.delegate = self
         apiFailErrorView.setUpApiFailErrorView()
         self.view.addSubview(apiFailErrorView)
-
+        
         noInternetErrorView.delegate = self
         noInternetErrorView.setUpNoInternetErrorView()
         self.view.addSubview(noInternetErrorView)
     }
-
+    
     private func setUpToastView() {
         self.view.addSubview(toastView)
     }
-
+    
     @objc func loadData() {
         self.noInternetErrorView.isHidden = true
         self.apiFailErrorView.isHidden = true
     }
-
+    
     //Note: 注意如果直接使用，要小心設計isNeedToPopVCwhenLoginClose事件
     func logoutAndPopLoginVC(isAllowPaxButtonEnable: Bool = false) {
         let vc = getVC(st: "Login", vc: "LoginViewController") as! LoginViewController
@@ -423,14 +440,14 @@ class BaseViewController: UIViewController {
         nav.restorationIdentifier = "LoginViewControllerNavigationController"
         self.present(nav, animated: true)
     }
-
+    
     func logoutAndPopLoginVC(linkType: LinkType) {
-       
+        
     }
 }
 extension BaseViewController: MemberLoginSuccessViewProtocol {
     func onLoginSuccess(linkType: LinkType, linkValue: String?) {
-         handleLinkType(linkType: linkType, linkValue: linkValue, linkText: nil)
+        handleLinkType(linkType: linkType, linkValue: linkValue, linkText: nil)
     }
     
     @objc func onLoginSuccess() {
@@ -512,7 +529,7 @@ extension BaseViewController {
         case .hidden:
             self.tabBarController?.tabBar.isHidden = true
         }
-
+        
         switch navBarType {
         case .notHidden:
             self.navigationController?.navigationBar.isHidden = false
@@ -520,7 +537,7 @@ extension BaseViewController {
             self.navigationController?.navigationBar.isHidden = true
         }
     }
-
+    
     private func adjustNavBarItem() {
         if (navBarType == .hidden) {
             return
@@ -532,10 +549,10 @@ extension BaseViewController {
             let barButton = UIBarButtonItem(customView: imageV)
             barButton.customView?.frame = CGRect(x: 0, y: 0, width: 36, height: 27)
             self.navigationItem.leftBarButtonItem = barButton
-
+            
         case .defaultType:
             self.navigationItem.leftBarButtonItem = nil
-
+            
             //主要是storyBoard Nav右邊的back要給一個空白
             self.navigationItem.backBarButtonItem = UIBarButtonItem(title: " ", style: .plain, target: nil, action: nil)
             self.navigationItem.backBarButtonItem?.title = " "
@@ -548,8 +565,11 @@ extension BaseViewController {
         case .custom:
             self.navigationItem.leftBarButtonItem = customLeftBarButtonItem
         }
-
+        
         switch navMidType {
+        case .searchBar:
+            self.navigationItem.titleView = searchBar
+            
         case .textTitle:
             self.navigationItem.titleView = nil
             self.adjustNavTitle()
@@ -557,9 +577,9 @@ extension BaseViewController {
         case .custom:
             self.navigationItem.titleView = customMidBarButtonItem
         }
-
+        
         switch navRightType {
-
+            
         case .nothing:
             self.navigationItem.rightBarButtonItem = nilButton
         case .nothingWithEmptySpace:
@@ -568,7 +588,7 @@ extension BaseViewController {
         case .custom:
             self.navigationItem.rightBarButtonItem = customRightBarButtomItem
         }
-
+        
     }
     
     func setIsPageSheetPresenting(isPresentVC:Bool) {
@@ -591,16 +611,16 @@ extension BaseViewController {
             self.navigationController?.navigationBar.tintColor = UIColor.init(named: "通用綠")
             statusBar?.backgroundColor = UIColor.white
             self.navigationController?.navigationBar.barStyle = UIBarStyle.default
-
+            
         case 0.0:
             self.navigationController?.navigationBar.tintColor = UIColor.white
             statusBar?.backgroundColor = UIColor.clear
             self.navigationController?.navigationBar.barStyle = UIBarStyle.black
-
+            
         default: ()
         }
     }
-
+    
     private func adjustNavShadow() {
         if (self.isNavShadowEnable == false) {
             self.navigationController?.navigationBar.setShadow(offset: CGSize(width: 0, height: 0), opacity: 0.0, shadowRadius: 0)
@@ -614,7 +634,7 @@ extension BaseViewController {
         default: ()
         }
     }
-
+    
     private func adjustNavTitle() {
         switch navAlpha {
         case 1.0:
@@ -629,17 +649,26 @@ extension BaseViewController {
         self.navigationController?.navigationBar.titleTextAttributes =
             [.foregroundColor: navTitleColor]
     }
-
+    
     private func adjustNavHideWhenSwipe() {
         self.navigationController?.hidesBarsOnSwipe = isNavHideWhenSwipe
     }
-
+    
+    private func setUpSearchBar() {
+        searchBar.placeholder = searchBarPlaceHolder
+        searchBar.setImage(UIImage(named: "searching"), for: .search, state: .normal)
+        (searchBar.value(forKey: "searchField") as! UITextField).setBorder(width: 0.2, radius: screenWidth / 21.5, color: ColorHexUtil.hexColor(hex: "＃E5E5E5"))
+        (searchBar.value(forKey: "searchField") as! UITextField).clipsToBounds = true
+        (searchBar.value(forKey: "searchField") as! UITextField).backgroundColor = UIColor.init(red: 246, green: 246, blue: 246, a: 1)
+        searchBar.delegate = self
+    }
+    
     private func setUpNilButton() {
         let barButton = UIBarButtonItem(customView: UIView())
         barButton.customView?.frame = CGRect(x: 0, y: 0, width: 40, height: 56)
         self.nilButton = barButton
     }
-
+    
     private func adjustTabBarHeight() {
         if #available(iOS 11.0, *) {
             if self.view.safeAreaInsets.bottom != 0 {
@@ -647,7 +676,7 @@ extension BaseViewController {
             }
         }
     }
-
+    
     //Note: 通常不會需要override，只有在TouchClose需要特別事件的時候
     //Note: EX: B彈出C，點C的close，需要連同Ｂ一起close
     @objc func onTouchNavClose() {
@@ -673,7 +702,7 @@ extension BaseViewController {
             ()
         }
     }
-
+    
     //Note: 除了onApiErrorHandle Function，其他地方盡量不要用到他
     func handleApiFailError(handleType: APIErrorHandleType, alertMsg: String?, isAlertWithContactService: Bool) {
         var msg = alertMsg ?? "系統異常，請稍後再試。"
@@ -682,7 +711,7 @@ extension BaseViewController {
             msg = "系統異常，請稍後再試。";
             title = "系統異常"
         }
-
+        
         switch handleType {
         case .coverPlate:
             self.apiFailErrorView.isHidden = false
@@ -710,6 +739,21 @@ extension BaseViewController {
     }
 }
 
+extension BaseViewController: UISearchBarDelegate {
+    
+    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
+        handleLinkType(linkType: .keyword, linkValue: nil, linkText: nil)
+        return false
+    }
+}
+
+class CustomSearchBar: UISearchBar {
+    
+    override var intrinsicContentSize: CGSize {
+        return CGSize(width: UIView.layoutFittingExpandedSize.width, height: 56.0)
+    }
+}
+
 extension BaseViewController {
     
     func getNotiAccessTokenWithLink(linkType: LinkType, linkValue: String?) {
@@ -719,18 +763,19 @@ extension BaseViewController {
     func handleLinkType(linkType: LinkType, linkValue: String?, linkText: String?, source: String? = nil) {
         handleLinkTypePush(linkType: linkType, linkValue: linkValue, linkText: linkText, paxToken: nil, source: source)
     }
-
+    
     private func handleLinkTypePush(linkType: LinkType, linkValue: String?, linkText: String?, paxToken: String?, source: String?) {
         var vc: UIViewController?
         self.baseLinkType = linkType
         self.baseLinkValue = linkValue
+        
         switch linkType {
         case .openAppWebView:
             if let url = linkValue {
                 if let browserUrl = URL(string: url) {
-                    if browserUrl.scheme == "http"{
+                    if browserUrl.scheme == "http" {
                         UIApplication.shared.open(browserUrl, options: [:], completionHandler: nil)
-                    }else{
+                    } else {
                         vc = getVC(st: "Common", vc: "WebViewController") as! WebViewController
                         (vc as! WebViewController).setVCwith(url: url, title: linkText ?? "")
                         (vc as! WebViewController).setDismissButton()
@@ -742,10 +787,10 @@ extension BaseViewController {
                     }
                 }
             }
+            
         case .openBrowser:
-            guard let url = linkValue else{
-                return
-            }
+            guard let url = linkValue else{ return }
+            
             if let browserUrl = URL(string: url) {
                 UIApplication.shared.open(browserUrl, options: [:], completionHandler: nil)
             }
@@ -759,6 +804,12 @@ extension BaseViewController {
         case .notification:
             self.tabBarController?.selectedIndex = 2
             
+        case .keyword:
+            let vc = getVC(st: "LCCSearchLocation", vc: "LCCSearchLocation") as! ChooseLocationViewController
+            vc.setViewControllerByKeyWord(keyWord: linkValue ?? "")
+            vc.setSource(source)
+            self.navigationController?.pushViewController(vc, animated: true)
+            
         case .salesPage:
             vc = getVC(st: "Sales", vc: "SalesViewController") as! SalesViewController
             
@@ -769,18 +820,16 @@ extension BaseViewController {
             self.basePresenter?.getAccessWebUrl(webUrl: linkValue!, title: linkText ?? "", openBrowserOrAppWebView: .openBrowser)
             
         case .passwordModify:
-            
             let passwordModifyViewController = getVC(st: "PasswordModify", vc: "PasswordModify") as! PasswordModifyViewController
             passwordModifyViewController.delegate = self
             let nav = UINavigationController(rootViewController: passwordModifyViewController)
             nav.modalPresentationStyle = .fullScreen
             self.navigationController?.present(nav, animated: true)
             
-            
         case .updateDate:
             
             ()
-        
+            
         case .groupNoti:
             if self.tabBarController?.viewControllers?[2].restorationIdentifier == "NoticeNavigationController" {
                 if let notiNav = self.tabBarController?.viewControllers?[2] {
@@ -805,19 +854,18 @@ extension BaseViewController {
         case .lccTicket:
             ()
         case .unknown:
-        //Note: doNothing
-        ()
-        }
-        
-        if let v = vc {
-            self.navigationController?.pushViewController(v, animated: true)
+            //Note: doNothing
+            ()
+            
+            if let v = vc {
+                self.navigationController?.pushViewController(v, animated: true)
+            }
         }
     }
-    
 }
 
 extension BaseViewController: PasswordModifyToastProtocol {
-
+    
     func setPasswordModifyToastText(text: String) {
         
         self.toast(text: text)

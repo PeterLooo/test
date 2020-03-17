@@ -354,7 +354,6 @@ extension APIManager {
     }
     
     func getContactInfo() -> Single<[String: Any]> {
-        
         return manager(method: .get, appendUrl: "", url: APIUrl.serviceApi(type: .contactInformation), parameters: nil, appendHeaders: nil)
     }
     
@@ -362,6 +361,28 @@ extension APIManager {
         var appendUrl = ""
         appendUrl = "?Tour_Code=\(tourCode)&Tour_Date=\(tourDate)"
         return manager(method: .get, appendUrl: appendUrl, url: APIUrl.portalApi(type: .tourShare), parameters: nil, appendHeaders: nil)
+    }
+    
+    func getAirSearchInit() -> Single<[String: Any]> {
+        return manager(method: .get, appendUrl: "", url: APIUrl.mainApi(type: .airTktSearchInit), parameters: nil, appendHeaders: nil)
+    }
+    
+    func getSotoSearchInit() -> Single<[String: Any]> {
+        return manager(method: .get, appendUrl: "", url: APIUrl.mainApi(type: .sotoAirSearchInit), parameters: nil, appendHeaders: nil)
+    }
+    
+    func postAirTicketSearch(request:TKTSearchRequest) -> Single<[String: Any]>  {
+        let params = request.getDictionary()
+        return manager(method: .post, appendUrl: "", url: APIUrl.mainApi(type: .airTicketSearchUrl), parameters: params, appendHeaders: nil)
+    }
+    
+    func postSotoTicketSearch(request:SotoTicketRequest) -> Single<[String: Any]>  {
+        let params = request.getDictionary()
+        return manager(method: .post, appendUrl: "", url: APIUrl.mainApi(type: .airTicketSearchUrl), parameters: params, appendHeaders: nil)
+    }
+    
+    func getLccSearchInit() -> Single<[String: Any]> {
+        return AppHelper.shared.getJson(forResource: "TKTSearchInit")
     }
 }
 

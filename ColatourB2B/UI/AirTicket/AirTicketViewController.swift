@@ -199,16 +199,9 @@ class AirTicketViewController: BaseViewController {
     }
     
     @objc private func onTouchSearch(){
-
-        let list = menuList?.serverList
-            .flatMap { $0 }
-            .filter { $0.linkName == "查詢票價表" }
-            .first
+        let vc = getVC(st: "TKTSearch", vc: "AirTicketSearchViewController") as! AirTicketSearchViewController
+        self.navigationController?.pushViewController(vc, animated: true)
         
-        if let searchAirTicket = list {
-            
-            self.handleLinkType(linkType: searchAirTicket.linkType, linkValue: searchAirTicket.linkValue, linkText: searchAirTicket.linkName)
-        }
     }
 }
 
