@@ -30,11 +30,18 @@ class LocationDetailViewController: BaseViewController {
         collectionView.dataSource = self
         
         collectionView.register(UINib(nibName: "LocationDetailCell", bundle: nil), forCellWithReuseIdentifier: "LocationDetailCell")
+        
+        setCollectionViewLayout()
     }
     
     func onBindCountryInfo(countryInfo: TKTInitResponse.TicketResponse.Country) {
         
         self.country = countryInfo
+    }
+    
+    func setCollectionViewLayout(){
+        
+        self.collectionView.setCollectionViewLayout(UICollectionViewFlowLayout(), animated: false)
     }
 }
 
@@ -68,7 +75,7 @@ extension LocationDetailViewController: UICollectionViewDelegate {
     
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         
-        self.collectionView.setCollectionViewLayout(UICollectionViewFlowLayout(), animated: false)
+        setCollectionViewLayout()
     }
 }
 
