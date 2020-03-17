@@ -53,10 +53,16 @@ class TKTSearchRequest: NSObject {
                       "Airline_Id" : airline?.airlineId ?? "",
                       "Origin_Code" : departure?.departureCodeId ?? "",
                       "Destination_Code" : destination?.cityId ?? ""] as [String : Any]
-        params["Return_Code"] = ""
+         
         params["Start_Date"] = startTravelDate ?? ""
         params["End_Date"] = endTravelDate?.endTravelDateId ?? ""
         params["Transit_Mark"] = !isNonStop
+        
+        if journeyType == "雙程" || journeyType == "環遊" {
+            params["Return_Code"] = returnCode?.cityId!
+        }else{
+            params["Return_Code"] = ""
+        }
         
         return params
     }

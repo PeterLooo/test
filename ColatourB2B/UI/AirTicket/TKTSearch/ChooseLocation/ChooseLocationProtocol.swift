@@ -10,7 +10,7 @@ import Foundation
 
 protocol ChooseLocationViewProtocol: BaseViewProtocol {
     
-    func onBindAirTicketInfo(tktSearchInit: TKTInitResponse.TicketResponse, searchType: SearchByType, startEndType: StartEndType)
+    func onBindAirTicketInfo(tktSearchInit: TKTInitResponse.TicketResponse, searchType: SearchByType, startEndType: StartEndType, arrival: ArrivalType?)
     func onBindSearchResult()//result: )
 }
 

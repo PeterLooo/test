@@ -26,7 +26,7 @@ class AirTicketSearchPresenter: AirTicketSearchPresenterProtocol {
             self.delegate?.onBindAirTicketSearchInit(tktSearchInit: model)
             self.delegate?.onCompletedLoadingHandle()
         }, onError: { (error) in
-            self.delegate?.onApiErrorHandle(apiError: error as! APIError, handleType: .custom)
+            self.delegate?.onApiErrorHandle(apiError: error as! APIError, handleType: .coverPlate)
             self.delegate?.onCompletedLoadingHandle()
         }).disposed(by: dispose)
     }
@@ -38,7 +38,7 @@ class AirTicketSearchPresenter: AirTicketSearchPresenterProtocol {
             self.delegate?.onBindSotoAirSearchInit(sotoSearchInit: model)
             self.delegate?.onCompletedLoadingHandle()
         }, onError: { (error) in
-            self.delegate?.onApiErrorHandle(apiError: error as! APIError, handleType: .custom)
+            self.delegate?.onApiErrorHandle(apiError: error as! APIError, handleType: .coverPlate)
             self.delegate?.onCompletedLoadingHandle()
         }).disposed(by: dispose)
     }
@@ -49,7 +49,7 @@ class AirTicketSearchPresenter: AirTicketSearchPresenterProtocol {
             self.delegate?.onBindSearchUrlResult(result: model)
             self.delegate?.onCompletedLoadingHandle()
         }, onError: { (error) in
-            self.delegate?.onApiErrorHandle(apiError: error as! APIError, handleType: .custom)
+            self.delegate?.onApiErrorHandle(apiError: error as! APIError, handleType: .alert)
             self.delegate?.onCompletedLoadingHandle()
         }).disposed(by: dispose)
     }
@@ -60,7 +60,7 @@ class AirTicketSearchPresenter: AirTicketSearchPresenterProtocol {
             self.delegate?.onBindSearchUrlResult(result: model)
             self.delegate?.onCompletedLoadingHandle()
         }, onError: { (error) in
-            self.delegate?.onApiErrorHandle(apiError: error as! APIError, handleType: .custom)
+            self.delegate?.onApiErrorHandle(apiError: error as! APIError, handleType: .alert)
             self.delegate?.onCompletedLoadingHandle()
         }).disposed(by: dispose)
     }

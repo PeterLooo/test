@@ -189,7 +189,6 @@ class AirTicketSearchViewController: BaseViewController {
                 ()
             }
             
-    
         case .id:
             
             shareOptionList = sotoSearchInit?.identityTypeList.map({ ShareOption(optionKey: $0, optionValue: $0) }) ?? []
@@ -558,19 +557,15 @@ extension AirTicketSearchViewController: AirTktCellProtocol {
     
     func onTouchArrival(arrival: ArrivalType, searchType: SearchByType) {
         self.searchType = searchType
-        switch arrival {
-        case .backStartingCity:
-            ()
-        case .departureCity:
-             let vc = getVC(st: "ChooseLocation", vc: "ChooseLocation") as! ChooseLocationViewController
-             vc.onBindAirTicketInfo(tktSearchInit: airSearchInit!, searchType: SearchByType.airTkt, startEndType: StartEndType.Departure)
-             vc.delegate = self
-                    
-            let nav = UINavigationController(rootViewController: vc)
-            nav.modalPresentationStyle = .fullScreen
-                    
-            self.navigationController?.present(nav, animated: true)
-        }
+        let vc = getVC(st: "ChooseLocation", vc: "ChooseLocation") as! ChooseLocationViewController
+        
+        vc.onBindAirTicketInfo(tktSearchInit: airSearchInit!, searchType: .airTkt, startEndType: .Departure, arrival: arrival)
+        vc.delegate = self
+        
+        let nav = UINavigationController(rootViewController: vc)
+        nav.modalPresentationStyle = .fullScreen
+        
+        self.navigationController?.present(nav, animated: true)
     }
     
     func onTouchNonStop(searchType: SearchByType) {
@@ -803,10 +798,15 @@ extension AirTicketSearchViewController {
 }
 
 extension AirTicketSearchViewController: SetChooseLocationProtocol {
-    
-    func setLocation(cityInfo: TKTInitResponse.TicketResponse.City) {
-        airTicketRequest.destination = cityInfo
-        
+    func setLocation(cityInfo: TKTInitResponse.TicketResponse.City, arrival: ArrivalType?) {
+        switch arrival {
+        case .departureCity:
+            airTicketRequest.destination = cityInfo
+        case .backStartingCity:
+            airTicketRequest.returnCode = cityInfo
+        default:
+            ()
+        }
         tableViewGroupAir.reloadData()
     }
 }
