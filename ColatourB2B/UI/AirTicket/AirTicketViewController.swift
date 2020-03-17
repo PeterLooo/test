@@ -202,7 +202,6 @@ class AirTicketViewController: BaseViewController {
         let vc = getVC(st: "TKTSearch", vc: "AirTicketSearchViewController") as! AirTicketSearchViewController
         vc.setVC(searchType: .airTkt)
         self.navigationController?.pushViewController(vc, animated: true)
-        
     }
 }
 

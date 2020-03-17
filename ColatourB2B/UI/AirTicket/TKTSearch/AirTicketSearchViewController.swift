@@ -194,7 +194,6 @@ class AirTicketSearchViewController: BaseViewController {
             }
             
         case .id:
-            
             shareOptionList = sotoSearchInit?.identityTypeList.map({ ShareOption(optionKey: $0, optionValue: $0) }) ?? []
             switch searchType {
             case .airTkt:
@@ -219,7 +218,6 @@ class AirTicketSearchViewController: BaseViewController {
             }
            
         case .sitClass:
-            
             switch searchType {
             case .airTkt:
                 shareOptionList = airSearchInit?.serviceClassList.map({ ShareOption(optionKey: $0.serviceId!, optionValue: $0.serviceName!) }) ?? []
@@ -256,7 +254,6 @@ class AirTicketSearchViewController: BaseViewController {
             }
             
         case .dateRange:
-           
             switch searchType {
             case .airTkt:
                 shareOptionList = airSearchInit?.endTravelDateList.map({ ShareOption(optionKey: $0.endTravelDateId!, optionValue: $0.endTravelDateName!) }) ?? []
@@ -525,11 +522,9 @@ extension AirTicketSearchViewController: CustomPickerViewProtocol{
         case .dateRange:
             switch searchType {
             case .airTkt:
-                
                 let keyValue = airSearchInit?.endTravelDateList.filter{ $0.endTravelDateId == key }.first
                 self.airTicketRequest.endTravelDate = keyValue
             case .soto:
-                
                 let keyValue = sotoSearchInit?.endTravelDateList.filter{ $0.endTravelDateId == key }.first
                 self.sotoTicketRequest.endTravelDate = keyValue
             default:
@@ -547,8 +542,8 @@ extension AirTicketSearchViewController: CustomPickerViewProtocol{
             default:
                 ()
             }
-        case .sotoArrival:
             
+        case .sotoArrival:
             let keyValue = sotoSearchInit?.destinationCodeList.filter{ $0.destinationCodeId == key }.first
             self.sotoTicketRequest.destination = keyValue
             
@@ -584,7 +579,7 @@ extension AirTicketSearchViewController: AirTktCellProtocol {
         self.searchType = searchType
         let vc = getVC(st: "ChooseLocation", vc: "ChooseLocation") as! ChooseLocationViewController
         
-        vc.onBindAirTicketInfo(tktSearchInit: airSearchInit!, searchType: .airTkt, startEndType: .Departure, arrival: arrival)
+        vc.setVC(tktSearchInit: airSearchInit!, searchType: .airTkt, startEndType: .Departure, arrival: arrival)
         vc.delegate = self
         
         let nav = UINavigationController(rootViewController: vc)
@@ -691,7 +686,6 @@ extension AirTicketSearchViewController: LccCellProtocol {
         nav.restorationIdentifier = "HotelCalendarNivagationController"
         
         self.present(nav, animated: true, completion: nil)
-
     }
     
     func onTouchRadio(isToAndFor: Bool) {

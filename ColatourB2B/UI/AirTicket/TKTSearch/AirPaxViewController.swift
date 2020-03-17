@@ -23,16 +23,14 @@ class AirPaxViewController: UIViewController {
     
     private var lccTicketRequest = LccTicketRequest()
     private var bottomButtonTitle: String?
+    private var isFadeInBefore = false
     
     weak var delegate: AirPaxViewControllerProtocol?
-    
-    private var isFadeInBefore = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         bottomButton.setTitle("確認", for: .normal)
-        
         bottomButton.setBorder(width: 1, radius: 4, color: UIColor.init(named: "通用綠")!)
         adultCount.lowLimit = 1
 //        adultCount.setChooseCountButton(count: lccTicketRequest.adultCount, allowSaleMark: true)
@@ -51,7 +49,6 @@ class AirPaxViewController: UIViewController {
     }
     
     func setTextWith(lccTicketRequest: LccTicketRequest){
-        
         self.lccTicketRequest = lccTicketRequest
     }
     
@@ -88,7 +85,6 @@ class AirPaxViewController: UIViewController {
     }
     
     private func layout(){
-       
         cardView.layoutIfNeeded()
         let safeAreaBottom = UIApplication.shared.keyWindow?.safeAreaInsets.bottom ?? 0
         cardViewTop.constant = screenHeight - statusBarHeight - cardView.frame.height - safeAreaBottom
@@ -118,7 +114,7 @@ extension AirPaxViewController: UIScrollViewDelegate {
         if (velocity.y < criticalVelocityY) && (scrollView.contentOffset.y < criticalContentY) {
             dismiss()
         }
-        
+
         //Note: 往上拉，停止時歸位，待確認兩邊都寫才有效果的原因
         if scrollView.contentOffset.y > 0  {
             scrollView.setContentOffset(CGPoint.zero, animated: true)
