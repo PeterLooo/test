@@ -197,7 +197,6 @@ class AirTicketViewController: BaseViewController {
     @objc private func onTouchSearch(){
         let vc = getVC(st: "TKTSearch", vc: "AirTicketSearchViewController") as! AirTicketSearchViewController
         self.navigationController?.pushViewController(vc, animated: true)
-        
     }
 }
 
