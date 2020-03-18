@@ -376,14 +376,6 @@
 		A12808A923F7937100287B9F /* PriceRangeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12808A723F7937100287B9F /* PriceRangeSlider.swift */; };
 		A14F56EA241F708700BF40DA /* AirSearchUrlResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14F56E9241F708700BF40DA /* AirSearchUrlResponse.swift */; };
 		A14F56EB241F708700BF40DA /* AirSearchUrlResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14F56E9241F708700BF40DA /* AirSearchUrlResponse.swift */; };
-		A17CFADB241B387C00922CC2 /* AirIndexCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17CFAD9241B387C00922CC2 /* AirIndexCell.swift */; };
-		A17CFADC241B387C00922CC2 /* AirIndexCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17CFAD9241B387C00922CC2 /* AirIndexCell.swift */; };
-		A17CFADD241B387C00922CC2 /* AirIndexCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A17CFADA241B387C00922CC2 /* AirIndexCell.xib */; };
-		A17CFADE241B387C00922CC2 /* AirIndexCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A17CFADA241B387C00922CC2 /* AirIndexCell.xib */; };
-		A17CFAE0241B396B00922CC2 /* AirIndexView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17CFADF241B396B00922CC2 /* AirIndexView.swift */; };
-		A17CFAE1241B396B00922CC2 /* AirIndexView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17CFADF241B396B00922CC2 /* AirIndexView.swift */; };
-		A17CFAE3241B398A00922CC2 /* AirIndexView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A17CFAE2241B398A00922CC2 /* AirIndexView.xib */; };
-		A17CFAE4241B398A00922CC2 /* AirIndexView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A17CFAE2241B398A00922CC2 /* AirIndexView.xib */; };
 		A1876A842415D67D00855DE6 /* AirTicketSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1876A832415D67D00855DE6 /* AirTicketSearchViewController.swift */; };
 		A1876A852415D67D00855DE6 /* AirTicketSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1876A832415D67D00855DE6 /* AirTicketSearchViewController.swift */; };
 		A1876A8C2415E40300855DE6 /* TKTSearch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1876A8B2415E40300855DE6 /* TKTSearch.storyboard */; };
@@ -452,12 +444,24 @@
 		A1A7F32D2418DDCC00263E42 /* ChooseCountButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A7F3292418DDCC00263E42 /* ChooseCountButton.swift */; };
 		A1A7F32F2418E11100263E42 /* AirPaxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A7F32E2418E11100263E42 /* AirPaxViewController.swift */; };
 		A1A7F3302418E11100263E42 /* AirPaxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A7F32E2418E11100263E42 /* AirPaxViewController.swift */; };
+		A17CFADB241B387C00922CC2 /* AirIndexCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17CFAD9241B387C00922CC2 /* AirIndexCell.swift */; };
+		A17CFADC241B387C00922CC2 /* AirIndexCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17CFAD9241B387C00922CC2 /* AirIndexCell.swift */; };
+		A17CFADD241B387C00922CC2 /* AirIndexCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A17CFADA241B387C00922CC2 /* AirIndexCell.xib */; };
+		A17CFADE241B387C00922CC2 /* AirIndexCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A17CFADA241B387C00922CC2 /* AirIndexCell.xib */; };
+		A17CFAE0241B396B00922CC2 /* AirIndexView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17CFADF241B396B00922CC2 /* AirIndexView.swift */; };
+		A17CFAE1241B396B00922CC2 /* AirIndexView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17CFADF241B396B00922CC2 /* AirIndexView.swift */; };
+		A17CFAE3241B398A00922CC2 /* AirIndexView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A17CFAE2241B398A00922CC2 /* AirIndexView.xib */; };
+		A17CFAE4241B398A00922CC2 /* AirIndexView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A17CFAE2241B398A00922CC2 /* AirIndexView.xib */; };
 		A1DB93DE24066B5D00AE427C /* WebViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DB93DD24066B5D00AE427C /* WebViewProtocol.swift */; };
 		A1DB93DF24066B5D00AE427C /* WebViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DB93DD24066B5D00AE427C /* WebViewProtocol.swift */; };
 		A1DB93E124066B8E00AE427C /* WebViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DB93E024066B8E00AE427C /* WebViewPresenter.swift */; };
 		A1DB93E224066B8E00AE427C /* WebViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DB93E024066B8E00AE427C /* WebViewPresenter.swift */; };
 		A1DB93E424066EC500AE427C /* WebViewTourShareResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DB93E324066EC500AE427C /* WebViewTourShareResponse.swift */; };
 		A1DB93E524066EC500AE427C /* WebViewTourShareResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DB93E324066EC500AE427C /* WebViewTourShareResponse.swift */; };
+		A1F6E88324176BB90015279F /* SotoAirCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F6E88224176BB90015279F /* SotoAirCell.swift */; };
+		A1F6E88424176BB90015279F /* SotoAirCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F6E88224176BB90015279F /* SotoAirCell.swift */; };
+		A1F6E886241787510015279F /* LccAirCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F6E885241787510015279F /* LccAirCell.swift */; };
+		A1F6E887241787510015279F /* LccAirCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F6E885241787510015279F /* LccAirCell.swift */; };
 		A1E449B5241B168B00895AF6 /* AirPopCityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E449B3241B168B00895AF6 /* AirPopCityCell.swift */; };
 		A1E449B6241B168B00895AF6 /* AirPopCityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E449B3241B168B00895AF6 /* AirPopCityCell.swift */; };
 		A1E449B7241B168B00895AF6 /* AirPopCityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1E449B4241B168B00895AF6 /* AirPopCityCell.xib */; };
@@ -466,10 +470,6 @@
 		A1E449BB241B17B100895AF6 /* AirPopCityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E449B9241B17B100895AF6 /* AirPopCityView.swift */; };
 		A1E449BD241B17BE00895AF6 /* AirPopCityView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1E449BC241B17BE00895AF6 /* AirPopCityView.xib */; };
 		A1E449BE241B17BE00895AF6 /* AirPopCityView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1E449BC241B17BE00895AF6 /* AirPopCityView.xib */; };
-		A1F6E88324176BB90015279F /* SotoAirCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F6E88224176BB90015279F /* SotoAirCell.swift */; };
-		A1F6E88424176BB90015279F /* SotoAirCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F6E88224176BB90015279F /* SotoAirCell.swift */; };
-		A1F6E886241787510015279F /* LccAirCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F6E885241787510015279F /* LccAirCell.swift */; };
-		A1F6E887241787510015279F /* LccAirCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F6E885241787510015279F /* LccAirCell.swift */; };
 		C70EEF5023EA545300D67FF4 /* VersionRule.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C70EEF4D23EA545200D67FF4 /* VersionRule.storyboard */; };
 		C70EEF5123EA545300D67FF4 /* VersionRule.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C70EEF4D23EA545200D67FF4 /* VersionRule.storyboard */; };
 		C70EEF5223EA545300D67FF4 /* Bulletin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C70EEF4F23EA545300D67FF4 /* Bulletin.storyboard */; };
@@ -761,10 +761,6 @@
 		A10C824C24186CD80092DACA /* LccTicketRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LccTicketRequest.swift; sourceTree = "<group>"; };
 		A12808A723F7937100287B9F /* PriceRangeSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceRangeSlider.swift; sourceTree = "<group>"; };
 		A14F56E9241F708700BF40DA /* AirSearchUrlResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirSearchUrlResponse.swift; sourceTree = "<group>"; };
-		A17CFAD9241B387C00922CC2 /* AirIndexCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirIndexCell.swift; sourceTree = "<group>"; };
-		A17CFADA241B387C00922CC2 /* AirIndexCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AirIndexCell.xib; sourceTree = "<group>"; };
-		A17CFADF241B396B00922CC2 /* AirIndexView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirIndexView.swift; sourceTree = "<group>"; };
-		A17CFAE2241B398A00922CC2 /* AirIndexView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AirIndexView.xib; sourceTree = "<group>"; };
 		A1876A832415D67D00855DE6 /* AirTicketSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirTicketSearchViewController.swift; sourceTree = "<group>"; };
 		A1876A8B2415E40300855DE6 /* TKTSearch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TKTSearch.storyboard; sourceTree = "<group>"; };
 		A1876A912415FC9A00855DE6 /* AirTicketSearchProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirTicketSearchProtocol.swift; sourceTree = "<group>"; };
@@ -802,12 +798,19 @@
 		A1DB93DD24066B5D00AE427C /* WebViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewProtocol.swift; sourceTree = "<group>"; };
 		A1DB93E024066B8E00AE427C /* WebViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewPresenter.swift; sourceTree = "<group>"; };
 		A1DB93E324066EC500AE427C /* WebViewTourShareResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewTourShareResponse.swift; sourceTree = "<group>"; };
+		A1F6E88224176BB90015279F /* SotoAirCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SotoAirCell.swift; sourceTree = "<group>"; };
+		A1F6E885241787510015279F /* LccAirCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LccAirCell.swift; sourceTree = "<group>"; };
+		A17CFAD9241B387C00922CC2 /* AirIndexCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirIndexCell.swift; sourceTree = "<group>"; };
+		A17CFADA241B387C00922CC2 /* AirIndexCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AirIndexCell.xib; sourceTree = "<group>"; };
+		A17CFADF241B396B00922CC2 /* AirIndexView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirIndexView.swift; sourceTree = "<group>"; };
+		A17CFAE2241B398A00922CC2 /* AirIndexView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AirIndexView.xib; sourceTree = "<group>"; };
+		A1DB93DD24066B5D00AE427C /* WebViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewProtocol.swift; sourceTree = "<group>"; };
+		A1DB93E024066B8E00AE427C /* WebViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewPresenter.swift; sourceTree = "<group>"; };
+		A1DB93E324066EC500AE427C /* WebViewTourShareResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewTourShareResponse.swift; sourceTree = "<group>"; };
 		A1E449B3241B168B00895AF6 /* AirPopCityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirPopCityCell.swift; sourceTree = "<group>"; };
 		A1E449B4241B168B00895AF6 /* AirPopCityCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AirPopCityCell.xib; sourceTree = "<group>"; };
 		A1E449B9241B17B100895AF6 /* AirPopCityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirPopCityView.swift; sourceTree = "<group>"; };
 		A1E449BC241B17BE00895AF6 /* AirPopCityView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AirPopCityView.xib; sourceTree = "<group>"; };
-		A1F6E88224176BB90015279F /* SotoAirCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SotoAirCell.swift; sourceTree = "<group>"; };
-		A1F6E885241787510015279F /* LccAirCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LccAirCell.swift; sourceTree = "<group>"; };
 		A331B185DD2055D277F472F3 /* Pods_ColatourB2B.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ColatourB2B.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B09E7C65A225E6FF958329EA /* Pods-ColatourB2BDev.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ColatourB2BDev.release.xcconfig"; path = "Pods/Target Support Files/Pods-ColatourB2BDev/Pods-ColatourB2BDev.release.xcconfig"; sourceTree = "<group>"; };
 		C70EEF4D23EA545200D67FF4 /* VersionRule.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = VersionRule.storyboard; sourceTree = "<group>"; };
@@ -1992,9 +1995,13 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
+			inputFileListPaths = (
+			);
 			inputPaths = (
 			);
 			name = "Fabrc Run Script";
+			outputFileListPaths = (
+			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2006,9 +2013,13 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
+			inputFileListPaths = (
+			);
 			inputPaths = (
 			);
 			name = "Fabric Run Script";
+			outputFileListPaths = (
+			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2047,7 +2058,6 @@
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
-				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
@@ -2062,7 +2072,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
@@ -2105,7 +2114,6 @@
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
-				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
@@ -2120,7 +2128,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",

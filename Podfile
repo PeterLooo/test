@@ -4,9 +4,9 @@
 use_frameworks!
 
 def colatourb2b_pods
-    pod 'Alamofire', '4.8.2'
-    pod 'RxSwift', '4.4.1'
-    pod 'RxCocoa', '4.4.1'
+    pod 'Alamofire', '4.6.0'
+    pod 'RxSwift', '4.1.0'
+    pod 'RxCocoa', '4.1.0'
     pod 'ReachabilitySwift', '4.1.0'
     pod 'ObjectMapper', '3.3.0'
     pod 'SDWebImage', '5.2.0'

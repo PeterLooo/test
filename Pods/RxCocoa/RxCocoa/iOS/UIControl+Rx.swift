@@ -11,10 +11,6 @@
 import RxSwift
 import UIKit
 
-#if swift(>=4.2)
-    public typealias UIControlEvents = UIControl.Event
-#endif
-
 extension Reactive where Base: UIControl {
     
     /// Bindable sink for `enabled` property.
@@ -43,7 +39,8 @@ extension Reactive where Base: UIControl {
                     return Disposables.create()
                 }
 
-                let controlTarget = ControlTarget(control: control, controlEvents: controlEvents) { _ in
+                let controlTarget = ControlTarget(control: control, controlEvents: controlEvents) {
+                    control in
                     observer.on(.next(()))
                 }
 
@@ -62,7 +59,7 @@ extension Reactive where Base: UIControl {
     public func controlProperty<T>(
         editingEvents: UIControlEvents,
         getter: @escaping (Base) -> T,
-        setter: @escaping (Base, T) -> Void
+        setter: @escaping (Base, T) -> ()
     ) -> ControlProperty<T> {
         let source: Observable<T> = Observable.create { [weak weakControl = base] observer in
                 guard let control = weakControl else {
@@ -87,15 +84,15 @@ extension Reactive where Base: UIControl {
         return ControlProperty<T>(values: source, valueSink: bindingObserver)
     }
 
-    /// This is a separate method to better communicate to public consumers that
+    /// This is a separate method is to better communicate to public consumers that
     /// an `editingEvent` needs to fire for control property to be updated.
     internal func controlPropertyWithDefaultEvents<T>(
         editingEvents: UIControlEvents = [.allEditingEvents, .valueChanged],
         getter: @escaping (Base) -> T,
-        setter: @escaping (Base, T) -> Void
+        setter: @escaping (Base, T) -> ()
         ) -> ControlProperty<T> {
         return controlProperty(
-            editingEvents: editingEvents,
+            editingEvents: [.allEditingEvents, .valueChanged],
             getter: getter,
             setter: setter
         )

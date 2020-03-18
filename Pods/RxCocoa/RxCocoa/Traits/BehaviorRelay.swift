@@ -16,29 +16,29 @@ public final class BehaviorRelay<Element>: ObservableType {
 
     private let _subject: BehaviorSubject<Element>
 
-    /// Accepts `event` and emits it to subscribers
+    // Accepts `event` and emits it to subscribers
     public func accept(_ event: Element) {
-        self._subject.onNext(event)
+        _subject.onNext(event)
     }
 
     /// Current value of behavior subject
     public var value: Element {
         // this try! is ok because subject can't error out or be disposed
-        return try! self._subject.value()
+        return try! _subject.value()
     }
 
-    /// Initializes behavior relay with initial value.
+    /// Initializes variable with initial value.
     public init(value: Element) {
-        self._subject = BehaviorSubject(value: value)
+        _subject = BehaviorSubject(value: value)
     }
 
     /// Subscribes observer
     public func subscribe<O: ObserverType>(_ observer: O) -> Disposable where O.E == E {
-        return self._subject.subscribe(observer)
+        return _subject.subscribe(observer)
     }
 
     /// - returns: Canonical interface for push style sequence
     public func asObservable() -> Observable<Element> {
-        return self._subject.asObservable()
+        return _subject.asObservable()
     }
 }
