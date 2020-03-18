@@ -9,8 +9,8 @@
 import UIKit
 
 protocol LccCellProtocol: NSObjectProtocol {
-    func onTouchRadio(isToAndFor: Bool)
-    func onTouchLccDate()
+    func onTouchRadio(isToAndFor:Bool)
+    func onTouchDate()
     func onTouchAirlineSwitch()
     func onTouchLccRequestByPerson()
     func onTouchPax()
@@ -39,7 +39,7 @@ class LccAirCell: UITableViewCell {
     }
     
     @IBAction func onTouchDate(_ sender: Any) {
-        self.delegate?.onTouchLccDate()
+        self.delegate?.onTouchDate()
     }
     
     @IBAction func onTouchRadioButton(_ sender: UIButton) {
