@@ -83,7 +83,7 @@ PODS:
     - nanopb/encode (= 0.3.901)
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
-  - ObjectMapper (3.3.0)
+  - ObjectMapper (3.5.1)
   - Protobuf (3.9.2)
   - ReachabilitySwift (4.1.0)
   - RxAtomic (4.4.2)
@@ -101,7 +101,7 @@ DEPENDENCIES:
   - FirebaseAnalytics (= 6.0.1)
   - FirebaseMessaging (= 4.0.2)
   - MaterialComponents/TextFields (= 55.1.0)
-  - ObjectMapper (= 3.3.0)
+  - ObjectMapper (= 3.5.1)
   - ReachabilitySwift (= 4.1.0)
   - RxCocoa (= 4.4.1)
   - RxSwift (= 4.4.1)
@@ -152,7 +152,7 @@ SPEC CHECKSUMS:
   MaterialComponents: f4cd3085a673837e7ba4c6cf40d9da2f64566af1
   MDFInternationalization: 010097556d6b09d2c4ea38e0820ea6d37be6a314
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
-  ObjectMapper: b612bf8c8e99c4dc0bb6013a51f7c27966ed5da9
+  ObjectMapper: 70187b8941977c62ccfb423caf6b50be405cabf0
   Protobuf: 67fb42ba613def994e61854de2b3164f13790cc4
   ReachabilitySwift: 6849231cd4e06559f3b9ef4a97a0a0f96d41e09f
   RxAtomic: d00e97c10db88c6f08540e0bf2752fc5a2404167
@@ -160,6 +160,6 @@ SPEC CHECKSUMS:
   RxSwift: 92fcf68dfef21f3e2ab1965363d9e7b3d787597e
   SDWebImage: 609192dcf3898c910a2848032372ead951e66364
 
-PODFILE CHECKSUM: 384e6334e29d7d544ed37d3e666a9398727a5a2f
+PODFILE CHECKSUM: 096be8ff1bb36558997b40f0e57a6452249f541e
 
 COCOAPODS: 1.5.2
