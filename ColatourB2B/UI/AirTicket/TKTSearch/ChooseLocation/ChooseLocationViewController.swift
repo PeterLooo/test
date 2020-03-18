@@ -53,7 +53,7 @@ class ChooseLocationViewController: BaseViewController {
         searchBar.becomeFirstResponder()
         
         setNavBarItem(left: .custom, mid: .searchBar, right: .nothingWithEmptySpace)
-        setSearchBarPlaceHolder(text: "輸入 國家/城市/機場代碼")
+        setSearchBarPlaceHolder(text: "輸入 目的城市/機場代碼")
         setNavCustom()
     
         collectionView.delegate = self
