@@ -428,7 +428,7 @@ class AirTicketSearchViewController: BaseViewController {
         return allowToSearch
     }
     
-    private func openCalender(searchType: SearchByType) {
+    private func openCalendar(searchType: SearchByType) {
         
         let vc = getVC(st: "Calendar", vc: "CalendarForTicketViewController") as! CalendarForTicketViewController
 
@@ -674,7 +674,7 @@ extension AirTicketSearchViewController: AirTktCellProtocol {
     
     func onTouchDate(searchType: SearchByType) {
         self.searchType = searchType
-        openCalender(searchType: searchType)
+        openCalendar(searchType: searchType)
     }
 }
 
@@ -722,7 +722,7 @@ extension AirTicketSearchViewController: LccCellProtocol {
     }
     
     func onTouchLccDate() {
-        openCalender(searchType: .lcc)
+        openCalendar(searchType: .lcc)
     }
     
     func onTouchRadio(isToAndFor: Bool) {
