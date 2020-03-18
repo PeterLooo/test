@@ -30,11 +30,18 @@ class LocationDetailViewController: BaseViewController {
         collectionView.dataSource = self
         
         collectionView.register(UINib(nibName: "LocationDetailCell", bundle: nil), forCellWithReuseIdentifier: "LocationDetailCell")
+        
+        setCollectionViewLayout()
     }
     
     func onBindCountryInfo(countryInfo: TKTInitResponse.TicketResponse.Country) {
         
         self.country = countryInfo
+    }
+    
+    func setCollectionViewLayout(){
+        
+        self.collectionView.setCollectionViewLayout(UICollectionViewFlowLayout(), animated: false)
     }
 }
 
@@ -68,7 +75,7 @@ extension LocationDetailViewController: UICollectionViewDelegate {
     
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         
-        self.collectionView.setCollectionViewLayout(UICollectionViewFlowLayout(), animated: false)
+        setCollectionViewLayout()
     }
 }
 
@@ -81,7 +88,12 @@ extension LocationDetailViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
          
-        return CGSize(width: 155, height: 36)
+        var cellSize = CGSize()
+        
+        cellSize.width = (collectionView.frame.width - 65) / 2
+        cellSize.height = 36
+        
+        return cellSize
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

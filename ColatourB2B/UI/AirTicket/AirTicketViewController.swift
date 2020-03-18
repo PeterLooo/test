@@ -202,7 +202,6 @@ class AirTicketViewController: BaseViewController {
         let vc = getVC(st: "TKTSearch", vc: "AirTicketSearchViewController") as! AirTicketSearchViewController
         vc.setVC(searchType: .airTkt)
         self.navigationController?.pushViewController(vc, animated: true)
-        
     }
 }
 
@@ -313,7 +312,6 @@ extension AirTicketViewController : UITableViewDataSource {
         
         case .BANNER:
             cell = tableView.dequeueReusableCell(withIdentifier: "AirIndexCell") as! AirIndexCell
-            
             (cell as! AirIndexCell).setCell(item: indexList[indexPath.row])
             (cell as! AirIndexCell).delegate = self
         

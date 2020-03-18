@@ -10,7 +10,7 @@ import UIKit
 
 protocol SetChooseLocationProtocol: NSObjectProtocol {
     
-    func setLocation(cityInfo: TKTInitResponse.TicketResponse.City,arrival: ArrivalType?)
+    func setLocation(cityInfo: TKTInitResponse.TicketResponse.City, arrival: ArrivalType?)
 }
 
 class ChooseLocationViewController: BaseViewController {
@@ -65,6 +65,8 @@ class ChooseLocationViewController: BaseViewController {
         collectionView.register(UINib(nibName: "BrickCell", bundle: nil), forCellWithReuseIdentifier: "BrickCell")
         collectionView.register(UINib(nibName: "SearchEmptyCell", bundle: nil), forCellWithReuseIdentifier: "SearchEmptyCell")
         collectionView.register(UINib(nibName: "SearchResultCell", bundle: nil), forCellWithReuseIdentifier: "SearchResultCell")
+        
+        setCollectionViewLayout()
     }
     
     override func loadData() {
@@ -145,28 +147,29 @@ class ChooseLocationViewController: BaseViewController {
 //        lccAirInfo?.countryList.forEach { $0.isSelected = false }
 //        lccAirInfo?.countryList.first?.isSelected = true
     }
-}
-
-extension ChooseLocationViewController: ChooseLocationViewProtocol {
     
-    func onBindAirTicketInfo(tktSearchInit: TKTInitResponse.TicketResponse, searchType: SearchByType, startEndType: StartEndType, arrival: ArrivalType? = nil) {
+    func setVC(tktSearchInit: TKTInitResponse.TicketResponse, searchType: SearchByType, startEndType: StartEndType, arrival: ArrivalType? = nil) {
         
         self.searchType = searchType
         self.startEndType = startEndType
         self.arrival = arrival
+        
         switch searchType {
         case .airTkt:
             airTicketInfo = tktSearchInit
-//            airTicketInfo?.areaList.first?.isSelected = true
+            
         case .soto:
             ()
             
         case .lcc:
             lccAirInfo = tktSearchInit
+            
         }
-        
         infoSort()
     }
+}
+
+extension ChooseLocationViewController: ChooseLocationViewProtocol {
     
     func onBindSearchResult() {
         
@@ -444,7 +447,7 @@ extension ChooseLocationViewController: UICollectionViewDelegateFlowLayout {
             return cellSize
 
         case .Brick:
-            cellSize.width = 155
+            cellSize.width = (collectionView.frame.width - 65) / 2
             cellSize.height = 36
             
             return cellSize
