@@ -427,6 +427,78 @@ class AirTicketSearchViewController: BaseViewController {
         }
         return allowToSearch
     }
+    
+    private func openCalender(searchType: SearchByType) {
+        
+        let vc = getVC(st: "Calendar", vc: "CalendarForTicketViewController") as! CalendarForTicketViewController
+
+        var startDate = Date()
+        let endDate = calendar.date(byAdding: .month, value: 18, to: startDate)!
+        var type: CalendarSingeleOrMutipleType?
+        var selectedDates = CalendarSelectedDates()
+        
+        switch searchType {
+        case .airTkt:
+            type = .single
+            
+            startDate = FormatUtil.convertStringToDate(dateFormatFrom: "yyyy/MM/dd", dateString: airSearchInit!.startTravelDate!)!
+            
+            if let selctedDates = airTicketRequest.startTravelDate {
+                
+                let selectedStartDate = FormatUtil.convertStringToDate(dateFormatFrom: "yyyy/MM/dd", dateString: selctedDates)
+                selectedDates = CalendarSelectedDates(selectedSingleDate: selectedStartDate,
+                                                      selectedStartDate: nil,
+                                                      selectedEndDate: nil)
+            }
+            
+        case .soto:
+            type = .single
+            
+            startDate = FormatUtil.convertStringToDate(dateFormatFrom: "yyyy/MM/dd", dateString: sotoSearchInit!.startTravelDate!)!
+            
+            if let selctedDates = sotoTicketRequest.startTravelDate {
+                
+                let selectedStartDate = FormatUtil.convertStringToDate(dateFormatFrom: "yyyy/MM/dd", dateString: selctedDates)
+                selectedDates = CalendarSelectedDates(selectedSingleDate: selectedStartDate,
+                                                      selectedStartDate: nil,
+                                                      selectedEndDate: nil)
+            }
+            
+        case .lcc:
+            ()
+//            type = lccTicketRequest.isToAndFro ? .mutiple : .single
+//            startDate =
+//            if let selctedDates = lccTicketRequest.startTourDate {
+//                let selectedStartDate = FormatUtil.convertStringToDate(dateFormatFrom: "yyyy/MM/dd", dateString: selctedDates)
+//                let selectedEndDate = FormatUtil.convertStringToDate(dateFormatFrom: "yyyy/MM/dd", dateString: lccTicketRequest.endTourDate!)
+//                selectedDates = CalendarSelectedDates(selectedSingleDate: type == .single ? selectedStartDate : nil, selectedStartDate: type == .single ? nil : selectedStartDate, selectedEndDate: type == .single ? nil : type == .single ? nil : selectedEndDate)
+//            }
+
+        }
+              
+        let calendarType = CalendarType(singleOrMituple: type!,
+                                        isBeforeTodayLimitSelect: true,
+                                        isAcceptLimitDateInMiddle: false,
+                                        confirmTextShowDayOrNight: .nights,
+                                        isAcceptStartDayEqualEndDay: false,
+                                        isEnableTapEvent: true,
+                                        isConfirmButtonHidden: false,
+                                        isDateNoteHiddenWhenDisableDate: true,
+                                        colorDef: CalendarColorForHotel(),
+                                        maxLimitedDays: (false , nil),
+                                        dateNoteAtSelectedStartEndDate: (isEnable: true, startNote: "出發", endNote: "回程"))
+        let calendarDateAttribute = CalendarDateAttribute(startDate: startDate, endDate: endDate, limitDates: [], limitWeekdays: [], dateMemo: [:])
+        let calendarAllAttribute = CalendarAllAttribute(calendarDateAttribute: calendarDateAttribute, calendarType: calendarType, calendarSelectedDates: selectedDates)
+        
+        vc.setVCwith(delegate: self, calendarAllAttribute: calendarAllAttribute)
+        vc.setVCNavBarItem(navMode: .present, navTitle: "選擇日期")
+        vc.setIsPageSheetPresenting(isPresentVC: true)
+        
+        let nav = UINavigationController(rootViewController: vc)
+        nav.restorationIdentifier = "HotelCalendarNivagationController"
+        
+        self.present(nav, animated: true, completion: nil)
+    }
 }
 
 extension AirTicketSearchViewController: AirTicketSearchViewProtocol {
@@ -471,11 +543,9 @@ extension AirTicketSearchViewController: CustomPickerViewProtocol{
         case .id:
             switch searchType {
             case .airTkt:
-                
                 let keyValue = airSearchInit?.identityTypeList.filter{ $0 == key }.first
                 self.airTicketRequest.identityType = keyValue
             case .soto:
-                
                 let keyValue = sotoSearchInit?.identityTypeList.filter{ $0 == key }.first
                 self.sotoTicketRequest.identityType = keyValue
             default:
@@ -500,7 +570,6 @@ extension AirTicketSearchViewController: CustomPickerViewProtocol{
                 let keyValue = airSearchInit?.serviceClassList.filter{ $0.serviceId == key }.first
                 self.airTicketRequest.service = keyValue
             case .soto:
-                
                 let keyValue = sotoSearchInit?.serviceClassList.filter{ $0.serviceId == key }.first
                 self.sotoTicketRequest.service = keyValue
             default:
@@ -602,6 +671,11 @@ extension AirTicketSearchViewController: AirTktCellProtocol {
         tableViewGroupAir.reloadData()
         tableViewSotoAir.reloadData()
     }
+    
+    func onTouchDate(searchType: SearchByType) {
+        self.searchType = searchType
+        openCalender(searchType: searchType)
+    }
 }
 
 extension AirTicketSearchViewController: LccCellProtocol {
@@ -647,45 +721,8 @@ extension AirTicketSearchViewController: LccCellProtocol {
         self.tableViewLCC.reloadData()
     }
     
-    func onTouchDate() {
-        let vc = getVC(st: "Calendar", vc: "CalendarForTicketViewController") as! CalendarForTicketViewController
-        
-        let startDateString = FormatUtil.convertDateToString(dateFormatTo: "yyyy/MM/dd", date: Date())
-        let startDate = FormatUtil.convertStringToDate(dateFormatFrom: "yyyy/MM/dd", dateString: startDateString)!
-        let endDate = calendar.date(byAdding: .month, value: 18, to: startDate)!
-        
-        //let type:CalendarSingeleOrMutipleType = lccTicketRequest.isToAndFro ? .mutiple:.single
-
-        let calendarDateAttribute = CalendarDateAttribute(startDate: startDate, endDate: endDate, limitDates: [], limitWeekdays: [], dateMemo: [:])
-//        let calendarType = CalendarType(singleOrMituple: type
-//            , isBeforeTodayLimitSelect: true
-//            , isAcceptLimitDateInMiddle: false
-//            , confirmTextShowDayOrNight: .nights
-//            , isAcceptStartDayEqualEndDay: false
-//            , isEnableTapEvent: true
-//            , isConfirmButtonHidden: false
-//            , isDateNoteHiddenWhenDisableDate: true
-//            , colorDef: CalendarColorForHotel()
-//            , maxLimitedDays: (false , nil)
-//            , dateNoteAtSelectedStartEndDate: (isEnable: true, startNote: "出發", endNote: "回程")
-//        )
-        
-//        var selectedDates = CalendarSelectedDates()
-//        if let selctedDates = lccTicketRequest.startTourDate {
-//            let selectedStartDate = FormatUtil.convertStringToDate(dateFormatFrom: "yyyy/MM/dd", dateString: selctedDates)
-//            let selectedEndDate = FormatUtil.convertStringToDate(dateFormatFrom: "yyyy/MM/dd", dateString: lccTicketRequest.endTourDate!)
-//            selectedDates = CalendarSelectedDates(selectedSingleDate: type == .single ? selectedStartDate : nil, selectedStartDate: type == .single ? nil : selectedStartDate, selectedEndDate: type == .single ? nil : type == .single ? nil : selectedEndDate)
-//        }
-//
-//        let calendarAllAttribute = CalendarAllAttribute(calendarDateAttribute: calendarDateAttribute, calendarType: calendarType, calendarSelectedDates: selectedDates)
-        
-//        vc.setVCwith(delegate: self,calendarAllAttribute: calendarAllAttribute)
-        vc.setVCNavBarItem(navMode: .present, navTitle: "選擇日期")
-        vc.setIsPageSheetPresenting(isPresentVC: true)
-        let nav = UINavigationController(rootViewController: vc)
-        nav.restorationIdentifier = "HotelCalendarNivagationController"
-        
-        self.present(nav, animated: true, completion: nil)
+    func onTouchLccDate() {
+        openCalender(searchType: .lcc)
     }
     
     func onTouchRadio(isToAndFor: Bool) {
@@ -694,15 +731,31 @@ extension AirTicketSearchViewController: LccCellProtocol {
     }
 }
 
-//extension AirTicketSearchViewController: CalendarDataDestinationViewControllerProtocol{
-//    func setSelectedDate(selectedYearMonthDaysToString: CalendarSelectedYearMonthDaysString) {
-//        lccTicketRequest.startTourDate = lccTicketRequest.isToAndFro ? selectedYearMonthDaysToString.startDayString : selectedYearMonthDaysToString.singleDayString
-//        let defaultStartDate = FormatUtil.convertStringToDate(dateFormatFrom: "yyyy/MM/dd", dateString:lccTicketRequest.startTourDate! )
-//        let defaultMaxDate = Calendar.current.date(byAdding: .day, value: 2, to: defaultStartDate!)
-//        lccTicketRequest.endTourDate = lccTicketRequest.isToAndFro ? selectedYearMonthDaysToString.endDayString: FormatUtil.convertDateToString(dateFormatTo: "yyyy/MM/dd", date: defaultMaxDate!)
-//        tableViewLCC.reloadData()
-//    }
-//}
+extension AirTicketSearchViewController: CalendarDataDestinationViewControllerProtocol{
+    func setSelectedDate(selectedYearMonthDaysToString: CalendarSelectedYearMonthDaysString) {
+        
+        switch searchType {
+        case .airTkt:
+            airTicketRequest.startTravelDate = selectedYearMonthDaysToString.singleDayString
+            tableViewGroupAir.reloadData()
+            
+        case .soto:
+            sotoTicketRequest.startTravelDate = selectedYearMonthDaysToString.singleDayString
+            tableViewSotoAir.reloadData()
+            
+        case .lcc:
+            ()
+//            lccTicketRequest.startTourDate = lccTicketRequest.isToAndFro ? selectedYearMonthDaysToString.startDayString : selectedYearMonthDaysToString.singleDayString
+//            let defaultStartDate = FormatUtil.convertStringToDate(dateFormatFrom: "yyyy/MM/dd", dateString:lccTicketRequest.startTourDate! )
+//            let defaultMaxDate = Calendar.current.date(byAdding: .day, value: 2, to: defaultStartDate!)
+//            lccTicketRequest.endTourDate = lccTicketRequest.isToAndFro ? selectedYearMonthDaysToString.endDayString: FormatUtil.convertDateToString(dateFormatTo: "yyyy/MM/dd", date: defaultMaxDate!)
+//            tableViewLCC.reloadData()
+            
+        default:
+            ()
+        }
+    }
+}
 
 extension AirTicketSearchViewController: AirPaxViewControllerProtocol{
     func onTouchBottomButton(lccTicketRequest: LccTicketRequest) {
@@ -759,9 +812,11 @@ extension AirTicketSearchViewController {
     @IBAction func onTouchGroupAir(_ sender: Any) {
          self.scrollToPage(scrollView: topPageScrollView, page: 0, animated: true)
     }
+    
     @IBAction func onTouchSOTO(_ sender: Any) {
         self.scrollToPage(scrollView: topPageScrollView, page: 1, animated: true)
     }
+    
     @IBAction func onTouchLCC(_ sender: Any) {
         self.scrollToPage(scrollView: topPageScrollView, page: 2, animated: true)
     }
