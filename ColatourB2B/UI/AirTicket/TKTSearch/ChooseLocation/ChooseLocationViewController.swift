@@ -36,7 +36,13 @@ class ChooseLocationViewController: BaseViewController {
     private var airTicketInfo: TKTInitResponse.TicketResponse?
     private var lccAirInfo: TKTInitResponse.TicketResponse?
     private var area: TKTInitResponse.TicketResponse.Area?
-    private var countryList: [TKTInitResponse.TicketResponse.Country]?
+    private var countryList: [TKTInitResponse.TicketResponse.Country]? {
+        didSet{
+            allCitys = (countryList.flatMap{$0.map{$0.cityList}}?.flatMap{$0})!
+        }
+    }
+    private var allCitys: [TKTInitResponse.TicketResponse.City] = []
+    private var resultCitys: [TKTInitResponse.TicketResponse.City] = []
     private var cityList: [TKTInitResponse.TicketResponse.City]?
     private var searchText = ""
     private var arrival: ArrivalType?
@@ -167,6 +173,12 @@ class ChooseLocationViewController: BaseViewController {
         }
         infoSort()
     }
+    
+    func checkSameAirport(){
+        
+        resultCitys = allCitys.filter{($0.cityName?.contains(self.searchText))!}
+        collectionView.reloadData()
+    }
 }
 
 extension ChooseLocationViewController: ChooseLocationViewProtocol {
@@ -189,30 +201,28 @@ extension ChooseLocationViewController: ChooseLocationViewProtocol {
 // UISearchBarDelegate
 extension ChooseLocationViewController {
     
-   override func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
-       return true
-   }
-   
-   func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+    override func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
+        return true
+    }
     
-       if (2 <= searchText.count && searchText.count <= 10) {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        self.searchBar.text = searchText.uppercased()
+        self.searchText = searchText.uppercased()
+        if searchText.count >= 1 {
+            checkSameAirport()
+        }else{
+            self.searchResultList = []
+            self.resultCitys = []
+            self.collectionView.reloadData()
+            
+        }
         
-           self.searchResultText = searchText
-           self.keyWord = searchText
-       } else if (searchText.count == 0) {
-        
-           self.searchResultList = []
-           self.searchResultText = searchText
-       } else if (searchText.count > 10) {
-        
-           self.searchResultText = searchText
-       }
-   }
-   
-   func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+    }
     
-       self.searchBar.endEditing(true)
-   }
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
+        self.searchBar.endEditing(true)
+    }
 }
 
 extension ChooseLocationViewController: CapsuleCellProtocol {
@@ -329,7 +339,7 @@ extension ChooseLocationViewController: UICollectionViewDataSource {
             return 0
             
         case .SearchResult:
-            return 0
+            return resultCitys.count
             
         default:
             return 0
@@ -374,7 +384,7 @@ extension ChooseLocationViewController: UICollectionViewDataSource {
             
         case .SearchResult:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SearchResultCell", for: indexPath) as! SearchResultCell
-            cell.setCellWith(text: "搜尋結果名稱")
+            cell.setCellWith(text: resultCitys[indexPath.row].cityName!)
             
             return cell
 
