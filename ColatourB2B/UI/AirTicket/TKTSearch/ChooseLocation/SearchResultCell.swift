@@ -17,8 +17,11 @@ class SearchResultCell: UICollectionViewCell {
         // Initialization code
     }
 
-    func setCellWith(text: String) {
+    func setCellWith(cityName: String, searchText: String) {
         
-        resultName.text = text
+        let attributedString = NSMutableAttributedString(string: cityName)
+        let theRange = NSString(string: cityName).range(of: searchText)
+        attributedString.addAttribute(NSAttributedString.Key.foregroundColor, value: ColorHexUtil.hexColor(hex: "#19bf62"), range: theRange)
+        resultName.attributedText = attributedString
     }
 }
