@@ -27,7 +27,6 @@ class ChooseLocationViewController: BaseViewController {
     private var presenter: ChooseLocationPresenter?
     required init?(coder: NSCoder) {
            super.init(coder: coder)
-           
            presenter = ChooseLocationPresenter(delegate: self)
        }
     
@@ -36,21 +35,14 @@ class ChooseLocationViewController: BaseViewController {
     private var airTicketInfo: TKTInitResponse.TicketResponse?
     private var lccAirInfo: TKTInitResponse.TicketResponse?
     private var area: TKTInitResponse.TicketResponse.Area?
-    private var countryList: [TKTInitResponse.TicketResponse.Country]? {
-        didSet{
-            allCitys = (countryList.flatMap{$0.map{$0.cityList}}?.flatMap{$0})!
-        }
-    }
-    private var allCitys: [TKTInitResponse.TicketResponse.City] = []
-    private var resultCitys: [TKTInitResponse.TicketResponse.City] = []
+    private var countryList: [TKTInitResponse.TicketResponse.Country]?
     private var cityList: [TKTInitResponse.TicketResponse.City]?
-    private var searchText = ""
     private var arrival: ArrivalType?
-    @IBOutlet weak var collectionView: UICollectionView!
     
-    var keyWord = ""
-    var searchResultText:String?
-    var searchResultList: [String] = []
+    @IBOutlet weak var collectionView: UICollectionView!
+
+    var searchText = ""
+    var searchResultList: [LocationKeywordSearchResponse.City] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,18 +67,6 @@ class ChooseLocationViewController: BaseViewController {
         setCollectionViewLayout()
     }
     
-    override func loadData() {
-        
-        self.searchResultText = self.keyWord
-        
-        if self.searchResultText != nil {
-            
-            self.searchBar.text = self.searchResultText
-            searchBar((self.searchBar), textDidChange: self.searchResultText!)
-        }
-        presenter?.getSearchResult()
-    }
-    
     @objc func dimissKeyBoard(){
         
         self.searchBar.endEditing(true)
@@ -106,11 +86,6 @@ class ChooseLocationViewController: BaseViewController {
     func textSize(text: String, font: UIFont, maxSize: CGSize) -> CGSize {
         
         return text.boundingRect(with: maxSize, options: [.usesLineFragmentOrigin], attributes: [NSAttributedString.Key.font : font], context: nil).size
-    }
-    
-    func setViewControllerByKeyWord(keyWord: String){
-        
-        self.keyWord = keyWord
     }
     
     @objc func setCollectionViewLayout(){
@@ -173,29 +148,19 @@ class ChooseLocationViewController: BaseViewController {
         }
         infoSort()
     }
-    
-    func checkSameAirport(){
-        
-        resultCitys = allCitys.filter{($0.cityName?.contains(self.searchText))!}
-        collectionView.reloadData()
-    }
 }
 
 extension ChooseLocationViewController: ChooseLocationViewProtocol {
     
-    func onBindSearchResult() {
+    func onBindSearchResult(result: LocationKeywordSearchResponse) {
         
-        ()
+        if self.searchText == "" { return }
+        
+        searchResultList = result.keywordResultData?.cityList ?? []
+        
+        collectionView.reloadData()
+        setCollectionViewLayout()
     }
-//            (result: ) {
-//
-//            if self.searchText == "" { return }
-//
-//            self.searchResultList = result.
-//
-//            collectionView.reloadData()
-//            setCollectionViewLayout()
-//        }
 }
 
 // UISearchBarDelegate
@@ -206,17 +171,18 @@ extension ChooseLocationViewController {
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
         self.searchBar.text = searchText.uppercased()
         self.searchText = searchText.uppercased()
-        if searchText.count >= 1 {
-            checkSameAirport()
-        }else{
-            self.searchResultList = []
-            self.resultCitys = []
-            self.collectionView.reloadData()
-            
-        }
         
+        if searchText.count >= 1 {
+            
+            presenter?.getSearchResult(keyword: self.searchText)
+        } else {
+            
+            searchResultList = []
+            collectionView.reloadData()
+        }
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -306,20 +272,20 @@ extension ChooseLocationViewController: UICollectionViewDataSource {
         
         switch Section(rawValue: section) {
         case .Capsule:
-            
+            if searchText.count != 0 { return 0 }
             switch searchType {
             case .airTkt:
                 return airTicketInfo?.areaList.count ?? 0
                 
             case .lcc:
                 return 0 //lccAirInfo?.countryList.count ?? 0
- 
+                
             default:
                 return 0
             }
             
         case .Brick:
-            
+            if searchText.count != 0 { return 0 }
             switch searchType {
             case .airTkt:
                 area = airTicketInfo?.areaList.filter{ $0.isSelected == true }.first
@@ -327,8 +293,8 @@ extension ChooseLocationViewController: UICollectionViewDataSource {
                 return countryList?.count ?? 0
                 
             case .lcc:
-//                let country = lccAirInfo?.countryList.filter { $0.isSelected == true }.first
-//                return country?.airportList?.count ?? 0
+                // let country = lccAirInfo?.countryList.filter { $0.isSelected == true }.first
+                // return country?.airportList?.count ?? 0
                 return 0
                 
             default:
@@ -336,10 +302,11 @@ extension ChooseLocationViewController: UICollectionViewDataSource {
             }
             
         case .SearchEmpty:
+            if searchText.count != 0 && searchResultList.count == 0 { return 1 }
             return 0
             
         case .SearchResult:
-            return resultCitys.count
+            return searchResultList.count
             
         default:
             return 0
@@ -362,7 +329,6 @@ extension ChooseLocationViewController: UICollectionViewDataSource {
             
             switch searchType {
             case .airTkt:
-                
                 cell.setCellWithCountry(countryInfo: (countryList?[indexPath.row])!, searchType: searchType!)
                 
                 return cell
@@ -384,7 +350,7 @@ extension ChooseLocationViewController: UICollectionViewDataSource {
             
         case .SearchResult:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SearchResultCell", for: indexPath) as! SearchResultCell
-            cell.setCellWith(text: resultCitys[indexPath.row].cityName!)
+            cell.setCellWith(cityName: (searchResultList[indexPath.row].cityName)!, searchText: searchText)
             
             return cell
 
@@ -408,19 +374,22 @@ extension ChooseLocationViewController: UICollectionViewDelegate {
 extension ChooseLocationViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        
-        // 搜尋之後要記得重新給UIEdgeInsets
+    
         switch Section(rawValue: section) {
         case .Capsule:
+            if searchText.count != 0 { return .zero }
             return UIEdgeInsets(top: 12, left: 16, bottom: 12, right: 16)
             
+            
         case .Brick:
+            if searchText.count != 0 { return .zero }
             return UIEdgeInsets(top: 4, left: 16, bottom: 4, right: 16)
             
         case .SearchEmpty:
             return .zero
             
         case .SearchResult:
+            if searchResultList.count == 0 { return .zero }
             return UIEdgeInsets(top: 16, left: 0, bottom: 16, right: 0)
             
         default:
