@@ -806,8 +806,6 @@ extension BaseViewController {
             
         case .keyword:
             let vc = getVC(st: "LCCSearchLocation", vc: "LCCSearchLocation") as! ChooseLocationViewController
-            vc.setViewControllerByKeyWord(keyWord: linkValue ?? "")
-            vc.setSource(source)
             self.navigationController?.pushViewController(vc, animated: true)
             
         case .salesPage:
