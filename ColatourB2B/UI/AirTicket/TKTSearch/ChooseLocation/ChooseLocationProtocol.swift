@@ -10,10 +10,10 @@ import Foundation
 
 protocol ChooseLocationViewProtocol: BaseViewProtocol {
     
-    func onBindSearchResult()//result: )
+    func onBindSearchResult(result: LocationKeywordSearchResponse)
 }
 
 protocol ChooseLocationPresenterProtocol: BasePresenterProtocol {
     
-    func getSearchResult()
+    func getSearchResult(keyword: String)
 }
