@@ -375,7 +375,7 @@ class AirTicketSearchViewController: BaseViewController {
         super.loadData()
         presenter?.getAirTicketSearchInit()
         presenter?.getSotoAirSearchInit()
-        //presenter?.getLccAirSearchInit()
+        presenter?.getLccAirSearchInit()
     }
 
     private func setUpTopPageScrollView(){
