@@ -40,11 +40,13 @@ enum StartEndType {
     case Departure
     case Destination
 }
+
 extension AirTicketSearchViewController {
     func setVC(searchType: SearchByType){
         self.searchType = searchType
     }
 }
+
 class AirTicketSearchViewController: BaseViewController {
     
     @IBOutlet weak var topPageScrollView: UIScrollView!
@@ -872,6 +874,20 @@ extension AirTicketSearchViewController: SetChooseLocationProtocol {
             airTicketRequest.destination = cityInfo
         case .backStartingCity:
             airTicketRequest.returnCode = cityInfo
+        default:
+            ()
+        }
+        tableViewGroupAir.reloadData()
+    }
+    
+    func setLocation(cityInfo: LocationKeywordSearchResponse.City, arrival: ArrivalType?) {
+        switch arrival {
+        case .departureCity:
+            airTicketRequest.destination?.cityId = cityInfo.cityId
+            airTicketRequest.destination?.cityName = cityInfo.cityName
+        case .backStartingCity:
+            airTicketRequest.returnCode?.cityId = cityInfo.cityId
+            airTicketRequest.returnCode?.cityName = cityInfo.cityName
         default:
             ()
         }

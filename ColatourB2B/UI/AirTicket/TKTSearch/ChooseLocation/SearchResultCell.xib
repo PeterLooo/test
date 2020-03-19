@@ -11,14 +11,15 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SearchResultCell" id="gTV-IL-0wX" customClass="SearchResultCell" customModule="ColatourB2B" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="302" height="35"/>
+            <rect key="frame" x="0.0" y="0.0" width="302" height="26"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="302" height="35"/>
+                <rect key="frame" x="0.0" y="0.0" width="302" height="26"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F0N-qc-0pp">
-                        <rect key="frame" x="24" y="7.5" width="36" height="20"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F0N-qc-0pp">
+                        <rect key="frame" x="0.0" y="0.0" width="302" height="26"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="14"/>
                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
@@ -27,15 +28,17 @@
             </view>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="F0N-qc-0pp" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="24" id="ciQ-yb-DRO"/>
-                <constraint firstItem="F0N-qc-0pp" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="sGi-xk-ZkV"/>
+                <constraint firstItem="F0N-qc-0pp" firstAttribute="bottom" secondItem="gTV-IL-0wX" secondAttribute="bottom" id="BOL-4J-Aai"/>
+                <constraint firstItem="F0N-qc-0pp" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="aej-3Y-OQE"/>
+                <constraint firstItem="F0N-qc-0pp" firstAttribute="trailing" secondItem="gTV-IL-0wX" secondAttribute="trailing" id="amR-wl-rMw"/>
+                <constraint firstItem="F0N-qc-0pp" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="ciQ-yb-DRO"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
-            <size key="customSize" width="302" height="35"/>
+            <size key="customSize" width="302" height="26"/>
             <connections>
                 <outlet property="resultName" destination="F0N-qc-0pp" id="HYq-Gz-API"/>
             </connections>
-            <point key="canvasLocation" x="40.579710144927539" y="102.79017857142857"/>
+            <point key="canvasLocation" x="40.579710144927539" y="99.776785714285708"/>
         </collectionViewCell>
     </objects>
 </document>

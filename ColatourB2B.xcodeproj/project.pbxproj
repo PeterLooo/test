@@ -27,6 +27,8 @@
 		06468515241F710600104346 /* LocationDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06468512241F710600104346 /* LocationDetailCell.swift */; };
 		06468516241F710600104346 /* LocationDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06468513241F710600104346 /* LocationDetailCell.xib */; };
 		06468517241F710600104346 /* LocationDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06468513241F710600104346 /* LocationDetailCell.xib */; };
+		064DE9102421FA8B005D7A83 /* LocationKeywordSearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064DE90F2421FA8B005D7A83 /* LocationKeywordSearchResponse.swift */; };
+		064DE9112421FA8B005D7A83 /* LocationKeywordSearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064DE90F2421FA8B005D7A83 /* LocationKeywordSearchResponse.swift */; };
 		0650774F23ED4EE70067377C /* ContactInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0650774E23ED4EE70067377C /* ContactInfo.storyboard */; };
 		0650775023ED4EE70067377C /* ContactInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0650774E23ED4EE70067377C /* ContactInfo.storyboard */; };
 		0650775223ED4F1E0067377C /* ContactInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0650775123ED4F1E0067377C /* ContactInfoViewController.swift */; };
@@ -570,6 +572,7 @@
 		062DFCC12419C4D6006882BE /* ChooseLocationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseLocationPresenter.swift; sourceTree = "<group>"; };
 		06468512241F710600104346 /* LocationDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailCell.swift; sourceTree = "<group>"; };
 		06468513241F710600104346 /* LocationDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationDetailCell.xib; sourceTree = "<group>"; };
+		064DE90F2421FA8B005D7A83 /* LocationKeywordSearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationKeywordSearchResponse.swift; sourceTree = "<group>"; };
 		0650774E23ED4EE70067377C /* ContactInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ContactInfo.storyboard; sourceTree = "<group>"; };
 		0650775123ED4F1E0067377C /* ContactInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactInfoViewController.swift; sourceTree = "<group>"; };
 		0650775423ED4FD50067377C /* ContactInfoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactInfoResponse.swift; sourceTree = "<group>"; };
@@ -1467,6 +1470,7 @@
 			children = (
 				0655CD28241B643E006092AB /* TKTInitResponse.swift */,
 				A14F56E9241F708700BF40DA /* AirSearchUrlResponse.swift */,
+				064DE90F2421FA8B005D7A83 /* LocationKeywordSearchResponse.swift */,
 				A142DF57242321DC003D103E /* LccResponse.swift */,
 			);
 			path = TKT;
@@ -2308,6 +2312,7 @@
 				C7DA175D23D70261006A8803 /* GroupTourSearchRequest.swift in Sources */,
 				A1A7F3032418854D00263E42 /* CalendarDayCollectionViewCell.swift in Sources */,
 				A1A7F31D2418882100263E42 /* CalenderSelectStatus.swift in Sources */,
+				064DE9102421FA8B005D7A83 /* LocationKeywordSearchResponse.swift in Sources */,
 				38BCD93323A345FA00D59910 /* FormatUtil.swift in Sources */,
 				3869543223BAE5F500F6E7D9 /* MemberTopCell.swift in Sources */,
 				A1A7F3052418854D00263E42 /* CalendarTableViewCell.swift in Sources */,
@@ -2531,6 +2536,7 @@
 				C7DA175E23D70261006A8803 /* GroupTourSearchRequest.swift in Sources */,
 				A1A7F3042418854D00263E42 /* CalendarDayCollectionViewCell.swift in Sources */,
 				A1A7F31E2418882100263E42 /* CalenderSelectStatus.swift in Sources */,
+				064DE9112421FA8B005D7A83 /* LocationKeywordSearchResponse.swift in Sources */,
 				38BCD93423A345FA00D59910 /* FormatUtil.swift in Sources */,
 				3869543323BAE5F500F6E7D9 /* MemberTopCell.swift in Sources */,
 				A1A7F3062418854D00263E42 /* CalendarTableViewCell.swift in Sources */,

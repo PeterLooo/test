@@ -41,17 +41,30 @@ class TKTRepository: NSObject {
     }
     
     func postAirTicketSearch(request: TKTSearchRequest) -> Single<AirSearchUrlResponse> {
+        
         let api = APIManager.shared.postAirTicketSearch(request: request)
+        
         return AccountRepository.shared.getAccessToken()
-        .flatMap { _ in api }
-        .map{ AirSearchUrlResponse(JSON: $0)! }
+            .flatMap { _ in api }
+            .map{ AirSearchUrlResponse(JSON: $0)! }
     }
     
     func postSotoTicketSearch(request: SotoTicketRequest) -> Single<AirSearchUrlResponse> {
+        
         let api = APIManager.shared.postSotoTicketSearch(request: request)
+        
         return AccountRepository.shared.getAccessToken()
-        .flatMap { _ in api }
-        .map{ AirSearchUrlResponse(JSON: $0)! }
+            .flatMap { _ in api }
+            .map{ AirSearchUrlResponse(JSON: $0)! }
+    }
+    
+    func getLocationKeywordSearchResult(keyword: String) -> Single<LocationKeywordSearchResponse> {
+        
+        let api = APIManager.shared.getLocationKeywordSearchResult(keyword: keyword)
+        
+        return AccountRepository.shared.getAccessToken()
+            .flatMap { _ in api }
+            .map{ LocationKeywordSearchResponse(JSON: $0)! }
     }
     
     func postLCCicketSearch(request: LccTicketRequest) -> Single<AirSearchUrlResponse> {
