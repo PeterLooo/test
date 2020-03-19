@@ -62,7 +62,7 @@ class AirTicketSearchViewController: BaseViewController {
     private var presenter: AirTicketSearchPresenterProtocol?
     private var airSearchInit: TKTInitResponse.TicketResponse?
     private var sotoSearchInit: TKTInitResponse.TicketResponse?
-    private var lccSearchInit: TKTInitResponse.TicketResponse?
+    private var lccSearchInit: LccResponse.LCCSearchInitialData?
     private var airTicketRequest = TKTSearchRequest()
     private var sotoTicketRequest = SotoTicketRequest()
     private var lccTicketRequest = LccTicketRequest()
@@ -144,10 +144,10 @@ class AirTicketSearchViewController: BaseViewController {
         
         toolBarOnPickerView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         toolBarOnPickerView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        
+
         pickerViewTop = toolBarOnPickerView.topAnchor.constraint(equalTo: view.bottomAnchor)
         pickerViewTop.isActive = true
-        
+    
         pickerView.topAnchor.constraint(equalTo: toolBarOnPickerView.bottomAnchor, constant: 0).isActive = true
     }
     
@@ -160,13 +160,12 @@ class AirTicketSearchViewController: BaseViewController {
         
         toolBarOnDatePicker.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         toolBarOnDatePicker.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        
+
         datePickerTop = toolBarOnDatePicker.topAnchor.constraint(equalTo: view.bottomAnchor)
         datePickerTop.isActive = true
         
         datePicker.topAnchor.constraint(equalTo: toolBarOnDatePicker.bottomAnchor, constant: 0).isActive = true
     }
-    
     private var touchInputField: TKTInputFieldType? {
         didSet {
             reloadPickerViewAndDatePicker(inputFieldType: touchInputField)
@@ -178,7 +177,7 @@ class AirTicketSearchViewController: BaseViewController {
         var shareOptionList: [ShareOption] = []
         var selectedKey: String?
         let textAlign: NSTextAlignment = .center
-        
+       
         switch inputFieldType {
         case .startTourDate:
             switch searchType {
@@ -210,15 +209,16 @@ class AirTicketSearchViewController: BaseViewController {
         case .departureCity:
             switch searchType {
             case .airTkt:
+                 
                 shareOptionList = airSearchInit?.departureCodeList.map({ ShareOption(optionKey: $0.departureCodeId!, optionValue: $0.departureCodeName!) }) ?? []
-                selectedKey = airTicketRequest.departure?.departureCodeId
+                 selectedKey = airTicketRequest.departure?.departureCodeId
             case .soto:
-                shareOptionList = sotoSearchInit?.departureCodeList.map({ ShareOption(optionKey: $0.departureCodeId!, optionValue: $0.departureCodeName!) }) ?? []
-                selectedKey = sotoTicketRequest.departure?.departureCodeId
+                  shareOptionList = sotoSearchInit?.departureCodeList.map({ ShareOption(optionKey: $0.departureCodeId!, optionValue: $0.departureCodeName!) }) ?? []
+                 selectedKey = sotoTicketRequest.departure?.departureCodeId
             default:
                 ()
             }
-            
+           
         case .sitClass:
             switch searchType {
             case .airTkt:
@@ -235,10 +235,10 @@ class AirTicketSearchViewController: BaseViewController {
             switch searchType {
             case .airTkt:
                 shareOptionList = airSearchInit?.airlineList.map({ ShareOption(optionKey: $0.airlineId!, optionValue: $0.airlineName!) }) ?? []
-                selectedKey = airTicketRequest.airline?.airlineId
+                 selectedKey = airTicketRequest.airline?.airlineId
             case .soto:
-                shareOptionList = sotoSearchInit?.airlineList.map({ ShareOption(optionKey: $0.airlineId!, optionValue: $0.airlineName!) }) ?? []
-                selectedKey = sotoTicketRequest.airline?.airlineId
+                 shareOptionList = sotoSearchInit?.airlineList.map({ ShareOption(optionKey: $0.airlineId!, optionValue: $0.airlineName!) }) ?? []
+                 selectedKey = sotoTicketRequest.airline?.airlineId
             default:
                 ()
             }
@@ -246,11 +246,11 @@ class AirTicketSearchViewController: BaseViewController {
         case .tourType:
             switch searchType {
             case .airTkt:
-                shareOptionList = airSearchInit?.journeyTypeList.map({ ShareOption(optionKey: $0, optionValue: $0) }) ?? []
-                selectedKey = airTicketRequest.journeyType
+                 shareOptionList = airSearchInit?.journeyTypeList.map({ ShareOption(optionKey: $0, optionValue: $0) }) ?? []
+                 selectedKey = airTicketRequest.journeyType
             case .soto:
-                shareOptionList = sotoSearchInit?.journeyTypeList.map({ ShareOption(optionKey: $0, optionValue: $0) }) ?? []
-                selectedKey = sotoTicketRequest.journeyType
+                 shareOptionList = sotoSearchInit?.journeyTypeList.map({ ShareOption(optionKey: $0, optionValue: $0) }) ?? []
+                 selectedKey = sotoTicketRequest.journeyType
             default:
                 ()
             }
@@ -269,12 +269,11 @@ class AirTicketSearchViewController: BaseViewController {
             
         case nil:
             ()
-            
+        
         case .sotoArrival:
             shareOptionList = sotoSearchInit?.destinationCodeList.map({ ShareOption(optionKey: $0.destinationCodeId!, optionValue: $0.destinationCodeId!) }) ?? []
             selectedKey = sotoTicketRequest.destination?.destinationCodeId
         }
-        
         pickerView.setOptionList(optionList: shareOptionList)
         pickerView.textAlign = textAlign
         pickerView.reloadAllComponents()
@@ -347,18 +346,17 @@ class AirTicketSearchViewController: BaseViewController {
             showKeyboard(keyboardType: .pickerView)
         case nil:
             showKeyboard(keyboardType: .hide)
+        
         }
     }
-    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         
         presenter = AirTicketSearchPresenter(delegate: self)
     }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         self.setNavTitle(title: "搜尋")
         self.setNavBarItem(left: .defaultType, mid: .textTitle, right: .nothing)
         self.setNavType(navBarType: .notHidden)
@@ -367,24 +365,24 @@ class AirTicketSearchViewController: BaseViewController {
         setUpTopPageScrollView()
         presenter?.getAirTicketSearchInit()
         presenter?.getSotoAirSearchInit()
-        //presenter?.getLccAirSearchInit()
+        presenter?.getLccAirSearchInit()
         pickerView.backgroundColor = UIColor.white
         datePicker.backgroundColor = UIColor.white
         layoutDatePicker()
         layoutPickerView()
+        
     }
     
     override func loadData() {
         super.loadData()
         presenter?.getAirTicketSearchInit()
         presenter?.getSotoAirSearchInit()
-        //presenter?.getLccAirSearchInit()
+        presenter?.getLccAirSearchInit()
     }
-    
+
     private func setUpTopPageScrollView(){
         self.topPageScrollView.delegate = self
         var contentOffset = CGFloat.zero
-        
         switch searchType {
         case .airTkt:
             scrollTopPageButtonBottomLine(percent: 0)
@@ -407,12 +405,10 @@ class AirTicketSearchViewController: BaseViewController {
     private func checkAirTicketRequest() -> Bool{
         var allowToSearch = true
         var errorText:[String] = []
-        
         if airTicketRequest.destination?.cityId == nil{
             errorText.append("請輸入目的地")
             allowToSearch = false
         }
-        
         if airTicketRequest.journeyType == "雙程" || airTicketRequest.journeyType == "環遊" {
             if airTicketRequest.returnCode?.cityId == nil {
                 errorText.append("請輸入回程目的地")
@@ -424,7 +420,6 @@ class AirTicketSearchViewController: BaseViewController {
                 allowToSearch = false
             }
         }
-        
         if errorText.isEmpty == false {
             let errorResult = errorText.joined(separator: "\n")
             let alertSeverError: UIAlertController = UIAlertController(title: "修正錯誤", message: errorResult, preferredStyle: .alert)
@@ -435,10 +430,10 @@ class AirTicketSearchViewController: BaseViewController {
         return allowToSearch
     }
     
-    private func openCalendar(searchType: SearchByType) {
-        
+    private func openCalender(searchType: SearchByType) {
+        self.searchType = searchType
         let vc = getVC(st: "Calendar", vc: "CalendarForTicketViewController") as! CalendarForTicketViewController
-        
+
         var startDate = Date()
         let endDate = calendar.date(byAdding: .month, value: 18, to: startDate)!
         var type: CalendarSingeleOrMutipleType?
@@ -472,17 +467,17 @@ class AirTicketSearchViewController: BaseViewController {
             }
             
         case .lcc:
-            ()
-            //            type = lccTicketRequest.isToAndFro ? .mutiple : .single
-            //            startDate =
-            //            if let selctedDates = lccTicketRequest.startTourDate {
-            //                let selectedStartDate = FormatUtil.convertStringToDate(dateFormatFrom: "yyyy/MM/dd", dateString: selctedDates)
-            //                let selectedEndDate = FormatUtil.convertStringToDate(dateFormatFrom: "yyyy/MM/dd", dateString: lccTicketRequest.endTourDate!)
-            //                selectedDates = CalendarSelectedDates(selectedSingleDate: type == .single ? selectedStartDate : nil, selectedStartDate: type == .single ? nil : selectedStartDate, selectedEndDate: type == .single ? nil : type == .single ? nil : selectedEndDate)
-            //            }
             
+            type = lccTicketRequest.isToAndFro ? .mutiple : .single
+            
+            if let selctedDates = lccTicketRequest.startTravelDate {
+                let selectedStartDate = FormatUtil.convertStringToDate(dateFormatFrom: "yyyy/MM/dd", dateString: selctedDates)
+                let selectedEndDate = FormatUtil.convertStringToDate(dateFormatFrom: "yyyy/MM/dd", dateString: lccTicketRequest.endTravelDate!)
+                selectedDates = CalendarSelectedDates(selectedSingleDate: type == .single ? selectedStartDate : nil, selectedStartDate: type == .single ? nil : selectedStartDate, selectedEndDate: type == .single ? nil : type == .single ? nil : selectedEndDate)
+            }
+
         }
-        
+              
         let calendarType = CalendarType(singleOrMituple: type!,
                                         isBeforeTodayLimitSelect: true,
                                         isAcceptLimitDateInMiddle: false,
@@ -509,6 +504,13 @@ class AirTicketSearchViewController: BaseViewController {
 }
 
 extension AirTicketSearchViewController: AirTicketSearchViewProtocol {
+    func onBindLccAirSearchInit(lccSearchInit: LccResponse) {
+        self.lccSearchInit = lccSearchInit.lCCSearchInitialData
+        self.lccTicketRequest = LccTicketRequest().getLccTicketRequest(reponse: self.lccSearchInit!)
+        
+        tableViewLCC.reloadData()
+    }
+    
     func onBindSearchUrlResult(result: AirSearchUrlResponse) {
         handleLinkType(linkType: result.airUrlResult!.linkType!, linkValue: result.airUrlResult!.linkValue, linkText: nil)
     }
@@ -516,7 +518,7 @@ extension AirTicketSearchViewController: AirTicketSearchViewProtocol {
     func onBindAirTicketSearchInit(tktSearchInit: TKTInitResponse) {
         self.airSearchInit = tktSearchInit.initResponse
         self.airTicketRequest = TKTSearchRequest().getAirTicketRequest(response: tktSearchInit.initResponse!)
-        
+
         tableViewGroupAir.reloadData()
     }
     
@@ -526,18 +528,7 @@ extension AirTicketSearchViewController: AirTicketSearchViewProtocol {
         
         tableViewSotoAir.reloadData()
     }
-    
-    //    func onBindLccAirSearchInit(lccSearchInit: LccTicketResponse) {
-    //
-    //        self.lccSearchInit = lccSearchInit
-    //        self.lccTicketRequest = lccTicketRequest().
-    //        let defaultMinDate = Calendar.current.date(byAdding: .day, value: 1, to: Date())
-    //        let defaultMaxDate = Calendar.current.date(byAdding: .day, value: 2, to: defaultMinDate!)
-    //        lccTicketRequest.startTourDate = FormatUtil.convertDateToString(dateFormatTo: "yyyy/MM/dd", date: defaultMinDate!)
-    //        lccTicketRequest.endTourDate = FormatUtil.convertDateToString(dateFormatTo: "yyyy/MM/dd", date: defaultMaxDate!)
-    //
-    //        tableViewLCC.reloadData()
-    //    }
+
 }
 
 extension AirTicketSearchViewController: CustomPickerViewProtocol{
@@ -647,7 +638,7 @@ extension AirTicketSearchViewController: AirTktCellProtocol {
         case .soto:
             self.presenter?.postSotoTicketSearch(request: self.sotoTicketRequest)
         case .lcc:
-            ()
+            self.presenter?.postLCCTicketSearch(request: self.lccTicketRequest)
         }
     }
     
@@ -680,30 +671,29 @@ extension AirTicketSearchViewController: AirTktCellProtocol {
     }
     
     func onTouchDate(searchType: SearchByType) {
-        self.searchType = searchType
-        openCalendar(searchType: searchType)
+        openCalender(searchType: searchType)
     }
 }
 
 extension AirTicketSearchViewController: LccCellProtocol {
     func onTouchLccDeparture() {
-        //        let vc = getVC(st: "ChooseLocation", vc: "ChooseLocation") as! ChooseLocationViewController
-        //        vc.onBindAirTicketInfo(response: airSearchInit!, searchType: SearchByType.lcc, startEndType: StartEndType.Departure)
-        //
-        //        let nav = UINavigationController(rootViewController: vc)
-        //        nav.modalPresentationStyle = .fullScreen
-        //
-        //        self.navigationController?.present(nav, animated: true)
+//        let vc = getVC(st: "ChooseLocation", vc: "ChooseLocation") as! ChooseLocationViewController
+//        vc.onBindAirTicketInfo(response: airSearchInit!, searchType: SearchByType.lcc, startEndType: StartEndType.Departure)
+//
+//        let nav = UINavigationController(rootViewController: vc)
+//        nav.modalPresentationStyle = .fullScreen
+//
+//        self.navigationController?.present(nav, animated: true)
     }
     
     func onTouchLccDestination() {
-        //        let vc = getVC(st: "ChooseLocation", vc: "ChooseLocation") as! ChooseLocationViewController
-        //        vc.onBindAirTicketInfo(response: airSearchInit!, searchType: SearchByType.lcc, startEndType: StartEndType.Destination)
-        //
-        //        let nav = UINavigationController(rootViewController: vc)
-        //        nav.modalPresentationStyle = .fullScreen
-        //
-        //        self.navigationController?.present(nav, animated: true)
+//        let vc = getVC(st: "ChooseLocation", vc: "ChooseLocation") as! ChooseLocationViewController
+//        vc.onBindAirTicketInfo(response: airSearchInit!, searchType: SearchByType.lcc, startEndType: StartEndType.Destination)
+//
+//        let nav = UINavigationController(rootViewController: vc)
+//        nav.modalPresentationStyle = .fullScreen
+//
+//        self.navigationController?.present(nav, animated: true)
     }
     
     func onTouchLccSearch() {
@@ -724,16 +714,16 @@ extension AirTicketSearchViewController: LccCellProtocol {
     }
     
     func onTouchAirlineSwitch() {
-        //self.lccTicketRequest.isSameAirline.toggle()
+        self.lccTicketRequest.isSameAirline.toggle()
         self.tableViewLCC.reloadData()
     }
     
     func onTouchLccDate() {
-        openCalendar(searchType: .lcc)
+        openCalender(searchType: .lcc)
     }
     
     func onTouchRadio(isToAndFor: Bool) {
-        //lccTicketRequest.isToAndFro = isToAndFor
+        lccTicketRequest.isToAndFro = isToAndFor
         tableViewLCC.reloadData()
     }
 }
@@ -751,12 +741,11 @@ extension AirTicketSearchViewController: CalendarDataDestinationViewControllerPr
             tableViewSotoAir.reloadData()
             
         case .lcc:
-            ()
-            //            lccTicketRequest.startTourDate = lccTicketRequest.isToAndFro ? selectedYearMonthDaysToString.startDayString : selectedYearMonthDaysToString.singleDayString
-            //            let defaultStartDate = FormatUtil.convertStringToDate(dateFormatFrom: "yyyy/MM/dd", dateString:lccTicketRequest.startTourDate! )
-            //            let defaultMaxDate = Calendar.current.date(byAdding: .day, value: 2, to: defaultStartDate!)
-            //            lccTicketRequest.endTourDate = lccTicketRequest.isToAndFro ? selectedYearMonthDaysToString.endDayString: FormatUtil.convertDateToString(dateFormatTo: "yyyy/MM/dd", date: defaultMaxDate!)
-            //            tableViewLCC.reloadData()
+            lccTicketRequest.startTravelDate = lccTicketRequest.isToAndFro ? selectedYearMonthDaysToString.startDayString : selectedYearMonthDaysToString.singleDayString
+            let defaultStartDate = FormatUtil.convertStringToDate(dateFormatFrom: "yyyy/MM/dd", dateString:lccTicketRequest.startTravelDate! )
+            let defaultMaxDate = Calendar.current.date(byAdding: .day, value: 2, to: defaultStartDate!)
+            lccTicketRequest.endTravelDate = lccTicketRequest.isToAndFro ? selectedYearMonthDaysToString.endDayString: FormatUtil.convertDateToString(dateFormatTo: "yyyy/MM/dd", date: defaultMaxDate!)
+            tableViewLCC.reloadData()
             
         default:
             ()
@@ -798,7 +787,7 @@ extension AirTicketSearchViewController: UITableViewDataSource {
             cell.delegate = self
             return cell
         default:
-            return UITableViewCell()
+           return UITableViewCell()
         }
     }
 }
@@ -817,7 +806,7 @@ extension AirTicketSearchViewController: UITableViewDelegate {
 
 extension AirTicketSearchViewController {
     @IBAction func onTouchGroupAir(_ sender: Any) {
-        self.scrollToPage(scrollView: topPageScrollView, page: 0, animated: true)
+         self.scrollToPage(scrollView: topPageScrollView, page: 0, animated: true)
     }
     
     @IBAction func onTouchSOTO(_ sender: Any) {
