@@ -9,10 +9,11 @@
 import UIKit
 
 protocol AirTktCellProtocol: NSObjectProtocol {
-    func onTouchSelection(selection:TKTInputFieldType, searchType: SearchByType)
-    func onTouchSearch(searchType:SearchByType)
+    func onTouchSelection(selection: TKTInputFieldType, searchType: SearchByType)
+    func onTouchSearch(searchType: SearchByType)
     func onTouchArrival(arrival:ArrivalType, searchType: SearchByType)
     func onTouchNonStop(searchType: SearchByType)
+    func onTouchDate(searchType: SearchByType)
 }
 
 class AirTktCell: UITableViewCell {
@@ -58,7 +59,7 @@ class AirTktCell: UITableViewCell {
         case 2:
             self.delegate?.onTouchSelection(selection: .airlineCode, searchType: .airTkt)
         case 3:
-            self.delegate?.onTouchSelection(selection: .startTourDate, searchType: .airTkt)
+            self.delegate?.onTouchDate(searchType: .airTkt)
         case 4:
             self.delegate?.onTouchSelection(selection: .dateRange, searchType: .airTkt)
         case 5:
