@@ -33,9 +33,9 @@ class AirPaxViewController: UIViewController {
         bottomButton.setTitle("確認", for: .normal)
         bottomButton.setBorder(width: 1, radius: 4, color: UIColor.init(named: "通用綠")!)
         adultCount.lowLimit = 1
-//        adultCount.setChooseCountButton(count: lccTicketRequest.adultCount, allowSaleMark: true)
-//        childCount.setChooseCountButton(count: lccTicketRequest.childCount, allowSaleMark: true)
-//        infanCount.setChooseCountButton(count: lccTicketRequest.infanCount, allowSaleMark: true)
+        adultCount.setChooseCountButton(count: lccTicketRequest.adultCount, allowSaleMark: true)
+        childCount.setChooseCountButton(count: lccTicketRequest.childCount, allowSaleMark: true)
+        infanCount.setChooseCountButton(count: lccTicketRequest.infanCount, allowSaleMark: true)
         adultCount.limitFlour = 9
         childCount.limitFlour = 9
         infanCount.limitFlour = 9
@@ -57,9 +57,9 @@ class AirPaxViewController: UIViewController {
     }
     
     @IBAction func onTouchBottomButton(_ sender: UIButton) {
-//        lccTicketRequest.adultCount = adultCount.count
-//        lccTicketRequest.childCount = childCount.count
-//        lccTicketRequest.infanCount = infanCount.count
+        lccTicketRequest.adultCount = adultCount.count
+        lccTicketRequest.childCount = childCount.count
+        lccTicketRequest.infanCount = infanCount.count
         dismiss()
         delegate?.onTouchBottomButton(lccTicketRequest: lccTicketRequest)
     }

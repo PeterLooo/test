@@ -65,16 +65,27 @@ class AirTicketSearchPresenter: AirTicketSearchPresenterProtocol {
         }).disposed(by: dispose)
     }
     
-//    func getLccAirSearchInit() {
-//        self.delegate?.onStartLoadingHandle(handleType: .coverPlate)
-//
-//        repository.getLccSearchInit().subscribe(onSuccess: { (model) in
-//
-//            self.delegate?.onBindLccAirSearchInit(lccSearchInit: model)
-//            self.delegate?.onCompletedLoadingHandle()
-//        }, onError: { (error) in
-//            self.delegate?.onApiErrorHandle(apiError: error as! APIError, handleType: .custom)
-//            self.delegate?.onCompletedLoadingHandle()
-//        }).disposed(by: dispose)
-//    }
+    func postLCCTicketSearch(request: LccTicketRequest) {
+        self.delegate?.onStartLoadingHandle(handleType: .coverPlate)
+        repository.postLCCicketSearch(request: request).subscribe(onSuccess: { (model) in
+            self.delegate?.onBindSearchUrlResult(result: model)
+            self.delegate?.onCompletedLoadingHandle()
+        }, onError: { (error) in
+            self.delegate?.onApiErrorHandle(apiError: error as! APIError, handleType: .alert)
+            self.delegate?.onCompletedLoadingHandle()
+        }).disposed(by: dispose)
+    }
+    
+    func getLccAirSearchInit() {
+        self.delegate?.onStartLoadingHandle(handleType: .coverPlate)
+
+        repository.getLccSearchInit().subscribe(onSuccess: { (model) in
+
+            self.delegate?.onBindLccAirSearchInit(lccSearchInit: model)
+            self.delegate?.onCompletedLoadingHandle()
+        }, onError: { (error) in
+            self.delegate?.onApiErrorHandle(apiError: error as! APIError, handleType: .custom)
+            self.delegate?.onCompletedLoadingHandle()
+        }).disposed(by: dispose)
+    }
 }
