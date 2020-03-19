@@ -11,6 +11,7 @@ import UIKit
 protocol SetChooseLocationProtocol: NSObjectProtocol {
     
     func setLocation(cityInfo: TKTInitResponse.TicketResponse.City, arrival: ArrivalType?)
+    func setLocation(cityInfo: LocationKeywordSearchResponse.City, arrival: ArrivalType?)
 }
 
 class ChooseLocationViewController: BaseViewController {
@@ -253,6 +254,15 @@ extension ChooseLocationViewController: BrickCellProtocol {
 //    }
 }
 
+extension ChooseLocationViewController: SearchResultCellProtocol {
+    
+    func onTouchCity(cityInfo: LocationKeywordSearchResponse.City) {
+        
+        delegate?.setLocation(cityInfo: cityInfo, arrival: self.arrival)
+        dismiss(animated: true, completion: nil)
+    }
+}
+
 extension ChooseLocationViewController: SetChooseCityProtocol {
     
     func setChooseCity(cityInfo: TKTInitResponse.TicketResponse.City) {
@@ -350,7 +360,8 @@ extension ChooseLocationViewController: UICollectionViewDataSource {
             
         case .SearchResult:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SearchResultCell", for: indexPath) as! SearchResultCell
-            cell.setCellWith(cityName: (searchResultList[indexPath.row].cityName)!, searchText: searchText)
+            cell.delegate = self
+            cell.setCellWith(cityInfo: searchResultList[indexPath.row], searchText: searchText)
             
             return cell
 

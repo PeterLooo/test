@@ -883,4 +883,18 @@ extension AirTicketSearchViewController: SetChooseLocationProtocol {
         }
         tableViewGroupAir.reloadData()
     }
+    
+    func setLocation(cityInfo: LocationKeywordSearchResponse.City, arrival: ArrivalType?) {
+        switch arrival {
+        case .departureCity:
+            airTicketRequest.destination?.cityId = cityInfo.cityId
+            airTicketRequest.destination?.cityName = cityInfo.cityName
+        case .backStartingCity:
+            airTicketRequest.returnCode?.cityId = cityInfo.cityId
+            airTicketRequest.returnCode?.cityName = cityInfo.cityName
+        default:
+            ()
+        }
+        tableViewGroupAir.reloadData()
+    }
 }
