@@ -15,6 +15,9 @@ class AirSearchUrlResponse: BaseModel {
         super.mapping(map: map)
                
         airUrlResult <- map["AirTicketSearch_Data"]
+        if airUrlResult == nil {
+            airUrlResult <- map["LCCSearch_Data"]
+        }
     }
     
     class AirUrlResult: BaseModel {
