@@ -93,11 +93,11 @@ class LoginViewController: BaseViewController {
     }
     
     @IBAction func onTouchRegister(_ sender: Any) {
-        handleLinkType(linkType: .openBrowser, linkValue: "https://b2b.colatour.com.tw/R01B_Member/R01B_01_Register.aspx", linkText: nil)
+        handleLinkType(linkType: .openAppWebView, linkValue: "https://b2b.colatour.com.tw/R01B_Member/R01B_01_Register.aspx", linkText: nil)
     }
     
     @IBAction func onTouchForgetPassword(_ sender: Any) {
-         handleLinkType(linkType: .openBrowser, linkValue: "https://b2b.colatour.com.tw/R01B_Member/R01B_03_QueryPW.aspx", linkText: nil)
+         handleLinkType(linkType: .openAppWebView, linkValue: "https://b2b.colatour.com.tw/R01B_Member/R01B_03_QueryPW.aspx", linkText: nil)
     }
     
     @IBAction func onTouchEyes(_ sender: BooleanButton) {
