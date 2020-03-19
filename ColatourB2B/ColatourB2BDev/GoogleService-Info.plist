@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>456353097064-f8jcg0ir3dgvq1ijc273uq9b4ru93r7a.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.456353097064-f8jcg0ir3dgvq1ijc273uq9b4ru93r7a</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBfiraAioenF7V-kT3NcEO--vlIzyLGA1c</string>
+	<key>GCM_SENDER_ID</key>
+	<string>456353097064</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>tw.com.colatour.b2b.dev</string>
+	<key>PROJECT_ID</key>
+	<string>colatourb2bdev</string>
+	<key>STORAGE_BUCKET</key>
+	<string>colatourb2bdev.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:456353097064:ios:1e1b117620f33c960ca2dd</string>
+	<key>DATABASE_URL</key>
+	<string>https://colatourb2bdev.firebaseio.com</string>
+</dict>
+</plist>

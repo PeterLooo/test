@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ChooseCountButton" customModule="colatour" customModuleProvider="target">
+            <connections>
+                <outlet property="countLabel" destination="YTf-lt-NNm" id="ZcE-ZB-82p"/>
+                <outlet property="minus" destination="Czh-L5-Gdw" id="Yeu-O1-52N"/>
+                <outlet property="plus" destination="szz-qQ-KQE" id="9pm-iE-8kX"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="0YX-YJ-1H3">
+            <rect key="frame" x="0.0" y="0.0" width="129" height="40"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YTf-lt-NNm">
+                    <rect key="frame" x="0.0" y="9.5" width="26" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="26" id="KwS-JS-m9e"/>
+                        <constraint firstAttribute="height" constant="21" id="ltd-1H-z78"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="20"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="-6" translatesAutoresizingMaskIntoConstraints="NO" id="kMq-El-W38">
+                    <rect key="frame" x="35" y="5.5" width="94" height="29"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Czh-L5-Gdw">
+                            <rect key="frame" x="0.0" y="0.0" width="50" height="29"/>
+                            <state key="normal" image="count_minor"/>
+                            <connections>
+                                <action selector="minus:" destination="-1" eventType="touchUpInside" id="7SH-b1-swb"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="szz-qQ-KQE">
+                            <rect key="frame" x="44" y="0.0" width="50" height="29"/>
+                            <state key="normal" image="count_plus"/>
+                            <connections>
+                                <action selector="plus:" destination="-1" eventType="touchUpInside" id="mnj-1i-hJt"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="29" id="m2g-VT-VeO"/>
+                        <constraint firstAttribute="width" constant="94" id="mKr-8l-Pv7"/>
+                    </constraints>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="YTf-lt-NNm" firstAttribute="leading" secondItem="tB7-8Y-es5" secondAttribute="leading" id="BAh-8e-2wV"/>
+                <constraint firstItem="YTf-lt-NNm" firstAttribute="centerY" secondItem="tB7-8Y-es5" secondAttribute="centerY" id="F0j-7w-nHL"/>
+                <constraint firstItem="kMq-El-W38" firstAttribute="centerY" secondItem="tB7-8Y-es5" secondAttribute="centerY" id="Ksi-E5-d5s"/>
+                <constraint firstItem="tB7-8Y-es5" firstAttribute="trailing" secondItem="kMq-El-W38" secondAttribute="trailing" id="OUv-2W-huh"/>
+                <constraint firstItem="kMq-El-W38" firstAttribute="leading" secondItem="YTf-lt-NNm" secondAttribute="trailing" constant="9" id="ltK-jJ-cq3"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="tB7-8Y-es5"/>
+            <point key="canvasLocation" x="-131.19999999999999" y="133.13343328335833"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="count_minor" width="45" height="29"/>
+        <image name="count_plus" width="45" height="29"/>
+    </resources>
+</document>

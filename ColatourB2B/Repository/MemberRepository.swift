@@ -14,25 +14,66 @@ class MemberRepository: MemberRepositoryProtocol {
     
     static let shared = MemberRepository()
     
-    func getLocalMemberToken() -> String? {
-        return UserDefaultUtil.shared.memberToken
+    func getLocalAccessToken() -> String? {
+        return UserDefaultUtil.shared.accessToken
     }
     
-    func getLocalMemberNo() -> Int? {
-        return UserDefaultUtil.shared.memberNo
+    func getLocalRefreshToken() -> String? {
+        return UserDefaultUtil.shared.refreshToken
     }
     
-    func removeLocalUserToken() {
-        UserDefaultUtil.shared.memberNo = nil
-        UserDefaultUtil.shared.memberToken = nil
+    func removeLocalAccessToken() {
         
-        FirebaseCrashManager.setUserName("NoLogin")
+        UserDefaultUtil.shared.accessToken = nil
     }
     
-    func setLocalUserToken(memberNo: Int, memberToken: String) {
-        UserDefaultUtil.shared.memberNo = memberNo
-        UserDefaultUtil.shared.memberToken = memberToken
+    func removeLocalRefreshToken() {
         
-        FirebaseCrashManager.setUserName("\(memberNo)")
+        UserDefaultUtil.shared.refreshToken = nil
+    }
+    
+    func setLocalUserToken( accessToken: String) {
+        
+        UserDefaultUtil.shared.accessToken = accessToken
+    }
+    
+    private func procressToken(loginResponse: LoginResponse) -> Single<LoginResponse> {
+        switch loginResponse.passwordReset! {
+        case true:
+            MemberRepository.shared.removeLocalAccessToken()
+        case false:
+            MemberRepository.shared.setLocalUserToken(refreshToken: loginResponse.refreshToken!, accessToken: loginResponse.accessToken!)
+        }
+
+        return Single.just(loginResponse)
+    }
+    
+    func setLocalUserToken(refreshToken: String, accessToken: String) {
+        UserDefaultUtil.shared.refreshToken = refreshToken
+        UserDefaultUtil.shared.accessToken = accessToken
+    }
+    
+    func setEmployeeMark(emloyeeMark: Bool) {
+        UserDefaultUtil.shared.employeeMark = emloyeeMark
+    }
+    
+    func setAllowTour(allowTour: Bool) {
+        UserDefaultUtil.shared.allowTour = allowTour
+    }
+    
+    func setAllowTkt(allowTkt: Bool) {
+        UserDefaultUtil.shared.allowTkt = allowTkt
+    }
+    
+    func setTabBarLinkType(linkType: String) {
+        UserDefaultUtil.shared.tabBarLinkType = linkType
+    }
+    
+    func getSalesList() -> Single<SalesResponse> {
+        let api = APIManager.shared.getSalesList()
+        
+        return AccountRepository.shared.getAccessToken()
+            .flatMap{ _ in api}
+            .map{SalesResponse(JSON: $0)!}
     }
 }

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="289" id="KGk-i7-Jjw" customClass="AirPopCityCell" customModule="ColatourB2B" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="463" height="289"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="463" height="289"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Module_Textl" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iWD-Mk-dfc">
+                        <rect key="frame" x="16" y="69" width="431" height="27"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="27" id="R3f-T1-5pd"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="19"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pw9-1a-zb2">
+                        <rect key="frame" x="0.0" y="108" width="463" height="181"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="4fb-Fj-Qhh">
+                                <rect key="frame" x="0.0" y="0.0" width="42" height="20.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pLA-jz-2Uz">
+                                        <rect key="frame" x="0.0" y="0.0" width="42" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="4fb-Fj-Qhh" secondAttribute="trailing" id="3ou-Kr-ygE"/>
+                            <constraint firstAttribute="bottom" secondItem="4fb-Fj-Qhh" secondAttribute="bottom" id="O2u-KX-mpQ"/>
+                            <constraint firstItem="4fb-Fj-Qhh" firstAttribute="leading" secondItem="Pw9-1a-zb2" secondAttribute="leading" id="eFO-9s-UZf"/>
+                            <constraint firstItem="4fb-Fj-Qhh" firstAttribute="top" secondItem="Pw9-1a-zb2" secondAttribute="top" id="hlJ-Kp-yty"/>
+                            <constraint firstAttribute="height" constant="181" id="zYV-Bz-WFb"/>
+                        </constraints>
+                        <inset key="scrollIndicatorInsets" minX="16" minY="16" maxX="16" maxY="16"/>
+                    </scrollView>
+                </subviews>
+                <color key="backgroundColor" name="背景灰"/>
+                <constraints>
+                    <constraint firstItem="Pw9-1a-zb2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="3bN-zt-kNm"/>
+                    <constraint firstAttribute="bottom" secondItem="Pw9-1a-zb2" secondAttribute="bottom" id="AZ2-BM-wWv"/>
+                    <constraint firstAttribute="trailing" secondItem="iWD-Mk-dfc" secondAttribute="trailing" constant="16" id="C1l-Lq-eRt"/>
+                    <constraint firstAttribute="trailing" secondItem="Pw9-1a-zb2" secondAttribute="trailing" id="Ff9-1z-bIJ"/>
+                    <constraint firstItem="Pw9-1a-zb2" firstAttribute="top" secondItem="iWD-Mk-dfc" secondAttribute="bottom" constant="12" id="Fgx-VR-mIh"/>
+                    <constraint firstItem="iWD-Mk-dfc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" priority="250" constant="40" id="Lus-G8-KuW"/>
+                    <constraint firstItem="iWD-Mk-dfc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="vEl-HM-Fz9"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="moduleTitle" destination="iWD-Mk-dfc" id="s2D-79-zXf"/>
+                <outlet property="scrollView" destination="Pw9-1a-zb2" id="mxX-uq-nDY"/>
+                <outlet property="scrollViewHeight" destination="zYV-Bz-WFb" id="gBe-5t-Jcl"/>
+                <outlet property="stackView" destination="4fb-Fj-Qhh" id="57R-6z-oEL"/>
+            </connections>
+            <point key="canvasLocation" x="239.85507246376812" y="191.85267857142856"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="背景灰">
+            <color red="0.97254901960784312" green="0.97254901960784312" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

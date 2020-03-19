@@ -9,7 +9,7 @@ let MainWindow = appDelegate?.window!
 
 let screenWidth = UIScreen.main.bounds.width
 let screenHeight = UIScreen.main.bounds.height
-
+var cancelLoadData = false
 var statusBarHeight: CGFloat {
     if #available(iOS 13.0, *) {
         let app = UIApplication.shared
@@ -40,12 +40,34 @@ var calendarForDatePicker: Calendar {
 }
 
 var isLogin: Bool {
-    let memberToken = UserDefaultUtil.shared.memberToken
+    let memberToken = UserDefaultUtil.shared.accessToken
     if memberToken == nil || memberToken == "" {
         return false
     }else{
         return true
     }
+}
+
+var isEmployee: Bool? {
+    let employeeMark = UserDefaultUtil.shared.employeeMark
+    return employeeMark
+}
+
+var isAllowTour: Bool? {
+    let allowTour = UserDefaultUtil.shared.allowTour
+    return allowTour
+}
+
+var isAllowTkt: Bool? {
+    let allowTkt = UserDefaultUtil.shared.allowTkt
+    return allowTkt
+}
+
+var tabBarLinkType: TabBarLinkType {
+    let linkType = UserDefaultUtil.shared.tabBarLinkType ?? ""
+    let tabbarType = TabBarLinkType(rawValue: linkType)
+    if tabbarType == nil {return .unknown}
+    return tabbarType!
 }
 
 var leaveAppSeconds: Double {

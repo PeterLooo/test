@@ -10,6 +10,8 @@ struct APIError: Error {
         case noInternetException
         case otherException
         case requestTimeOut
+        case presentLogin
+        case cancelAllRequestDoNothing
     }
     internal let type:ErrorType
     internal let localizedDescription:String
@@ -44,6 +46,8 @@ struct APIError: Error {
                 
             } else if errorCode == URLError.timedOut.rawValue {
                 self.init(type: .requestTimeOut, localDesc: localDesc, alertMsg: alertMsg)
+            }   else if errorCode == URLError.cancelled.rawValue {
+                self.init(type: .cancelAllRequestDoNothing, localDesc: localDesc, alertMsg: alertMsg)
             } else {
                 self.init(type: .apiFailException, localDesc: localDesc, alertMsg: alertMsg)
             }

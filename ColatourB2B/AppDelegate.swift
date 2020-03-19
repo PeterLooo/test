@@ -20,8 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     fileprivate var disposebag = DisposeBag()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-//        setFirebaseNotification(application)
-        self.pushDevice()
+        setFirebaseNotification(application)
+        FirebaseCrashManager.setUp()
         return true
     }
     
@@ -29,9 +29,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         
         UNUserNotificationCenter.current().delegate = self
+        let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+        UNUserNotificationCenter.current().requestAuthorization(
+            options: authOptions,
+            completionHandler: { (granted, error) in
+                self.pushDevice()
+                
+        })
         
-        self.pushDevice()
+        UNUserNotificationCenter.current().delegate = self
         
+    
         application.registerForRemoteNotifications()
         
         Messaging.messaging().delegate = self
@@ -54,6 +62,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        UIApplication.shared.applicationIconBadgeNumber = 0
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
@@ -98,12 +107,12 @@ extension AppDelegate: MessagingDelegate {
             
             switch settings.authorizationStatus {
             case .authorized:
-                AccountRepository
-                    .shared
-                    .pushDevice()
-                    .subscribe()
-                    .disposed(by: self.disposebag)
-                
+//                AccountRepository
+//                    .shared
+//                    .pushDevice()
+//                    .subscribe()
+//                    .disposed(by: self.disposebag)
+                ()
             default:
                 ()
             }
@@ -137,8 +146,10 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         let userInfo = response.notification.request.content.userInfo
         printLog("===didReceive===", "")
         printLog("userInfo", userInfo)
-        
-        
+        cancelLoadData = true
+        if isLogin == true, let noticeIdIndex = userInfo.index(forKey: "NotiId") {
+            setNotificationRead(noticeId: [userInfo[noticeIdIndex].value as! String])
+        }
         var linkType: LinkType = .unknown
         if let index = userInfo.index(forKey: "Link_Type") {
             linkType = LinkType(rawValue: userInfo[index].value as! String) ?? .unknown
@@ -160,8 +171,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         let navigationController = (vc.selectedViewController) as! UINavigationController
         let presentingViewController = navigationController.viewControllers.last
         let baseViewController = (presentingViewController as! BaseViewController)
-        baseViewController.handleLinkType(linkType: linkType, linkValue: linkParams, linkText: "")
-        
+        baseViewController.getNotiAccessTokenWithLink(linkType: linkType, linkValue: linkParams)
         
         UIView.transition(with: appDelegate!.window!, duration: 0.5, options: .transitionCrossDissolve, animations: {
             appDelegate?.window?.rootViewController = vc
@@ -170,11 +180,74 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         completionHandler()
     }
     
+    private func setNotificationRead(noticeId: [String]) {
+        NoticeRepository.shared.setNotiRead(notiId: noticeId).subscribe().disposed(by: disposebag)
+
+    }
 }
 extension AppDelegate {
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
+        // If you are receiving a notification message while your app is in the background,
+        // this callback will not be fired till the user taps on the notification launching the application.
+        // TODO: Handle data of notification
+
+        // With swizzling disabled you must let Messaging know about the message, for Analytics
+        // Messaging.messaging().appDidReceiveMessage(userInfo)
+
+        // Print message ID.
+        printLog("===didReceiveRemoteNotification1===", "")
+        
+
+        // Print full message.
+        printLog("userInfo", userInfo)
+    }
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any],
+                     fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        // If you are receiving a notification message while your app is in the background,
+        // this callback will not be fired till the user taps on the notification launching the application.
+        // TODO: Handle data of notification
+
+        // With swizzling disabled you must let Messaging know about the message, for Analytics
+        // Messaging.messaging().appDidReceiveMessage(userInfo)
+
+        // Print message ID.
+        printLog("===didReceiveRemoteNotification2===", "")
+        
+        NotificationCenter.default.post(name: Notification.Name("getUnreadCount"), object: nil)
+        NotificationCenter.default.post(name: Notification.Name("noticeLoadDate"), object: nil)
+        // Print full message.
+        printLog("userInfo", userInfo)
+
+        completionHandler(UIBackgroundFetchResult.newData)
+    }
+}
+
+extension AppDelegate {
+        func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+
+            let tokenString = deviceToken.map {
+                String(format: "%02.2hhx", $0)
+            }.joined()
+            self.printLog("deviceToken", tokenString)
+
+            //? InstanceID.instanceID().setAPNSToken(deviceToken, type: InstanceIDAPNSTokenType.sandbox)
+            Messaging.messaging().apnsToken = deviceToken
+        }
+
+        func tokenRefreshNotification(notification: NSNotification) {
+            // NOTE: It can be nil here
+            //let refreshedToken = InstanceID.instanceID().token()
+            //printLog("InstanceID token", refreshedToken)
+            printLog("TokenRefreshNotification", "TokenRefreshNotification")
+
+            connectToFcm()
+        }
+
     func connectToFcm() {
         Messaging.messaging().shouldEstablishDirectChannel = true
     }
+    
     private func printFireBaseToken(_ granted: Bool, _ error: Error?) {
         #if DEBUG
         printLog("granted", granted)

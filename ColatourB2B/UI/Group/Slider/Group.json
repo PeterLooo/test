@@ -1,0 +1,48 @@
+{
+  "Order": [
+    {
+      "NoTi_No":"12345",
+      "Noti_Title": "訂單通知",
+      "Remark": "訂單編號1234422",
+      "Link_Type": "00",
+      "Link_Value": "https://b2b.colatour.com.tw/",
+      "Unread_Mark": false
+    },
+    {
+      "NoTi_No":"12345",
+      "Noti_Title": "訊息通知",
+      "Remark": "訂單編號122",
+      "Link_Type": "00",
+      "Link_Value": "https://b2b.colatour.com.tw/",
+      "Unread_Mark": true
+    }
+  ],
+  "Message": [
+    {
+      "NoTi_No":"12345",
+      "Noti_Title": "訊息通知",
+      "Remark": "訂單編號1234422",
+      "Link_Type": "00",
+      "Link_Value": "https://b2b.colatour.com.tw/",
+      "Unread_Mark": false
+    },
+    {
+      "NoTi_No":"12345",
+      "Noti_Title": "訊息通知",
+      "Remark": "訂單編號1234422",
+      "Link_Type": "00",
+      "Link_Value": "https://b2b.colatour.com.tw/",
+      "Unread_Mark": true
+    }
+  ],
+  "News": [
+    {
+      "NoTi_No":"12345",
+      "Noti_Title": "美加八日！",
+      "Remark": "同業49990起",
+      "Link_Type": "00",
+      "Link_Value": "https://b2b.colatour.com.tw/",
+      "Unread_Mark": false
+    }
+  ]
+}

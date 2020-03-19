@@ -9,9 +9,9 @@
 import UIKit
 
 protocol TabBarViewProtocol: NSObjectProtocol {
-    
+    func onBindNumberOfNoticeUnreadCount(numbers: Int)
 }
 
 protocol TabBarPresenterProtocol: BasePresenterProtocol {
-    
+    func getNumberOfNoticeUnreadCount()
 }

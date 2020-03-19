@@ -17,22 +17,6 @@ class APIManager: NSObject {
         let config = URLSessionConfiguration.default
         config.timeoutIntervalForRequest = APITimeout
         config.httpAdditionalHeaders = SessionManager.defaultHTTPHeaders
-        //note: 還沒有分出demo版本哦
-        #if COLATOUR_DEV
-        let policies: [String: ServerTrustPolicy] = [
-            "172.20.5.71": .disableEvaluation,
-            "172.20.5.72": .disableEvaluation,
-            "172.20.5.73" : .disableEvaluation,
-            "118.163.109.236" : .disableEvaluation,
-            "118.163.109.238" : .disableEvaluation,
-            "118.163.109.239" : .disableEvaluation,
-            "118.163.109.240" : .disableEvaluation,
-            ]
-        return Alamofire.SessionManager(
-            configuration: config,
-            serverTrustPolicyManager: ServerTrustPolicyManager(policies: policies)
-        )
-        #endif
         
         return SessionManager(configuration: config)
     }()
@@ -149,10 +133,7 @@ class APIManager: NSObject {
         let appVersion = DeviceUtil.appBuildVersion()
         let osVersion = DeviceUtil.osVersion()
         let apiToken = AccountRepository.shared.getLocalApiToken() ?? ""
-        
-        let localMemberNo = MemberRepository.shared.getLocalMemberNo()
-        let memberNo = (localMemberNo == nil) ? "" : "\(localMemberNo!)"
-        let memberToken = MemberRepository.shared.getLocalMemberToken() ?? ""
+        let accessToken = MemberRepository.shared.getLocalAccessToken() ?? ""
         
         var headers: HTTPHeaders = [
             "Client_Id": "IOS",
@@ -166,15 +147,7 @@ class APIManager: NSObject {
             headers[ header.key ] =  header.value
         })
         
-        if headers["Pax_Token"] == nil {
-            headers["Member_No"]  = memberNo
-            headers["Member_Token"]  = memberToken
-        }
-        
-        if let tempMemberNo = appendHeaders?["Member_No"], let tempMemberToken = appendHeaders?["Member_Token"] {
-            headers["Member_No"] = tempMemberNo
-            headers["Member_Token"]  = tempMemberToken
-        }
+        headers["Access_Token"]  = accessToken
         
         switch method {
         case .get:
@@ -199,18 +172,35 @@ class APIManager: NSObject {
             requestUrl = type.url()
         case .bulletinApi(let type):
             requestUrl = type.url()
+        case .memberApi(let type):
+            requestUrl = type.url()
+        case .mainApi(let type):
+            requestUrl = type.url()
+        case .serviceApi(let type):
+            requestUrl = type.url()
+        case .noticeApi(let type):
+            requestUrl = type.url()
         }
 
         requestUrl =  (requestUrl + encodeUrl ).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
         return requestUrl
     }
     
+    func cancelAllRequest () {
+        self.printLog(value: "cancel All Request")
+        requestManager.session.getTasksWithCompletionHandler {
+            (sessionDataTask, uploadData, downloadData) in
+            sessionDataTask.forEach { $0.cancel() }
+            uploadData.forEach { $0.cancel() }
+            downloadData.forEach { $0.cancel() }
+        }
+    }
 }
 
 extension APIManager {
     func getApiToken(deviceName: String, accessToken: String) -> Single<[String:Any]> {
-        let params = ["device_Name":deviceName,
-                      "access_Secret":accessToken]
+        let params = ["Device_Name":deviceName,
+                      "Access_Secret":accessToken]
         
         return manager(method: .post, appendUrl: "", url: APIUrl.authApi(type: .apiToken), parameters: params, appendHeaders: nil)
     }
@@ -219,13 +209,181 @@ extension APIManager {
         let params = ["Push_Id": AccountRepository.shared.getLocalFirebaseToken()!]
         
         return manager(method: .post, appendUrl: "", url:
-            APIUrl.portalApi(type: .pushDevice), parameters: params, appendHeaders: nil)
+            APIUrl.authApi(type: .pushDevice), parameters: params, appendHeaders: nil)
+    }
+    
+    func getNoticeUnreadCount() -> Single<[String:Any]> {
+        
+        return manager(method: .get, appendUrl: "", url: APIUrl.noticeApi(type: .unreadCount) ,parameters: nil, appendHeaders: nil)
     }
     
     func getVersionRule() -> Single<[String:Any]> {
         return manager(method: .get, appendUrl: "", url: APIUrl.authApi(type: .versionRule), parameters: nil, appendHeaders: nil)
     }
     
+    func getBulletin() -> Single<[String:Any]> {
+        let appendUrl = ""
+        return manager(method: .get, appendUrl: appendUrl, url: APIUrl.bulletinApi(type: .bulletin), parameters: nil, appendHeaders: nil)
+    }
+    
+    func getRefreshToken(loginRequest: LoginRequest) -> Single<[String:Any]> {
+        let params = ["Member_Idno":loginRequest.memberIdno!,
+                      "Password":loginRequest.password!]
+        return manager(method: .post, appendUrl: "", url: APIUrl.authApi(type: .refreshToken), parameters: params, appendHeaders: nil)
+    }
+    
+    func getAccessToken(refreshToken:String) -> Single<[String:Any]> {
+        let params = ["Refresh_Token":refreshToken]
+        return manager(method: .post, appendUrl: "", url: APIUrl.authApi(type: .accessToken), parameters: params, appendHeaders: nil)
+    }
+    
+    func getAccessWeb(webUrl:String) -> Single<[String:Any]> {
+           let params = ["Web_Url":webUrl]
+           return manager(method: .post, appendUrl: "", url: APIUrl.authApi(type: .accessWeb), parameters: params, appendHeaders: nil)
+    }
+    
+    func memberLogout() -> Single<[String:Any]> {
+        return manager(method: .post, appendUrl: "", url: APIUrl.authApi(type: .logout), parameters: nil, appendHeaders: nil)
+    }
+    
+    func getMemberIndex()-> Single<[String:Any]> {
+        
+        return manager(method: .get, appendUrl: "", url: APIUrl.memberApi(type: .memberIndex), parameters: nil, appendHeaders: nil)
+    }
+    
+    func passwordModify(passwordModifyRequest: PasswordModifyRequest) -> Single<[String: Any]> {
+        let params = ["Original_Password": passwordModifyRequest.originalPassword,
+                      "New_Password": passwordModifyRequest.newPassword,
+                      "Confirm_New_Password": passwordModifyRequest.checkNewPassword,
+                      "Password_Hint": passwordModifyRequest.passwordHint,
+                      "Refresh_Token": passwordModifyRequest.refreshToken]
+        return manager(method: .post, appendUrl: "", url: APIUrl.memberApi(type: .passwordModify), parameters: params as [String : Any], appendHeaders: nil)
+    }
+    
+    func getGroupIndex(tourType:TourType) -> Single<[String:Any]> {
+        
+        return manager(method: .get, appendUrl: "", url: tourType.getApiUrl(), parameters: nil, appendHeaders: nil)
+    }
+    
+    func getGroupMenu(toolBarType: ToolBarType)-> Single<[String:Any]> {
+        
+        return manager(method: .get, appendUrl: "", url: toolBarType.getApiUrl(), parameters: nil, appendHeaders: nil)
+    }
+    
+    func getGroupTourSearchInit(departureCode: String?) -> Single<[String: Any]> {
+
+        let appendUrl = ( departureCode == nil ) ? "" : "?Departure_Code=\(departureCode!)"
+        return manager(method: .get, appendUrl: appendUrl, url: APIUrl.mainApi(type: .tourSearchInit), parameters: nil, appendHeaders: nil)
+    }
+    
+    func getGroupTourSearchUrl(groupTourSearchRequest: GroupTourSearchRequest) -> Single<[String: Any]> {
+        
+        return manager(method: .post, appendUrl: "", url: APIUrl.mainApi(type: .tourSearch), parameters: groupTourSearchRequest.getDictionary(), appendHeaders: nil)
+    }
+    
+    func getGroupTourSearchUrl(groupTourSearchKeywordAndTourCodeRequest: GroupTourSearchKeywordAndTourCodeRequest) -> Single<[String: Any]> {
+
+        return manager(method: .post, appendUrl: "", url: APIUrl.mainApi(type: .tourKeywordSearch), parameters: groupTourSearchKeywordAndTourCodeRequest.getDictionary(), appendHeaders: nil)
+    }
+
+    func getMessageSendUserList(messageSendType: String) -> Single<[String:Any]> {
+        
+        var appendUrl = ""
+        appendUrl = "/Initial?Send_Type=\(messageSendType)"
+        
+        return manager(method: .get, appendUrl: appendUrl, url: APIUrl.serviceApi(type: .messageSend), parameters: nil, appendHeaders: nil)
+    }
+    
+    func messageSend(messageSendRequest: MessageSendRequest) -> Single<[String:Any]> {
+        
+        let params = ["Send_Type": messageSendRequest.sendType!,
+                      "Send_Key_List": messageSendRequest.sendKeyList!,
+                      "Message_Topic": messageSendRequest.messageTopic!,
+                      "Message_Text": messageSendRequest.messageText!] as [String : Any]
+        
+        return manager(method: .post, appendUrl: "", url: APIUrl.serviceApi(type: .messageSend), parameters: params, appendHeaders: nil)
+    }
+    
+    func getSalesList() -> Single<[String:Any]> {
+        return manager(method: .get, appendUrl: "", url: APIUrl.portalApi(type: .serviceTourWindowList), parameters: nil, appendHeaders: nil)
+    }
+
+    func getNoticeList(pageIndex: Int) -> Single<[String:Any]> {
+        let pageSize = "PageSize=30"
+        var appendUrl = ""
+        appendUrl = "PageIndex=" + "\(String(pageIndex))" + "&" + pageSize
+        
+        return manager(method: .get, appendUrl: appendUrl, url: APIUrl.noticeApi(type: .notice), parameters: nil, appendHeaders: nil)
+    }
+    
+    func getGroupNewsList(pageIndex: Int) -> Single<[String:Any]> {
+        let pageSize = "Page_Size=30"
+        var appendUrl = ""
+        appendUrl = "Page_Index=" + "\(String(pageIndex))" + "&" + pageSize
+        
+        return manager(method: .get, appendUrl: appendUrl, url: APIUrl.noticeApi(type: .groupNews), parameters: nil, appendHeaders: nil)
+    }
+    
+    func getAirNewsList(pageIndex: Int) -> Single<[String:Any]> {
+        let pageSize = "Page_Size=30"
+        var appendUrl = ""
+        appendUrl = "Page_Index=" + "\(String(pageIndex))" + "&" + pageSize
+        
+        return manager(method: .get, appendUrl: appendUrl, url: APIUrl.noticeApi(type: .airNews), parameters: nil, appendHeaders: nil)
+    }
+    
+    func getImportantList(pageIndex: Int) -> Single<[String:Any]> {
+        let pageSize = "PageSize=30"
+        var appendUrl = ""
+        appendUrl = "PageIndex=" + "\(String(pageIndex))" + "&" + pageSize
+        
+        return manager(method: .get, appendUrl: appendUrl, url: APIUrl.noticeApi(type: .important), parameters: nil, appendHeaders: nil)
+    }
+    
+    func setNotiRead(notiId:[String])-> Single<[String:Any]> {
+        let notiIdLists = notiId.map { (
+            ["Noti_Id": $0
+                ] as [String: Any])
+        }
+        
+        let params = [
+            "Noti_Status": "已讀",
+            "NotiId_List": notiIdLists] as [String : Any]
+        
+        return manager(method: .post, appendUrl: "", url: APIUrl.noticeApi(type: .setNotiRead), parameters: params, appendHeaders: nil)
+    }
+    
+    func getContactInfo() -> Single<[String: Any]> {
+        return manager(method: .get, appendUrl: "", url: APIUrl.serviceApi(type: .contactInformation), parameters: nil, appendHeaders: nil)
+    }
+    
+    func getWebViewTourShareList(tourCode:String,tourDate:String) -> Single<[String:Any]> {
+        var appendUrl = ""
+        appendUrl = "?Tour_Code=\(tourCode)&Tour_Date=\(tourDate)"
+        return manager(method: .get, appendUrl: appendUrl, url: APIUrl.portalApi(type: .tourShare), parameters: nil, appendHeaders: nil)
+    }
+    
+    func getAirSearchInit() -> Single<[String: Any]> {
+        return manager(method: .get, appendUrl: "", url: APIUrl.mainApi(type: .airTktSearchInit), parameters: nil, appendHeaders: nil)
+    }
+    
+    func getSotoSearchInit() -> Single<[String: Any]> {
+        return manager(method: .get, appendUrl: "", url: APIUrl.mainApi(type: .sotoAirSearchInit), parameters: nil, appendHeaders: nil)
+    }
+    
+    func postAirTicketSearch(request:TKTSearchRequest) -> Single<[String: Any]>  {
+        let params = request.getDictionary()
+        return manager(method: .post, appendUrl: "", url: APIUrl.mainApi(type: .airTicketSearchUrl), parameters: params, appendHeaders: nil)
+    }
+    
+    func postSotoTicketSearch(request:SotoTicketRequest) -> Single<[String: Any]>  {
+        let params = request.getDictionary()
+        return manager(method: .post, appendUrl: "", url: APIUrl.mainApi(type: .airTicketSearchUrl), parameters: params, appendHeaders: nil)
+    }
+    
+    func getLccSearchInit() -> Single<[String: Any]> {
+        return AppHelper.shared.getJson(forResource: "TKTSearchInit")
+    }
 }
 
 extension APIManager {
@@ -246,7 +404,7 @@ extension APIManager {
         #endif
     }
     
-    private func printResponse(_ requestUrl: String,_ value: (Any)){
+    private func printResponse(_ requestUrl: String,_ value: (Any)) {
         //return
         #if DEBUG
         print("-------------------------------------------------------")
@@ -268,10 +426,20 @@ extension APIManager {
         #endif
     }
     
-    private func getPrettyPrint(_ responseValue: Any) -> String{
+    private func printLog(value:String){
+        #if DEBUG
+        print("-------------------------------------------------------")
+        print("****** \(value) ******")
+        print("****** \(value) ******")
+        print("****** \(value) ******")
+        print("-------------------------------------------------------")
+        #endif
+    }
+    
+    private func getPrettyPrint(_ responseValue: Any) -> String {
         var string: String = ""
-        if let data = try? JSONSerialization.data(withJSONObject: responseValue, options: .prettyPrinted){
-            if let nstr = NSString(data: data, encoding: String.Encoding.utf8.rawValue){
+        if let data = try? JSONSerialization.data(withJSONObject: responseValue, options: .prettyPrinted) {
+            if let nstr = NSString(data: data, encoding: String.Encoding.utf8.rawValue) {
                 string = nstr as String
             }
         }

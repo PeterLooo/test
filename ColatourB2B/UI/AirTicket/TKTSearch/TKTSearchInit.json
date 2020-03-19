@@ -1,0 +1,357 @@
+{
+  "Min_Date": "2020/12/12",
+  "Max_Date": "2021/12/12",
+  "Group_Air": {
+    "Departure": [
+      {
+        "Value": "台北",
+        "Text": "台北"
+      },
+      {
+        "Value": "松山",
+        "Text": "松山"
+      },
+      {
+        "Value": "桃園",
+        "Text": "桃園"
+      },
+      {
+        "Value": "高雄",
+        "Text": "高雄"
+      }
+    ],
+    "Airline": [
+      {
+        "Value": "《不指定航空公司》",
+        "Text": "《不指定航空公司》"
+      },
+      {
+        "Value": "AA－美國航空",
+        "Text": "AA－美國航空"
+      },
+      {
+        "Value": "AC－加拿大航空",
+        "Text": "AC－加拿大航空"
+      },
+      {
+        "Value": "AE－華信航空",
+        "Text": "AE－華信航空"
+      },
+      {
+        "Value": "AF－法國航空",
+        "Text": "AF－法國航空"
+      }
+    ],
+    "Tour_Type": [
+      {
+        "Value": "單程",
+        "Text": "單程"
+      },
+      {
+        "Value": "來回",
+        "Text": "來回"
+      },
+      {
+        "Value": "雙程",
+        "Text": "雙程"
+      },
+      {
+        "Value": "旅遊",
+        "Text": "旅遊"
+      }
+    ],
+    "Continent_List": [
+      {
+        "Continent": "亞洲",
+        "Country_list": [
+          {
+            "Country": "日本",
+            "Airport_List": [
+              {
+                "Text": "東京",
+                "Value": "TYO"
+              },
+              {
+                "Text": "大阪",
+                "Value": "OSA"
+              }
+            ]
+          },
+          {
+            "Country": "韓國",
+            "Airport_List": [
+              {
+                "Text": "釜山",
+                "Value": "PUS"
+              },
+              {
+                "Text": "首爾",
+                "Value": "SEL"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "Continent": "歐洲",
+        "Country_list": [
+          {
+            "Country": "英國",
+            "Airport_List": [
+              {
+                "Text": "倫敦",
+                "Value": "LON"
+              },
+              {
+                "Text": "愛丁堡",
+                "Value": "EDI"
+              }
+            ]
+          },
+          {
+            "Country": "德國",
+            "Airport_List": [
+              {
+                "Text": "柏林",
+                "Value": "BER"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "SOTO_Ticket": {
+    "Airline": [
+      {
+        "Value": "《不指定航空公司》",
+        "Text": "《不指定航空公司》"
+      },
+      {
+        "Value": "AA－美國航空",
+        "Text": "AA－美國航空"
+      },
+      {
+        "Value": "AA－美國航空",
+        "Text": "AC－加拿大航空"
+      },
+      {
+        "Value": "AE－華信航空",
+        "Text": "AE－華信航空"
+      },
+      {
+        "Value": "AF－法國航空",
+        "Text": "AF－法國航空"
+      }
+    ],
+    "Tour_Type": [
+      {
+        "Value": "單程",
+        "Text": "單程"
+      },
+      {
+        "Value": "來回",
+        "Text": "來回"
+      }
+    ],
+    "Departure": [
+      {
+        "Value": "CAN",
+        "Text": "廣州"
+      },
+      {
+        "Value": "CGO",
+        "Text": "鄭州"
+      }
+    ],
+    
+    "Arrivals": [
+      {
+        "Value": "TPE",
+        "Text": "TPE"
+      },
+      {
+        "Value": "KHH",
+        "Text": "KHH"
+      }
+    ]
+  },
+  "LCC": {
+      "Unlimited_Return_Info": "",
+      "Country_list": [
+        {
+          "Country": "台灣",
+          "Airport_List": [
+            {
+              "Text": "台北",
+              "Value": "TPE"
+            },
+            {
+              "Text": "高雄",
+              "Value": "KHH"
+            }
+          ]
+        },
+        {
+          "Country": "日本",
+          "Airport_List": [
+            {
+              "Text": "東京",
+              "Value": "TKO"
+            },
+            {
+              "Text": "成田",
+              "Value": "TKO"
+            },
+            {
+              "Text": "羽田",
+              "Value": "TKO"
+            },
+            {
+              "Text": "岡山",
+              "Value": "TKO"
+            }
+          ]
+        },
+        {
+          "Country": "韓國",
+          "Airport_List": [
+            {
+              "Text": "仁川",
+              "Value": "TKO"
+            },
+            {
+              "Text": "金浦",
+              "Value": "TKO"
+            }
+          ]
+        },
+        {
+          "Country": "新加坡",
+          "Airport_List": [
+            {
+              "Text": "樟宜",
+              "Value": "TKO"
+            }
+          ]
+        },
+        {
+          "Country": "馬來西亞",
+          "Airport_List": [
+            {
+              "Text": "吉隆坡",
+              "Value": "TKO"
+            },
+            {
+              "Text": "蘇丹阿都阿茲沙",
+              "Value": "TKO"
+            }
+          ]
+        },
+        {
+          "Country": "瑞典",
+          "Airport_List": [
+            {
+              "Text": "阿蘭達",
+              "Value": "TKO"
+            },
+            {
+              "Text": "蘇丹斯卡夫司塔",
+              "Value": "TKO"
+            },
+            {
+              "Text": "布魯瑪",
+              "Value": "TKO"
+            },
+            {
+              "Text": "韋斯特羅斯",
+              "Value": "TKO"
+            }
+          ]
+        },
+        {
+          "Country": "烏克蘭",
+          "Airport_List": [
+            {
+              "Text": "鮑里斯波爾",
+              "Value": "TKO"
+            },
+            {
+              "Text": "基輔蘇拿尼",
+              "Value": "TKO"
+            },
+            {
+              "Text": "使基都聲",
+              "Value": "TKO"
+            }
+          ]
+        }
+      ]
+    },
+  "Sit_Class": [
+    {
+      "Value": "不限",
+      "Text": "不限"
+    },
+    {
+      "Value": "經濟艙",
+      "Text": "經濟艙"
+    },
+    {
+      "Value": "豪經艙",
+      "Text": "豪經艙"
+    },
+    {
+      "Value": "商務艙",
+      "Text": "商務艙"
+    },
+    {
+      "Value": "頭等艙",
+      "Text": "頭等艙"
+    }
+  ],
+  "Identity": [
+    {
+      "Value": "一般身份",
+      "Text": "一般身份"
+    },
+    {
+      "Value": "學生票",
+      "Text": "學生票"
+    },
+    {
+      "Value": "外勞票",
+      "Text": "外勞票"
+    },
+    {
+      "Value": "敬老票",
+      "Text": "敬老票"
+    },
+    {
+      "Value": "移民票",
+      "Text": "移民票"
+    },
+    {
+      "Value": "外籍人士",
+      "Text": "外籍人士"
+    }
+  ],
+  "Date_Range": [
+    {
+      "Value": "當日",
+      "Text": "當日"
+    },
+    {
+      "Value": "1周內",
+      "Text": "1周內"
+    },
+    {
+      "Value": "2周內",
+      "Text": "2周內"
+    },
+    {
+      "Value": "6周內",
+      "Text": "6周內"
+    }
+  ]
+}

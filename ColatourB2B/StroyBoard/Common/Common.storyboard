@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9mX-aS-cEj">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Web View Controller-->
+        <scene sceneID="aNG-HD-txL">
+            <objects>
+                <viewController restorationIdentifier="WebViewController" storyboardIdentifier="WebViewController" id="9mX-aS-cEj" customClass="WebViewController" customModule="colatour" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2OL-f3-ouz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="YQr-eF-qfG">
+                                <rect key="frame" x="177.66666666666666" y="401" width="20" height="20"/>
+                            </activityIndicatorView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MTg-uN-gDY">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="778"/>
+                            </view>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="1an-Xg-pUs">
+                                <rect key="frame" x="0.0" y="44" width="375" height="2"/>
+                            </progressView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="MTg-uN-gDY" firstAttribute="centerX" secondItem="EDq-Xr-p84" secondAttribute="centerX" id="CB0-Zn-LfM"/>
+                            <constraint firstItem="EDq-Xr-p84" firstAttribute="trailing" secondItem="1an-Xg-pUs" secondAttribute="trailing" id="FBH-vA-vNN"/>
+                            <constraint firstItem="MTg-uN-gDY" firstAttribute="top" secondItem="2OL-f3-ouz" secondAttribute="top" id="Hh7-rr-D9s"/>
+                            <constraint firstItem="1an-Xg-pUs" firstAttribute="leading" secondItem="EDq-Xr-p84" secondAttribute="leading" id="IOr-4Q-Zw6"/>
+                            <constraint firstItem="YQr-eF-qfG" firstAttribute="centerX" secondItem="EDq-Xr-p84" secondAttribute="centerX" id="JRj-f0-W01"/>
+                            <constraint firstItem="MTg-uN-gDY" firstAttribute="leading" secondItem="EDq-Xr-p84" secondAttribute="leading" id="MPe-B4-f5Z"/>
+                            <constraint firstItem="YQr-eF-qfG" firstAttribute="centerY" secondItem="EDq-Xr-p84" secondAttribute="centerY" id="V0l-UR-HF3"/>
+                            <constraint firstItem="EDq-Xr-p84" firstAttribute="bottom" secondItem="MTg-uN-gDY" secondAttribute="bottom" id="ahD-od-x2J"/>
+                            <constraint firstItem="1an-Xg-pUs" firstAttribute="top" secondItem="EDq-Xr-p84" secondAttribute="top" id="jiD-4n-WHQ"/>
+                            <constraint firstItem="EDq-Xr-p84" firstAttribute="trailing" secondItem="MTg-uN-gDY" secondAttribute="trailing" id="lUJ-3u-yPi"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="EDq-Xr-p84"/>
+                    </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="YQr-eF-qfG" id="8tI-uI-V9t"/>
+                        <outlet property="borderView" destination="MTg-uN-gDY" id="SJt-tf-NwW"/>
+                        <outlet property="progressView" destination="1an-Xg-pUs" id="Qxk-RU-kPH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2hZ-n4-W9w" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-5175" y="494"/>
+        </scene>
+        <!--Web For Payment View Controller-->
+        <scene sceneID="1Xp-QF-mAj">
+            <objects>
+                <viewController restorationIdentifier="WebForPaymentViewController" storyboardIdentifier="WebForPaymentViewController" id="eMo-Al-LNS" customClass="WebForPaymentViewController" customModule="colatour" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XKp-4J-g7x">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j2a-qQ-1iG">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="778"/>
+                            </view>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="aAc-Xf-ogC">
+                                <rect key="frame" x="177.66666666666666" y="401" width="20" height="20"/>
+                            </activityIndicatorView>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="yNS-lw-vND">
+                                <rect key="frame" x="0.0" y="44" width="375" height="2"/>
+                            </progressView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="yNS-lw-vND" firstAttribute="top" secondItem="9et-1Q-rVX" secondAttribute="top" id="0bv-oH-XJw"/>
+                            <constraint firstItem="aAc-Xf-ogC" firstAttribute="centerY" secondItem="9et-1Q-rVX" secondAttribute="centerY" id="87O-TQ-0xK"/>
+                            <constraint firstItem="9et-1Q-rVX" firstAttribute="trailing" secondItem="j2a-qQ-1iG" secondAttribute="trailing" id="BmI-66-MfU"/>
+                            <constraint firstItem="9et-1Q-rVX" firstAttribute="bottom" secondItem="j2a-qQ-1iG" secondAttribute="bottom" id="TCu-ae-Sgk"/>
+                            <constraint firstItem="j2a-qQ-1iG" firstAttribute="centerX" secondItem="9et-1Q-rVX" secondAttribute="centerX" id="WZ6-8k-no1"/>
+                            <constraint firstItem="9et-1Q-rVX" firstAttribute="trailing" secondItem="yNS-lw-vND" secondAttribute="trailing" id="dDm-1Z-7kd"/>
+                            <constraint firstItem="j2a-qQ-1iG" firstAttribute="top" secondItem="XKp-4J-g7x" secondAttribute="top" id="tab-S6-pbg"/>
+                            <constraint firstItem="yNS-lw-vND" firstAttribute="leading" secondItem="9et-1Q-rVX" secondAttribute="leading" id="uxA-x8-K7I"/>
+                            <constraint firstItem="aAc-Xf-ogC" firstAttribute="centerX" secondItem="9et-1Q-rVX" secondAttribute="centerX" id="wJi-dV-Zf9"/>
+                            <constraint firstItem="j2a-qQ-1iG" firstAttribute="leading" secondItem="9et-1Q-rVX" secondAttribute="leading" id="x0J-Ys-V9n"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="9et-1Q-rVX"/>
+                    </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="aAc-Xf-ogC" id="amk-gC-Eca"/>
+                        <outlet property="borderView" destination="j2a-qQ-1iG" id="zrw-rk-fLt"/>
+                        <outlet property="progressView" destination="yNS-lw-vND" id="1GY-Ke-Sco"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="E3d-vV-91T" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4498" y="502"/>
+        </scene>
+        <!--Simple Web View Controller-->
+        <scene sceneID="9eH-OB-uxR">
+            <objects>
+                <viewController restorationIdentifier="SimpleWebViewController" storyboardIdentifier="SimpleWebViewController" id="JYY-br-Jak" customClass="SimpleWebViewController" customModule="colatour" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0M5-Zp-bWz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="qTP-WH-YiS">
+                                <rect key="frame" x="177.66666666666666" y="401" width="20" height="20"/>
+                            </activityIndicatorView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ucr-tv-t1h">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="778"/>
+                            </view>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="NqX-pR-jow">
+                                <rect key="frame" x="0.0" y="44" width="375" height="2"/>
+                            </progressView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="dGI-ak-hWO" firstAttribute="trailing" secondItem="NqX-pR-jow" secondAttribute="trailing" id="2z9-VP-iG7"/>
+                            <constraint firstItem="dGI-ak-hWO" firstAttribute="trailing" secondItem="Ucr-tv-t1h" secondAttribute="trailing" id="50J-z1-Vtg"/>
+                            <constraint firstItem="Ucr-tv-t1h" firstAttribute="leading" secondItem="dGI-ak-hWO" secondAttribute="leading" id="JUD-FX-M68"/>
+                            <constraint firstItem="Ucr-tv-t1h" firstAttribute="centerX" secondItem="dGI-ak-hWO" secondAttribute="centerX" id="MDL-QJ-YtZ"/>
+                            <constraint firstItem="qTP-WH-YiS" firstAttribute="centerX" secondItem="dGI-ak-hWO" secondAttribute="centerX" id="Rwq-sl-3fV"/>
+                            <constraint firstItem="Ucr-tv-t1h" firstAttribute="top" secondItem="0M5-Zp-bWz" secondAttribute="top" id="WzI-13-EaZ"/>
+                            <constraint firstItem="qTP-WH-YiS" firstAttribute="centerY" secondItem="dGI-ak-hWO" secondAttribute="centerY" id="get-Zg-kJE"/>
+                            <constraint firstItem="NqX-pR-jow" firstAttribute="leading" secondItem="dGI-ak-hWO" secondAttribute="leading" id="grP-s2-2Ak"/>
+                            <constraint firstItem="NqX-pR-jow" firstAttribute="top" secondItem="dGI-ak-hWO" secondAttribute="top" id="lbJ-go-81i"/>
+                            <constraint firstItem="dGI-ak-hWO" firstAttribute="bottom" secondItem="Ucr-tv-t1h" secondAttribute="bottom" id="phl-jw-mNC"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="dGI-ak-hWO"/>
+                    </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="qTP-WH-YiS" id="es7-1M-vmX"/>
+                        <outlet property="borderView" destination="Ucr-tv-t1h" id="XWp-Cf-C5c"/>
+                        <outlet property="progressView" destination="NqX-pR-jow" id="SCa-Nl-0LM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="meJ-kg-79Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-5948" y="494"/>
+        </scene>
+    </scenes>
+</document>

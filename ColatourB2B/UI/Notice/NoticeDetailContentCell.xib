@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="348" id="KGk-i7-Jjw" customClass="NoticeDetailContentCell" customModule="ColatourB2B" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="348"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="348"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GbX-bq-SW9">
+                        <rect key="frame" x="16" y="16" width="288" height="316"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="PyM-lg-UOH">
+                                <rect key="frame" x="0.0" y="-6" width="288" height="286"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yUL-bK-6LT">
+                                        <rect key="frame" x="16" y="10" width="256" height="81"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="訊息主旨" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aHC-ih-XTM">
+                                                <rect key="frame" x="0.0" y="0.0" width="256" height="20"/>
+                                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="14"/>
+                                                <color key="textColor" name="標題黑"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="團號" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aev-fi-yZT">
+                                                <rect key="frame" x="0.0" y="20" width="256" height="61"/>
+                                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="14"/>
+                                                <color key="textColor" name="標題黑"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstItem="aHC-ih-XTM" firstAttribute="leading" secondItem="yUL-bK-6LT" secondAttribute="leading" id="6Nr-Fh-t7v"/>
+                                            <constraint firstItem="aev-fi-yZT" firstAttribute="leading" secondItem="yUL-bK-6LT" secondAttribute="leading" id="8Rd-ws-Qx2"/>
+                                            <constraint firstItem="aev-fi-yZT" firstAttribute="top" secondItem="aHC-ih-XTM" secondAttribute="bottom" id="Csi-EJ-dC8"/>
+                                            <constraint firstItem="aHC-ih-XTM" firstAttribute="top" secondItem="yUL-bK-6LT" secondAttribute="top" id="HZe-BU-Cry"/>
+                                            <constraint firstAttribute="bottom" secondItem="aev-fi-yZT" secondAttribute="bottom" id="bgs-p6-5kL"/>
+                                            <constraint firstAttribute="trailing" secondItem="aHC-ih-XTM" secondAttribute="trailing" id="e4l-AW-lSd"/>
+                                            <constraint firstAttribute="trailing" secondItem="aev-fi-yZT" secondAttribute="trailing" id="h6V-lL-ASv"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="814-xN-Orp">
+                                        <rect key="frame" x="16" y="107" width="256" height="102"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="發送人" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xx6-Ad-5bH">
+                                                <rect key="frame" x="0.0" y="0.0" width="256" height="20"/>
+                                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="14"/>
+                                                <color key="textColor" name="標題黑"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="發送人" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iki-Fa-ipu">
+                                                <rect key="frame" x="0.0" y="20" width="256" height="82"/>
+                                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="14"/>
+                                                <color key="textColor" name="標題黑"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="xx6-Ad-5bH" secondAttribute="trailing" id="9VA-3J-Nph"/>
+                                            <constraint firstItem="xx6-Ad-5bH" firstAttribute="top" secondItem="814-xN-Orp" secondAttribute="top" id="EjG-Lp-J1F"/>
+                                            <constraint firstItem="iki-Fa-ipu" firstAttribute="leading" secondItem="814-xN-Orp" secondAttribute="leading" id="Ixd-YH-eo6"/>
+                                            <constraint firstItem="iki-Fa-ipu" firstAttribute="top" secondItem="xx6-Ad-5bH" secondAttribute="bottom" id="NGK-0D-8E7"/>
+                                            <constraint firstAttribute="bottom" secondItem="iki-Fa-ipu" secondAttribute="bottom" id="dtw-Mg-evq"/>
+                                            <constraint firstAttribute="trailing" secondItem="iki-Fa-ipu" secondAttribute="trailing" id="xGH-4T-OEx"/>
+                                            <constraint firstItem="xx6-Ad-5bH" firstAttribute="leading" secondItem="814-xN-Orp" secondAttribute="leading" id="zXh-u3-eIh"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dLf-lx-VwR">
+                                        <rect key="frame" x="16" y="225" width="256" height="51"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="訊息時間" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DXH-z0-Mgf">
+                                                <rect key="frame" x="0.0" y="0.0" width="256" height="20"/>
+                                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="14"/>
+                                                <color key="textColor" name="標題黑"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="訊息時間" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qg8-Cm-3ev">
+                                                <rect key="frame" x="0.0" y="20" width="256" height="31"/>
+                                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="15"/>
+                                                <color key="textColor" name="標題黑"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstItem="DXH-z0-Mgf" firstAttribute="leading" secondItem="dLf-lx-VwR" secondAttribute="leading" id="FeD-SM-0dP"/>
+                                            <constraint firstAttribute="trailing" secondItem="Qg8-Cm-3ev" secondAttribute="trailing" id="Tvc-p4-gVt"/>
+                                            <constraint firstItem="Qg8-Cm-3ev" firstAttribute="top" secondItem="DXH-z0-Mgf" secondAttribute="bottom" id="U85-aA-tPC"/>
+                                            <constraint firstItem="DXH-z0-Mgf" firstAttribute="top" secondItem="dLf-lx-VwR" secondAttribute="top" id="Uq3-65-v9a"/>
+                                            <constraint firstAttribute="bottom" secondItem="Qg8-Cm-3ev" secondAttribute="bottom" id="aGs-ZA-5c0"/>
+                                            <constraint firstAttribute="trailing" secondItem="DXH-z0-Mgf" secondAttribute="trailing" id="guR-vF-Gfy"/>
+                                            <constraint firstItem="Qg8-Cm-3ev" firstAttribute="leading" secondItem="dLf-lx-VwR" secondAttribute="leading" id="ztj-Lz-1pw"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <directionalEdgeInsets key="directionalLayoutMargins" top="10" leading="16" bottom="10" trailing="16"/>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="content" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rg8-jl-a7h">
+                                <rect key="frame" x="16" y="280" width="256" height="20"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="14"/>
+                                <color key="textColor" name="標題黑"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="rg8-jl-a7h" secondAttribute="trailing" constant="16" id="1B1-uK-KwA"/>
+                            <constraint firstItem="rg8-jl-a7h" firstAttribute="top" secondItem="PyM-lg-UOH" secondAttribute="bottom" id="8xA-Dn-mpD"/>
+                            <constraint firstAttribute="trailing" secondItem="PyM-lg-UOH" secondAttribute="trailing" id="J6V-5d-r6I"/>
+                            <constraint firstItem="PyM-lg-UOH" firstAttribute="leading" secondItem="GbX-bq-SW9" secondAttribute="leading" id="SM5-8J-old"/>
+                            <constraint firstAttribute="bottom" secondItem="rg8-jl-a7h" secondAttribute="bottom" constant="16" id="h3S-RP-eBj"/>
+                            <constraint firstItem="PyM-lg-UOH" firstAttribute="top" secondItem="GbX-bq-SW9" secondAttribute="top" priority="250" id="wNO-8D-RGf"/>
+                            <constraint firstItem="rg8-jl-a7h" firstAttribute="leading" secondItem="GbX-bq-SW9" secondAttribute="leading" constant="16" id="zxp-lj-0sw"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="GbX-bq-SW9" secondAttribute="trailing" constant="16" id="CXr-vR-K3N"/>
+                    <constraint firstItem="GbX-bq-SW9" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="oPN-kw-Gcu"/>
+                    <constraint firstItem="GbX-bq-SW9" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="wEE-yW-qro"/>
+                    <constraint firstAttribute="bottom" secondItem="GbX-bq-SW9" secondAttribute="bottom" constant="16" id="z87-Hu-pgO"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="borderView" destination="GbX-bq-SW9" id="QWG-C9-AM9"/>
+                <outlet property="contentLabel" destination="rg8-jl-a7h" id="0aE-7q-TRO"/>
+                <outlet property="messageDate" destination="Qg8-Cm-3ev" id="F56-UU-1JH"/>
+                <outlet property="messageDateView" destination="dLf-lx-VwR" id="f7W-P5-HTc"/>
+                <outlet property="notiTitle" destination="aev-fi-yZT" id="Yhf-hx-mdi"/>
+                <outlet property="notiTitleView" destination="yUL-bK-6LT" id="dfO-so-NiQ"/>
+                <outlet property="sendUser" destination="iki-Fa-ipu" id="ki1-Cs-H7S"/>
+                <outlet property="sendUserView" destination="814-xN-Orp" id="gA5-UB-xwk"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="165.40178571428569"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="標題黑">
+            <color red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
