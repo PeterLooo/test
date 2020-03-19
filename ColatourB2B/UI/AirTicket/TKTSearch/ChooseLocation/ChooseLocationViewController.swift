@@ -365,9 +365,6 @@ extension ChooseLocationViewController: UICollectionViewDelegate {
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         
         searchBar.endEditing(true)
-        
-        NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(setCollectionViewLayout), object: nil)
-        perform(#selector(setCollectionViewLayout), with: nil, afterDelay: 0.5)
     }
 }
 
@@ -380,7 +377,6 @@ extension ChooseLocationViewController: UICollectionViewDelegateFlowLayout {
             if searchText.count != 0 { return .zero }
             return UIEdgeInsets(top: 12, left: 16, bottom: 12, right: 16)
             
-            
         case .Brick:
             if searchText.count != 0 { return .zero }
             return UIEdgeInsets(top: 4, left: 16, bottom: 4, right: 16)
@@ -389,8 +385,8 @@ extension ChooseLocationViewController: UICollectionViewDelegateFlowLayout {
             return .zero
             
         case .SearchResult:
-            if searchResultList.count == 0 { return .zero }
-            return UIEdgeInsets(top: 16, left: 0, bottom: 16, right: 0)
+            if searchText.count != 0 && searchResultList.count == 0 { return .zero }
+            return UIEdgeInsets(top: 16, left: 24, bottom: 16, right: 24)
             
         default:
             return .zero
@@ -401,10 +397,13 @@ extension ChooseLocationViewController: UICollectionViewDelegateFlowLayout {
         
         var cellSize = CGSize()
         
+        let textFont = UIFont.init(name: "PingFang-TC-Regular", size: 14)!
+        var textString: String?
+        var textMaxSize = CGSize()
+        var textLabelSize = CGSize()
+        
         switch Section(rawValue: indexPath.section) {
         case .Capsule:
-            var textString: String?
-            
             switch searchType {
             case .airTkt:
                 textString = airTicketInfo?.areaList[indexPath.item].areaName
@@ -416,9 +415,8 @@ extension ChooseLocationViewController: UICollectionViewDelegateFlowLayout {
                 ()
             }
             
-            let textFont = UIFont.init(name: "PingFang-TC-Regular", size: 14)!
-            let textMaxSize = CGSize(width: 100, height: CGFloat(MAXFLOAT))
-            let textLabelSize = self.textSize(text: textString ?? "", font: textFont, maxSize: textMaxSize)
+            textMaxSize = CGSize(width: 100, height: 28)
+            textLabelSize = self.textSize(text: textString ?? "", font: textFont, maxSize: textMaxSize)
 
             cellSize.width = textLabelSize.width + 24
             cellSize.height = 28
@@ -438,8 +436,12 @@ extension ChooseLocationViewController: UICollectionViewDelegateFlowLayout {
             return cellSize
             
         case .SearchResult:
-            cellSize.width = collectionView.frame.width
-            cellSize.height = 20
+            textString = searchResultList[indexPath.item].cityName
+            textMaxSize = CGSize(width: collectionView.frame.width - 48, height: 40)
+            textLabelSize = self.textSize(text: textString ?? "", font: textFont, maxSize: textMaxSize)
+            
+            cellSize.width = collectionView.frame.width - 48
+            cellSize.height = textLabelSize.height
             
             return cellSize
             
