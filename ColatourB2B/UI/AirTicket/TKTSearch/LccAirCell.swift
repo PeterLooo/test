@@ -9,7 +9,7 @@
 import UIKit
 
 protocol LccCellProtocol: NSObjectProtocol {
-    func onTouchRadio(isToAndFor: Bool)
+    func onTouchRadio(isToAndFor:Bool)
     func onTouchLccDate()
     func onTouchAirlineSwitch()
     func onTouchLccRequestByPerson()

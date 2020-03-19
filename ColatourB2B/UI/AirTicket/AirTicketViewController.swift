@@ -312,6 +312,7 @@ extension AirTicketViewController : UITableViewDataSource {
         
         case .BANNER:
             cell = tableView.dequeueReusableCell(withIdentifier: "AirIndexCell") as! AirIndexCell
+            
             (cell as! AirIndexCell).setCell(item: indexList[indexPath.row])
             (cell as! AirIndexCell).delegate = self
         

@@ -9,8 +9,8 @@
 import UIKit
 
 protocol AirTktCellProtocol: NSObjectProtocol {
-    func onTouchSelection(selection:TKTInputFieldType, searchType: SearchByType)
-    func onTouchSearch(searchType:SearchByType)
+    func onTouchSelection(selection: TKTInputFieldType, searchType: SearchByType)
+    func onTouchSearch(searchType: SearchByType)
     func onTouchArrival(arrival:ArrivalType, searchType: SearchByType)
     func onTouchNonStop(searchType: SearchByType)
     func onTouchDate(searchType: SearchByType)
