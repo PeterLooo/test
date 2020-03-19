@@ -742,7 +742,6 @@ extension BaseViewController {
 extension BaseViewController: UISearchBarDelegate {
     
     func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
-        handleLinkType(linkType: .keyword, linkValue: nil, linkText: nil)
         return false
     }
 }
@@ -803,10 +802,6 @@ extension BaseViewController {
             
         case .notification:
             self.tabBarController?.selectedIndex = 2
-            
-        case .keyword:
-            let vc = getVC(st: "LCCSearchLocation", vc: "LCCSearchLocation") as! ChooseLocationViewController
-            self.navigationController?.pushViewController(vc, animated: true)
             
         case .salesPage:
             vc = getVC(st: "Sales", vc: "SalesViewController") as! SalesViewController

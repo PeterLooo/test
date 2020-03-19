@@ -40,11 +40,13 @@ enum StartEndType {
     case Departure
     case Destination
 }
+
 extension AirTicketSearchViewController {
     func setVC(searchType: SearchByType){
         self.searchType = searchType
     }
 }
+
 class AirTicketSearchViewController: BaseViewController {
     
     @IBOutlet weak var topPageScrollView: UIScrollView!
