@@ -29,7 +29,7 @@ class ChooseLocationPresenter: ChooseLocationPresenterProtocol {
                 self.delegate?.onBindSearchResult(result: model.keywordResultData?.cityList ?? [])
                 self.delegate?.onCompletedLoadingHandle()
         }, onError: { (error) in
-                self.delegate?.onApiErrorHandle(apiError: error as! APIError, handleType: .coverPlate)
+            self.delegate?.onApiErrorHandle(apiError: error as! APIError, handleType: .custom)
                 self.delegate?.onCompletedLoadingHandle()
         }).disposed(by: dispose)
     }
@@ -43,7 +43,7 @@ class ChooseLocationPresenter: ChooseLocationPresenterProtocol {
                 self.delegate?.onBindSearchResult(result: model.keywordResultData?.cityList ?? [])
                 self.delegate?.onCompletedLoadingHandle()
         }, onError: { (error) in
-                self.delegate?.onApiErrorHandle(apiError: error as! APIError, handleType: .coverPlate)
+                self.delegate?.onApiErrorHandle(apiError: error as! APIError, handleType: .custom)
                 self.delegate?.onCompletedLoadingHandle()
         }).disposed(by: dispose)
     }

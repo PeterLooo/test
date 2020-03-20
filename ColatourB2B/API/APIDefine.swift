@@ -142,7 +142,7 @@ enum APIUrl {
         case airTicketSearchUrl = "AirTicket/Search"
         case lccSearchUrl = "Lcc/Search"
         case airTktLocationKeywordSearch = "AirTicket/Search/Keyword?City_Name="
-        case lccLocationKeywordSearch = "Lcc/Search/Keyword?Keyword="
+        case lccLocationKeywordSearch = "Lcc/Search/Keyword?City_Name="
         
         static func urlWith(type: MainApi, append: String) -> String {
             let base =  MAIN_WEB_HOST + "Main/"
