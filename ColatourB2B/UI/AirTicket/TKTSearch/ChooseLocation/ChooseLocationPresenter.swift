@@ -20,17 +20,31 @@ class ChooseLocationPresenter: ChooseLocationPresenterProtocol {
         self.delegate = delegate
     }
     
-    func getSearchResult(keyword: String) {
-
+    func getAirTktSearchResult(keyword: String) {
+        
         self.delegate?.onStartLoadingHandle(handleType: .coverPlate)
         
-        repository.getLocationKeywordSearchResult(keyword: keyword).subscribe(
+        repository.getAirTktLocationKeywordSearchResult(keyword: keyword).subscribe(
             onSuccess: { (model) in
-                self.delegate?.onBindSearchResult(result: model)
-            self.delegate?.onCompletedLoadingHandle()
+                self.delegate?.onBindSearchResult(result: model.keywordResultData?.cityList ?? [])
+                self.delegate?.onCompletedLoadingHandle()
         }, onError: { (error) in
-            self.delegate?.onApiErrorHandle(apiError: error as! APIError, handleType: .coverPlate)
-            self.delegate?.onCompletedLoadingHandle()
+            self.delegate?.onApiErrorHandle(apiError: error as! APIError, handleType: .custom)
+                self.delegate?.onCompletedLoadingHandle()
+        }).disposed(by: dispose)
+    }
+    
+    func getLccSearchResult(keyword: String) {
+        
+        self.delegate?.onStartLoadingHandle(handleType: .coverPlate)
+        
+        repository.getLccLocationKeywordSearchResult(keyword: keyword).subscribe(
+            onSuccess: { (model) in
+                self.delegate?.onBindSearchResult(result: model.keywordResultData?.cityList ?? [])
+                self.delegate?.onCompletedLoadingHandle()
+        }, onError: { (error) in
+                self.delegate?.onApiErrorHandle(apiError: error as! APIError, handleType: .custom)
+                self.delegate?.onCompletedLoadingHandle()
         }).disposed(by: dispose)
     }
 }
