@@ -34,7 +34,7 @@ class LocationDetailViewController: BaseViewController {
         setCollectionViewLayout()
     }
     
-    func onBindCountryInfo(countryInfo: TKTInitResponse.TicketResponse.Country) {
+    func setVC(countryInfo: TKTInitResponse.TicketResponse.Country) {
         
         self.country = countryInfo
     }

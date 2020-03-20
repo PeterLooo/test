@@ -251,7 +251,7 @@ extension ChooseLocationViewController: BrickCellProtocol {
         switch searchType {
         case .airTkt:
             let vc = getVC(st: "LocationDetail", vc: "LocationDetail") as! LocationDetailViewController
-            vc.onBindCountryInfo(countryInfo: countryInfo!)
+            vc.setVC(countryInfo: countryInfo!)
             vc.delegate = self
             
             self.navigationController?.pushViewController(vc, animated: true)
