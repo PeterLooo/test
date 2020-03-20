@@ -405,21 +405,52 @@ class AirTicketSearchViewController: BaseViewController {
     private func checkAirTicketRequest() -> Bool{
         var allowToSearch = true
         var errorText:[String] = []
-        if airTicketRequest.destination?.cityId == nil{
-            errorText.append("請輸入目的地")
-            allowToSearch = false
-        }
-        if airTicketRequest.journeyType == "雙程" || airTicketRequest.journeyType == "環遊" {
-            if airTicketRequest.returnCode?.cityId == nil {
-                errorText.append("請輸入回程目的地")
-                allowToSearch = false
-            }
+        switch searchType {
+        case .airTkt:
             
-            if airTicketRequest.returnCode?.cityId == airTicketRequest.destination?.cityId {
-                errorText.append("回程起點城市代碼不可與目的地相同")
+            if airTicketRequest.destination?.cityId == nil{
+                errorText.append("請輸入目的地")
                 allowToSearch = false
             }
+            if airTicketRequest.journeyType == "雙程" || airTicketRequest.journeyType == "環遊" {
+                if airTicketRequest.returnCode?.cityId == nil {
+                    errorText.append("請輸入回程目的地")
+                    allowToSearch = false
+                }
+                
+                if airTicketRequest.returnCode?.cityId == airTicketRequest.destination?.cityId {
+                    errorText.append("回程起點城市代碼不可與目的地相同")
+                    allowToSearch = false
+                }
+            }
+        case .soto:
+            if sotoTicketRequest.departure?.departureCodeId == "0" {
+                errorText.append("請輸入出發地")
+                allowToSearch = false
+            }
+        case .lcc:
+            if lccTicketRequest.departure?.cityId == nil {
+                errorText.append("請輸入出發地")
+                allowToSearch = false
+            }
+            if lccTicketRequest.destination?.cityId == nil {
+                errorText.append("請輸入目的地")
+                allowToSearch = false
+            }
+            if lccTicketRequest.departure?.cityId != nil && lccTicketRequest.destination?.cityId != nil {
+                if checkDestinationIncludeTW() {
+                    errorText.append("出發地或目的地至少一個為台灣出發")
+                    allowToSearch = false
+                }
+                if lccTicketRequest.departure?.cityId == lccTicketRequest.destination?.cityId{
+                    errorText.append("回程起點城市代碼不可與目的地相同")
+                    allowToSearch = false
+                }
+            }
+        default:
+            ()
         }
+        
         if errorText.isEmpty == false {
             let errorResult = errorText.joined(separator: "\n")
             let alertSeverError: UIAlertController = UIAlertController(title: "修正錯誤", message: errorResult, preferredStyle: .alert)
@@ -428,6 +459,14 @@ class AirTicketSearchViewController: BaseViewController {
             self.present(alertSeverError, animated: true)
         }
         return allowToSearch
+    }
+    
+    private func checkDestinationIncludeTW() -> Bool {
+        let departure = lccTicketRequest.departure
+        let destination = lccTicketRequest.destination
+        let departureCountry = lccSearchInit?.countryList.filter{$0.countryName == "台灣"}.first
+        
+        return departureCountry?.cityList.contains(departure!) ?? false || departureCountry?.cityList.contains(destination!) ?? false
     }
     
     private func openCalender(searchType: SearchByType) {
@@ -518,7 +557,9 @@ extension AirTicketSearchViewController: AirTicketSearchViewProtocol {
     func onBindAirTicketSearchInit(tktSearchInit: TKTInitResponse) {
         self.airSearchInit = tktSearchInit.initResponse
         self.airTicketRequest = TKTSearchRequest().getAirTicketRequest(response: tktSearchInit.initResponse!)
-
+        if self.airSearchInit?.journeyTypeList.contains("來回") == true {
+            self.airTicketRequest.journeyType = "來回"
+        }
         tableViewGroupAir.reloadData()
     }
     
@@ -630,15 +671,20 @@ extension AirTicketSearchViewController: AirTktCellProtocol {
     }
     
     func onTouchSearch(searchType: SearchByType) {
+        self.searchType = searchType
         switch searchType {
         case .airTkt:
             if checkAirTicketRequest() {
                 self.presenter?.postAirTicketSearch(request: self.airTicketRequest)
             }
         case .soto:
-            self.presenter?.postSotoTicketSearch(request: self.sotoTicketRequest)
+            if checkAirTicketRequest() {
+                self.presenter?.postSotoTicketSearch(request: self.sotoTicketRequest)
+            }
         case .lcc:
-            self.presenter?.postLCCTicketSearch(request: self.lccTicketRequest)
+            if checkAirTicketRequest() {
+                self.presenter?.postLCCTicketSearch(request: self.lccTicketRequest)
+            }
         }
     }
     
