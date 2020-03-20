@@ -566,7 +566,9 @@ extension AirTicketSearchViewController: AirTicketSearchViewProtocol {
     func onBindSotoAirSearchInit(sotoSearchInit: TKTInitResponse) {
         self.sotoSearchInit = sotoSearchInit.initResponse
         self.sotoTicketRequest = SotoTicketRequest().getSotoTicketRequest(response: sotoSearchInit.initResponse!)
-        
+        if self.sotoSearchInit?.journeyTypeList.contains("來回") == true {
+            self.sotoTicketRequest.journeyType = "來回"
+        }
         tableViewSotoAir.reloadData()
     }
 
