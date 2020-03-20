@@ -36,13 +36,44 @@ class SearchResultCell: UICollectionViewCell {
         self.searchType = searchType
         
         let attributedString = NSMutableAttributedString(string: cityInfo.cityName!)
-        let theRange = NSString(string: cityInfo.cityName!).range(of: searchText)
-        attributedString.addAttribute(NSAttributedString.Key.foregroundColor, value: ColorHexUtil.hexColor(hex: "#19bf62"), range: theRange)
+        // 得到全部匹配關鍵字的Range<Index>
+        let ranges = cityInfo.cityName!.ranges(of: searchText)
+        var nsRanges: [NSRange] = []
+        var nsRange = NSRange()
+        
+        // 把Range<Index>轉型成NSRange
+        ranges.forEach({ (range) in
+            nsRange = cityInfo.cityName!.nsRange(from: range)
+            nsRanges.append(nsRange)
+        })
+        
+        // 把所有關鍵字的NSRange變色
+        nsRanges.forEach { (nsRange) in
+            attributedString.addAttribute(NSAttributedString.Key.foregroundColor, value: ColorHexUtil.hexColor(hex: "#19bf62"), range: nsRange)
+        }
+        
         resultName.attributedText = attributedString
     }
     
     @objc func onTouchCity() {
         
         delegate?.onTouchCity(cityInfo: cityInfo!, searchType: searchType!)
+    }
+}
+
+extension String {
+    
+    func ranges(of substring: String, options: CompareOptions = [], locale: Locale? = nil) -> [Range<Index>] {
+        var ranges: [Range<Index>] = []
+        while let range = range(of: substring, options: options, range: (ranges.last?.upperBound ?? self.startIndex)..<self.endIndex, locale: locale) {
+            ranges.append(range)
+        }
+        return ranges
+    }
+    
+    func nsRange(from range: Range<String.Index>) -> NSRange {
+        let from = range.lowerBound.samePosition(in: utf16)
+        let to = range.upperBound.samePosition(in: utf16)
+        return NSRange(location: utf16.distance(from: utf16.startIndex, to: from!),length: utf16.distance(from: from!, to: to!))
     }
 }
