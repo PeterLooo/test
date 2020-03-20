@@ -8,6 +8,7 @@
 
 import UIKit
 import ObjectMapper
+
 class LccResponse: BaseModel {
     
     var lCCSearchInitialData : LCCSearchInitialData?
@@ -30,8 +31,6 @@ class LccResponse: BaseModel {
             defaultEndDate <- map["Default_End_Date"]
             defaultStartDate <- map["Default_Start_Date"]
             effectEndDate <- map["Effect_End_Date"]
-            
         }
     }
-    
 }

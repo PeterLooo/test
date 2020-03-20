@@ -134,6 +134,7 @@ class TKTInitResponse: BaseModel {
             var countryId: String?
             var countryName: String?
             var cityList: [City] = []
+            var isSelected = false
             
             override func mapping(map: Map) {
                 super.mapping(map: map)

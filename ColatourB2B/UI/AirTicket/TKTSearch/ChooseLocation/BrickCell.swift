@@ -10,8 +10,7 @@ import UIKit
 
 protocol BrickCellProtocol: NSObjectProtocol {
     
-    func onTouchBrick(countryInfo: TKTInitResponse.TicketResponse.Country)
-    //func onTouchBrick(airportInfo: AirTicketSearchResponse.AirInfo)
+    func onTouchBrick(countryInfo: TKTInitResponse.TicketResponse.Country?, cityInfo: TKTInitResponse.TicketResponse.City?, searchType: SearchByType)
 }
 
 class BrickCell: UICollectionViewCell {
@@ -21,7 +20,7 @@ class BrickCell: UICollectionViewCell {
     weak var delegate: BrickCellProtocol?
     
     private var countryInfo: TKTInitResponse.TicketResponse.Country?
-    //private var airportInfo: AirTicketSearchResponse.AirInfo?
+    private var cityInfo: TKTInitResponse.TicketResponse.City?
     private var searchType: SearchByType?
     
     override func awakeFromNib() {
@@ -35,26 +34,33 @@ class BrickCell: UICollectionViewCell {
         brickName.backgroundColor = .white
         brickName.setBorder(width: 1, radius: 5, color: UIColor(named: "分隔線"))
     }
-   
-    func setCellWithCountry(countryInfo: TKTInitResponse.TicketResponse.Country, searchType: SearchByType) {
+    
+    func setCellWith(countryInfo: TKTInitResponse.TicketResponse.Country?, cityInfo: TKTInitResponse.TicketResponse.City?, searchType: SearchByType) {
         
         self.searchType = searchType
         self.countryInfo = countryInfo
-        brickName.text = countryInfo.countryName
+        self.cityInfo = cityInfo
+        
+        switch searchType {
+        case .airTkt:
+            brickName.text = countryInfo?.countryName
+            
+        case .lcc:
+            brickName.text = cityInfo?.cityName
+            
+        default:
+            ()
+        }
     }
     
-    func setCellWithCity(cityInfo: TKTInitResponse.TicketResponse.City, searchType: SearchByType) {
-        ()
-    }
-
     @objc func onTouchBrick() {
         
         switch searchType {
         case .airTkt:
-            delegate?.onTouchBrick(countryInfo: countryInfo!)
+            delegate?.onTouchBrick(countryInfo: countryInfo!, cityInfo: nil, searchType: .airTkt)
             
         case .lcc:
-            () //delegate?.onTouchBrick(airportInfo: airportInfo!)
+            delegate?.onTouchBrick(countryInfo: nil, cityInfo: cityInfo!, searchType: .lcc)
             
         default:
             ()

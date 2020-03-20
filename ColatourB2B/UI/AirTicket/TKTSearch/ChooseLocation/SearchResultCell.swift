@@ -10,7 +10,7 @@ import UIKit
 
 protocol SearchResultCellProtocol: NSObjectProtocol {
     
-    func onTouchCity(cityInfo: LocationKeywordSearchResponse.City)
+    func onTouchCity(cityInfo: TKTInitResponse.TicketResponse.City, searchType: SearchByType)
 }
 
 class SearchResultCell: UICollectionViewCell {
@@ -19,7 +19,8 @@ class SearchResultCell: UICollectionViewCell {
     
     weak var delegate: SearchResultCellProtocol?
     
-    private var cityInfo: LocationKeywordSearchResponse.City?
+    private var cityInfo: TKTInitResponse.TicketResponse.City?
+    private var searchType: SearchByType?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -29,9 +30,10 @@ class SearchResultCell: UICollectionViewCell {
         resultName.addGestureRecognizer(ges)
     }
     
-    func setCellWith(cityInfo: LocationKeywordSearchResponse.City, searchText: String) {
+    func setCellWith(cityInfo: TKTInitResponse.TicketResponse.City, searchText: String, searchType: SearchByType) {
         
         self.cityInfo = cityInfo
+        self.searchType = searchType
         
         let attributedString = NSMutableAttributedString(string: cityInfo.cityName!)
         let theRange = NSString(string: cityInfo.cityName!).range(of: searchText)
@@ -41,6 +43,6 @@ class SearchResultCell: UICollectionViewCell {
     
     @objc func onTouchCity() {
         
-        delegate?.onTouchCity(cityInfo: cityInfo!)
+        delegate?.onTouchCity(cityInfo: cityInfo!, searchType: searchType!)
     }
 }

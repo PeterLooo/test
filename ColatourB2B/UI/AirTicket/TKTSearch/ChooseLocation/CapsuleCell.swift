@@ -8,10 +8,9 @@
 
 import UIKit
 
-protocol CapsuleCellProtocol:NSObjectProtocol {
+protocol CapsuleCellProtocol: NSObjectProtocol {
     
-    func onTouchCapsule(areaInfo: TKTInitResponse.TicketResponse.Area)
-    //func onTouchCapsule(countryInfo: AirTicketSearchResponse.CountryInfo)
+    func onTouchCapsule(areaInfo: TKTInitResponse.TicketResponse.Area?, countryInfo: TKTInitResponse.TicketResponse.Country?, searchType: SearchByType)
 }
 
 class CapsuleCell: UICollectionViewCell {
@@ -21,9 +20,10 @@ class CapsuleCell: UICollectionViewCell {
     weak var delegate: CapsuleCellProtocol?
     
     private var areaInfo: TKTInitResponse.TicketResponse.Area?
-    //private var countryInfo: AirTicketSearchResponse.CountryInfo?
+    private var countryInfo: TKTInitResponse.TicketResponse.Country?
     private var searchType: SearchByType?
     private var selectedSign: Bool?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -32,13 +32,13 @@ class CapsuleCell: UICollectionViewCell {
         capsuleName.addGestureRecognizer(ges)
     }
     
-    func setCellWith(airTicketInfo: TKTInitResponse.TicketResponse, searchType: SearchByType, row: Int) {
+    func setCellWith(airTicketInfo: TKTInitResponse.TicketResponse?, lccAirInfo: LccResponse.LCCSearchInitialData?, searchType: SearchByType, row: Int) {
         
         self.searchType = searchType
         
         switch searchType {
         case .airTkt:
-            areaInfo = airTicketInfo.areaList[row]
+            areaInfo = airTicketInfo?.areaList[row]
             capsuleName.text = areaInfo?.areaName
             selectedSign = areaInfo?.isSelected
             
@@ -46,10 +46,9 @@ class CapsuleCell: UICollectionViewCell {
             ()
             
         case .lcc:
-            ()
-//            countryInfo = airTicketInfo.lCC?.countryList[row]
-//            capsuleName.text = countryInfo?.country
-//            selectedSign = countryInfo?.isSelected
+            countryInfo = lccAirInfo?.countryList[row]
+            capsuleName.text = countryInfo?.countryName
+            selectedSign = countryInfo?.isSelected
         }
         
         switch selectedSign {
@@ -70,13 +69,13 @@ class CapsuleCell: UICollectionViewCell {
     }
     
     @objc func onTouchCapsule() {
-
+        
         switch searchType {
         case .airTkt:
-            delegate?.onTouchCapsule(areaInfo: areaInfo!)
+            delegate?.onTouchCapsule(areaInfo: areaInfo!, countryInfo: nil, searchType: .airTkt)
             
         case .lcc:
-            () //delegate?.onTouchCapsule(countryInfo: countryInfo!)
+            delegate?.onTouchCapsule(areaInfo: nil, countryInfo: countryInfo!, searchType: .lcc)
             
         default:
             ()

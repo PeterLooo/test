@@ -1,5 +1,5 @@
 //
-//  LocationKeywordSearchResponse.swift
+//  AirTktLocationKeywordSearchResponse.swift
 //  ColatourB2B
 //
 //  Created by 7635 邱郁雯 on 2020/3/18.
@@ -9,7 +9,7 @@
 import UIKit
 import ObjectMapper
 
-class LocationKeywordSearchResponse: BaseModel {
+class AirTktLocationKeywordSearchResponse: BaseModel {
     
     var keywordResultData: AirTicketKeywordData?
     
@@ -21,25 +21,12 @@ class LocationKeywordSearchResponse: BaseModel {
     
     class AirTicketKeywordData: BaseModel {
         
-        var cityList: [City] = []
+        var cityList: [TKTInitResponse.TicketResponse.City] = []
         
         override func mapping(map: Map) {
             super.mapping(map: map)
             
             cityList <- map["City_List"]
-        }
-    }
-    
-    class City: BaseModel {
-        
-        var cityId: String?
-        var cityName: String?
-        
-        override func mapping(map: Map) {
-            super.mapping(map: map)
-            
-            cityId <- map["City_Id"]
-            cityName <- map["City_Name"]
         }
     }
 }

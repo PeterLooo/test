@@ -8,14 +8,14 @@
 
 import UIKit
 
-protocol SetChooseCityProtocol: NSObjectProtocol {
+protocol SetAirTktChooseCityProtocol: NSObjectProtocol {
     
     func setChooseCity(cityInfo: TKTInitResponse.TicketResponse.City)
 }
 
 class LocationDetailViewController: BaseViewController {
 
-    weak var delegate: SetChooseCityProtocol?
+    weak var delegate: SetAirTktChooseCityProtocol?
     
     private var country: TKTInitResponse.TicketResponse.Country?
     
@@ -34,7 +34,7 @@ class LocationDetailViewController: BaseViewController {
         setCollectionViewLayout()
     }
     
-    func onBindCountryInfo(countryInfo: TKTInitResponse.TicketResponse.Country) {
+    func setVC(countryInfo: TKTInitResponse.TicketResponse.Country) {
         
         self.country = countryInfo
     }
