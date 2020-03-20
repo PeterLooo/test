@@ -19,6 +19,8 @@ class AirIndexView: UIView {
     @IBOutlet weak var leftToMidConstraints: NSLayoutConstraint!
     
     @IBOutlet weak var midToRightConstraints: NSLayoutConstraint!
+    @IBOutlet weak var safeAreaLeading: NSLayoutConstraint!
+    @IBOutlet weak var safeAreaTrailing: NSLayoutConstraint!
     weak var delegate: HomeAd1ViewProcotol?
     
     private var adItem: IndexResponse.ModuleItem?
@@ -44,11 +46,7 @@ class AirIndexView: UIView {
         view.frame = bounds
         view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         self.addSubview(view)
-        leftToMidConstraints.constant = (screenWidth - 272) / 2
-        midToRightConstraints.constant = (screenWidth - 272) / 2
-        self.imageView.contentMode = .scaleAspectFill
-        self.imageSecView.contentMode = .scaleAspectFill
-        self.imageThrView.contentMode = .scaleAspectFill
+        setImageStatus()
     }
     
     func setView(item: IndexResponse.ModuleItem, moduleIndex: Int) {
@@ -61,14 +59,32 @@ class AirIndexView: UIView {
         case 1:
             self.downImage(picUrl: item.picUrl ?? "", imageView: imageSecView)
             self.itemSecText.text = item.itemText
+            self.imageSecView.isHidden = false
+            self.itemSecText.isHidden = false
             self.adSecItem = item
         case 2:
             self.downImage(picUrl: item.picUrl ?? "", imageView: imageThrView)
             self.itemThrText.text = item.itemText
+            self.imageThrView.isHidden = false
+            self.itemThrText.isHidden = false
             self.adThrItem = item
         default:
             ()
         }
+    }
+    
+    private func setImageStatus() {
+        leftToMidConstraints.constant = (screenWidth - 180) / 4
+        midToRightConstraints.constant = (screenWidth - 180) / 4
+        safeAreaLeading.constant = (screenWidth - 180) / 4
+        safeAreaTrailing.constant = (screenWidth - 180) / 4
+        self.imageView.contentMode = .scaleAspectFill
+        self.imageSecView.contentMode = .scaleAspectFill
+        self.imageThrView.contentMode = .scaleAspectFill
+        self.imageSecView.isHidden = true
+        self.imageThrView.isHidden = true
+        self.itemSecText.isHidden = true
+        self.itemThrText.isHidden = true
     }
     
     @IBAction func onTouchItem(_ sender: Any) {

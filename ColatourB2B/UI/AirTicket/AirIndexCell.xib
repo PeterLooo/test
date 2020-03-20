@@ -19,10 +19,10 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="36" translatesAutoresizingMaskIntoConstraints="NO" id="UlW-1x-JGU">
-                        <rect key="frame" x="40" y="40" width="240" height="201"/>
+                        <rect key="frame" x="0.0" y="40" width="320" height="201"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="trk-GJ-QAf">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="201"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="201"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -33,9 +33,9 @@
                 <color key="backgroundColor" name="背景灰"/>
                 <constraints>
                     <constraint firstItem="UlW-1x-JGU" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="40" id="G1F-hF-9GK"/>
-                    <constraint firstAttribute="trailing" secondItem="UlW-1x-JGU" secondAttribute="trailing" constant="40" id="Ipw-1C-gor"/>
+                    <constraint firstAttribute="trailing" secondItem="UlW-1x-JGU" secondAttribute="trailing" id="Ipw-1C-gor"/>
                     <constraint firstAttribute="bottom" secondItem="UlW-1x-JGU" secondAttribute="bottom" id="Ll6-Y8-HFU"/>
-                    <constraint firstItem="UlW-1x-JGU" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="40" id="yhO-I6-Fut"/>
+                    <constraint firstItem="UlW-1x-JGU" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="yhO-I6-Fut"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
