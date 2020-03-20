@@ -52,7 +52,7 @@ class BrickCell: UICollectionViewCell {
             ()
         }
     }
-
+    
     @objc func onTouchBrick() {
         
         switch searchType {

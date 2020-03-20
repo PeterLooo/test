@@ -131,7 +131,6 @@ class AirTicketSearchViewController: BaseViewController {
     
     @objc private func onTouchPickerViewDone() {
         pickerView.pickerView(pickerView, didSelectRow: pickerView.selectedRow(inComponent: 0), inComponent: 0)
-        
         touchInputField = nil
     }
     
@@ -317,11 +316,9 @@ class AirTicketSearchViewController: BaseViewController {
             case .pickerView:
                 isPickerViewShow = true
                 isDatePickerViewShow = false
-                
             case .datePicker:
                 isPickerViewShow = false
                 isDatePickerViewShow = true
-                
             case .hide:
                 isPickerViewShow = false
                 isDatePickerViewShow = false
@@ -352,7 +349,6 @@ class AirTicketSearchViewController: BaseViewController {
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        
         presenter = AirTicketSearchPresenter(delegate: self)
     }
     
@@ -384,6 +380,7 @@ class AirTicketSearchViewController: BaseViewController {
     private func setUpTopPageScrollView(){
         self.topPageScrollView.delegate = self
         var contentOffset = CGFloat.zero
+        
         switch searchType {
         case .airTkt:
             scrollTopPageButtonBottomLine(percent: 0)
@@ -436,8 +433,8 @@ class AirTicketSearchViewController: BaseViewController {
     
     private func openCalendar(searchType: SearchByType) {
         self.searchType = searchType
+        
         let vc = getVC(st: "Calendar", vc: "CalendarForTicketViewController") as! CalendarForTicketViewController
-
         var startDate = Date()
         let endDate = calendar.date(byAdding: .month, value: 18, to: startDate)!
         var type: CalendarSingeleOrMutipleType?
@@ -446,7 +443,6 @@ class AirTicketSearchViewController: BaseViewController {
         switch searchType {
         case .airTkt:
             type = .single
-            
             startDate = FormatUtil.convertStringToDate(dateFormatFrom: "yyyy/MM/dd", dateString: airSearchInit!.startTravelDate!)!
             
             if let selctedDates = airTicketRequest.startTravelDate {
@@ -458,7 +454,6 @@ class AirTicketSearchViewController: BaseViewController {
             
         case .soto:
             type = .single
-            
             startDate = FormatUtil.convertStringToDate(dateFormatFrom: "yyyy/MM/dd", dateString: sotoSearchInit!.startTravelDate!)!
             
             if let selctedDates = sotoTicketRequest.startTravelDate {
@@ -801,7 +796,6 @@ extension AirTicketSearchViewController: UITableViewDelegate {
         if scrollView != self.topPageScrollView { return }
         let wholeWidth = scrollView.contentSize.width
         let nowOffsetX = scrollView.contentOffset.x
-        
         let percent = nowOffsetX / (wholeWidth / 3.0)
         scrollTopPageButtonBottomLine(percent: percent)
     }

@@ -8,14 +8,14 @@
 
 import UIKit
 
-protocol SetChooseCityProtocol: NSObjectProtocol {
+protocol SetAirTktChooseCityProtocol: NSObjectProtocol {
     
     func setChooseCity(cityInfo: TKTInitResponse.TicketResponse.City)
 }
 
 class LocationDetailViewController: BaseViewController {
 
-    weak var delegate: SetChooseCityProtocol?
+    weak var delegate: SetAirTktChooseCityProtocol?
     
     private var country: TKTInitResponse.TicketResponse.Country?
     
