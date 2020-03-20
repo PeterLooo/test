@@ -166,6 +166,7 @@ class AirTicketSearchViewController: BaseViewController {
         
         datePicker.topAnchor.constraint(equalTo: toolBarOnDatePicker.bottomAnchor, constant: 0).isActive = true
     }
+    
     private var touchInputField: TKTInputFieldType? {
         didSet {
             reloadPickerViewAndDatePicker(inputFieldType: touchInputField)
@@ -209,12 +210,11 @@ class AirTicketSearchViewController: BaseViewController {
         case .departureCity:
             switch searchType {
             case .airTkt:
-                 
                 shareOptionList = airSearchInit?.departureCodeList.map({ ShareOption(optionKey: $0.departureCodeId!, optionValue: $0.departureCodeName!) }) ?? []
-                 selectedKey = airTicketRequest.departure?.departureCodeId
+                selectedKey = airTicketRequest.departure?.departureCodeId
             case .soto:
-                  shareOptionList = sotoSearchInit?.departureCodeList.map({ ShareOption(optionKey: $0.departureCodeId!, optionValue: $0.departureCodeName!) }) ?? []
-                 selectedKey = sotoTicketRequest.departure?.departureCodeId
+                shareOptionList = sotoSearchInit?.departureCodeList.map({ ShareOption(optionKey: $0.departureCodeId!, optionValue: $0.departureCodeName!) }) ?? []
+                selectedKey = sotoTicketRequest.departure?.departureCodeId
             default:
                 ()
             }
@@ -235,10 +235,10 @@ class AirTicketSearchViewController: BaseViewController {
             switch searchType {
             case .airTkt:
                 shareOptionList = airSearchInit?.airlineList.map({ ShareOption(optionKey: $0.airlineId!, optionValue: $0.airlineName!) }) ?? []
-                 selectedKey = airTicketRequest.airline?.airlineId
+                selectedKey = airTicketRequest.airline?.airlineId
             case .soto:
-                 shareOptionList = sotoSearchInit?.airlineList.map({ ShareOption(optionKey: $0.airlineId!, optionValue: $0.airlineName!) }) ?? []
-                 selectedKey = sotoTicketRequest.airline?.airlineId
+                shareOptionList = sotoSearchInit?.airlineList.map({ ShareOption(optionKey: $0.airlineId!, optionValue: $0.airlineName!) }) ?? []
+                selectedKey = sotoTicketRequest.airline?.airlineId
             default:
                 ()
             }
@@ -246,11 +246,11 @@ class AirTicketSearchViewController: BaseViewController {
         case .tourType:
             switch searchType {
             case .airTkt:
-                 shareOptionList = airSearchInit?.journeyTypeList.map({ ShareOption(optionKey: $0, optionValue: $0) }) ?? []
-                 selectedKey = airTicketRequest.journeyType
+                shareOptionList = airSearchInit?.journeyTypeList.map({ ShareOption(optionKey: $0, optionValue: $0) }) ?? []
+                selectedKey = airTicketRequest.journeyType
             case .soto:
-                 shareOptionList = sotoSearchInit?.journeyTypeList.map({ ShareOption(optionKey: $0, optionValue: $0) }) ?? []
-                 selectedKey = sotoTicketRequest.journeyType
+                shareOptionList = sotoSearchInit?.journeyTypeList.map({ ShareOption(optionKey: $0, optionValue: $0) }) ?? []
+                selectedKey = sotoTicketRequest.journeyType
             default:
                 ()
             }
@@ -274,6 +274,7 @@ class AirTicketSearchViewController: BaseViewController {
             shareOptionList = sotoSearchInit?.destinationCodeList.map({ ShareOption(optionKey: $0.destinationCodeId!, optionValue: $0.destinationCodeId!) }) ?? []
             selectedKey = sotoTicketRequest.destination?.destinationCodeId
         }
+        
         pickerView.setOptionList(optionList: shareOptionList)
         pickerView.textAlign = textAlign
         pickerView.reloadAllComponents()
@@ -346,14 +347,15 @@ class AirTicketSearchViewController: BaseViewController {
             showKeyboard(keyboardType: .pickerView)
         case nil:
             showKeyboard(keyboardType: .hide)
-        
         }
     }
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         
         presenter = AirTicketSearchPresenter(delegate: self)
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -370,7 +372,6 @@ class AirTicketSearchViewController: BaseViewController {
         datePicker.backgroundColor = UIColor.white
         layoutDatePicker()
         layoutPickerView()
-        
     }
     
     override func loadData() {
@@ -405,10 +406,12 @@ class AirTicketSearchViewController: BaseViewController {
     private func checkAirTicketRequest() -> Bool{
         var allowToSearch = true
         var errorText:[String] = []
+        
         if airTicketRequest.destination?.cityId == nil{
             errorText.append("請輸入目的地")
             allowToSearch = false
         }
+        
         if airTicketRequest.journeyType == "雙程" || airTicketRequest.journeyType == "環遊" {
             if airTicketRequest.returnCode?.cityId == nil {
                 errorText.append("請輸入回程目的地")
@@ -420,6 +423,7 @@ class AirTicketSearchViewController: BaseViewController {
                 allowToSearch = false
             }
         }
+        
         if errorText.isEmpty == false {
             let errorResult = errorText.joined(separator: "\n")
             let alertSeverError: UIAlertController = UIAlertController(title: "修正錯誤", message: errorResult, preferredStyle: .alert)
@@ -430,7 +434,7 @@ class AirTicketSearchViewController: BaseViewController {
         return allowToSearch
     }
     
-    private func openCalender(searchType: SearchByType) {
+    private func openCalendar(searchType: SearchByType) {
         self.searchType = searchType
         let vc = getVC(st: "Calendar", vc: "CalendarForTicketViewController") as! CalendarForTicketViewController
 
@@ -446,7 +450,6 @@ class AirTicketSearchViewController: BaseViewController {
             startDate = FormatUtil.convertStringToDate(dateFormatFrom: "yyyy/MM/dd", dateString: airSearchInit!.startTravelDate!)!
             
             if let selctedDates = airTicketRequest.startTravelDate {
-                
                 let selectedStartDate = FormatUtil.convertStringToDate(dateFormatFrom: "yyyy/MM/dd", dateString: selctedDates)
                 selectedDates = CalendarSelectedDates(selectedSingleDate: selectedStartDate,
                                                       selectedStartDate: nil,
@@ -459,7 +462,6 @@ class AirTicketSearchViewController: BaseViewController {
             startDate = FormatUtil.convertStringToDate(dateFormatFrom: "yyyy/MM/dd", dateString: sotoSearchInit!.startTravelDate!)!
             
             if let selctedDates = sotoTicketRequest.startTravelDate {
-                
                 let selectedStartDate = FormatUtil.convertStringToDate(dateFormatFrom: "yyyy/MM/dd", dateString: selctedDates)
                 selectedDates = CalendarSelectedDates(selectedSingleDate: selectedStartDate,
                                                       selectedStartDate: nil,
@@ -467,15 +469,15 @@ class AirTicketSearchViewController: BaseViewController {
             }
             
         case .lcc:
-            
             type = lccTicketRequest.isToAndFro ? .mutiple : .single
             
             if let selctedDates = lccTicketRequest.startTravelDate {
                 let selectedStartDate = FormatUtil.convertStringToDate(dateFormatFrom: "yyyy/MM/dd", dateString: selctedDates)
                 let selectedEndDate = FormatUtil.convertStringToDate(dateFormatFrom: "yyyy/MM/dd", dateString: lccTicketRequest.endTravelDate!)
-                selectedDates = CalendarSelectedDates(selectedSingleDate: type == .single ? selectedStartDate : nil, selectedStartDate: type == .single ? nil : selectedStartDate, selectedEndDate: type == .single ? nil : type == .single ? nil : selectedEndDate)
+                selectedDates = CalendarSelectedDates(selectedSingleDate: type == .single ? selectedStartDate : nil,
+                                                      selectedStartDate: type == .single ? nil : selectedStartDate,
+                                                      selectedEndDate: type == .single ? nil : type == .single ? nil : selectedEndDate)
             }
-
         }
               
         let calendarType = CalendarType(singleOrMituple: type!,
@@ -504,13 +506,6 @@ class AirTicketSearchViewController: BaseViewController {
 }
 
 extension AirTicketSearchViewController: AirTicketSearchViewProtocol {
-    func onBindLccAirSearchInit(lccSearchInit: LccResponse) {
-        self.lccSearchInit = lccSearchInit.lCCSearchInitialData
-        self.lccTicketRequest = LccTicketRequest().getLccTicketRequest(reponse: self.lccSearchInit!)
-        
-        tableViewLCC.reloadData()
-    }
-    
     func onBindSearchUrlResult(result: AirSearchUrlResponse) {
         handleLinkType(linkType: result.airUrlResult!.linkType!, linkValue: result.airUrlResult!.linkValue, linkText: nil)
     }
@@ -518,7 +513,7 @@ extension AirTicketSearchViewController: AirTicketSearchViewProtocol {
     func onBindAirTicketSearchInit(tktSearchInit: TKTInitResponse) {
         self.airSearchInit = tktSearchInit.initResponse
         self.airTicketRequest = TKTSearchRequest().getAirTicketRequest(response: tktSearchInit.initResponse!)
-
+        
         tableViewGroupAir.reloadData()
     }
     
@@ -528,7 +523,13 @@ extension AirTicketSearchViewController: AirTicketSearchViewProtocol {
         
         tableViewSotoAir.reloadData()
     }
-
+    
+    func onBindLccAirSearchInit(lccSearchInit: LccResponse) {
+        self.lccSearchInit = lccSearchInit.lCCSearchInitialData
+        self.lccTicketRequest = LccTicketRequest().getLccTicketRequest(reponse: self.lccSearchInit!)
+        
+        tableViewLCC.reloadData()
+    }
 }
 
 extension AirTicketSearchViewController: CustomPickerViewProtocol{
@@ -644,9 +645,9 @@ extension AirTicketSearchViewController: AirTktCellProtocol {
     
     func onTouchArrival(arrival: ArrivalType, searchType: SearchByType) {
         self.searchType = searchType
-        let vc = getVC(st: "ChooseLocation", vc: "ChooseLocation") as! ChooseLocationViewController
         
-        vc.setVC(tktSearchInit: airSearchInit!, searchType: .airTkt, startEndType: .Departure, arrival: arrival)
+        let vc = getVC(st: "ChooseLocation", vc: "ChooseLocation") as! ChooseLocationViewController
+        vc.setVC(tktSearchInit: airSearchInit, lccSearchInit: nil, searchType: .airTkt, startEndType: .Departure, arrival: arrival)
         vc.delegate = self
         
         let nav = UINavigationController(rootViewController: vc)
@@ -671,29 +672,31 @@ extension AirTicketSearchViewController: AirTktCellProtocol {
     }
     
     func onTouchDate(searchType: SearchByType) {
-        openCalender(searchType: searchType)
+        openCalendar(searchType: searchType)
     }
 }
 
 extension AirTicketSearchViewController: LccCellProtocol {
     func onTouchLccDeparture() {
-//        let vc = getVC(st: "ChooseLocation", vc: "ChooseLocation") as! ChooseLocationViewController
-//        vc.onBindAirTicketInfo(response: airSearchInit!, searchType: SearchByType.lcc, startEndType: StartEndType.Departure)
-//
-//        let nav = UINavigationController(rootViewController: vc)
-//        nav.modalPresentationStyle = .fullScreen
-//
-//        self.navigationController?.present(nav, animated: true)
+        let vc = getVC(st: "ChooseLocation", vc: "ChooseLocation") as! ChooseLocationViewController
+        vc.setVC(tktSearchInit: nil, lccSearchInit: lccSearchInit, searchType: .lcc, startEndType: .Departure, arrival: nil)
+        vc.delegate = self
+        
+        let nav = UINavigationController(rootViewController: vc)
+        nav.modalPresentationStyle = .fullScreen
+        
+        self.navigationController?.present(nav, animated: true)
     }
     
     func onTouchLccDestination() {
-//        let vc = getVC(st: "ChooseLocation", vc: "ChooseLocation") as! ChooseLocationViewController
-//        vc.onBindAirTicketInfo(response: airSearchInit!, searchType: SearchByType.lcc, startEndType: StartEndType.Destination)
-//
-//        let nav = UINavigationController(rootViewController: vc)
-//        nav.modalPresentationStyle = .fullScreen
-//
-//        self.navigationController?.present(nav, animated: true)
+        let vc = getVC(st: "ChooseLocation", vc: "ChooseLocation") as! ChooseLocationViewController
+        vc.setVC(tktSearchInit: nil, lccSearchInit: lccSearchInit, searchType: .lcc, startEndType: .Destination, arrival: nil)
+        vc.delegate = self
+        
+        let nav = UINavigationController(rootViewController: vc)
+        nav.modalPresentationStyle = .fullScreen
+        
+        self.navigationController?.present(nav, animated: true)
     }
     
     func onTouchLccSearch() {
@@ -719,7 +722,7 @@ extension AirTicketSearchViewController: LccCellProtocol {
     }
     
     func onTouchLccDate() {
-        openCalender(searchType: .lcc)
+        openCalendar(searchType: .lcc)
     }
     
     func onTouchRadio(isToAndFor: Bool) {
@@ -868,29 +871,34 @@ extension AirTicketSearchViewController {
 }
 
 extension AirTicketSearchViewController: SetChooseLocationProtocol {
-    func setLocation(cityInfo: TKTInitResponse.TicketResponse.City, arrival: ArrivalType?) {
-        switch arrival {
-        case .departureCity:
-            airTicketRequest.destination = cityInfo
-        case .backStartingCity:
-            airTicketRequest.returnCode = cityInfo
-        default:
-            ()
-        }
-        tableViewGroupAir.reloadData()
-    }
     
-    func setLocation(cityInfo: LocationKeywordSearchResponse.City, arrival: ArrivalType?) {
-        switch arrival {
-        case .departureCity:
-            airTicketRequest.destination?.cityId = cityInfo.cityId
-            airTicketRequest.destination?.cityName = cityInfo.cityName
-        case .backStartingCity:
-            airTicketRequest.returnCode?.cityId = cityInfo.cityId
-            airTicketRequest.returnCode?.cityName = cityInfo.cityName
+    func setLocation(cityInfo: TKTInitResponse.TicketResponse.City, searchType: SearchByType, arrival: ArrivalType?, startEndType: StartEndType?) {
+        
+        switch searchType {
+        case .airTkt:
+            switch arrival {
+            case .departureCity:
+                airTicketRequest.destination = cityInfo
+            case .backStartingCity:
+                airTicketRequest.returnCode = cityInfo
+            default:
+                ()
+            }
+            tableViewGroupAir.reloadData()
+            
+        case .lcc:
+            switch startEndType {
+            case .Departure:
+                lccTicketRequest.departure = cityInfo
+            case .Destination:
+                lccTicketRequest.destination = cityInfo
+            default:
+                ()
+            }
+            tableViewLCC.reloadData()
+            
         default:
             ()
         }
-        tableViewGroupAir.reloadData()
     }
 }
