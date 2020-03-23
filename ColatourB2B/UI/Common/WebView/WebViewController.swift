@@ -51,7 +51,7 @@ class WebViewController: BaseViewController, UIGestureRecognizerDelegate {
             webView.topAnchor.constraint(equalTo: topAnchor),
             webView.leadingAnchor.constraint(equalTo: leadingAnchor),
             webView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            webView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
+            webView.bottomAnchor.constraint(equalTo: bottomAnchor)
             
         ])
         
