@@ -444,7 +444,7 @@ class AirTicketSearchViewController: BaseViewController {
                 allowToSearch = false
             }
             if lccTicketRequest.departure?.cityId != nil && lccTicketRequest.destination?.cityId != nil {
-                if checkDestinationIncludeTW() {
+                if checkDestinationIncludeTW() == false {
                     errorText.append("出發地或目的地至少一個為台灣出發")
                     allowToSearch = false
                 }

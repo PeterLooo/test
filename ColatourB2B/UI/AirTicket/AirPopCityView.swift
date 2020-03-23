@@ -71,7 +71,6 @@ class AirPopCityView: UIView {
         self.itemSecContent.text = ""
         self.itemSecContent.backgroundColor = UIColor.init(named: "背景灰")
         self.imageSecView.image = nil
-        self.imageSecView.backgroundColor = UIColor.init(named: "ImageBackColor")
         self.boderView.layoutIfNeeded()
         self.borderSecView.layoutIfNeeded()
         self.boderView.layer.masksToBounds = true
@@ -105,8 +104,8 @@ class AirPopCityView: UIView {
         self.shadowView.setShadow(offset: CGSize(width:0, height:1), opacity: 0.4,shadowRadius: 2 , color: UIColor.gray)
         self.boderView.layer.cornerRadius = CGFloat(4)
         
-        self.boderViewWidth.constant = screenWidth * (1 / 3.75)
-        self.boderViewHeight.constant = screenWidth * (1 / 3.75)
+        self.boderViewWidth.constant = ((screenWidth - 24) / 3) - 12
+        self.boderViewHeight.constant = ((screenWidth - 24) / 3) - 12
         let ges = UITapGestureRecognizer(target: self, action: #selector(onTouchAdView))
         self.boderView.addGestureRecognizer(ges)
         self.boderView.isUserInteractionEnabled = true

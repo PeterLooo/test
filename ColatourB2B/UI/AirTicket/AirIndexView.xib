@@ -125,13 +125,6 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <variation key="default">
-                <mask key="subviews">
-                    <exclude reference="ahn-0r-aWO"/>
-                    <exclude reference="A4s-2j-wS9"/>
-                    <exclude reference="o2O-8T-9Vg"/>
-                </mask>
-            </variation>
             <point key="canvasLocation" x="34.782608695652179" y="211.54891304347828"/>
         </view>
     </objects>
