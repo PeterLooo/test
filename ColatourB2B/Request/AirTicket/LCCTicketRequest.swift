@@ -48,7 +48,7 @@ class LccTicketRequest: NSObject {
         params["Change_Aviation"] = !isSameAirline
         params["Adt_Cnt"] = adultCount
         params["Chd_Cnt"] = childCount
-        params["Infant_Cut"] = infanCount
+        params["Infant_Cnt"] = infanCount
         
         return params
     }
