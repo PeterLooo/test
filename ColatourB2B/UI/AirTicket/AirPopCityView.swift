@@ -71,7 +71,6 @@ class AirPopCityView: UIView {
         self.itemSecContent.text = ""
         self.itemSecContent.backgroundColor = UIColor.init(named: "背景灰")
         self.imageSecView.image = nil
-        self.imageSecView.backgroundColor = UIColor.init(named: "ImageBackColor")
         self.boderView.layoutIfNeeded()
         self.borderSecView.layoutIfNeeded()
         self.boderView.layer.masksToBounds = true
