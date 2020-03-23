@@ -178,6 +178,16 @@ extension ChooseLocationViewController {
         return true
     }
     
+    func searchBar(_ searchBar: UISearchBar, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        
+        switch searchType {
+        case .airTkt:
+            return self.searchText.count < 3
+        default:
+            return true
+        }
+    }
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
         self.searchBar.text = searchText.uppercased()
@@ -185,6 +195,11 @@ extension ChooseLocationViewController {
         
         switch searchType {
         case .airTkt:
+            if searchText.count > 3 {
+                let maxLengthThreeText = String(searchText.dropLast(searchText.count - 3))
+                self.searchBar.text = maxLengthThreeText.uppercased()
+                self.searchText = maxLengthThreeText.uppercased()
+            }
             if searchText.count >= 1 {
                 presenter?.getAirTktSearchResult(keyword: self.searchText)
             }
