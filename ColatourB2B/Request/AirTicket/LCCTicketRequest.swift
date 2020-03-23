@@ -45,7 +45,7 @@ class LccTicketRequest: NSObject {
                       "Return_Code" : destination?.cityId ?? "",
                       "Return_Name" : destination?.cityName ?? "",] as [String : Any]
         params["TripType_Id"] = isToAndFro == true ? "Round" : "OneWay"
-        params["Change_Aviation"] = isSameAirline
+        params["Change_Aviation"] = !isSameAirline
         params["Adt_Cnt"] = adultCount
         params["Chd_Cnt"] = childCount
         params["Infant_Cut"] = infanCount
