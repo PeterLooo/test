@@ -182,7 +182,7 @@ extension ChooseLocationViewController {
         
         switch searchType {
         case .airTkt:
-            return self.searchText.count < 3
+            return self.searchText.count <= 3
         default:
             return true
         }
