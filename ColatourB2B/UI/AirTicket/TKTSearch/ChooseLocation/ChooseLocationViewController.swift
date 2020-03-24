@@ -42,6 +42,7 @@ class ChooseLocationViewController: BaseViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     var searchText = ""
+    var preSearchText = ""
     var searchResultList: [TKTInitResponse.TicketResponse.City] = []
     
     override func viewDidLoad() {
@@ -107,9 +108,9 @@ class ChooseLocationViewController: BaseViewController {
         case .Departure:
             if searchType == SearchByType.lcc {
                 var tempInfo: [TKTInitResponse.TicketResponse.Country] = []
-                let taiwan = (lccAirInfo?.countryList.filter { $0.countryName == "台灣" }.first)!
+                let taiwan = lccAirInfo?.countryList.filter { $0.countryName == "台灣" }.first ?? TKTInitResponse.TicketResponse.Country()
                 
-                tempInfo = (lccAirInfo?.countryList.filter { $0.countryName != "台灣" })!
+                tempInfo = lccAirInfo?.countryList.filter { $0.countryName != "台灣" } ?? []
                 tempInfo.insert(taiwan, at: 0)
                 
                 lccAirInfo?.countryList = tempInfo
@@ -117,10 +118,10 @@ class ChooseLocationViewController: BaseViewController {
             
         case .Destination:
             var tempInfo: [TKTInitResponse.TicketResponse.Country] = []
-            let japan = (lccAirInfo?.countryList.filter { $0.countryName == "日本" }.first)!
-            let taiwan = (lccAirInfo?.countryList.filter { $0.countryName == "台灣" }.first)!
+            let japan = lccAirInfo?.countryList.filter { $0.countryName == "日本" }.first ?? TKTInitResponse.TicketResponse.Country()
+            let taiwan = lccAirInfo?.countryList.filter { $0.countryName == "台灣" }.first ?? TKTInitResponse.TicketResponse.Country()
             
-            tempInfo = (lccAirInfo?.countryList.filter { $0.countryName != "日本" })!
+            tempInfo = lccAirInfo?.countryList.filter { $0.countryName != "日本" } ?? []
             tempInfo = tempInfo.filter { $0.countryName != "台灣" }
             tempInfo.insert(japan, at: 0)
             tempInfo.append(taiwan)
@@ -178,19 +179,50 @@ extension ChooseLocationViewController {
         return true
     }
     
+    func searchBar(_ searchBar: UISearchBar, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        
+        switch searchType {
+        case .airTkt:
+            return self.searchText.count <= 3
+        default:
+            return true
+        }
+    }
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        let range = NSRange(location: 0, length: searchText.utf16.count)
+        // 搜尋文字不能包含非中英文字
+        let regex = try! NSRegularExpression(pattern: "[^A-Za-z\\u4E00-\\u9FA5]")
+        let regexMatch: Bool = regex.firstMatch(in: searchText, options: [], range: range) != nil
         
         self.searchBar.text = searchText.uppercased()
         self.searchText = searchText.uppercased()
         
         switch searchType {
         case .airTkt:
-            if searchText.count >= 1 {
+            if searchText.count > 3 {
+                let maxLengthThreeText = String(searchText.dropLast(searchText.count - 3))
+                self.searchBar.text = maxLengthThreeText.uppercased()
+                self.searchText = maxLengthThreeText.uppercased()
+            }
+            if searchText.count >= 1 && self.preSearchText != self.searchText && !regexMatch {
                 presenter?.getAirTktSearchResult(keyword: self.searchText)
+                self.preSearchText = self.searchText
+            // 搜尋文字清空時也要清空preSearchText，否則下次輸入相同文字時會無法進入搜尋
+            } else if searchText != "" {
+                return
+            } else {
+                self.preSearchText = ""
             }
         case .lcc:
-            if searchText.count >= 2 {
+            if searchText.count >= 2 && self.preSearchText != self.searchText && !regexMatch {
                 presenter?.getLccSearchResult(keyword: self.searchText)
+                self.preSearchText = self.searchText
+            } else if searchText != "" {
+                return
+            } else {
+                self.preSearchText = ""
             }
         default:
             ()
