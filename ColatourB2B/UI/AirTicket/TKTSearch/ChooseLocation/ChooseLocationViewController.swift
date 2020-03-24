@@ -108,9 +108,9 @@ class ChooseLocationViewController: BaseViewController {
         case .Departure:
             if searchType == SearchByType.lcc {
                 var tempInfo: [TKTInitResponse.TicketResponse.Country] = []
-                let taiwan = (lccAirInfo?.countryList.filter { $0.countryName == "台灣" }.first)!
+                let taiwan = lccAirInfo?.countryList.filter { $0.countryName == "台灣" }.first ?? TKTInitResponse.TicketResponse.Country()
                 
-                tempInfo = (lccAirInfo?.countryList.filter { $0.countryName != "台灣" })!
+                tempInfo = lccAirInfo?.countryList.filter { $0.countryName != "台灣" } ?? []
                 tempInfo.insert(taiwan, at: 0)
                 
                 lccAirInfo?.countryList = tempInfo
@@ -118,10 +118,10 @@ class ChooseLocationViewController: BaseViewController {
             
         case .Destination:
             var tempInfo: [TKTInitResponse.TicketResponse.Country] = []
-            let japan = (lccAirInfo?.countryList.filter { $0.countryName == "日本" }.first)!
-            let taiwan = (lccAirInfo?.countryList.filter { $0.countryName == "台灣" }.first)!
+            let japan = lccAirInfo?.countryList.filter { $0.countryName == "日本" }.first ?? TKTInitResponse.TicketResponse.Country()
+            let taiwan = lccAirInfo?.countryList.filter { $0.countryName == "台灣" }.first ?? TKTInitResponse.TicketResponse.Country()
             
-            tempInfo = (lccAirInfo?.countryList.filter { $0.countryName != "日本" })!
+            tempInfo = lccAirInfo?.countryList.filter { $0.countryName != "日本" } ?? []
             tempInfo = tempInfo.filter { $0.countryName != "台灣" }
             tempInfo.insert(japan, at: 0)
             tempInfo.append(taiwan)
