@@ -192,7 +192,8 @@ extension ChooseLocationViewController {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
         let range = NSRange(location: 0, length: searchText.utf16.count)
-        let regex = try! NSRegularExpression(pattern: "[0-9 !/“/”#$¥€£•%&‘’()*+,-./:;<=>?@\\[\\\\\\]^_{|}~]")
+        // 搜尋文字不能包含非中英文字
+        let regex = try! NSRegularExpression(pattern: "[^A-Za-z\\u4E00-\\u9FA5]")
         let regexMatch: Bool = regex.firstMatch(in: searchText, options: [], range: range) != nil
         
         self.searchBar.text = searchText.uppercased()
