@@ -42,6 +42,7 @@ class ChooseLocationViewController: BaseViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     var searchText = ""
+    var preSearchText = ""
     var searchResultList: [TKTInitResponse.TicketResponse.City] = []
     
     override func viewDidLoad() {
@@ -190,6 +191,10 @@ extension ChooseLocationViewController {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
+        let range = NSRange(location: 0, length: searchText.utf16.count)
+        let regex = try! NSRegularExpression(pattern: "[0-9 !/“/”#$¥€£•%&‘’()*+,-./:;<=>?@\\[\\\\\\]^_{|}~]")
+        let regexMatch: Bool = regex.firstMatch(in: searchText, options: [], range: range) != nil
+        
         self.searchBar.text = searchText.uppercased()
         self.searchText = searchText.uppercased()
         
@@ -200,12 +205,23 @@ extension ChooseLocationViewController {
                 self.searchBar.text = maxLengthThreeText.uppercased()
                 self.searchText = maxLengthThreeText.uppercased()
             }
-            if searchText.count >= 1 {
+            if searchText.count >= 1 && self.preSearchText != self.searchText && !regexMatch {
                 presenter?.getAirTktSearchResult(keyword: self.searchText)
+                self.preSearchText = self.searchText
+            // 搜尋文字清空時也要清空preSearchText，否則下次輸入相同文字時會無法進入搜尋
+            } else if searchText != "" {
+                return
+            } else {
+                self.preSearchText = ""
             }
         case .lcc:
-            if searchText.count >= 2 {
+            if searchText.count >= 2 && self.preSearchText != self.searchText && !regexMatch {
                 presenter?.getLccSearchResult(keyword: self.searchText)
+                self.preSearchText = self.searchText
+            } else if searchText != "" {
+                return
+            } else {
+                self.preSearchText = ""
             }
         default:
             ()
