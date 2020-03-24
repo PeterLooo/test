@@ -30,7 +30,6 @@
             <subviews>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Uv1-WO-3aN">
                     <rect key="frame" x="6" y="0.0" width="60" height="60"/>
-                    <color key="backgroundColor" name="ImageBackColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="60" id="OsF-TK-M79"/>
                         <constraint firstAttribute="width" constant="60" id="pZb-dQ-5pZ"/>
@@ -44,7 +43,6 @@
                 </label>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7uN-XI-Q8J">
                     <rect key="frame" x="119" y="0.0" width="60" height="60"/>
-                    <color key="backgroundColor" name="ImageBackColor"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="60" id="CqQ-8o-jOZ"/>
                         <constraint firstAttribute="height" constant="60" id="USm-Eo-vIh"/>
@@ -58,7 +56,6 @@
                 </label>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jj8-1V-EZz">
                     <rect key="frame" x="232" y="0.0" width="60" height="60"/>
-                    <color key="backgroundColor" name="ImageBackColor"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="60" id="Qgt-hg-6FS"/>
                         <constraint firstAttribute="height" constant="60" id="hwM-1T-bef"/>
@@ -129,9 +126,6 @@
         </view>
     </objects>
     <resources>
-        <namedColor name="ImageBackColor">
-            <color red="0.83921568627450982" green="0.83921568627450982" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="背景灰">
             <color red="0.97254901960784312" green="0.97254901960784312" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
