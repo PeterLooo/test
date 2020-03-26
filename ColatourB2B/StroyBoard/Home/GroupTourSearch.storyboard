@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -653,6 +653,7 @@
                                                                                             <constraints>
                                                                                                 <constraint firstAttribute="width" constant="50" id="wrj-9X-TJI"/>
                                                                                             </constraints>
+                                                                                            <state key="normal" image="B2B_info"/>
                                                                                             <connections>
                                                                                                 <action selector="onTouchInputDescription:" destination="thA-6r-Ryi" eventType="touchUpInside" id="52J-UT-7j9"/>
                                                                                             </connections>
@@ -880,6 +881,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="B2B_info" width="24" height="24"/>
         <image name="arrow_dropdown" width="24" height="24"/>
         <image name="cart_aboard_focus-1" width="16" height="16"/>
         <image name="info" width="24" height="24"/>
