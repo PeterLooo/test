@@ -26,6 +26,7 @@ class WebViewTourShareResponse: BaseModel {
         var shareInfo : String?
         var shareUrl : String?
         var wordUrl : String?
+        var contactInfo : String?
         
         override func mapping(map: Map) {
             super.mapping(map: map)
@@ -34,6 +35,7 @@ class WebViewTourShareResponse: BaseModel {
             shareInfo <- map["Share_Info"]
             shareUrl <- map["Share_Url"]
             wordUrl <- map["Word_Url"]
+            contactInfo <- map["Contact_Info"]
             
         }
     }
