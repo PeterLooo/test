@@ -16,7 +16,7 @@ class MemberIndexVersionCell: UITableViewCell {
         super.awakeFromNib()
         
         self.versionLabel.font = UIFont(name: "PingFangTC-Regular", size: 16.0)
-        self.versionLabel.text = "版本\(DeviceUtil.appVersion() ?? "") \(DeviceUtil.appBuildVersion() ?? "")"
+        self.versionLabel.text = "版本\(DeviceUtil.appVersion() ?? "")"
     }
     
 }

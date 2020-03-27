@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -1357,7 +1357,7 @@
                                                                                                 <constraint firstAttribute="width" constant="24" id="8qc-5R-Bl5"/>
                                                                                                 <constraint firstAttribute="height" constant="24" id="ikf-xZ-qdb"/>
                                                                                             </constraints>
-                                                                                            <state key="normal" title="Button" image="info"/>
+                                                                                            <state key="normal" title="Button" image="B2B_info"/>
                                                                                         </button>
                                                                                     </subviews>
                                                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -1726,9 +1726,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="B2B_info" width="24" height="24"/>
         <image name="arrow_dropdown" width="24" height="24"/>
         <image name="check" width="18" height="18"/>
-        <image name="info" width="24" height="24"/>
         <image name="radio_off" width="20" height="20"/>
         <image name="radio_on" width="20" height="20"/>
         <namedColor name="分隔線">

@@ -51,7 +51,7 @@ class WebViewController: BaseViewController, UIGestureRecognizerDelegate {
             webView.topAnchor.constraint(equalTo: topAnchor),
             webView.leadingAnchor.constraint(equalTo: leadingAnchor),
             webView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            webView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
+            webView.bottomAnchor.constraint(equalTo: bottomAnchor)
             
         ])
         
@@ -280,7 +280,7 @@ class WebViewController: BaseViewController, UIGestureRecognizerDelegate {
     
     func shareInfo() {
         
-        let activityVC = UIActivityViewController(activityItems: [shareList?.shareInfo ?? "Share", shareList?.shareUrl ?? ""], applicationActivities: nil)
+        let activityVC = UIActivityViewController(activityItems: ["\(shareList?.shareInfo ?? "") \(shareList?.contactInfo ?? "")", shareList?.shareUrl ?? ""], applicationActivities: nil)
         self.present(activityVC, animated: true, completion: nil)
     }
 }

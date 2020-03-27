@@ -2692,7 +2692,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ColatourB2B/ColatourB2B.entitlements;
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 07;
+				CURRENT_PROJECT_VERSION = 08;
 				DEVELOPMENT_TEAM = 83357CEQAU;
 				INFOPLIST_FILE = ColatourB2B/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -2700,7 +2700,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = "1.0 Beta";
+				MARKETING_VERSION = 1.0.1;
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\"";
 				PRODUCT_BUNDLE_IDENTIFIER = tw.com.colatour.b2b;
 				PRODUCT_NAME = "可樂旅遊B2B";
@@ -2718,7 +2718,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ColatourB2B/ColatourB2B.entitlements;
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 07;
+				CURRENT_PROJECT_VERSION = 08;
 				DEVELOPMENT_TEAM = 83357CEQAU;
 				INFOPLIST_FILE = ColatourB2B/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -2726,7 +2726,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = "1.0 Beta";
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = tw.com.colatour.b2b;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = ColatourB2B_20191218;
@@ -2826,7 +2826,7 @@
 				CODE_SIGN_ENTITLEMENTS = ColatourB2BDev.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 07;
+				CURRENT_PROJECT_VERSION = 08;
 				DEVELOPMENT_TEAM = 83357CEQAU;
 				INFOPLIST_FILE = ColatourB2B/ColatourB2BDev/Dev_Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -2834,7 +2834,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = "1.0 Beta";
+				MARKETING_VERSION = 1.0.1;
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" \"-DCOLATOURB2B_DEV\"";
 				PRODUCT_BUNDLE_IDENTIFIER = tw.com.colatour.b2b.dev;
 				PRODUCT_NAME = "可樂旅遊B2BDev";
@@ -2853,7 +2853,7 @@
 				CODE_SIGN_ENTITLEMENTS = ColatourB2BDev.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 07;
+				CURRENT_PROJECT_VERSION = 08;
 				DEVELOPMENT_TEAM = 83357CEQAU;
 				INFOPLIST_FILE = "ColatourB2B copy-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -2861,7 +2861,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = "1.0 Beta";
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = tw.com.colatour.b2b.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = ColatourB2B_Dev_Profile_Distribution20200108;

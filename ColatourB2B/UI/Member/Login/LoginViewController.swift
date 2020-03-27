@@ -21,7 +21,6 @@ class LoginViewController: BaseViewController {
     @IBOutlet weak var password: CustomTextField!
     @IBOutlet weak var login: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var registerButton: UIButton!
     
     weak var navCloseDelegate: MemberLoginOnTouchNavCloseProtocol?
     weak var loginSuccessDelegate: MemberLoginSuccessViewProtocol?
@@ -46,7 +45,7 @@ class LoginViewController: BaseViewController {
         password.clearButton.isHidden = true
         memberIdno.someController?.placeholderText = "會員帳號"
         password.someController?.placeholderText = "密碼"
-        registerButton.setBorder(width: 1, radius: 4, color: UIColor.init(named: "通用綠"))
+        
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
@@ -90,14 +89,6 @@ class LoginViewController: BaseViewController {
                    request.password = self.password.text
                    self.presenter?.login(requset: request)
         }
-    }
-    
-    @IBAction func onTouchRegister(_ sender: Any) {
-        handleLinkType(linkType: .openBrowser, linkValue: "https://b2b.colatour.com.tw/R01B_Member/R01B_01_Register.aspx", linkText: nil)
-    }
-    
-    @IBAction func onTouchForgetPassword(_ sender: Any) {
-         handleLinkType(linkType: .openBrowser, linkValue: "https://b2b.colatour.com.tw/R01B_Member/R01B_03_QueryPW.aspx", linkText: nil)
     }
     
     @IBAction func onTouchEyes(_ sender: BooleanButton) {
