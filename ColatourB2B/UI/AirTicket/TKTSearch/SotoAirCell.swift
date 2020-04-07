@@ -43,7 +43,7 @@ class SotoAirCell: UITableViewCell {
         case 2:
             self.delegate?.onTouchSelection(selection: .airlineCode, searchType: .soto)
         case 3:
-            self.delegate?.onTouchSelection(selection: .startTourDate, searchType: .soto)
+            self.delegate?.onTouchDate(searchType: .soto)
         case 4:
             self.delegate?.onTouchSelection(selection: .dateRange, searchType: .soto)
         case 5:

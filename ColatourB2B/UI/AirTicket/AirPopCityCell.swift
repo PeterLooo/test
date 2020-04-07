@@ -22,7 +22,7 @@ class AirPopCityCell: UITableViewCell {
         
         self.moduleTitle.text = item.moduleText
         
-        scrollViewHeight.constant = screenWidth * (1 / 1.85) + 18
+        scrollViewHeight.constant = screenWidth * (1 / 1.73) + 18
         item.moduleItemList.forEach { (module) in
             let moduleIndex = item.moduleItemList.firstIndex(of: module)
             if moduleIndex! % 2 == 0 {

@@ -31,26 +31,57 @@ class TKTRepository: NSObject {
             .map{ TKTInitResponse(JSON: $0)! }
     }
     
-    func getLccSearchInit() -> Single<TKTInitResponse> {
+    func getLccSearchInit() -> Single<LccResponse> {
         
         let api = APIManager.shared.getLccSearchInit()
         
         return AccountRepository.shared.getAccessToken()
             .flatMap { _ in api }
-            .map{ TKTInitResponse(JSON: $0)! }
+            .map{ LccResponse(JSON: $0)! }
     }
     
     func postAirTicketSearch(request: TKTSearchRequest) -> Single<AirSearchUrlResponse> {
+        
         let api = APIManager.shared.postAirTicketSearch(request: request)
+        
         return AccountRepository.shared.getAccessToken()
-        .flatMap { _ in api }
-        .map{ AirSearchUrlResponse(JSON: $0)! }
+            .flatMap { _ in api }
+            .map{ AirSearchUrlResponse(JSON: $0)! }
     }
     
     func postSotoTicketSearch(request: SotoTicketRequest) -> Single<AirSearchUrlResponse> {
+        
         let api = APIManager.shared.postSotoTicketSearch(request: request)
+        
         return AccountRepository.shared.getAccessToken()
-        .flatMap { _ in api }
-        .map{ AirSearchUrlResponse(JSON: $0)! }
+            .flatMap { _ in api }
+            .map{ AirSearchUrlResponse(JSON: $0)! }
+    }
+    
+    func postLCCicketSearch(request: LccTicketRequest) -> Single<AirSearchUrlResponse> {
+        
+        let api = APIManager.shared.postLccTicketSearch(request: request)
+        
+        return AccountRepository.shared.getAccessToken()
+            .flatMap { _ in api }
+            .map{ AirSearchUrlResponse(JSON: $0)! }
+    }
+    
+    func getAirTktLocationKeywordSearchResult(keyword: String) -> Single<AirTktLocationKeywordSearchResponse> {
+        
+        let api = APIManager.shared.getAirTktLocationKeywordSearchResult(keyword: keyword)
+        
+        return AccountRepository.shared.getAccessToken()
+            .flatMap { _ in api }
+            .map{ AirTktLocationKeywordSearchResponse(JSON: $0)! }
+    }
+    
+    func getLccLocationKeywordSearchResult(keyword: String) -> Single<LccLocationKeywordSearchResponse> {
+        
+        let api = APIManager.shared.getLccLocationKeywordSearchResult(keyword: keyword)
+        
+        return AccountRepository.shared.getAccessToken()
+            .flatMap { _ in api }
+            .map{ LccLocationKeywordSearchResponse(JSON: $0)! }
     }
 }

@@ -1357,7 +1357,7 @@
                                                                                                 <constraint firstAttribute="width" constant="24" id="8qc-5R-Bl5"/>
                                                                                                 <constraint firstAttribute="height" constant="24" id="ikf-xZ-qdb"/>
                                                                                             </constraints>
-                                                                                            <state key="normal" title="Button" image="info"/>
+                                                                                            <state key="normal" title="Button" image="B2B_info"/>
                                                                                         </button>
                                                                                     </subviews>
                                                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -1451,6 +1451,8 @@
                                                                     </constraints>
                                                                 </tableViewCellContentView>
                                                                 <connections>
+                                                                    <outlet property="departure" destination="HKM-FB-9dh" id="X1C-F6-fiQ"/>
+                                                                    <outlet property="destination" destination="TWy-uY-Qmo" id="AEM-aq-uZb"/>
                                                                     <outlet property="oneWayRadio" destination="JWa-9a-f6J" id="1Sl-Mq-hoC"/>
                                                                     <outlet property="paxInfo" destination="4n5-ly-RUw" id="f5v-Am-oz7"/>
                                                                     <outlet property="sameAirlineSwitch" destination="Fjg-Rs-zaS" id="MKn-WS-p17"/>
@@ -1724,9 +1726,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="B2B_info" width="24" height="24"/>
         <image name="arrow_dropdown" width="24" height="24"/>
         <image name="check" width="18" height="18"/>
-        <image name="info" width="24" height="24"/>
         <image name="radio_off" width="20" height="20"/>
         <image name="radio_on" width="20" height="20"/>
         <namedColor name="分隔線">

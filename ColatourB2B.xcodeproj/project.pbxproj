@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -27,6 +27,8 @@
 		06468515241F710600104346 /* LocationDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06468512241F710600104346 /* LocationDetailCell.swift */; };
 		06468516241F710600104346 /* LocationDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06468513241F710600104346 /* LocationDetailCell.xib */; };
 		06468517241F710600104346 /* LocationDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06468513241F710600104346 /* LocationDetailCell.xib */; };
+		064DE9102421FA8B005D7A83 /* AirTktLocationKeywordSearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064DE90F2421FA8B005D7A83 /* AirTktLocationKeywordSearchResponse.swift */; };
+		064DE9112421FA8B005D7A83 /* AirTktLocationKeywordSearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064DE90F2421FA8B005D7A83 /* AirTktLocationKeywordSearchResponse.swift */; };
 		0650774F23ED4EE70067377C /* ContactInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0650774E23ED4EE70067377C /* ContactInfo.storyboard */; };
 		0650775023ED4EE70067377C /* ContactInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0650774E23ED4EE70067377C /* ContactInfo.storyboard */; };
 		0650775223ED4F1E0067377C /* ContactInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0650775123ED4F1E0067377C /* ContactInfoViewController.swift */; };
@@ -68,6 +70,8 @@
 		06B05CB72416470900C8F447 /* BrickCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B05CB42416470900C8F447 /* BrickCell.swift */; };
 		06B05CB82416470900C8F447 /* BrickCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06B05CB52416470900C8F447 /* BrickCell.xib */; };
 		06B05CB92416470900C8F447 /* BrickCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06B05CB52416470900C8F447 /* BrickCell.xib */; };
+		06B704DA2424559200698EF0 /* LccLocationKeywordSearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B704D92424559200698EF0 /* LccLocationKeywordSearchResponse.swift */; };
+		06B704DB2424559200698EF0 /* LccLocationKeywordSearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B704D92424559200698EF0 /* LccLocationKeywordSearchResponse.swift */; };
 		06DA4F6823E921D4001B7DF1 /* MessageSendRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DA4F6723E921D4001B7DF1 /* MessageSendRequest.swift */; };
 		06DA4F6923E921D4001B7DF1 /* MessageSendRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DA4F6723E921D4001B7DF1 /* MessageSendRequest.swift */; };
 		06DA4F6B23E921F8001B7DF1 /* MessageSendRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DA4F6A23E921F8001B7DF1 /* MessageSendRepository.swift */; };
@@ -374,8 +378,18 @@
 		A10C824E24186CD80092DACA /* LccTicketRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10C824C24186CD80092DACA /* LccTicketRequest.swift */; };
 		A12808A823F7937100287B9F /* PriceRangeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12808A723F7937100287B9F /* PriceRangeSlider.swift */; };
 		A12808A923F7937100287B9F /* PriceRangeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12808A723F7937100287B9F /* PriceRangeSlider.swift */; };
+		A142DF58242321DC003D103E /* LccResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A142DF57242321DC003D103E /* LccResponse.swift */; };
+		A142DF59242321DC003D103E /* LccResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A142DF57242321DC003D103E /* LccResponse.swift */; };
 		A14F56EA241F708700BF40DA /* AirSearchUrlResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14F56E9241F708700BF40DA /* AirSearchUrlResponse.swift */; };
 		A14F56EB241F708700BF40DA /* AirSearchUrlResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14F56E9241F708700BF40DA /* AirSearchUrlResponse.swift */; };
+		A17CFADB241B387C00922CC2 /* AirIndexCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17CFAD9241B387C00922CC2 /* AirIndexCell.swift */; };
+		A17CFADC241B387C00922CC2 /* AirIndexCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17CFAD9241B387C00922CC2 /* AirIndexCell.swift */; };
+		A17CFADD241B387C00922CC2 /* AirIndexCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A17CFADA241B387C00922CC2 /* AirIndexCell.xib */; };
+		A17CFADE241B387C00922CC2 /* AirIndexCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A17CFADA241B387C00922CC2 /* AirIndexCell.xib */; };
+		A17CFAE0241B396B00922CC2 /* AirIndexView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17CFADF241B396B00922CC2 /* AirIndexView.swift */; };
+		A17CFAE1241B396B00922CC2 /* AirIndexView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17CFADF241B396B00922CC2 /* AirIndexView.swift */; };
+		A17CFAE3241B398A00922CC2 /* AirIndexView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A17CFAE2241B398A00922CC2 /* AirIndexView.xib */; };
+		A17CFAE4241B398A00922CC2 /* AirIndexView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A17CFAE2241B398A00922CC2 /* AirIndexView.xib */; };
 		A1876A842415D67D00855DE6 /* AirTicketSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1876A832415D67D00855DE6 /* AirTicketSearchViewController.swift */; };
 		A1876A852415D67D00855DE6 /* AirTicketSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1876A832415D67D00855DE6 /* AirTicketSearchViewController.swift */; };
 		A1876A8C2415E40300855DE6 /* TKTSearch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1876A8B2415E40300855DE6 /* TKTSearch.storyboard */; };
@@ -444,24 +458,12 @@
 		A1A7F32D2418DDCC00263E42 /* ChooseCountButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A7F3292418DDCC00263E42 /* ChooseCountButton.swift */; };
 		A1A7F32F2418E11100263E42 /* AirPaxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A7F32E2418E11100263E42 /* AirPaxViewController.swift */; };
 		A1A7F3302418E11100263E42 /* AirPaxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A7F32E2418E11100263E42 /* AirPaxViewController.swift */; };
-		A17CFADB241B387C00922CC2 /* AirIndexCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17CFAD9241B387C00922CC2 /* AirIndexCell.swift */; };
-		A17CFADC241B387C00922CC2 /* AirIndexCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17CFAD9241B387C00922CC2 /* AirIndexCell.swift */; };
-		A17CFADD241B387C00922CC2 /* AirIndexCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A17CFADA241B387C00922CC2 /* AirIndexCell.xib */; };
-		A17CFADE241B387C00922CC2 /* AirIndexCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A17CFADA241B387C00922CC2 /* AirIndexCell.xib */; };
-		A17CFAE0241B396B00922CC2 /* AirIndexView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17CFADF241B396B00922CC2 /* AirIndexView.swift */; };
-		A17CFAE1241B396B00922CC2 /* AirIndexView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17CFADF241B396B00922CC2 /* AirIndexView.swift */; };
-		A17CFAE3241B398A00922CC2 /* AirIndexView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A17CFAE2241B398A00922CC2 /* AirIndexView.xib */; };
-		A17CFAE4241B398A00922CC2 /* AirIndexView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A17CFAE2241B398A00922CC2 /* AirIndexView.xib */; };
 		A1DB93DE24066B5D00AE427C /* WebViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DB93DD24066B5D00AE427C /* WebViewProtocol.swift */; };
 		A1DB93DF24066B5D00AE427C /* WebViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DB93DD24066B5D00AE427C /* WebViewProtocol.swift */; };
 		A1DB93E124066B8E00AE427C /* WebViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DB93E024066B8E00AE427C /* WebViewPresenter.swift */; };
 		A1DB93E224066B8E00AE427C /* WebViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DB93E024066B8E00AE427C /* WebViewPresenter.swift */; };
 		A1DB93E424066EC500AE427C /* WebViewTourShareResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DB93E324066EC500AE427C /* WebViewTourShareResponse.swift */; };
 		A1DB93E524066EC500AE427C /* WebViewTourShareResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DB93E324066EC500AE427C /* WebViewTourShareResponse.swift */; };
-		A1F6E88324176BB90015279F /* SotoAirCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F6E88224176BB90015279F /* SotoAirCell.swift */; };
-		A1F6E88424176BB90015279F /* SotoAirCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F6E88224176BB90015279F /* SotoAirCell.swift */; };
-		A1F6E886241787510015279F /* LccAirCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F6E885241787510015279F /* LccAirCell.swift */; };
-		A1F6E887241787510015279F /* LccAirCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F6E885241787510015279F /* LccAirCell.swift */; };
 		A1E449B5241B168B00895AF6 /* AirPopCityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E449B3241B168B00895AF6 /* AirPopCityCell.swift */; };
 		A1E449B6241B168B00895AF6 /* AirPopCityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E449B3241B168B00895AF6 /* AirPopCityCell.swift */; };
 		A1E449B7241B168B00895AF6 /* AirPopCityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1E449B4241B168B00895AF6 /* AirPopCityCell.xib */; };
@@ -470,6 +472,10 @@
 		A1E449BB241B17B100895AF6 /* AirPopCityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E449B9241B17B100895AF6 /* AirPopCityView.swift */; };
 		A1E449BD241B17BE00895AF6 /* AirPopCityView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1E449BC241B17BE00895AF6 /* AirPopCityView.xib */; };
 		A1E449BE241B17BE00895AF6 /* AirPopCityView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1E449BC241B17BE00895AF6 /* AirPopCityView.xib */; };
+		A1F6E88324176BB90015279F /* SotoAirCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F6E88224176BB90015279F /* SotoAirCell.swift */; };
+		A1F6E88424176BB90015279F /* SotoAirCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F6E88224176BB90015279F /* SotoAirCell.swift */; };
+		A1F6E886241787510015279F /* LccAirCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F6E885241787510015279F /* LccAirCell.swift */; };
+		A1F6E887241787510015279F /* LccAirCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F6E885241787510015279F /* LccAirCell.swift */; };
 		C70EEF5023EA545300D67FF4 /* VersionRule.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C70EEF4D23EA545200D67FF4 /* VersionRule.storyboard */; };
 		C70EEF5123EA545300D67FF4 /* VersionRule.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C70EEF4D23EA545200D67FF4 /* VersionRule.storyboard */; };
 		C70EEF5223EA545300D67FF4 /* Bulletin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C70EEF4F23EA545300D67FF4 /* Bulletin.storyboard */; };
@@ -568,6 +574,7 @@
 		062DFCC12419C4D6006882BE /* ChooseLocationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseLocationPresenter.swift; sourceTree = "<group>"; };
 		06468512241F710600104346 /* LocationDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailCell.swift; sourceTree = "<group>"; };
 		06468513241F710600104346 /* LocationDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationDetailCell.xib; sourceTree = "<group>"; };
+		064DE90F2421FA8B005D7A83 /* AirTktLocationKeywordSearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirTktLocationKeywordSearchResponse.swift; sourceTree = "<group>"; };
 		0650774E23ED4EE70067377C /* ContactInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ContactInfo.storyboard; sourceTree = "<group>"; };
 		0650775123ED4F1E0067377C /* ContactInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactInfoViewController.swift; sourceTree = "<group>"; };
 		0650775423ED4FD50067377C /* ContactInfoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactInfoResponse.swift; sourceTree = "<group>"; };
@@ -589,6 +596,7 @@
 		06B05CAF2416293B00C8F447 /* ChooseLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseLocationViewController.swift; sourceTree = "<group>"; };
 		06B05CB42416470900C8F447 /* BrickCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrickCell.swift; sourceTree = "<group>"; };
 		06B05CB52416470900C8F447 /* BrickCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BrickCell.xib; sourceTree = "<group>"; };
+		06B704D92424559200698EF0 /* LccLocationKeywordSearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LccLocationKeywordSearchResponse.swift; sourceTree = "<group>"; };
 		06DA4F6723E921D4001B7DF1 /* MessageSendRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageSendRequest.swift; sourceTree = "<group>"; };
 		06DA4F6A23E921F8001B7DF1 /* MessageSendRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageSendRepository.swift; sourceTree = "<group>"; };
 		06DA4F6E23E9222F001B7DF1 /* MessageSendUserListResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageSendUserListResponse.swift; sourceTree = "<group>"; };
@@ -760,7 +768,12 @@
 		A1068F4B241625C800710DC4 /* TKTSearchRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TKTSearchRequest.swift; sourceTree = "<group>"; };
 		A10C824C24186CD80092DACA /* LccTicketRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LccTicketRequest.swift; sourceTree = "<group>"; };
 		A12808A723F7937100287B9F /* PriceRangeSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceRangeSlider.swift; sourceTree = "<group>"; };
+		A142DF57242321DC003D103E /* LccResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LccResponse.swift; sourceTree = "<group>"; };
 		A14F56E9241F708700BF40DA /* AirSearchUrlResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirSearchUrlResponse.swift; sourceTree = "<group>"; };
+		A17CFAD9241B387C00922CC2 /* AirIndexCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirIndexCell.swift; sourceTree = "<group>"; };
+		A17CFADA241B387C00922CC2 /* AirIndexCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AirIndexCell.xib; sourceTree = "<group>"; };
+		A17CFADF241B396B00922CC2 /* AirIndexView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirIndexView.swift; sourceTree = "<group>"; };
+		A17CFAE2241B398A00922CC2 /* AirIndexView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AirIndexView.xib; sourceTree = "<group>"; };
 		A1876A832415D67D00855DE6 /* AirTicketSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirTicketSearchViewController.swift; sourceTree = "<group>"; };
 		A1876A8B2415E40300855DE6 /* TKTSearch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TKTSearch.storyboard; sourceTree = "<group>"; };
 		A1876A912415FC9A00855DE6 /* AirTicketSearchProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirTicketSearchProtocol.swift; sourceTree = "<group>"; };
@@ -798,19 +811,12 @@
 		A1DB93DD24066B5D00AE427C /* WebViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewProtocol.swift; sourceTree = "<group>"; };
 		A1DB93E024066B8E00AE427C /* WebViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewPresenter.swift; sourceTree = "<group>"; };
 		A1DB93E324066EC500AE427C /* WebViewTourShareResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewTourShareResponse.swift; sourceTree = "<group>"; };
-		A1F6E88224176BB90015279F /* SotoAirCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SotoAirCell.swift; sourceTree = "<group>"; };
-		A1F6E885241787510015279F /* LccAirCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LccAirCell.swift; sourceTree = "<group>"; };
-		A17CFAD9241B387C00922CC2 /* AirIndexCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirIndexCell.swift; sourceTree = "<group>"; };
-		A17CFADA241B387C00922CC2 /* AirIndexCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AirIndexCell.xib; sourceTree = "<group>"; };
-		A17CFADF241B396B00922CC2 /* AirIndexView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirIndexView.swift; sourceTree = "<group>"; };
-		A17CFAE2241B398A00922CC2 /* AirIndexView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AirIndexView.xib; sourceTree = "<group>"; };
-		A1DB93DD24066B5D00AE427C /* WebViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewProtocol.swift; sourceTree = "<group>"; };
-		A1DB93E024066B8E00AE427C /* WebViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewPresenter.swift; sourceTree = "<group>"; };
-		A1DB93E324066EC500AE427C /* WebViewTourShareResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewTourShareResponse.swift; sourceTree = "<group>"; };
 		A1E449B3241B168B00895AF6 /* AirPopCityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirPopCityCell.swift; sourceTree = "<group>"; };
 		A1E449B4241B168B00895AF6 /* AirPopCityCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AirPopCityCell.xib; sourceTree = "<group>"; };
 		A1E449B9241B17B100895AF6 /* AirPopCityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirPopCityView.swift; sourceTree = "<group>"; };
 		A1E449BC241B17BE00895AF6 /* AirPopCityView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AirPopCityView.xib; sourceTree = "<group>"; };
+		A1F6E88224176BB90015279F /* SotoAirCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SotoAirCell.swift; sourceTree = "<group>"; };
+		A1F6E885241787510015279F /* LccAirCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LccAirCell.swift; sourceTree = "<group>"; };
 		A331B185DD2055D277F472F3 /* Pods_ColatourB2B.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ColatourB2B.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B09E7C65A225E6FF958329EA /* Pods-ColatourB2BDev.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ColatourB2BDev.release.xcconfig"; path = "Pods/Target Support Files/Pods-ColatourB2BDev/Pods-ColatourB2BDev.release.xcconfig"; sourceTree = "<group>"; };
 		C70EEF4D23EA545200D67FF4 /* VersionRule.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = VersionRule.storyboard; sourceTree = "<group>"; };
@@ -1467,6 +1473,9 @@
 			children = (
 				0655CD28241B643E006092AB /* TKTInitResponse.swift */,
 				A14F56E9241F708700BF40DA /* AirSearchUrlResponse.swift */,
+				064DE90F2421FA8B005D7A83 /* AirTktLocationKeywordSearchResponse.swift */,
+				06B704D92424559200698EF0 /* LccLocationKeywordSearchResponse.swift */,
+				A142DF57242321DC003D103E /* LccResponse.swift */,
 			);
 			path = TKT;
 			sourceTree = "<group>";
@@ -1995,13 +2004,9 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 			);
 			name = "Fabrc Run Script";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2013,13 +2018,9 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 			);
 			name = "Fabric Run Script";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2049,37 +2050,16 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-ColatourB2BDev/Pods-ColatourB2BDev-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/MDFInternationalization/MDFInternationalization.framework",
-				"${BUILT_PRODUCTS_DIR}/MaterialComponents/MaterialComponents.framework",
-				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
-				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
-				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
-				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
-				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ColatourB2BDev/Pods-ColatourB2BDev-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MDFInternationalization.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MaterialComponents.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ColatourB2BDev/Pods-ColatourB2BDev-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ColatourB2BDev/Pods-ColatourB2BDev-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ColatourB2BDev/Pods-ColatourB2BDev-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		ABEC9BA6D738F7E7475F2519 /* [CP] Check Pods Manifest.lock */ = {
@@ -2105,37 +2085,16 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-ColatourB2B/Pods-ColatourB2B-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/MDFInternationalization/MDFInternationalization.framework",
-				"${BUILT_PRODUCTS_DIR}/MaterialComponents/MaterialComponents.framework",
-				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
-				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
-				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
-				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
-				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ColatourB2B/Pods-ColatourB2B-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MDFInternationalization.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MaterialComponents.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ColatourB2B/Pods-ColatourB2B-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ColatourB2B/Pods-ColatourB2B-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ColatourB2B/Pods-ColatourB2B-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -2246,6 +2205,7 @@
 				38BCD98F23A3484300D59910 /* DateFormatterExtenstion.swift in Sources */,
 				382EF48323BEF93A0002BAB0 /* GroupReponsitory.swift in Sources */,
 				0650775523ED4FD50067377C /* ContactInfoResponse.swift in Sources */,
+				A142DF58242321DC003D103E /* LccResponse.swift in Sources */,
 				38BCD96F23A3484300D59910 /* CAGradientLayerExtension.swift in Sources */,
 				387FBF1323ACD047005412F1 /* CustomTextField.swift in Sources */,
 				38871EBC23D581AA007ED33D /* BannerImageView.swift in Sources */,
@@ -2298,6 +2258,7 @@
 				C7DA175723D6E5C9006A8803 /* GroupTourSearchKeywordAndTourCodeInputCell.swift in Sources */,
 				C7C623CD23E2C71600A2D8B0 /* GroupTourSearchUrlResponse.swift in Sources */,
 				0650775E23ED55F60067377C /* ContactInfoRepository.swift in Sources */,
+				06B704DA2424559200698EF0 /* LccLocationKeywordSearchResponse.swift in Sources */,
 				A1A7F2E72418854D00263E42 /* SelectCalendarManager.swift in Sources */,
 				38BCD98D23A3484300D59910 /* ShareFunc.swift in Sources */,
 				A1876A982415FDCA00855DE6 /* TKTRepository.swift in Sources */,
@@ -2306,6 +2267,7 @@
 				C7DA175D23D70261006A8803 /* GroupTourSearchRequest.swift in Sources */,
 				A1A7F3032418854D00263E42 /* CalendarDayCollectionViewCell.swift in Sources */,
 				A1A7F31D2418882100263E42 /* CalenderSelectStatus.swift in Sources */,
+				064DE9102421FA8B005D7A83 /* AirTktLocationKeywordSearchResponse.swift in Sources */,
 				38BCD93323A345FA00D59910 /* FormatUtil.swift in Sources */,
 				3869543223BAE5F500F6E7D9 /* MemberTopCell.swift in Sources */,
 				A1A7F3052418854D00263E42 /* CalendarTableViewCell.swift in Sources */,
@@ -2468,6 +2430,7 @@
 				38BCD99023A3484300D59910 /* DateFormatterExtenstion.swift in Sources */,
 				382EF48423BEF93A0002BAB0 /* GroupReponsitory.swift in Sources */,
 				0650775623ED4FD50067377C /* ContactInfoResponse.swift in Sources */,
+				A142DF59242321DC003D103E /* LccResponse.swift in Sources */,
 				38BCD97023A3484300D59910 /* CAGradientLayerExtension.swift in Sources */,
 				387FBF1423ACD047005412F1 /* CustomTextField.swift in Sources */,
 				38871EBD23D581AA007ED33D /* BannerImageView.swift in Sources */,
@@ -2520,6 +2483,7 @@
 				C7DA175823D6E5C9006A8803 /* GroupTourSearchKeywordAndTourCodeInputCell.swift in Sources */,
 				C7C623CE23E2C71600A2D8B0 /* GroupTourSearchUrlResponse.swift in Sources */,
 				0650775F23ED55F60067377C /* ContactInfoRepository.swift in Sources */,
+				06B704DB2424559200698EF0 /* LccLocationKeywordSearchResponse.swift in Sources */,
 				A1A7F2E82418854D00263E42 /* SelectCalendarManager.swift in Sources */,
 				38BCD98E23A3484300D59910 /* ShareFunc.swift in Sources */,
 				A1876A992415FDCA00855DE6 /* TKTRepository.swift in Sources */,
@@ -2528,6 +2492,7 @@
 				C7DA175E23D70261006A8803 /* GroupTourSearchRequest.swift in Sources */,
 				A1A7F3042418854D00263E42 /* CalendarDayCollectionViewCell.swift in Sources */,
 				A1A7F31E2418882100263E42 /* CalenderSelectStatus.swift in Sources */,
+				064DE9112421FA8B005D7A83 /* AirTktLocationKeywordSearchResponse.swift in Sources */,
 				38BCD93423A345FA00D59910 /* FormatUtil.swift in Sources */,
 				3869543323BAE5F500F6E7D9 /* MemberTopCell.swift in Sources */,
 				A1A7F3062418854D00263E42 /* CalendarTableViewCell.swift in Sources */,
@@ -2727,7 +2692,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ColatourB2B/ColatourB2B.entitlements;
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 07;
+				CURRENT_PROJECT_VERSION = 08;
 				DEVELOPMENT_TEAM = 83357CEQAU;
 				INFOPLIST_FILE = ColatourB2B/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -2735,7 +2700,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = "1.0 ";
+				MARKETING_VERSION = 1.0.1;
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\"";
 				PRODUCT_BUNDLE_IDENTIFIER = tw.com.colatour.b2b;
 				PRODUCT_NAME = "可樂旅遊B2B";
@@ -2753,7 +2718,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ColatourB2B/ColatourB2B.entitlements;
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 07;
+				CURRENT_PROJECT_VERSION = 08;
 				DEVELOPMENT_TEAM = 83357CEQAU;
 				INFOPLIST_FILE = ColatourB2B/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -2761,7 +2726,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = "1.0 ";
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = tw.com.colatour.b2b;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = ColatourB2B_20191218;
@@ -2861,7 +2826,7 @@
 				CODE_SIGN_ENTITLEMENTS = ColatourB2BDev.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 07;
+				CURRENT_PROJECT_VERSION = 08;
 				DEVELOPMENT_TEAM = 83357CEQAU;
 				INFOPLIST_FILE = ColatourB2B/ColatourB2BDev/Dev_Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -2869,7 +2834,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.1;
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" \"-DCOLATOURB2B_DEV\"";
 				PRODUCT_BUNDLE_IDENTIFIER = tw.com.colatour.b2b.dev;
 				PRODUCT_NAME = "可樂旅遊B2BDev";
@@ -2888,7 +2853,7 @@
 				CODE_SIGN_ENTITLEMENTS = ColatourB2BDev.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 07;
+				CURRENT_PROJECT_VERSION = 08;
 				DEVELOPMENT_TEAM = 83357CEQAU;
 				INFOPLIST_FILE = "ColatourB2B copy-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -2896,7 +2861,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = tw.com.colatour.b2b.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = ColatourB2B_Dev_Profile_Distribution20200108;

@@ -371,6 +371,10 @@ extension APIManager {
         return manager(method: .get, appendUrl: "", url: APIUrl.mainApi(type: .sotoAirSearchInit), parameters: nil, appendHeaders: nil)
     }
     
+    func getLccSearchInit() -> Single<[String: Any]> {
+        return manager(method: .get, appendUrl: "", url: APIUrl.mainApi(type: .lccSearchInit), parameters: nil, appendHeaders: nil)
+    }
+    
     func postAirTicketSearch(request:TKTSearchRequest) -> Single<[String: Any]>  {
         let params = request.getDictionary()
         return manager(method: .post, appendUrl: "", url: APIUrl.mainApi(type: .airTicketSearchUrl), parameters: params, appendHeaders: nil)
@@ -381,8 +385,17 @@ extension APIManager {
         return manager(method: .post, appendUrl: "", url: APIUrl.mainApi(type: .airTicketSearchUrl), parameters: params, appendHeaders: nil)
     }
     
-    func getLccSearchInit() -> Single<[String: Any]> {
-        return AppHelper.shared.getJson(forResource: "TKTSearchInit")
+    func postLccTicketSearch(request: LccTicketRequest) -> Single<[String: Any]>  {
+        let params = request.getDictionary()
+        return manager(method: .post, appendUrl: "", url: APIUrl.mainApi(type: .lccSearchUrl), parameters: params, appendHeaders: nil)
+    }
+    
+    func getAirTktLocationKeywordSearchResult(keyword: String) -> Single<[String: Any]> {
+        return manager(method: .get, appendUrl: keyword, url: APIUrl.mainApi(type: .airTktLocationKeywordSearch), parameters: nil, appendHeaders: nil)
+    }
+    
+    func getLccLocationKeywordSearchResult(keyword: String) -> Single<[String: Any]> {
+        return manager(method: .get, appendUrl: keyword, url: APIUrl.mainApi(type: .lccLocationKeywordSearch), parameters: nil, appendHeaders: nil)
     }
 }
 

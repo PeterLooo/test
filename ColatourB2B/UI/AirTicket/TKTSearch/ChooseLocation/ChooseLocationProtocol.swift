@@ -10,10 +10,11 @@ import Foundation
 
 protocol ChooseLocationViewProtocol: BaseViewProtocol {
     
-    func onBindSearchResult()//result: )
+    func onBindSearchResult(result: [TKTInitResponse.TicketResponse.City])
 }
 
 protocol ChooseLocationPresenterProtocol: BasePresenterProtocol {
     
-    func getSearchResult()
+    func getAirTktSearchResult(keyword: String)
+    func getLccSearchResult(keyword: String)
 }

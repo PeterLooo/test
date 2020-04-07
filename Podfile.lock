@@ -1,8 +1,8 @@
 PODS:
-  - Alamofire (4.6.0)
-  - Crashlytics (3.12.0):
-    - Fabric (~> 1.9.0)
-  - Fabric (1.9.0)
+  - Alamofire (4.8.2)
+  - Crashlytics (3.14.0):
+    - Fabric (~> 1.10.2)
+  - Fabric (1.10.2)
   - FirebaseAnalytics (6.0.1):
     - FirebaseCore (~> 6.0)
     - FirebaseInstanceID (~> 4.1)
@@ -83,30 +83,33 @@ PODS:
     - nanopb/encode (= 0.3.901)
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
-  - ObjectMapper (3.3.0)
+  - ObjectMapper (3.5.1)
   - Protobuf (3.9.2)
   - ReachabilitySwift (4.1.0)
-  - RxCocoa (4.1.0):
-    - RxSwift (~> 4.0)
-  - RxSwift (4.1.0)
+  - RxCocoa (5.1.0):
+    - RxRelay (~> 5)
+    - RxSwift (~> 5)
+  - RxRelay (5.1.0):
+    - RxSwift (~> 5)
+  - RxSwift (5.1.0)
   - SDWebImage (5.2.0):
     - SDWebImage/Core (= 5.2.0)
   - SDWebImage/Core (5.2.0)
 
 DEPENDENCIES:
-  - Alamofire (= 4.6.0)
-  - Crashlytics (= 3.12.0)
+  - Alamofire (= 4.8.2)
+  - Crashlytics (= 3.14.0)
   - FirebaseAnalytics (= 6.0.1)
   - FirebaseMessaging (= 4.0.2)
   - MaterialComponents/TextFields (= 55.1.0)
-  - ObjectMapper (= 3.3.0)
+  - ObjectMapper (= 3.5.1)
   - ReachabilitySwift (= 4.1.0)
-  - RxCocoa (= 4.1.0)
-  - RxSwift (= 4.1.0)
+  - RxCocoa (= 5.1.0)
+  - RxSwift (= 5.1.0)
   - SDWebImage (= 5.2.0)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  trunk:
     - Alamofire
     - Crashlytics
     - Fabric
@@ -128,13 +131,14 @@ SPEC REPOS:
     - Protobuf
     - ReachabilitySwift
     - RxCocoa
+    - RxRelay
     - RxSwift
     - SDWebImage
 
 SPEC CHECKSUMS:
-  Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
-  Crashlytics: 07fb167b1694128c1c9a5a5cc319b0e9c3ca0933
-  Fabric: f988e33c97f08930a413e08123064d2e5f68d655
+  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  Crashlytics: 540b7e5f5da5a042647227a5e3ac51d85eed06df
+  Fabric: 706c8b8098fff96c33c0db69cbf81f9c551d0d74
   FirebaseAnalytics: 629301c2b9925f3537d4093a17a72751ae5b7084
   FirebaseAnalyticsInterop: d48b6ab67bcf016a05e55b71fc39c61c0cb6b7f3
   FirebaseCore: 8b2765c445d40db7137989b7146a3aa3f91b5529
@@ -149,13 +153,14 @@ SPEC CHECKSUMS:
   MaterialComponents: f4cd3085a673837e7ba4c6cf40d9da2f64566af1
   MDFInternationalization: 010097556d6b09d2c4ea38e0820ea6d37be6a314
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
-  ObjectMapper: b612bf8c8e99c4dc0bb6013a51f7c27966ed5da9
+  ObjectMapper: 70187b8941977c62ccfb423caf6b50be405cabf0
   Protobuf: 67fb42ba613def994e61854de2b3164f13790cc4
   ReachabilitySwift: 6849231cd4e06559f3b9ef4a97a0a0f96d41e09f
-  RxCocoa: cc1fec49cdc8fabe645964de7c51c099a36c2aa8
-  RxSwift: 4219941c1244c88002901bd87a69d3aea9ae71f0
+  RxCocoa: 13d2a4d7546a34b8ececae8c281e4ea1dbb94f2b
+  RxRelay: a168bd6caf712d00c676ac344e9295afc93b418e
+  RxSwift: ad5874f24bb0dbffd1e9bb8443604e3578796c7a
   SDWebImage: 609192dcf3898c910a2848032372ead951e66364
 
-PODFILE CHECKSUM: 277e851803541d765450bf50443e8ef324b0ee1f
+PODFILE CHECKSUM: c3e11764e650f3ce02d59566b379972e22b386d3
 
-COCOAPODS: 1.5.2
+COCOAPODS: 1.9.1

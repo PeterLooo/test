@@ -9,10 +9,11 @@
 import UIKit
 
 protocol AirTktCellProtocol: NSObjectProtocol {
-    func onTouchSelection(selection:TKTInputFieldType, searchType: SearchByType)
-    func onTouchSearch(searchType:SearchByType)
+    func onTouchSelection(selection: TKTInputFieldType, searchType: SearchByType)
+    func onTouchSearch(searchType: SearchByType)
     func onTouchArrival(arrival:ArrivalType, searchType: SearchByType)
     func onTouchNonStop(searchType: SearchByType)
+    func onTouchDate(searchType: SearchByType)
 }
 
 class AirTktCell: UITableViewCell {
@@ -39,10 +40,10 @@ class AirTktCell: UITableViewCell {
         dateRange.text = info.endTravelDate?.endTravelDateName
         tourWay.text = info.journeyType
         departure.text = info.departure?.departureCodeName
-        destination.text = info.destination == nil ? "輸入 目的城市/機場代碼":info.destination?.cityName
-        destination.textColor = info.destination == nil ? UIColor.init(named: "預設文字"):UIColor.init(named: "標題黑" )
+        destination.text = info.destination == nil ? "輸入 目的城市/機場代碼" : info.destination?.cityName
+        destination.textColor = info.destination == nil ? UIColor.init(named: "預設文字") : UIColor.init(named: "標題黑" )
         backDeparture.text = info.returnCode == nil ? "輸入 目的城市/機場代碼":info.returnCode?.cityName
-        backDeparture.textColor = info.returnCode == nil ? UIColor.init(named: "預設文字"):UIColor.init(named: "標題黑" )
+        backDeparture.textColor = info.returnCode == nil ? UIColor.init(named: "預設文字") : UIColor.init(named: "標題黑" )
         isNonStop.image = info.isNonStop ? #imageLiteral(resourceName: "check") : #imageLiteral(resourceName: "check_hover")
         backView.isHidden = !(info.journeyType == "雙程" || info.journeyType == "環遊")
         self.backView.layoutIfNeeded()
@@ -58,7 +59,7 @@ class AirTktCell: UITableViewCell {
         case 2:
             self.delegate?.onTouchSelection(selection: .airlineCode, searchType: .airTkt)
         case 3:
-            self.delegate?.onTouchSelection(selection: .startTourDate, searchType: .airTkt)
+            self.delegate?.onTouchDate(searchType: .airTkt)
         case 4:
             self.delegate?.onTouchSelection(selection: .dateRange, searchType: .airTkt)
         case 5:
