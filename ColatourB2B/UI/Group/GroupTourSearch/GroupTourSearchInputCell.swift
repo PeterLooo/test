@@ -45,7 +45,7 @@ class GroupTourSearchInputCell: UITableViewCell, UITextFieldDelegate {
         
         self.regionCode.text = groupTourSearchRequest
             .selectedRegionCode?
-            .regionName
+            .regionName?.trimmingCharacters(in: .whitespaces)
         self.departureCity.text = groupTourSearchRequest
             .selectedDepartureCity?
             .departureName
