@@ -1,18 +1,16 @@
-/*
- Copyright 2016-present the Material Components for iOS authors. All Rights Reserved.
-
- Licensed under the Apache License, Version 2.0 (the "License");
- you may not use this file except in compliance with the License.
- You may obtain a copy of the License at
-
- http://www.apache.org/licenses/LICENSE-2.0
-
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
- */
+// Copyright 2016-present the Material Components for iOS authors. All Rights Reserved.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+// http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
 
 #import <UIKit/UIKit.h>
 
@@ -48,9 +46,12 @@ typedef NS_ENUM(NSUInteger, MDCTextInputTextInsetsMode) {
 
 /**
  The attributed text string of the placeholder label.
- Bringing convenience api found in UITextField to all MDCTextInputs. Maps to the .attributedText of
- the
- placeholder label.
+ Bringing convenience API found in UITextField to all MDCTextInputs. Maps to the .attributedText of
+ the placeholder label.
+
+ Note: The [Design guidance](https://material.io/components/text-fields/#anatomy) changed and treats
+ placeholder as distinct from `label text`. The placeholder-related properties of this class most
+ closely align with the "label text" as described in the guidance.
  */
 @property(nonatomic, nullable, copy) NSAttributedString *attributedPlaceholder;
 
@@ -110,7 +111,13 @@ typedef NS_ENUM(NSUInteger, MDCTextInputTextInsetsMode) {
 /** The font of the text in the input. */
 @property(nonatomic, nullable, strong) UIFont *font;
 
-/** Should it have the standard behavior of disappearing when you type? Defaults to YES. */
+/**
+ Should it have the standard behavior of disappearing when you type? Defaults to YES.
+
+ Note: The [Design guidance](https://material.io/components/text-fields/#anatomy) changed and treats
+ placeholder as distinct from `label text`. The placeholder-related properties of this class most
+ closely align with the "label text" as described in the guidance.
+ */
 @property(nonatomic, assign) BOOL hidesPlaceholderOnInput;
 
 /**
@@ -126,7 +133,7 @@ typedef NS_ENUM(NSUInteger, MDCTextInputTextInsetsMode) {
  UIContentSizeCategory changes.
 
  This property is modeled after the adjustsFontForContentSizeCategory property in the
- UIConnectSizeCategoryAdjusting protocol added by Apple in iOS 10.0.
+ UIContentSizeCategoryAdjusting protocol added by Apple in iOS 10.0.
 
  Default value is NO.
  */
@@ -137,12 +144,20 @@ typedef NS_ENUM(NSUInteger, MDCTextInputTextInsetsMode) {
  The text string of the placeholder label.
  Bringing convenience api found in UITextField to all MDCTextInputs. Maps to the .text of the
  placeholder label.
+
+ Note: The [Design guidance](https://material.io/components/text-fields/#anatomy) changed and treats
+ placeholder as distinct from `label text`. The placeholder-related properties of this class most
+ closely align with the "label text" as described in the guidance.
  */
 @property(nonatomic, nullable, copy) NSString *placeholder;
 
 /**
- The label displaying text when no input text has been entered. The Material Design guidelines call
- this 'Hint text.'
+ The label displaying text when no input text has been entered.
+
+
+ Note: The [Design guidance](https://material.io/components/text-fields/#anatomy) changed and treats
+ placeholder as distinct from `label text`. The placeholder-related properties of this class most
+ closely align with the "label text" as described in the guidance.
  */
 @property(nonatomic, nonnull, strong, readonly) UILabel *placeholderLabel;
 
@@ -202,6 +217,34 @@ typedef NS_ENUM(NSUInteger, MDCTextInputTextInsetsMode) {
 
 /** The underline view */
 @property(nonatomic, nullable, strong, readonly) MDCTextInputUnderlineView *underline;
+
+/** A boolean value that indicates whether the text input contains content **/
+@property(nonatomic, assign, readonly) BOOL hasTextContent;
+
+/** Clear the text content in the text input **/
+- (void)clearText;
+
+@end
+
+/**
+Common API for text inputs that support having a leading view.
+
+MDCTextField implements this protocol but MDCMultilineTextField does not because the designers
+determined multiline text fields should only have trailing views.
+*/
+@protocol MDCLeadingViewTextInput <MDCTextInput>
+
+/**
+ An overlay view on the leading side.
+
+ Note: if RTL is engaged, this will return the .rightView and if LTR, it will return the .leftView.
+ */
+@property(nonatomic, nullable, strong) UIView *leadingView;
+
+/**
+ Controls when the leading view will display.
+ */
+@property(nonatomic, assign) UITextFieldViewMode leadingViewMode;
 
 @end
 
