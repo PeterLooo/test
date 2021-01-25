@@ -13,39 +13,37 @@ import Alamofire
 class FirebaseCrashManager: NSObject {
 
     static func setUp(){
-//        #if DEBUG
-//
-//        #else
-//
+        #if DEBUG
 
+        #else
         FirebaseCrashManager.setUserIdentifier(AccountRepository.shared.osUUID)
-//        #endif
+        #endif
     }
     
     static func recordError(_ err: APIError, api: APIUrl, method: HTTPMethod){
-//        #if DEBUG
-//
-//        #else
+        #if DEBUG
+
+        #else
         Crashlytics.crashlytics().record(error: err)
         FirebaseCrashManager.setUserName("ErrorType", value: err.type)
         FirebaseCrashManager.setUserName("Api", value: api.getUrl())
         FirebaseCrashManager.setUserName("Method", value: method)
-//        #endif
+        #endif
     }
     
     static func setUserName(_ key: String, value: Any){
-//        #if DEBUG
-//
-//        #else
+        #if DEBUG
+
+        #else
         Crashlytics.crashlytics().setCustomValue(value, forKey: key)
-//        #endif
+        #endif
     }
     
     static func setUserIdentifier(_ userId: String){
-//        #if DEBUG
-//
-//        #else
+        #if DEBUG
+
+        #else
         Crashlytics.crashlytics().setUserID(userId)
-//        #endif
+        #endif
     }
 }
