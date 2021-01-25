@@ -11,9 +11,9 @@ def colatourb2b_pods
     pod 'ObjectMapper', '3.5.1'
     pod 'SDWebImage', '5.2.0'
     pod 'FirebaseMessaging', '4.0.2'
-    pod 'FirebaseAnalytics', '6.0.1'
-    pod 'MaterialComponents/TextFields', '55.1.0'
-    pod 'Crashlytics', '3.14.0'
+    pod 'MaterialComponents/TextFields', '116.0.0'
+    pod 'Firebase/Crashlytics', '4.6.2'
+    pod 'Firebase/Analytics', '6.34.0'
 end
 
 # Pods for ColatourB2B

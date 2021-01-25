@@ -1,18 +1,16 @@
-/*
- Copyright 2016-present the Material Components for iOS authors. All Rights Reserved.
-
- Licensed under the Apache License, Version 2.0 (the "License");
- you may not use this file except in compliance with the License.
- You may obtain a copy of the License at
-
- http://www.apache.org/licenses/LICENSE-2.0
-
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
- */
+// Copyright 2016-present the Material Components for iOS authors. All Rights Reserved.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+// http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
 
 #import <UIKit/UIKit.h>
 
@@ -22,7 +20,7 @@
 @protocol MDCTextInputCharacterCounter;
 
 /** Controllers that manipulate styling and animation of text inputs. */
-@protocol MDCTextInputController <NSObject, NSSecureCoding, NSCopying, MDCTextInputPositioningDelegate>
+@protocol MDCTextInputController <NSObject, NSCopying, MDCTextInputPositioningDelegate>
 
 /**
  Color for decorations that indicates the input is currently editing.
@@ -35,19 +33,6 @@
  Default value for activeColor.
  */
 @property(class, nonatomic, null_resettable, strong) UIColor *activeColorDefault;
-
-/**
- Color for background for the various views making up a text field.
-
- Default is backgroundColorDefault.
- */
-@property(nonatomic, null_resettable, strong) UIColor *backgroundColor;
-
-/**
- Default value for backgroundColor.
- */
-@property(class, nonatomic, null_resettable, strong) UIColor *backgroundColorDefault;
-
 
 /**
  The character counter. Override to use a custom character counter.
@@ -119,10 +104,20 @@
  The color applied to the placeholder when inline (not floating).
 
  Default is inlinePlaceholderColorDefault.
+
+ Note: The [Design guidance](https://material.io/components/text-fields/#anatomy) changed and treats
+ placeholder as distinct from `label text`. The placeholder-related properties of this class most
+ closely align with the "label text" as described in the guidance.
  */
 @property(nonatomic, null_resettable, strong) UIColor *inlinePlaceholderColor;
 
-/** Default value for inlinePlaceholderColor. */
+/**
+ Default value for inlinePlaceholderColor.
+
+ Note: The [Design guidance](https://material.io/components/text-fields/#anatomy) changed and treats
+ placeholder as distinct from `label text`. The placeholder-related properties of this class most
+ closely align with the "label text" as described in the guidance.
+ */
 @property(class, nonatomic, null_resettable, strong) UIColor *inlinePlaceholderColorDefault;
 
 /**
@@ -136,15 +131,24 @@
 /** Default value for textInputFontDefault. If nil, textInput.font would be the fallback.  */
 @property(class, nonatomic, nullable, strong) UIFont *textInputFontDefault;
 
-
 /**
  The font applied to the placeholder when inline (not floating).
 
  Default is inlinePlaceholderFontDefault;
+
+ Note: The [Design guidance](https://material.io/components/text-fields/#anatomy) changed and treats
+ placeholder as distinct from `label text`. The placeholder-related properties of this class most
+ closely align with the "label text" as described in the guidance.
  */
 @property(nonatomic, null_resettable, strong) UIFont *inlinePlaceholderFont;
 
-/** Default value for inlinePlaceholderFont. */
+/**
+ Default value for inlinePlaceholderFont.
+
+ Note: The [Design guidance](https://material.io/components/text-fields/#anatomy) changed and treats
+ placeholder as distinct from `label text`. The placeholder-related properties of this class most
+ closely align with the "label text" as described in the guidance.
+ */
 @property(class, nonatomic, null_resettable, strong) UIFont *inlinePlaceholderFontDefault;
 
 /**
@@ -172,7 +176,7 @@
  UIContentSizeCategory changes.
 
  This property is modeled after the adjustsFontForContentSizeCategory property in the
- UIConnectSizeCategoryAdjusting protocol added by Apple in iOS 10.0.
+ UIContentSizeCategoryAdjusting protocol added by Apple in iOS 10.0.
 
  Default is mdc_adjustsFontForContentSizeCategoryDefault.
  */
@@ -192,7 +196,13 @@
 /** Default value for normalColor. */
 @property(class, nonatomic, null_resettable, strong) UIColor *normalColorDefault;
 
-/** The text displayed in the placeholder label.*/
+/**
+ The text displayed in the placeholder label.
+
+ Note: The [Design guidance](https://material.io/components/text-fields/#anatomy) changed and treats
+ placeholder as distinct from `label text`. The placeholder-related properties of this class most
+ closely align with the "label text" as described in the guidance.
+ */
 @property(nonatomic, nullable, copy) NSString *placeholderText;
 
 /**
@@ -207,6 +217,16 @@
 
 /** The text input the controller is affecting. */
 @property(nonatomic, nullable, strong) UIView<MDCTextInput> *textInput;
+
+/**
+ The tintColor applied to the textInput's clear button.
+ See @c UIImageView.tintColor for additional details.
+ */
+@property(nonatomic, null_resettable, strong) UIColor *textInputClearButtonTintColor;
+
+/**
+ Default value for @c textInputClearButtonTintColor. */
+@property(class, nonatomic, nullable, strong) UIColor *textInputClearButtonTintColorDefault;
 
 /**
  The font applied to the trailing side underline label.
@@ -300,5 +320,23 @@
  */
 - (void)setErrorText:(nullable NSString *)errorText
     errorAccessibilityValue:(nullable NSString *)errorAccessibilityValue;
+
+/**
+ Sets helper text and a corresponding accessibilityLabel.
+
+ @param helperText               The helper text to be shown as leading underline text. (Copied.)
+ @param helperAccessibilityLabel Optional override of leading underline accessibilityLabel when
+                                 helper text is displayed. (Copied.)
+
+ If the TextField is in an error state helperText is saved as the previousLeadingText, and
+ helperAccessibilityLabel is saved in an instance variable. When the TextField eventually leaves the
+ error state the previousLeadingText becomes the leadingUnderlineLabel's text and the
+ helperAccessibilityLabel becomes the leadingUnderlinLabel's accessibilityLabel.
+
+ If the TextField is not in an error state helperText is set as the leadingUnderlineLabel's text and
+ helperAccessibilityLabel is set as the leadingUnderlineLabel's accessibilityLabel.
+ */
+- (void)setHelperText:(nullable NSString *)helperText
+    helperAccessibilityLabel:(nullable NSString *)helperAccessibilityLabel;
 
 @end
