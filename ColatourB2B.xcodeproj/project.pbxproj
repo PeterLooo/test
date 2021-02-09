@@ -1779,7 +1779,7 @@
 				3817E52823A33C9500ED8609 /* Frameworks */,
 				3817E52923A33C9500ED8609 /* Resources */,
 				A3B9B8FF192086C401904B3D /* [CP] Embed Pods Frameworks */,
-				385342A723CEA7B70026391E /* Fabrc Run Script */,
+				A15C4BFF25D2141500A14477 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1999,20 +1999,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		385342A723CEA7B70026391E /* Fabrc Run Script */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Fabrc Run Script";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Fabric/run\"\n";
-		};
 		822ED899253DA5F18DACEAEC /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -2032,6 +2018,23 @@
 			showEnvVarsInLog = 0;
 		};
 		A11D38F825BAD34C00D46867 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${PODS_ROOT}/FirebaseCrashlytics/run\n";
+		};
+		A15C4BFF25D2141500A14477 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
