@@ -583,7 +583,7 @@ extension GroupTourSearchViewController: GroupTourSearchInputCellProtocol {
 }
 
 extension GroupTourSearchViewController: GroupTourSearchKeywordAndTourCodeInputCellProtocol {
-    func onTouchKeywordOrTourCodeView(_ sender: UIButton) {
+    func onTouchKeywordOrTourCodeView() {
         touchInputField = .keywordOrTourCode
     }
     
