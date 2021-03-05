@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -635,12 +635,6 @@
                                                                                                 <constraint firstAttribute="height" constant="1" id="cqV-4Q-oUb"/>
                                                                                             </constraints>
                                                                                         </view>
-                                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mz9-HX-YTg" userLabel="TouchButton">
-                                                                                            <rect key="frame" x="0.0" y="0.0" width="364" height="49"/>
-                                                                                            <connections>
-                                                                                                <action selector="onTouchKeywordOrTourCode:" destination="aUT-88-dj0" eventType="touchUpInside" id="5vq-Li-rHO"/>
-                                                                                            </connections>
-                                                                                        </button>
                                                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Ae-cd-9Lj" userLabel="Info DescriptionImageButton">
                                                                                             <rect key="frame" x="374" y="12" width="24" height="24"/>
                                                                                             <constraints>
@@ -667,20 +661,16 @@
                                                                                         <constraint firstAttribute="bottom" secondItem="3eC-zh-FLH" secondAttribute="bottom" id="2IM-iA-z9v"/>
                                                                                         <constraint firstItem="mVw-4v-hYg" firstAttribute="top" secondItem="cSi-En-nI0" secondAttribute="top" constant="8" id="ApI-Ld-Dhf"/>
                                                                                         <constraint firstItem="0Ae-cd-9Lj" firstAttribute="top" secondItem="cSi-En-nI0" secondAttribute="top" constant="12" id="CeS-q0-Dk1"/>
-                                                                                        <constraint firstItem="0Ae-cd-9Lj" firstAttribute="leading" secondItem="mz9-HX-YTg" secondAttribute="trailing" constant="10" id="D63-By-WdD"/>
                                                                                         <constraint firstItem="3eC-zh-FLH" firstAttribute="top" secondItem="cSi-En-nI0" secondAttribute="top" id="Dtx-5b-iqg"/>
                                                                                         <constraint firstItem="0Ae-cd-9Lj" firstAttribute="leading" secondItem="mVw-4v-hYg" secondAttribute="trailing" constant="10" id="Eas-KI-eJf"/>
                                                                                         <constraint firstAttribute="trailing" secondItem="3eC-zh-FLH" secondAttribute="trailing" id="En5-XR-jtp"/>
                                                                                         <constraint firstAttribute="trailing" secondItem="0Ae-cd-9Lj" secondAttribute="trailing" constant="16" id="F0E-0a-0WX"/>
-                                                                                        <constraint firstItem="mz9-HX-YTg" firstAttribute="leading" secondItem="cSi-En-nI0" secondAttribute="leading" id="LnO-C6-gmq"/>
                                                                                         <constraint firstAttribute="trailing" secondItem="4cc-A4-AMl" secondAttribute="trailing" id="MUw-1n-iZM"/>
                                                                                         <constraint firstItem="VBA-P8-s3f" firstAttribute="top" secondItem="cSi-En-nI0" secondAttribute="top" constant="12" id="Nep-1g-zxX"/>
                                                                                         <constraint firstItem="4cc-A4-AMl" firstAttribute="top" secondItem="0Ae-cd-9Lj" secondAttribute="bottom" constant="12" id="NvW-LP-NVm"/>
                                                                                         <constraint firstAttribute="bottom" secondItem="VBA-P8-s3f" secondAttribute="bottom" constant="12" id="ReC-Ho-wvm"/>
                                                                                         <constraint firstAttribute="bottom" secondItem="4cc-A4-AMl" secondAttribute="bottom" id="SQB-np-kJE"/>
-                                                                                        <constraint firstAttribute="bottom" secondItem="mz9-HX-YTg" secondAttribute="bottom" id="euW-Dq-RvI"/>
                                                                                         <constraint firstAttribute="bottom" secondItem="mVw-4v-hYg" secondAttribute="bottom" constant="8" id="kdl-EM-q58"/>
-                                                                                        <constraint firstItem="mz9-HX-YTg" firstAttribute="top" secondItem="cSi-En-nI0" secondAttribute="top" id="lM8-nr-EFs"/>
                                                                                         <constraint firstItem="VBA-P8-s3f" firstAttribute="leading" secondItem="cSi-En-nI0" secondAttribute="leading" constant="16" id="mqQ-aG-ks2"/>
                                                                                         <constraint firstItem="4cc-A4-AMl" firstAttribute="leading" secondItem="cSi-En-nI0" secondAttribute="leading" constant="24" id="s3X-KS-GwZ"/>
                                                                                     </constraints>
