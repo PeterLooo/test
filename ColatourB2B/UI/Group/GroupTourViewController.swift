@@ -33,6 +33,8 @@ class GroupTourViewController: BaseViewController {
     }
     var groupADList : [IndexResponse.MultiModule] = []
     
+    private var cityKey: String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -204,16 +206,19 @@ class GroupTourViewController: BaseViewController {
     private func switchPageButton(sliderLeading: CGFloat){
         switch sliderLeading {
         case (screenWidth / 3 * 0):
+            cityKey = "*"
             enableButton(topGroupButton)
             disableButton(topTCButton)
             disableButton(topKSButton)
             
         case (screenWidth / 3 * 1):
+            cityKey = "台中"
             enableButton(topTCButton)
             disableButton(topGroupButton)
             disableButton(topKSButton)
             
         case (screenWidth / 3 * 2):
+            cityKey = "高雄"
             enableButton(topKSButton)
             disableButton(topTCButton)
             disableButton(topGroupButton)
@@ -284,6 +289,7 @@ extension GroupTourViewController: UIViewControllerTransitioningDelegate {
 extension GroupTourViewController: GroupNavigationViewProtocol{
     func onTouchSearchView() {
         let vc = getVC(st: "GroupTourSearch", vc: "GroupTourSearchViewController") as! GroupTourSearchViewController
+        vc.setKeywordOrTourCodeDepartureCityShareOptionList(cityKey: cityKey)
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }
