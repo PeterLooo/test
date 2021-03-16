@@ -15,9 +15,10 @@ protocol PasswordModifyToastProtocol: NSObjectProtocol {
 
 extension PasswordModifyViewController {
     
-    func setVC(refreshToken: String?) {
+    func setVC(refreshToken: String?, loginMessage: String?) {
         
         self.refreshToken = refreshToken
+        self.loginMessage = loginMessage
     }
 }
 
@@ -36,6 +37,7 @@ class PasswordModifyViewController: BaseViewController {
     
     private var presenter: PasswordModifyPresenter?
     private var refreshToken: String?
+    private var loginMessage: String?
     private var isFromLogin: Bool = false
     
     weak var delegate: PasswordModifyToastProtocol?
@@ -91,6 +93,14 @@ class PasswordModifyViewController: BaseViewController {
         if !isFromLogin { setNavButton() }
         
         super.viewWillAppear(animated)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if loginMessage?.isEmpty == false {
+            toast(text: loginMessage!)
+        }
     }
     
     override func viewDidDisappear(_ animated: Bool) {

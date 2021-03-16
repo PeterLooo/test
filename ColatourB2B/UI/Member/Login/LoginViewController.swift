@@ -112,7 +112,7 @@ extension LoginViewController : LoginViewProtocol {
             }
         } else if loginResponse.passwordReset == true {
             let vc = getVC(st: "PasswordModify", vc: "PasswordModify") as! PasswordModifyViewController
-            vc.setVC(refreshToken: loginResponse.refreshToken)
+            vc.setVC(refreshToken: loginResponse.refreshToken, loginMessage: loginResponse.loginMessage)
             vc.delegate = self
             navigationController?.pushViewController(vc, animated: true)
         } else {
