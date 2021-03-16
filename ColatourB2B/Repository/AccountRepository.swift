@@ -117,14 +117,7 @@ class AccountRepository: NSObject {
         MemberRepository.shared.setAllowTour(allowTour: loginResponse.allowTour ?? false)
         MemberRepository.shared.setAllowTkt(allowTkt: loginResponse.allowTkt ?? false)
         MemberRepository.shared.setTabBarLinkType(linkType: loginResponse.linkType!.rawValue)
-        
-        switch loginResponse.passwordReset == true {
-        case true:
-            MemberRepository.shared.removeLocalAccessToken()
-            MemberRepository.shared.removeLocalRefreshToken()
-        case false:
-            MemberRepository.shared.setLocalUserToken(refreshToken: loginResponse.refreshToken!, accessToken: loginResponse.accessToken!)
-        }
+        MemberRepository.shared.setLocalUserToken(refreshToken: loginResponse.refreshToken!, accessToken: loginResponse.accessToken!)
 
         return Single.just(loginResponse)
     }

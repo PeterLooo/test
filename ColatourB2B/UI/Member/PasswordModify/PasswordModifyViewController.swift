@@ -8,9 +8,17 @@
 
 import UIKit
 
-protocol PasswordModifyToastProtocol {
+protocol PasswordModifyToastProtocol: NSObjectProtocol {
     
     func setPasswordModifyToastText(text: String)
+}
+
+extension PasswordModifyViewController {
+    
+    func setVC(refreshToken: String?) {
+        
+        self.refreshToken = refreshToken
+    }
 }
 
 class PasswordModifyViewController: BaseViewController {
@@ -27,7 +35,10 @@ class PasswordModifyViewController: BaseViewController {
     @IBOutlet weak var confirmButton: UIButton!
     
     private var presenter: PasswordModifyPresenter?
-    var delegate: PasswordModifyToastProtocol?
+    private var refreshToken: String?
+    private var isFromLogin: Bool = false
+    
+    weak var delegate: PasswordModifyToastProtocol?
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -38,9 +49,7 @@ class PasswordModifyViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setNavBarItem(left: .defaultType, mid: .textTitle, right: .custom)
-        setNavTitle(title: "更改密碼")
-        setNavButton()
+        
         
         let gesture = UITapGestureRecognizer(target: self, action: #selector(onTouchScrollView))
         scrollView.addGestureRecognizer(gesture)
@@ -66,6 +75,22 @@ class PasswordModifyViewController: BaseViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        let count = navigationController?.viewControllers.count ?? 0
+        if count >= 2 {
+            if let previousVC = navigationController?.viewControllers[count - 2] {
+                isFromLogin = previousVC.restorationIdentifier == "LoginViewController"
+            }
+        }
+        
+        setNavTitle(title: "更改密碼")
+        setNavBarItem(left: .defaultType, mid: .textTitle, right: .custom)
+        if !isFromLogin { setNavButton() }
+        
+        super.viewWillAppear(animated)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -96,7 +121,7 @@ class PasswordModifyViewController: BaseViewController {
     }
     
     @objc private func onTouchCancel(){
-           
+        
         dismiss(animated: true, completion: nil)
     }
     
@@ -143,7 +168,7 @@ class PasswordModifyViewController: BaseViewController {
             request.newPassword = newPassword.text
             request.checkNewPassword = checkNewPassword.text
             request.passwordHint = passwordHint.text
-            request.refreshToken = MemberRepository.shared.getLocalRefreshToken()
+            request.refreshToken = refreshToken ?? MemberRepository.shared.getLocalRefreshToken()
             presenter?.passwordModify(request: request)
         }
     }
@@ -227,8 +252,14 @@ extension PasswordModifyViewController: PasswordModifyViewProtocol {
     
     func passwordModifySuccess() {
         
-        self.dismiss(animated: true, completion: {
-            self.delegate?.setPasswordModifyToastText(text: "更改密碼成功")
-        })
+        if isFromLogin {
+            navigationController?.popViewController(animated: true, completion: {
+                self.delegate?.setPasswordModifyToastText(text: "更改密碼成功，請使用新的密碼登入")
+            })
+        } else {
+            dismiss(animated: true, completion: {
+                self.delegate?.setPasswordModifyToastText(text: "更改密碼成功")
+            })
+        }
     }
 }
