@@ -11,6 +11,7 @@ import UIKit
 protocol PasswordModifyToastProtocol: NSObjectProtocol {
     
     func setPasswordModifyToastText(text: String)
+    func clearToken()
 }
 
 extension PasswordModifyViewController {
@@ -270,6 +271,7 @@ extension PasswordModifyViewController: PasswordModifyViewProtocol {
         if isFromLogin {
             navigationController?.popViewController(animated: true, completion: {
                 self.delegate?.setPasswordModifyToastText(text: "更改密碼成功，請使用新的密碼登入")
+                self.delegate?.clearToken()
             })
         } else {
             dismiss(animated: true, completion: {
