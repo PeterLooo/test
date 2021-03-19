@@ -86,7 +86,22 @@ class AccountRepository: NSObject {
         let api = APIManager.shared.passwordModify(passwordModifyRequest: passwordModifyRequest)
         
         return AccountRepository.shared.getAccessToken()
-            .flatMap{_ in api}
+            .flatMap{ _ in api }
+            .flatMap{ response -> Single<PasswordModifyResponse> in
+                let passwordModifyResponse: PasswordModifyResponse = PasswordModifyResponse(JSON: response)!
+                return Single.just(passwordModifyResponse)
+            }
+            .flatMap{ response -> Single<PasswordModifyResponse> in
+                return self.procressRefreshToken(passwordModifyResponse: response)
+            }
+    }
+    
+    func passwordModifyFromLogin(request: PasswordModifyRequest, accessToken: String) -> Single<PasswordModifyResponse> {
+        
+        let api = APIManager.shared.passwordModify(passwordModifyRequest: request)
+        UserDefaultUtil.shared.accessToken = accessToken
+        
+        return api
             .flatMap{ response -> Single<PasswordModifyResponse> in
                 let passwordModifyResponse: PasswordModifyResponse = PasswordModifyResponse(JSON: response)!
                 return Single.just(passwordModifyResponse)
@@ -117,8 +132,11 @@ class AccountRepository: NSObject {
         MemberRepository.shared.setAllowTour(allowTour: loginResponse.allowTour ?? false)
         MemberRepository.shared.setAllowTkt(allowTkt: loginResponse.allowTkt ?? false)
         MemberRepository.shared.setTabBarLinkType(linkType: loginResponse.linkType!.rawValue)
-        MemberRepository.shared.setLocalUserToken(refreshToken: loginResponse.refreshToken ?? "", accessToken: loginResponse.accessToken ?? "")
-
+        
+        if loginResponse.passwordReset == false {
+            MemberRepository.shared.setLocalUserToken(refreshToken: loginResponse.refreshToken ?? "", accessToken: loginResponse.accessToken ?? "")
+        }
+        
         return Single.just(loginResponse)
     }
     

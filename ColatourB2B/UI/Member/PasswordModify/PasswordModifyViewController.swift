@@ -15,8 +15,9 @@ protocol PasswordModifyToastProtocol: NSObjectProtocol {
 
 extension PasswordModifyViewController {
     
-    func setVC(refreshToken: String?, loginMessage: String?) {
+    func setVC(accessToken: String?, refreshToken: String?, loginMessage: String?) {
         
+        self.accessToken = accessToken
         self.refreshToken = refreshToken
         self.loginMessage = loginMessage
     }
@@ -36,6 +37,7 @@ class PasswordModifyViewController: BaseViewController {
     @IBOutlet weak var confirmButton: UIButton!
     
     private var presenter: PasswordModifyPresenter?
+    private var accessToken: String?
     private var refreshToken: String?
     private var loginMessage: String?
     private var isFromLogin: Bool = false
@@ -50,8 +52,6 @@ class PasswordModifyViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
         
         let gesture = UITapGestureRecognizer(target: self, action: #selector(onTouchScrollView))
         scrollView.addGestureRecognizer(gesture)
@@ -178,8 +178,13 @@ class PasswordModifyViewController: BaseViewController {
             request.newPassword = newPassword.text
             request.checkNewPassword = checkNewPassword.text
             request.passwordHint = passwordHint.text
-            request.refreshToken = refreshToken ?? MemberRepository.shared.getLocalRefreshToken()
-            presenter?.passwordModify(request: request)
+            request.refreshToken = isFromLogin ? refreshToken : MemberRepository.shared.getLocalRefreshToken()
+            
+            if isFromLogin {
+                presenter?.passwordModifyFromLogin(request: request, accessToken: accessToken ?? "")
+            } else {
+                presenter?.passwordModify(request: request)
+            }
         }
     }
     
