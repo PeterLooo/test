@@ -318,6 +318,7 @@ class GroupTourSearchViewController: BaseViewController {
         
         if #available(iOS 14.0, *) {
             datePicker.preferredDatePickerStyle = .wheels
+            datePicker.backgroundColor = UIColor.white
             datePicker.sizeToFit()
         }
         
