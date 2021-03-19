@@ -24,17 +24,30 @@ class PasswordModifyPresenter: PasswordModifyPresenterProtocol {
     func passwordModify(request: PasswordModifyRequest) {
         
         self.delegate?.onStartLoadingHandle(handleType: .ignore)
+        
         accountRepository.passwordModify(passwordModifyRequest: request)
             .subscribe(
-                
                 onSuccess: { (passwordModifyReponse) in
                     self.delegate?.passwordModifySuccess()
                     self.delegate?.onCompletedLoadingHandle()
-                    
             },  onError: { (error) in
                     self.delegate?.onApiErrorHandle(apiError: error as! APIError, handleType: .alert)
                     self.delegate?.onCompletedLoadingHandle()
-                
+            }).disposed(by: dispose)
+    }
+    
+    func passwordModifyFromLogin(request: PasswordModifyRequest, accessToken: String) {
+        
+        self.delegate?.onStartLoadingHandle(handleType: .ignore)
+        
+        accountRepository.passwordModifyFromLogin(request: request, accessToken: accessToken)
+            .subscribe(
+                onSuccess: { (response) in
+                self.delegate?.passwordModifySuccess()
+                self.delegate?.onCompletedLoadingHandle()
+            }, onError: { (error) in
+                self.delegate?.onApiErrorHandle(apiError: error as! APIError, handleType: .alert)
+                self.delegate?.onCompletedLoadingHandle()
             }).disposed(by: dispose)
     }
 }

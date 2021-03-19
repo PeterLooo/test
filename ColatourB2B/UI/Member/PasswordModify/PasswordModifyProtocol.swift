@@ -16,4 +16,5 @@ protocol PasswordModifyViewProtocol: BaseViewProtocol {
 protocol PasswordModifyPresenterProtocol: BasePresenterProtocol {
 
     func passwordModify(request: PasswordModifyRequest)
+    func passwordModifyFromLogin(request: PasswordModifyRequest, accessToken: String)
 }
