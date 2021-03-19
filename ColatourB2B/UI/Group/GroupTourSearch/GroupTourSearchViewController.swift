@@ -316,6 +316,11 @@ class GroupTourSearchViewController: BaseViewController {
         datePicker.backgroundColor = UIColor.white
         pickerView.backgroundColor = UIColor.white
         
+        if #available(iOS 14.0, *) {
+            datePicker.preferredDatePickerStyle = .wheels
+            datePicker.backgroundColor = UIColor.white
+            datePicker.sizeToFit()
+        }
         
         setUpTopPageScrollView()
         layoutPickerView()
@@ -469,12 +474,14 @@ extension GroupTourSearchViewController: GroupTourSearchViewProtocol {
         
         groupTourSearchRequest.selectedTourType = groupTourSearchInit.tourTypeList.first
         
-        groupTourSearchRequest.startTourDate = groupTourSearchInit.defaultDepartureDate
+        if  groupTourSearchRequest.startTourDate == nil {
+            groupTourSearchRequest.startTourDate = groupTourSearchInit.defaultDepartureDate
+        }
         
         if groupTourSearchKeywordAndTourCodeRequest.selectedDepartureCity == nil {
             groupTourSearchKeywordAndTourCodeRequest.selectedDepartureCity = keywordOrTourCodeDepartureCityShareOptionList.first
         }
-    
+        
         groupTourTableView?.reloadData()
         keywordOrTourCodeTableView?.reloadData()
     }
