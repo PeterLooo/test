@@ -9,17 +9,14 @@
 import UIKit
 
 protocol GroupTourSearchKeywordAndTourCodeInputCellProtocol: NSObjectProtocol {
-    func onTouchKeywordOrTourCodeView(_ sender: UIButton)
+    func onTouchKeywordOrTourCodeView()
     func onKeywordOrTourCodeTextFieldDidChange(text: String)
 }
 
 class GroupTourSearchKeywordAndTourCodeInputCell: UITableViewCell, UITextFieldDelegate {
-    
-    @IBOutlet weak var bookingTourCheckBoxImageView: UIImageView!
 
     @IBOutlet weak var departureCity: UILabel!
     @IBOutlet weak var keywordOrTourCodeTextField: UITextField!
-    
     @IBOutlet weak var searchByKeywordButton: UIButton!
     
     weak var delegate: GroupTourSearchKeywordAndTourCodeInputCellProtocol?
@@ -30,25 +27,21 @@ class GroupTourSearchKeywordAndTourCodeInputCell: UITableViewCell, UITextFieldDe
         self.backgroundColor = UIColor.clear
         let color = UIColor.init(named: "通用綠")!
         searchByKeywordButton.setBorder(width: 1, radius: 4, color: color)
-        keywordOrTourCodeTextField.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: UIControl.Event.editingDidEnd)
+        keywordOrTourCodeTextField.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: .editingDidEnd)
+        keywordOrTourCodeTextField.addTarget(self, action: #selector(self.onTouchTextField), for: .editingDidBegin)
     }
     
-    func setCellWith(groupTourSearchKeywordAndTourCodeRequest: GroupTourSearchKeywordAndTourCodeRequest)
-    {
+    func setCellWith(groupTourSearchKeywordAndTourCodeRequest: GroupTourSearchKeywordAndTourCodeRequest) {
         
-        self.departureCity.text = groupTourSearchKeywordAndTourCodeRequest
-            .selectedDepartureCity?
-            .value
-        
+        self.departureCity.text = groupTourSearchKeywordAndTourCodeRequest.selectedDepartureCity?.value
         self.keywordOrTourCodeTextField.text = groupTourSearchKeywordAndTourCodeRequest.keywordOrTourCode
-    }
-    
-    @IBAction func onTouchKeywordOrTourCode(_ sender: UIButton) {
-        delegate?.onTouchKeywordOrTourCodeView(sender)
-        keywordOrTourCodeTextField.becomeFirstResponder()
     }
     
     @objc func textFieldDidChange(_ textField: UITextField) {
         delegate?.onKeywordOrTourCodeTextFieldDidChange(text: textField.text ?? "")
+    }
+    
+    @objc func onTouchTextField() {
+        delegate?.onTouchKeywordOrTourCodeView()
     }
 }

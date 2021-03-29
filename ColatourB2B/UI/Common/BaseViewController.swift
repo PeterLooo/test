@@ -865,4 +865,11 @@ extension BaseViewController: PasswordModifyToastProtocol {
         
         self.toast(text: text)
     }
+    
+    // Note: 登入強制修改密碼成功後，導回登入頁重新登入，須清空token避免重新開啟app時是登入狀態
+    func clearToken() {
+    
+        MemberRepository.shared.removeLocalAccessToken()
+        MemberRepository.shared.removeLocalRefreshToken()
+    }
 }

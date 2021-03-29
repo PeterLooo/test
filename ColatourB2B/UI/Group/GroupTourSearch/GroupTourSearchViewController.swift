@@ -43,6 +43,10 @@ extension GroupTourSearchViewController {
     func setDefaultPage(_ tab: GroupTourSearchTabType){
         defaultPage = tab
     }
+    
+    func setKeywordOrTourCodeDepartureCityShareOptionList(cityKey: String) {
+        self.cityKey = cityKey
+    }
 }
 
 class GroupTourSearchViewController: BaseViewController {
@@ -126,10 +130,10 @@ class GroupTourSearchViewController: BaseViewController {
         
         toolBarOnPickerView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         toolBarOnPickerView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-
+        
         pickerViewTop = toolBarOnPickerView.topAnchor.constraint(equalTo: view.bottomAnchor)
         pickerViewTop.isActive = true
-    
+        
         pickerView.topAnchor.constraint(equalTo: toolBarOnPickerView.bottomAnchor, constant: 0).isActive = true
     }
     
@@ -142,7 +146,7 @@ class GroupTourSearchViewController: BaseViewController {
         
         toolBarOnDatePicker.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         toolBarOnDatePicker.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-
+        
         datePickerTop = toolBarOnDatePicker.topAnchor.constraint(equalTo: view.bottomAnchor)
         datePickerTop.isActive = true
         
@@ -196,7 +200,7 @@ class GroupTourSearchViewController: BaseViewController {
         case .tourType:
             shareOptionList = groupTourSearchInit?.tourTypeList.map({ ShareOption(optionKey: $0.tourTypeCode!, optionValue: $0.tourTypeName!) }) ?? []
             selectedKey = groupTourSearchRequest.selectedTourType?.tourTypeCode
-
+            
         case .keywordOrTourCode:
             ()
         case .keywordOrTourCodeDepartureCity:
@@ -204,7 +208,7 @@ class GroupTourSearchViewController: BaseViewController {
             selectedKey = groupTourSearchKeywordAndTourCodeRequest
                 .selectedDepartureCity?
                 .key
-
+            
         case nil:
             ()
         }
@@ -294,6 +298,8 @@ class GroupTourSearchViewController: BaseViewController {
         }
     }
     
+    private var cityKey:String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -310,6 +316,11 @@ class GroupTourSearchViewController: BaseViewController {
         datePicker.backgroundColor = UIColor.white
         pickerView.backgroundColor = UIColor.white
         
+        if #available(iOS 14.0, *) {
+            datePicker.preferredDatePickerStyle = .wheels
+            datePicker.backgroundColor = UIColor.white
+            datePicker.sizeToFit()
+        }
         
         setUpTopPageScrollView()
         layoutPickerView()
@@ -317,7 +328,6 @@ class GroupTourSearchViewController: BaseViewController {
         
         presenter = GroupTourSearchPresenter(delegate: self)
         loadData()
-
     }
     
     private func setUpTopPageScrollView(){
@@ -444,6 +454,15 @@ extension GroupTourSearchViewController: GroupTourSearchViewProtocol {
     func onBindGroupTourSearchInit(groupTourSearchInit: GroupTourSearchInitResponse.GroupTourSearchInit) {
         self.groupTourSearchInit = groupTourSearchInit
         
+        if cityKey.isEmpty == false{
+            let departureCode = groupTourSearchInit.departureCityList.first{ $0.departureCode == cityKey }!
+            groupTourSearchRequest.selectedDepartureCity = departureCode
+            
+            let keyValue = keywordOrTourCodeDepartureCityShareOptionList.first{ $0.key == cityKey }!
+            groupTourSearchKeywordAndTourCodeRequest.selectedDepartureCity = keyValue
+            cityKey = ""
+        }
+        
         if groupTourSearchRequest.selectedDepartureCity == nil {
             groupTourSearchRequest.selectedDepartureCity = groupTourSearchInit.departureCityList.first
             getTourSearchInit()
@@ -455,12 +474,14 @@ extension GroupTourSearchViewController: GroupTourSearchViewProtocol {
         
         groupTourSearchRequest.selectedTourType = groupTourSearchInit.tourTypeList.first
         
-        groupTourSearchRequest.startTourDate = groupTourSearchInit.defaultDepartureDate
+        if  groupTourSearchRequest.startTourDate == nil {
+            groupTourSearchRequest.startTourDate = groupTourSearchInit.defaultDepartureDate
+        }
         
         if groupTourSearchKeywordAndTourCodeRequest.selectedDepartureCity == nil {
             groupTourSearchKeywordAndTourCodeRequest.selectedDepartureCity = keywordOrTourCodeDepartureCityShareOptionList.first
         }
-       
+        
         groupTourTableView?.reloadData()
         keywordOrTourCodeTableView?.reloadData()
     }
@@ -583,7 +604,7 @@ extension GroupTourSearchViewController: GroupTourSearchInputCellProtocol {
 }
 
 extension GroupTourSearchViewController: GroupTourSearchKeywordAndTourCodeInputCellProtocol {
-    func onTouchKeywordOrTourCodeView(_ sender: UIButton) {
+    func onTouchKeywordOrTourCodeView() {
         touchInputField = .keywordOrTourCode
     }
     

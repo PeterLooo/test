@@ -50,6 +50,13 @@ class LoginViewController: BaseViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        password.text = ""
+        view.endEditing(true)
+    }
+    
     override func viewDidDisappear(_ animated: Bool) {
         
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -103,7 +110,12 @@ extension LoginViewController : LoginViewProtocol {
                 self.view.endEditing(true)
                 self.toast(text: resultMessage)
             }
-        }else{
+        } else if loginResponse.passwordReset == true {
+            let vc = getVC(st: "PasswordModify", vc: "PasswordModify") as! PasswordModifyViewController
+            vc.setVC(accessToken: loginResponse.accessToken, refreshToken: loginResponse.refreshToken, loginMessage: loginResponse.loginMessage)
+            vc.delegate = self
+            navigationController?.pushViewController(vc, animated: true)
+        } else {
             self.loginSuccessDelegate?.setDefaultTabBar()
             presenter?.pushDevice()
             NotificationCenter.default.post(name: Notification.Name("noticeLoadDate"), object: nil)
