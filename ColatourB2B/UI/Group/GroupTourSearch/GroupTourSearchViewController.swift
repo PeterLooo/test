@@ -463,6 +463,7 @@ extension GroupTourSearchViewController: GroupTourSearchViewProtocol {
             
             let keyValue = keywordOrTourCodeDepartureCityShareOptionList.first{ $0.key == cityKey }!
             groupTourSearchKeywordAndTourCodeRequest.selectedDepartureCity = keyValue
+            getTourSearchInit()
             cityKey = ""
         }
         
