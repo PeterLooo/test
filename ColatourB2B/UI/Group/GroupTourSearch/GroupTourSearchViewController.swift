@@ -317,7 +317,10 @@ class GroupTourSearchViewController: BaseViewController {
         pickerView.backgroundColor = UIColor.white
         
         if #available(iOS 14.0, *) {
+            datePicker.isHidden = true
             datePicker.preferredDatePickerStyle = .wheels
+        }else{
+            datePicker.isHidden = false
             datePicker.backgroundColor = UIColor.white
             datePicker.sizeToFit()
         }
@@ -583,6 +586,12 @@ extension GroupTourSearchViewController: UIScrollViewDelegate {
 }
 
 extension GroupTourSearchViewController: GroupTourSearchInputCellProtocol {
+    func selectDateFromeNewDatePicker(date: String) {
+        groupTourSearchRequest.startTourDate = date
+        
+        groupTourTableView?.reloadData()
+    }
+    
     func sliderDown() {
         self.groupTourSearchRequest.isPriceLimit = false
         self.groupTourTableView.reloadData()
