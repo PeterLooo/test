@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -111,6 +111,13 @@
                                                                                                 <constraint firstAttribute="height" constant="1" id="zGO-Vi-W4f"/>
                                                                                             </constraints>
                                                                                         </view>
+                                                                                        <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="cQZ-H5-e0I">
+                                                                                            <rect key="frame" x="100" y="-1" width="314" height="30"/>
+                                                                                            <constraints>
+                                                                                                <constraint firstAttribute="height" constant="30" id="cuD-kK-oqy"/>
+                                                                                            </constraints>
+                                                                                            <locale key="locale" localeIdentifier="zh-Hant"/>
+                                                                                        </datePicker>
                                                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WGE-5t-psL">
                                                                                             <rect key="frame" x="0.0" y="0.0" width="414" height="28"/>
                                                                                             <connections>
@@ -121,13 +128,16 @@
                                                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                     <gestureRecognizers/>
                                                                                     <constraints>
+                                                                                        <constraint firstItem="cQZ-H5-e0I" firstAttribute="centerY" secondItem="rwI-Du-Qpa" secondAttribute="centerY" id="4hp-xE-aab"/>
                                                                                         <constraint firstItem="YwD-hh-P5z" firstAttribute="top" secondItem="rwI-Du-Qpa" secondAttribute="top" constant="12" id="6Nr-0p-GKv"/>
                                                                                         <constraint firstItem="YwD-hh-P5z" firstAttribute="leading" secondItem="rwI-Du-Qpa" secondAttribute="leading" constant="16" id="8RR-Jb-Voj"/>
                                                                                         <constraint firstItem="WGE-5t-psL" firstAttribute="leading" secondItem="rwI-Du-Qpa" secondAttribute="leading" id="CTZ-po-DPy"/>
                                                                                         <constraint firstAttribute="trailing" secondItem="37g-5x-yMX" secondAttribute="trailing" constant="16" id="PJo-eF-eSy"/>
+                                                                                        <constraint firstItem="cQZ-H5-e0I" firstAttribute="leading" secondItem="37g-5x-yMX" secondAttribute="leading" id="Q7o-1E-nJH"/>
                                                                                         <constraint firstAttribute="bottom" secondItem="37g-5x-yMX" secondAttribute="bottom" constant="12" id="RRn-h4-Tpl"/>
                                                                                         <constraint firstItem="37g-5x-yMX" firstAttribute="top" secondItem="rwI-Du-Qpa" secondAttribute="top" constant="12" id="Tlp-Ld-dnc"/>
                                                                                         <constraint firstAttribute="bottom" secondItem="MWB-17-cm4" secondAttribute="bottom" id="ctX-4p-7US"/>
+                                                                                        <constraint firstAttribute="trailing" secondItem="cQZ-H5-e0I" secondAttribute="trailing" priority="250" id="f4P-fH-L4B"/>
                                                                                         <constraint firstAttribute="bottom" secondItem="YwD-hh-P5z" secondAttribute="bottom" constant="12" id="gne-6J-1cI"/>
                                                                                         <constraint firstAttribute="trailing" secondItem="MWB-17-cm4" secondAttribute="trailing" id="hPQ-rQ-fpi"/>
                                                                                         <constraint firstAttribute="bottom" secondItem="WGE-5t-psL" secondAttribute="bottom" id="in7-we-kd9"/>
@@ -572,7 +582,9 @@
                                                                 <connections>
                                                                     <outlet property="airLineCode" destination="qCB-4f-scb" id="IuS-HS-AFG"/>
                                                                     <outlet property="bookingTourCheckBoxImageView" destination="AE0-3A-1A2" id="xE3-2k-u2Q"/>
+                                                                    <outlet property="dateButton" destination="WGE-5t-psL" id="g2e-LT-D9e"/>
                                                                     <outlet property="departureCity" destination="sSN-0L-BXV" id="Kbn-s1-hD4"/>
+                                                                    <outlet property="newDatePicker" destination="cQZ-H5-e0I" id="gik-Eb-mcN"/>
                                                                     <outlet property="priceLimitCheckBoxImageView" destination="AAI-ij-eCU" id="mdW-4y-H3s"/>
                                                                     <outlet property="priceView" destination="9cp-iM-RCK" id="IKx-rC-6X7"/>
                                                                     <outlet property="regionCode" destination="f5t-6E-bHM" id="r4S-Ki-GRi"/>
