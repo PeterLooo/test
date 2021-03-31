@@ -11,6 +11,7 @@ import UIKit
 protocol GroupTourSearchInputCellProtocol: NSObjectProtocol {
     func onTouchTourDaysView(_ sender: UIButton)
     func onTourDaysTextFieldDidChange(text: String)
+    func selectDateFromeNewDatePicker(date: String)
     func sliderDown()
 }
 
@@ -25,8 +26,11 @@ class GroupTourSearchInputCell: UITableViewCell, UITextFieldDelegate {
     @IBOutlet weak var departureCity: UILabel!
     @IBOutlet weak var airLineCode: UILabel!
     @IBOutlet weak var tourType: UILabel!
+    @IBOutlet weak var newDatePicker: UIDatePicker!
     @IBOutlet weak var tourDaysTextField: UITextField!
     @IBOutlet weak var priceView: UIView!
+    @IBOutlet weak var dateButton: UIButton!
+    
     var priceRangeSlider: PriceRangeSlider?
     weak var delegate: GroupTourSearchInputCellProtocol?
     
@@ -36,6 +40,17 @@ class GroupTourSearchInputCell: UITableViewCell, UITextFieldDelegate {
         self.backgroundColor = UIColor.clear
         tourDaysTextField.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: UIControl.Event.editingDidEnd)
         creatPriceView()
+        if #available(iOS 14.0, *) {
+            
+            dateButton.isHidden = true
+            newDatePicker.isHidden = false
+            startTourDate.isHidden = true
+            newDatePicker.addTarget(self, action: #selector(datePickerChanged(picker:)), for: .valueChanged)
+        }else{
+            startTourDate.isHidden = false
+            dateButton.isHidden = false
+            newDatePicker.isHidden = true
+        }
     }
     
     func setCellWith(groupTourSearchRequest: GroupTourSearchRequest)
@@ -64,6 +79,10 @@ class GroupTourSearchInputCell: UITableViewCell, UITextFieldDelegate {
             self.startTourDate.textColor = UIColor.init(named: "標題黑")!
         }
         
+        if let date = groupTourSearchRequest.startTourDate {
+            newDatePicker.date = FormatUtil.convertStringToDate(dateFormatFrom: "yyyy/MM/dd", dateString: date) ?? Date()
+        }
+        
         if let tourDays = groupTourSearchRequest.tourDays {
             tourDaysTextField.text = "\(tourDays)"
         } else {
@@ -89,6 +108,12 @@ class GroupTourSearchInputCell: UITableViewCell, UITextFieldDelegate {
     
     @objc func textFieldDidChange(_ textField: UITextField) {
         delegate?.onTourDaysTextFieldDidChange(text: textField.text ?? "")
+    }
+    
+    @objc private func datePickerChanged(picker: UIDatePicker) {
+        let selectDate = FormatUtil.convertDateToString(dateFormatTo: "yyyy/MM/dd", date: picker.date)
+        
+        self.delegate?.selectDateFromeNewDatePicker(date: selectDate)
     }
 }
 extension GroupTourSearchInputCell : PriceRangeSliderPortocol {
