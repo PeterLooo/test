@@ -41,7 +41,7 @@ class GroupTourSearchInputCell: UITableViewCell, UITextFieldDelegate {
         tourDaysTextField.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: UIControl.Event.editingDidEnd)
         creatPriceView()
         if #available(iOS 14.0, *) {
-            
+
             dateButton.isHidden = true
             newDatePicker.isHidden = false
             startTourDate.isHidden = true
