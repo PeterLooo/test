@@ -316,14 +316,14 @@ class GroupTourSearchViewController: BaseViewController {
         datePicker.backgroundColor = UIColor.white
         pickerView.backgroundColor = UIColor.white
         
-//        if #available(iOS 14.0, *) {
-//            datePicker.isHidden = true
-//            datePicker.preferredDatePickerStyle = .wheels
-//        }else{
+        if #available(iOS 14.0, *) {
+            datePicker.isHidden = true
+            datePicker.preferredDatePickerStyle = .wheels
+        }else{
             datePicker.isHidden = false
             datePicker.backgroundColor = UIColor.white
             datePicker.sizeToFit()
-//        }
+        }
         
         setUpTopPageScrollView()
         layoutPickerView()
