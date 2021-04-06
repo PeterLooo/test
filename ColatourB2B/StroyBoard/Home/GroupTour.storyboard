@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -114,10 +115,10 @@
                                 <rect key="frame" x="0.0" y="143" width="414" height="753"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AWt-TH-wUr">
-                                        <rect key="frame" x="0.0" y="0.0" width="42" height="753"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="41.5" height="753"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Imj-kZ-Qfm">
-                                                <rect key="frame" x="0.0" y="0.0" width="42" height="753"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="41.5" height="753"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -138,6 +139,7 @@
                                 </connections>
                             </scrollView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="zzg-b0-LkS"/>
                         <color key="backgroundColor" name="背景灰"/>
                         <gestureRecognizers/>
                         <constraints>
@@ -149,7 +151,6 @@
                             <constraint firstItem="Jsd-Xo-aZd" firstAttribute="leading" secondItem="Zhw-vJ-j7l" secondAttribute="leading" id="bGa-Y5-9BF"/>
                             <constraint firstItem="Jsd-Xo-aZd" firstAttribute="top" secondItem="zzg-b0-LkS" secondAttribute="top" id="dYJ-tZ-lrC"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="zzg-b0-LkS"/>
                     </view>
                     <navigationItem key="navigationItem" id="8Ez-c5-IlF"/>
                     <connections>
@@ -200,20 +201,20 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nWS-8B-YAb">
                                 <rect key="frame" x="0.0" y="44" width="414" height="852"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="yXt-yi-LcQ" id="JJw-51-em1"/>
                                     <outlet property="delegate" destination="yXt-yi-LcQ" id="hi1-2V-z2I"/>
                                 </connections>
                             </tableView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="4PG-T3-CAI"/>
                         <constraints>
                             <constraint firstItem="nWS-8B-YAb" firstAttribute="leading" secondItem="4PG-T3-CAI" secondAttribute="leading" id="G3H-4h-klV"/>
                             <constraint firstItem="4PG-T3-CAI" firstAttribute="trailing" secondItem="nWS-8B-YAb" secondAttribute="trailing" id="YIY-xZ-39f"/>
                             <constraint firstAttribute="bottom" secondItem="nWS-8B-YAb" secondAttribute="bottom" id="nZd-d9-tBn"/>
                             <constraint firstItem="nWS-8B-YAb" firstAttribute="top" secondItem="4PG-T3-CAI" secondAttribute="top" id="qOf-3b-vDS"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="4PG-T3-CAI"/>
                     </view>
                     <connections>
                         <outlet property="tableView" destination="nWS-8B-YAb" id="oPf-Kz-Ql8"/>
@@ -224,6 +225,7 @@
             <point key="canvasLocation" x="2484" y="-203"/>
         </scene>
     </scenes>
+    <color key="tintColor" red="0.0" green="0.60392156862745094" blue="0.26666666666666666" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
     <resources>
         <namedColor name="標題黑">
             <color red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -234,6 +236,8 @@
         <namedColor name="通用綠">
             <color red="0.098039215686274508" green="0.74901960784313726" blue="0.3843137254901961" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
-    <color key="tintColor" red="0.0" green="0.60392156862745094" blue="0.26666666666666666" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
