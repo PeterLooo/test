@@ -149,6 +149,9 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         cancelLoadData = true
         if isLogin == true, let noticeIdIndex = userInfo.index(forKey: "NotiId") {
             setNotificationRead(noticeId: [userInfo[noticeIdIndex].value as! String])
+            if let notiTitleIndex = userInfo.index(forKey: "title") {
+                FirebaseAnalyticsManager.setEvent(.iOS_NOTIFICATION_OPEN, parameters: [.item_name : userInfo[notiTitleIndex].value as? String ?? ""])
+            }
         }
         var linkType: LinkType = .unknown
         if let index = userInfo.index(forKey: "Link_Type") {
