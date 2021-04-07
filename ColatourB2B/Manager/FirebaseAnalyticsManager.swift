@@ -18,7 +18,7 @@ class FirebaseAnalyticsManager: NSObject {
         #endif
     }
 
-    /*static func setEvent(_ event: Event, parameters: [EventParameter: Any] = [:], value: Any? = nil) {
+    static func setEvent(_ event: Event, parameters: [EventParameter: Any] = [:], value: Any? = nil) {
         #if DEBUG
 
         #else
@@ -44,5 +44,5 @@ class FirebaseAnalyticsManager: NSObject {
         #else
         Analytics.setUserProperty(value, forName: forName)
         #endif
-    }*/
+    }
 }

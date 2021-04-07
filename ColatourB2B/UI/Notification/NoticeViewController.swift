@@ -379,6 +379,7 @@ extension NoticeViewController: NotificationTableViewProtocol {
         if item.unreadMark == true {
             presenter?.setNoticeRead(noticeIdList: [item.notiId!])
             item.unreadMark = false
+            FirebaseAnalyticsManager.setEvent(.iOS_NOTICE_OPEN, parameters: [.item_name : item.notiTitle ?? ""])
         }
         
         setTopPageSheetStatus(notiType: notiType)
