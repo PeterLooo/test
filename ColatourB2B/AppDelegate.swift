@@ -22,6 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         setFirebaseNotification(application)
         FirebaseCrashManager.setUp()
+        FirebaseAnalyticsManager.setUp()
         return true
     }
     
