@@ -282,7 +282,8 @@ class WebViewController: BaseViewController, UIGestureRecognizerDelegate {
     
     func shareInfo() {
         
-        let activityVC = UIActivityViewController(activityItems: ["\(shareList?.shareInfo ?? "") \(shareList?.contactInfo ?? "")", shareList?.shareUrl ?? ""], applicationActivities: nil)
+        let items = "\(shareList?.shareInfo ?? "")\n\(shareList?.shareUrl ?? "")\n\n\(shareList?.contactInfo ?? "")"
+        let activityVC = UIActivityViewController(activityItems: [items], applicationActivities: nil)
         self.present(activityVC, animated: true, completion: nil)
     }
 }
