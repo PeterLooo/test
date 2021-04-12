@@ -603,11 +603,7 @@ extension GroupTourSearchViewController: GroupTourSearchInputCellProtocol {
     }
     
     func onTourDaysTextFieldDidChange(text: String) {
-        if text == "" {
-            groupTourSearchRequest.tourDays = nil
-        } else {
-            groupTourSearchRequest.tourDays = Int(text)!
-        }
+        groupTourSearchRequest.tourDays = text
         
         groupTourTableView?.reloadData()
     }

@@ -8,7 +8,7 @@
 
 class GroupTourSearchRequest: NSObject {
     var startTourDate: String?
-    var tourDays: Int?
+    var tourDays: String?
     var selectedRegionCode: GroupTourSearchInitResponse.Region?
     var selectedDepartureCity: GroupTourSearchInitResponse.DepartureCity?
     var selectedAirlineCode: GroupTourSearchInitResponse.AirlineCode?
