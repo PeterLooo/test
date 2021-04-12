@@ -606,7 +606,7 @@ extension GroupTourSearchViewController: GroupTourSearchInputCellProtocol {
         if text == "" {
             groupTourSearchRequest.tourDays = nil
         } else {
-            groupTourSearchRequest.tourDays = Int(text)!
+            groupTourSearchRequest.tourDays = Int(text)
         }
         
         groupTourTableView?.reloadData()
