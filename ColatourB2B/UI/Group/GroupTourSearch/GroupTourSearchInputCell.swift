@@ -15,7 +15,7 @@ protocol GroupTourSearchInputCellProtocol: NSObjectProtocol {
     func sliderDown()
 }
 
-class GroupTourSearchInputCell: UITableViewCell, UITextFieldDelegate {
+class GroupTourSearchInputCell: UITableViewCell {
 
     @IBOutlet weak var priceLimitCheckBoxImageView: UIImageView!
     @IBOutlet weak var bookingTourCheckBoxImageView: UIImageView!
@@ -39,6 +39,7 @@ class GroupTourSearchInputCell: UITableViewCell, UITextFieldDelegate {
         
         self.backgroundColor = UIColor.clear
         tourDaysTextField.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: UIControl.Event.editingDidEnd)
+        tourDaysTextField.delegate = self
         creatPriceView()
         if #available(iOS 14.0, *) {
 
@@ -116,8 +117,19 @@ class GroupTourSearchInputCell: UITableViewCell, UITextFieldDelegate {
         self.delegate?.selectDateFromeNewDatePicker(date: selectDate)
     }
 }
-extension GroupTourSearchInputCell : PriceRangeSliderPortocol {
+
+extension GroupTourSearchInputCell: PriceRangeSliderPortocol {
     func sliderDown() {
         self.delegate?.sliderDown()
+    }
+}
+
+extension GroupTourSearchInputCell: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if textField == tourDaysTextField  { // 修正旅遊天數長度最多3，range.length == 1 代表刪除時。
+            return textField.text!.count < 3 || range.length == 1
+        }else{
+            return true
+        }
     }
 }
