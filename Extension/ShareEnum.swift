@@ -63,10 +63,10 @@ public enum TabBarLinkType: String {
     case unknown
 }
 
-public enum TourType {
-    case tour
-    case taichung
-    case kaohsiung
+public enum TourType: String  {
+    case tour = "*"
+    case taichung = "台中"
+    case kaohsiung = "高雄"
     case tkt
     
     func getApiUrl() -> APIUrl {
