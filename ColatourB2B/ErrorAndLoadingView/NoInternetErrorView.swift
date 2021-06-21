@@ -10,6 +10,9 @@ import UIKit
 
 class NoInternetErrorView: UIView {
     @IBOutlet weak var reload: UIButton!
+    
+    var loadData: (() -> ())?
+    
     weak var delegate: BaseViewProtocol?
     
     override init(frame: CGRect) {
@@ -44,5 +47,6 @@ class NoInternetErrorView: UIView {
     
     @objc func onTouchReload(){
         self.delegate?.loadData()
+        self.loadData?()
     }
 }

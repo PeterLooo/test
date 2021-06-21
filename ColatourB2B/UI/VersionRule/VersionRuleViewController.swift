@@ -8,24 +8,21 @@
 
 import UIKit
 
-protocol VersionRuleViewControllerProtocol: NSObjectProtocol {
-    func onDismissVersionRuleViewController()
-    func onDismissVersionRuleViewControllerCompletion()
-}
 class VersionRuleViewController: BaseViewController {
-    @IBOutlet weak var cardView: UIView!
     
+    var onDismissVersionRuleViewController: (()->())?
+    var onDismissVersionRuleViewControllerCompletion: (()->())?
+    
+    @IBOutlet weak var cardView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var updateMessage: UILabel!
-
     @IBOutlet weak var updateNowButton: UIView!
     @IBOutlet weak var updateLaterButton: UIView!
     @IBOutlet weak var immediatlyUpdateButton: UIView!
     @IBOutlet weak var confirmButton: UIView!
 
     private var versionRule: VersionRuleReponse.Update!
-    weak var delegate:VersionRuleViewControllerProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -107,9 +104,9 @@ class VersionRuleViewController: BaseViewController {
         }else{
             UserDefaultUtil.shared.updateNo = self.versionRule.updateNo ?? 0
         }
-        self.delegate?.onDismissVersionRuleViewController()
+        
         self.dismiss(animated: true, completion: {
-            self.delegate?.onDismissVersionRuleViewControllerCompletion()
+            self.onDismissVersionRuleViewControllerCompletion?()
         })
     }
     
