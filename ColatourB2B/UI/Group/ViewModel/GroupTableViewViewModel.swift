@@ -31,7 +31,7 @@ class GroupTableViewViewModel {
     var tableViewReload: (()->())?
     var onPullToRefresh: (()->())?
     var onTouchItem: ((_ item: IndexResponse.ModuleItem)->())?
-    
+    var apiError: ((_ apiError: APIError)->())?
     var groupHeaderViewModel: GroupIndexHeaderImageViewModel?
     var homeAd1ViewModels: [HomeAd1CellViewModel] = []
     var homeAd2ViewModels: [HomeAd2ViewCellViewModel] = []
