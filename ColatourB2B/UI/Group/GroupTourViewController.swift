@@ -207,22 +207,6 @@ extension GroupTourViewController {
             self?.menuList = menu
         }
         
-        viewModel?.onGetTourIndexError = { [weak self] tourType , apiError in
-            switch tourType {
-            case .tour:
-                self?.groupTableViews[0].handleApiError(apiError: apiError)
-                self?.groupTableViews[0].endRefreshContolRefreshing()
-            case .taichung:
-                self?.groupTableViews[1].handleApiError(apiError: apiError)
-                self?.groupTableViews[1].endRefreshContolRefreshing()
-            case .kaohsiung:
-                self?.groupTableViews[2].handleApiError(apiError: apiError)
-                self?.groupTableViews[2].endRefreshContolRefreshing()
-            default:
-                ()
-            }
-        }
-        
         viewModel?.onGetGroupMenuError = { [weak self] in
             self?.menuList = nil
         }

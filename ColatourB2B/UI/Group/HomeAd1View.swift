@@ -26,6 +26,7 @@ class HomeAd1View: UIView {
 
     weak var delegate: HomeAd1ViewProcotol?
     
+    private var viewModel: HomeAd1ViewModel?
     private var adItem: IndexResponse.ModuleItem?
     
     override init(frame: CGRect) {
@@ -48,9 +49,10 @@ class HomeAd1View: UIView {
         view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         self.addSubview(view)
         setCustomViewFrameAndGes()
+        self.imageView.contentMode = .scaleAspectFill
     }
     
-    func setView(item: IndexResponse.ModuleItem, isFirst: Bool, isLast: Bool){
+    func setView(item: IndexResponse.ModuleItem, isFirst: Bool, isLast: Bool){ // 機票首頁改完ＭＶＶＭ要刪除
         self.adItem = item
         
         self.imageView.sd_setImage(with: URL.init(string: item.smallPicUrl ?? "")) { (image, error, cacheType, imageURL) in
@@ -63,8 +65,6 @@ class HomeAd1View: UIView {
         viewLeading.constant = isFirst ? 16:0
         viewTrailing.constant = isLast ? 16:0
         
-        self.imageView.contentMode = .scaleAspectFill
-        
         self.itemContent.text = item.itemText
         let priceFormat = FormatUtil.priceFormat(price: item.itemPrice)
         self.itemPrice.text = item.itemPrice == 0 ? "" : "\(priceFormat)起"
@@ -73,8 +73,27 @@ class HomeAd1View: UIView {
         self.boderView.layer.masksToBounds = true
     }
     
+    func setView(viewModel: HomeAd1ViewModel) {
+        self.viewModel = viewModel
+        
+        viewLeading.constant = viewModel.viewLeading!
+        viewTrailing.constant = viewModel.viewTrailing!
+        itemPrice.text = viewModel.itemPrice
+        itemContent.text = viewModel.itemContent
+        setAttribute(label: self.itemPrice, amount: self.itemPrice.text!)
+        boderView.layoutIfNeeded()
+        boderView.layer.masksToBounds = true
+        
+        viewModel.downImage { (image) in
+            DispatchQueue.main.async {
+                self.imageView.image = image
+            }
+        }
+    }
+    
     @objc func onTouchAdView(){
-        self.delegate?.onTouchHotelAdItem(adItem: self.adItem!)
+        
+        viewModel?.onTouchHotelAdItem?()
     }
     
     private func setCustomViewFrameAndGes(){
@@ -87,7 +106,7 @@ class HomeAd1View: UIView {
         self.isUserInteractionEnabled = true
     }
     
-    func setAttribute(label:UILabel,amount:String){
+    func setAttribute(label:UILabel, amount:String){
         
         let length = amount.count
         if length <= 0 {return}

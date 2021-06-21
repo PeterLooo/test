@@ -12,6 +12,7 @@ class HomeAd2Cell: UITableViewCell {
 
     @IBOutlet weak var moduleText: UILabel!
     @IBOutlet weak var stackView: UIStackView!
+    @IBOutlet weak var top: NSLayoutConstraint!
     
     weak var delegate: HomeAd1CellProtocol?
     
@@ -23,6 +24,20 @@ class HomeAd2Cell: UITableViewCell {
             let view = HomeAd2View()
             view.setView(item: module, isLast: (isLastSection) ? item.moduleItemList.last == module : false, needLogoImage: needLogoImage)
             view.delegate = self
+            self.stackView.addArrangedSubview(view)
+        }
+    }
+    
+    func setCell(viewModel: HomeAd2ViewCellViewModel){
+        stackView.subviews.forEach { $0.removeFromSuperview() }
+        
+        moduleText.text = viewModel.moduleText
+        top.constant = viewModel.topConstant!
+        
+        viewModel.subViewModels.forEach { (viewModel) in
+            let view = HomeAd2View()
+            view.setView(viewModel: viewModel)
+            
             self.stackView.addArrangedSubview(view)
         }
     }

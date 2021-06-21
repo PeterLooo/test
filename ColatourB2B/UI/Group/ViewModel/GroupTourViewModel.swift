@@ -11,7 +11,6 @@ import RxSwift
 class GroupTourViewModel: BaseViewModel {
     
     var onBindTourIndex: ((_ moduleDataList: [IndexResponse.MultiModule],_ tourType: TourType)->())?
-    var onGetTourIndexError: ((_ tourType: TourType,_ apiError: APIError)->())?
     var onBindGroupMenu: ((_ menu: GroupMenuResponse) ->())?
     var setTableViews:((_ viewModel: GroupTableViewViewModel)->())?
     var onGetGroupMenuError: (() -> ())?
@@ -84,9 +83,13 @@ class GroupTourViewModel: BaseViewModel {
             self?.onBindTourIndex(moduleDataList: model.moduleDataList, tourType: tourType)
             self?.onCompletedLoadingHandle?()
         }, onError: { [weak self] (error) in
+            self?.tableViewModles.forEach({ tableViewModel in
+                if tableViewModel.tourType == tourType {
+                    self?.setTableViews?(tableViewModel)
+                    tableViewModel.apiError?(error as! APIError)
+                }
+            })
             
-            self?.onGetTourIndexError?(tourType,
-                                      error as! APIError)
             self?.onApiErrorHandle?(error as! APIError, .custom)
             self?.onCompletedLoadingHandle?()
         }).disposed(by: dispose)
