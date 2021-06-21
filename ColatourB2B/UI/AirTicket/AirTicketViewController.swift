@@ -157,9 +157,12 @@ class AirTicketViewController: BaseViewController {
     @objc func onTouchMenu() {
         
         let vc = getVC(st: "GroupTour", vc: "GroupSliderViewController") as! GroupSliderViewController
-        vc.delegate = self
+        
         vc.modalPresentationStyle = .overCurrentContext
         vc.transitioningDelegate = self
+        vc.onTouchData = { [weak self] data in
+            self?.handleLinkType(linkType: data.linkType, linkValue: data.linkValue, linkText: data.linkName ?? "")
+        }
         vc.setVC(menuResponse: self.menuList)
         present(vc, animated: true)
     }
@@ -205,16 +208,6 @@ class AirTicketViewController: BaseViewController {
     }
 }
 
-extension AirTicketViewController: GroupSliderViewControllerProtocol {
-    func onTouchData(serverData: ServerData) {
-        self.handleLinkType(linkType: serverData.linkType, linkValue: serverData.linkValue, linkText: serverData.linkName ?? "")
-    }
-}
-extension AirTicketViewController: GroupIndexHeaderImageCellProtocol {
-    func onTouchItem(item: IndexResponse.ModuleItem) {
-        self.handleLinkType(linkType: item.linkType, linkValue: item.linkParams, linkText: nil)
-    }
-}
 extension AirTicketViewController : HomeAd1CellProtocol {
     func onTouchItem(adItem: IndexResponse.ModuleItem) {
         self.handleLinkType(linkType: adItem.linkType, linkValue: adItem.linkParams, linkText: nil)
