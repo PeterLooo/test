@@ -400,6 +400,8 @@
 		A1876A962415FCA700855DE6 /* AirTicketSearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1876A942415FCA700855DE6 /* AirTicketSearchPresenter.swift */; };
 		A1876A982415FDCA00855DE6 /* TKTRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1876A972415FDCA00855DE6 /* TKTRepository.swift */; };
 		A1876A992415FDCA00855DE6 /* TKTRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1876A972415FDCA00855DE6 /* TKTRepository.swift */; };
+		A19758F726806F2400DF1C86 /* GroupTourSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19758F626806F2400DF1C86 /* GroupTourSearchViewModel.swift */; };
+		A19758F826806F2400DF1C86 /* GroupTourSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19758F626806F2400DF1C86 /* GroupTourSearchViewModel.swift */; };
 		A1A7F2E52418854D00263E42 /* SelectCalendarManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A7F2CC2418854C00263E42 /* SelectCalendarManagerProtocol.swift */; };
 		A1A7F2E62418854D00263E42 /* SelectCalendarManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A7F2CC2418854C00263E42 /* SelectCalendarManagerProtocol.swift */; };
 		A1A7F2E72418854D00263E42 /* SelectCalendarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A7F2CD2418854C00263E42 /* SelectCalendarManager.swift */; };
@@ -795,6 +797,7 @@
 		A1876A912415FC9A00855DE6 /* AirTicketSearchProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirTicketSearchProtocol.swift; sourceTree = "<group>"; };
 		A1876A942415FCA700855DE6 /* AirTicketSearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirTicketSearchPresenter.swift; sourceTree = "<group>"; };
 		A1876A972415FDCA00855DE6 /* TKTRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TKTRepository.swift; sourceTree = "<group>"; };
+		A19758F626806F2400DF1C86 /* GroupTourSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTourSearchViewModel.swift; sourceTree = "<group>"; };
 		A1A7F2CC2418854C00263E42 /* SelectCalendarManagerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectCalendarManagerProtocol.swift; sourceTree = "<group>"; };
 		A1A7F2CD2418854C00263E42 /* SelectCalendarManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectCalendarManager.swift; sourceTree = "<group>"; };
 		A1A7F2CF2418854C00263E42 /* CalendarSelectedYearMonthDaysString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarSelectedYearMonthDaysString.swift; sourceTree = "<group>"; };
@@ -1553,6 +1556,14 @@
 			path = TKT;
 			sourceTree = "<group>";
 		};
+		A19758F526806DAA00DF1C86 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A19758F626806F2400DF1C86 /* GroupTourSearchViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		A1A7F2CA2418854C00263E42 /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
@@ -1731,6 +1742,7 @@
 		C77282F523CC503F00067EB4 /* GroupTourSearch */ = {
 			isa = PBXGroup;
 			children = (
+				A19758F526806DAA00DF1C86 /* ViewModel */,
 				C77282F623CC505800067EB4 /* GroupTourSearchViewController.swift */,
 				C7DCA71523D1B76200F415B8 /* GroupTourSearchInputCell.swift */,
 				C7DCA71E23D1BBC300F415B8 /* GroupTourSearchProtocol.swift */,
@@ -2308,6 +2320,7 @@
 				A1F6E886241787510015279F /* LccAirCell.swift in Sources */,
 				C7C41C4423C724E900F97057 /* NoticeDetailContentCell.swift in Sources */,
 				A12808A823F7937100287B9F /* PriceRangeSlider.swift in Sources */,
+				A19758F726806F2400DF1C86 /* GroupTourSearchViewModel.swift in Sources */,
 				06B05CB62416470900C8F447 /* BrickCell.swift in Sources */,
 				38E9922123B04F1400E28271 /* VersionRuleReponse.swift in Sources */,
 				0650776423ED5F300067377C /* ContactInfoPresenter.swift in Sources */,
@@ -2541,6 +2554,7 @@
 				A1F6E887241787510015279F /* LccAirCell.swift in Sources */,
 				C7C41C4523C724E900F97057 /* NoticeDetailContentCell.swift in Sources */,
 				A12808A923F7937100287B9F /* PriceRangeSlider.swift in Sources */,
+				A19758F826806F2400DF1C86 /* GroupTourSearchViewModel.swift in Sources */,
 				06B05CB72416470900C8F447 /* BrickCell.swift in Sources */,
 				38E9922223B04F1400E28271 /* VersionRuleReponse.swift in Sources */,
 				0650776523ED5F300067377C /* ContactInfoPresenter.swift in Sources */,

@@ -9,47 +9,13 @@
 import UIKit
 
 extension GroupTourSearchViewController {
-    enum GroupTourSearchTabType {
-        case groupTour
-        case keywordOrTourCode
-    }
-    
-    enum InputFieldType {
-        case startTourDate
-        case tourDays
-        case regionCode
-        case departureCity
-        case airlineCode
-        case tourType
-        case keywordOrTourCode
-        case keywordOrTourCodeDepartureCity
-    }
-    
-    enum KeyboardType {
-        case typekeyboard
-        case pickerView
-        case datePicker
-        case hide
-    }
-    
-    enum SearchByType {
-        case groupTour
-        case keyword
-        case tourCode
+
+    func setViewModle(viewModel: GroupTourSearchViewModel) {
+        self.viewModel = viewModel
     }
 }
 
-extension GroupTourSearchViewController {
-    func setDefaultPage(_ tab: GroupTourSearchTabType){
-        defaultPage = tab
-    }
-    
-    func setKeywordOrTourCodeDepartureCityShareOptionList(cityKey: String) {
-        self.cityKey = cityKey
-    }
-}
-
-class GroupTourSearchViewController: BaseViewController {
+class GroupTourSearchViewController: BaseViewControllerMVVM {
     @IBOutlet weak var topPageScrollView: UIScrollView!
     @IBOutlet weak var topPageButtonView: UIView!
     @IBOutlet weak var topPageGroupTourButton: UIButton!
@@ -60,6 +26,8 @@ class GroupTourSearchViewController: BaseViewController {
     
     @IBOutlet weak var groupTourTableView: UITableView!
     @IBOutlet weak var keywordOrTourCodeTableView: UITableView!
+    
+    private var viewModel: GroupTourSearchViewModel?
     
     private var pickerViewTop: NSLayoutConstraint!
     private var datePickerTop: NSLayoutConstraint!
@@ -86,12 +54,11 @@ class GroupTourSearchViewController: BaseViewController {
     
     @objc private func onTouchDatePickerDone() {
         datePickerChanged(picker: datePicker)
-        
-        touchInputField = nil
+        viewModel?.setInputFieldType(inputFieldType: nil)
     }
     
     @objc private func datePickerChanged(picker: UIDatePicker) {
-        groupTourSearchRequest.startTourDate = FormatUtil.convertDateToString(dateFormatTo: "yyyy/MM/dd", date: picker.date)
+        viewModel?.groupTourSearchRequest.startTourDate = FormatUtil.convertDateToString(dateFormatTo: "yyyy/MM/dd", date: picker.date)
         
         groupTourTableView?.reloadData()
     }
@@ -118,7 +85,7 @@ class GroupTourSearchViewController: BaseViewController {
     @objc private func onTouchPickerViewDone() {
         pickerView.pickerView(pickerView, didSelectRow: pickerView.selectedRow(inComponent: 0), inComponent: 0)
         
-        touchInputField = nil
+        viewModel?.setInputFieldType(inputFieldType: nil)
     }
     
     private func layoutPickerView(){
@@ -153,153 +120,6 @@ class GroupTourSearchViewController: BaseViewController {
         datePicker.topAnchor.constraint(equalTo: toolBarOnDatePicker.bottomAnchor, constant: 0).isActive = true
     }
     
-    private var presenter: GroupTourSearchPresenterProtocol?
-    private var groupTourSearchInit: GroupTourSearchInitResponse.GroupTourSearchInit?
-    private var groupTourSearchRequest = GroupTourSearchRequest()
-    private var groupTourSearchKeywordAndTourCodeRequest = GroupTourSearchKeywordAndTourCodeRequest()
-    private var keywordOrTourCodeDepartureCityShareOptionList =
-        [KeyValue(key: "*", value: "不限出發地"),
-         KeyValue(key: "台北", value: "台北出發"),
-         KeyValue(key: "台中", value: "台中出發"),
-         KeyValue(key: "高雄", value: "高雄出發")]
-    
-    private var defaultPage: GroupTourSearchTabType = .groupTour
-    private var isNeedShowDefaultPage = true
-    
-    private var touchInputField: InputFieldType? {
-        didSet {
-            reloadPickerViewAndDatePicker(inputFieldType: touchInputField)
-            showKeyBoardWith(inputFieldType: touchInputField)
-        }
-    }
-    
-    private func reloadPickerViewAndDatePicker(inputFieldType: InputFieldType?){
-        var shareOptionList:[ShareOption] = []
-        var selectedKey: String?
-        var textAlign: NSTextAlignment = .center
-        switch inputFieldType {
-        case .startTourDate:
-            if let date = groupTourSearchRequest.startTourDate {
-                datePicker.date = FormatUtil.convertStringToDate(dateFormatFrom: "yyyy/MM/dd", dateString: date) ?? Date()
-            }
-        case .tourDays:
-            ()
-        case .regionCode:
-            shareOptionList = groupTourSearchInit?.regionList.map({ ShareOption(optionKey: $0.regionCode!, optionValue: $0.regionName!) }) ?? []
-            selectedKey = groupTourSearchRequest.selectedRegionCode?.regionCode
-            textAlign = .left
-            
-        case .departureCity:
-            shareOptionList = groupTourSearchInit?.departureCityList.map({ ShareOption(optionKey: $0.departureCode!, optionValue: $0.departureName!) }) ?? []
-            selectedKey = groupTourSearchRequest.selectedDepartureCity?.departureCode
-            
-        case .airlineCode:
-            shareOptionList = groupTourSearchInit?.airlineCodeList.map({ ShareOption(optionKey: $0.airlineCode!, optionValue: $0.airlineName!) }) ?? []
-            selectedKey = groupTourSearchRequest.selectedAirlineCode?.airlineCode
-            
-        case .tourType:
-            shareOptionList = groupTourSearchInit?.tourTypeList.map({ ShareOption(optionKey: $0.tourTypeCode!, optionValue: $0.tourTypeName!) }) ?? []
-            selectedKey = groupTourSearchRequest.selectedTourType?.tourTypeCode
-            
-        case .keywordOrTourCode:
-            ()
-        case .keywordOrTourCodeDepartureCity:
-            shareOptionList = keywordOrTourCodeDepartureCityShareOptionList.map({ ShareOption(optionKey: $0.key!, optionValue: $0.value!) })
-            selectedKey = groupTourSearchKeywordAndTourCodeRequest
-                .selectedDepartureCity?
-                .key
-            
-        case nil:
-            ()
-        }
-        pickerView.setOptionList(optionList: shareOptionList)
-        pickerView.textAlign = textAlign
-        pickerView.reloadAllComponents()
-        
-        if let selectedKey = selectedKey {
-            let _ = pickerView.setDefaultKey(key: selectedKey)
-        }
-    }
-    
-    private func showKeyBoardWith(inputFieldType: InputFieldType?){
-        func showKeyboard(keyboardType : KeyboardType) {
-            var isNumberpadKeyboardShow: Bool = false {
-                didSet {
-                    switch isNumberpadKeyboardShow {
-                    case true :
-                        ()
-                    case false:
-                        self.view.endEditing(true)
-                    }
-                }
-            }
-            
-            var isDatePickerViewShow: Bool = false {
-                didSet {
-                    let constant = isDatePickerViewShow ? -datePicker.frame.height - toolBarOnDatePicker.frame.height : 0
-                    datePickerTop.constant = constant
-                    
-                    UIView.animate(withDuration: 0.3) {
-                        self.view.layoutIfNeeded()
-                    }
-                }
-            }
-            
-            var isPickerViewShow: Bool = false {
-                didSet {
-                    let constant = isPickerViewShow ? -pickerView.frame.height - toolBarOnPickerView.frame.height : 0
-                    pickerViewTop.constant = constant
-                    
-                    UIView.animate(withDuration: 0.3) {
-                        self.view.layoutIfNeeded()
-                    }
-                }
-            }
-            
-            switch keyboardType {
-            case .typekeyboard:
-                isNumberpadKeyboardShow = true
-                isPickerViewShow = false
-                isDatePickerViewShow = false
-            case .pickerView:
-                isNumberpadKeyboardShow = false
-                isPickerViewShow = true
-                isDatePickerViewShow = false
-            case .datePicker:
-                isNumberpadKeyboardShow = false
-                isPickerViewShow = false
-                isDatePickerViewShow = true
-            case .hide:
-                isNumberpadKeyboardShow = false
-                isPickerViewShow = false
-                isDatePickerViewShow = false
-            }
-        }
-        
-        switch inputFieldType {
-        case .startTourDate:
-            showKeyboard(keyboardType: .datePicker)
-        case .tourDays:
-            showKeyboard(keyboardType: .typekeyboard)
-        case .regionCode:
-            showKeyboard(keyboardType: .pickerView)
-        case .departureCity:
-            showKeyboard(keyboardType: .pickerView)
-        case .airlineCode:
-            showKeyboard(keyboardType: .pickerView)
-        case .tourType:
-            showKeyboard(keyboardType: .pickerView)
-        case .keywordOrTourCode:
-            showKeyboard(keyboardType: .typekeyboard)
-        case .keywordOrTourCodeDepartureCity:
-            showKeyboard(keyboardType: .pickerView)
-        case nil:
-            showKeyboard(keyboardType: .hide)
-        }
-    }
-    
-    private var cityKey:String = ""
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -329,8 +149,9 @@ class GroupTourSearchViewController: BaseViewController {
         layoutPickerView()
         layoutDatePicker()
         
-        presenter = GroupTourSearchPresenter(delegate: self)
+        bindViewModel()
         loadData()
+        
     }
     
     private func setUpTopPageScrollView(){
@@ -339,97 +160,110 @@ class GroupTourSearchViewController: BaseViewController {
         switchPageButton(toPage: 0)
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        if isNeedShowDefaultPage == false { return }
-        isNeedShowDefaultPage = false
-        switch defaultPage {
-        case .groupTour:
-            self.scrollToPage(scrollView: topPageScrollView, page: 0, animated: true)
-        case .keywordOrTourCode:
-            self.scrollToPage(scrollView: topPageScrollView, page: 1, animated: true)
-        }
-    }
-    
     override func loadData() {
         super.loadData()
         
         getTourSearchInit()
     }
     
-    private func getTourSearchInit(){
-        presenter?.getGroupTourSearchInit(departureCode: groupTourSearchRequest.selectedDepartureCity?.departureName)
-    }
-    
-    private func getTourSearchUrl(searchByType: SearchByType){
-        switch searchByType {
-        case .groupTour:
-            let groupTourSearchInputCell = self.groupTourTableView.cellForRow(at: IndexPath.init(row: 0, section: 0)) as! GroupTourSearchInputCell
-            groupTourSearchRequest.maxPrice = groupTourSearchInputCell.priceRangeSlider?.getMaxPrice()
-            groupTourSearchRequest.minPrice = groupTourSearchInputCell.priceRangeSlider?.getMinPrice()
-            presenter?.getGroupTourSearchUrl(groupTourSearchRequest: groupTourSearchRequest)
+    func bindViewModel(){
+        self.bindToBaseViewModel(viewModel: self.viewModel!)
+        
+        viewModel?.endEditing = {[weak self] in
+            self?.view.endEditing(true)
+        }
+        
+        viewModel?.presentPickerView = {[weak self] isPickerViewShow in
+            let constant = isPickerViewShow ? -(self?.pickerView.frame.height)! - (self?.toolBarOnPickerView.frame.height)! : 0
+            self?.pickerViewTop.constant = constant
+
+            UIView.animate(withDuration: 0.3) {
+                self?.view.layoutIfNeeded()
+            }
+        }
+        
+        viewModel?.presentDatePicker = {[weak self] isDatePickerViewShow in
+            let constant = isDatePickerViewShow ? -(self?.datePicker.frame.height)! - (self?.toolBarOnDatePicker.frame.height)! : 0
+            self?.datePickerTop.constant = constant
+
+            UIView.animate(withDuration: 0.3) {
+                self?.view.layoutIfNeeded()
+            }
+        }
+        
+        viewModel?.updatePickerView = { [weak self] list, textAlign, selectedKey in
+            self?.pickerView.setOptionList(optionList: list)
+            self?.pickerView.textAlign = textAlign
             
-        case .keyword,
-             .tourCode:
-            presenter?.getGroupTourSearchUrl(groupTourSearchKeywordAndTourCodeRequest: groupTourSearchKeywordAndTourCodeRequest)
+            if let key = selectedKey {
+                _ = self?.pickerView.setDefaultKey(key: key)
+            }
+        }
+        
+        viewModel?.reloadTableView = { [weak self] in
+            self?.groupTourTableView?.reloadData()
+            self?.keywordOrTourCodeTableView?.reloadData()
         }
     }
     
+    private func getTourSearchInit(){
+        viewModel?.getGroupTourSearchInit()
+    }
+    
     @IBAction func onTouchStartTourDateView(_ sender: UIButton) {
-        touchInputField = .startTourDate
+        viewModel?.setInputFieldType(inputFieldType: .startTourDate)
     }
     
     @IBAction func onTouchRegionCodeView(_ sender: UIButton) {
-        touchInputField = .regionCode
+        viewModel?.setInputFieldType(inputFieldType: .regionCode)
     }
     
     @IBAction func onTouchDepartureCityView(_ sender: UIButton) {
-        touchInputField = .departureCity
+        viewModel?.setInputFieldType(inputFieldType: .departureCity)
     }
     
     @IBAction func onTouchAirlineCodeView(_ sender: UIButton) {
-        touchInputField = .airlineCode
+        viewModel?.setInputFieldType(inputFieldType: .airlineCode)
     }
     
     @IBAction func onTouchTourTypeView(_ sender: UIButton) {
-        touchInputField = .tourType
+        viewModel?.setInputFieldType(inputFieldType: .tourType)
     }
     
     @IBAction func onTouchPriceLimit(_ sender: UIButton) {
-        groupTourSearchRequest.isPriceLimit = !groupTourSearchRequest.isPriceLimit
+        viewModel?.groupTourSearchRequest.isPriceLimit = !(viewModel?.groupTourSearchRequest.isPriceLimit)!
         
-        touchInputField = nil
+        viewModel?.setInputFieldType(inputFieldType: nil)
         
         groupTourTableView?.reloadData()
     }
     
     @IBAction func onTouchBookingTourView(_ sender: UIButton) {
-        groupTourSearchRequest.isBookingTour = !groupTourSearchRequest.isBookingTour
+        viewModel?.groupTourSearchRequest.isBookingTour = !(viewModel?.groupTourSearchRequest.isBookingTour)!
         
-        touchInputField = nil
+        viewModel?.setInputFieldType(inputFieldType: nil)
         
         groupTourTableView?.reloadData()
     }
     
     @IBAction func onTouchGroupTourSearchButton(_ sender: UIButton) {
-        getTourSearchUrl(searchByType: .groupTour)
+        viewModel?.getTourSearchUrl(searchByType: .groupTour, cell: self.groupTourTableView.cellForRow(at: IndexPath.init(row: 0, section: 0)) as! GroupTourSearchInputCell)
     }
     
     @IBAction func onTouchSearchByKeywordButton(_ sender: UIButton) {
-        groupTourSearchKeywordAndTourCodeRequest.keywordOrTourCodeSearchType = .keyword
+        viewModel?.groupTourSearchKeywordAndTourCodeRequest.keywordOrTourCodeSearchType = .keyword
         
-        getTourSearchUrl(searchByType: .keyword)
+        viewModel?.getTourSearchUrl(searchByType: .keyword, cell: self.groupTourTableView.cellForRow(at: IndexPath.init(row: 0, section: 0)) as! GroupTourSearchInputCell)
     }
     
     @IBAction func onTouchSearchByTourCodeButton(_ sender: UIButton) {
-        groupTourSearchKeywordAndTourCodeRequest.keywordOrTourCodeSearchType = .tourCode
+        viewModel?.groupTourSearchKeywordAndTourCodeRequest.keywordOrTourCodeSearchType = .tourCode
         
-        getTourSearchUrl(searchByType: .tourCode)
+        viewModel?.getTourSearchUrl(searchByType: .tourCode, cell: self.groupTourTableView.cellForRow(at: IndexPath.init(row: 0, section: 0)) as! GroupTourSearchInputCell)
     }
     
     @IBAction func onTouchKeywordAndTourCodeDepartureCityView(_ sender: UIButton) {
-        touchInputField = .keywordOrTourCodeDepartureCity
+        viewModel?.setInputFieldType(inputFieldType: .keywordOrTourCodeDepartureCity)
     }
     
     @IBAction func onTouchInputDescription(_ sender: UIButton) {
@@ -453,92 +287,9 @@ extension GroupTourSearchViewController: PopTextViewControllerProtocol {
     }
 }
 
-extension GroupTourSearchViewController: GroupTourSearchViewProtocol {
-    func onBindGroupTourSearchInit(groupTourSearchInit: GroupTourSearchInitResponse.GroupTourSearchInit) {
-        self.groupTourSearchInit = groupTourSearchInit
-        
-        if cityKey.isEmpty == false{
-            let departureCode = groupTourSearchInit.departureCityList.first{ $0.departureCode == cityKey }!
-            groupTourSearchRequest.selectedDepartureCity = departureCode
-            
-            let keyValue = keywordOrTourCodeDepartureCityShareOptionList.first{ $0.key == cityKey }!
-            groupTourSearchKeywordAndTourCodeRequest.selectedDepartureCity = keyValue
-            getTourSearchInit()
-            cityKey = ""
-        }
-        
-        if groupTourSearchRequest.selectedDepartureCity == nil {
-            groupTourSearchRequest.selectedDepartureCity = groupTourSearchInit.departureCityList.first
-            getTourSearchInit()
-        }
-        
-        groupTourSearchRequest.selectedRegionCode = groupTourSearchInit.regionList.first
-        
-        groupTourSearchRequest.selectedAirlineCode = groupTourSearchInit.airlineCodeList.first
-        
-        groupTourSearchRequest.selectedTourType = groupTourSearchInit.tourTypeList.first
-        
-        if  groupTourSearchRequest.startTourDate == nil {
-            groupTourSearchRequest.startTourDate = groupTourSearchInit.defaultDepartureDate
-        }
-        
-        if groupTourSearchKeywordAndTourCodeRequest.selectedDepartureCity == nil {
-            groupTourSearchKeywordAndTourCodeRequest.selectedDepartureCity = keywordOrTourCodeDepartureCityShareOptionList.first
-        }
-        
-        groupTourTableView?.reloadData()
-        keywordOrTourCodeTableView?.reloadData()
-    }
-    
-    func onBindGroupTourSearchUrl(groupTourSearchUrl: GroupTourSearchUrlResponse.GroupTourSearchUrl) {
-        handleLinkType(linkType: groupTourSearchUrl.linkType!, linkValue: groupTourSearchUrl.linkValue, linkText: nil)
-    }
-}
-
 extension GroupTourSearchViewController: CustomPickerViewProtocol {
     func onKeyChanged(key: String) {
-        switch touchInputField {
-        case .startTourDate:
-            //Note: 不使用PickerView，用DatePicker datePickerChanged(picker:)
-            ()
-        case .tourDays:
-            //Note: 不使用PickerView，用Textfield cell裡 editingDidEnd textFieldDidChange(_:)
-            ()
-        case .regionCode:
-            let keyValue = groupTourSearchInit!.regionList.first{ $0.regionCode == key }!
-            groupTourSearchRequest.selectedRegionCode = keyValue
-            
-        case .departureCity:
-            let keyValue = groupTourSearchInit!.departureCityList.first{ $0.departureCode == key }!
-            let lastKeyValue = groupTourSearchRequest.selectedDepartureCity
-            
-            groupTourSearchRequest.selectedDepartureCity = keyValue
-            
-            if lastKeyValue?.departureCode != keyValue.departureCode {
-                getTourSearchInit()
-            }
-            
-        case .airlineCode:
-            let keyValue = groupTourSearchInit!.airlineCodeList.first{ $0.airlineCode == key }!
-            groupTourSearchRequest.selectedAirlineCode = keyValue
-            
-        case .tourType:
-            let keyValue = groupTourSearchInit!.tourTypeList.first{ $0.tourTypeCode == key }!
-            groupTourSearchRequest.selectedTourType = keyValue
-            
-        case .keywordOrTourCode:
-            //Note: 不使用PickerView，用Textfield cell裡 editingDidEnd textFieldDidChange(_:)
-            ()
-        case .keywordOrTourCodeDepartureCity:
-            let keyValue = keywordOrTourCodeDepartureCityShareOptionList.first{ $0.key == key }!
-            groupTourSearchKeywordAndTourCodeRequest.selectedDepartureCity = keyValue
-            
-        case nil:
-            ()
-        }
-        
-        groupTourTableView?.reloadData()
-        keywordOrTourCodeTableView?.reloadData()
+        viewModel?.onKeyChanged(key: key)
     }
 }
 
@@ -555,13 +306,13 @@ extension GroupTourSearchViewController : UITableViewDataSource {
         switch tableView {
         case groupTourTableView:
             let cell = tableView.dequeueReusableCell(withIdentifier: "InputCell") as! GroupTourSearchInputCell
-            cell.setCellWith(groupTourSearchRequest: groupTourSearchRequest)
-            cell.delegate = self
+            cell.setCellWith(groupTourSearchRequest: viewModel!.groupTourSearchRequest)
+            
             return cell
         case keywordOrTourCodeTableView:
             let cell = tableView.dequeueReusableCell(withIdentifier: "InputCell") as! GroupTourSearchKeywordAndTourCodeInputCell
-            cell.setCellWith(groupTourSearchKeywordAndTourCodeRequest: groupTourSearchKeywordAndTourCodeRequest)
-            cell.delegate = self
+            cell.setCellWith(groupTourSearchKeywordAndTourCodeRequest: viewModel!.groupTourSearchKeywordAndTourCodeRequest)
+            
             return cell
         default:
             return UITableViewCell()
@@ -572,8 +323,7 @@ extension GroupTourSearchViewController : UITableViewDataSource {
 //MARK: scroll top page 左邊滑到右邊，右邊滑到左邊
 extension GroupTourSearchViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        touchInputField = nil
-        
+        viewModel?.setInputFieldType(inputFieldType: nil)
         if scrollView != topPageScrollView { return }
         
         let wholeWidth = scrollView.contentSize.width
@@ -583,41 +333,6 @@ extension GroupTourSearchViewController: UIScrollViewDelegate {
         let percent = nowOffsetX / (wholeWidth / 2.0)
         scrollTopPageButtonBottomLine(percent: percent)
         switchPageButton(toPage: nowPage)
-    }
-}
-
-extension GroupTourSearchViewController: GroupTourSearchInputCellProtocol {
-    func selectDateFromeNewDatePicker(date: String) {
-        groupTourSearchRequest.startTourDate = date
-        
-        groupTourTableView?.reloadData()
-    }
-    
-    func sliderDown() {
-        self.groupTourSearchRequest.isPriceLimit = false
-        self.groupTourTableView.reloadData()
-    }
-    
-    func onTouchTourDaysView(_ sender: UIButton) {
-        touchInputField = .tourDays
-    }
-    
-    func onTourDaysTextFieldDidChange(text: String) {
-        groupTourSearchRequest.tourDays = text
-        
-        groupTourTableView?.reloadData()
-    }
-}
-
-extension GroupTourSearchViewController: GroupTourSearchKeywordAndTourCodeInputCellProtocol {
-    func onTouchKeywordOrTourCodeView() {
-        touchInputField = .keywordOrTourCode
-    }
-    
-    func onKeywordOrTourCodeTextFieldDidChange(text: String) {
-        groupTourSearchKeywordAndTourCodeRequest.keywordOrTourCode = text
-        
-        keywordOrTourCodeTableView?.reloadData()
     }
 }
 
