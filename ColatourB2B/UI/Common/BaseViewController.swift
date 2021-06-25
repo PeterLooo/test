@@ -435,7 +435,32 @@ class BaseViewController: UIViewController {
     func logoutAndPopLoginVC(isAllowPaxButtonEnable: Bool = false) {
         let vc = getVC(st: "Login", vc: "LoginViewController") as! LoginViewController
         vc.modalPresentationStyle = .fullScreen
-        vc.loginSuccessDelegate = self
+        vc.setVC(viewModel: LoginViewModel())
+        vc.viewModel?.setDefaultTabBar = { [weak self] in
+            if let tabbarVC = self?.tabBarController as? TabBarViewController {
+                
+                switch tabBarLinkType {
+                case .tour:
+                    tabbarVC.selectedIndex = (isAllowTour == true) ? 0 : 3
+                    
+                case .ticket:
+                    tabbarVC.selectedIndex = (isAllowTkt == true) ? 1 : 3
+                    
+                case .notification:
+                    tabbarVC.selectedIndex = 2
+                    
+                case .unknown:
+                    tabbarVC.selectedIndex = 3
+                }
+                
+                tabbarVC.viewControllers?[0].tabBarItem.isEnabled = isAllowTour ?? false
+                tabbarVC.viewControllers?[1].tabBarItem.isEnabled = isAllowTkt ?? false
+            }
+        }
+        
+        vc.viewModel?.onLoginSuccess = { [weak self] in
+            self?.onLoginSuccess()
+        }
         let nav = UINavigationController(rootViewController: vc)
         nav.modalPresentationStyle = .fullScreen
         nav.restorationIdentifier = "LoginViewControllerNavigationController"
@@ -445,37 +470,9 @@ class BaseViewController: UIViewController {
     func logoutAndPopLoginVC(linkType: LinkType) {
         
     }
-}
-extension BaseViewController: MemberLoginSuccessViewProtocol {
-    func onLoginSuccess(linkType: LinkType, linkValue: String?) {
-        handleLinkType(linkType: linkType, linkValue: linkValue, linkText: nil)
-    }
     
-    @objc func onLoginSuccess() {
-        ()
-    }
-    
-    func setDefaultTabBar() {
+    func onLoginSuccess() {
         
-        if let tabbarVC = self.tabBarController as? TabBarViewController {
-            
-            switch tabBarLinkType {
-            case .tour:
-                tabbarVC.selectedIndex = (isAllowTour == true) ? 0 : 3
-                
-            case .ticket:
-                tabbarVC.selectedIndex = (isAllowTkt == true) ? 1 : 3
-                
-            case .notification:
-                tabbarVC.selectedIndex = 2
-                
-            case .unknown:
-                tabbarVC.selectedIndex = 3
-            }
-            
-            tabbarVC.viewControllers?[0].tabBarItem.isEnabled = isAllowTour ?? false
-            tabbarVC.viewControllers?[1].tabBarItem.isEnabled = isAllowTkt ?? false
-        }
     }
 }
 extension BaseViewController: MemberLoginOnTouchNavCloseProtocol {

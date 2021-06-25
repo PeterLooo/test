@@ -7,10 +7,10 @@
 //
 
 import UIKit
-protocol MemberLoginSuccessViewProtocol : NSObjectProtocol{
-    func onLoginSuccess()
-    func onLoginSuccess(linkType: LinkType , linkValue: String? )
-    func setDefaultTabBar()
+extension LoginViewController {
+    func setVC(viewModel: LoginViewModel){
+        self.viewModel = viewModel
+    }
 }
 protocol MemberLoginOnTouchNavCloseProtocol : NSObjectProtocol{
     func onTouchLoginNavClose()
@@ -23,16 +23,11 @@ class LoginViewController: BaseViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     
     weak var navCloseDelegate: MemberLoginOnTouchNavCloseProtocol?
-    weak var loginSuccessDelegate: MemberLoginSuccessViewProtocol?
     
-    private var presenter : LoginPresenterProtocol?
+    var viewModel: LoginViewModel?
+    
     private var linkType: LinkType?
     private var linkValue: String?
-    
-    required init?(coder:NSCoder) {
-        super.init(coder: coder)
-        presenter = LoginPresenter(delegate: self)
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,6 +43,20 @@ class LoginViewController: BaseViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+        memberIdno.addTarget(self, action: #selector(memberIdnoEdit), for: .editingChanged)
+        password.addTarget(self, action: #selector(passwordEdit), for: .editingChanged)
+        bindViewModel()
+    }
+    
+    @objc func memberIdnoEdit(){
+        viewModel?.memberIdno = memberIdno.text
+        memberIdno.someController?.setErrorText(nil, errorAccessibilityValue: nil)
+    }
+    
+    @objc func passwordEdit(){
+        viewModel?.password = password.text
+        password.someController?.setErrorText(nil, errorAccessibilityValue: nil)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -84,50 +93,43 @@ class LoginViewController: BaseViewController {
     }
     
     @IBAction func onTouchLogin(_ sender: UIButton) {
-        if memberIdno.text?.count == 0 {
-            memberIdno.someController?.setErrorText("請輸入會員帳號", errorAccessibilityValue: nil)
-            memberIdno.becomeFirstResponder()
-        } else if (password.text?.count)! == 0 {
-            password.someController?.setErrorText("請輸入密碼", errorAccessibilityValue: nil)
-            password.becomeFirstResponder()
-        }else{
-             let request = LoginRequest()
-                   request.memberIdno = self.memberIdno.text
-                   request.password = self.password.text
-                   self.presenter?.login(requset: request)
-        }
+        viewModel?.login()
     }
     
     @IBAction func onTouchEyes(_ sender: BooleanButton) {
         password.isSecureTextEntry = sender.isSelect
     }
-}
-
-extension LoginViewController : LoginViewProtocol {
-    func loginSuccess(loginResponse: LoginResponse) {
-        if loginResponse.loginResult == false {
-            if let resultMessage = loginResponse.loginMessage {
-                self.view.endEditing(true)
-                self.toast(text: resultMessage)
-            }
-        } else if loginResponse.passwordReset == true {
-            let vc = getVC(st: "PasswordModify", vc: "PasswordModify") as! PasswordModifyViewController
-            vc.setVC(accessToken: loginResponse.accessToken, refreshToken: loginResponse.refreshToken, loginMessage: loginResponse.loginMessage)
-            vc.delegate = self
-            navigationController?.pushViewController(vc, animated: true)
-        } else {
-            self.loginSuccessDelegate?.setDefaultTabBar()
-            presenter?.pushDevice()
-            NotificationCenter.default.post(name: Notification.Name("noticeLoadDate"), object: nil)
-            NotificationCenter.default.post(name: Notification.Name("getUnreadCount"), object: nil)
-            self.dismiss(animated: true, completion: {
-                
-                if let linkType = self.linkType{
-                    self.loginSuccessDelegate?.onLoginSuccess(linkType: linkType, linkValue: self.linkValue)
-                }else{
-                    self.loginSuccessDelegate?.onLoginSuccess()
-                }
+    
+    private func bindViewModel(){
+        
+        viewModel?.dismissLoginView = { [weak self] in
+            self?.dismiss(animated: true, completion: {
+                self?.viewModel?.loginSuccessAction()
             })
+        }
+        
+        viewModel?.presentModifyVC = { [weak self] accessToken, refreshToken, message in
+            let vc = self?.getVC(st: "PasswordModify", vc: "PasswordModify") as! PasswordModifyViewController
+            vc.setVC(accessToken: accessToken,
+                     refreshToken: refreshToken,
+                     loginMessage: message)
+            vc.delegate = self
+            self?.navigationController?.pushViewController(vc, animated: true)
+        }
+        viewModel?.setToastText = { [weak self] text in
+            self?.view.endEditing(true)
+            self?.toast(text: text)
+        }
+        
+        viewModel?.setTextFieldErrorInfo = { [weak self] errorId, errorPassword in
+            if errorPassword != nil {
+                self?.password.someController?.setErrorText(errorPassword!, errorAccessibilityValue: nil)
+                self?.password.becomeFirstResponder()
+            }
+            if errorId != nil {
+                self?.memberIdno.someController?.setErrorText(errorId!, errorAccessibilityValue: nil)
+                self?.memberIdno.becomeFirstResponder()
+            }
         }
     }
 }
@@ -148,20 +150,5 @@ extension LoginViewController : UITextFieldDelegate {
             self.onTouchLogin(self.login)
         }
         return true
-    }
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        switch textField {
-        case memberIdno:
-            
-            textField.text = (textField.text! as NSString).replacingCharacters(in: range, with: string.uppercased())
-            memberIdno.someController?.setErrorText(nil, errorAccessibilityValue: nil)
-            return false
-        case password:
-            
-            password.someController?.setErrorText(nil, errorAccessibilityValue: nil)
-            return true
-        default:
-            return false
-        }
     }
 }
