@@ -62,9 +62,10 @@ extension MailChangeViewController: UITableViewDataSource {
             return cell
         case .testSuccess:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ConfirmKeySuccessCell", for: indexPath) as! ConfirmKeySuccessCell
+            let safeAreaBottom = UIApplication.shared.keyWindow?.safeAreaInsets.bottom ?? 0
             cell.setCell(viewModel: (viewModel?.confirmSuccessViewModel)!,
                          viewHight: view.frame.size.height - 
-                            (self.navigationController?.navigationBar.frame.height ?? 0.0))
+                            (self.navigationController?.navigationBar.frame.height ?? 0.0) -  safeAreaBottom)
             return cell
         default:
             return UITableViewCell()
