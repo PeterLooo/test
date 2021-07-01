@@ -29,6 +29,18 @@ class HomeAd1Cell: UITableViewCell {
             self.stackView.addArrangedSubview(view)
         }
     }
+    
+    func setCell(viewModel: HomeAd1CellViewModel){
+        self.stackView.subviews.forEach{$0.removeFromSuperview()}
+        self.moduleTitle.text = viewModel.moduleTitle
+        scrollViewHeight.constant = (screenWidth / 2.20) / 0.9
+        viewModel.subViewViewModels.forEach { (viewModel) in
+            let view = HomeAd1View()
+            view.setView(viewModel: viewModel)
+            
+            self.stackView.addArrangedSubview(view)
+        }
+    }
 }
 
 extension HomeAd1Cell: HomeAd1ViewProcotol {

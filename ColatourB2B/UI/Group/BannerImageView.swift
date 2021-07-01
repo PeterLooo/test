@@ -9,21 +9,15 @@
 import UIKit
 import SDWebImage
 
-protocol BannerImageViewProtocol: NSObjectProtocol {
-    func onTouchImage(index: Int)
-    func changePageControlFocus(index: Int)
-}
-
 class BannerImageView: UIView {
     
     var scrollView = UIScrollView()
     var currentPage = 0
-    var imageViewsURL: [String] = []
+
     var timer: Timer?
-    var showImageIndex: Int?
-    var ges: UITapGestureRecognizer?
     
-    weak var delegate: BannerImageViewProtocol?
+    private var ges: UITapGestureRecognizer?
+    var viewModel: BannerImageViewModel?
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -35,25 +29,13 @@ class BannerImageView: UIView {
         self.setup()
     }
     
-    func setup () {
+    override func layoutSubviews() {
+        super.layoutSubviews()
         
-        showImageIndex = 1
-        setUpScrollView()
-        startTimer()
-    }
-    
-    func setUpScrollView() {
-
-        scrollView.delegate = self
-        scrollView.isPagingEnabled = true
-        scrollView.showsVerticalScrollIndicator = false
-        scrollView.showsHorizontalScrollIndicator = false
-        scrollView.frame = CGRect(x: 0, y: 0, width: screenWidth, height: self.bounds.height)
-        scrollView.contentSize = CGSize(width: screenWidth * CGFloat(imageViewsURL.count + 2), height: self.bounds.height)
-        scrollView.contentOffset = CGPoint(x: screenWidth, y: 0)
+        let height = screenWidth / (800/628)
         
-        self.addSubview(scrollView)
-        self.layoutIfNeeded()
+        scrollView.frame = CGRect(x: 0, y: 0, width: screenWidth, height: height)
+        scrollView.contentSize = CGSize(width: screenWidth * CGFloat((viewModel?.picUrl.count ?? 0) + 2), height: height)
     }
     
     func startTimer() {
@@ -73,58 +55,107 @@ class BannerImageView: UIView {
     
     @objc func autoScroll() {
         
-        if showImageIndex == imageViewsURL.count + 1 {
-            
-            showImageIndex = 2
-        } else {
-            
-            showImageIndex! += 1
-        }
+        viewModel?.autoScroll()
         
-        scrollView.setContentOffset(CGPoint(x: screenWidth * CGFloat(showImageIndex!), y: 0), animated: true)
+        scrollView.setContentOffset(CGPoint(x: screenWidth * CGFloat((viewModel?.showImageIndex)!), y: 0), animated: true)
     }
     
-    func setImageWithUrl(picUrl: [String], smallPicUrl: [String], isSkeleton: Bool, needUpdateBannerImage: Bool) {
+    func setView(viewModel: BannerImageViewModel){
+        self.viewModel = viewModel
+        bindViewModel()
+        viewModel.setUpImage()
+        startTimer()
+    }
+    
+    @objc func touchEvent(gesture: UITapGestureRecognizer) {
+        viewModel?.onTouchImage?(gesture.view!.tag - 1)
+    }
+}
+
+extension BannerImageView: UIScrollViewDelegate {
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
-        if needUpdateBannerImage == false { return }
+        let offsetX = self.scrollView.contentOffset.x
         
-        for index in 0 ... (imageViewsURL.count + 1) {
+        switch offsetX {
+        case 0:
+            self.scrollView.contentOffset = CGPoint(x: scrollView.frame.width * CGFloat((viewModel?.picUrl.count)!), y: 0)
+            viewModel?.currentPage = (viewModel?.picUrl.count)!
             
-            ges = UITapGestureRecognizer(target: self, action: #selector(touchEvent(gesture:)))
+        case (self.scrollView.frame.width * CGFloat((viewModel?.picUrl.count ?? 0 ) + 1)):
+            self.scrollView.contentOffset = CGPoint(x: self.scrollView.frame.width, y: 0)
+            viewModel?.currentPage = 0
             
-            var url: String
-            var imageTag: Int
-            let imageView = UIImageView(frame: CGRect(x: screenWidth * CGFloat(index), y: 0, width: screenWidth, height: scrollView.frame.height))
-            
-            switch index {
-            case 0:
-                url = imageViewsURL.last!
-                imageTag = imageViewsURL.count
+        default:
+            viewModel?.currentPage = Int(offsetX / screenWidth - 1)
+        }
+        viewModel?.changePageControlFocus?(viewModel!.currentPage)
+    }
+    
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        
+        stopTimer()
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        
+        viewModel?.showImageIndex = Int(scrollView.contentOffset.x / screenWidth)
+        startTimer()
+    }
+}
+
+extension BannerImageView {
+    private func setup () {
+        
+        setUpScrollView()
+    }
+    
+    private func setUpScrollView() {
+
+        scrollView.delegate = self
+        scrollView.isPagingEnabled = true
+        scrollView.showsVerticalScrollIndicator = false
+        scrollView.showsHorizontalScrollIndicator = false
+        scrollView.frame = CGRect(x: 0, y: 0, width: screenWidth, height: self.bounds.height)
+        scrollView.contentSize = CGSize(width: screenWidth * CGFloat((viewModel?.picUrl.count ?? 0) + 2), height: self.bounds.height)
+        scrollView.contentOffset = CGPoint(x: screenWidth, y: 0)
+        
+        self.addSubview(scrollView)
+        self.layoutIfNeeded()
+    }
+    
+    private func bindViewModel() {
+        viewModel?.updateImage = { [weak self] url, smallUrl in
+            for index in 0 ... (url.count + 1) {
                 
-            case (imageViewsURL.count + 1):
-                url = imageViewsURL.first!
-                imageTag = 1
+                self?.ges = UITapGestureRecognizer(target: self, action: #selector(self?.touchEvent(gesture:)))
                 
-            default:
-                url = imageViewsURL[index - 1]
-                imageTag = index
+                var url: String! = ""
+                var imageTag: Int! = 0
+                let imageView = UIImageView(frame: CGRect(x: screenWidth * CGFloat(index), y: 0, width: screenWidth, height: (self?.scrollView.frame.height)!))
+                
+                self?.viewModel?.getImageTagURL(index: index, completion: { (tag, resultUrl) in
+                    url = resultUrl
+                    imageTag = tag
+                })
+                
+                self?.downloadPic(imageView: imageView, url: url)
+        
+                imageView.tag = imageTag
+                imageView.backgroundColor = UIColor.white
+                imageView.contentMode = .scaleAspectFill
+                imageView.clipsToBounds = true
+                imageView.isUserInteractionEnabled = true
+                imageView.addGestureRecognizer((self?.ges)!)
+                
+                self?.scrollView.addSubview(imageView)
             }
-            
-            downloadPic(imageView: imageView, url: url)
-    
-            imageView.tag = imageTag
-            imageView.backgroundColor = UIColor.white
-            imageView.contentMode = .scaleAspectFill
-            imageView.clipsToBounds = true
-            imageView.isUserInteractionEnabled = true
-            imageView.addGestureRecognizer(self.ges!)
-            
-            scrollView.addSubview(imageView)
+            self?.scrollView.layoutIfNeeded()
         }
-        scrollView.layoutIfNeeded()
     }
     
-    func downloadPic(imageView: UIImageView, url: String) {
+    private func downloadPic(imageView: UIImageView, url: String) {
 
         SDWebImageManager.shared.loadImage(with: URL(string: url), options: SDWebImageOptions.retryFailed, progress: nil, completed: { (image, data, error, cacheType, bool, imageURL) in
 
@@ -136,53 +167,5 @@ class BannerImageView: UIView {
                 imageView.image = nil
             }
         })
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        let height = screenWidth / (800/628)
-        
-        scrollView.frame = CGRect(x: 0, y: 0, width: screenWidth, height: height)
-        scrollView.contentSize = CGSize(width: screenWidth * CGFloat(imageViewsURL.count + 2), height: height)
-    }
-    
-    @objc func touchEvent(gesture: UITapGestureRecognizer) {
-        
-        delegate?.onTouchImage(index: gesture.view!.tag - 1)
-    }
-}
-
-extension BannerImageView: UIScrollViewDelegate {
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        
-        let offsetX = scrollView.contentOffset.x
-        
-        switch offsetX {
-        case 0:
-            scrollView.contentOffset = CGPoint(x: scrollView.frame.width * CGFloat(imageViewsURL.count), y: 0)
-            currentPage = imageViewsURL.count
-            
-        case (scrollView.frame.width * CGFloat(imageViewsURL.count + 1)):
-            scrollView.contentOffset = CGPoint(x: scrollView.frame.width, y: 0)
-            currentPage = 0
-            
-        default:
-            currentPage = Int(offsetX / screenWidth - 1)
-        }
-        
-        delegate?.changePageControlFocus(index: currentPage)
-    }
-    
-    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        
-        stopTimer()
-    }
-    
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        
-        showImageIndex = Int(scrollView.contentOffset.x / screenWidth)
-        startTimer()
     }
 }

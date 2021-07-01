@@ -11,6 +11,7 @@ protocol GroupTableViewProtocol: NSObjectProtocol {
     func onTouchItem(item: IndexResponse.ModuleItem)
     func onPullToRefresh()
 }
+
 class GroupTableView: UIView {
     
     enum Section : Int, CaseIterable {
@@ -21,17 +22,9 @@ class GroupTableView: UIView {
     private var cellsHeight: [IndexPath : CGFloat] = [:]
     
     weak var delegate : GroupTableViewProtocol?
-    private var itemList: [IndexResponse.MultiModule] = [] {
-        didSet {
-            indexList = itemList.filter{$0.groupName == "首頁1"}.flatMap{$0.moduleList}
-            homeAd1List = itemList.filter{$0.groupName == "HomeAd1"}.flatMap{$0.moduleList}
-            homeAd2List = itemList.filter{$0.groupName == "HomeAd2"}.flatMap{$0.moduleList}
-        }
-    }
-    private var indexList: [IndexResponse.Module] = []
-    private var homeAd1List: [IndexResponse.Module] = []
-    private var homeAd2List: [IndexResponse.Module] = []
-    private var needUpdateBannerImage = false
+    
+    var viewModel: GroupTableViewViewModel?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -88,13 +81,20 @@ class GroupTableView: UIView {
         
         bringSubviewToFront(apiFailErrorView)
         bringSubviewToFront(noInternetErrorView)
-
     }
     
-    func setViewWith(itemList: [IndexResponse.MultiModule],needUpdateBannerImage:Bool){
-        self.itemList = itemList
-        self.needUpdateBannerImage = needUpdateBannerImage
-        tableView.reloadData()
+    func bindViewModel(viewModel: GroupTableViewViewModel) {
+        self.viewModel = viewModel
+        
+        viewModel.tableViewReload = { [weak self] in
+            self?.tableView.reloadData()
+            self?.endRefreshContolRefreshing()
+        }
+        
+        viewModel.apiError = { [weak self] error in
+            self?.handleApiError(apiError: error)
+            self?.endRefreshContolRefreshing()
+        }
     }
     
     func handleApiError(apiError: APIError) {
@@ -125,7 +125,7 @@ class GroupTableView: UIView {
     }
     
     @objc private func pullToRefresh() {
-        delegate?.onPullToRefresh()
+        viewModel?.onPullToRefreshAction()
     }
     
     @objc func endRefreshContolRefreshing(){
@@ -133,17 +133,12 @@ class GroupTableView: UIView {
     }
 }
 
-extension GroupTableView : GroupIndexHeaderImageCellProtocol {
-    func onTouchItem(item: IndexResponse.ModuleItem) {
-        self.delegate?.onTouchItem(item: item)
-    }
-
-}
 extension GroupTableView : HomeAd1CellProtocol {
     func onTouchItem(adItem: IndexResponse.ModuleItem) {
         self.delegate?.onTouchItem(item: adItem)
     }
 }
+
 extension GroupTableView : UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         cellsHeight[indexPath] = cell.frame.size.height
@@ -165,20 +160,22 @@ extension GroupTableView : UITableViewDelegate {
 extension GroupTableView : UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return Section.allCases.count
+        
+        return viewModel == nil ? 0: viewModel!.numOfSection
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let section = Section(rawValue: section)!
         switch section {
         case .BANNER:
-            return self.indexList.isEmpty ? 0 : 1
+            
+            return viewModel?.groupHeaderViewModel == nil ? 0 : 1
             
         case .HOMEAD1:
-            return self.homeAd1List.count
-       
+            return viewModel?.homeAd1ViewModels.count ?? 0
+            
         case .HOMEAD2:
-            return self.homeAd2List.count
+            return viewModel?.homeAd2ViewModels.count ?? 0//self.homeAd2List.count
         }
     }
     
@@ -189,21 +186,19 @@ extension GroupTableView : UITableViewDataSource {
         case .BANNER:
             cell = tableView.dequeueReusableCell(withIdentifier: "GroupIndexHeaderImageCell") as! GroupIndexHeaderImageCell
             
-            (cell as! GroupIndexHeaderImageCell).setCell(itemList: indexList[indexPath.row].moduleItemList, needUpdateBannerImage: needUpdateBannerImage)
-            (cell as! GroupIndexHeaderImageCell).delegate = self
-            needUpdateBannerImage = false
+            (cell as! GroupIndexHeaderImageCell).setCell(viewModel: viewModel!.groupHeaderViewModel!)
+            
         case .HOMEAD1:
             cell = tableView.dequeueReusableCell(withIdentifier: "HomeAd1Cell") as! HomeAd1Cell
-            (cell as! HomeAd1Cell).setCell(item: self.homeAd1List[indexPath.row])
-            (cell as! HomeAd1Cell).delegate = self
+            
+            (cell as! HomeAd1Cell).setCell(viewModel: (viewModel?.homeAd1ViewModels[indexPath.row])!)
         
         case .HOMEAD2:
             cell = tableView.dequeueReusableCell(withIdentifier: "HomeAd2Cell") as! HomeAd2Cell
-            (cell as! HomeAd2Cell).setCell(item: self.homeAd2List[indexPath.row], isLastSection: tableView.numberOfSections - 1 == section.rawValue, needLogoImage: false)
-            (cell as! HomeAd2Cell).delegate = self
+            
+            (cell as! HomeAd2Cell).setCell(viewModel: viewModel!.homeAd2ViewModels[indexPath.row])
             
         }
         return cell
-        
     }
 }

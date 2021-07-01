@@ -476,6 +476,22 @@
 		A1F6E88424176BB90015279F /* SotoAirCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F6E88224176BB90015279F /* SotoAirCell.swift */; };
 		A1F6E886241787510015279F /* LccAirCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F6E885241787510015279F /* LccAirCell.swift */; };
 		A1F6E887241787510015279F /* LccAirCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F6E885241787510015279F /* LccAirCell.swift */; };
+		B64535D22660C1A1006FE4AB /* GroupTourViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64535D12660C1A1006FE4AB /* GroupTourViewModel.swift */; };
+		B64535D32660C1A1006FE4AB /* GroupTourViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64535D12660C1A1006FE4AB /* GroupTourViewModel.swift */; };
+		B64535DE2660C3DC006FE4AB /* BaseViewControllerMVVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64535DD2660C3DC006FE4AB /* BaseViewControllerMVVM.swift */; };
+		B64535DF2660C3DC006FE4AB /* BaseViewControllerMVVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64535DD2660C3DC006FE4AB /* BaseViewControllerMVVM.swift */; };
+		B64535E82660C42A006FE4AB /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64535E72660C42A006FE4AB /* BaseViewModel.swift */; };
+		B64535E92660C42A006FE4AB /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64535E72660C42A006FE4AB /* BaseViewModel.swift */; };
+		B645360E2660CC71006FE4AB /* BaseViewModelPrivate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B645360D2660CC71006FE4AB /* BaseViewModelPrivate.swift */; };
+		B645360F2660CC71006FE4AB /* BaseViewModelPrivate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B645360D2660CC71006FE4AB /* BaseViewModelPrivate.swift */; };
+		B65191122666094A002337A1 /* GroupTableViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65191112666094A002337A1 /* GroupTableViewViewModel.swift */; };
+		B65191132666094A002337A1 /* GroupTableViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65191112666094A002337A1 /* GroupTableViewViewModel.swift */; };
+		B6D3C7DA26731AD800C20763 /* GroupAd1ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D3C7D926731AD800C20763 /* GroupAd1ViewModel.swift */; };
+		B6D3C7DB26731AD800C20763 /* GroupAd1ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D3C7D926731AD800C20763 /* GroupAd1ViewModel.swift */; };
+		B6D3C7E126731B0300C20763 /* GroupAd2ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D3C7E026731B0300C20763 /* GroupAd2ViewModel.swift */; };
+		B6D3C7E226731B0300C20763 /* GroupAd2ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D3C7E026731B0300C20763 /* GroupAd2ViewModel.swift */; };
+		B6D3C7E826731B5100C20763 /* GroupHeadCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D3C7E726731B5100C20763 /* GroupHeadCellViewModel.swift */; };
+		B6D3C7E926731B5100C20763 /* GroupHeadCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D3C7E726731B5100C20763 /* GroupHeadCellViewModel.swift */; };
 		C70EEF5023EA545300D67FF4 /* VersionRule.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C70EEF4D23EA545200D67FF4 /* VersionRule.storyboard */; };
 		C70EEF5123EA545300D67FF4 /* VersionRule.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C70EEF4D23EA545200D67FF4 /* VersionRule.storyboard */; };
 		C70EEF5223EA545300D67FF4 /* Bulletin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C70EEF4F23EA545300D67FF4 /* Bulletin.storyboard */; };
@@ -819,6 +835,14 @@
 		A1F6E885241787510015279F /* LccAirCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LccAirCell.swift; sourceTree = "<group>"; };
 		A331B185DD2055D277F472F3 /* Pods_ColatourB2B.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ColatourB2B.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B09E7C65A225E6FF958329EA /* Pods-ColatourB2BDev.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ColatourB2BDev.release.xcconfig"; path = "Pods/Target Support Files/Pods-ColatourB2BDev/Pods-ColatourB2BDev.release.xcconfig"; sourceTree = "<group>"; };
+		B64535D12660C1A1006FE4AB /* GroupTourViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTourViewModel.swift; sourceTree = "<group>"; };
+		B64535DD2660C3DC006FE4AB /* BaseViewControllerMVVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewControllerMVVM.swift; sourceTree = "<group>"; };
+		B64535E72660C42A006FE4AB /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
+		B645360D2660CC71006FE4AB /* BaseViewModelPrivate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModelPrivate.swift; sourceTree = "<group>"; };
+		B65191112666094A002337A1 /* GroupTableViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTableViewViewModel.swift; sourceTree = "<group>"; };
+		B6D3C7D926731AD800C20763 /* GroupAd1ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupAd1ViewModel.swift; sourceTree = "<group>"; };
+		B6D3C7E026731B0300C20763 /* GroupAd2ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupAd2ViewModel.swift; sourceTree = "<group>"; };
+		B6D3C7E726731B5100C20763 /* GroupHeadCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupHeadCellViewModel.swift; sourceTree = "<group>"; };
 		C70EEF4D23EA545200D67FF4 /* VersionRule.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = VersionRule.storyboard; sourceTree = "<group>"; };
 		C70EEF4F23EA545300D67FF4 /* Bulletin.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Bulletin.storyboard; sourceTree = "<group>"; };
 		C70EEF5623EA549200D67FF4 /* BulletinViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BulletinViewController.swift; sourceTree = "<group>"; };
@@ -1312,6 +1336,7 @@
 		38BCDA2223A3760900D59910 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				B64535DC2660C3BF006FE4AB /* MVVM */,
 				A1A7F3272418DDCC00263E42 /* ChooseCountButton */,
 				A1A7F2CA2418854C00263E42 /* Calendar */,
 				A1DB93E6240675D000AE427C /* WebView */,
@@ -1389,6 +1414,7 @@
 		38E68A9F23B5AB80006BC4DD /* Group */ = {
 			isa = PBXGroup;
 			children = (
+				B64535D02660A167006FE4AB /* ViewModel */,
 				C77282F523CC503F00067EB4 /* GroupTourSearch */,
 				38E68AA023B5AB80006BC4DD /* Slider */,
 				38BCDA2823A379DE00D59910 /* GroupTourViewController.swift */,
@@ -1619,6 +1645,28 @@
 			path = WebView;
 			sourceTree = "<group>";
 		};
+		B64535D02660A167006FE4AB /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B64535D12660C1A1006FE4AB /* GroupTourViewModel.swift */,
+				B65191112666094A002337A1 /* GroupTableViewViewModel.swift */,
+				B6D3C7D926731AD800C20763 /* GroupAd1ViewModel.swift */,
+				B6D3C7E026731B0300C20763 /* GroupAd2ViewModel.swift */,
+				B6D3C7E726731B5100C20763 /* GroupHeadCellViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		B64535DC2660C3BF006FE4AB /* MVVM */ = {
+			isa = PBXGroup;
+			children = (
+				B64535DD2660C3DC006FE4AB /* BaseViewControllerMVVM.swift */,
+				B64535E72660C42A006FE4AB /* BaseViewModel.swift */,
+				B645360D2660CC71006FE4AB /* BaseViewModelPrivate.swift */,
+			);
+			path = MVVM;
+			sourceTree = "<group>";
+		};
 		C70EEF4C23EA545200D67FF4 /* VersionRule */ = {
 			isa = PBXGroup;
 			children = (
@@ -1723,7 +1771,7 @@
 				3817E4F023A33C8400ED8609 /* Frameworks */,
 				3817E4F123A33C8400ED8609 /* Resources */,
 				E80E3A03E7894FC913ED443D /* [CP] Embed Pods Frameworks */,
-				A11D38F825BAD34C00D46867 /* ShellScript */,
+				A11D38F825BAD34C00D46867 /* Run Script */,
 			);
 			buildRules = (
 			);
@@ -2017,7 +2065,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A11D38F825BAD34C00D46867 /* ShellScript */ = {
+		A11D38F825BAD34C00D46867 /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -2026,6 +2074,7 @@
 			);
 			inputPaths = (
 			);
+			name = "Run Script";
 			outputFileListPaths = (
 			);
 			outputPaths = (
@@ -2152,6 +2201,7 @@
 				061CD2AF241F04D800BD0DE1 /* AirTktCell.swift in Sources */,
 				C7DCA71623D1B76200F415B8 /* GroupTourSearchInputCell.swift in Sources */,
 				38E68AB423B5ABE9006BC4DD /* AppHelper.swift in Sources */,
+				B6D3C7E826731B5100C20763 /* GroupHeadCellViewModel.swift in Sources */,
 				A1A7F2ED2418854D00263E42 /* CalendarSingleOrMutipleType.swift in Sources */,
 				38BCDA0D23A367D000D59910 /* LoadingView.swift in Sources */,
 				0650776123ED5E6B0067377C /* ContactInfoProtocol.swift in Sources */,
@@ -2159,13 +2209,16 @@
 				3848DA7E23C7289A00EA0ED0 /* NoticePresenter.swift in Sources */,
 				38BCD91C23A3457900D59910 /* AccountRepository.swift in Sources */,
 				38AFC40623CD521C00983886 /* SalesPresenter.swift in Sources */,
+				B6D3C7DA26731AD800C20763 /* GroupAd1ViewModel.swift in Sources */,
 				A1876A922415FC9A00855DE6 /* AirTicketSearchProtocol.swift in Sources */,
 				06610FDA240775AC00E87225 /* ExpandableButtonView.swift in Sources */,
 				38BCDA1B23A36AC100D59910 /* TabBarProtocol.swift in Sources */,
 				38BCD9D023A3652200D59910 /* VerifyModel.swift in Sources */,
 				38E68AB723B5AC12006BC4DD /* GroupMenuResponse.swift in Sources */,
 				A1A7F2EB2418854D00263E42 /* CalendarDateAttribute.swift in Sources */,
+				B6D3C7E126731B0300C20763 /* GroupAd2ViewModel.swift in Sources */,
 				38E9921B23B04CD400E28271 /* GropeTourProtocol.swift in Sources */,
+				B64535D22660C1A1006FE4AB /* GroupTourViewModel.swift in Sources */,
 				A1DB93E124066B8E00AE427C /* WebViewPresenter.swift in Sources */,
 				A10C824D24186CD80092DACA /* LccTicketRequest.swift in Sources */,
 				C711753D23BF407E00555D8C /* MoreProtocol.swift in Sources */,
@@ -2176,10 +2229,12 @@
 				38E9923423B05A0700E28271 /* LoginResponse.swift in Sources */,
 				38E68AA923B5AB80006BC4DD /* GroupSliderViewController.swift in Sources */,
 				062DFCBF2419C1AE006882BE /* ChooseLocationProtocol.swift in Sources */,
+				B65191122666094A002337A1 /* GroupTableViewViewModel.swift in Sources */,
 				0650775223ED4F1E0067377C /* ContactInfoViewController.swift in Sources */,
 				06B05CB02416293B00C8F447 /* ChooseLocationViewController.swift in Sources */,
 				38BCD93123A345FA00D59910 /* UserDefaultUtil.swift in Sources */,
 				38BCD98B23A3484300D59910 /* UINavigationBarExtension.swift in Sources */,
+				B64535E82660C42A006FE4AB /* BaseViewModel.swift in Sources */,
 				06DA4F7023E9222F001B7DF1 /* MessageSendUserListResponse.swift in Sources */,
 				38AA455E23D68E0A00BE3F95 /* HomeAd2Cell.swift in Sources */,
 				A1A7F30D2418854D00263E42 /* CalendarForTicketViewController.swift in Sources */,
@@ -2208,6 +2263,7 @@
 				38E9922423B04F2A00E28271 /* BulletinResponse.swift in Sources */,
 				381B12AC23C465950030BACE /* MoreViewController.swift in Sources */,
 				3817E4F723A33C8400ED8609 /* AppDelegate.swift in Sources */,
+				B64535DE2660C3DC006FE4AB /* BaseViewControllerMVVM.swift in Sources */,
 				38BCD98F23A3484300D59910 /* DateFormatterExtenstion.swift in Sources */,
 				382EF48323BEF93A0002BAB0 /* GroupReponsitory.swift in Sources */,
 				0650775523ED4FD50067377C /* ContactInfoResponse.swift in Sources */,
@@ -2220,6 +2276,7 @@
 				38BCDA1523A3689500D59910 /* ColorDef.swift in Sources */,
 				385B54F423BDC3A400BE1476 /* NotificationTableView.swift in Sources */,
 				38E68AAB23B5AB80006BC4DD /* GroupSliderItemCell.swift in Sources */,
+				B645360E2660CC71006FE4AB /* BaseViewModelPrivate.swift in Sources */,
 				06B05CA82416287D00C8F447 /* CapsuleCell.swift in Sources */,
 				38BCD92B23A345FA00D59910 /* DeviceUtil.swift in Sources */,
 				3869542B23BADC0F00F6E7D9 /* MemberIndexPresenter.swift in Sources */,
@@ -2377,6 +2434,7 @@
 				061CD2B0241F04D800BD0DE1 /* AirTktCell.swift in Sources */,
 				C7DCA71723D1B76200F415B8 /* GroupTourSearchInputCell.swift in Sources */,
 				38E68AB523B5ABE9006BC4DD /* AppHelper.swift in Sources */,
+				B6D3C7E926731B5100C20763 /* GroupHeadCellViewModel.swift in Sources */,
 				A1A7F2EE2418854D00263E42 /* CalendarSingleOrMutipleType.swift in Sources */,
 				38BCDA0E23A367D000D59910 /* LoadingView.swift in Sources */,
 				0650776223ED5E6B0067377C /* ContactInfoProtocol.swift in Sources */,
@@ -2384,13 +2442,16 @@
 				3848DA7F23C7289A00EA0ED0 /* NoticePresenter.swift in Sources */,
 				38BCD91D23A3457900D59910 /* AccountRepository.swift in Sources */,
 				38AFC40723CD521C00983886 /* SalesPresenter.swift in Sources */,
+				B6D3C7DB26731AD800C20763 /* GroupAd1ViewModel.swift in Sources */,
 				A1876A932415FC9A00855DE6 /* AirTicketSearchProtocol.swift in Sources */,
 				06610FDB240775AC00E87225 /* ExpandableButtonView.swift in Sources */,
 				38BCDA1C23A36AC100D59910 /* TabBarProtocol.swift in Sources */,
 				38BCD9D123A3652200D59910 /* VerifyModel.swift in Sources */,
 				38E68AB823B5AC12006BC4DD /* GroupMenuResponse.swift in Sources */,
 				A1A7F2EC2418854D00263E42 /* CalendarDateAttribute.swift in Sources */,
+				B6D3C7E226731B0300C20763 /* GroupAd2ViewModel.swift in Sources */,
 				38E9921C23B04CD400E28271 /* GropeTourProtocol.swift in Sources */,
+				B64535D32660C1A1006FE4AB /* GroupTourViewModel.swift in Sources */,
 				A1DB93E224066B8E00AE427C /* WebViewPresenter.swift in Sources */,
 				A10C824E24186CD80092DACA /* LccTicketRequest.swift in Sources */,
 				C711753E23BF407E00555D8C /* MoreProtocol.swift in Sources */,
@@ -2401,10 +2462,12 @@
 				38E9923523B05A0700E28271 /* LoginResponse.swift in Sources */,
 				38E68AAA23B5AB80006BC4DD /* GroupSliderViewController.swift in Sources */,
 				062DFCC02419C1AE006882BE /* ChooseLocationProtocol.swift in Sources */,
+				B65191132666094A002337A1 /* GroupTableViewViewModel.swift in Sources */,
 				0650775323ED4F1E0067377C /* ContactInfoViewController.swift in Sources */,
 				06B05CB12416293B00C8F447 /* ChooseLocationViewController.swift in Sources */,
 				38BCD93223A345FA00D59910 /* UserDefaultUtil.swift in Sources */,
 				38BCD98C23A3484300D59910 /* UINavigationBarExtension.swift in Sources */,
+				B64535E92660C42A006FE4AB /* BaseViewModel.swift in Sources */,
 				06DA4F7123E9222F001B7DF1 /* MessageSendUserListResponse.swift in Sources */,
 				38AA455F23D68E0A00BE3F95 /* HomeAd2Cell.swift in Sources */,
 				A1A7F30E2418854D00263E42 /* CalendarForTicketViewController.swift in Sources */,
@@ -2433,6 +2496,7 @@
 				38E9922523B04F2A00E28271 /* BulletinResponse.swift in Sources */,
 				381B12AD23C465950030BACE /* MoreViewController.swift in Sources */,
 				3817E52723A33C9500ED8609 /* AppDelegate.swift in Sources */,
+				B64535DF2660C3DC006FE4AB /* BaseViewControllerMVVM.swift in Sources */,
 				38BCD99023A3484300D59910 /* DateFormatterExtenstion.swift in Sources */,
 				382EF48423BEF93A0002BAB0 /* GroupReponsitory.swift in Sources */,
 				0650775623ED4FD50067377C /* ContactInfoResponse.swift in Sources */,
@@ -2445,6 +2509,7 @@
 				38BCDA1623A3689500D59910 /* ColorDef.swift in Sources */,
 				385B54F523BDC3A400BE1476 /* NotificationTableView.swift in Sources */,
 				38E68AAC23B5AB80006BC4DD /* GroupSliderItemCell.swift in Sources */,
+				B645360F2660CC71006FE4AB /* BaseViewModelPrivate.swift in Sources */,
 				06B05CA92416287D00C8F447 /* CapsuleCell.swift in Sources */,
 				38BCD92C23A345FA00D59910 /* DeviceUtil.swift in Sources */,
 				3869542C23BADC0F00F6E7D9 /* MemberIndexPresenter.swift in Sources */,
@@ -2700,6 +2765,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 13;
 				DEVELOPMENT_TEAM = 83357CEQAU;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				INFOPLIST_FILE = ColatourB2B/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2726,6 +2792,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 13;
 				DEVELOPMENT_TEAM = 83357CEQAU;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				INFOPLIST_FILE = ColatourB2B/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (

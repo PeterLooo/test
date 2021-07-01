@@ -187,13 +187,14 @@ class BaseViewController: UIViewController {
     let apiFailErrorView = ApiFailErrorView(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
     let toastView = ToastView(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
     
+    var baseLinkType: LinkType?
+    var baseLinkValue: String?
+    
     private var tabBarType: TabBarType = .notHidden
     private var navBarType: NavBarType = .notHidden
     private var navLeftType: NavLeftType = .defaultType
     private var navMidType: NavMidType = .textTitle
     private var navRightType: NavRightType = .nothing
-    private var baseLinkType: LinkType?
-    private var baseLinkValue: String?
     private var isNavHideWhenSwipe = false
     private var isNavShadowEnable = true
     private var isNavHidesBarsOnSwipe = false
