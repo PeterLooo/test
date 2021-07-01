@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -144,24 +144,69 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EpR-3y-Mm0">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="512"/>
                                 <color key="backgroundColor" name="背景灰"/>
                                 <connections>
                                     <outlet property="dataSource" destination="5dZ-1z-oIU" id="IPN-vj-3bF"/>
                                     <outlet property="delegate" destination="5dZ-1z-oIU" id="i2l-1O-wEt"/>
                                 </connections>
                             </tableView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HgH-aK-fhj" userLabel="Button View">
+                                <rect key="frame" x="0.0" y="512" width="320" height="56"/>
+                                <subviews>
+                                    <view alpha="0.10000000149011612" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bRo-g6-ROa">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="1"/>
+                                        <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="Elg-YR-hyW"/>
+                                        </constraints>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="juh-3y-yiT">
+                                        <rect key="frame" x="16" y="8" width="288" height="40"/>
+                                        <color key="backgroundColor" name="通用綠"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="vl4-a7-AVO"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="15"/>
+                                        <state key="normal" title="確認">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="4"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="bottomConfirmAction:" destination="5dZ-1z-oIU" eventType="touchUpInside" id="GEO-Fk-hvd"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="bRo-g6-ROa" firstAttribute="top" secondItem="HgH-aK-fhj" secondAttribute="top" id="CvS-KQ-srY"/>
+                                    <constraint firstItem="juh-3y-yiT" firstAttribute="trailing" secondItem="HgH-aK-fhj" secondAttribute="trailing" constant="-16" id="G03-9j-Xg9"/>
+                                    <constraint firstItem="juh-3y-yiT" firstAttribute="leading" secondItem="HgH-aK-fhj" secondAttribute="leading" constant="16" id="J6V-ka-D9g"/>
+                                    <constraint firstItem="bRo-g6-ROa" firstAttribute="trailing" secondItem="HgH-aK-fhj" secondAttribute="trailing" id="kRD-Ei-reK"/>
+                                    <constraint firstItem="juh-3y-yiT" firstAttribute="top" secondItem="HgH-aK-fhj" secondAttribute="top" constant="8" id="u8W-Ch-ayc"/>
+                                    <constraint firstItem="bRo-g6-ROa" firstAttribute="leading" secondItem="HgH-aK-fhj" secondAttribute="leading" id="vRV-Ys-jAY"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="hwp-9n-3sZ"/>
                         <color key="backgroundColor" name="背景灰"/>
                         <constraints>
-                            <constraint firstItem="hwp-9n-3sZ" firstAttribute="bottom" secondItem="EpR-3y-Mm0" secondAttribute="bottom" id="0GE-nh-ovf"/>
+                            <constraint firstAttribute="bottom" secondItem="HgH-aK-fhj" secondAttribute="bottom" id="6uC-LT-ofX"/>
                             <constraint firstItem="EpR-3y-Mm0" firstAttribute="top" secondItem="hwp-9n-3sZ" secondAttribute="top" id="AC6-fb-oKt"/>
+                            <constraint firstItem="HgH-aK-fhj" firstAttribute="leading" secondItem="fO0-yS-4RQ" secondAttribute="leading" id="G2Z-cN-Md7"/>
+                            <constraint firstAttribute="trailing" secondItem="HgH-aK-fhj" secondAttribute="trailing" id="RGq-cp-FfX"/>
+                            <constraint firstItem="juh-3y-yiT" firstAttribute="bottom" secondItem="hwp-9n-3sZ" secondAttribute="bottom" constant="-8" id="Uqv-6c-Cco"/>
+                            <constraint firstItem="HgH-aK-fhj" firstAttribute="top" secondItem="EpR-3y-Mm0" secondAttribute="bottom" id="YLP-ao-kFE"/>
                             <constraint firstItem="hwp-9n-3sZ" firstAttribute="trailing" secondItem="EpR-3y-Mm0" secondAttribute="trailing" id="cFM-8K-SBp"/>
                             <constraint firstItem="EpR-3y-Mm0" firstAttribute="leading" secondItem="hwp-9n-3sZ" secondAttribute="leading" id="qJw-y2-eHl"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bottomView" destination="HgH-aK-fhj" id="4tG-Yc-cAj"/>
                         <outlet property="tableView" destination="EpR-3y-Mm0" id="3Ko-HW-lDN"/>
                     </connections>
                 </viewController>
@@ -170,6 +215,11 @@
             <point key="canvasLocation" x="1127" y="111"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="aHi-Fs-E0x">
+            <size key="intrinsicContentSize" width="30" height="34"/>
+        </designable>
+    </designables>
     <resources>
         <image name="bab_login_logo" width="245" height="66"/>
         <image name="member_code_hide" width="20" height="20"/>
@@ -179,6 +229,9 @@
         </namedColor>
         <namedColor name="背景灰">
             <color red="0.97254901960784312" green="0.97254901960784312" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="通用綠">
+            <color red="0.098039215686274508" green="0.74901960784313726" blue="0.3843137254901961" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

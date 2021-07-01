@@ -17,17 +17,23 @@ extension MailChangeViewController {
 class MailChangeViewController: BaseViewControllerMVVM {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var bottomView: UIView!
     
     private var viewModel: MailChangeViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setNavTitle(title:"更正電子郵件信箱")
+        setTabBarType(tabBarType: .hidden)
         tableView.register(UINib(nibName: "MailChangeCell", bundle: nil), forCellReuseIdentifier: "MailChangeCell")
         tableView.register(UINib(nibName: "EditingEmailCell", bundle: nil), forCellReuseIdentifier: "EditingEmailCell")
         tableView.register(UINib(nibName: "ConfirmKeyCell", bundle: nil), forCellReuseIdentifier: "ConfirmKeyCell")
-        
+        tableView.register(UINib(nibName: "ConfirmKeySuccessCell", bundle: nil), forCellReuseIdentifier: "ConfirmKeySuccessCell")
         bindViewModel()
+    }
+    
+    @IBAction func bottomConfirmAction(_ sender: Any) {
+        self.navigationController?.popToRootViewController(animated: true)
     }
 }
 
@@ -53,6 +59,12 @@ extension MailChangeViewController: UITableViewDataSource {
         case .sendKey:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ConfirmKeyCell", for: indexPath) as! ConfirmKeyCell
             cell.setCell(viewModel: (viewModel?.confirmKeyCellViewModel)!)
+            return cell
+        case .testSuccess:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ConfirmKeySuccessCell", for: indexPath) as! ConfirmKeySuccessCell
+            cell.setCell(viewModel: (viewModel?.confirmSuccessViewModel)!,
+                         viewHight: view.frame.size.height - 
+                            (self.navigationController?.navigationBar.frame.height ?? 0.0))
             return cell
         default:
             return UITableViewCell()
@@ -89,6 +101,8 @@ extension MailChangeViewController {
             self?.tableView.beginUpdates()
             self?.tableView.reloadSections(NSIndexSet(index: 0) as IndexSet, with: .automatic)
             self?.tableView.endUpdates()
+            
+            self?.bottomView.isHidden = self?.viewModel?.emailChangeType != .testSuccess
         }
         
         viewModel?.nextTimeToEdit = { [weak self] in

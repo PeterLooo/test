@@ -480,6 +480,12 @@
 		A1BBC9AD268AABCF0076355F /* ConfirmKeyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1BBC9A9268AABCF0076355F /* ConfirmKeyCell.xib */; };
 		A1BBCA23268ACB430076355F /* ConfirmKeyCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BBCA22268ACB430076355F /* ConfirmKeyCellViewModel.swift */; };
 		A1BBCA24268ACB430076355F /* ConfirmKeyCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BBCA22268ACB430076355F /* ConfirmKeyCellViewModel.swift */; };
+		A1BBCA2B268B01380076355F /* ConfirmKeySuccessCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BBCA29268B01380076355F /* ConfirmKeySuccessCell.swift */; };
+		A1BBCA2C268B01380076355F /* ConfirmKeySuccessCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BBCA29268B01380076355F /* ConfirmKeySuccessCell.swift */; };
+		A1BBCA2D268B01380076355F /* ConfirmKeySuccessCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1BBCA2A268B01380076355F /* ConfirmKeySuccessCell.xib */; };
+		A1BBCA2E268B01380076355F /* ConfirmKeySuccessCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1BBCA2A268B01380076355F /* ConfirmKeySuccessCell.xib */; };
+		A1BBCA34268B0D5A0076355F /* ConfirmKeySuccessCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BBCA33268B0D590076355F /* ConfirmKeySuccessCellViewModel.swift */; };
+		A1BBCA35268B0D5A0076355F /* ConfirmKeySuccessCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BBCA33268B0D590076355F /* ConfirmKeySuccessCellViewModel.swift */; };
 		A1DB93DE24066B5D00AE427C /* WebViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DB93DD24066B5D00AE427C /* WebViewProtocol.swift */; };
 		A1DB93DF24066B5D00AE427C /* WebViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DB93DD24066B5D00AE427C /* WebViewProtocol.swift */; };
 		A1DB93E124066B8E00AE427C /* WebViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DB93E024066B8E00AE427C /* WebViewPresenter.swift */; };
@@ -857,6 +863,9 @@
 		A1BBC9A8268AABCE0076355F /* ConfirmKeyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmKeyCell.swift; sourceTree = "<group>"; };
 		A1BBC9A9268AABCF0076355F /* ConfirmKeyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConfirmKeyCell.xib; sourceTree = "<group>"; };
 		A1BBCA22268ACB430076355F /* ConfirmKeyCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmKeyCellViewModel.swift; sourceTree = "<group>"; };
+		A1BBCA29268B01380076355F /* ConfirmKeySuccessCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmKeySuccessCell.swift; sourceTree = "<group>"; };
+		A1BBCA2A268B01380076355F /* ConfirmKeySuccessCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConfirmKeySuccessCell.xib; sourceTree = "<group>"; };
+		A1BBCA33268B0D590076355F /* ConfirmKeySuccessCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmKeySuccessCellViewModel.swift; sourceTree = "<group>"; };
 		A1DB93DD24066B5D00AE427C /* WebViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewProtocol.swift; sourceTree = "<group>"; };
 		A1DB93E024066B8E00AE427C /* WebViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewPresenter.swift; sourceTree = "<group>"; };
 		A1DB93E324066EC500AE427C /* WebViewTourShareResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewTourShareResponse.swift; sourceTree = "<group>"; };
@@ -1539,6 +1548,8 @@
 				A1819F342685B44200AA73FB /* EditingEmailCell.xib */,
 				A1BBC9A8268AABCE0076355F /* ConfirmKeyCell.swift */,
 				A1BBC9A9268AABCF0076355F /* ConfirmKeyCell.xib */,
+				A1BBCA29268B01380076355F /* ConfirmKeySuccessCell.swift */,
+				A1BBCA2A268B01380076355F /* ConfirmKeySuccessCell.xib */,
 			);
 			path = MailChange;
 			sourceTree = "<group>";
@@ -1550,6 +1561,7 @@
 				A1346AE326858F37004980CC /* MailChangeCellViewModel.swift */,
 				A1819F3D2685B70800AA73FB /* EditingEmailCellViewModel.swift */,
 				A1BBCA22268ACB430076355F /* ConfirmKeyCellViewModel.swift */,
+				A1BBCA33268B0D590076355F /* ConfirmKeySuccessCellViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1979,6 +1991,7 @@
 				382FD59F23D8038C001FF38E /* BottomLoadingView.xib in Resources */,
 				387FBEFD23ACA2A7005412F1 /* Notice.storyboard in Resources */,
 				CCCC735F23E42D8200FC03EE /* PasswordModify.storyboard in Resources */,
+				A1BBCA2D268B01380076355F /* ConfirmKeySuccessCell.xib in Resources */,
 				3802A19323C8522F00CD2EF2 /* Sales.storyboard in Resources */,
 				38871EB623D55E2F007ED33D /* GroupIndexHeaderImageCell.xib in Resources */,
 				38E68AC123B5AE30006BC4DD /* Common.storyboard in Resources */,
@@ -2088,6 +2101,7 @@
 				3869543523BAE5F500F6E7D9 /* MemberTopCell.xib in Resources */,
 				0650775C23ED52970067377C /* ContactInfoCell.xib in Resources */,
 				A17CFAE4241B398A00922CC2 /* AirIndexView.xib in Resources */,
+				A1BBCA2E268B01380076355F /* ConfirmKeySuccessCell.xib in Resources */,
 				A1346AD926858721004980CC /* MailChangeCell.xib in Resources */,
 				38BCDA1023A367D000D59910 /* NoInternetErrorView.xib in Resources */,
 				A1819F382685B44200AA73FB /* EditingEmailCell.xib in Resources */,
@@ -2248,6 +2262,7 @@
 				A1A7F2F72418854D00263E42 /* CalendarType.swift in Sources */,
 				3869543E23BB002900F6E7D9 /* MemberIndexVersionCell.swift in Sources */,
 				A1A7F2EF2418854D00263E42 /* CalendarSelectedYearMonthDays.swift in Sources */,
+				A1BBCA34268B0D5A0076355F /* ConfirmKeySuccessCellViewModel.swift in Sources */,
 				38BCD99C23A363AB00D59910 /* MemberRepositoryProtocol.swift in Sources */,
 				381B12B223C466370030BACE /* NoticeViewController.swift in Sources */,
 				A14F56EA241F708700BF40DA /* AirSearchUrlResponse.swift in Sources */,
@@ -2299,6 +2314,7 @@
 				B65191122666094A002337A1 /* GroupTableViewViewModel.swift in Sources */,
 				0650775223ED4F1E0067377C /* ContactInfoViewController.swift in Sources */,
 				06B05CB02416293B00C8F447 /* ChooseLocationViewController.swift in Sources */,
+				A1BBCA2B268B01380076355F /* ConfirmKeySuccessCell.swift in Sources */,
 				38BCD93123A345FA00D59910 /* UserDefaultUtil.swift in Sources */,
 				38BCD98B23A3484300D59910 /* UINavigationBarExtension.swift in Sources */,
 				B64535E82660C42A006FE4AB /* BaseViewModel.swift in Sources */,
@@ -2489,6 +2505,7 @@
 				A1A7F2F82418854D00263E42 /* CalendarType.swift in Sources */,
 				3869543F23BB002900F6E7D9 /* MemberIndexVersionCell.swift in Sources */,
 				A1A7F2F02418854D00263E42 /* CalendarSelectedYearMonthDays.swift in Sources */,
+				A1BBCA35268B0D5A0076355F /* ConfirmKeySuccessCellViewModel.swift in Sources */,
 				38BCD99D23A363AB00D59910 /* MemberRepositoryProtocol.swift in Sources */,
 				381B12B323C466370030BACE /* NoticeViewController.swift in Sources */,
 				A14F56EB241F708700BF40DA /* AirSearchUrlResponse.swift in Sources */,
@@ -2540,6 +2557,7 @@
 				B65191132666094A002337A1 /* GroupTableViewViewModel.swift in Sources */,
 				0650775323ED4F1E0067377C /* ContactInfoViewController.swift in Sources */,
 				06B05CB12416293B00C8F447 /* ChooseLocationViewController.swift in Sources */,
+				A1BBCA2C268B01380076355F /* ConfirmKeySuccessCell.swift in Sources */,
 				38BCD93223A345FA00D59910 /* UserDefaultUtil.swift in Sources */,
 				38BCD98C23A3484300D59910 /* UINavigationBarExtension.swift in Sources */,
 				B64535E92660C42A006FE4AB /* BaseViewModel.swift in Sources */,

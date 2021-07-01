@@ -14,6 +14,7 @@ extension MailChangeViewModel {
         case testEmail
         case editingEmail
         case sendKey
+        case testSuccess
     }
 }
 
@@ -76,6 +77,8 @@ class MailChangeViewModel: BaseViewModel {
             
             confirmKeyCellViewModel?.sendKey = { [weak self] key in
                 print(key) // api callin
+                self?.confirmSuccessViewModel = ConfirmKeySuccessCellViewModel(email: (self?.confirmKeyCellViewModel?.email)!, successInfo: "林宇儒 先生，您好：\n您註冊的電子郵件信箱已經可以正常接收「可樂B2B同業網」寄送給您的信件！\n\n我們往後的網路服務信函將會寄送到此信箱，謝謝您的配合！")
+                self?.emailChangeType = .testSuccess
             }
             
             confirmKeyCellViewModel?.receiveFail = { [weak self] in
@@ -83,6 +86,8 @@ class MailChangeViewModel: BaseViewModel {
             }
         }
     }
+    
+    var confirmSuccessViewModel: ConfirmKeySuccessCellViewModel?
     
     required init(type: LoginEmailChangeType) {
         super.init()
