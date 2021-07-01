@@ -400,8 +400,8 @@
 		A1876A962415FCA700855DE6 /* AirTicketSearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1876A942415FCA700855DE6 /* AirTicketSearchPresenter.swift */; };
 		A1876A982415FDCA00855DE6 /* TKTRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1876A972415FDCA00855DE6 /* TKTRepository.swift */; };
 		A1876A992415FDCA00855DE6 /* TKTRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1876A972415FDCA00855DE6 /* TKTRepository.swift */; };
-		A19758F726806F2400DF1C86 /* GroupTourSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19758F626806F2400DF1C86 /* GroupTourSearchViewModel.swift */; };
-		A19758F826806F2400DF1C86 /* GroupTourSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19758F626806F2400DF1C86 /* GroupTourSearchViewModel.swift */; };
+		A198E511268326CE000A9A4A /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A198E510268326CE000A9A4A /* LoginViewModel.swift */; };
+		A198E512268326CE000A9A4A /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A198E510268326CE000A9A4A /* LoginViewModel.swift */; };
 		A1A7F2E52418854D00263E42 /* SelectCalendarManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A7F2CC2418854C00263E42 /* SelectCalendarManagerProtocol.swift */; };
 		A1A7F2E62418854D00263E42 /* SelectCalendarManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A7F2CC2418854C00263E42 /* SelectCalendarManagerProtocol.swift */; };
 		A1A7F2E72418854D00263E42 /* SelectCalendarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A7F2CD2418854C00263E42 /* SelectCalendarManager.swift */; };
@@ -474,6 +474,8 @@
 		A1E449BB241B17B100895AF6 /* AirPopCityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E449B9241B17B100895AF6 /* AirPopCityView.swift */; };
 		A1E449BD241B17BE00895AF6 /* AirPopCityView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1E449BC241B17BE00895AF6 /* AirPopCityView.xib */; };
 		A1E449BE241B17BE00895AF6 /* AirPopCityView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1E449BC241B17BE00895AF6 /* AirPopCityView.xib */; };
+		A1F2DAF8268D5E3B00C0DDA0 /* GroupTourSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F2DAF7268D5E3B00C0DDA0 /* GroupTourSearchViewModel.swift */; };
+		A1F2DAF9268D5E3B00C0DDA0 /* GroupTourSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F2DAF7268D5E3B00C0DDA0 /* GroupTourSearchViewModel.swift */; };
 		A1F6E88324176BB90015279F /* SotoAirCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F6E88224176BB90015279F /* SotoAirCell.swift */; };
 		A1F6E88424176BB90015279F /* SotoAirCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F6E88224176BB90015279F /* SotoAirCell.swift */; };
 		A1F6E886241787510015279F /* LccAirCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F6E885241787510015279F /* LccAirCell.swift */; };
@@ -484,8 +486,6 @@
 		B64535DF2660C3DC006FE4AB /* BaseViewControllerMVVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64535DD2660C3DC006FE4AB /* BaseViewControllerMVVM.swift */; };
 		B64535E82660C42A006FE4AB /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64535E72660C42A006FE4AB /* BaseViewModel.swift */; };
 		B64535E92660C42A006FE4AB /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64535E72660C42A006FE4AB /* BaseViewModel.swift */; };
-		B645360E2660CC71006FE4AB /* BaseViewModelPrivate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B645360D2660CC71006FE4AB /* BaseViewModelPrivate.swift */; };
-		B645360F2660CC71006FE4AB /* BaseViewModelPrivate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B645360D2660CC71006FE4AB /* BaseViewModelPrivate.swift */; };
 		B65191122666094A002337A1 /* GroupTableViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65191112666094A002337A1 /* GroupTableViewViewModel.swift */; };
 		B65191132666094A002337A1 /* GroupTableViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65191112666094A002337A1 /* GroupTableViewViewModel.swift */; };
 		B6D3C7DA26731AD800C20763 /* GroupAd1ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D3C7D926731AD800C20763 /* GroupAd1ViewModel.swift */; };
@@ -798,6 +798,7 @@
 		A1876A942415FCA700855DE6 /* AirTicketSearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirTicketSearchPresenter.swift; sourceTree = "<group>"; };
 		A1876A972415FDCA00855DE6 /* TKTRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TKTRepository.swift; sourceTree = "<group>"; };
 		A19758F626806F2400DF1C86 /* GroupTourSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTourSearchViewModel.swift; sourceTree = "<group>"; };
+		A198E510268326CE000A9A4A /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		A1A7F2CC2418854C00263E42 /* SelectCalendarManagerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectCalendarManagerProtocol.swift; sourceTree = "<group>"; };
 		A1A7F2CD2418854C00263E42 /* SelectCalendarManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectCalendarManager.swift; sourceTree = "<group>"; };
 		A1A7F2CF2418854C00263E42 /* CalendarSelectedYearMonthDaysString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarSelectedYearMonthDaysString.swift; sourceTree = "<group>"; };
@@ -834,6 +835,8 @@
 		A1E449B4241B168B00895AF6 /* AirPopCityCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AirPopCityCell.xib; sourceTree = "<group>"; };
 		A1E449B9241B17B100895AF6 /* AirPopCityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirPopCityView.swift; sourceTree = "<group>"; };
 		A1E449BC241B17BE00895AF6 /* AirPopCityView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AirPopCityView.xib; sourceTree = "<group>"; };
+		A1F2DAF7268D5E3B00C0DDA0 /* GroupTourSearchViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupTourSearchViewModel.swift; sourceTree = "<group>"; };
+		A1F2DAFA268D618400C0DDA0 /* GroupTourSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GroupTourSearchViewModel.swift; path = ColatourB2B/UI/Group/GroupTourSearch/ViewModel/GroupTourSearchViewModel.swift; sourceTree = "<group>"; };
 		A1F6E88224176BB90015279F /* SotoAirCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SotoAirCell.swift; sourceTree = "<group>"; };
 		A1F6E885241787510015279F /* LccAirCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LccAirCell.swift; sourceTree = "<group>"; };
 		A331B185DD2055D277F472F3 /* Pods_ColatourB2B.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ColatourB2B.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -841,7 +844,6 @@
 		B64535D12660C1A1006FE4AB /* GroupTourViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTourViewModel.swift; sourceTree = "<group>"; };
 		B64535DD2660C3DC006FE4AB /* BaseViewControllerMVVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewControllerMVVM.swift; sourceTree = "<group>"; };
 		B64535E72660C42A006FE4AB /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
-		B645360D2660CC71006FE4AB /* BaseViewModelPrivate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModelPrivate.swift; sourceTree = "<group>"; };
 		B65191112666094A002337A1 /* GroupTableViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTableViewViewModel.swift; sourceTree = "<group>"; };
 		B6D3C7D926731AD800C20763 /* GroupAd1ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupAd1ViewModel.swift; sourceTree = "<group>"; };
 		B6D3C7E026731B0300C20763 /* GroupAd2ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupAd2ViewModel.swift; sourceTree = "<group>"; };
@@ -958,6 +960,7 @@
 		069D7497241A13020047EA03 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
+				A19758F626806F2400DF1C86 /* GroupTourSearchViewModel.swift */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -1062,6 +1065,7 @@
 		3817E4EA23A33C8400ED8609 = {
 			isa = PBXGroup;
 			children = (
+				A1F2DAFA268D618400C0DDA0 /* GroupTourSearchViewModel.swift */,
 				2AF496B023AB79810053EA45 /* ColatourB2BDev.entitlements */,
 				38BCDA2023A3713900D59910 /* ColatourB2B-Bridging-Header.h */,
 				3817E4F523A33C8400ED8609 /* ColatourB2B */,
@@ -1210,6 +1214,7 @@
 		387FBF0D23ACCEE4005412F1 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				A198E50F268325E6000A9A4A /* ViewModel */,
 				387FBF0E23ACCEF4005412F1 /* LoginViewController.swift */,
 				38E9922623B053A200E28271 /* LoginProtocol.swift */,
 				38E9922923B053C400E28271 /* LoginPresenter.swift */,
@@ -1556,10 +1561,10 @@
 			path = TKT;
 			sourceTree = "<group>";
 		};
-		A19758F526806DAA00DF1C86 /* ViewModel */ = {
+		A198E50F268325E6000A9A4A /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				A19758F626806F2400DF1C86 /* GroupTourSearchViewModel.swift */,
+				A198E510268326CE000A9A4A /* LoginViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1656,6 +1661,14 @@
 			path = WebView;
 			sourceTree = "<group>";
 		};
+		A1F2DAF6268D5E3B00C0DDA0 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A1F2DAF7268D5E3B00C0DDA0 /* GroupTourSearchViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		B64535D02660A167006FE4AB /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -1673,7 +1686,6 @@
 			children = (
 				B64535DD2660C3DC006FE4AB /* BaseViewControllerMVVM.swift */,
 				B64535E72660C42A006FE4AB /* BaseViewModel.swift */,
-				B645360D2660CC71006FE4AB /* BaseViewModelPrivate.swift */,
 			);
 			path = MVVM;
 			sourceTree = "<group>";
@@ -1742,7 +1754,7 @@
 		C77282F523CC503F00067EB4 /* GroupTourSearch */ = {
 			isa = PBXGroup;
 			children = (
-				A19758F526806DAA00DF1C86 /* ViewModel */,
+				A1F2DAF6268D5E3B00C0DDA0 /* ViewModel */,
 				C77282F623CC505800067EB4 /* GroupTourSearchViewController.swift */,
 				C7DCA71523D1B76200F415B8 /* GroupTourSearchInputCell.swift */,
 				C7DCA71E23D1BBC300F415B8 /* GroupTourSearchProtocol.swift */,
@@ -2171,6 +2183,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1F2DAF8268D5E3B00C0DDA0 /* GroupTourSearchViewModel.swift in Sources */,
 				06DA4F7223E9222F001B7DF1 /* MessageSendResponse.swift in Sources */,
 				06DA4F8E23E92260001B7DF1 /* MessageSendNotificationListCell.swift in Sources */,
 				38AFC40323CD51C700983886 /* SalesProtocol.swift in Sources */,
@@ -2288,7 +2301,6 @@
 				38BCDA1523A3689500D59910 /* ColorDef.swift in Sources */,
 				385B54F423BDC3A400BE1476 /* NotificationTableView.swift in Sources */,
 				38E68AAB23B5AB80006BC4DD /* GroupSliderItemCell.swift in Sources */,
-				B645360E2660CC71006FE4AB /* BaseViewModelPrivate.swift in Sources */,
 				06B05CA82416287D00C8F447 /* CapsuleCell.swift in Sources */,
 				38BCD92B23A345FA00D59910 /* DeviceUtil.swift in Sources */,
 				3869542B23BADC0F00F6E7D9 /* MemberIndexPresenter.swift in Sources */,
@@ -2296,6 +2308,7 @@
 				382FD59C23D80382001FF38E /* BottomLoadingView.swift in Sources */,
 				38BCDA0123A367D000D59910 /* NoInternetErrorView.swift in Sources */,
 				38BCD98323A3484300D59910 /* DateComponentExtension.swift in Sources */,
+				A198E511268326CE000A9A4A /* LoginViewModel.swift in Sources */,
 				38BCD97123A3484300D59910 /* FirebaseEvent.swift in Sources */,
 				381B12AF23C465AE0030BACE /* AirTicketViewController.swift in Sources */,
 				A1876A952415FCA700855DE6 /* AirTicketSearchPresenter.swift in Sources */,
@@ -2320,7 +2333,6 @@
 				A1F6E886241787510015279F /* LccAirCell.swift in Sources */,
 				C7C41C4423C724E900F97057 /* NoticeDetailContentCell.swift in Sources */,
 				A12808A823F7937100287B9F /* PriceRangeSlider.swift in Sources */,
-				A19758F726806F2400DF1C86 /* GroupTourSearchViewModel.swift in Sources */,
 				06B05CB62416470900C8F447 /* BrickCell.swift in Sources */,
 				38E9922123B04F1400E28271 /* VersionRuleReponse.swift in Sources */,
 				0650776423ED5F300067377C /* ContactInfoPresenter.swift in Sources */,
@@ -2507,6 +2519,7 @@
 				A1A7F3262418882100263E42 /* CustomCalendar.swift in Sources */,
 				C7DA175B23D70245006A8803 /* GroupTourSearchKeywordAndTourCodeRequest.swift in Sources */,
 				38E9922523B04F2A00E28271 /* BulletinResponse.swift in Sources */,
+				A1F2DAF9268D5E3B00C0DDA0 /* GroupTourSearchViewModel.swift in Sources */,
 				381B12AD23C465950030BACE /* MoreViewController.swift in Sources */,
 				3817E52723A33C9500ED8609 /* AppDelegate.swift in Sources */,
 				B64535DF2660C3DC006FE4AB /* BaseViewControllerMVVM.swift in Sources */,
@@ -2522,7 +2535,6 @@
 				38BCDA1623A3689500D59910 /* ColorDef.swift in Sources */,
 				385B54F523BDC3A400BE1476 /* NotificationTableView.swift in Sources */,
 				38E68AAC23B5AB80006BC4DD /* GroupSliderItemCell.swift in Sources */,
-				B645360F2660CC71006FE4AB /* BaseViewModelPrivate.swift in Sources */,
 				06B05CA92416287D00C8F447 /* CapsuleCell.swift in Sources */,
 				38BCD92C23A345FA00D59910 /* DeviceUtil.swift in Sources */,
 				3869542C23BADC0F00F6E7D9 /* MemberIndexPresenter.swift in Sources */,
@@ -2530,6 +2542,7 @@
 				382FD59D23D80382001FF38E /* BottomLoadingView.swift in Sources */,
 				38BCDA0223A367D000D59910 /* NoInternetErrorView.swift in Sources */,
 				38BCD98423A3484300D59910 /* DateComponentExtension.swift in Sources */,
+				A198E512268326CE000A9A4A /* LoginViewModel.swift in Sources */,
 				38BCD97223A3484300D59910 /* FirebaseEvent.swift in Sources */,
 				381B12B023C465AE0030BACE /* AirTicketViewController.swift in Sources */,
 				A1876A962415FCA700855DE6 /* AirTicketSearchPresenter.swift in Sources */,
@@ -2554,7 +2567,6 @@
 				A1F6E887241787510015279F /* LccAirCell.swift in Sources */,
 				C7C41C4523C724E900F97057 /* NoticeDetailContentCell.swift in Sources */,
 				A12808A923F7937100287B9F /* PriceRangeSlider.swift in Sources */,
-				A19758F826806F2400DF1C86 /* GroupTourSearchViewModel.swift in Sources */,
 				06B05CB72416470900C8F447 /* BrickCell.swift in Sources */,
 				38E9922223B04F1400E28271 /* VersionRuleReponse.swift in Sources */,
 				0650776523ED5F300067377C /* ContactInfoPresenter.swift in Sources */,

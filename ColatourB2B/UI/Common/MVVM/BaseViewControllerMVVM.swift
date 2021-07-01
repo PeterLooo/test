@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 
 class BaseViewControllerMVVM: BaseViewController {
-    private let baseViewModelPrivate = BaseViewModelPrivate.share
     
     func bindToBaseViewModel(viewModel: BaseViewModel) {
         
@@ -25,15 +24,15 @@ class BaseViewControllerMVVM: BaseViewController {
             self?.handleLinkType(linkType: linkType, linkValue: linkValue, linkText: linkText, source: source)
         }
         
-        baseViewModelPrivate.loadData = { [weak self] in
+        viewModel.loadData = { [weak self] in
             self?.loadData()
         }
         
-        baseViewModelPrivate.onBindAccessTokenByLink = { [weak self] linkType, linkValue in
+        viewModel.onBindAccessTokenByLink = { [weak self] linkType, linkValue in
             self?.handleLinkType(linkType: linkType, linkValue: linkValue, linkText: "")
         }
         
-        baseViewModelPrivate.onBindAccessWebUrl = { [weak self] url, title, openBrowserOrAppWebView in
+        viewModel.onBindAccessWebUrl = { [weak self] url, title, openBrowserOrAppWebView in
             switch openBrowserOrAppWebView {
             case .openAppWebView:
                 let vc = self?.getVC(st: "Common", vc: "WebViewController") as! WebViewController
@@ -58,7 +57,7 @@ class BaseViewControllerMVVM: BaseViewController {
                 
             case .apiForbiddenException:
                 
-                self?.baseViewModelPrivate.getAccessToken(linkType: self?.baseLinkType, linkValue: self?.baseLinkValue)
+                viewModel.getAccessToken(linkType: self?.baseLinkType, linkValue: self?.baseLinkValue)
                 
             case .apiFailException:
                 self?.handleApiFailError(handleType: handleType, alertMsg: apiError.alertMsg, isAlertWithContactService: true)
