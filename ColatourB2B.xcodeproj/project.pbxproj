@@ -474,6 +474,8 @@
 		A1E449BB241B17B100895AF6 /* AirPopCityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E449B9241B17B100895AF6 /* AirPopCityView.swift */; };
 		A1E449BD241B17BE00895AF6 /* AirPopCityView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1E449BC241B17BE00895AF6 /* AirPopCityView.xib */; };
 		A1E449BE241B17BE00895AF6 /* AirPopCityView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1E449BC241B17BE00895AF6 /* AirPopCityView.xib */; };
+		A1F2DAF8268D5E3B00C0DDA0 /* GroupTourSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F2DAF7268D5E3B00C0DDA0 /* GroupTourSearchViewModel.swift */; };
+		A1F2DAF9268D5E3B00C0DDA0 /* GroupTourSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F2DAF7268D5E3B00C0DDA0 /* GroupTourSearchViewModel.swift */; };
 		A1F6E88324176BB90015279F /* SotoAirCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F6E88224176BB90015279F /* SotoAirCell.swift */; };
 		A1F6E88424176BB90015279F /* SotoAirCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F6E88224176BB90015279F /* SotoAirCell.swift */; };
 		A1F6E886241787510015279F /* LccAirCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F6E885241787510015279F /* LccAirCell.swift */; };
@@ -795,6 +797,7 @@
 		A1876A912415FC9A00855DE6 /* AirTicketSearchProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirTicketSearchProtocol.swift; sourceTree = "<group>"; };
 		A1876A942415FCA700855DE6 /* AirTicketSearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirTicketSearchPresenter.swift; sourceTree = "<group>"; };
 		A1876A972415FDCA00855DE6 /* TKTRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TKTRepository.swift; sourceTree = "<group>"; };
+		A19758F626806F2400DF1C86 /* GroupTourSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTourSearchViewModel.swift; sourceTree = "<group>"; };
 		A198E510268326CE000A9A4A /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		A1A7F2CC2418854C00263E42 /* SelectCalendarManagerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectCalendarManagerProtocol.swift; sourceTree = "<group>"; };
 		A1A7F2CD2418854C00263E42 /* SelectCalendarManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectCalendarManager.swift; sourceTree = "<group>"; };
@@ -832,6 +835,8 @@
 		A1E449B4241B168B00895AF6 /* AirPopCityCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AirPopCityCell.xib; sourceTree = "<group>"; };
 		A1E449B9241B17B100895AF6 /* AirPopCityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirPopCityView.swift; sourceTree = "<group>"; };
 		A1E449BC241B17BE00895AF6 /* AirPopCityView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AirPopCityView.xib; sourceTree = "<group>"; };
+		A1F2DAF7268D5E3B00C0DDA0 /* GroupTourSearchViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupTourSearchViewModel.swift; sourceTree = "<group>"; };
+		A1F2DAFA268D618400C0DDA0 /* GroupTourSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GroupTourSearchViewModel.swift; path = ColatourB2B/UI/Group/GroupTourSearch/ViewModel/GroupTourSearchViewModel.swift; sourceTree = "<group>"; };
 		A1F6E88224176BB90015279F /* SotoAirCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SotoAirCell.swift; sourceTree = "<group>"; };
 		A1F6E885241787510015279F /* LccAirCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LccAirCell.swift; sourceTree = "<group>"; };
 		A331B185DD2055D277F472F3 /* Pods_ColatourB2B.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ColatourB2B.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -955,6 +960,7 @@
 		069D7497241A13020047EA03 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
+				A19758F626806F2400DF1C86 /* GroupTourSearchViewModel.swift */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -1059,6 +1065,7 @@
 		3817E4EA23A33C8400ED8609 = {
 			isa = PBXGroup;
 			children = (
+				A1F2DAFA268D618400C0DDA0 /* GroupTourSearchViewModel.swift */,
 				2AF496B023AB79810053EA45 /* ColatourB2BDev.entitlements */,
 				38BCDA2023A3713900D59910 /* ColatourB2B-Bridging-Header.h */,
 				3817E4F523A33C8400ED8609 /* ColatourB2B */,
@@ -1654,6 +1661,14 @@
 			path = WebView;
 			sourceTree = "<group>";
 		};
+		A1F2DAF6268D5E3B00C0DDA0 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A1F2DAF7268D5E3B00C0DDA0 /* GroupTourSearchViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		B64535D02660A167006FE4AB /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -1739,6 +1754,7 @@
 		C77282F523CC503F00067EB4 /* GroupTourSearch */ = {
 			isa = PBXGroup;
 			children = (
+				A1F2DAF6268D5E3B00C0DDA0 /* ViewModel */,
 				C77282F623CC505800067EB4 /* GroupTourSearchViewController.swift */,
 				C7DCA71523D1B76200F415B8 /* GroupTourSearchInputCell.swift */,
 				C7DCA71E23D1BBC300F415B8 /* GroupTourSearchProtocol.swift */,
@@ -2167,6 +2183,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1F2DAF8268D5E3B00C0DDA0 /* GroupTourSearchViewModel.swift in Sources */,
 				06DA4F7223E9222F001B7DF1 /* MessageSendResponse.swift in Sources */,
 				06DA4F8E23E92260001B7DF1 /* MessageSendNotificationListCell.swift in Sources */,
 				38AFC40323CD51C700983886 /* SalesProtocol.swift in Sources */,
@@ -2502,6 +2519,7 @@
 				A1A7F3262418882100263E42 /* CustomCalendar.swift in Sources */,
 				C7DA175B23D70245006A8803 /* GroupTourSearchKeywordAndTourCodeRequest.swift in Sources */,
 				38E9922523B04F2A00E28271 /* BulletinResponse.swift in Sources */,
+				A1F2DAF9268D5E3B00C0DDA0 /* GroupTourSearchViewModel.swift in Sources */,
 				381B12AD23C465950030BACE /* MoreViewController.swift in Sources */,
 				3817E52723A33C9500ED8609 /* AppDelegate.swift in Sources */,
 				B64535DF2660C3DC006FE4AB /* BaseViewControllerMVVM.swift in Sources */,

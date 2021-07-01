@@ -8,13 +8,6 @@
 
 import UIKit
 
-protocol GroupTourSearchInputCellProtocol: NSObjectProtocol {
-    func onTouchTourDaysView(_ sender: UIButton)
-    func onTourDaysTextFieldDidChange(text: String)
-    func selectDateFromeNewDatePicker(date: String)
-    func sliderDown()
-}
-
 class GroupTourSearchInputCell: UITableViewCell {
 
     @IBOutlet weak var priceLimitCheckBoxImageView: UIImageView!
@@ -32,7 +25,7 @@ class GroupTourSearchInputCell: UITableViewCell {
     @IBOutlet weak var dateButton: UIButton!
     
     var priceRangeSlider: PriceRangeSlider?
-    weak var delegate: GroupTourSearchInputCellProtocol?
+    private var viewModel: GroupTourSearchRequest?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -54,8 +47,8 @@ class GroupTourSearchInputCell: UITableViewCell {
         }
     }
     
-    func setCellWith(groupTourSearchRequest: GroupTourSearchRequest)
-    {
+    func setCellWith(groupTourSearchRequest: GroupTourSearchRequest){
+        viewModel = groupTourSearchRequest
         priceLimitCheckBoxImageView.image = groupTourSearchRequest.isPriceLimit ? #imageLiteral(resourceName: "check") : #imageLiteral(resourceName: "check_hover")
         bookingTourCheckBoxImageView.image = groupTourSearchRequest.isBookingTour ? #imageLiteral(resourceName: "check") : #imageLiteral(resourceName: "check_hover")
         
@@ -89,7 +82,6 @@ class GroupTourSearchInputCell: UITableViewCell {
         } else {
             tourDaysTextField.text = ""
         }
-
     }
     
     private func creatPriceView(){
@@ -99,28 +91,24 @@ class GroupTourSearchInputCell: UITableViewCell {
         self.priceView.addSubview(rangeSlider)
         rangeSlider.setCurrentValue(left: 0, right: 200000)
         priceRangeSlider = rangeSlider
-        priceRangeSlider?.delegate = self
+        priceRangeSlider?.valueChangeClosure = { [weak self] _,_ in
+            self?.viewModel?.isPriceLimit = false
+        }
     }
     
     @IBAction func onTouchTourDays(_ sender: UIButton) {
-        delegate?.onTouchTourDaysView(sender)
+
         tourDaysTextField.becomeFirstResponder()
     }
     
     @objc func textFieldDidChange(_ textField: UITextField) {
-        delegate?.onTourDaysTextFieldDidChange(text: textField.text ?? "")
+        viewModel?.tourDays = textField.text
     }
     
     @objc private func datePickerChanged(picker: UIDatePicker) {
         let selectDate = FormatUtil.convertDateToString(dateFormatTo: "yyyy/MM/dd", date: picker.date)
         
-        self.delegate?.selectDateFromeNewDatePicker(date: selectDate)
-    }
-}
-
-extension GroupTourSearchInputCell: PriceRangeSliderPortocol {
-    func sliderDown() {
-        self.delegate?.sliderDown()
+        viewModel?.startTourDate = selectDate
     }
 }
 

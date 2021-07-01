@@ -13,10 +13,16 @@ class GroupTourSearchRequest: NSObject {
     var selectedDepartureCity: GroupTourSearchInitResponse.DepartureCity?
     var selectedAirlineCode: GroupTourSearchInitResponse.AirlineCode?
     var selectedTourType: GroupTourSearchInitResponse.TourType?
-    var isPriceLimit: Bool = true
-    var isBookingTour: Bool = true
     var minPrice: Int?
     var maxPrice: Int?
+    var isBookingTour: Bool = true
+    var isPriceLimit: Bool = true {
+        didSet{
+            self.isPriceLimitValueChange?()
+        }
+    }
+    
+    var isPriceLimitValueChange: (()->())?
     
     func getDictionary() -> [String:Any] {
         let params = ["Tour_Date": "\(startTourDate ?? "")"
