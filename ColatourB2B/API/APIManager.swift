@@ -260,6 +260,16 @@ extension APIManager {
         return manager(method: .post, appendUrl: "", url: APIUrl.memberApi(type: .passwordModify), parameters: params as [String : Any], appendHeaders: nil)
     }
     
+    func getCompanyInfo() -> Single<[String:Any]> {
+        return AppHelper.shared.getJson(forResource: "Change")
+        return manager(method: .post, appendUrl: "", url: APIUrl.memberApi(type: .changeCompany), parameters: nil, appendHeaders: nil)
+    }
+    
+    func changeCompanyAction(changeModel: ChangeCompanyModel) -> Single<[String:Any]> {
+        let param = changeModel.getDictionary()
+        return manager(method: .post, appendUrl: "", url: APIUrl.memberApi(type: .changeCompanyAction), parameters: param, appendHeaders: nil)
+    }
+    
     func getGroupIndex(tourType:TourType) -> Single<[String:Any]> {
         
         return manager(method: .get, appendUrl: "", url: tourType.getApiUrl(), parameters: nil, appendHeaders: nil)

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Change Company View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="ChangeCompanyViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="ChangeCompanyViewController" customModule="ColatourB2B" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hYB-t0-7CZ">
+                                <rect key="frame" x="0.0" y="44" width="414" height="761"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Y6W-OH-hqX" id="MtI-y3-ML6"/>
+                                    <outlet property="delegate" destination="Y6W-OH-hqX" id="uKr-4f-OLK"/>
+                                </connections>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sm9-Ho-SuL">
+                                <rect key="frame" x="0.0" y="805" width="414" height="91"/>
+                                <subviews>
+                                    <view alpha="0.10000000149011612" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hHD-9b-IHb" userLabel="Divider">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1"/>
+                                        <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="0dx-Bw-JdP"/>
+                                        </constraints>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZJ4-6k-mBf">
+                                        <rect key="frame" x="16" y="9" width="382" height="40"/>
+                                        <color key="backgroundColor" name="按鈕背景綠"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="wD0-x4-k7A"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="15"/>
+                                        <state key="normal" title="確認修改">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="4"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="onTouchConfirm:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="yBq-Sx-0qU"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="ZJ4-6k-mBf" firstAttribute="top" secondItem="hHD-9b-IHb" secondAttribute="bottom" constant="8" id="CL8-Jf-Asz"/>
+                                    <constraint firstAttribute="trailing" secondItem="ZJ4-6k-mBf" secondAttribute="trailing" constant="16" id="ILu-mp-ATn"/>
+                                    <constraint firstItem="hHD-9b-IHb" firstAttribute="leading" secondItem="Sm9-Ho-SuL" secondAttribute="leading" id="Vp3-sf-fY2"/>
+                                    <constraint firstItem="hHD-9b-IHb" firstAttribute="top" secondItem="Sm9-Ho-SuL" secondAttribute="top" id="f1w-Qs-cU7"/>
+                                    <constraint firstItem="ZJ4-6k-mBf" firstAttribute="leading" secondItem="Sm9-Ho-SuL" secondAttribute="leading" constant="16" id="lag-Hd-mQA"/>
+                                    <constraint firstAttribute="trailing" secondItem="hHD-9b-IHb" secondAttribute="trailing" id="sMp-O2-J1E"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Sm9-Ho-SuL" secondAttribute="trailing" id="DFv-9W-cya"/>
+                            <constraint firstItem="Sm9-Ho-SuL" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Ffy-vQ-sXT"/>
+                            <constraint firstAttribute="bottom" secondItem="Sm9-Ho-SuL" secondAttribute="bottom" id="R0t-w3-jFt"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="hYB-t0-7CZ" secondAttribute="trailing" id="Z35-jg-cWg"/>
+                            <constraint firstItem="hYB-t0-7CZ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="cfA-0D-xGy"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="ZJ4-6k-mBf" secondAttribute="bottom" constant="8" id="hFU-je-yad"/>
+                            <constraint firstItem="Sm9-Ho-SuL" firstAttribute="top" secondItem="hYB-t0-7CZ" secondAttribute="bottom" id="hOK-5K-HnH"/>
+                            <constraint firstItem="hYB-t0-7CZ" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="qFh-Cv-CfT"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="hYB-t0-7CZ" id="Dzb-53-yzQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="133" y="94"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="按鈕背景綠">
+            <color red="0.098039215686274508" green="0.74901960784313726" blue="0.3843137254901961" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

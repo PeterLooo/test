@@ -380,6 +380,20 @@
 		A12808A923F7937100287B9F /* PriceRangeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12808A723F7937100287B9F /* PriceRangeSlider.swift */; };
 		A142DF58242321DC003D103E /* LccResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A142DF57242321DC003D103E /* LccResponse.swift */; };
 		A142DF59242321DC003D103E /* LccResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A142DF57242321DC003D103E /* LccResponse.swift */; };
+		A14D4771268E9A5D0007FB20 /* ChangeCompany.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A14D4770268E9A5D0007FB20 /* ChangeCompany.storyboard */; };
+		A14D4772268E9A5D0007FB20 /* ChangeCompany.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A14D4770268E9A5D0007FB20 /* ChangeCompany.storyboard */; };
+		A14D4774268E9A7C0007FB20 /* ChangeCompanyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14D4773268E9A7C0007FB20 /* ChangeCompanyViewController.swift */; };
+		A14D4775268E9A7C0007FB20 /* ChangeCompanyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14D4773268E9A7C0007FB20 /* ChangeCompanyViewController.swift */; };
+		A14D4778268E9E250007FB20 /* ChangeCompanyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14D4776268E9E250007FB20 /* ChangeCompanyCell.swift */; };
+		A14D4779268E9E250007FB20 /* ChangeCompanyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14D4776268E9E250007FB20 /* ChangeCompanyCell.swift */; };
+		A14D477A268E9E250007FB20 /* ChangeCompanyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A14D4777268E9E250007FB20 /* ChangeCompanyCell.xib */; };
+		A14D477B268E9E250007FB20 /* ChangeCompanyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A14D4777268E9E250007FB20 /* ChangeCompanyCell.xib */; };
+		A14D477E268EA1E20007FB20 /* ChangeCompanyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14D477D268EA1E20007FB20 /* ChangeCompanyModel.swift */; };
+		A14D477F268EA1E20007FB20 /* ChangeCompanyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14D477D268EA1E20007FB20 /* ChangeCompanyModel.swift */; };
+		A14D4782268EB09E0007FB20 /* Change.json in Resources */ = {isa = PBXBuildFile; fileRef = A14D4781268EB09E0007FB20 /* Change.json */; };
+		A14D4783268EB09E0007FB20 /* Change.json in Resources */ = {isa = PBXBuildFile; fileRef = A14D4781268EB09E0007FB20 /* Change.json */; };
+		A14D4785268EBDAB0007FB20 /* ChangeCompanyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14D4784268EBDAB0007FB20 /* ChangeCompanyViewModel.swift */; };
+		A14D4786268EBDAB0007FB20 /* ChangeCompanyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14D4784268EBDAB0007FB20 /* ChangeCompanyViewModel.swift */; };
 		A14F56EA241F708700BF40DA /* AirSearchUrlResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14F56E9241F708700BF40DA /* AirSearchUrlResponse.swift */; };
 		A14F56EB241F708700BF40DA /* AirSearchUrlResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14F56E9241F708700BF40DA /* AirSearchUrlResponse.swift */; };
 		A17CFADB241B387C00922CC2 /* AirIndexCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17CFAD9241B387C00922CC2 /* AirIndexCell.swift */; };
@@ -787,6 +801,13 @@
 		A10C824C24186CD80092DACA /* LccTicketRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LccTicketRequest.swift; sourceTree = "<group>"; };
 		A12808A723F7937100287B9F /* PriceRangeSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceRangeSlider.swift; sourceTree = "<group>"; };
 		A142DF57242321DC003D103E /* LccResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LccResponse.swift; sourceTree = "<group>"; };
+		A14D4770268E9A5D0007FB20 /* ChangeCompany.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChangeCompany.storyboard; sourceTree = "<group>"; };
+		A14D4773268E9A7C0007FB20 /* ChangeCompanyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeCompanyViewController.swift; sourceTree = "<group>"; };
+		A14D4776268E9E250007FB20 /* ChangeCompanyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeCompanyCell.swift; sourceTree = "<group>"; };
+		A14D4777268E9E250007FB20 /* ChangeCompanyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChangeCompanyCell.xib; sourceTree = "<group>"; };
+		A14D477D268EA1E20007FB20 /* ChangeCompanyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeCompanyModel.swift; sourceTree = "<group>"; };
+		A14D4781268EB09E0007FB20 /* Change.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Change.json; sourceTree = "<group>"; };
+		A14D4784268EBDAB0007FB20 /* ChangeCompanyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeCompanyViewModel.swift; sourceTree = "<group>"; };
 		A14F56E9241F708700BF40DA /* AirSearchUrlResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirSearchUrlResponse.swift; sourceTree = "<group>"; };
 		A17CFAD9241B387C00922CC2 /* AirIndexCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirIndexCell.swift; sourceTree = "<group>"; };
 		A17CFADA241B387C00922CC2 /* AirIndexCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AirIndexCell.xib; sourceTree = "<group>"; };
@@ -1179,6 +1200,7 @@
 		387FBF0823ACCE5C005412F1 /* Member */ = {
 			isa = PBXGroup;
 			children = (
+				A14D476F268E9A100007FB20 /* ChangeCompany */,
 				CCCC734E23E42C2700FC03EE /* PasswordModify */,
 				387FBF0D23ACCEE4005412F1 /* Login */,
 				387FBF0C23ACCEC7005412F1 /* MemberIndex */,
@@ -1191,6 +1213,7 @@
 			children = (
 				387FBF0A23ACCEB7005412F1 /* Login.storyboard */,
 				CCCC735E23E42D8200FC03EE /* PasswordModify.storyboard */,
+				A14D4770268E9A5D0007FB20 /* ChangeCompany.storyboard */,
 			);
 			path = Member;
 			sourceTree = "<group>";
@@ -1472,11 +1495,10 @@
 		38E9922C23B0589700E28271 /* Request */ = {
 			isa = PBXGroup;
 			children = (
+				A14D477C268E9ECE0007FB20 /* Member */,
 				0655CD2E241B68D6006092AB /* AirTicket */,
-				38E9922D23B058CA00E28271 /* LoginRequest.swift */,
 				C7DA175C23D70261006A8803 /* GroupTourSearchRequest.swift */,
 				C7DA175923D70245006A8803 /* GroupTourSearchKeywordAndTourCodeRequest.swift */,
-				CCCC735823E42C9500FC03EE /* PasswordModifyRequest.swift */,
 				06DA4F6723E921D4001B7DF1 /* MessageSendRequest.swift */,
 			);
 			path = Request;
@@ -1500,6 +1522,36 @@
 				B09E7C65A225E6FF958329EA /* Pods-ColatourB2BDev.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		A14D476F268E9A100007FB20 /* ChangeCompany */ = {
+			isa = PBXGroup;
+			children = (
+				A14D4780268EAEBE0007FB20 /* Mock */,
+				A14D4773268E9A7C0007FB20 /* ChangeCompanyViewController.swift */,
+				A14D4776268E9E250007FB20 /* ChangeCompanyCell.swift */,
+				A14D4777268E9E250007FB20 /* ChangeCompanyCell.xib */,
+				A14D4784268EBDAB0007FB20 /* ChangeCompanyViewModel.swift */,
+			);
+			path = ChangeCompany;
+			sourceTree = "<group>";
+		};
+		A14D477C268E9ECE0007FB20 /* Member */ = {
+			isa = PBXGroup;
+			children = (
+				38E9922D23B058CA00E28271 /* LoginRequest.swift */,
+				CCCC735823E42C9500FC03EE /* PasswordModifyRequest.swift */,
+				A14D477D268EA1E20007FB20 /* ChangeCompanyModel.swift */,
+			);
+			path = Member;
+			sourceTree = "<group>";
+		};
+		A14D4780268EAEBE0007FB20 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				A14D4781268EB09E0007FB20 /* Change.json */,
+			);
+			path = Mock;
 			sourceTree = "<group>";
 		};
 		A14F56E8241F703800BF40DA /* TKT */ = {
@@ -1925,6 +1977,7 @@
 				A1A7F2FB2418854D00263E42 /* CalendarView.xib in Resources */,
 				C7BD649023ED453200FEE538 /* EmptyDataCell.xib in Resources */,
 				3817E50123A33C8500ED8609 /* LaunchScreen.storyboard in Resources */,
+				A14D4782268EB09E0007FB20 /* Change.json in Resources */,
 				A1A7F2FD2418854D00263E42 /* CalendarDayCollectionViewCell.xib in Resources */,
 				38BCDA2623A3796800D59910 /* GroupTour.storyboard in Resources */,
 				A1E449B7241B168B00895AF6 /* AirPopCityCell.xib in Resources */,
@@ -1960,6 +2013,7 @@
 				06DA4F9223E922C0001B7DF1 /* MessageSend.storyboard in Resources */,
 				38BCDA0B23A367D000D59910 /* ApiFailErrorView.xib in Resources */,
 				C78F071C23E8204E009C1183 /* PopText.storyboard in Resources */,
+				A14D4771268E9A5D0007FB20 /* ChangeCompany.storyboard in Resources */,
 				0650775B23ED52970067377C /* ContactInfoCell.xib in Resources */,
 				A1E449BD241B17BE00895AF6 /* AirPopCityView.xib in Resources */,
 				3802A19D23C8542800CD2EF2 /* SalseInfoCell.xib in Resources */,
@@ -1972,6 +2026,7 @@
 				A17CFAE3241B398A00922CC2 /* AirIndexView.xib in Resources */,
 				2AF496B423AB7EA50053EA45 /* GoogleService-Info.plist in Resources */,
 				A1A7F2FF2418854D00263E42 /* CalendarTableViewCell.xib in Resources */,
+				A14D477A268E9E250007FB20 /* ChangeCompanyCell.xib in Resources */,
 				3817E4FC23A33C8400ED8609 /* Main.storyboard in Resources */,
 				06DA4F8023E92260001B7DF1 /* MessageSendTopicCell.xib in Resources */,
 				C74FC80123C5AEE100E2250D /* NoticeDetail.storyboard in Resources */,
@@ -2017,13 +2072,16 @@
 				C70EEF5123EA545300D67FF4 /* VersionRule.storyboard in Resources */,
 				38AA456123D68E0A00BE3F95 /* HomeAd2Cell.xib in Resources */,
 				06DA4F8523E92260001B7DF1 /* MessageSendContentCell.xib in Resources */,
+				A14D4783268EB09E0007FB20 /* Change.json in Resources */,
 				A1E449B8241B168B00895AF6 /* AirPopCityCell.xib in Resources */,
 				38E68AAE23B5AB80006BC4DD /* Group.json in Resources */,
 				A17CFADE241B387C00922CC2 /* AirIndexCell.xib in Resources */,
 				C77282F423CC502500067EB4 /* GroupTourSearch.storyboard in Resources */,
+				A14D477B268E9E250007FB20 /* ChangeCompanyCell.xib in Resources */,
 				38AA456723D6906400BE3F95 /* HomeAd2View.xib in Resources */,
 				3869544123BB002900F6E7D9 /* MemberIndexVersionCell.xib in Resources */,
 				382FD5A023D8038C001FF38E /* BottomLoadingView.xib in Resources */,
+				A14D4772268E9A5D0007FB20 /* ChangeCompany.storyboard in Resources */,
 				387FBEFE23ACA2A7005412F1 /* Notice.storyboard in Resources */,
 				CCCC736023E42D8200FC03EE /* PasswordModify.storyboard in Resources */,
 				3802A19423C8522F00CD2EF2 /* Sales.storyboard in Resources */,
@@ -2204,6 +2262,7 @@
 				38BCD92D23A345FA00D59910 /* EncryptionUtils.m in Sources */,
 				A1068F4C241625C900710DC4 /* TKTSearchRequest.swift in Sources */,
 				A1A7F2F72418854D00263E42 /* CalendarType.swift in Sources */,
+				A14D4778268E9E250007FB20 /* ChangeCompanyCell.swift in Sources */,
 				3869543E23BB002900F6E7D9 /* MemberIndexVersionCell.swift in Sources */,
 				A1A7F2EF2418854D00263E42 /* CalendarSelectedYearMonthDays.swift in Sources */,
 				38BCD99C23A363AB00D59910 /* MemberRepositoryProtocol.swift in Sources */,
@@ -2263,6 +2322,7 @@
 				06DA4F7023E9222F001B7DF1 /* MessageSendUserListResponse.swift in Sources */,
 				38AA455E23D68E0A00BE3F95 /* HomeAd2Cell.swift in Sources */,
 				A1A7F30D2418854D00263E42 /* CalendarForTicketViewController.swift in Sources */,
+				A14D4774268E9A7C0007FB20 /* ChangeCompanyViewController.swift in Sources */,
 				A1A7F3232418882100263E42 /* YearMonthDay.swift in Sources */,
 				38BCD95723A3471600D59910 /* FirebaseAnalyticsManager.swift in Sources */,
 				38BCD99423A3499700D59910 /* Constant.swift in Sources */,
@@ -2324,7 +2384,9 @@
 				C7BBF4C123C7043D00023307 /* NoticeDetailResponse.swift in Sources */,
 				C7BD648E23ED453200FEE538 /* EmptyDataCell.swift in Sources */,
 				CCCC735923E42C9600FC03EE /* PasswordModifyRequest.swift in Sources */,
+				A14D477E268EA1E20007FB20 /* ChangeCompanyModel.swift in Sources */,
 				CCCC735423E42C2700FC03EE /* PasswordModifyPresenter.swift in Sources */,
+				A14D4785268EBDAB0007FB20 /* ChangeCompanyViewModel.swift in Sources */,
 				CCCC735C23E42CDD00FC03EE /* PasswordModifyResponse.swift in Sources */,
 				061CD2B5241F6C9200BD0DE1 /* LocationDetailViewController.swift in Sources */,
 				38BCD98123A3484300D59910 /* UIViewExtension.swift in Sources */,
@@ -2438,6 +2500,7 @@
 				A1068F4D241625C900710DC4 /* TKTSearchRequest.swift in Sources */,
 				A1A7F2F82418854D00263E42 /* CalendarType.swift in Sources */,
 				3869543F23BB002900F6E7D9 /* MemberIndexVersionCell.swift in Sources */,
+				A14D4779268E9E250007FB20 /* ChangeCompanyCell.swift in Sources */,
 				A1A7F2F02418854D00263E42 /* CalendarSelectedYearMonthDays.swift in Sources */,
 				38BCD99D23A363AB00D59910 /* MemberRepositoryProtocol.swift in Sources */,
 				381B12B323C466370030BACE /* NoticeViewController.swift in Sources */,
@@ -2497,6 +2560,7 @@
 				38AA455F23D68E0A00BE3F95 /* HomeAd2Cell.swift in Sources */,
 				A1A7F30E2418854D00263E42 /* CalendarForTicketViewController.swift in Sources */,
 				A1A7F3242418882100263E42 /* YearMonthDay.swift in Sources */,
+				A14D4775268E9A7C0007FB20 /* ChangeCompanyViewController.swift in Sources */,
 				38BCD95823A3471600D59910 /* FirebaseAnalyticsManager.swift in Sources */,
 				38BCD99523A3499700D59910 /* Constant.swift in Sources */,
 				06DA4F8723E92260001B7DF1 /* MessageSendViewController.swift in Sources */,
@@ -2558,7 +2622,9 @@
 				C7BBF4C223C7043D00023307 /* NoticeDetailResponse.swift in Sources */,
 				C7BD648F23ED453200FEE538 /* EmptyDataCell.swift in Sources */,
 				CCCC735A23E42C9600FC03EE /* PasswordModifyRequest.swift in Sources */,
+				A14D477F268EA1E20007FB20 /* ChangeCompanyModel.swift in Sources */,
 				CCCC735523E42C2700FC03EE /* PasswordModifyPresenter.swift in Sources */,
+				A14D4786268EBDAB0007FB20 /* ChangeCompanyViewModel.swift in Sources */,
 				CCCC735D23E42CDD00FC03EE /* PasswordModifyResponse.swift in Sources */,
 				061CD2B6241F6C9200BD0DE1 /* LocationDetailViewController.swift in Sources */,
 				38BCD98223A3484300D59910 /* UIViewExtension.swift in Sources */,
