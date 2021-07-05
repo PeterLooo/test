@@ -9,7 +9,7 @@
 import UIKit
 
 class AirIndexView: UIView {
-
+    
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var imageSecView: UIImageView!
     @IBOutlet weak var imageThrView: UIImageView!
@@ -21,11 +21,8 @@ class AirIndexView: UIView {
     @IBOutlet weak var midToRightConstraints: NSLayoutConstraint!
     @IBOutlet weak var safeAreaLeading: NSLayoutConstraint!
     @IBOutlet weak var safeAreaTrailing: NSLayoutConstraint!
-    weak var delegate: HomeAd1ViewProcotol?
     
-    private var adItem: IndexResponse.ModuleItem?
-    private var adSecItem: IndexResponse.ModuleItem?
-    private var adThrItem: IndexResponse.ModuleItem?
+    var viewModel: AirIndexViewModel?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -49,27 +46,24 @@ class AirIndexView: UIView {
         setImageStatus()
     }
     
-    func setView(item: IndexResponse.ModuleItem, moduleIndex: Int) {
+    func setView(viewModel: AirIndexViewModel) {
+        self.viewModel = viewModel
         
-        switch moduleIndex {
-        case 0:
-            self.downImage(picUrl: item.picUrl ?? "", imageView: imageView)
-            self.itemText.text = item.itemText
-            self.adItem = item
-        case 1:
-            self.downImage(picUrl: item.picUrl ?? "", imageView: imageSecView)
-            self.itemSecText.text = item.itemText
+        self.downImage(picUrl: viewModel.adItem?.picUrl ?? "", imageView: imageView)
+        self.itemText.text = viewModel.adItem?.itemText
+        self.downImage(picUrl: viewModel.adSecItem?.picUrl ?? "", imageView: imageSecView)
+        self.itemSecText.text = viewModel.adSecItem?.itemText
+        self.downImage(picUrl: viewModel.adThrItem?.picUrl ?? "", imageView: imageThrView)
+        self.itemThrText.text = viewModel.adThrItem?.itemText
+        
+        if viewModel.adSecItem != nil {
             self.imageSecView.isHidden = false
             self.itemSecText.isHidden = false
-            self.adSecItem = item
-        case 2:
-            self.downImage(picUrl: item.picUrl ?? "", imageView: imageThrView)
-            self.itemThrText.text = item.itemText
+        }
+        
+        if viewModel.adThrItem != nil {
             self.imageThrView.isHidden = false
             self.itemThrText.isHidden = false
-            self.adThrItem = item
-        default:
-            ()
         }
     }
     
@@ -89,16 +83,7 @@ class AirIndexView: UIView {
     
     @IBAction func onTouchItem(_ sender: Any) {
         
-        switch (sender as! UIButton).tag {
-        case 0:
-            self.delegate?.onTouchHotelAdItem(adItem: adItem!)
-        case 1:
-            self.delegate?.onTouchHotelAdItem(adItem: adSecItem!)
-        case 2:
-            self.delegate?.onTouchHotelAdItem(adItem: adThrItem!)
-        default:
-            ()
-        }
+        viewModel?.onTouchItem(tag: (sender as! UIButton).tag)
     }
     
     private func downImage(picUrl:String, imageView:UIImageView){
