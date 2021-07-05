@@ -43,9 +43,10 @@ class ChangeCompanyViewModel: BaseViewModel {
     }
     
     func onTouchConfirm(){
-        checkTextField { errorInfo in
+        checkTextField { [weak self] errorInfo in
             if errorInfo != nil {
-                self.changeModel?.errorInfo = errorInfo
+                self?.changeModel?.errorInfo = errorInfo
+                self?.reloadTableView?()
                 return
             }
         }
@@ -86,8 +87,6 @@ class ChangeCompanyViewModel: BaseViewModel {
         if noEmptyInfo == false {
             
             completed(errorInfo)
-            self.reloadTableView?()
-            return
         }else{
             completed(nil)
         }
