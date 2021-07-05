@@ -1524,14 +1524,22 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		A146A01726929AD200741D54 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A14D4784268EBDAB0007FB20 /* ChangeCompanyViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		A14D476F268E9A100007FB20 /* ChangeCompany */ = {
 			isa = PBXGroup;
 			children = (
+				A146A01726929AD200741D54 /* ViewModel */,
 				A14D4780268EAEBE0007FB20 /* Mock */,
 				A14D4773268E9A7C0007FB20 /* ChangeCompanyViewController.swift */,
 				A14D4776268E9E250007FB20 /* ChangeCompanyCell.swift */,
 				A14D4777268E9E250007FB20 /* ChangeCompanyCell.xib */,
-				A14D4784268EBDAB0007FB20 /* ChangeCompanyViewModel.swift */,
 			);
 			path = ChangeCompany;
 			sourceTree = "<group>";
