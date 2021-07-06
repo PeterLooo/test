@@ -1013,6 +1013,18 @@
 			path = MessageSend;
 			sourceTree = "<group>";
 		};
+		0A44F1892693EBCB001C2C5D /* viewModel */ = {
+			isa = PBXGroup;
+			children = (
+				0AEE673B268E9F8400EDB092 /* AirTicketViewModel.swift */,
+				0AEE6764268EB59700EDB092 /* AirPopCityCellViewModel.swift */,
+				0AEE6773268EB77C00EDB092 /* AirPopCityViewModel.swift */,
+				0AEE6746268EA2F100EDB092 /* AirIndexCellViewModel.swift */,
+				0AEE6755268EAA4400EDB092 /* AirIndexViewModel.swift */,
+			);
+			path = viewModel;
+			sourceTree = "<group>";
+		};
 		2AF496AD23AB6D580053EA45 /* ColatourB2BDev */ = {
 			isa = PBXGroup;
 			children = (
@@ -1062,20 +1074,16 @@
 			isa = PBXGroup;
 			children = (
 				A1876A822415D63C00855DE6 /* TKTSearch */,
+				0A44F1892693EBCB001C2C5D /* viewModel */,
 				381B12AE23C465AE0030BACE /* AirTicketViewController.swift */,
-				0AEE673B268E9F8400EDB092 /* AirTicketViewModel.swift */,
 				384B110223C2BD33000E2B41 /* AirTicketProtocol.swift */,
 				384B110523C2BD46000E2B41 /* AirTicketPresenter.swift */,
 				A1E449B3241B168B00895AF6 /* AirPopCityCell.swift */,
-				0AEE6764268EB59700EDB092 /* AirPopCityCellViewModel.swift */,
 				A1E449B4241B168B00895AF6 /* AirPopCityCell.xib */,
 				A1E449B9241B17B100895AF6 /* AirPopCityView.swift */,
-				0AEE6773268EB77C00EDB092 /* AirPopCityViewModel.swift */,
-				0AEE6746268EA2F100EDB092 /* AirIndexCellViewModel.swift */,
 				A17CFAD9241B387C00922CC2 /* AirIndexCell.swift */,
 				A1E449BC241B17BE00895AF6 /* AirPopCityView.xib */,
 				A17CFADA241B387C00922CC2 /* AirIndexCell.xib */,
-				0AEE6755268EAA4400EDB092 /* AirIndexViewModel.swift */,
 				A17CFADF241B396B00922CC2 /* AirIndexView.swift */,
 				A17CFAE2241B398A00922CC2 /* AirIndexView.xib */,
 			);
