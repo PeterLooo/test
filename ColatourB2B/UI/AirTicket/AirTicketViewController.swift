@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AirTicketViewController: BaseViewController {
+class AirTicketViewController: BaseViewControllerMVVM {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var airSearchView: UIView!
@@ -240,6 +240,7 @@ extension AirTicketViewController {
     
     private func bindViewModel() {
         viewModel = AirTicketViewModel()
+        self.bindToBaseViewModel(viewModel: self.viewModel!)
         
         viewModel?.onTouchHotelAdItem = { [weak self] item in
             self?.handleLinkType(linkType: item.linkType, linkValue: item.linkParams, linkText: nil)
