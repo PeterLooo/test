@@ -100,6 +100,14 @@
 		06DA4F8F23E92260001B7DF1 /* MessageSendNotificationListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DA4F7D23E9225F001B7DF1 /* MessageSendNotificationListCell.swift */; };
 		06DA4F9223E922C0001B7DF1 /* MessageSend.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06DA4F9123E922C0001B7DF1 /* MessageSend.storyboard */; };
 		06DA4F9323E922C0001B7DF1 /* MessageSend.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06DA4F9123E922C0001B7DF1 /* MessageSend.storyboard */; };
+		0A1F8A6526952E8700E357A8 /* AirTktCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1F8A6426952E8700E357A8 /* AirTktCellViewModel.swift */; };
+		0A1F8A6626952E8700E357A8 /* AirTktCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1F8A6426952E8700E357A8 /* AirTktCellViewModel.swift */; };
+		0A1F8A7026954C3800E357A8 /* SotoAirCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1F8A6F26954C3800E357A8 /* SotoAirCellViewModel.swift */; };
+		0A1F8A7126954C3800E357A8 /* SotoAirCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1F8A6F26954C3800E357A8 /* SotoAirCellViewModel.swift */; };
+		0A1F8A7B26954C5400E357A8 /* LccAirCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1F8A7A26954C5400E357A8 /* LccAirCellViewModel.swift */; };
+		0A1F8A7C26954C5400E357A8 /* LccAirCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1F8A7A26954C5400E357A8 /* LccAirCellViewModel.swift */; };
+		0A44F1AE2693F854001C2C5D /* AirTicketSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A44F1AD2693F854001C2C5D /* AirTicketSearchViewModel.swift */; };
+		0A44F1AF2693F854001C2C5D /* AirTicketSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A44F1AD2693F854001C2C5D /* AirTicketSearchViewModel.swift */; };
 		2AF496B423AB7EA50053EA45 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2AF496B323AB7EA50053EA45 /* GoogleService-Info.plist */; };
 		2AF496B623AB7EBB0053EA45 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2AF496B523AB7EBB0053EA45 /* GoogleService-Info.plist */; };
 		3802A18F23C8520C00CD2EF2 /* SalesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3802A18E23C8520C00CD2EF2 /* SalesViewController.swift */; };
@@ -629,6 +637,10 @@
 		06DA4F7C23E9225F001B7DF1 /* MessageSendTopicCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageSendTopicCell.swift; sourceTree = "<group>"; };
 		06DA4F7D23E9225F001B7DF1 /* MessageSendNotificationListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageSendNotificationListCell.swift; sourceTree = "<group>"; };
 		06DA4F9123E922C0001B7DF1 /* MessageSend.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MessageSend.storyboard; sourceTree = "<group>"; };
+		0A1F8A6426952E8700E357A8 /* AirTktCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirTktCellViewModel.swift; sourceTree = "<group>"; };
+		0A1F8A6F26954C3800E357A8 /* SotoAirCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SotoAirCellViewModel.swift; sourceTree = "<group>"; };
+		0A1F8A7A26954C5400E357A8 /* LccAirCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LccAirCellViewModel.swift; sourceTree = "<group>"; };
+		0A44F1AD2693F854001C2C5D /* AirTicketSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirTicketSearchViewModel.swift; sourceTree = "<group>"; };
 		163FEF6363ACF8456B6B3D9F /* Pods-ColatourB2B.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ColatourB2B.release.xcconfig"; path = "Pods/Target Support Files/Pods-ColatourB2B/Pods-ColatourB2B.release.xcconfig"; sourceTree = "<group>"; };
 		2AF496B023AB79810053EA45 /* ColatourB2BDev.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ColatourB2BDev.entitlements; sourceTree = "<group>"; };
 		2AF496B323AB7EA50053EA45 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -1541,11 +1553,15 @@
 				A14F56EC241F831500BF40DA /* ChooseLocation */,
 				069D7498241A13EF0047EA03 /* TKTSearchInit.json */,
 				A1876A832415D67D00855DE6 /* AirTicketSearchViewController.swift */,
+				0A44F1AD2693F854001C2C5D /* AirTicketSearchViewModel.swift */,
 				A1876A912415FC9A00855DE6 /* AirTicketSearchProtocol.swift */,
 				A1876A942415FCA700855DE6 /* AirTicketSearchPresenter.swift */,
 				061CD2AE241F04D800BD0DE1 /* AirTktCell.swift */,
+				0A1F8A6426952E8700E357A8 /* AirTktCellViewModel.swift */,
 				A1F6E88224176BB90015279F /* SotoAirCell.swift */,
+				0A1F8A6F26954C3800E357A8 /* SotoAirCellViewModel.swift */,
 				A1F6E885241787510015279F /* LccAirCell.swift */,
+				0A1F8A7A26954C5400E357A8 /* LccAirCellViewModel.swift */,
 				A1A7F32E2418E11100263E42 /* AirPaxViewController.swift */,
 			);
 			path = TKTSearch;
@@ -2254,6 +2270,7 @@
 				38E9923423B05A0700E28271 /* LoginResponse.swift in Sources */,
 				38E68AA923B5AB80006BC4DD /* GroupSliderViewController.swift in Sources */,
 				062DFCBF2419C1AE006882BE /* ChooseLocationProtocol.swift in Sources */,
+				0A1F8A6526952E8700E357A8 /* AirTktCellViewModel.swift in Sources */,
 				B65191122666094A002337A1 /* GroupTableViewViewModel.swift in Sources */,
 				0650775223ED4F1E0067377C /* ContactInfoViewController.swift in Sources */,
 				06B05CB02416293B00C8F447 /* ChooseLocationViewController.swift in Sources */,
@@ -2274,6 +2291,7 @@
 				062DFCC22419C4D6006882BE /* ChooseLocationPresenter.swift in Sources */,
 				0626031B23F3E5570026DC59 /* DeviceCell.swift in Sources */,
 				38871EC623D5B50F007ED33D /* HomeAd1View.swift in Sources */,
+				0A1F8A7026954C3800E357A8 /* SotoAirCellViewModel.swift in Sources */,
 				38BCD94423A346B800D59910 /* APIManager.swift in Sources */,
 				C7DCA71F23D1BBC400F415B8 /* GroupTourSearchProtocol.swift in Sources */,
 				A17CFAE0241B396B00922CC2 /* AirIndexView.swift in Sources */,
@@ -2294,6 +2312,7 @@
 				0650775523ED4FD50067377C /* ContactInfoResponse.swift in Sources */,
 				A142DF58242321DC003D103E /* LccResponse.swift in Sources */,
 				38BCD96F23A3484300D59910 /* CAGradientLayerExtension.swift in Sources */,
+				0A44F1AE2693F854001C2C5D /* AirTicketSearchViewModel.swift in Sources */,
 				387FBF1323ACD047005412F1 /* CustomTextField.swift in Sources */,
 				38871EBC23D581AA007ED33D /* BannerImageView.swift in Sources */,
 				A1A7F30B2418854D00263E42 /* CalendarDataToBackwardPageViewController.swift in Sources */,
@@ -2382,6 +2401,7 @@
 				06AA65912418E6EA001CDA37 /* SearchEmptyCell.swift in Sources */,
 				C70EEF5A23EA549800D67FF4 /* VersionRuleViewController.swift in Sources */,
 				0655CD30241B6A77006092AB /* SotoTicketRequest.swift in Sources */,
+				0A1F8A7B26954C5400E357A8 /* LccAirCellViewModel.swift in Sources */,
 				38BCDA2F23A37B7100D59910 /* MemberIndexViewController.swift in Sources */,
 				38871EAD23D5553F007ED33D /* IndexResponse.swift in Sources */,
 				A17CFADB241B387C00922CC2 /* AirIndexCell.swift in Sources */,
@@ -2488,6 +2508,7 @@
 				38E68AAA23B5AB80006BC4DD /* GroupSliderViewController.swift in Sources */,
 				062DFCC02419C1AE006882BE /* ChooseLocationProtocol.swift in Sources */,
 				B65191132666094A002337A1 /* GroupTableViewViewModel.swift in Sources */,
+				0A1F8A6626952E8700E357A8 /* AirTktCellViewModel.swift in Sources */,
 				0650775323ED4F1E0067377C /* ContactInfoViewController.swift in Sources */,
 				06B05CB12416293B00C8F447 /* ChooseLocationViewController.swift in Sources */,
 				38BCD93223A345FA00D59910 /* UserDefaultUtil.swift in Sources */,
@@ -2508,6 +2529,7 @@
 				0626031C23F3E5570026DC59 /* DeviceCell.swift in Sources */,
 				38871EC723D5B50F007ED33D /* HomeAd1View.swift in Sources */,
 				38BCD94523A346B800D59910 /* APIManager.swift in Sources */,
+				0A1F8A7126954C3800E357A8 /* SotoAirCellViewModel.swift in Sources */,
 				C7DCA72023D1BBC400F415B8 /* GroupTourSearchProtocol.swift in Sources */,
 				A17CFAE1241B396B00922CC2 /* AirIndexView.swift in Sources */,
 				38BCD9CB23A3647E00D59910 /* BaseModel.swift in Sources */,
@@ -2528,6 +2550,7 @@
 				0650775623ED4FD50067377C /* ContactInfoResponse.swift in Sources */,
 				A142DF59242321DC003D103E /* LccResponse.swift in Sources */,
 				38BCD97023A3484300D59910 /* CAGradientLayerExtension.swift in Sources */,
+				0A44F1AF2693F854001C2C5D /* AirTicketSearchViewModel.swift in Sources */,
 				387FBF1423ACD047005412F1 /* CustomTextField.swift in Sources */,
 				38871EBD23D581AA007ED33D /* BannerImageView.swift in Sources */,
 				A1A7F30C2418854D00263E42 /* CalendarDataToBackwardPageViewController.swift in Sources */,
@@ -2616,6 +2639,7 @@
 				06AA65922418E6EA001CDA37 /* SearchEmptyCell.swift in Sources */,
 				C70EEF5B23EA549800D67FF4 /* VersionRuleViewController.swift in Sources */,
 				0655CD31241B6A77006092AB /* SotoTicketRequest.swift in Sources */,
+				0A1F8A7C26954C5400E357A8 /* LccAirCellViewModel.swift in Sources */,
 				38BCDA3023A37B7100D59910 /* MemberIndexViewController.swift in Sources */,
 				38871EAE23D5553F007ED33D /* IndexResponse.swift in Sources */,
 				A17CFADC241B387C00922CC2 /* AirIndexCell.swift in Sources */,
