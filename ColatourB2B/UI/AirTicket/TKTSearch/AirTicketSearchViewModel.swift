@@ -220,7 +220,8 @@ class AirTicketSearchViewModel: BaseViewModel {
             }
             
             lccAirCellViewModel?.onTouchLccSearch = { [weak self] in
-//                onTouchSearch(searchType: .lcc)
+                self?.searchType = .lcc
+                self?.onTouchSearch?()
             }
             
         default:
