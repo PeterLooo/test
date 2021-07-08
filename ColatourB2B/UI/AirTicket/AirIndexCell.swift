@@ -9,30 +9,17 @@
 import UIKit
 
 class AirIndexCell: UITableViewCell {
-
-    @IBOutlet weak var stackView: UIStackView!
-    weak var delegate: HomeAd1CellProtocol?
     
-    func setCell(item:IndexResponse.Module){
+    @IBOutlet weak var stackView: UIStackView!
+    
+    func setCell(viewModel: AirIndexCellViewModel) {
+        
         self.stackView.subviews.forEach{$0.removeFromSuperview()}
         
-        item.moduleItemList.forEach { (module) in
-            let moduleInde = item.moduleItemList.firstIndex(of: module)!
-            if moduleInde % 3 == 0 {
-                let view = AirIndexView()
-                view.setView(item: (module), moduleIndex: moduleInde % 3)
-                view.delegate = self
-                stackView.addArrangedSubview(view)
-            }else{
-                let lastView = stackView.subviews.last as! AirIndexView
-                lastView.setView(item: (module), moduleIndex: moduleInde % 3)
-            }
+        viewModel.subViewViewModels.forEach { subViewViewModel in
+            let view = AirIndexView()
+            view.setView(viewModel: subViewViewModel)
+            stackView.addArrangedSubview(view)
         }
-    }
-}
-
-extension AirIndexCell: HomeAd1ViewProcotol {
-    func onTouchHotelAdItem(adItem: IndexResponse.ModuleItem) {
-        self.delegate?.onTouchItem(adItem: adItem)
     }
 }
