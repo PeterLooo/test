@@ -86,7 +86,9 @@ class AirIndexView: UIView {
         viewModel?.onTouchItem(tag: (sender as! UIButton).tag)
     }
     
-    private func downImage(picUrl:String, imageView:UIImageView){
-        imageView.sd_setImage(with: URL.init(string: picUrl), completed: nil)
+    private func downImage(picUrl: String, imageView: UIImageView) {
+        DispatchQueue.main.async {
+            imageView.sd_setImage(with: URL.init(string: picUrl), completed: nil)
+        }
     }
 }

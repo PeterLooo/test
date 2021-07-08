@@ -46,7 +46,6 @@ class AirPopCityView: UIView {
         view.frame = bounds
         view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         self.addSubview(view)
-        setCustomViewFrameAndGes()
     }
     
     func setView(viewModel: AirPopCityViewModel) {
@@ -67,6 +66,12 @@ class AirPopCityView: UIView {
 
 extension AirPopCityView {
     
+    private func setCellView() {
+        
+        setCustomViewFrameAndGes()
+        setSecViewFrameAndGes()
+    }
+    
     private func setImage() {
         self.imageView.contentMode = .scaleAspectFill
         self.imageSecView.contentMode = .scaleAspectFill
@@ -74,53 +79,60 @@ extension AirPopCityView {
         self.imageView.sd_setImage(with: URL.init(string: self.viewModel?.adItem?.smallPicUrl ?? "")) { (image, error, cacheType, imageURL) in
             SDWebImageManager.shared.loadImage(with: URL(string: self.viewModel?.adItem?.picUrl ?? ""), options: SDWebImageOptions(rawValue: 0), progress: nil, completed: { (image, data, error, cacheType, bool, imageURL) in
                 if error == nil {
-                    self.imageView.image = image
+                    DispatchQueue.main.async {
+                        self.imageView.image = image
+                    }
                 }
             })
         }
         self.imageSecView.sd_setImage(with: URL.init(string: self.viewModel?.adSecItem?.smallPicUrl ?? "")) { (image, error, cacheType, imageURL) in
             SDWebImageManager.shared.loadImage(with: URL(string: self.viewModel?.adSecItem?.picUrl ?? ""), options: SDWebImageOptions(rawValue: 0), progress: nil, completed: { (image, data, error, cacheType, bool, imageURL) in
                 if error == nil {
-                    self.imageSecView.image = image
+                    DispatchQueue.main.async {
+                        self.imageSecView.image = image
+                    }
                 }
             })
         }
     }
     
-    private func setCellView() {
-        viewLeading.constant = self.viewModel?.isFirst ?? false ? 16:0
-        viewTrailing.constant = self.viewModel?.isLast ?? false ? 16:0
-        self.itemContent.text = self.viewModel?.adItem?.itemText ?? ""
-        self.boderView.layoutIfNeeded()
-        self.boderView.layer.masksToBounds = true
+    private func setSecViewFrameAndGes() {
         
-        self.itemSecContent.text = ""
-        self.itemSecContent.backgroundColor = UIColor.init(named: "背景灰")
-        self.imageSecView.image = nil
-        self.borderSecView.layoutIfNeeded()
-        self.borderSecView.layer.masksToBounds = true
-        self.itemSecContent.backgroundColor = UIColor.white
-        self.itemSecContent.text = self.viewModel?.adSecItem?.itemText
-        self.imageSecView.backgroundColor = UIColor.init(named: "ImageBackColor")
-        setSecViewFrameAndGes()
-    }
-    
-    private func setSecViewFrameAndGes(){
-        self.shadowSecView.setShadow(offset: CGSize(width:0, height:1), opacity: 0.4,shadowRadius: 2 , color: UIColor.gray)
-        self.borderSecView.layer.cornerRadius = CGFloat(4)
-        let ges = UITapGestureRecognizer(target: self, action: #selector(onTouchSecAdView))
-        self.borderSecView.addGestureRecognizer(ges)
-        self.borderSecView.isUserInteractionEnabled = true
+        if viewModel?.adSecItem != nil {
+            
+            self.itemSecContent.text = self.viewModel?.adSecItem?.itemText
+            self.itemSecContent.backgroundColor = UIColor.white
+            self.imageSecView.backgroundColor = UIColor.init(named: "ImageBackColor")
+            self.shadowSecView.setShadow(offset: CGSize(width:0, height:1), opacity: 0.4,shadowRadius: 2 , color: UIColor.gray)
+            
+            self.borderSecView.layer.masksToBounds = true
+            self.borderSecView.layer.cornerRadius = CGFloat(4)
+            self.borderSecView.layoutIfNeeded()
+            
+            let ges = UITapGestureRecognizer(target: self, action: #selector(onTouchSecAdView))
+            self.borderSecView.addGestureRecognizer(ges)
+            self.borderSecView.isUserInteractionEnabled = true
+        }else {
+            self.itemSecContent.text = nil
+        }
     }
     
     private func setCustomViewFrameAndGes() {
         self.shadowView.setShadow(offset: CGSize(width:0, height:1), opacity: 0.4,shadowRadius: 2 , color: UIColor.gray)
         self.boderView.layer.cornerRadius = CGFloat(4)
+        self.boderView.layer.masksToBounds = true
         
         self.boderViewWidth.constant = ((screenWidth - 24) / 3) - 12
         self.boderViewHeight.constant = ((screenWidth - 24) / 3) - 12
+        
+        viewLeading.constant = self.viewModel?.isFirst ?? false ? 16:0
+        viewTrailing.constant = self.viewModel?.isLast ?? false ? 16:0
+        self.itemContent.text = self.viewModel?.adItem?.itemText ?? ""
+        
         let ges = UITapGestureRecognizer(target: self, action: #selector(onTouchAdView))
         self.boderView.addGestureRecognizer(ges)
         self.boderView.isUserInteractionEnabled = true
+        
+        self.boderView.layoutIfNeeded()
     }
 }

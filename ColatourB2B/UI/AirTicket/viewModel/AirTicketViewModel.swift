@@ -71,7 +71,7 @@ class AirTicketViewModel: BaseViewModel {
         didSet{
             homeAd2ViewModels = homeAd3List.compactMap({ (item) -> HomeAd2ViewCellViewModel in
                 let viewModel = HomeAd2ViewCellViewModel()
-                viewModel.setViewModel(item: item, isFirst: item == homeAd2List.first, needLogoImage: false)
+                viewModel.setViewModel(item: item, isFirst: item == homeAd2List.first, needLogoImage: true)
                 viewModel.onTouchHotelAdItem = { [weak self] item in
                     self?.onTouchHotelAdItem?(item)
                 }

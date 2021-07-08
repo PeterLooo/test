@@ -200,9 +200,9 @@ extension AirTicketViewController : UITableViewDataSource {
             return viewModel?.airPopCityCellViewModels.count ?? 0
             
         case .HOMEAD2:
-            return self.homeAd2List.count
+            return viewModel?.homeAd1CellViewModels.count ?? 0
         case .HOMEAD3:
-            return self.homeAd3List.count
+            return viewModel?.homeAd2ViewModels.count ?? 0
         }
     }
     
