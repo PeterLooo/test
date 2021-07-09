@@ -106,8 +106,22 @@
 		0A1F8A7126954C3800E357A8 /* SotoAirCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1F8A6F26954C3800E357A8 /* SotoAirCellViewModel.swift */; };
 		0A1F8A7B26954C5400E357A8 /* LccAirCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1F8A7A26954C5400E357A8 /* LccAirCellViewModel.swift */; };
 		0A1F8A7C26954C5400E357A8 /* LccAirCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1F8A7A26954C5400E357A8 /* LccAirCellViewModel.swift */; };
+		0A26FC02269838D000A43C0D /* SearchResultCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A26FC01269838D000A43C0D /* SearchResultCellViewModel.swift */; };
+		0A26FC03269838D000A43C0D /* SearchResultCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A26FC01269838D000A43C0D /* SearchResultCellViewModel.swift */; };
+		0A2EF5F0269807CA00B12A44 /* CapsuleCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2EF5EF269807CA00B12A44 /* CapsuleCellViewModel.swift */; };
+		0A2EF5F1269807CA00B12A44 /* CapsuleCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2EF5EF269807CA00B12A44 /* CapsuleCellViewModel.swift */; };
+		0A2EF5FB26982E7300B12A44 /* BrickCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2EF5FA26982E7300B12A44 /* BrickCellViewModel.swift */; };
+		0A2EF5FC26982E7300B12A44 /* BrickCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2EF5FA26982E7300B12A44 /* BrickCellViewModel.swift */; };
 		0A44F1AE2693F854001C2C5D /* AirTicketSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A44F1AD2693F854001C2C5D /* AirTicketSearchViewModel.swift */; };
 		0A44F1AF2693F854001C2C5D /* AirTicketSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A44F1AD2693F854001C2C5D /* AirTicketSearchViewModel.swift */; };
+		0A56766C2697D0C100F58D8A /* AirPaxViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A56766B2697D0C100F58D8A /* AirPaxViewModel.swift */; };
+		0A56766D2697D0C100F58D8A /* AirPaxViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A56766B2697D0C100F58D8A /* AirPaxViewModel.swift */; };
+		0A5676732697E45100F58D8A /* ChooseLocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5676722697E45100F58D8A /* ChooseLocationViewModel.swift */; };
+		0A5676742697E45100F58D8A /* ChooseLocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5676722697E45100F58D8A /* ChooseLocationViewModel.swift */; };
+		0A7DC4232698495F00CA3CD9 /* LocationDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7DC4222698495F00CA3CD9 /* LocationDetailViewModel.swift */; };
+		0A7DC4282698496800CA3CD9 /* LocationDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7DC4222698495F00CA3CD9 /* LocationDetailViewModel.swift */; };
+		0A7DC42E26984AF100CA3CD9 /* LocationDetailCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7DC42D26984AF100CA3CD9 /* LocationDetailCellViewModel.swift */; };
+		0A7DC42F26984AF100CA3CD9 /* LocationDetailCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7DC42D26984AF100CA3CD9 /* LocationDetailCellViewModel.swift */; };
 		2AF496B423AB7EA50053EA45 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2AF496B323AB7EA50053EA45 /* GoogleService-Info.plist */; };
 		2AF496B623AB7EBB0053EA45 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2AF496B523AB7EBB0053EA45 /* GoogleService-Info.plist */; };
 		3802A18F23C8520C00CD2EF2 /* SalesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3802A18E23C8520C00CD2EF2 /* SalesViewController.swift */; };
@@ -640,7 +654,14 @@
 		0A1F8A6426952E8700E357A8 /* AirTktCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirTktCellViewModel.swift; sourceTree = "<group>"; };
 		0A1F8A6F26954C3800E357A8 /* SotoAirCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SotoAirCellViewModel.swift; sourceTree = "<group>"; };
 		0A1F8A7A26954C5400E357A8 /* LccAirCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LccAirCellViewModel.swift; sourceTree = "<group>"; };
+		0A26FC01269838D000A43C0D /* SearchResultCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCellViewModel.swift; sourceTree = "<group>"; };
+		0A2EF5EF269807CA00B12A44 /* CapsuleCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapsuleCellViewModel.swift; sourceTree = "<group>"; };
+		0A2EF5FA26982E7300B12A44 /* BrickCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrickCellViewModel.swift; sourceTree = "<group>"; };
 		0A44F1AD2693F854001C2C5D /* AirTicketSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirTicketSearchViewModel.swift; sourceTree = "<group>"; };
+		0A56766B2697D0C100F58D8A /* AirPaxViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirPaxViewModel.swift; sourceTree = "<group>"; };
+		0A5676722697E45100F58D8A /* ChooseLocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseLocationViewModel.swift; sourceTree = "<group>"; };
+		0A7DC4222698495F00CA3CD9 /* LocationDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailViewModel.swift; sourceTree = "<group>"; };
+		0A7DC42D26984AF100CA3CD9 /* LocationDetailCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailCellViewModel.swift; sourceTree = "<group>"; };
 		163FEF6363ACF8456B6B3D9F /* Pods-ColatourB2B.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ColatourB2B.release.xcconfig"; path = "Pods/Target Support Files/Pods-ColatourB2B/Pods-ColatourB2B.release.xcconfig"; sourceTree = "<group>"; };
 		2AF496B023AB79810053EA45 /* ColatourB2BDev.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ColatourB2BDev.entitlements; sourceTree = "<group>"; };
 		2AF496B323AB7EA50053EA45 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -1530,18 +1551,24 @@
 			isa = PBXGroup;
 			children = (
 				06B05CAF2416293B00C8F447 /* ChooseLocationViewController.swift */,
+				0A5676722697E45100F58D8A /* ChooseLocationViewModel.swift */,
 				062DFCBE2419C1AE006882BE /* ChooseLocationProtocol.swift */,
 				062DFCC12419C4D6006882BE /* ChooseLocationPresenter.swift */,
 				06B05CA62416287D00C8F447 /* CapsuleCell.swift */,
+				0A2EF5EF269807CA00B12A44 /* CapsuleCellViewModel.swift */,
 				06B05CA72416287D00C8F447 /* CapsuleCell.xib */,
 				06B05CB42416470900C8F447 /* BrickCell.swift */,
+				0A2EF5FA26982E7300B12A44 /* BrickCellViewModel.swift */,
 				06B05CB52416470900C8F447 /* BrickCell.xib */,
 				06AA658F2418E6EA001CDA37 /* SearchEmptyCell.swift */,
 				06AA65902418E6EA001CDA37 /* SearchEmptyCell.xib */,
 				06AA65892418E553001CDA37 /* SearchResultCell.swift */,
+				0A26FC01269838D000A43C0D /* SearchResultCellViewModel.swift */,
 				06AA658A2418E553001CDA37 /* SearchResultCell.xib */,
 				061CD2B4241F6C9200BD0DE1 /* LocationDetailViewController.swift */,
+				0A7DC4222698495F00CA3CD9 /* LocationDetailViewModel.swift */,
 				06468512241F710600104346 /* LocationDetailCell.swift */,
+				0A7DC42D26984AF100CA3CD9 /* LocationDetailCellViewModel.swift */,
 				06468513241F710600104346 /* LocationDetailCell.xib */,
 			);
 			path = ChooseLocation;
@@ -1563,6 +1590,7 @@
 				A1F6E885241787510015279F /* LccAirCell.swift */,
 				0A1F8A7A26954C5400E357A8 /* LccAirCellViewModel.swift */,
 				A1A7F32E2418E11100263E42 /* AirPaxViewController.swift */,
+				0A56766B2697D0C100F58D8A /* AirPaxViewModel.swift */,
 			);
 			path = TKTSearch;
 			sourceTree = "<group>";
@@ -2213,8 +2241,10 @@
 				38BCD97723A3484300D59910 /* NSObjectExtension.swift in Sources */,
 				38871EB423D55E2F007ED33D /* GroupIndexHeaderImageCell.swift in Sources */,
 				38871EB023D55D16007ED33D /* GroupTableView.swift in Sources */,
+				0A2EF5F0269807CA00B12A44 /* CapsuleCellViewModel.swift in Sources */,
 				A1E449BA241B17B100895AF6 /* AirPopCityView.swift in Sources */,
 				38E68AA723B5AB80006BC4DD /* GroupSlideInTransition.swift in Sources */,
+				0A7DC4232698495F00CA3CD9 /* LocationDetailViewModel.swift in Sources */,
 				A1A7F2E52418854D00263E42 /* SelectCalendarManagerProtocol.swift in Sources */,
 				3869542823BADBFC00F6E7D9 /* MemberIndexProtocol.swift in Sources */,
 				38BCD92D23A345FA00D59910 /* EncryptionUtils.m in Sources */,
@@ -2289,6 +2319,7 @@
 				38BCDA1E23A36ADC00D59910 /* TabBarPresenter.swift in Sources */,
 				C7DCA72223D1BBE300F415B8 /* GroupTourSearchPresenter.swift in Sources */,
 				062DFCC22419C4D6006882BE /* ChooseLocationPresenter.swift in Sources */,
+				0A7DC42E26984AF100CA3CD9 /* LocationDetailCellViewModel.swift in Sources */,
 				0626031B23F3E5570026DC59 /* DeviceCell.swift in Sources */,
 				38871EC623D5B50F007ED33D /* HomeAd1View.swift in Sources */,
 				0A1F8A7026954C3800E357A8 /* SotoAirCellViewModel.swift in Sources */,
@@ -2312,6 +2343,7 @@
 				0650775523ED4FD50067377C /* ContactInfoResponse.swift in Sources */,
 				A142DF58242321DC003D103E /* LccResponse.swift in Sources */,
 				38BCD96F23A3484300D59910 /* CAGradientLayerExtension.swift in Sources */,
+				0A5676732697E45100F58D8A /* ChooseLocationViewModel.swift in Sources */,
 				0A44F1AE2693F854001C2C5D /* AirTicketSearchViewModel.swift in Sources */,
 				387FBF1323ACD047005412F1 /* CustomTextField.swift in Sources */,
 				38871EBC23D581AA007ED33D /* BannerImageView.swift in Sources */,
@@ -2383,6 +2415,7 @@
 				38E9923A23B0B5DF00E28271 /* BooleanButton.swift in Sources */,
 				A1A7F3012418854D00263E42 /* CalendarViewProtocol.swift in Sources */,
 				38E9922E23B058CA00E28271 /* LoginRequest.swift in Sources */,
+				0A2EF5FB26982E7300B12A44 /* BrickCellViewModel.swift in Sources */,
 				38BCD97F23A3484300D59910 /* UIFontExtenstion.swift in Sources */,
 				A1A7F3092418854D00263E42 /* CalendarViewControllerProtocol.swift in Sources */,
 				C7E15BF123D18CB0004C20A0 /* CustomPickerView.swift in Sources */,
@@ -2392,6 +2425,7 @@
 				A1A7F2F12418854D00263E42 /* CalendarAllAttribute.swift in Sources */,
 				A1E449B5241B168B00895AF6 /* AirPopCityCell.swift in Sources */,
 				C711754023BF40DA00555D8C /* MorePresenter.swift in Sources */,
+				0A56766C2697D0C100F58D8A /* AirPaxViewModel.swift in Sources */,
 				38BCD94623A346B800D59910 /* APIDefine.swift in Sources */,
 				C74FC80423C5AF0E00E2250D /* NoticeDetailViewController.swift in Sources */,
 				38BCD97523A3484300D59910 /* UIColorExtension.swift in Sources */,
@@ -2402,6 +2436,7 @@
 				C70EEF5A23EA549800D67FF4 /* VersionRuleViewController.swift in Sources */,
 				0655CD30241B6A77006092AB /* SotoTicketRequest.swift in Sources */,
 				0A1F8A7B26954C5400E357A8 /* LccAirCellViewModel.swift in Sources */,
+				0A26FC02269838D000A43C0D /* SearchResultCellViewModel.swift in Sources */,
 				38BCDA2F23A37B7100D59910 /* MemberIndexViewController.swift in Sources */,
 				38871EAD23D5553F007ED33D /* IndexResponse.swift in Sources */,
 				A17CFADB241B387C00922CC2 /* AirIndexCell.swift in Sources */,
@@ -2451,8 +2486,10 @@
 				38871EB523D55E2F007ED33D /* GroupIndexHeaderImageCell.swift in Sources */,
 				38871EB123D55D16007ED33D /* GroupTableView.swift in Sources */,
 				A1E449BB241B17B100895AF6 /* AirPopCityView.swift in Sources */,
+				0A2EF5F1269807CA00B12A44 /* CapsuleCellViewModel.swift in Sources */,
 				38E68AA823B5AB80006BC4DD /* GroupSlideInTransition.swift in Sources */,
 				A1A7F2E62418854D00263E42 /* SelectCalendarManagerProtocol.swift in Sources */,
+				0A7DC4282698496800CA3CD9 /* LocationDetailViewModel.swift in Sources */,
 				3869542923BADBFC00F6E7D9 /* MemberIndexProtocol.swift in Sources */,
 				38BCD92E23A345FA00D59910 /* EncryptionUtils.m in Sources */,
 				A1068F4D241625C900710DC4 /* TKTSearchRequest.swift in Sources */,
@@ -2527,6 +2564,7 @@
 				C7DCA72323D1BBE300F415B8 /* GroupTourSearchPresenter.swift in Sources */,
 				062DFCC32419C4D6006882BE /* ChooseLocationPresenter.swift in Sources */,
 				0626031C23F3E5570026DC59 /* DeviceCell.swift in Sources */,
+				0A7DC42F26984AF100CA3CD9 /* LocationDetailCellViewModel.swift in Sources */,
 				38871EC723D5B50F007ED33D /* HomeAd1View.swift in Sources */,
 				38BCD94523A346B800D59910 /* APIManager.swift in Sources */,
 				0A1F8A7126954C3800E357A8 /* SotoAirCellViewModel.swift in Sources */,
@@ -2550,6 +2588,7 @@
 				0650775623ED4FD50067377C /* ContactInfoResponse.swift in Sources */,
 				A142DF59242321DC003D103E /* LccResponse.swift in Sources */,
 				38BCD97023A3484300D59910 /* CAGradientLayerExtension.swift in Sources */,
+				0A5676742697E45100F58D8A /* ChooseLocationViewModel.swift in Sources */,
 				0A44F1AF2693F854001C2C5D /* AirTicketSearchViewModel.swift in Sources */,
 				387FBF1423ACD047005412F1 /* CustomTextField.swift in Sources */,
 				38871EBD23D581AA007ED33D /* BannerImageView.swift in Sources */,
@@ -2621,6 +2660,7 @@
 				38E9923B23B0B5DF00E28271 /* BooleanButton.swift in Sources */,
 				A1A7F3022418854D00263E42 /* CalendarViewProtocol.swift in Sources */,
 				38E9922F23B058CA00E28271 /* LoginRequest.swift in Sources */,
+				0A2EF5FC26982E7300B12A44 /* BrickCellViewModel.swift in Sources */,
 				38BCD98023A3484300D59910 /* UIFontExtenstion.swift in Sources */,
 				A1A7F30A2418854D00263E42 /* CalendarViewControllerProtocol.swift in Sources */,
 				C7E15BF223D18CB0004C20A0 /* CustomPickerView.swift in Sources */,
@@ -2630,6 +2670,7 @@
 				A1A7F2F22418854D00263E42 /* CalendarAllAttribute.swift in Sources */,
 				A1E449B6241B168B00895AF6 /* AirPopCityCell.swift in Sources */,
 				C711754123BF40DA00555D8C /* MorePresenter.swift in Sources */,
+				0A56766D2697D0C100F58D8A /* AirPaxViewModel.swift in Sources */,
 				38BCD94723A346B800D59910 /* APIDefine.swift in Sources */,
 				C74FC80523C5AF0E00E2250D /* NoticeDetailViewController.swift in Sources */,
 				38BCD97623A3484300D59910 /* UIColorExtension.swift in Sources */,
@@ -2640,6 +2681,7 @@
 				C70EEF5B23EA549800D67FF4 /* VersionRuleViewController.swift in Sources */,
 				0655CD31241B6A77006092AB /* SotoTicketRequest.swift in Sources */,
 				0A1F8A7C26954C5400E357A8 /* LccAirCellViewModel.swift in Sources */,
+				0A26FC03269838D000A43C0D /* SearchResultCellViewModel.swift in Sources */,
 				38BCDA3023A37B7100D59910 /* MemberIndexViewController.swift in Sources */,
 				38871EAE23D5553F007ED33D /* IndexResponse.swift in Sources */,
 				A17CFADC241B387C00922CC2 /* AirIndexCell.swift in Sources */,

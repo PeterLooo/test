@@ -8,9 +8,13 @@
 
 import UIKit
 
-protocol SetChooseLocationProtocol: NSObjectProtocol {
+extension ChooseLocationViewController {
     
-    func setLocation(cityInfo: TKTInitResponse.TicketResponse.City, searchType: SearchByType, arrival: ArrivalType?, startEndType: StartEndType?)
+    func setVC(viewModel: ChooseLocationViewModel) {
+        
+        self.viewModel = viewModel
+        infoSort()
+    }
 }
 
 class ChooseLocationViewController: BaseViewController {
@@ -22,57 +26,19 @@ class ChooseLocationViewController: BaseViewController {
         case SearchResult
     }
     
-    weak var delegate: SetChooseLocationProtocol?
-    
-    private var presenter: ChooseLocationPresenter?
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        presenter = ChooseLocationPresenter(delegate: self)
-    }
-    
-    private var searchType: SearchByType?
-    private var startEndType: StartEndType?
-    private var airTicketInfo: TKTInitResponse.TicketResponse?
-    private var lccAirInfo: LccResponse.LCCSearchInitialData?
-    private var area: TKTInitResponse.TicketResponse.Area?
-    private var countryList: [TKTInitResponse.TicketResponse.Country]?
-    private var cityList: [TKTInitResponse.TicketResponse.City]?
-    private var arrival: ArrivalType?
+    var viewModel: ChooseLocationViewModel?
+    var setLocation: ((_ cityInfo: TKTInitResponse.TicketResponse.City?, _ searchType: SearchByType?, _ arrival: ArrivalType?, _ startEndType: StartEndType?) -> ())?
     
     @IBOutlet weak var collectionView: UICollectionView!
-    
-    var searchText = ""
-    var preSearchText = ""
-    var searchResultList: [TKTInitResponse.TicketResponse.City] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let ges = UITapGestureRecognizer.init(target: self, action: #selector(dimissKeyBoard))
-        view.addGestureRecognizer(ges)
-        
-        searchBar.becomeFirstResponder()
-        
-        switch searchType {
-        case .airTkt:
-            setSearchBarPlaceHolder(text: "輸入 目的城市/機場代碼")
-        case .lcc:
-            setSearchBarPlaceHolder(text: "輸入 國家/城市/機場代碼")
-        default:
-            ()
-        }
-        
+        bindViewModel()
+        setView()
         setNavBarItem(left: .custom, mid: .searchBar, right: .nothingWithEmptySpace)
         setNavCustom()
-        
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        
-        collectionView.register(UINib(nibName: "CapsuleCell", bundle: nil), forCellWithReuseIdentifier: "CapsuleCell")
-        collectionView.register(UINib(nibName: "BrickCell", bundle: nil), forCellWithReuseIdentifier: "BrickCell")
-        collectionView.register(UINib(nibName: "SearchEmptyCell", bundle: nil), forCellWithReuseIdentifier: "SearchEmptyCell")
-        collectionView.register(UINib(nibName: "SearchResultCell", bundle: nil), forCellWithReuseIdentifier: "SearchResultCell")
-        
+        setCollectionView()
         setCollectionViewLayout()
     }
     
@@ -81,94 +47,14 @@ class ChooseLocationViewController: BaseViewController {
         self.searchBar.endEditing(true)
     }
     
-    func setNavCustom() {
-        
-        let close = UIBarButtonItem(image:  #imageLiteral(resourceName: "close").withRenderingMode(.alwaysTemplate), style: .plain, target: self, action: #selector(self.onTouchCancel))
-        setCustomLeftBarButtonItem(barButtonItem: close)
-    }
-    
     @objc private func onTouchCancel(){
         
         dismiss(animated: true, completion: nil)
     }
     
-    func textSize(text: String, font: UIFont, maxSize: CGSize) -> CGSize {
-        
-        return text.boundingRect(with: maxSize, options: [.usesLineFragmentOrigin], attributes: [NSAttributedString.Key.font : font], context: nil).size
-    }
-    
     @objc func setCollectionViewLayout(){
         
         self.collectionView.setCollectionViewLayout(UICollectionViewFlowLayout(), animated: false)
-    }
-    
-    func infoSort() {
-        
-        switch startEndType {
-        case .Departure:
-            if searchType == SearchByType.lcc {
-                var tempInfo: [TKTInitResponse.TicketResponse.Country] = []
-                let taiwan = lccAirInfo?.countryList.filter { $0.countryName == "台灣" }.first ?? TKTInitResponse.TicketResponse.Country()
-                
-                tempInfo = lccAirInfo?.countryList.filter { $0.countryName != "台灣" } ?? []
-                tempInfo.insert(taiwan, at: 0)
-                
-                lccAirInfo?.countryList = tempInfo
-            }
-            
-        case .Destination:
-            var tempInfo: [TKTInitResponse.TicketResponse.Country] = []
-            let japan = lccAirInfo?.countryList.filter { $0.countryName == "日本" }.first ?? TKTInitResponse.TicketResponse.Country()
-            let taiwan = lccAirInfo?.countryList.filter { $0.countryName == "台灣" }.first ?? TKTInitResponse.TicketResponse.Country()
-            
-            tempInfo = lccAirInfo?.countryList.filter { $0.countryName != "日本" } ?? []
-            tempInfo = tempInfo.filter { $0.countryName != "台灣" }
-            tempInfo.insert(japan, at: 0)
-            tempInfo.append(taiwan)
-            
-            lccAirInfo?.countryList = tempInfo
-            
-        default:
-            ()
-        }
-        
-        airTicketInfo?.areaList.forEach { $0.isSelected = false }
-        airTicketInfo?.areaList.first?.isSelected = true
-        lccAirInfo?.countryList.forEach { $0.isSelected = false }
-        lccAirInfo?.countryList.first?.isSelected = true
-    }
-    
-    func setVC(tktSearchInit: TKTInitResponse.TicketResponse?, lccSearchInit: LccResponse.LCCSearchInitialData?, searchType: SearchByType, startEndType: StartEndType, arrival: ArrivalType? = nil) {
-        
-        self.searchType = searchType
-        self.startEndType = startEndType
-        self.arrival = arrival
-        
-        switch searchType {
-        case .airTkt:
-            airTicketInfo = tktSearchInit
-            
-        case .soto:
-            ()
-            
-        case .lcc:
-            lccAirInfo = lccSearchInit
-        }
-        
-        infoSort()
-    }
-}
-
-extension ChooseLocationViewController: ChooseLocationViewProtocol {
-    
-    func onBindSearchResult(result: [TKTInitResponse.TicketResponse.City]) {
-        
-        if self.searchText == "" { return }
-        
-        searchResultList = result
-        
-        collectionView.reloadData()
-        setCollectionViewLayout()
     }
 }
 
@@ -181,9 +67,9 @@ extension ChooseLocationViewController {
     
     func searchBar(_ searchBar: UISearchBar, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         
-        switch searchType {
+        switch viewModel?.searchType {
         case .airTkt:
-            return self.searchText.count <= 3
+            return viewModel?.searchText.count ?? 0 <= 3
         default:
             return true
         }
@@ -197,129 +83,44 @@ extension ChooseLocationViewController {
         let regexMatch: Bool = regex.firstMatch(in: searchText, options: [], range: range) != nil
         
         self.searchBar.text = searchText.uppercased()
-        self.searchText = searchText.uppercased()
+        viewModel?.searchText = searchText.uppercased()
         
-        switch searchType {
+        switch viewModel?.searchType {
         case .airTkt:
             if searchText.count > 3 {
                 let maxLengthThreeText = String(searchText.dropLast(searchText.count - 3))
                 self.searchBar.text = maxLengthThreeText.uppercased()
-                self.searchText = maxLengthThreeText.uppercased()
+                viewModel?.searchText = maxLengthThreeText.uppercased()
             }
-            if searchText.count >= 1 && self.preSearchText != self.searchText && !regexMatch {
-                presenter?.getAirTktSearchResult(keyword: self.searchText)
-                self.preSearchText = self.searchText
-            // 搜尋文字清空時也要清空preSearchText，否則下次輸入相同文字時會無法進入搜尋
+            if searchText.count >= 1 && viewModel?.preSearchText != viewModel?.searchText && !regexMatch {
+                viewModel?.getAirTktSearchResult()
+                viewModel?.preSearchText = viewModel?.searchText ?? ""
+                // 搜尋文字清空時也要清空preSearchText，否則下次輸入相同文字時會無法進入搜尋
             } else if searchText != "" {
                 return
             } else {
-                self.preSearchText = ""
+                viewModel?.preSearchText = ""
             }
         case .lcc:
-            if searchText.count >= 2 && self.preSearchText != self.searchText && !regexMatch {
-                presenter?.getLccSearchResult(keyword: self.searchText)
-                self.preSearchText = self.searchText
+            if searchText.count >= 2 && viewModel?.preSearchText != viewModel?.searchText && !regexMatch {
+                viewModel?.getLccSearchResult()
+                viewModel?.preSearchText = viewModel?.searchText ?? ""
             } else if searchText != "" {
                 return
             } else {
-                self.preSearchText = ""
+                viewModel?.preSearchText = ""
             }
         default:
             ()
         }
         
-        searchResultList = []
+        viewModel?.searchResultList = []
         collectionView.reloadData()
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         
         self.searchBar.endEditing(true)
-    }
-}
-
-extension ChooseLocationViewController: CapsuleCellProtocol {
-    
-    func onTouchCapsule(areaInfo: TKTInitResponse.TicketResponse.Area?, countryInfo: TKTInitResponse.TicketResponse.Country?, searchType: SearchByType) {
-        
-        switch searchType {
-        case .airTkt:
-            self.airTicketInfo?.areaList.forEach({ (area) in
-                
-                if area == areaInfo {
-                    
-                    area.isSelected = true
-                } else {
-                    
-                    area.isSelected = false
-                }
-            })
-            
-        case .lcc:
-            self.lccAirInfo?.countryList.forEach({ (country) in
-                
-                if country == countryInfo {
-                    
-                    country.isSelected = true
-                } else {
-                    
-                    country.isSelected = false
-                }
-            })
-            
-        default:
-            ()
-        }
-        
-        collectionView.reloadData()
-        setCollectionViewLayout()
-    }
-}
-
-extension ChooseLocationViewController: BrickCellProtocol {
-    
-    func onTouchBrick(countryInfo: TKTInitResponse.TicketResponse.Country?, cityInfo: TKTInitResponse.TicketResponse.City?, searchType: SearchByType) {
-        
-        switch searchType {
-        case .airTkt:
-            let vc = getVC(st: "LocationDetail", vc: "LocationDetail") as! LocationDetailViewController
-            vc.setVC(countryInfo: countryInfo!)
-            vc.delegate = self
-            
-            self.navigationController?.pushViewController(vc, animated: true)
-            
-        case .lcc:
-            self.lccAirInfo?.countryList.forEach({ (country) in
-                country.cityList.forEach({ (city) in
-                    
-                    if city == cityInfo {
-                        
-                        self.delegate?.setLocation(cityInfo: cityInfo!, searchType: .lcc, arrival: nil, startEndType: self.startEndType)
-                        self.dismiss(animated: true, completion: nil)
-                    }
-                })
-            })
-            
-        default:
-            ()
-        }
-    }
-}
-
-extension ChooseLocationViewController: SearchResultCellProtocol {
-    
-    func onTouchCity(cityInfo: TKTInitResponse.TicketResponse.City, searchType: SearchByType) {
-        
-        delegate?.setLocation(cityInfo: cityInfo, searchType: searchType, arrival: self.arrival, startEndType: self.startEndType)
-        dismiss(animated: true, completion: nil)
-    }
-}
-
-extension ChooseLocationViewController: SetAirTktChooseCityProtocol {
-    
-    func setChooseCity(cityInfo: TKTInitResponse.TicketResponse.City) {
-        
-        onTouchCity(cityInfo: cityInfo, searchType: .airTkt)
     }
 }
 
@@ -334,44 +135,45 @@ extension ChooseLocationViewController: UICollectionViewDataSource {
         
         switch Section(rawValue: section) {
         case .Capsule:
-            switch searchType {
+            
+            switch viewModel?.searchType {
             case .airTkt:
-                if searchText.count >= 1 { return 0 }
-                return airTicketInfo?.areaList.count ?? 0
+                if (viewModel?.searchText.count ?? 0) >= 1 { return 0 }
+                return viewModel?.airTicketInfo?.areaList.count ?? 0
                 
             case .lcc:
-                if searchText.count >= 2 { return 0 }
-                return lccAirInfo?.countryList.count ?? 0
+                if (viewModel?.searchText.count ?? 0) >= 2 { return 0 }
+                return viewModel?.lccAirInfo?.countryList.count ?? 0
                 
             default:
                 return 0
             }
             
         case .Brick:
-            switch searchType {
+            switch viewModel?.searchType {
             case .airTkt:
-                if searchText.count >= 1 { return 0 }
-                area = airTicketInfo?.areaList.filter{ $0.isSelected == true }.first
-                countryList = airTicketInfo?.countryList.filter{ $0.areaId == area?.areaId }
-                return countryList?.count ?? 0
+                if (viewModel?.searchText.count ?? 0) >= 1 { return 0 }
+                viewModel?.area = viewModel?.airTicketInfo?.areaList.filter{ $0.isSelected == true }.first
+                viewModel?.countryList = viewModel?.airTicketInfo?.countryList.filter{ $0.areaId == viewModel?.area?.areaId }
+                return viewModel?.countryList?.count ?? 0
                 
             case .lcc:
-                if searchText.count >= 2 { return 0 }
-                let country = lccAirInfo?.countryList.filter { $0.isSelected == true }.first
-                cityList = country?.cityList
-                return cityList?.count ?? 0
+                if (viewModel?.searchText.count ?? 0) >= 2 { return 0 }
+                let country = viewModel?.lccAirInfo?.countryList.filter { $0.isSelected == true }.first
+                viewModel?.cityList = country?.cityList
+                return viewModel?.cityList?.count ?? 0
                 
             default:
                 return 0
             }
             
         case .SearchEmpty:
-            switch searchType {
+            switch viewModel?.searchType {
             case .airTkt:
-                if searchText.count >= 1 && searchResultList.count == 0 { return 1 }
+                if (viewModel?.searchText.count ?? 0) >= 1 && viewModel?.searchResultList.count == 0 { return 1 }
                 
             case .lcc:
-                if searchText.count >= 2 && searchResultList.count == 0 { return 1 }
+                if (viewModel?.searchText.count ?? 0) >= 2 && viewModel?.searchResultList.count == 0 { return 1 }
                 
             default:
                 return 0
@@ -379,7 +181,7 @@ extension ChooseLocationViewController: UICollectionViewDataSource {
             return 0
             
         case .SearchResult:
-            return searchResultList.count
+            return viewModel?.searchResultList.count ?? 0
             
         default:
             return 0
@@ -388,59 +190,27 @@ extension ChooseLocationViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        switch Section(rawValue: indexPath.section) {
-        case .Capsule:
+        let cellName = viewModel?.setCellViewModel(section: indexPath.section, row: indexPath.row)
+        
+        switch cellName {
+        case "capsuleCell":
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CapsuleCell", for: indexPath) as! CapsuleCell
-            cell.delegate = self
-            
-            switch searchType {
-            case .airTkt:
-                cell.setCellWith(airTicketInfo: airTicketInfo, lccAirInfo: nil, searchType: .airTkt, row: indexPath.row)
-                
-            case .lcc:
-                cell.setCellWith(airTicketInfo: nil, lccAirInfo: lccAirInfo, searchType: .lcc, row: indexPath.row)
-                
-            default:
-                ()
-            }
+            cell.setCell(viewModel: (viewModel?.capsuleCellViewModel)!)
             return cell
             
-        case .Brick:
+        case "brickCell":
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BrickCell", for: indexPath) as! BrickCell
-            cell.delegate = self
-            
-            switch searchType {
-            case .airTkt:
-                cell.setCellWith(countryInfo: (countryList?[indexPath.row])!, cityInfo: nil, searchType: .airTkt)
-                
-            case .lcc:
-                cell.setCellWith(countryInfo: nil, cityInfo: (cityList?[indexPath.row])!, searchType: .lcc)
-                
-            default:
-                ()
-            }
+            cell.setCell(viewModel: (viewModel?.brickCellViewModel)!)
             return cell
             
-        case .SearchEmpty:
+        case "searchEmpty":
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SearchEmptyCell", for: indexPath) as! SearchEmptyCell
             cell.setEmptyHint()
-            
             return cell
             
-        case .SearchResult:
+        case "searchResultCell":
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SearchResultCell", for: indexPath) as! SearchResultCell
-            cell.delegate = self
-            
-            switch searchType {
-            case .airTkt:
-                cell.setCellWith(cityInfo: searchResultList[indexPath.row], searchText: searchText, searchType: .airTkt)
-                
-            case .lcc:
-                cell.setCellWith(cityInfo: searchResultList[indexPath.row], searchText: searchText, searchType: .lcc)
-                
-            default:
-                ()
-            }
+            cell.setCellWith(viewModel: (viewModel?.searchResultCellViewModel)!)
             return cell
             
         default:
@@ -463,12 +233,12 @@ extension ChooseLocationViewController: UICollectionViewDelegateFlowLayout {
         
         switch Section(rawValue: section) {
         case .Capsule:
-            switch searchType {
+            switch viewModel?.searchType {
             case .airTkt:
-                if searchText.count >= 1 { return .zero }
+                if (viewModel?.searchText.count ?? 0) >= 1 { return .zero }
                 
             case .lcc:
-                if searchText.count >= 2 { return .zero }
+                if (viewModel?.searchText.count ?? 0) >= 2 { return .zero }
                 
             default:
                 return .zero
@@ -476,12 +246,12 @@ extension ChooseLocationViewController: UICollectionViewDelegateFlowLayout {
             return UIEdgeInsets(top: 12, left: 16, bottom: 12, right: 16)
             
         case .Brick:
-            switch searchType {
+            switch viewModel?.searchType {
             case .airTkt:
-                if searchText.count >= 1 { return .zero }
+                if (viewModel?.searchText.count ?? 0) >= 1 { return .zero }
                 
             case .lcc:
-                if searchText.count >= 2 { return .zero }
+                if (viewModel?.searchText.count ?? 0) >= 2 { return .zero }
                 
             default:
                 return .zero
@@ -492,7 +262,7 @@ extension ChooseLocationViewController: UICollectionViewDelegateFlowLayout {
             return .zero
             
         case .SearchResult:
-            if searchText.count != 0 && searchResultList.count == 0 { return .zero }
+            if (viewModel?.searchText.count ?? 0) != 0 && (viewModel?.searchResultList.count ?? 0) == 0 { return .zero }
             return UIEdgeInsets(top: 16, left: 24, bottom: 16, right: 24)
             
         default:
@@ -511,12 +281,12 @@ extension ChooseLocationViewController: UICollectionViewDelegateFlowLayout {
         
         switch Section(rawValue: indexPath.section) {
         case .Capsule:
-            switch searchType {
+            switch viewModel?.searchType {
             case .airTkt:
-                textString = airTicketInfo?.areaList[indexPath.item].areaName
+                textString = viewModel?.airTicketInfo?.areaList[indexPath.item].areaName
                 
             case .lcc:
-                textString = lccAirInfo?.countryList[indexPath.item].countryName
+                textString = viewModel?.lccAirInfo?.countryList[indexPath.item].countryName
                 
             default:
                 ()
@@ -543,7 +313,7 @@ extension ChooseLocationViewController: UICollectionViewDelegateFlowLayout {
             return cellSize
             
         case .SearchResult:
-            textString = searchResultList[indexPath.item].cityName
+            textString = viewModel?.searchResultList[indexPath.item].cityName
             textMaxSize = CGSize(width: collectionView.frame.width - 48, height: 40)
             textLabelSize = self.textSize(text: textString ?? "", font: textFont, maxSize: textMaxSize)
             
@@ -595,5 +365,107 @@ extension ChooseLocationViewController: UICollectionViewDelegateFlowLayout {
         default:
             return 0
         }
+    }
+}
+
+extension ChooseLocationViewController {
+    
+    private func bindViewModel() {
+        
+        viewModel = ChooseLocationViewModel(tktSearchInit: (viewModel?.airTicketInfo)!, lccSearchInit: (viewModel?.lccAirInfo)!, searchType: (viewModel?.searchType)!, startEndType: (viewModel?.startEndType)!)
+        
+        viewModel?.reloadData = { [weak self] in
+            self?.collectionView.reloadData()
+            self?.setCollectionViewLayout()
+        }
+        
+        viewModel?.toLocationDetailViewController = { [weak self] countryInfo in
+            let vc = self?.getVC(st: "LocationDetail", vc: "LocationDetail") as! LocationDetailViewController
+            vc.setVC(viewModel: LocationDetailViewModel(countryInfo: countryInfo!))
+            vc.setChooseCity = { [weak self] cityInfo in
+                self?.setLocation?(cityInfo, .airTkt, self?.viewModel?.arrival, self?.viewModel?.startEndType)
+                self?.dismiss(animated: true, completion: nil)
+            }
+            
+            self?.navigationController?.pushViewController(vc, animated: true)
+        }
+        
+        viewModel?.setLocation = { [weak self] cityInfo, searchType, arrival, startEndType in
+            self?.setLocation?(cityInfo, searchType, arrival, startEndType)
+            self?.dismiss(animated: true, completion: nil)
+        }
+    }
+    
+    private func setView() {
+        let ges = UITapGestureRecognizer.init(target: self, action: #selector(dimissKeyBoard))
+        view.addGestureRecognizer(ges)
+        
+        searchBar.becomeFirstResponder()
+        
+        switch viewModel?.searchType {
+        case .airTkt:
+            setSearchBarPlaceHolder(text: "輸入 目的城市/機場代碼")
+        case .lcc:
+            setSearchBarPlaceHolder(text: "輸入 國家/城市/機場代碼")
+        default:
+            ()
+        }
+    }
+    
+    private func setCollectionView() {
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        
+        collectionView.register(UINib(nibName: "CapsuleCell", bundle: nil), forCellWithReuseIdentifier: "CapsuleCell")
+        collectionView.register(UINib(nibName: "BrickCell", bundle: nil), forCellWithReuseIdentifier: "BrickCell")
+        collectionView.register(UINib(nibName: "SearchEmptyCell", bundle: nil), forCellWithReuseIdentifier: "SearchEmptyCell")
+        collectionView.register(UINib(nibName: "SearchResultCell", bundle: nil), forCellWithReuseIdentifier: "SearchResultCell")
+    }
+    
+    private func setNavCustom() {
+        
+        let close = UIBarButtonItem(image:  #imageLiteral(resourceName: "close").withRenderingMode(.alwaysTemplate), style: .plain, target: self, action: #selector(self.onTouchCancel))
+        setCustomLeftBarButtonItem(barButtonItem: close)
+    }
+    
+    private func textSize(text: String, font: UIFont, maxSize: CGSize) -> CGSize {
+        
+        return text.boundingRect(with: maxSize, options: [.usesLineFragmentOrigin], attributes: [NSAttributedString.Key.font : font], context: nil).size
+    }
+    
+    func infoSort() {
+        
+        switch viewModel?.startEndType {
+        case .Departure:
+            if viewModel?.searchType == SearchByType.lcc {
+                var tempInfo: [TKTInitResponse.TicketResponse.Country] = []
+                let taiwan = viewModel?.lccAirInfo?.countryList.filter { $0.countryName == "台灣" }.first ?? TKTInitResponse.TicketResponse.Country()
+                
+                tempInfo = viewModel?.lccAirInfo?.countryList.filter { $0.countryName != "台灣" } ?? []
+                tempInfo.insert(taiwan, at: 0)
+                
+                viewModel?.lccAirInfo?.countryList = tempInfo
+            }
+            
+        case .Destination:
+            var tempInfo: [TKTInitResponse.TicketResponse.Country] = []
+            let japan = viewModel?.lccAirInfo?.countryList.filter { $0.countryName == "日本" }.first ?? TKTInitResponse.TicketResponse.Country()
+            let taiwan = viewModel?.lccAirInfo?.countryList.filter { $0.countryName == "台灣" }.first ?? TKTInitResponse.TicketResponse.Country()
+            
+            tempInfo = viewModel?.lccAirInfo?.countryList.filter { $0.countryName != "日本" } ?? []
+            tempInfo = tempInfo.filter { $0.countryName != "台灣" }
+            tempInfo.insert(japan, at: 0)
+            tempInfo.append(taiwan)
+            
+            viewModel?.lccAirInfo?.countryList = tempInfo
+            
+        default:
+            ()
+        }
+        
+        viewModel?.airTicketInfo?.areaList.forEach { $0.isSelected = false }
+        viewModel?.airTicketInfo?.areaList.first?.isSelected = true
+        viewModel?.lccAirInfo?.countryList.forEach { $0.isSelected = false }
+        viewModel?.lccAirInfo?.countryList.first?.isSelected = true
     }
 }

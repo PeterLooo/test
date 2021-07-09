@@ -735,14 +735,7 @@ extension AirTicketSearchViewController {
         
         viewModel?.onTouchArrival = { [weak self] arrival in
             
-            let vc = self?.getVC(st: "ChooseLocation", vc: "ChooseLocation") as! ChooseLocationViewController
-            vc.setVC(tktSearchInit: self?.viewModel!.airSearchInit, lccSearchInit: nil, searchType: .airTkt, startEndType: .Departure, arrival: arrival)
-            vc.delegate = self
-            
-            let nav = UINavigationController(rootViewController: vc)
-            nav.modalPresentationStyle = .fullScreen
-            
-            self?.navigationController?.present(nav, animated: true)
+            self?.setChooseLocationViewController(arrival: arrival)
         }
         
         viewModel?.onTouchSelection = { [weak self] selection in
@@ -786,27 +779,11 @@ extension AirTicketSearchViewController {
         }
         
         viewModel?.onTouchLccDeparture = { [weak self] in
-            
-            let vc = self?.getVC(st: "ChooseLocation", vc: "ChooseLocation") as! ChooseLocationViewController
-            vc.setVC(tktSearchInit: nil, lccSearchInit: self?.viewModel?.lccSearchInit, searchType: .lcc, startEndType: .Departure, arrival: nil)
-            vc.delegate = self
-            
-            let nav = UINavigationController(rootViewController: vc)
-            nav.modalPresentationStyle = .fullScreen
-            
-            self?.navigationController?.present(nav, animated: true)
+            self?.setChooseLocationViewController(arrival: nil)
         }
         
         viewModel?.onTouchLccDestination = { [weak self] in
-            
-            let vc = self?.getVC(st: "ChooseLocation", vc: "ChooseLocation") as! ChooseLocationViewController
-            vc.setVC(tktSearchInit: nil, lccSearchInit: self?.viewModel?.lccSearchInit, searchType: .lcc, startEndType: .Destination, arrival: nil)
-            vc.delegate = self
-            
-            let nav = UINavigationController(rootViewController: vc)
-            nav.modalPresentationStyle = .fullScreen
-            
-            self?.navigationController?.present(nav, animated: true)
+            self?.setChooseLocationViewController(arrival: nil)
         }
         
         viewModel?.onTouchLccRequestByPerson = { [weak self] in
@@ -829,9 +806,11 @@ extension AirTicketSearchViewController {
             
             let vc = self?.getVC(st: "TKTSearch", vc: "AirPaxViewController") as! AirPaxViewController
             vc.modalPresentationStyle = .overCurrentContext
-            vc.setTextWith(lccTicketRequest: (self?.viewModel?.lccTicketRequest)!)
-            vc.delegate = self
-            
+            vc.setTextWith(viewModel: AirPaxViewModel(lccTicketRequest: (self?.viewModel?.lccTicketRequest)!))
+            vc.onTouchBottomButton = { [weak self] lccTicketRequest in
+                self?.viewModel?.lccTicketRequest = lccTicketRequest
+                self?.tableViewLCC.reloadData()
+            }
             self?.present(vc, animated: true)
         }
     }
@@ -845,44 +824,45 @@ extension AirTicketSearchViewController {
         pickerView.backgroundColor = UIColor.white
         datePicker.backgroundColor = UIColor.white
     }
-}
-
-extension AirTicketSearchViewController: AirPaxViewControllerProtocol{
-    func onTouchBottomButton(lccTicketRequest: LccTicketRequest) {
-        viewModel?.lccTicketRequest = lccTicketRequest
-        tableViewLCC.reloadData()
-    }
-}
-
-extension AirTicketSearchViewController: SetChooseLocationProtocol {
     
-    func setLocation(cityInfo: TKTInitResponse.TicketResponse.City, searchType: SearchByType, arrival: ArrivalType?, startEndType: StartEndType?) {
+    private func setChooseLocationViewController(arrival: ArrivalType? = nil) {
         
-        switch searchType {
-        case .airTkt:
-            switch arrival {
-            case .departureCity:
-                viewModel?.airTicketRequest.destination = cityInfo
-            case .backStartingCity:
-                viewModel?.airTicketRequest.returnCode = cityInfo
+        let vc = self.getVC(st: "ChooseLocation", vc: "ChooseLocation") as! ChooseLocationViewController
+        vc.setVC(viewModel: ChooseLocationViewModel(tktSearchInit: self.viewModel!.airSearchInit, lccSearchInit: nil, searchType: .airTkt, startEndType: .Departure, arrival: arrival))
+        
+        vc.setLocation = { [weak self] cityInfo, searchType, arrival, startEndType in
+            
+            switch searchType {
+            case .airTkt:
+                switch arrival {
+                case .departureCity:
+                    self?.viewModel?.airTicketRequest.destination = cityInfo
+                case .backStartingCity:
+                    self?.viewModel?.airTicketRequest.returnCode = cityInfo
+                default:
+                    ()
+                }
+                self?.tableViewGroupAir.reloadData()
+                
+            case .lcc:
+                switch startEndType {
+                case .Departure:
+                    self?.viewModel?.lccTicketRequest.departure = cityInfo
+                case .Destination:
+                    self?.viewModel?.lccTicketRequest.destination = cityInfo
+                default:
+                    ()
+                }
+                self?.tableViewLCC.reloadData()
+                
             default:
                 ()
             }
-            tableViewGroupAir.reloadData()
-            
-        case .lcc:
-            switch startEndType {
-            case .Departure:
-                viewModel?.lccTicketRequest.departure = cityInfo
-            case .Destination:
-                viewModel?.lccTicketRequest.destination = cityInfo
-            default:
-                ()
-            }
-            tableViewLCC.reloadData()
-            
-        default:
-            ()
         }
+        
+        let nav = UINavigationController(rootViewController: vc)
+        nav.modalPresentationStyle = .fullScreen
+        
+        self.navigationController?.present(nav, animated: true)
     }
 }

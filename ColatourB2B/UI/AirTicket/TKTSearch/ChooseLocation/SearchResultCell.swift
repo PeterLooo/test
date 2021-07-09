@@ -8,19 +8,11 @@
 
 import UIKit
 
-protocol SearchResultCellProtocol: NSObjectProtocol {
-    
-    func onTouchCity(cityInfo: TKTInitResponse.TicketResponse.City, searchType: SearchByType)
-}
-
 class SearchResultCell: UICollectionViewCell {
     
     @IBOutlet weak var resultName: UILabel!
     
-    weak var delegate: SearchResultCellProtocol?
-    
-    private var cityInfo: TKTInitResponse.TicketResponse.City?
-    private var searchType: SearchByType?
+    var viewModel: SearchResultCellViewModel?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,20 +22,18 @@ class SearchResultCell: UICollectionViewCell {
         resultName.addGestureRecognizer(ges)
     }
     
-    func setCellWith(cityInfo: TKTInitResponse.TicketResponse.City, searchText: String, searchType: SearchByType) {
+    func setCellWith(viewModel: SearchResultCellViewModel) {
+        self.viewModel = viewModel
         
-        self.cityInfo = cityInfo
-        self.searchType = searchType
-        
-        let attributedString = NSMutableAttributedString(string: cityInfo.cityName!)
+        let attributedString = NSMutableAttributedString(string: viewModel.cityInfo?.cityName ?? "")
         // 得到全部匹配關鍵字的Range<Index>
-        let ranges = cityInfo.cityName!.ranges(of: searchText)
+        let ranges = viewModel.cityInfo?.cityName?.ranges(of: viewModel.searchText ?? "")
         var nsRanges: [NSRange] = []
         var nsRange = NSRange()
         
         // 把Range<Index>轉型成NSRange
-        ranges.forEach({ (range) in
-            nsRange = cityInfo.cityName!.nsRange(from: range)
+        ranges?.forEach({ (range) in
+            nsRange = viewModel.cityInfo?.cityName?.nsRange(from: range) ?? nsRange
             nsRanges.append(nsRange)
         })
         
@@ -57,7 +47,7 @@ class SearchResultCell: UICollectionViewCell {
     
     @objc func onTouchCity() {
         
-        delegate?.onTouchCity(cityInfo: cityInfo!, searchType: searchType!)
+        viewModel?.onTouchToCity()
     }
 }
 
