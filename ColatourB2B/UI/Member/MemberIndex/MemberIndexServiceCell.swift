@@ -7,16 +7,12 @@
 //
 
 import UIKit
-protocol MemberIndexServiceCellProtocol : NSObjectProtocol {
-    func onTouchServer(server:ServerData)
-}
+
 class MemberIndexServiceCell: UITableViewCell {
 
     @IBOutlet weak var serverTitle: UILabel!
     
-    weak var delegate : MemberIndexServiceCellProtocol?
-    
-    private var server: ServerData?
+    private var viewModel : MemberIndexServiceCellViewModel?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,14 +20,13 @@ class MemberIndexServiceCell: UITableViewCell {
         self.addGestureRecognizer(ges)
         self.isUserInteractionEnabled = true
     }
-
-    func setCellWith(serverData:ServerData){
-        self.server = serverData
-        serverTitle.text = serverData.linkName
+    
+    func setCell(viewModel : MemberIndexServiceCellViewModel){
+        self.viewModel = viewModel
+        serverTitle.text = viewModel.serverData?.linkName
     }
     
     @objc func onTouchServer(){
-        self.delegate?.onTouchServer(server: self.server!)
+        self.viewModel?.onTouchServer?()
     }
-    
 }

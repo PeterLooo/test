@@ -7,9 +7,7 @@
 //
 
 import UIKit
-protocol MemberTopCellProtocol: NSObjectProtocol {
-    func onTouchLogout()
-}
+
 class MemberTopCell: UITableViewCell {
 
     @IBOutlet weak var logout: UIButton!
@@ -17,7 +15,7 @@ class MemberTopCell: UITableViewCell {
     @IBOutlet weak var topViewBackgroundView: UIView!
     @IBOutlet weak var iconTopConstraint: NSLayoutConstraint!
     
-    weak var delegate: MemberTopCellProtocol?
+    private var viewModel: MemberIndexHeaderCellViewModel?
     
     private var topViewGradientLayer: CAGradientLayer!
     
@@ -38,8 +36,9 @@ class MemberTopCell: UITableViewCell {
         reloadTopViewGradient()
     }
 
-    func setCellWith(title: String?){
-        self.topViewTitle.text = title
+    func setCellWith(viewModel: MemberIndexHeaderCellViewModel){
+        self.viewModel = viewModel
+        self.topViewTitle.text = viewModel.memberName
     }
     
     private func reloadTopViewGradient(){
@@ -61,6 +60,6 @@ class MemberTopCell: UITableViewCell {
     }
     
     @IBAction func onTouchLogout(_ sender: UIButton) {
-        self.delegate?.onTouchLogout()
+        self.viewModel?.onTouchLogout?()
     }
 }

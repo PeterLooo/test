@@ -1,0 +1,319 @@
+{
+  "ModuleData_List" : [
+    {
+      "Module_List" : [
+        {
+          "ModuleItem_List" : [
+            {
+              "Link_Params" : "https:\/\/bit.ly\/3ojULfs",
+              "Item_Promotion" : "1",
+              "Link_Type" : "001",
+              "Item_Remark" : "1",
+              "Small_Pic_Url" : "https:\/\/b2b.colatour.com.tw\/Cola_AppFiles\/M00B_Portal\/Module\/1\/85_s.jpg?20210518103309",
+              "Item_Price" : 999999,
+              "Item_Text" : "優力美",
+              "Pic_Url" : "https:\/\/b2b.colatour.com.tw\/Cola_AppFiles\/M00B_Portal\/Module\/1\/85.png?20210518103309"
+            },
+            {
+              "Link_Params" : "https:\/\/b2b.colatour.com.tw\/B2B_PageDesign\/B000_WebAd\/Tour_DM\/package\/sale\/fitpackage\/2021travel.html",
+              "Item_Promotion" : "3",
+              "Link_Type" : "001",
+              "Item_Remark" : "4",
+              "Small_Pic_Url" : "https:\/\/b2b.colatour.com.tw\/Cola_AppFiles\/M00B_Portal\/Module\/1\/95_s.jpg?20210625103055",
+              "Item_Price" : 0,
+              "Item_Text" : "美國自由行",
+              "Pic_Url" : "https:\/\/b2b.colatour.com.tw\/Cola_AppFiles\/M00B_Portal\/Module\/1\/95.png?20210625103055"
+            },
+            {
+              "Link_Params" : "https:\/\/b2b.colatour.com.tw\/B2B_PageDesign\/B000_WebAd\/Tour_DM\/taiwan\/theme\/summervacation\/festival.html",
+              "Item_Promotion" : "",
+              "Link_Type" : "001",
+              "Item_Remark" : "6",
+              "Small_Pic_Url" : "https:\/\/b2b.colatour.com.tw\/Cola_AppFiles\/M00B_Portal\/Module\/1\/100_s.jpg?20210512091954",
+              "Item_Price" : 9999,
+              "Item_Text" : "暑假團",
+              "Pic_Url" : "https:\/\/b2b.colatour.com.tw\/Cola_AppFiles\/M00B_Portal\/Module\/1\/100.png?20210512091954"
+            }
+          ],
+          "Module_Remark" : "111",
+          "Module_Text" : "AAA",
+          "Index_Max" : -1,
+          "Other_Max" : -1
+        }
+      ],
+      "Group_Name" : "首頁1"
+    },
+    {
+      "Module_List" : [
+        {
+          "ModuleItem_List" : [
+            {
+              "Link_Params" : "\/R10T_TourSale\/R10T12_SeriesQuery.aspx?TargetType=Series&PatternNo=93539",
+              "Item_Promotion" : "",
+              "Link_Type" : "003",
+              "Item_Remark" : "",
+              "Small_Pic_Url" : "https:\/\/b2b.colatour.com.tw\/Cola_AppFiles\/M00B_Portal\/Module\/2\/2_s.jpg?20210427101442",
+              "Item_Price" : 1790,
+              "Item_Text" : "桃園高家繡球花田、和逸飯店二日",
+              "Pic_Url" : "https:\/\/b2b.colatour.com.tw\/Cola_AppFiles\/M00B_Portal\/Module\/2\/2.jpg?20210427101442"
+            },
+            {
+              "Link_Params" : "\/R000_Portal\/Connect.aspx?TargetType=Series&PatternNo=93947",
+              "Item_Promotion" : "",
+              "Link_Type" : "003",
+              "Item_Remark" : "高屏3日不用三千",
+              "Small_Pic_Url" : "https:\/\/b2b.colatour.com.tw\/Cola_AppFiles\/M00B_Portal\/Module\/2\/19_s.jpg?20210504154721",
+              "Item_Price" : 2799,
+              "Item_Text" : "驚爆高屏～哈比屋、職人町勝利星村三日",
+              "Pic_Url" : "https:\/\/b2b.colatour.com.tw\/Cola_AppFiles\/M00B_Portal\/Module\/2\/19.jpg?20210504154721"
+            },
+            {
+              "Link_Params" : "\/R000_Portal\/Connect.aspx?TargetType=Series&PatternNo=91020",
+              "Item_Promotion" : "",
+              "Link_Type" : "003",
+              "Item_Remark" : "",
+              "Small_Pic_Url" : "https:\/\/b2b.colatour.com.tw\/Cola_AppFiles\/M00B_Portal\/Module\/2\/9_s.jpg?20210331150826",
+              "Item_Price" : 788,
+              "Item_Text" : "【送小費】最美抹茶山一日",
+              "Pic_Url" : "https:\/\/b2b.colatour.com.tw\/Cola_AppFiles\/M00B_Portal\/Module\/2\/9.jpg?20210331150826"
+            },
+            {
+              "Link_Params" : "\/R000_Portal\/Connect.aspx?TargetType=Series&PatternNo=93062",
+              "Item_Promotion" : "",
+              "Link_Type" : "003",
+              "Item_Remark" : "",
+              "Small_Pic_Url" : "https:\/\/b2b.colatour.com.tw\/Cola_AppFiles\/M00B_Portal\/Module\/2\/13_s.jpg?20210421123000",
+              "Item_Price" : 3498,
+              "Item_Text" : "【宜蘭第二人減1000】太平山祕境二日",
+              "Pic_Url" : "https:\/\/b2b.colatour.com.tw\/Cola_AppFiles\/M00B_Portal\/Module\/2\/13.jpg?20210421123000"
+            }
+          ],
+          "Module_Remark" : "搶購團",
+          "Module_Text" : "限時搶購專區",
+          "Index_Max" : -1,
+          "Other_Max" : -1
+        },
+        {
+          "ModuleItem_List" : [
+            {
+              "Link_Params" : "\/R000_Portal\/Connect.aspx?TargetType=Series&PatternNo=92795",
+              "Item_Promotion" : "",
+              "Link_Type" : "003",
+              "Item_Remark" : "",
+              "Small_Pic_Url" : "https:\/\/b2b.colatour.com.tw\/Cola_AppFiles\/M00B_Portal\/Module\/6\/33_s.jpg?20210413104721",
+              "Item_Price" : 6588,
+              "Item_Text" : "花蓮春日織羅部落、稻田腳印餐桌二日",
+              "Pic_Url" : "https:\/\/b2b.colatour.com.tw\/Cola_AppFiles\/M00B_Portal\/Module\/6\/33.jpg?20210413104721"
+            },
+            {
+              "Link_Params" : "\/R000_Portal\/Connect.aspx?TargetType=Series&PatternNo=90980",
+              "Item_Promotion" : "",
+              "Link_Type" : "003",
+              "Item_Remark" : "",
+              "Small_Pic_Url" : "https:\/\/b2b.colatour.com.tw\/Cola_AppFiles\/M00B_Portal\/Module\/6\/10_s.jpg?20210219112031",
+              "Item_Price" : 13388,
+              "Item_Text" : "迪士尼共舞、珍釀品酒、頂級牛排1日含小費",
+              "Pic_Url" : "https:\/\/b2b.colatour.com.tw\/Cola_AppFiles\/M00B_Portal\/Module\/6\/10.jpg?20210219112031"
+            },
+            {
+              "Link_Params" : "\/R000_Portal\/Connect.aspx?TargetType=Series&PatternNo=92050",
+
+              "Item_Promotion" : "",
+              "Link_Type" : "003",
+              "Item_Remark" : "",
+              "Small_Pic_Url" : "https:\/\/b2b.colatour.com.tw\/Cola_AppFiles\/M00B_Portal\/Module\/6\/6_s.jpg?20210413104313",
+              "Item_Price" : 5388,
+              "Item_Text" : "雪霸觀霧、六人成行～野馬瞰山步道二日",
+              "Pic_Url" : "https:\/\/b2b.colatour.com.tw\/Cola_AppFiles\/M00B_Portal\/Module\/6\/6.jpg?20210413104313"
+            },
+            {
+              "Link_Params" : "\/R000_Portal\/Connect.aspx?TargetType=Series&PatternNo=93068",
+              "Item_Promotion" : "",
+              "Link_Type" : "003",
+              "Item_Remark" : "",
+              "Small_Pic_Url" : "https:\/\/b2b.colatour.com.tw\/Cola_AppFiles\/M00B_Portal\/Module\/6\/34_s.jpg?20210413104925",
+              "Item_Price" : 10888,
+              "Item_Text" : "花蓮布洛灣山月吊橋、奢華晶英飯店二日",
+              "Pic_Url" : "https:\/\/b2b.colatour.com.tw\/Cola_AppFiles\/M00B_Portal\/Module\/6\/34.jpg?20210413104925"
+            }
+          ],
+          "Module_Remark" : "高後退",
+          "Module_Text" : "高利潤推薦",
+          "Index_Max" : -1,
+          "Other_Max" : -1
+        },
+        {
+          "ModuleItem_List" : [
+            {
+              "Link_Params" : "\/R000_Portal\/Connect.aspx?TargetType=Series&PatternNo=93988",
+              "Item_Promotion" : "",
+              "Link_Type" : "003",
+              "Item_Remark" : "",
+              "Small_Pic_Url" : "https:\/\/b2b.colatour.com.tw\/Cola_AppFiles\/M00B_Portal\/Module\/3\/105_s.jpg?20210518105432",
+              "Item_Price" : 499,
+              "Item_Text" : "福隆國際沙雕藝術季～舊草嶺隧道單車1日",
+              "Pic_Url" : "https:\/\/b2b.colatour.com.tw\/Cola_AppFiles\/M00B_Portal\/Module\/3\/105.jpg?20210518105432"
+            },
+            {
+              "Link_Params" : "\/R000_Portal\/Connect.aspx?TargetType=Series&PatternNo=93086",
+              "Item_Promotion" : "促銷文字",
+              "Link_Type" : "003",
+              "Item_Remark" : "商品次標題",
+              "Small_Pic_Url" : "https:\/\/b2b.colatour.com.tw\/Cola_AppFiles\/M00B_Portal\/Module\/3\/3_s.jpg?20210310154500",
+              "Item_Price" : 6700,
+              "Item_Text" : "馬祖Lets go～自選民宿自由行四日",
+              "Pic_Url" : "https:\/\/b2b.colatour.com.tw\/Cola_AppFiles\/M00B_Portal\/Module\/3\/3.jpg?20210310154500"
+            },
+            {
+              "Link_Params" : "\/R000_Portal\/Connect.aspx?TargetType=Series&PatternNo=93491",
+              "Item_Promotion" : "",
+              "Link_Type" : "003",
+              "Item_Remark" : "",
+              "Small_Pic_Url" : "https:\/\/b2b.colatour.com.tw\/Cola_AppFiles\/M00B_Portal\/Module\/3\/11_s.jpg?20210520100252",
+              "Item_Price" : 8900,
+              "Item_Text" : "台東六人成行～熱氣球嘉年華會3日",
+              "Pic_Url" : "https:\/\/b2b.colatour.com.tw\/Cola_AppFiles\/M00B_Portal\/Module\/3\/11.jpg?20210520100252"
+            },
+            {
+              "Link_Params" : "\/R000_Portal\/Connect.aspx?TargetType=Series&PatternNo=90485",
+              "Item_Promotion" : "",
+              "Link_Type" : "003",
+              "Item_Remark" : "",
+              "Small_Pic_Url" : "https:\/\/b2b.colatour.com.tw\/Cola_AppFiles\/M00B_Portal\/Module\/3\/36_s.jpg?20201130160632",
+              "Item_Price" : 6299,
+              "Item_Text" : "司馬庫斯、四人成行二日",
+              "Pic_Url" : "https:\/\/b2b.colatour.com.tw\/Cola_AppFiles\/M00B_Portal\/Module\/3\/36.jpg?20201130160632"
+            },
+            {
+              "Link_Params" : "\/R000_Portal\/Connect.aspx?TargetType=Series&PatternNo=93169",
+              "Item_Promotion" : "",
+              "Link_Type" : "003",
+              "Item_Remark" : "",
+              "Small_Pic_Url" : "https:\/\/b2b.colatour.com.tw\/Cola_AppFiles\/M00B_Portal\/Module\/3\/35_s.jpg?20210310154730",
+              "Item_Price" : 4099,
+              "Item_Text" : "基隆嶼最美秘境2日",
+              "Pic_Url" : "https:\/\/b2b.colatour.com.tw\/Cola_AppFiles\/M00B_Portal\/Module\/3\/35.jpg?20210310154730"
+            }
+          ],
+          "Module_Remark" : "成團率高的團型",
+          "Module_Text" : "熱門團體推薦",
+          "Index_Max" : -1,
+          "Other_Max" : -1
+        }
+      ],
+      "Group_Name" : "HomeAd1"
+    },
+    {
+      "Module_List" : [
+        {
+          "ModuleItem_List" : [
+            {
+              "Link_Params" : "\/R000_Portal\/Connect.aspx?TargetType=Series&PatternNo=92763",
+              "Item_Promotion" : "早鳥享優惠",
+              "Link_Type" : "003",
+              "Item_Remark" : "",
+              "Small_Pic_Url" : "https:\/\/b2b.colatour.com.tw\/Cola_AppFiles\/M00B_Portal\/Module\/4\/4_s.jpg?20210520100618",
+              "Item_Price" : 7588,
+              "Item_Text" : "四人成行～華信飛航模擬機體驗一日",
+              "Pic_Url" : "https:\/\/b2b.colatour.com.tw\/Cola_AppFiles\/M00B_Portal\/Module\/4\/4.jpg?20210520100618"
+            },
+            {
+              "Link_Params" : "\/R000_Portal\/Connect.aspx?TargetType=Series&PatternNo=93995",
+              "Item_Promotion" : "端午連休",
+              "Link_Type" : "003",
+              "Item_Remark" : "",
+              "Small_Pic_Url" : "https:\/\/b2b.colatour.com.tw\/Cola_AppFiles\/M00B_Portal\/Module\/4\/97_s.jpg?20210513152503",
+              "Item_Price" : 11800,
+              "Item_Text" : "澎湖吉貝七美二選一、經典北環島三日",
+              "Pic_Url" : "https:\/\/b2b.colatour.com.tw\/Cola_AppFiles\/M00B_Portal\/Module\/4\/97.jpg?20190109141903"
+            },
+            {
+              "Link_Params" : "\/R10T_TourSale\/R10T12_SeriesQuery.aspx?PatternNo=90438",
+              "Item_Promotion" : "連假早預購",
+              "Link_Type" : "003",
+              "Item_Remark" : "",
+              "Small_Pic_Url" : "https:\/\/b2b.colatour.com.tw\/Cola_AppFiles\/M00B_Portal\/Module\/4\/98_s.jpg?20210420154030",
+              "Item_Price" : 3888,
+              "Item_Text" : "連休瘋花蓮～文旅民宿自由行三日",
+              "Pic_Url" : "https:\/\/b2b.colatour.com.tw\/Cola_AppFiles\/M00B_Portal\/Module\/4\/98.jpg?20190109141525"
+            },
+            {
+              "Link_Params" : "\/R10T_TourSale\/R10T12_SeriesQuery.aspx?PatternNo=92746",
+              "Item_Promotion" : "連假早預購",
+              "Link_Type" : "003",
+              "Item_Remark" : "",
+              "Small_Pic_Url" : "https:\/\/b2b.colatour.com.tw\/Cola_AppFiles\/M00B_Portal\/Module\/4\/38_s.jpg?20210504155057",
+              "Item_Price" : 3799,
+              "Item_Text" : "連休瘋台北～住宿圓山飯店二日",
+              "Pic_Url" : "https:\/\/b2b.colatour.com.tw\/Cola_AppFiles\/M00B_Portal\/Module\/4\/38.jpg?20210504155057"
+            }
+          ],
+          "Module_Remark" : "提前報名優惠價",
+          "Module_Text" : "早鳥、連假先搶GO",
+          "Index_Max" : -1,
+          "Other_Max" : -1
+        }
+      ],
+      "Group_Name" : "HomeAd2"
+    },
+    {
+      "Module_List" : [
+    {
+          "ModuleItem_List" : [
+            {
+              "Link_Params" : "\/R000_Portal\/Connect.aspx?TargetType=Series&PatternNo=92763",
+              "Item_Promotion" : "早鳥享優惠",
+              "Link_Type" : "003",
+              "Item_Remark" : "",
+              "Small_Pic_Url" : "https:\/\/b2b.colatour.com.tw\/Cola_AppFiles\/M00B_Portal\/Module\/4\/4_s.jpg?20210520100618",
+              "Item_Price" : 7588,
+              "Item_Text" : "四人成行～華信飛航模擬機體驗一日",
+              "Pic_Url" : "https:\/\/b2b.colatour.com.tw\/Cola_AppFiles\/M00B_Portal\/Module\/4\/4.jpg?20210520100618"
+            },
+            {
+              "Link_Params" : "\/R000_Portal\/Connect.aspx?TargetType=Series&PatternNo=93995",
+              "Item_Promotion" : "端午連休",
+              "Link_Type" : "003",
+              "Item_Remark" : "",
+              "Small_Pic_Url" : "https:\/\/b2b.colatour.com.tw\/Cola_AppFiles\/M00B_Portal\/Module\/4\/97_s.jpg?20210513152503",
+              "Item_Price" : 11800,
+              "Item_Text" : "澎湖吉貝七美二選一、經典北環島三日",
+              "Pic_Url" : "https:\/\/b2b.colatour.com.tw\/Cola_AppFiles\/M00B_Portal\/Module\/4\/97.jpg?20190109141903"
+            },
+            {
+              "Link_Params" : "\/R10T_TourSale\/R10T12_SeriesQuery.aspx?PatternNo=90438",
+              "Item_Promotion" : "連假早預購",
+              "Link_Type" : "003",
+              "Item_Remark" : "",
+              "Small_Pic_Url" : "https:\/\/b2b.colatour.com.tw\/Cola_AppFiles\/M00B_Portal\/Module\/4\/98_s.jpg?20210420154030",
+              "Item_Price" : 3888,
+              "Item_Text" : "連休瘋花蓮～文旅民宿自由行三日",
+              "Pic_Url" : "https:\/\/b2b.colatour.com.tw\/Cola_AppFiles\/M00B_Portal\/Module\/4\/98.jpg?20190109141525"
+            },
+            {
+              "Link_Params" : "\/R10T_TourSale\/R10T12_SeriesQuery.aspx?PatternNo=92746",
+              "Item_Promotion" : "連假早預購",
+              "Link_Type" : "003",
+              "Item_Remark" : "",
+              "Small_Pic_Url" : "https:\/\/b2b.colatour.com.tw\/Cola_AppFiles\/M00B_Portal\/Module\/4\/38_s.jpg?20210504155057",
+              "Item_Price" : 3799,
+              "Item_Text" : "連休瘋台北～住宿圓山飯店二日",
+              "Pic_Url" : "https:\/\/b2b.colatour.com.tw\/Cola_AppFiles\/M00B_Portal\/Module\/4\/38.jpg?20210504155057"
+            }
+          ],
+          "Module_Remark" : "提前報名優惠價",
+          "Module_Text" : "早鳥、連假先搶GO",
+          "Index_Max" : -1,
+          "Other_Max" : -1
+        }
+      ],
+      "Group_Name" : "HomeAd3"
+    },
+    {
+      "Module_List" : [
+
+      ],
+      "Group_Name" : "HomeSpecial"
+    }
+  ]
+}

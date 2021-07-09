@@ -100,6 +100,18 @@
 		06DA4F8F23E92260001B7DF1 /* MessageSendNotificationListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DA4F7D23E9225F001B7DF1 /* MessageSendNotificationListCell.swift */; };
 		06DA4F9223E922C0001B7DF1 /* MessageSend.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06DA4F9123E922C0001B7DF1 /* MessageSend.storyboard */; };
 		06DA4F9323E922C0001B7DF1 /* MessageSend.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06DA4F9123E922C0001B7DF1 /* MessageSend.storyboard */; };
+		0A666A2626967F89008B3ADF /* AirTicket.json in Resources */ = {isa = PBXBuildFile; fileRef = 0A666A2526967F89008B3ADF /* AirTicket.json */; };
+		0A666A2726967F89008B3ADF /* AirTicket.json in Resources */ = {isa = PBXBuildFile; fileRef = 0A666A2526967F89008B3ADF /* AirTicket.json */; };
+		0AEE673C268E9F8400EDB092 /* AirTicketViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEE673B268E9F8400EDB092 /* AirTicketViewModel.swift */; };
+		0AEE673D268E9F8400EDB092 /* AirTicketViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEE673B268E9F8400EDB092 /* AirTicketViewModel.swift */; };
+		0AEE6747268EA2F100EDB092 /* AirIndexCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEE6746268EA2F100EDB092 /* AirIndexCellViewModel.swift */; };
+		0AEE6748268EA2F100EDB092 /* AirIndexCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEE6746268EA2F100EDB092 /* AirIndexCellViewModel.swift */; };
+		0AEE6756268EAA4400EDB092 /* AirIndexViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEE6755268EAA4400EDB092 /* AirIndexViewModel.swift */; };
+		0AEE6757268EAA4400EDB092 /* AirIndexViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEE6755268EAA4400EDB092 /* AirIndexViewModel.swift */; };
+		0AEE6765268EB59700EDB092 /* AirPopCityCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEE6764268EB59700EDB092 /* AirPopCityCellViewModel.swift */; };
+		0AEE6766268EB59700EDB092 /* AirPopCityCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEE6764268EB59700EDB092 /* AirPopCityCellViewModel.swift */; };
+		0AEE6774268EB77C00EDB092 /* AirPopCityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEE6773268EB77C00EDB092 /* AirPopCityViewModel.swift */; };
+		0AEE6775268EB77C00EDB092 /* AirPopCityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEE6773268EB77C00EDB092 /* AirPopCityViewModel.swift */; };
 		2AF496B423AB7EA50053EA45 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2AF496B323AB7EA50053EA45 /* GoogleService-Info.plist */; };
 		2AF496B623AB7EBB0053EA45 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2AF496B523AB7EBB0053EA45 /* GoogleService-Info.plist */; };
 		3802A18F23C8520C00CD2EF2 /* SalesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3802A18E23C8520C00CD2EF2 /* SalesViewController.swift */; };
@@ -154,10 +166,6 @@
 		385B54F923BDC4C800BE1476 /* NotificationItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385B54F623BDC4C800BE1476 /* NotificationItemCell.swift */; };
 		385B54FA23BDC4C800BE1476 /* NotificationItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 385B54F723BDC4C800BE1476 /* NotificationItemCell.xib */; };
 		385B54FB23BDC4C800BE1476 /* NotificationItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 385B54F723BDC4C800BE1476 /* NotificationItemCell.xib */; };
-		3869542823BADBFC00F6E7D9 /* MemberIndexProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3869542723BADBFC00F6E7D9 /* MemberIndexProtocol.swift */; };
-		3869542923BADBFC00F6E7D9 /* MemberIndexProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3869542723BADBFC00F6E7D9 /* MemberIndexProtocol.swift */; };
-		3869542B23BADC0F00F6E7D9 /* MemberIndexPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3869542A23BADC0F00F6E7D9 /* MemberIndexPresenter.swift */; };
-		3869542C23BADC0F00F6E7D9 /* MemberIndexPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3869542A23BADC0F00F6E7D9 /* MemberIndexPresenter.swift */; };
 		3869542E23BADC9000F6E7D9 /* MemberIndexResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3869542D23BADC9000F6E7D9 /* MemberIndexResponse.swift */; };
 		3869542F23BADC9000F6E7D9 /* MemberIndexResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3869542D23BADC9000F6E7D9 /* MemberIndexResponse.swift */; };
 		3869543223BAE5F500F6E7D9 /* MemberTopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3869543023BAE5F500F6E7D9 /* MemberTopCell.swift */; };
@@ -460,6 +468,14 @@
 		A1A7F32D2418DDCC00263E42 /* ChooseCountButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A7F3292418DDCC00263E42 /* ChooseCountButton.swift */; };
 		A1A7F32F2418E11100263E42 /* AirPaxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A7F32E2418E11100263E42 /* AirPaxViewController.swift */; };
 		A1A7F3302418E11100263E42 /* AirPaxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A7F32E2418E11100263E42 /* AirPaxViewController.swift */; };
+		A1B6975126953D5900269454 /* MemberIndexViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B6975026953D5900269454 /* MemberIndexViewModel.swift */; };
+		A1B6975226953D5900269454 /* MemberIndexViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B6975026953D5900269454 /* MemberIndexViewModel.swift */; };
+		A1B697882695638A00269454 /* MemberIndexHeaderCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B697872695638A00269454 /* MemberIndexHeaderCellViewModel.swift */; };
+		A1B697892695638A00269454 /* MemberIndexHeaderCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B697872695638A00269454 /* MemberIndexHeaderCellViewModel.swift */; };
+		A1B6978F269563AE00269454 /* MemberIndexServiceCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B6978E269563AE00269454 /* MemberIndexServiceCellViewModel.swift */; };
+		A1B69790269563AE00269454 /* MemberIndexServiceCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B6978E269563AE00269454 /* MemberIndexServiceCellViewModel.swift */; };
+		A1B6979626957C6D00269454 /* MoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B6979526957C6D00269454 /* MoreViewModel.swift */; };
+		A1B6979726957C6D00269454 /* MoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B6979526957C6D00269454 /* MoreViewModel.swift */; };
 		A1DB93DE24066B5D00AE427C /* WebViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DB93DD24066B5D00AE427C /* WebViewProtocol.swift */; };
 		A1DB93DF24066B5D00AE427C /* WebViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DB93DD24066B5D00AE427C /* WebViewProtocol.swift */; };
 		A1DB93E124066B8E00AE427C /* WebViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DB93E024066B8E00AE427C /* WebViewPresenter.swift */; };
@@ -502,10 +518,6 @@
 		C70EEF5823EA549200D67FF4 /* BulletinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70EEF5623EA549200D67FF4 /* BulletinViewController.swift */; };
 		C70EEF5A23EA549800D67FF4 /* VersionRuleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70EEF5923EA549700D67FF4 /* VersionRuleViewController.swift */; };
 		C70EEF5B23EA549800D67FF4 /* VersionRuleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70EEF5923EA549700D67FF4 /* VersionRuleViewController.swift */; };
-		C711753D23BF407E00555D8C /* MoreProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C711753C23BF407D00555D8C /* MoreProtocol.swift */; };
-		C711753E23BF407E00555D8C /* MoreProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C711753C23BF407D00555D8C /* MoreProtocol.swift */; };
-		C711754023BF40DA00555D8C /* MorePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C711753F23BF40DA00555D8C /* MorePresenter.swift */; };
-		C711754123BF40DA00555D8C /* MorePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C711753F23BF40DA00555D8C /* MorePresenter.swift */; };
 		C74FC80123C5AEE100E2250D /* NoticeDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C74FC80023C5AEE100E2250D /* NoticeDetail.storyboard */; };
 		C74FC80223C5AEE100E2250D /* NoticeDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C74FC80023C5AEE100E2250D /* NoticeDetail.storyboard */; };
 		C74FC80423C5AF0E00E2250D /* NoticeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74FC80323C5AF0E00E2250D /* NoticeDetailViewController.swift */; };
@@ -629,6 +641,12 @@
 		06DA4F7C23E9225F001B7DF1 /* MessageSendTopicCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageSendTopicCell.swift; sourceTree = "<group>"; };
 		06DA4F7D23E9225F001B7DF1 /* MessageSendNotificationListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageSendNotificationListCell.swift; sourceTree = "<group>"; };
 		06DA4F9123E922C0001B7DF1 /* MessageSend.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MessageSend.storyboard; sourceTree = "<group>"; };
+		0A666A2526967F89008B3ADF /* AirTicket.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AirTicket.json; sourceTree = "<group>"; };
+		0AEE673B268E9F8400EDB092 /* AirTicketViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirTicketViewModel.swift; sourceTree = "<group>"; };
+		0AEE6746268EA2F100EDB092 /* AirIndexCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirIndexCellViewModel.swift; sourceTree = "<group>"; };
+		0AEE6755268EAA4400EDB092 /* AirIndexViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirIndexViewModel.swift; sourceTree = "<group>"; };
+		0AEE6764268EB59700EDB092 /* AirPopCityCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirPopCityCellViewModel.swift; sourceTree = "<group>"; };
+		0AEE6773268EB77C00EDB092 /* AirPopCityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirPopCityViewModel.swift; sourceTree = "<group>"; };
 		163FEF6363ACF8456B6B3D9F /* Pods-ColatourB2B.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ColatourB2B.release.xcconfig"; path = "Pods/Target Support Files/Pods-ColatourB2B/Pods-ColatourB2B.release.xcconfig"; sourceTree = "<group>"; };
 		2AF496B023AB79810053EA45 /* ColatourB2BDev.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ColatourB2BDev.entitlements; sourceTree = "<group>"; };
 		2AF496B323AB7EA50053EA45 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -668,8 +686,6 @@
 		385B54F323BDC3A400BE1476 /* NotificationTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTableView.swift; sourceTree = "<group>"; };
 		385B54F623BDC4C800BE1476 /* NotificationItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationItemCell.swift; sourceTree = "<group>"; };
 		385B54F723BDC4C800BE1476 /* NotificationItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationItemCell.xib; sourceTree = "<group>"; };
-		3869542723BADBFC00F6E7D9 /* MemberIndexProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberIndexProtocol.swift; sourceTree = "<group>"; };
-		3869542A23BADC0F00F6E7D9 /* MemberIndexPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberIndexPresenter.swift; sourceTree = "<group>"; };
 		3869542D23BADC9000F6E7D9 /* MemberIndexResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberIndexResponse.swift; sourceTree = "<group>"; };
 		3869543023BAE5F500F6E7D9 /* MemberTopCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberTopCell.swift; sourceTree = "<group>"; };
 		3869543123BAE5F500F6E7D9 /* MemberTopCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MemberTopCell.xib; sourceTree = "<group>"; };
@@ -828,6 +844,10 @@
 		A1A7F3282418DDCC00263E42 /* ChooseCountButton.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChooseCountButton.xib; sourceTree = "<group>"; };
 		A1A7F3292418DDCC00263E42 /* ChooseCountButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseCountButton.swift; sourceTree = "<group>"; };
 		A1A7F32E2418E11100263E42 /* AirPaxViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirPaxViewController.swift; sourceTree = "<group>"; };
+		A1B6975026953D5900269454 /* MemberIndexViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberIndexViewModel.swift; sourceTree = "<group>"; };
+		A1B697872695638A00269454 /* MemberIndexHeaderCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberIndexHeaderCellViewModel.swift; sourceTree = "<group>"; };
+		A1B6978E269563AE00269454 /* MemberIndexServiceCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberIndexServiceCellViewModel.swift; sourceTree = "<group>"; };
+		A1B6979526957C6D00269454 /* MoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewModel.swift; sourceTree = "<group>"; };
 		A1DB93DD24066B5D00AE427C /* WebViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewProtocol.swift; sourceTree = "<group>"; };
 		A1DB93E024066B8E00AE427C /* WebViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewPresenter.swift; sourceTree = "<group>"; };
 		A1DB93E324066EC500AE427C /* WebViewTourShareResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewTourShareResponse.swift; sourceTree = "<group>"; };
@@ -852,8 +872,6 @@
 		C70EEF4F23EA545300D67FF4 /* Bulletin.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Bulletin.storyboard; sourceTree = "<group>"; };
 		C70EEF5623EA549200D67FF4 /* BulletinViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BulletinViewController.swift; sourceTree = "<group>"; };
 		C70EEF5923EA549700D67FF4 /* VersionRuleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VersionRuleViewController.swift; sourceTree = "<group>"; };
-		C711753C23BF407D00555D8C /* MoreProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreProtocol.swift; sourceTree = "<group>"; };
-		C711753F23BF40DA00555D8C /* MorePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MorePresenter.swift; sourceTree = "<group>"; };
 		C74FC80023C5AEE100E2250D /* NoticeDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NoticeDetail.storyboard; sourceTree = "<group>"; };
 		C74FC80323C5AF0E00E2250D /* NoticeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeDetailViewController.swift; sourceTree = "<group>"; };
 		C77282F223CC502500067EB4 /* GroupTourSearch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GroupTourSearch.storyboard; sourceTree = "<group>"; };
@@ -998,6 +1016,18 @@
 			path = MessageSend;
 			sourceTree = "<group>";
 		};
+		0A44F1892693EBCB001C2C5D /* viewModel */ = {
+			isa = PBXGroup;
+			children = (
+				0AEE673B268E9F8400EDB092 /* AirTicketViewModel.swift */,
+				0AEE6764268EB59700EDB092 /* AirPopCityCellViewModel.swift */,
+				0AEE6773268EB77C00EDB092 /* AirPopCityViewModel.swift */,
+				0AEE6746268EA2F100EDB092 /* AirIndexCellViewModel.swift */,
+				0AEE6755268EAA4400EDB092 /* AirIndexViewModel.swift */,
+			);
+			path = viewModel;
+			sourceTree = "<group>";
+		};
 		2AF496AD23AB6D580053EA45 /* ColatourB2BDev */ = {
 			isa = PBXGroup;
 			children = (
@@ -1047,6 +1077,7 @@
 			isa = PBXGroup;
 			children = (
 				A1876A822415D63C00855DE6 /* TKTSearch */,
+				0A44F1892693EBCB001C2C5D /* viewModel */,
 				381B12AE23C465AE0030BACE /* AirTicketViewController.swift */,
 				384B110223C2BD33000E2B41 /* AirTicketProtocol.swift */,
 				384B110523C2BD46000E2B41 /* AirTicketPresenter.swift */,
@@ -1065,6 +1096,7 @@
 		3817E4EA23A33C8400ED8609 = {
 			isa = PBXGroup;
 			children = (
+				0A666A2526967F89008B3ADF /* AirTicket.json */,
 				A1F2DAFA268D618400C0DDA0 /* GroupTourSearchViewModel.swift */,
 				2AF496B023AB79810053EA45 /* ColatourB2BDev.entitlements */,
 				38BCDA2023A3713900D59910 /* ColatourB2B-Bridging-Header.h */,
@@ -1197,9 +1229,8 @@
 		387FBF0C23ACCEC7005412F1 /* MemberIndex */ = {
 			isa = PBXGroup;
 			children = (
+				A1B6974F26953D3B00269454 /* ViewModel */,
 				38BCDA2E23A37B7100D59910 /* MemberIndexViewController.swift */,
-				3869542723BADBFC00F6E7D9 /* MemberIndexProtocol.swift */,
-				3869542A23BADC0F00F6E7D9 /* MemberIndexPresenter.swift */,
 				3869543023BAE5F500F6E7D9 /* MemberTopCell.swift */,
 				3869543123BAE5F500F6E7D9 /* MemberTopCell.xib */,
 				3869543623BAF85900F6E7D9 /* MemberIndexServiceCell.swift */,
@@ -1658,6 +1689,16 @@
 			path = ChooseCountButton;
 			sourceTree = "<group>";
 		};
+		A1B6974F26953D3B00269454 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A1B6975026953D5900269454 /* MemberIndexViewModel.swift */,
+				A1B697872695638A00269454 /* MemberIndexHeaderCellViewModel.swift */,
+				A1B6978E269563AE00269454 /* MemberIndexServiceCellViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		A1DB93E6240675D000AE427C /* WebView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1734,8 +1775,7 @@
 			isa = PBXGroup;
 			children = (
 				381B12AB23C465950030BACE /* MoreViewController.swift */,
-				C711753C23BF407D00555D8C /* MoreProtocol.swift */,
-				C711753F23BF40DA00555D8C /* MorePresenter.swift */,
+				A1B6979526957C6D00269454 /* MoreViewModel.swift */,
 			);
 			path = More;
 			sourceTree = "<group>";
@@ -1978,6 +2018,7 @@
 				06DA4F8A23E92260001B7DF1 /* MessageSendNotificationListCell.xib in Resources */,
 				06468516241F710600104346 /* LocationDetailCell.xib in Resources */,
 				A17CFAE3241B398A00922CC2 /* AirIndexView.xib in Resources */,
+				0A666A2626967F89008B3ADF /* AirTicket.json in Resources */,
 				2AF496B423AB7EA50053EA45 /* GoogleService-Info.plist in Resources */,
 				A1A7F2FF2418854D00263E42 /* CalendarTableViewCell.xib in Resources */,
 				3817E4FC23A33C8400ED8609 /* Main.storyboard in Resources */,
@@ -2056,6 +2097,7 @@
 				3869543523BAE5F500F6E7D9 /* MemberTopCell.xib in Resources */,
 				0650775C23ED52970067377C /* ContactInfoCell.xib in Resources */,
 				A17CFAE4241B398A00922CC2 /* AirIndexView.xib in Resources */,
+				0A666A2726967F89008B3ADF /* AirTicket.json in Resources */,
 				38BCDA1023A367D000D59910 /* NoInternetErrorView.xib in Resources */,
 				A1E449BE241B17BE00895AF6 /* AirPopCityView.xib in Resources */,
 				38BCDA0C23A367D000D59910 /* ApiFailErrorView.xib in Resources */,
@@ -2196,6 +2238,7 @@
 				06DA4F8E23E92260001B7DF1 /* MessageSendNotificationListCell.swift in Sources */,
 				38AFC40323CD51C700983886 /* SalesProtocol.swift in Sources */,
 				06DA4F6823E921D4001B7DF1 /* MessageSendRequest.swift in Sources */,
+				A1B697882695638A00269454 /* MemberIndexHeaderCellViewModel.swift in Sources */,
 				3869543823BAF85900F6E7D9 /* MemberIndexServiceCell.swift in Sources */,
 				38BCD94223A346B800D59910 /* APILoadingHandleType.swift in Sources */,
 				38BCD9CD23A3648B00D59910 /* BaseModelProtocol.swift in Sources */,
@@ -2208,7 +2251,6 @@
 				A1E449BA241B17B100895AF6 /* AirPopCityView.swift in Sources */,
 				38E68AA723B5AB80006BC4DD /* GroupSlideInTransition.swift in Sources */,
 				A1A7F2E52418854D00263E42 /* SelectCalendarManagerProtocol.swift in Sources */,
-				3869542823BADBFC00F6E7D9 /* MemberIndexProtocol.swift in Sources */,
 				38BCD92D23A345FA00D59910 /* EncryptionUtils.m in Sources */,
 				A1068F4C241625C900710DC4 /* TKTSearchRequest.swift in Sources */,
 				A1A7F2F72418854D00263E42 /* CalendarType.swift in Sources */,
@@ -2236,9 +2278,12 @@
 				B6D3C7E826731B5100C20763 /* GroupHeadCellViewModel.swift in Sources */,
 				A1A7F2ED2418854D00263E42 /* CalendarSingleOrMutipleType.swift in Sources */,
 				38BCDA0D23A367D000D59910 /* LoadingView.swift in Sources */,
+				0AEE6756268EAA4400EDB092 /* AirIndexViewModel.swift in Sources */,
 				0650776123ED5E6B0067377C /* ContactInfoProtocol.swift in Sources */,
+				0AEE673C268E9F8400EDB092 /* AirTicketViewModel.swift in Sources */,
 				A1A7F2F32418854D00263E42 /* CalendarColorType.swift in Sources */,
 				38BCD91C23A3457900D59910 /* AccountRepository.swift in Sources */,
+				0AEE6774268EB77C00EDB092 /* AirPopCityViewModel.swift in Sources */,
 				38AFC40623CD521C00983886 /* SalesPresenter.swift in Sources */,
 				B6D3C7DA26731AD800C20763 /* GroupAd1ViewModel.swift in Sources */,
 				A1876A922415FC9A00855DE6 /* AirTicketSearchProtocol.swift in Sources */,
@@ -2252,7 +2297,6 @@
 				B64535D22660C1A1006FE4AB /* GroupTourViewModel.swift in Sources */,
 				A1DB93E124066B8E00AE427C /* WebViewPresenter.swift in Sources */,
 				A10C824D24186CD80092DACA /* LccTicketRequest.swift in Sources */,
-				C711753D23BF407E00555D8C /* MoreProtocol.swift in Sources */,
 				CCCC735623E42C2700FC03EE /* PasswordModifyViewController.swift in Sources */,
 				3848DA8123C72FA600EA0ED0 /* NoticeRepository.swift in Sources */,
 				38E9922A23B053C400E28271 /* LoginPresenter.swift in Sources */,
@@ -2273,6 +2317,8 @@
 				38BCD95723A3471600D59910 /* FirebaseAnalyticsManager.swift in Sources */,
 				38BCD99423A3499700D59910 /* Constant.swift in Sources */,
 				06DA4F8623E92260001B7DF1 /* MessageSendViewController.swift in Sources */,
+				0AEE6765268EB59700EDB092 /* AirPopCityCellViewModel.swift in Sources */,
+				0AEE6747268EA2F100EDB092 /* AirIndexCellViewModel.swift in Sources */,
 				38BCD97323A3484300D59910 /* UIImageViewExtension.swift in Sources */,
 				38BCD98523A3484300D59910 /* ShareEnum.swift in Sources */,
 				38BCDA1E23A36ADC00D59910 /* TabBarPresenter.swift in Sources */,
@@ -2310,7 +2356,6 @@
 				38E68AAB23B5AB80006BC4DD /* GroupSliderItemCell.swift in Sources */,
 				06B05CA82416287D00C8F447 /* CapsuleCell.swift in Sources */,
 				38BCD92B23A345FA00D59910 /* DeviceUtil.swift in Sources */,
-				3869542B23BADC0F00F6E7D9 /* MemberIndexPresenter.swift in Sources */,
 				38BCD98923A3484300D59910 /* OptionalStringExtension.swift in Sources */,
 				382FD59C23D80382001FF38E /* BottomLoadingView.swift in Sources */,
 				38BCDA0123A367D000D59910 /* NoInternetErrorView.swift in Sources */,
@@ -2372,6 +2417,8 @@
 				38E9923A23B0B5DF00E28271 /* BooleanButton.swift in Sources */,
 				A1A7F3012418854D00263E42 /* CalendarViewProtocol.swift in Sources */,
 				38E9922E23B058CA00E28271 /* LoginRequest.swift in Sources */,
+				A1B6975126953D5900269454 /* MemberIndexViewModel.swift in Sources */,
+				A1B6978F269563AE00269454 /* MemberIndexServiceCellViewModel.swift in Sources */,
 				38BCD97F23A3484300D59910 /* UIFontExtenstion.swift in Sources */,
 				A1A7F3092418854D00263E42 /* CalendarViewControllerProtocol.swift in Sources */,
 				C7E15BF123D18CB0004C20A0 /* CustomPickerView.swift in Sources */,
@@ -2380,7 +2427,6 @@
 				38BCD92F23A345FA00D59910 /* ColorHexUtil.swift in Sources */,
 				A1A7F2F12418854D00263E42 /* CalendarAllAttribute.swift in Sources */,
 				A1E449B5241B168B00895AF6 /* AirPopCityCell.swift in Sources */,
-				C711754023BF40DA00555D8C /* MorePresenter.swift in Sources */,
 				38BCD94623A346B800D59910 /* APIDefine.swift in Sources */,
 				C74FC80423C5AF0E00E2250D /* NoticeDetailViewController.swift in Sources */,
 				38BCD97523A3484300D59910 /* UIColorExtension.swift in Sources */,
@@ -2388,6 +2434,7 @@
 				38BCDA0323A367D000D59910 /* ApiFailErrorView.swift in Sources */,
 				A1DB93E424066EC500AE427C /* WebViewTourShareResponse.swift in Sources */,
 				06AA65912418E6EA001CDA37 /* SearchEmptyCell.swift in Sources */,
+				A1B6979626957C6D00269454 /* MoreViewModel.swift in Sources */,
 				C70EEF5A23EA549800D67FF4 /* VersionRuleViewController.swift in Sources */,
 				0655CD30241B6A77006092AB /* SotoTicketRequest.swift in Sources */,
 				38BCDA2F23A37B7100D59910 /* MemberIndexViewController.swift in Sources */,
@@ -2430,6 +2477,7 @@
 				38AFC40423CD51C700983886 /* SalesProtocol.swift in Sources */,
 				06DA4F6923E921D4001B7DF1 /* MessageSendRequest.swift in Sources */,
 				3869543923BAF85900F6E7D9 /* MemberIndexServiceCell.swift in Sources */,
+				A1B697892695638A00269454 /* MemberIndexHeaderCellViewModel.swift in Sources */,
 				38BCD94323A346B800D59910 /* APILoadingHandleType.swift in Sources */,
 				38BCD9CE23A3648B00D59910 /* BaseModelProtocol.swift in Sources */,
 				06468515241F710600104346 /* LocationDetailCell.swift in Sources */,
@@ -2441,7 +2489,6 @@
 				A1E449BB241B17B100895AF6 /* AirPopCityView.swift in Sources */,
 				38E68AA823B5AB80006BC4DD /* GroupSlideInTransition.swift in Sources */,
 				A1A7F2E62418854D00263E42 /* SelectCalendarManagerProtocol.swift in Sources */,
-				3869542923BADBFC00F6E7D9 /* MemberIndexProtocol.swift in Sources */,
 				38BCD92E23A345FA00D59910 /* EncryptionUtils.m in Sources */,
 				A1068F4D241625C900710DC4 /* TKTSearchRequest.swift in Sources */,
 				A1A7F2F82418854D00263E42 /* CalendarType.swift in Sources */,
@@ -2470,9 +2517,13 @@
 				A1A7F2EE2418854D00263E42 /* CalendarSingleOrMutipleType.swift in Sources */,
 				38BCDA0E23A367D000D59910 /* LoadingView.swift in Sources */,
 				0650776223ED5E6B0067377C /* ContactInfoProtocol.swift in Sources */,
+				0AEE6757268EAA4400EDB092 /* AirIndexViewModel.swift in Sources */,
 				A1A7F2F42418854D00263E42 /* CalendarColorType.swift in Sources */,
+				0AEE673D268E9F8400EDB092 /* AirTicketViewModel.swift in Sources */,
+				3848DA7F23C7289A00EA0ED0 /* NoticePresenter.swift in Sources */,
 				38BCD91D23A3457900D59910 /* AccountRepository.swift in Sources */,
 				38AFC40723CD521C00983886 /* SalesPresenter.swift in Sources */,
+				0AEE6775268EB77C00EDB092 /* AirPopCityViewModel.swift in Sources */,
 				B6D3C7DB26731AD800C20763 /* GroupAd1ViewModel.swift in Sources */,
 				A1876A932415FC9A00855DE6 /* AirTicketSearchProtocol.swift in Sources */,
 				06610FDB240775AC00E87225 /* ExpandableButtonView.swift in Sources */,
@@ -2485,7 +2536,6 @@
 				B64535D32660C1A1006FE4AB /* GroupTourViewModel.swift in Sources */,
 				A1DB93E224066B8E00AE427C /* WebViewPresenter.swift in Sources */,
 				A10C824E24186CD80092DACA /* LccTicketRequest.swift in Sources */,
-				C711753E23BF407E00555D8C /* MoreProtocol.swift in Sources */,
 				CCCC735723E42C2700FC03EE /* PasswordModifyViewController.swift in Sources */,
 				3848DA8223C72FA600EA0ED0 /* NoticeRepository.swift in Sources */,
 				38E9922B23B053C400E28271 /* LoginPresenter.swift in Sources */,
@@ -2507,6 +2557,8 @@
 				38BCD99523A3499700D59910 /* Constant.swift in Sources */,
 				06DA4F8723E92260001B7DF1 /* MessageSendViewController.swift in Sources */,
 				38BCD97423A3484300D59910 /* UIImageViewExtension.swift in Sources */,
+				0AEE6766268EB59700EDB092 /* AirPopCityCellViewModel.swift in Sources */,
+				0AEE6748268EA2F100EDB092 /* AirIndexCellViewModel.swift in Sources */,
 				38BCD98623A3484300D59910 /* ShareEnum.swift in Sources */,
 				38BCDA1F23A36ADC00D59910 /* TabBarPresenter.swift in Sources */,
 				C7DCA72323D1BBE300F415B8 /* GroupTourSearchPresenter.swift in Sources */,
@@ -2544,7 +2596,6 @@
 				38E68AAC23B5AB80006BC4DD /* GroupSliderItemCell.swift in Sources */,
 				06B05CA92416287D00C8F447 /* CapsuleCell.swift in Sources */,
 				38BCD92C23A345FA00D59910 /* DeviceUtil.swift in Sources */,
-				3869542C23BADC0F00F6E7D9 /* MemberIndexPresenter.swift in Sources */,
 				38BCD98A23A3484300D59910 /* OptionalStringExtension.swift in Sources */,
 				382FD59D23D80382001FF38E /* BottomLoadingView.swift in Sources */,
 				38BCDA0223A367D000D59910 /* NoInternetErrorView.swift in Sources */,
@@ -2606,6 +2657,8 @@
 				38E9923B23B0B5DF00E28271 /* BooleanButton.swift in Sources */,
 				A1A7F3022418854D00263E42 /* CalendarViewProtocol.swift in Sources */,
 				38E9922F23B058CA00E28271 /* LoginRequest.swift in Sources */,
+				A1B6975226953D5900269454 /* MemberIndexViewModel.swift in Sources */,
+				A1B69790269563AE00269454 /* MemberIndexServiceCellViewModel.swift in Sources */,
 				38BCD98023A3484300D59910 /* UIFontExtenstion.swift in Sources */,
 				A1A7F30A2418854D00263E42 /* CalendarViewControllerProtocol.swift in Sources */,
 				C7E15BF223D18CB0004C20A0 /* CustomPickerView.swift in Sources */,
@@ -2614,7 +2667,6 @@
 				38BCD93023A345FA00D59910 /* ColorHexUtil.swift in Sources */,
 				A1A7F2F22418854D00263E42 /* CalendarAllAttribute.swift in Sources */,
 				A1E449B6241B168B00895AF6 /* AirPopCityCell.swift in Sources */,
-				C711754123BF40DA00555D8C /* MorePresenter.swift in Sources */,
 				38BCD94723A346B800D59910 /* APIDefine.swift in Sources */,
 				C74FC80523C5AF0E00E2250D /* NoticeDetailViewController.swift in Sources */,
 				38BCD97623A3484300D59910 /* UIColorExtension.swift in Sources */,
@@ -2622,6 +2674,7 @@
 				38BCDA0423A367D000D59910 /* ApiFailErrorView.swift in Sources */,
 				A1DB93E524066EC500AE427C /* WebViewTourShareResponse.swift in Sources */,
 				06AA65922418E6EA001CDA37 /* SearchEmptyCell.swift in Sources */,
+				A1B6979726957C6D00269454 /* MoreViewModel.swift in Sources */,
 				C70EEF5B23EA549800D67FF4 /* VersionRuleViewController.swift in Sources */,
 				0655CD31241B6A77006092AB /* SotoTicketRequest.swift in Sources */,
 				38BCDA3023A37B7100D59910 /* MemberIndexViewController.swift in Sources */,

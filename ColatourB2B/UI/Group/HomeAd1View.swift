@@ -9,9 +9,6 @@
 import UIKit
 import SDWebImage
 
-protocol HomeAd1ViewProcotol : NSObjectProtocol {
-    func onTouchHotelAdItem(adItem: IndexResponse.ModuleItem)
-}
 class HomeAd1View: UIView {
     
     @IBOutlet weak var boderView: UIView!
@@ -23,8 +20,6 @@ class HomeAd1View: UIView {
     @IBOutlet weak var viewTrailing: NSLayoutConstraint!
     @IBOutlet weak var boderViewWidth: NSLayoutConstraint!
     @IBOutlet weak var boderViewHeight: NSLayoutConstraint!
-
-    weak var delegate: HomeAd1ViewProcotol?
     
     private var viewModel: HomeAd1ViewModel?
     private var adItem: IndexResponse.ModuleItem?
@@ -50,27 +45,6 @@ class HomeAd1View: UIView {
         self.addSubview(view)
         setCustomViewFrameAndGes()
         self.imageView.contentMode = .scaleAspectFill
-    }
-    
-    func setView(item: IndexResponse.ModuleItem, isFirst: Bool, isLast: Bool){ // 機票首頁改完ＭＶＶＭ要刪除
-        self.adItem = item
-        
-        self.imageView.sd_setImage(with: URL.init(string: item.smallPicUrl ?? "")) { (image, error, cacheType, imageURL) in
-            SDWebImageManager.shared.loadImage(with: URL(string: item.picUrl ?? ""), options: SDWebImageOptions(rawValue: 0), progress: nil, completed: { (image, data, error, cacheType, bool, imageURL) in
-                if error == nil {
-                    self.imageView.image = image
-                }
-            })
-        }
-        viewLeading.constant = isFirst ? 16:0
-        viewTrailing.constant = isLast ? 16:0
-        
-        self.itemContent.text = item.itemText
-        let priceFormat = FormatUtil.priceFormat(price: item.itemPrice)
-        self.itemPrice.text = item.itemPrice == 0 ? "" : "\(priceFormat)起"
-        setAttribute(label: self.itemPrice, amount: self.itemPrice.text!)
-        self.boderView.layoutIfNeeded()
-        self.boderView.layer.masksToBounds = true
     }
     
     func setView(viewModel: HomeAd1ViewModel) {

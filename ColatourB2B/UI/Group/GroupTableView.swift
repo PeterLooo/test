@@ -133,12 +133,6 @@ class GroupTableView: UIView {
     }
 }
 
-extension GroupTableView : HomeAd1CellProtocol {
-    func onTouchItem(adItem: IndexResponse.ModuleItem) {
-        self.delegate?.onTouchItem(item: adItem)
-    }
-}
-
 extension GroupTableView : UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         cellsHeight[indexPath] = cell.frame.size.height
