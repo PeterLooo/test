@@ -170,10 +170,6 @@
 		385B54F923BDC4C800BE1476 /* NotificationItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385B54F623BDC4C800BE1476 /* NotificationItemCell.swift */; };
 		385B54FA23BDC4C800BE1476 /* NotificationItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 385B54F723BDC4C800BE1476 /* NotificationItemCell.xib */; };
 		385B54FB23BDC4C800BE1476 /* NotificationItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 385B54F723BDC4C800BE1476 /* NotificationItemCell.xib */; };
-		3869542823BADBFC00F6E7D9 /* MemberIndexProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3869542723BADBFC00F6E7D9 /* MemberIndexProtocol.swift */; };
-		3869542923BADBFC00F6E7D9 /* MemberIndexProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3869542723BADBFC00F6E7D9 /* MemberIndexProtocol.swift */; };
-		3869542B23BADC0F00F6E7D9 /* MemberIndexPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3869542A23BADC0F00F6E7D9 /* MemberIndexPresenter.swift */; };
-		3869542C23BADC0F00F6E7D9 /* MemberIndexPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3869542A23BADC0F00F6E7D9 /* MemberIndexPresenter.swift */; };
 		3869542E23BADC9000F6E7D9 /* MemberIndexResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3869542D23BADC9000F6E7D9 /* MemberIndexResponse.swift */; };
 		3869542F23BADC9000F6E7D9 /* MemberIndexResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3869542D23BADC9000F6E7D9 /* MemberIndexResponse.swift */; };
 		3869543223BAE5F500F6E7D9 /* MemberTopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3869543023BAE5F500F6E7D9 /* MemberTopCell.swift */; };
@@ -472,6 +468,14 @@
 		A1A7F32D2418DDCC00263E42 /* ChooseCountButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A7F3292418DDCC00263E42 /* ChooseCountButton.swift */; };
 		A1A7F32F2418E11100263E42 /* AirPaxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A7F32E2418E11100263E42 /* AirPaxViewController.swift */; };
 		A1A7F3302418E11100263E42 /* AirPaxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A7F32E2418E11100263E42 /* AirPaxViewController.swift */; };
+		A1B6975126953D5900269454 /* MemberIndexViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B6975026953D5900269454 /* MemberIndexViewModel.swift */; };
+		A1B6975226953D5900269454 /* MemberIndexViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B6975026953D5900269454 /* MemberIndexViewModel.swift */; };
+		A1B697882695638A00269454 /* MemberIndexHeaderCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B697872695638A00269454 /* MemberIndexHeaderCellViewModel.swift */; };
+		A1B697892695638A00269454 /* MemberIndexHeaderCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B697872695638A00269454 /* MemberIndexHeaderCellViewModel.swift */; };
+		A1B6978F269563AE00269454 /* MemberIndexServiceCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B6978E269563AE00269454 /* MemberIndexServiceCellViewModel.swift */; };
+		A1B69790269563AE00269454 /* MemberIndexServiceCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B6978E269563AE00269454 /* MemberIndexServiceCellViewModel.swift */; };
+		A1B6979626957C6D00269454 /* MoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B6979526957C6D00269454 /* MoreViewModel.swift */; };
+		A1B6979726957C6D00269454 /* MoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B6979526957C6D00269454 /* MoreViewModel.swift */; };
 		A1DB93DE24066B5D00AE427C /* WebViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DB93DD24066B5D00AE427C /* WebViewProtocol.swift */; };
 		A1DB93DF24066B5D00AE427C /* WebViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DB93DD24066B5D00AE427C /* WebViewProtocol.swift */; };
 		A1DB93E124066B8E00AE427C /* WebViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DB93E024066B8E00AE427C /* WebViewPresenter.swift */; };
@@ -514,10 +518,6 @@
 		C70EEF5823EA549200D67FF4 /* BulletinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70EEF5623EA549200D67FF4 /* BulletinViewController.swift */; };
 		C70EEF5A23EA549800D67FF4 /* VersionRuleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70EEF5923EA549700D67FF4 /* VersionRuleViewController.swift */; };
 		C70EEF5B23EA549800D67FF4 /* VersionRuleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70EEF5923EA549700D67FF4 /* VersionRuleViewController.swift */; };
-		C711753D23BF407E00555D8C /* MoreProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C711753C23BF407D00555D8C /* MoreProtocol.swift */; };
-		C711753E23BF407E00555D8C /* MoreProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C711753C23BF407D00555D8C /* MoreProtocol.swift */; };
-		C711754023BF40DA00555D8C /* MorePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C711753F23BF40DA00555D8C /* MorePresenter.swift */; };
-		C711754123BF40DA00555D8C /* MorePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C711753F23BF40DA00555D8C /* MorePresenter.swift */; };
 		C74FC80123C5AEE100E2250D /* NoticeDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C74FC80023C5AEE100E2250D /* NoticeDetail.storyboard */; };
 		C74FC80223C5AEE100E2250D /* NoticeDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C74FC80023C5AEE100E2250D /* NoticeDetail.storyboard */; };
 		C74FC80423C5AF0E00E2250D /* NoticeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74FC80323C5AF0E00E2250D /* NoticeDetailViewController.swift */; };
@@ -688,8 +688,6 @@
 		385B54F323BDC3A400BE1476 /* NotificationTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTableView.swift; sourceTree = "<group>"; };
 		385B54F623BDC4C800BE1476 /* NotificationItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationItemCell.swift; sourceTree = "<group>"; };
 		385B54F723BDC4C800BE1476 /* NotificationItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationItemCell.xib; sourceTree = "<group>"; };
-		3869542723BADBFC00F6E7D9 /* MemberIndexProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberIndexProtocol.swift; sourceTree = "<group>"; };
-		3869542A23BADC0F00F6E7D9 /* MemberIndexPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberIndexPresenter.swift; sourceTree = "<group>"; };
 		3869542D23BADC9000F6E7D9 /* MemberIndexResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberIndexResponse.swift; sourceTree = "<group>"; };
 		3869543023BAE5F500F6E7D9 /* MemberTopCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberTopCell.swift; sourceTree = "<group>"; };
 		3869543123BAE5F500F6E7D9 /* MemberTopCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MemberTopCell.xib; sourceTree = "<group>"; };
@@ -846,6 +844,10 @@
 		A1A7F3282418DDCC00263E42 /* ChooseCountButton.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChooseCountButton.xib; sourceTree = "<group>"; };
 		A1A7F3292418DDCC00263E42 /* ChooseCountButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseCountButton.swift; sourceTree = "<group>"; };
 		A1A7F32E2418E11100263E42 /* AirPaxViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirPaxViewController.swift; sourceTree = "<group>"; };
+		A1B6975026953D5900269454 /* MemberIndexViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberIndexViewModel.swift; sourceTree = "<group>"; };
+		A1B697872695638A00269454 /* MemberIndexHeaderCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberIndexHeaderCellViewModel.swift; sourceTree = "<group>"; };
+		A1B6978E269563AE00269454 /* MemberIndexServiceCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberIndexServiceCellViewModel.swift; sourceTree = "<group>"; };
+		A1B6979526957C6D00269454 /* MoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewModel.swift; sourceTree = "<group>"; };
 		A1DB93DD24066B5D00AE427C /* WebViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewProtocol.swift; sourceTree = "<group>"; };
 		A1DB93E024066B8E00AE427C /* WebViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewPresenter.swift; sourceTree = "<group>"; };
 		A1DB93E324066EC500AE427C /* WebViewTourShareResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewTourShareResponse.swift; sourceTree = "<group>"; };
@@ -870,8 +872,6 @@
 		C70EEF4F23EA545300D67FF4 /* Bulletin.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Bulletin.storyboard; sourceTree = "<group>"; };
 		C70EEF5623EA549200D67FF4 /* BulletinViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BulletinViewController.swift; sourceTree = "<group>"; };
 		C70EEF5923EA549700D67FF4 /* VersionRuleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VersionRuleViewController.swift; sourceTree = "<group>"; };
-		C711753C23BF407D00555D8C /* MoreProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreProtocol.swift; sourceTree = "<group>"; };
-		C711753F23BF40DA00555D8C /* MorePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MorePresenter.swift; sourceTree = "<group>"; };
 		C74FC80023C5AEE100E2250D /* NoticeDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NoticeDetail.storyboard; sourceTree = "<group>"; };
 		C74FC80323C5AF0E00E2250D /* NoticeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeDetailViewController.swift; sourceTree = "<group>"; };
 		C77282F223CC502500067EB4 /* GroupTourSearch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GroupTourSearch.storyboard; sourceTree = "<group>"; };
@@ -1230,9 +1230,8 @@
 		387FBF0C23ACCEC7005412F1 /* MemberIndex */ = {
 			isa = PBXGroup;
 			children = (
+				A1B6974F26953D3B00269454 /* ViewModel */,
 				38BCDA2E23A37B7100D59910 /* MemberIndexViewController.swift */,
-				3869542723BADBFC00F6E7D9 /* MemberIndexProtocol.swift */,
-				3869542A23BADC0F00F6E7D9 /* MemberIndexPresenter.swift */,
 				3869543023BAE5F500F6E7D9 /* MemberTopCell.swift */,
 				3869543123BAE5F500F6E7D9 /* MemberTopCell.xib */,
 				3869543623BAF85900F6E7D9 /* MemberIndexServiceCell.swift */,
@@ -1682,6 +1681,16 @@
 			path = ChooseCountButton;
 			sourceTree = "<group>";
 		};
+		A1B6974F26953D3B00269454 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A1B6975026953D5900269454 /* MemberIndexViewModel.swift */,
+				A1B697872695638A00269454 /* MemberIndexHeaderCellViewModel.swift */,
+				A1B6978E269563AE00269454 /* MemberIndexServiceCellViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		A1DB93E6240675D000AE427C /* WebView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1758,8 +1767,7 @@
 			isa = PBXGroup;
 			children = (
 				381B12AB23C465950030BACE /* MoreViewController.swift */,
-				C711753C23BF407D00555D8C /* MoreProtocol.swift */,
-				C711753F23BF40DA00555D8C /* MorePresenter.swift */,
+				A1B6979526957C6D00269454 /* MoreViewModel.swift */,
 			);
 			path = More;
 			sourceTree = "<group>";
@@ -2222,6 +2230,7 @@
 				06DA4F8E23E92260001B7DF1 /* MessageSendNotificationListCell.swift in Sources */,
 				38AFC40323CD51C700983886 /* SalesProtocol.swift in Sources */,
 				06DA4F6823E921D4001B7DF1 /* MessageSendRequest.swift in Sources */,
+				A1B697882695638A00269454 /* MemberIndexHeaderCellViewModel.swift in Sources */,
 				3869543823BAF85900F6E7D9 /* MemberIndexServiceCell.swift in Sources */,
 				38BCD94223A346B800D59910 /* APILoadingHandleType.swift in Sources */,
 				38BCD9CD23A3648B00D59910 /* BaseModelProtocol.swift in Sources */,
@@ -2234,7 +2243,6 @@
 				A1E449BA241B17B100895AF6 /* AirPopCityView.swift in Sources */,
 				38E68AA723B5AB80006BC4DD /* GroupSlideInTransition.swift in Sources */,
 				A1A7F2E52418854D00263E42 /* SelectCalendarManagerProtocol.swift in Sources */,
-				3869542823BADBFC00F6E7D9 /* MemberIndexProtocol.swift in Sources */,
 				38BCD92D23A345FA00D59910 /* EncryptionUtils.m in Sources */,
 				A1068F4C241625C900710DC4 /* TKTSearchRequest.swift in Sources */,
 				A1A7F2F72418854D00263E42 /* CalendarType.swift in Sources */,
@@ -2283,7 +2291,6 @@
 				B64535D22660C1A1006FE4AB /* GroupTourViewModel.swift in Sources */,
 				A1DB93E124066B8E00AE427C /* WebViewPresenter.swift in Sources */,
 				A10C824D24186CD80092DACA /* LccTicketRequest.swift in Sources */,
-				C711753D23BF407E00555D8C /* MoreProtocol.swift in Sources */,
 				CCCC735623E42C2700FC03EE /* PasswordModifyViewController.swift in Sources */,
 				3848DA8123C72FA600EA0ED0 /* NoticeRepository.swift in Sources */,
 				38E9922A23B053C400E28271 /* LoginPresenter.swift in Sources */,
@@ -2342,7 +2349,6 @@
 				38E68AAB23B5AB80006BC4DD /* GroupSliderItemCell.swift in Sources */,
 				06B05CA82416287D00C8F447 /* CapsuleCell.swift in Sources */,
 				38BCD92B23A345FA00D59910 /* DeviceUtil.swift in Sources */,
-				3869542B23BADC0F00F6E7D9 /* MemberIndexPresenter.swift in Sources */,
 				38BCD98923A3484300D59910 /* OptionalStringExtension.swift in Sources */,
 				382FD59C23D80382001FF38E /* BottomLoadingView.swift in Sources */,
 				38BCDA0123A367D000D59910 /* NoInternetErrorView.swift in Sources */,
@@ -2403,6 +2409,8 @@
 				38E9923A23B0B5DF00E28271 /* BooleanButton.swift in Sources */,
 				A1A7F3012418854D00263E42 /* CalendarViewProtocol.swift in Sources */,
 				38E9922E23B058CA00E28271 /* LoginRequest.swift in Sources */,
+				A1B6975126953D5900269454 /* MemberIndexViewModel.swift in Sources */,
+				A1B6978F269563AE00269454 /* MemberIndexServiceCellViewModel.swift in Sources */,
 				38BCD97F23A3484300D59910 /* UIFontExtenstion.swift in Sources */,
 				A1A7F3092418854D00263E42 /* CalendarViewControllerProtocol.swift in Sources */,
 				C7E15BF123D18CB0004C20A0 /* CustomPickerView.swift in Sources */,
@@ -2411,7 +2419,6 @@
 				38BCD92F23A345FA00D59910 /* ColorHexUtil.swift in Sources */,
 				A1A7F2F12418854D00263E42 /* CalendarAllAttribute.swift in Sources */,
 				A1E449B5241B168B00895AF6 /* AirPopCityCell.swift in Sources */,
-				C711754023BF40DA00555D8C /* MorePresenter.swift in Sources */,
 				38BCD94623A346B800D59910 /* APIDefine.swift in Sources */,
 				C74FC80423C5AF0E00E2250D /* NoticeDetailViewController.swift in Sources */,
 				38BCD97523A3484300D59910 /* UIColorExtension.swift in Sources */,
@@ -2419,6 +2426,7 @@
 				38BCDA0323A367D000D59910 /* ApiFailErrorView.swift in Sources */,
 				A1DB93E424066EC500AE427C /* WebViewTourShareResponse.swift in Sources */,
 				06AA65912418E6EA001CDA37 /* SearchEmptyCell.swift in Sources */,
+				A1B6979626957C6D00269454 /* MoreViewModel.swift in Sources */,
 				C70EEF5A23EA549800D67FF4 /* VersionRuleViewController.swift in Sources */,
 				0655CD30241B6A77006092AB /* SotoTicketRequest.swift in Sources */,
 				38BCDA2F23A37B7100D59910 /* MemberIndexViewController.swift in Sources */,
@@ -2461,6 +2469,7 @@
 				38AFC40423CD51C700983886 /* SalesProtocol.swift in Sources */,
 				06DA4F6923E921D4001B7DF1 /* MessageSendRequest.swift in Sources */,
 				3869543923BAF85900F6E7D9 /* MemberIndexServiceCell.swift in Sources */,
+				A1B697892695638A00269454 /* MemberIndexHeaderCellViewModel.swift in Sources */,
 				38BCD94323A346B800D59910 /* APILoadingHandleType.swift in Sources */,
 				38BCD9CE23A3648B00D59910 /* BaseModelProtocol.swift in Sources */,
 				06468515241F710600104346 /* LocationDetailCell.swift in Sources */,
@@ -2472,7 +2481,6 @@
 				A1E449BB241B17B100895AF6 /* AirPopCityView.swift in Sources */,
 				38E68AA823B5AB80006BC4DD /* GroupSlideInTransition.swift in Sources */,
 				A1A7F2E62418854D00263E42 /* SelectCalendarManagerProtocol.swift in Sources */,
-				3869542923BADBFC00F6E7D9 /* MemberIndexProtocol.swift in Sources */,
 				38BCD92E23A345FA00D59910 /* EncryptionUtils.m in Sources */,
 				A1068F4D241625C900710DC4 /* TKTSearchRequest.swift in Sources */,
 				A1A7F2F82418854D00263E42 /* CalendarType.swift in Sources */,
@@ -2521,7 +2529,6 @@
 				B64535D32660C1A1006FE4AB /* GroupTourViewModel.swift in Sources */,
 				A1DB93E224066B8E00AE427C /* WebViewPresenter.swift in Sources */,
 				A10C824E24186CD80092DACA /* LccTicketRequest.swift in Sources */,
-				C711753E23BF407E00555D8C /* MoreProtocol.swift in Sources */,
 				CCCC735723E42C2700FC03EE /* PasswordModifyViewController.swift in Sources */,
 				3848DA8223C72FA600EA0ED0 /* NoticeRepository.swift in Sources */,
 				38E9922B23B053C400E28271 /* LoginPresenter.swift in Sources */,
@@ -2581,7 +2588,6 @@
 				38E68AAC23B5AB80006BC4DD /* GroupSliderItemCell.swift in Sources */,
 				06B05CA92416287D00C8F447 /* CapsuleCell.swift in Sources */,
 				38BCD92C23A345FA00D59910 /* DeviceUtil.swift in Sources */,
-				3869542C23BADC0F00F6E7D9 /* MemberIndexPresenter.swift in Sources */,
 				38BCD98A23A3484300D59910 /* OptionalStringExtension.swift in Sources */,
 				382FD59D23D80382001FF38E /* BottomLoadingView.swift in Sources */,
 				38BCDA0223A367D000D59910 /* NoInternetErrorView.swift in Sources */,
@@ -2642,6 +2648,8 @@
 				38E9923B23B0B5DF00E28271 /* BooleanButton.swift in Sources */,
 				A1A7F3022418854D00263E42 /* CalendarViewProtocol.swift in Sources */,
 				38E9922F23B058CA00E28271 /* LoginRequest.swift in Sources */,
+				A1B6975226953D5900269454 /* MemberIndexViewModel.swift in Sources */,
+				A1B69790269563AE00269454 /* MemberIndexServiceCellViewModel.swift in Sources */,
 				38BCD98023A3484300D59910 /* UIFontExtenstion.swift in Sources */,
 				A1A7F30A2418854D00263E42 /* CalendarViewControllerProtocol.swift in Sources */,
 				C7E15BF223D18CB0004C20A0 /* CustomPickerView.swift in Sources */,
@@ -2650,7 +2658,6 @@
 				38BCD93023A345FA00D59910 /* ColorHexUtil.swift in Sources */,
 				A1A7F2F22418854D00263E42 /* CalendarAllAttribute.swift in Sources */,
 				A1E449B6241B168B00895AF6 /* AirPopCityCell.swift in Sources */,
-				C711754123BF40DA00555D8C /* MorePresenter.swift in Sources */,
 				38BCD94723A346B800D59910 /* APIDefine.swift in Sources */,
 				C74FC80523C5AF0E00E2250D /* NoticeDetailViewController.swift in Sources */,
 				38BCD97623A3484300D59910 /* UIColorExtension.swift in Sources */,
@@ -2658,6 +2665,7 @@
 				38BCDA0423A367D000D59910 /* ApiFailErrorView.swift in Sources */,
 				A1DB93E524066EC500AE427C /* WebViewTourShareResponse.swift in Sources */,
 				06AA65922418E6EA001CDA37 /* SearchEmptyCell.swift in Sources */,
+				A1B6979726957C6D00269454 /* MoreViewModel.swift in Sources */,
 				C70EEF5B23EA549800D67FF4 /* VersionRuleViewController.swift in Sources */,
 				0655CD31241B6A77006092AB /* SotoTicketRequest.swift in Sources */,
 				38BCDA3023A37B7100D59910 /* MemberIndexViewController.swift in Sources */,
