@@ -154,10 +154,6 @@
 		382FD59D23D80382001FF38E /* BottomLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382FD59B23D80382001FF38E /* BottomLoadingView.swift */; };
 		382FD59F23D8038C001FF38E /* BottomLoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 382FD59E23D8038C001FF38E /* BottomLoadingView.xib */; };
 		382FD5A023D8038C001FF38E /* BottomLoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 382FD59E23D8038C001FF38E /* BottomLoadingView.xib */; };
-		3848DA7B23C7280500EA0ED0 /* NoticeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3848DA7A23C7280500EA0ED0 /* NoticeProtocol.swift */; };
-		3848DA7C23C7280500EA0ED0 /* NoticeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3848DA7A23C7280500EA0ED0 /* NoticeProtocol.swift */; };
-		3848DA7E23C7289A00EA0ED0 /* NoticePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3848DA7D23C7289A00EA0ED0 /* NoticePresenter.swift */; };
-		3848DA7F23C7289A00EA0ED0 /* NoticePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3848DA7D23C7289A00EA0ED0 /* NoticePresenter.swift */; };
 		3848DA8123C72FA600EA0ED0 /* NoticeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3848DA8023C72FA600EA0ED0 /* NoticeRepository.swift */; };
 		3848DA8223C72FA600EA0ED0 /* NoticeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3848DA8023C72FA600EA0ED0 /* NoticeRepository.swift */; };
 		384B110323C2BD33000E2B41 /* AirTicketProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384B110223C2BD33000E2B41 /* AirTicketProtocol.swift */; };
@@ -380,6 +376,8 @@
 		38E9923A23B0B5DF00E28271 /* BooleanButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E9923923B0B5DF00E28271 /* BooleanButton.swift */; };
 		38E9923B23B0B5DF00E28271 /* BooleanButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E9923923B0B5DF00E28271 /* BooleanButton.swift */; };
 		9196F236CE205CFA47F4C95B /* Pods_ColatourB2BDev.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00BEF28893EA23CD1FFC87FB /* Pods_ColatourB2BDev.framework */; };
+		A1047301269433BA00C4D4E9 /* NoticeTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1047300269433BA00C4D4E9 /* NoticeTableViewModel.swift */; };
+		A1047302269433BA00C4D4E9 /* NoticeTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1047300269433BA00C4D4E9 /* NoticeTableViewModel.swift */; };
 		A1068F4C241625C900710DC4 /* TKTSearchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1068F4B241625C800710DC4 /* TKTSearchRequest.swift */; };
 		A1068F4D241625C900710DC4 /* TKTSearchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1068F4B241625C800710DC4 /* TKTSearchRequest.swift */; };
 		A10C824D24186CD80092DACA /* LccTicketRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10C824C24186CD80092DACA /* LccTicketRequest.swift */; };
@@ -388,6 +386,8 @@
 		A12808A923F7937100287B9F /* PriceRangeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12808A723F7937100287B9F /* PriceRangeSlider.swift */; };
 		A142DF58242321DC003D103E /* LccResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A142DF57242321DC003D103E /* LccResponse.swift */; };
 		A142DF59242321DC003D103E /* LccResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A142DF57242321DC003D103E /* LccResponse.swift */; };
+		A146A01A2692BBCC00741D54 /* NoticeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A146A0192692BBCC00741D54 /* NoticeViewModel.swift */; };
+		A146A01B2692BBCC00741D54 /* NoticeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A146A0192692BBCC00741D54 /* NoticeViewModel.swift */; };
 		A14F56EA241F708700BF40DA /* AirSearchUrlResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14F56E9241F708700BF40DA /* AirSearchUrlResponse.swift */; };
 		A14F56EB241F708700BF40DA /* AirSearchUrlResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14F56E9241F708700BF40DA /* AirSearchUrlResponse.swift */; };
 		A17CFADB241B387C00922CC2 /* AirIndexCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17CFAD9241B387C00922CC2 /* AirIndexCell.swift */; };
@@ -679,8 +679,6 @@
 		382FD59823D7F48F001FF38E /* NewsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsResponse.swift; sourceTree = "<group>"; };
 		382FD59B23D80382001FF38E /* BottomLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomLoadingView.swift; sourceTree = "<group>"; };
 		382FD59E23D8038C001FF38E /* BottomLoadingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BottomLoadingView.xib; sourceTree = "<group>"; };
-		3848DA7A23C7280500EA0ED0 /* NoticeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeProtocol.swift; sourceTree = "<group>"; };
-		3848DA7D23C7289A00EA0ED0 /* NoticePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticePresenter.swift; sourceTree = "<group>"; };
 		3848DA8023C72FA600EA0ED0 /* NoticeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeRepository.swift; sourceTree = "<group>"; };
 		384B110223C2BD33000E2B41 /* AirTicketProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirTicketProtocol.swift; sourceTree = "<group>"; };
 		384B110523C2BD46000E2B41 /* AirTicketPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirTicketPresenter.swift; sourceTree = "<group>"; };
@@ -799,10 +797,12 @@
 		38E9923923B0B5DF00E28271 /* BooleanButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BooleanButton.swift; sourceTree = "<group>"; };
 		732B40A95C148E8D08B6AD90 /* Pods-ColatourB2BDev.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ColatourB2BDev.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ColatourB2BDev/Pods-ColatourB2BDev.debug.xcconfig"; sourceTree = "<group>"; };
 		987A0E450DD4AC32A30375C6 /* Pods-ColatourB2B.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ColatourB2B.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ColatourB2B/Pods-ColatourB2B.debug.xcconfig"; sourceTree = "<group>"; };
+		A1047300269433BA00C4D4E9 /* NoticeTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeTableViewModel.swift; sourceTree = "<group>"; };
 		A1068F4B241625C800710DC4 /* TKTSearchRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TKTSearchRequest.swift; sourceTree = "<group>"; };
 		A10C824C24186CD80092DACA /* LccTicketRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LccTicketRequest.swift; sourceTree = "<group>"; };
 		A12808A723F7937100287B9F /* PriceRangeSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceRangeSlider.swift; sourceTree = "<group>"; };
 		A142DF57242321DC003D103E /* LccResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LccResponse.swift; sourceTree = "<group>"; };
+		A146A0192692BBCC00741D54 /* NoticeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeViewModel.swift; sourceTree = "<group>"; };
 		A14F56E9241F708700BF40DA /* AirSearchUrlResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirSearchUrlResponse.swift; sourceTree = "<group>"; };
 		A17CFAD9241B387C00922CC2 /* AirIndexCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirIndexCell.swift; sourceTree = "<group>"; };
 		A17CFADA241B387C00922CC2 /* AirIndexCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AirIndexCell.xib; sourceTree = "<group>"; };
@@ -1196,8 +1196,7 @@
 		385B54F223BDC1D900BE1476 /* Notification */ = {
 			isa = PBXGroup;
 			children = (
-				3848DA7A23C7280500EA0ED0 /* NoticeProtocol.swift */,
-				3848DA7D23C7289A00EA0ED0 /* NoticePresenter.swift */,
+				A146A0182692BB7700741D54 /* ViewModel */,
 				381B12B123C466370030BACE /* NoticeViewController.swift */,
 				385B54F323BDC3A400BE1476 /* NotificationTableView.swift */,
 				385B54F623BDC4C800BE1476 /* NotificationItemCell.swift */,
@@ -1531,6 +1530,15 @@
 				B09E7C65A225E6FF958329EA /* Pods-ColatourB2BDev.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		A146A0182692BB7700741D54 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A146A0192692BBCC00741D54 /* NoticeViewModel.swift */,
+				A1047300269433BA00C4D4E9 /* NoticeTableViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		A14F56E8241F703800BF40DA /* TKT */ = {
@@ -2259,7 +2267,6 @@
 				C7BBF4BB23C7040900023307 /* NoticeDetailProtocol.swift in Sources */,
 				38E9921E23B04CF200E28271 /* GropeTourPresenter.swift in Sources */,
 				A1A7F32C2418DDCC00263E42 /* ChooseCountButton.swift in Sources */,
-				3848DA7B23C7280500EA0ED0 /* NoticeProtocol.swift in Sources */,
 				38BCD9D423A366D500D59910 /* BaseViewController.swift in Sources */,
 				38BCDA1223A3684E00D59910 /* BaseProtocol.swift in Sources */,
 				38BCD98723A3484300D59910 /* UINavigationControllerExtension.swift in Sources */,
@@ -2275,7 +2282,6 @@
 				0650776123ED5E6B0067377C /* ContactInfoProtocol.swift in Sources */,
 				0AEE673C268E9F8400EDB092 /* AirTicketViewModel.swift in Sources */,
 				A1A7F2F32418854D00263E42 /* CalendarColorType.swift in Sources */,
-				3848DA7E23C7289A00EA0ED0 /* NoticePresenter.swift in Sources */,
 				38BCD91C23A3457900D59910 /* AccountRepository.swift in Sources */,
 				0AEE6774268EB77C00EDB092 /* AirPopCityViewModel.swift in Sources */,
 				38AFC40623CD521C00983886 /* SalesPresenter.swift in Sources */,
@@ -2341,6 +2347,7 @@
 				A142DF58242321DC003D103E /* LccResponse.swift in Sources */,
 				38BCD96F23A3484300D59910 /* CAGradientLayerExtension.swift in Sources */,
 				387FBF1323ACD047005412F1 /* CustomTextField.swift in Sources */,
+				A1047301269433BA00C4D4E9 /* NoticeTableViewModel.swift in Sources */,
 				38871EBC23D581AA007ED33D /* BannerImageView.swift in Sources */,
 				A1A7F30B2418854D00263E42 /* CalendarDataToBackwardPageViewController.swift in Sources */,
 				38AA456323D6905900BE3F95 /* HomeAd2View.swift in Sources */,
@@ -2370,6 +2377,7 @@
 				C7BD648E23ED453200FEE538 /* EmptyDataCell.swift in Sources */,
 				CCCC735923E42C9600FC03EE /* PasswordModifyRequest.swift in Sources */,
 				CCCC735423E42C2700FC03EE /* PasswordModifyPresenter.swift in Sources */,
+				A146A01A2692BBCC00741D54 /* NoticeViewModel.swift in Sources */,
 				CCCC735C23E42CDD00FC03EE /* PasswordModifyResponse.swift in Sources */,
 				061CD2B5241F6C9200BD0DE1 /* LocationDetailViewController.swift in Sources */,
 				38BCD98123A3484300D59910 /* UIViewExtension.swift in Sources */,
@@ -2497,7 +2505,6 @@
 				C7BBF4BC23C7040900023307 /* NoticeDetailProtocol.swift in Sources */,
 				38E9921F23B04CF200E28271 /* GropeTourPresenter.swift in Sources */,
 				A1A7F32D2418DDCC00263E42 /* ChooseCountButton.swift in Sources */,
-				3848DA7C23C7280500EA0ED0 /* NoticeProtocol.swift in Sources */,
 				38BCD9D523A366D500D59910 /* BaseViewController.swift in Sources */,
 				38BCDA1323A3684E00D59910 /* BaseProtocol.swift in Sources */,
 				38BCD98823A3484300D59910 /* UINavigationControllerExtension.swift in Sources */,
@@ -2580,6 +2587,7 @@
 				A142DF59242321DC003D103E /* LccResponse.swift in Sources */,
 				38BCD97023A3484300D59910 /* CAGradientLayerExtension.swift in Sources */,
 				387FBF1423ACD047005412F1 /* CustomTextField.swift in Sources */,
+				A1047302269433BA00C4D4E9 /* NoticeTableViewModel.swift in Sources */,
 				38871EBD23D581AA007ED33D /* BannerImageView.swift in Sources */,
 				A1A7F30C2418854D00263E42 /* CalendarDataToBackwardPageViewController.swift in Sources */,
 				38AA456423D6905900BE3F95 /* HomeAd2View.swift in Sources */,
@@ -2609,6 +2617,7 @@
 				C7BD648F23ED453200FEE538 /* EmptyDataCell.swift in Sources */,
 				CCCC735A23E42C9600FC03EE /* PasswordModifyRequest.swift in Sources */,
 				CCCC735523E42C2700FC03EE /* PasswordModifyPresenter.swift in Sources */,
+				A146A01B2692BBCC00741D54 /* NoticeViewModel.swift in Sources */,
 				CCCC735D23E42CDD00FC03EE /* PasswordModifyResponse.swift in Sources */,
 				061CD2B6241F6C9200BD0DE1 /* LocationDetailViewController.swift in Sources */,
 				38BCD98223A3484300D59910 /* UIViewExtension.swift in Sources */,

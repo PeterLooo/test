@@ -59,6 +59,7 @@ class NoticeResponse: BaseModel {
         }
     }
 }
+
 class NoticeUnreadCountResponse: BaseModel {
     
     var unreadCount: Int!
@@ -68,35 +69,3 @@ class NoticeUnreadCountResponse: BaseModel {
     }
 }
 
-class NotiItem: NSObject {
-    
-    var linkType : LinkType!
-    var linkValue : String?
-    var notiDate : String?
-    var unreadMark : Bool?
-    var notiTitle : String?
-    var notiContent : String?
-    var notiId: String?
-    var apiNotiType: String?
-    
-    convenience init(notiTitle : String?,
-                     notiContent : String?,
-                     notiId: String?,
-                     notiDate : String?,
-                     unreadMark : Bool?,
-                     linkType : LinkType!,
-                     linkValue : String?,
-                     apiNotiType: String?) {
-        
-        self.init()
-        self.notiTitle = notiTitle
-        self.notiContent = notiContent
-        self.notiId = notiId
-        self.notiDate = FormatUtil.convertStringToString(dateStringFrom: notiDate!, dateFormatTo: "MM/dd")
-        if self.notiDate.isNilOrEmpty == true {self.notiDate = notiDate}
-        self.unreadMark = unreadMark
-        self.linkType = linkType
-        self.linkValue = linkValue
-        self.apiNotiType = apiNotiType
-    }
-}
