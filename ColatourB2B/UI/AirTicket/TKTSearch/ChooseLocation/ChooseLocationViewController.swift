@@ -17,7 +17,7 @@ extension ChooseLocationViewController {
     }
 }
 
-class ChooseLocationViewController: BaseViewController {
+class ChooseLocationViewController: BaseViewControllerMVVM {
     
     enum Section: Int, CaseIterable {
         case Capsule = 0
@@ -42,17 +42,17 @@ class ChooseLocationViewController: BaseViewController {
         setCollectionViewLayout()
     }
     
-    @objc func dimissKeyBoard(){
+    @objc func dimissKeyBoard() {
         
         self.searchBar.endEditing(true)
     }
     
-    @objc private func onTouchCancel(){
+    @objc private func onTouchCancel() {
         
         dismiss(animated: true, completion: nil)
     }
     
-    @objc func setCollectionViewLayout(){
+    @objc func setCollectionViewLayout() {
         
         self.collectionView.setCollectionViewLayout(UICollectionViewFlowLayout(), animated: false)
     }
@@ -372,7 +372,7 @@ extension ChooseLocationViewController {
     
     private func bindViewModel() {
         
-        viewModel = ChooseLocationViewModel(tktSearchInit: (viewModel?.airTicketInfo)!, lccSearchInit: (viewModel?.lccAirInfo)!, searchType: (viewModel?.searchType)!, startEndType: (viewModel?.startEndType)!)
+        self.bindToBaseViewModel(viewModel: self.viewModel!)
         
         viewModel?.reloadData = { [weak self] in
             self?.collectionView.reloadData()

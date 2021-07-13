@@ -719,7 +719,7 @@ extension AirTicketSearchViewController: UITableViewDelegate {
 extension AirTicketSearchViewController {
     
     private func bindViewModel() {
-        self.viewModel = AirTicketSearchViewModel(searchType: viewModel?.searchType ?? .airTkt)
+        self.bindToBaseViewModel(viewModel: self.viewModel!)
         
         viewModel?.groupAirReloadData = { [weak self] in
             self?.tableViewGroupAir.reloadData()
@@ -735,7 +735,7 @@ extension AirTicketSearchViewController {
         
         viewModel?.onTouchArrival = { [weak self] arrival in
             
-            self?.setChooseLocationViewController(arrival: arrival)
+            self?.setChooseLocationViewController(tktSearchInit: self?.viewModel!.airSearchInit, lccSearchInit: nil, searchType: .airTkt, startEndType: .Departure, arrival: arrival)
         }
         
         viewModel?.onTouchSelection = { [weak self] selection in
@@ -779,11 +779,11 @@ extension AirTicketSearchViewController {
         }
         
         viewModel?.onTouchLccDeparture = { [weak self] in
-            self?.setChooseLocationViewController(arrival: nil)
+            self?.setChooseLocationViewController(tktSearchInit: nil, lccSearchInit: self?.viewModel!.lccSearchInit, searchType: .lcc, startEndType: .Departure, arrival: nil)
         }
         
         viewModel?.onTouchLccDestination = { [weak self] in
-            self?.setChooseLocationViewController(arrival: nil)
+            self?.setChooseLocationViewController(tktSearchInit: nil, lccSearchInit: self?.viewModel!.lccSearchInit, searchType: .lcc, startEndType: .Destination, arrival: nil)
         }
         
         viewModel?.onTouchLccRequestByPerson = { [weak self] in
@@ -825,10 +825,10 @@ extension AirTicketSearchViewController {
         datePicker.backgroundColor = UIColor.white
     }
     
-    private func setChooseLocationViewController(arrival: ArrivalType? = nil) {
+    private func setChooseLocationViewController(tktSearchInit: TKTInitResponse.TicketResponse?, lccSearchInit: LccResponse.LCCSearchInitialData?, searchType: SearchByType, startEndType: StartEndType, arrival: ArrivalType? = nil) {
         
         let vc = self.getVC(st: "ChooseLocation", vc: "ChooseLocation") as! ChooseLocationViewController
-        vc.setVC(viewModel: ChooseLocationViewModel(tktSearchInit: self.viewModel!.airSearchInit, lccSearchInit: nil, searchType: .airTkt, startEndType: .Departure, arrival: arrival))
+        vc.setVC(viewModel: ChooseLocationViewModel(tktSearchInit: tktSearchInit, lccSearchInit: lccSearchInit, searchType: searchType, startEndType: startEndType, arrival: arrival))
         
         vc.setLocation = { [weak self] cityInfo, searchType, arrival, startEndType in
             

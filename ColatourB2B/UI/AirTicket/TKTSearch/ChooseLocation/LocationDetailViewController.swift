@@ -92,6 +92,8 @@ extension LocationDetailViewController {
     }
     
     private func setView() {
+        
+        viewModel = LocationDetailViewModel(countryInfo: viewModel?.country ?? TKTInitResponse.TicketResponse.Country())
         setNavTitle(title: viewModel?.country?.countryName ?? "")
         collectionView.delegate = self
         collectionView.dataSource = self

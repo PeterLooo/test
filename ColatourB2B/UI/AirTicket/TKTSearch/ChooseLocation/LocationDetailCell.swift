@@ -8,13 +8,6 @@
 
 import UIKit
 
-extension LocationDetailCell {
-    
-    func setCell(viewModel: LocationDetailCellViewModel) {
-        self.viewModel = viewModel
-    }
-}
-
 class LocationDetailCell: UICollectionViewCell {
     
     @IBOutlet weak var cityName: UILabel!
@@ -24,15 +17,19 @@ class LocationDetailCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+                
         let ges = UITapGestureRecognizer(target: self, action: #selector(self.onTouchToCity))
         cityName.isUserInteractionEnabled = true
         cityName.addGestureRecognizer(ges)
+    }
+    
+    func setCell(viewModel: LocationDetailCellViewModel) {
+        self.viewModel = viewModel
         
         cityName.textColor = .black
         cityName.backgroundColor = .white
         cityName.setBorder(width: 1, radius: 5, color: UIColor(named: "分隔線"))
-        cityName.text = viewModel?.cityInfo?.cityName
+        cityName.text = viewModel.cityInfo?.cityName
     }
     
     @objc func onTouchToCity() {
