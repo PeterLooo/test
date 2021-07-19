@@ -35,5 +35,4 @@ class MemberIndexPresenter: MemberIndexPresenterProtocol {
     func memberLogout() {
         let _ = accountRepository.memberLogout().subscribe()
     }
-    
 }
