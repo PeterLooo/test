@@ -159,7 +159,7 @@ class  ChooseLocationViewModel: BaseViewModel {
                 ()
             }
             
-            return "searchResult"
+            return "searchResultCell"
             
         default:
             return ""
