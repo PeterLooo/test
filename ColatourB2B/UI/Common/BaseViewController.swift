@@ -413,12 +413,21 @@ class BaseViewController: UIViewController {
     }
     
     private func setUpErrorViews() {
-        apiFailErrorView.delegate = self
+        
         apiFailErrorView.setUpApiFailErrorView()
+        apiFailErrorView.onTouchServiceAction = {[weak self] in
+            let vc = self?.getVC(st: "ContactInfo", vc: "ContactInfo") as! ContactInfoViewController
+            self?.navigationController?.pushViewController(vc, animated: true)
+        }
+        apiFailErrorView.loadData = {[weak self] in
+            self?.loadData()
+        }
         self.view.addSubview(apiFailErrorView)
         
-        noInternetErrorView.delegate = self
         noInternetErrorView.setUpNoInternetErrorView()
+        noInternetErrorView.loadData = {[weak self] in
+            self?.loadData()
+        }
         self.view.addSubview(noInternetErrorView)
     }
     
