@@ -77,44 +77,8 @@ extension ChooseLocationViewController {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
-        let range = NSRange(location: 0, length: searchText.utf16.count)
-        // 搜尋文字不能包含非中英文字
-        let regex = try! NSRegularExpression(pattern: "[^A-Za-z\\u4E00-\\u9FA5]")
-        let regexMatch: Bool = regex.firstMatch(in: searchText, options: [], range: range) != nil
-        
         self.searchBar.text = searchText.uppercased()
-        viewModel?.searchText = searchText.uppercased()
-        
-        switch viewModel?.searchType {
-        case .airTkt:
-            if searchText.count > 3 {
-                let maxLengthThreeText = String(searchText.dropLast(searchText.count - 3))
-                self.searchBar.text = maxLengthThreeText.uppercased()
-                viewModel?.searchText = maxLengthThreeText.uppercased()
-            }
-            if searchText.count >= 1 && viewModel?.preSearchText != viewModel?.searchText && !regexMatch {
-                viewModel?.getAirTktSearchResult()
-                viewModel?.preSearchText = viewModel?.searchText ?? ""
-                // 搜尋文字清空時也要清空preSearchText，否則下次輸入相同文字時會無法進入搜尋
-            } else if searchText != "" {
-                return
-            } else {
-                viewModel?.preSearchText = ""
-            }
-        case .lcc:
-            if searchText.count >= 2 && viewModel?.preSearchText != viewModel?.searchText && !regexMatch {
-                viewModel?.getLccSearchResult()
-                viewModel?.preSearchText = viewModel?.searchText ?? ""
-            } else if searchText != "" {
-                return
-            } else {
-                viewModel?.preSearchText = ""
-            }
-        default:
-            ()
-        }
-        
-        viewModel?.searchResultList = []
+        viewModel?.getSearch(searchText: searchText)
         collectionView.reloadData()
     }
     
@@ -393,6 +357,10 @@ extension ChooseLocationViewController {
         viewModel?.setLocation = { [weak self] cityInfo, searchType, arrival, startEndType in
             self?.setLocation?(cityInfo, searchType, arrival, startEndType)
             self?.dismiss(animated: true, completion: nil)
+        }
+        
+        viewModel?.uppercased = { [weak self]  maxLengthThreeText in
+            self?.searchBar.text = maxLengthThreeText.uppercased()
         }
     }
     

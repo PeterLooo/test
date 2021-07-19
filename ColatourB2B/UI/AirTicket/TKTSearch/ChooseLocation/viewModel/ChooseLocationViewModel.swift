@@ -19,6 +19,7 @@ class  ChooseLocationViewModel: BaseViewModel {
     }
     
     var reloadData: (() -> ())?
+    var uppercased: ((_ maxLengthThreeText: String) -> ())?
     var toLocationDetailViewController: ((_ countryInfo:  TKTInitResponse.TicketResponse.Country?) -> ())?
     var setLocation: ((_ cityInfo: TKTInitResponse.TicketResponse.City?, _ searchType: SearchByType?, _ arrival: ArrivalType?, _ startEndType: StartEndType?) -> ())?
     
@@ -164,6 +165,46 @@ class  ChooseLocationViewModel: BaseViewModel {
         default:
             return ""
         }
+    }
+    
+    func getSearch(searchText: String) {
+        
+        let range = NSRange(location: 0, length: searchText.utf16.count)
+        let regex = try! NSRegularExpression(pattern: "[^A-Za-z\\u4E00-\\u9FA5]")
+        let regexMatch: Bool = regex.firstMatch(in: searchText, options: [], range: range) != nil
+        
+        self.searchText = searchText.uppercased()
+        
+        switch searchType {
+        case .airTkt:
+            if searchText.count > 3 {
+                let maxLengthThreeText = String(searchText.dropLast(searchText.count - 3))
+                uppercased?(maxLengthThreeText)
+                self.searchText = maxLengthThreeText.uppercased()
+            }
+            if searchText.count >= 1 && self.preSearchText != self.searchText && !regexMatch {
+                getAirTktSearchResult()
+                self.preSearchText = self.searchText
+                // 搜尋文字清空時也要清空preSearchText，否則下次輸入相同文字時會無法進入搜尋
+            } else if searchText != "" {
+                return
+            } else {
+                self.preSearchText = ""
+            }
+        case .lcc:
+            if searchText.count >= 2 && self.preSearchText != self.searchText && !regexMatch {
+                getLccSearchResult()
+                self.preSearchText = self.searchText
+            } else if searchText != "" {
+                return
+            } else {
+                self.preSearchText = ""
+            }
+        default:
+            ()
+        }
+        
+        self.searchResultList = []
     }
 }
 
