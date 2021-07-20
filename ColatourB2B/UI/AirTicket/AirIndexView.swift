@@ -36,7 +36,7 @@ class AirIndexView: UIView {
         setUp()
     }
     
-    fileprivate func setUp(){
+    fileprivate func setUp() {
         let bundle = Bundle.init(for: self.classForCoder)
         let nib = UINib.init(nibName: "AirIndexView", bundle: bundle)
         let view = nib.instantiate(withOwner: self, options: nil)[0] as! UIView

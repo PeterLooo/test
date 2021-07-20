@@ -24,20 +24,6 @@ class AirTicketViewController: BaseViewControllerMVVM {
     
     var viewModel: AirTicketViewModel?
     
-    private var itemList: [IndexResponse.MultiModule] = [] {
-        didSet {
-            indexList = itemList.filter{$0.groupName == "首頁1"}.flatMap{$0.moduleList}
-            airPopCityList = itemList.filter{$0.groupName == "HomeAd1"}.flatMap{$0.moduleList}
-            homeAd2List = itemList.filter{$0.groupName == "HomeAd2"}.flatMap{$0.moduleList}
-            homeAd3List = itemList.filter{$0.groupName == "HomeAd3"}.flatMap{$0.moduleList}
-            tableView.reloadData()
-        }
-    }
-    private var indexList: [IndexResponse.Module] = []
-    private var airPopCityList: [IndexResponse.Module] = []
-    private var homeAd2List: [IndexResponse.Module] = []
-    private var homeAd3List: [IndexResponse.Module] = []
-    
     private var needUpdateBannerImage = false
     private var needRefreshNavRight: Bool = true
     
@@ -111,7 +97,7 @@ class AirTicketViewController: BaseViewControllerMVVM {
         present(vc, animated: true)
     }
     
-    @objc func onTouchContact (){
+    @objc func onTouchContact () {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
         alert.addAction(UIAlertAction(title: "聯絡業務(團體)" , style: .default, handler: { (_) in
@@ -128,13 +114,13 @@ class AirTicketViewController: BaseViewControllerMVVM {
         self.present(alert, animated: true)
     }
     
-    private func setSearchGes(){
+    private func setSearchGes() {
         let ges = UITapGestureRecognizer(target: self, action: #selector(onTouchSearch))
         self.airSearchView.addGestureRecognizer(ges)
         self.airSearchView.isUserInteractionEnabled = true
     }
     
-    @objc private func onTouchSearch(){
+    @objc private func onTouchSearch() {
         let vc = getVC(st: "TKTSearch", vc: "AirTicketSearchViewController") as! AirTicketSearchViewController
         vc.setVC(viewModel: AirTicketSearchViewModel(searchType: .airTkt))
         self.navigationController?.pushViewController(vc, animated: true)
@@ -217,12 +203,10 @@ extension AirTicketViewController : UITableViewDataSource {
             cell = tableView.dequeueReusableCell(withIdentifier: "AirIndexCell") as! AirIndexCell
             
             (cell as! AirIndexCell).setCell(viewModel: viewModel!.airIndexCellViewModels[indexPath.row])
-//            (cell as! AirIndexCell).delegate = self
             
         case .HOMEAD1:
             cell = tableView.dequeueReusableCell(withIdentifier: "AirPopCityCell") as! AirPopCityCell
             (cell as! AirPopCityCell).setCell(viewModel: viewModel!.airPopCityCellViewModels[indexPath.row])
-//            (cell as! AirPopCityCell).delegate = self
             
         case .HOMEAD2:
             cell = tableView.dequeueReusableCell(withIdentifier: "HomeAd1Cell") as! HomeAd1Cell
@@ -312,7 +296,7 @@ extension AirTicketViewController {
         self.setCustomRightBarButtonItem(barButtonItem: (isEmployee == true) ? nil : contaceBarButtonItem)
     }
     
-    private func addRefreshControlToTableView(){
+    private func addRefreshControlToTableView() {
         let refreshControl = UIRefreshControl()
         refreshControl.tintColor = UIColor.gray
         refreshControl.addTarget(self, action: #selector(self.pullToRefresh) ,for: .valueChanged)
