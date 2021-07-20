@@ -19,10 +19,6 @@
 		0626031E23F3E5570026DC59 /* DeviceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0626031A23F3E5570026DC59 /* DeviceCell.xib */; };
 		0626032023F401A70026DC59 /* ContactInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0626031F23F401A70026DC59 /* ContactInfoCell.swift */; };
 		0626032123F401A70026DC59 /* ContactInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0626031F23F401A70026DC59 /* ContactInfoCell.swift */; };
-		062DFCBF2419C1AE006882BE /* ChooseLocationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062DFCBE2419C1AE006882BE /* ChooseLocationProtocol.swift */; };
-		062DFCC02419C1AE006882BE /* ChooseLocationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062DFCBE2419C1AE006882BE /* ChooseLocationProtocol.swift */; };
-		062DFCC22419C4D6006882BE /* ChooseLocationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062DFCC12419C4D6006882BE /* ChooseLocationPresenter.swift */; };
-		062DFCC32419C4D6006882BE /* ChooseLocationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062DFCC12419C4D6006882BE /* ChooseLocationPresenter.swift */; };
 		06468514241F710600104346 /* LocationDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06468512241F710600104346 /* LocationDetailCell.swift */; };
 		06468515241F710600104346 /* LocationDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06468512241F710600104346 /* LocationDetailCell.swift */; };
 		06468516241F710600104346 /* LocationDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06468513241F710600104346 /* LocationDetailCell.xib */; };
@@ -622,8 +618,6 @@
 		0626031923F3E5570026DC59 /* DeviceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceCell.swift; sourceTree = "<group>"; };
 		0626031A23F3E5570026DC59 /* DeviceCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeviceCell.xib; sourceTree = "<group>"; };
 		0626031F23F401A70026DC59 /* ContactInfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactInfoCell.swift; sourceTree = "<group>"; };
-		062DFCBE2419C1AE006882BE /* ChooseLocationProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseLocationProtocol.swift; sourceTree = "<group>"; };
-		062DFCC12419C4D6006882BE /* ChooseLocationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseLocationPresenter.swift; sourceTree = "<group>"; };
 		06468512241F710600104346 /* LocationDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailCell.swift; sourceTree = "<group>"; };
 		06468513241F710600104346 /* LocationDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationDetailCell.xib; sourceTree = "<group>"; };
 		064DE90F2421FA8B005D7A83 /* AirTktLocationKeywordSearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirTktLocationKeywordSearchResponse.swift; sourceTree = "<group>"; };
@@ -1614,8 +1608,6 @@
 			children = (
 				0AB5A458269D90EA001D13F2 /* viewModel */,
 				06B05CAF2416293B00C8F447 /* ChooseLocationViewController.swift */,
-				062DFCBE2419C1AE006882BE /* ChooseLocationProtocol.swift */,
-				062DFCC12419C4D6006882BE /* ChooseLocationPresenter.swift */,
 				06B05CA62416287D00C8F447 /* CapsuleCell.swift */,
 				06B05CA72416287D00C8F447 /* CapsuleCell.xib */,
 				06B05CB42416470900C8F447 /* BrickCell.swift */,
@@ -2373,7 +2365,6 @@
 				381B12B523C48D360030BACE /* GroupNavigationView.swift in Sources */,
 				38E9923423B05A0700E28271 /* LoginResponse.swift in Sources */,
 				38E68AA923B5AB80006BC4DD /* GroupSliderViewController.swift in Sources */,
-				062DFCBF2419C1AE006882BE /* ChooseLocationProtocol.swift in Sources */,
 				0A1F8A6526952E8700E357A8 /* AirTktCellViewModel.swift in Sources */,
 				B65191122666094A002337A1 /* GroupTableViewViewModel.swift in Sources */,
 				0650775223ED4F1E0067377C /* ContactInfoViewController.swift in Sources */,
@@ -2392,7 +2383,6 @@
 				38BCD98523A3484300D59910 /* ShareEnum.swift in Sources */,
 				38BCDA1E23A36ADC00D59910 /* TabBarPresenter.swift in Sources */,
 				C7DCA72223D1BBE300F415B8 /* GroupTourSearchPresenter.swift in Sources */,
-				062DFCC22419C4D6006882BE /* ChooseLocationPresenter.swift in Sources */,
 				0A7DC42E26984AF100CA3CD9 /* LocationDetailCellViewModel.swift in Sources */,
 				0626031B23F3E5570026DC59 /* DeviceCell.swift in Sources */,
 				38871EC623D5B50F007ED33D /* HomeAd1View.swift in Sources */,
@@ -2622,7 +2612,6 @@
 				381B12B623C48D360030BACE /* GroupNavigationView.swift in Sources */,
 				38E9923523B05A0700E28271 /* LoginResponse.swift in Sources */,
 				38E68AAA23B5AB80006BC4DD /* GroupSliderViewController.swift in Sources */,
-				062DFCC02419C1AE006882BE /* ChooseLocationProtocol.swift in Sources */,
 				B65191132666094A002337A1 /* GroupTableViewViewModel.swift in Sources */,
 				0A1F8A6626952E8700E357A8 /* AirTktCellViewModel.swift in Sources */,
 				0650775323ED4F1E0067377C /* ContactInfoViewController.swift in Sources */,
@@ -2641,7 +2630,6 @@
 				38BCD98623A3484300D59910 /* ShareEnum.swift in Sources */,
 				38BCDA1F23A36ADC00D59910 /* TabBarPresenter.swift in Sources */,
 				C7DCA72323D1BBE300F415B8 /* GroupTourSearchPresenter.swift in Sources */,
-				062DFCC32419C4D6006882BE /* ChooseLocationPresenter.swift in Sources */,
 				0626031C23F3E5570026DC59 /* DeviceCell.swift in Sources */,
 				0A7DC42F26984AF100CA3CD9 /* LocationDetailCellViewModel.swift in Sources */,
 				38871EC723D5B50F007ED33D /* HomeAd1View.swift in Sources */,

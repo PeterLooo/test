@@ -97,59 +97,7 @@ extension ChooseLocationViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        switch Section(rawValue: section) {
-        case .Capsule:
-            
-            switch viewModel?.searchType {
-            case .airTkt:
-                if (viewModel?.searchText.count ?? 0) >= 1 { return 0 }
-                return viewModel?.airTicketInfo?.areaList.count ?? 0
-                
-            case .lcc:
-                if (viewModel?.searchText.count ?? 0) >= 2 { return 0 }
-                return viewModel?.lccAirInfo?.countryList.count ?? 0
-                
-            default:
-                return 0
-            }
-            
-        case .Brick:
-            switch viewModel?.searchType {
-            case .airTkt:
-                if (viewModel?.searchText.count ?? 0) >= 1 { return 0 }
-                viewModel?.area = viewModel?.airTicketInfo?.areaList.filter{ $0.isSelected == true }.first
-                viewModel?.countryList = viewModel?.airTicketInfo?.countryList.filter{ $0.areaId == viewModel?.area?.areaId }
-                return viewModel?.countryList?.count ?? 0
-                
-            case .lcc:
-                if (viewModel?.searchText.count ?? 0) >= 2 { return 0 }
-                let country = viewModel?.lccAirInfo?.countryList.filter { $0.isSelected == true }.first
-                viewModel?.cityList = country?.cityList
-                return viewModel?.cityList?.count ?? 0
-                
-            default:
-                return 0
-            }
-            
-        case .SearchEmpty:
-            switch viewModel?.searchType {
-            case .airTkt:
-                if (viewModel?.searchText.count ?? 0) >= 1 && viewModel?.searchResultList.count == 0 { return 1 }
-                
-            case .lcc:
-                if (viewModel?.searchText.count ?? 0) >= 2 && viewModel?.searchResultList.count == 0 { return 1 }
-                
-            default:
-                return 0
-            }
-            return 0
-            
-        case .SearchResult:
-            return viewModel?.searchResultList.count ?? 0
-            
-        default:
-            return 0
-        }
+        return viewModel?.getNumberOfItemsInSection(section: section) ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -195,100 +143,12 @@ extension ChooseLocationViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         
-        switch Section(rawValue: section) {
-        case .Capsule:
-            switch viewModel?.searchType {
-            case .airTkt:
-                if (viewModel?.searchText.count ?? 0) >= 1 { return .zero }
-                
-            case .lcc:
-                if (viewModel?.searchText.count ?? 0) >= 2 { return .zero }
-                
-            default:
-                return .zero
-            }
-            return UIEdgeInsets(top: 12, left: 16, bottom: 12, right: 16)
-            
-        case .Brick:
-            switch viewModel?.searchType {
-            case .airTkt:
-                if (viewModel?.searchText.count ?? 0) >= 1 { return .zero }
-                
-            case .lcc:
-                if (viewModel?.searchText.count ?? 0) >= 2 { return .zero }
-                
-            default:
-                return .zero
-            }
-            return UIEdgeInsets(top: 4, left: 16, bottom: 4, right: 16)
-            
-        case .SearchEmpty:
-            return .zero
-            
-        case .SearchResult:
-            if (viewModel?.searchText.count ?? 0) != 0 && (viewModel?.searchResultList.count ?? 0) == 0 { return .zero }
-            return UIEdgeInsets(top: 16, left: 24, bottom: 16, right: 24)
-            
-        default:
-            return .zero
-        }
+        return viewModel?.getCollectionViewFlowLayout(section: section) ?? .zero
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        var cellSize = CGSize()
-        
-        let textFont = UIFont.init(name: "PingFang-TC-Regular", size: 14)!
-        var textString: String?
-        var textMaxSize = CGSize()
-        var textLabelSize = CGSize()
-        
-        switch Section(rawValue: indexPath.section) {
-        case .Capsule:
-            switch viewModel?.searchType {
-            case .airTkt:
-                textString = viewModel?.airTicketInfo?.areaList[indexPath.item].areaName
-                
-            case .lcc:
-                textString = viewModel?.lccAirInfo?.countryList[indexPath.item].countryName
-                
-            default:
-                ()
-            }
-            
-            textMaxSize = CGSize(width: 100, height: 28)
-            textLabelSize = self.textSize(text: textString ?? "", font: textFont, maxSize: textMaxSize)
-            
-            cellSize.width = textLabelSize.width + 24
-            cellSize.height = 28
-            
-            return cellSize
-            
-        case .Brick:
-            cellSize.width = (collectionView.frame.width - 65) / 2
-            cellSize.height = 36
-            
-            return cellSize
-            
-        case .SearchEmpty:
-            cellSize.width = collectionView.frame.width
-            cellSize.height = collectionView.frame.height
-            
-            return cellSize
-            
-        case .SearchResult:
-            textString = viewModel?.searchResultList[indexPath.item].cityName
-            textMaxSize = CGSize(width: collectionView.frame.width - 48, height: 40)
-            textLabelSize = self.textSize(text: textString ?? "", font: textFont, maxSize: textMaxSize)
-            
-            cellSize.width = collectionView.frame.width - 48
-            cellSize.height = textLabelSize.height
-            
-            return cellSize
-            
-        default:
-            return cellSize
-        }
+        return viewModel?.getGCSize(section: indexPath.section, item: indexPath.item, width: collectionView.frame.width, height: collectionView.frame.height) ?? CGSize()
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
@@ -396,12 +256,7 @@ extension ChooseLocationViewController {
         setCustomLeftBarButtonItem(barButtonItem: close)
     }
     
-    private func textSize(text: String, font: UIFont, maxSize: CGSize) -> CGSize {
-        
-        return text.boundingRect(with: maxSize, options: [.usesLineFragmentOrigin], attributes: [NSAttributedString.Key.font : font], context: nil).size
-    }
-    
-    func infoSort() {
+    private func infoSort() {
         
         switch viewModel?.startEndType {
         case .Departure:

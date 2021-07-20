@@ -89,6 +89,63 @@ class  ChooseLocationViewModel: BaseViewModel {
             }).disposed(by: dispose)
     }
     
+    func getNumberOfItemsInSection(section: Int) -> Int {
+        
+        switch Section(rawValue: section) {
+        case .Capsule:
+            
+            switch searchType {
+            case .airTkt:
+                if (searchText.count) >= 1 { return 0 }
+                return airTicketInfo?.areaList.count ?? 0
+                
+            case .lcc:
+                if (searchText.count) >= 2 { return 0 }
+                return lccAirInfo?.countryList.count ?? 0
+                
+            default:
+                return 0
+            }
+            
+        case .Brick:
+            switch searchType {
+            case .airTkt:
+                if (searchText.count) >= 1 { return 0 }
+                area = airTicketInfo?.areaList.filter{ $0.isSelected == true }.first
+                countryList = airTicketInfo?.countryList.filter{ $0.areaId == area?.areaId }
+                return countryList?.count ?? 0
+                
+            case .lcc:
+                if (searchText.count) >= 2 { return 0 }
+                let country = lccAirInfo?.countryList.filter { $0.isSelected == true }.first
+                cityList = country?.cityList
+                return cityList?.count ?? 0
+                
+            default:
+                return 0
+            }
+            
+        case .SearchEmpty:
+            switch searchType {
+            case .airTkt:
+                if (searchText.count) >= 1 && searchResultList.count == 0 { return 1 }
+                
+            case .lcc:
+                if (searchText.count) >= 2 && searchResultList.count == 0 { return 1 }
+                
+            default:
+                return 0
+            }
+            return 0
+            
+        case .SearchResult:
+            return searchResultList.count
+            
+        default:
+            return 0
+        }
+    }
+    
     func setCellViewModel(section: Int, row: Int) -> String {
         
         switch Section(rawValue: section) {
@@ -164,6 +221,103 @@ class  ChooseLocationViewModel: BaseViewModel {
             
         default:
             return ""
+        }
+    }
+    
+    func getCollectionViewFlowLayout(section: Int) -> UIEdgeInsets {
+        
+        switch Section(rawValue: section) {
+        case .Capsule:
+            switch searchType {
+            case .airTkt:
+                if searchText.count >= 1 { return .zero }
+                
+            case .lcc:
+                if searchText.count >= 2 { return .zero }
+                
+            default:
+                return .zero
+            }
+            return UIEdgeInsets(top: 12, left: 16, bottom: 12, right: 16)
+            
+        case .Brick:
+            switch searchType {
+            case .airTkt:
+                if searchText.count >= 1 { return .zero }
+                
+            case .lcc:
+                if searchText.count >= 2 { return .zero }
+                
+            default:
+                return .zero
+            }
+            return UIEdgeInsets(top: 4, left: 16, bottom: 4, right: 16)
+            
+        case .SearchEmpty:
+            return .zero
+            
+        case .SearchResult:
+            if searchText.count != 0 && searchResultList.count == 0 { return .zero }
+            return UIEdgeInsets(top: 16, left: 24, bottom: 16, right: 24)
+            
+        default:
+            return .zero
+        }
+    }
+    
+    func getGCSize(section: Int, item: Int, width: CGFloat, height: CGFloat) -> CGSize {
+        
+        var cellSize = CGSize()
+        let textFont = UIFont.init(name: "PingFang-TC-Regular", size: 14)!
+        var textString: String?
+        var textMaxSize = CGSize()
+        var textLabelSize = CGSize()
+        
+        switch Section(rawValue: section) {
+        case .Capsule:
+            switch searchType {
+            case .airTkt:
+                textString = airTicketInfo?.areaList[item].areaName
+                
+            case .lcc:
+                textString = lccAirInfo?.countryList[item].countryName
+                
+            default:
+                ()
+            }
+            
+            textMaxSize = CGSize(width: 100, height: 28)
+            textLabelSize = self.textSize(text: textString ?? "", font: textFont, maxSize: textMaxSize)
+            
+            cellSize.width = textLabelSize.width + 24
+            cellSize.height = 28
+            
+            return cellSize
+            
+        case .Brick:
+            cellSize.width = (width - 65) / 2
+            cellSize.height = 36
+            
+            return cellSize
+            
+        case .SearchEmpty:
+            cellSize.width = width
+            cellSize.height = height
+            
+            return cellSize
+            
+        case .SearchResult:
+            textString = searchResultList[item].cityName
+            textMaxSize = CGSize(width: width - 48, height: 40)
+            textLabelSize = self.textSize(text: textString ?? "", font: textFont, maxSize: textMaxSize)
+            
+            cellSize.width = width - 48
+            cellSize.height = textLabelSize.height
+            
+            return cellSize
+            
+        default:
+            return cellSize
         }
     }
     
@@ -270,5 +424,10 @@ extension ChooseLocationViewModel {
         default:
             ()
         }
+    }
+    
+    private func textSize(text: String, font: UIFont, maxSize: CGSize) -> CGSize {
+        
+        return text.boundingRect(with: maxSize, options: [.usesLineFragmentOrigin], attributes: [NSAttributedString.Key.font : font], context: nil).size
     }
 }
