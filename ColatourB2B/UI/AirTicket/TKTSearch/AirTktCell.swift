@@ -30,58 +30,41 @@ class AirTktCell: UITableViewCell {
     @IBOutlet weak var backView: UIView!
     @IBOutlet weak var isNonStop: UIImageView!
     
-    weak var delegate: AirTktCellProtocol?
+    var viewModel: AirTktCellViewModel?
     
-    func setCell(info: TKTSearchRequest, searchType: SearchByType){
-        identity.text = info.identityType
-        sitClass.text = info.service?.serviceName
-        airline.text = info.airline?.airlineName
-        startDate.text = info.startTravelDate
-        dateRange.text = info.endTravelDate?.endTravelDateName
-        tourWay.text = info.journeyType
-        departure.text = info.departure?.departureCodeName
-        destination.text = info.destination == nil ? "輸入 目的城市/機場代碼" : info.destination?.cityName
-        destination.textColor = info.destination == nil ? UIColor.init(named: "預設文字") : UIColor.init(named: "標題黑" )
-        backDeparture.text = info.returnCode == nil ? "輸入 目的城市/機場代碼":info.returnCode?.cityName
-        backDeparture.textColor = info.returnCode == nil ? UIColor.init(named: "預設文字") : UIColor.init(named: "標題黑" )
-        isNonStop.image = info.isNonStop ? #imageLiteral(resourceName: "check") : #imageLiteral(resourceName: "check_hover")
-        backView.isHidden = !(info.journeyType == "雙程" || info.journeyType == "環遊")
+    func setCell(viewModel: AirTktCellViewModel) {
+        self.viewModel = viewModel
+        identity.text = viewModel.identity
+        sitClass.text = viewModel.sitClass
+        airline.text = viewModel.airline
+        startDate.text = viewModel.startDate
+        dateRange.text = viewModel.dateRange
+        tourWay.text = viewModel.tourWay
+        departure.text = viewModel.departure
+        destination.text = viewModel.destination
+        destination.textColor = UIColor.init(named: viewModel.destinationColor ?? "")
+        backDeparture.text = viewModel.backDeparture
+        backDeparture.textColor = UIColor.init(named: viewModel.backDepartureColor ?? "")
+        isNonStop.image = (viewModel.isNonStop ?? false)  ? #imageLiteral(resourceName: "check") : #imageLiteral(resourceName: "check_hover")
+        backView.isHidden = viewModel.backViewHidden ?? false
         self.backView.layoutIfNeeded()
-        
     }
     
     @IBAction func onTouchTopSelection(_ sender: UIButton) {
-        switch sender.tag {
-        case 0:
-            self.delegate?.onTouchSelection(selection: .id, searchType: .airTkt)
-        case 1:
-            self.delegate?.onTouchSelection(selection: .sitClass, searchType: .airTkt)
-        case 2:
-            self.delegate?.onTouchSelection(selection: .airlineCode, searchType: .airTkt)
-        case 3:
-            self.delegate?.onTouchDate(searchType: .airTkt)
-        case 4:
-            self.delegate?.onTouchSelection(selection: .dateRange, searchType: .airTkt)
-        case 5:
-            self.delegate?.onTouchSelection(selection: .tourType, searchType: .airTkt)
-        case 6:
-            self.delegate?.onTouchSelection(selection: .departureCity, searchType: .airTkt)
-        case 7:
-            self.delegate?.onTouchNonStop(searchType: .airTkt )
-        default:
-            ()
-        }
+        
+        viewModel?.onTouchToSelection(tag: sender.tag)
     }
     
     @IBAction func onTouchArrvial(_ sender: UIButton) {
-        self.delegate?.onTouchArrival(arrival: .departureCity, searchType: .airTkt)
+        
+        viewModel?.onTouchToArrvial()
     }
     
     @IBAction func onTouchBack(_ sender: Any) {
-        self.delegate?.onTouchArrival(arrival: .backStartingCity, searchType: .airTkt)
+        viewModel?.onTouchToBack()
     }
     
     @IBAction func onTouchSearch(_ sender: UIButton) {
-        self.delegate?.onTouchSearch(searchType: .airTkt)
+        viewModel?.onTouchToSearch()
     }
 }
