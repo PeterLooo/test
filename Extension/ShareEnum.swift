@@ -117,3 +117,37 @@ enum DayOfTheWeek: String {
         }
     }
 }
+
+public enum TKTInputFieldType {
+    case startTourDate
+    case dateRange
+    case id
+    case sitClass
+    case departureCity
+    case sotoArrival
+    case airlineCode
+    case tourType
+}
+
+public enum KeyboardType {
+    case pickerView
+    case datePicker
+    case hide
+}
+
+public enum SearchByType {
+    case airTkt
+    case soto
+    case lcc
+}
+
+public enum ArrivalType {
+    case departureCity
+    case backStartingCity
+}
+
+public enum StartEndType {
+    case Departure
+    case Destination
+}
+

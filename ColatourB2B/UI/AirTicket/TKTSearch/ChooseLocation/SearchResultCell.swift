@@ -8,19 +8,11 @@
 
 import UIKit
 
-protocol SearchResultCellProtocol: NSObjectProtocol {
-    
-    func onTouchCity(cityInfo: TKTInitResponse.TicketResponse.City, searchType: SearchByType)
-}
-
 class SearchResultCell: UICollectionViewCell {
     
     @IBOutlet weak var resultName: UILabel!
     
-    weak var delegate: SearchResultCellProtocol?
-    
-    private var cityInfo: TKTInitResponse.TicketResponse.City?
-    private var searchType: SearchByType?
+    var viewModel: SearchResultCellViewModel?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,50 +22,14 @@ class SearchResultCell: UICollectionViewCell {
         resultName.addGestureRecognizer(ges)
     }
     
-    func setCellWith(cityInfo: TKTInitResponse.TicketResponse.City, searchText: String, searchType: SearchByType) {
+    func setCellWith(viewModel: SearchResultCellViewModel) {
+        self.viewModel = viewModel
         
-        self.cityInfo = cityInfo
-        self.searchType = searchType
-        
-        let attributedString = NSMutableAttributedString(string: cityInfo.cityName!)
-        // 得到全部匹配關鍵字的Range<Index>
-        let ranges = cityInfo.cityName!.ranges(of: searchText)
-        var nsRanges: [NSRange] = []
-        var nsRange = NSRange()
-        
-        // 把Range<Index>轉型成NSRange
-        ranges.forEach({ (range) in
-            nsRange = cityInfo.cityName!.nsRange(from: range)
-            nsRanges.append(nsRange)
-        })
-        
-        // 把所有關鍵字的NSRange變色
-        nsRanges.forEach { (nsRange) in
-            attributedString.addAttribute(NSAttributedString.Key.foregroundColor, value: ColorHexUtil.hexColor(hex: "#19bf62"), range: nsRange)
-        }
-        
-        resultName.attributedText = attributedString
+        resultName.attributedText = viewModel.getNsRanges()
     }
     
     @objc func onTouchCity() {
         
-        delegate?.onTouchCity(cityInfo: cityInfo!, searchType: searchType!)
-    }
-}
-
-extension String {
-    
-    func ranges(of substring: String, options: CompareOptions = [], locale: Locale? = nil) -> [Range<Index>] {
-        var ranges: [Range<Index>] = []
-        while let range = range(of: substring, options: options, range: (ranges.last?.upperBound ?? self.startIndex)..<self.endIndex, locale: locale) {
-            ranges.append(range)
-        }
-        return ranges
-    }
-    
-    func nsRange(from range: Range<String.Index>) -> NSRange {
-        let from = range.lowerBound.samePosition(in: utf16)
-        let to = range.upperBound.samePosition(in: utf16)
-        return NSRange(location: utf16.distance(from: utf16.startIndex, to: from!),length: utf16.distance(from: from!, to: to!))
+        viewModel?.onTouchToCity()
     }
 }

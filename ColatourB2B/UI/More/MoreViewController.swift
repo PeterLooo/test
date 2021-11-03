@@ -8,8 +8,9 @@
 
 import UIKit
 
-class MoreViewController: BaseViewController {
-    private var presenter: MorePresenterProtocol?
+class MoreViewController: BaseViewControllerMVVM {
+    
+    var viewModel: MoreViewModel?
     
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -21,15 +22,13 @@ class MoreViewController: BaseViewController {
         tableView.register(UINib(nibName: "MemberIndexServiceCell", bundle: nil), forCellReuseIdentifier: "MemberIndexServiceCell")
         return tableView
     }()
-    
-    private var toolBarList: [ServerData] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.setNavTitle(title: "更多")
         
-        presenter = MorePresenter(delegate: self)
+        bindViewMode()
         setUpLayout()
     }
     
@@ -42,20 +41,7 @@ class MoreViewController: BaseViewController {
     override func loadData() {
         super.loadData()
         
-        presenter?.getOtherToolBarList()
-    }
-    
-    private func setUpLayout(){
-        self.view.addSubview(tableView)
-        
-        tableView.constraintToSafeArea()
-    }
-}
-
-extension MoreViewController: MoreViewProtocol {
-    func onBindOtherToolBarList(toolBarList: [ServerData]) {
-        self.toolBarList = toolBarList
-        tableView.reloadData()
+        viewModel?.getOtherToolBarList()
     }
 }
 
@@ -65,19 +51,30 @@ extension MoreViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return toolBarList.count
+        return viewModel?.serverCellViewModel.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MemberIndexServiceCell") as! MemberIndexServiceCell
-        cell.setCellWith(serverData: toolBarList[indexPath.row])
-        cell.delegate = self
+        cell.setCell(viewModel: viewModel!.serverCellViewModel[indexPath.row])
+        
         return cell
     }
 }
 
-extension MoreViewController: MemberIndexServiceCellProtocol {
-    func onTouchServer(server: ServerData) {
-        self.handleLinkType(linkType: server.linkType, linkValue: server.linkValue, linkText: server.linkName ?? "")
+extension MoreViewController {
+    
+    private func bindViewMode() {
+        viewModel = MoreViewModel()
+        bindToBaseViewModel(viewModel: viewModel!)
+        viewModel?.reloadTableView = {[weak self] in
+            self?.tableView.reloadData()
+        }
+    }
+    
+    private func setUpLayout(){
+        self.view.addSubview(tableView)
+        
+        tableView.constraintToSafeArea()
     }
 }

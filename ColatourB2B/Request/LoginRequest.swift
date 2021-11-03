@@ -11,4 +11,9 @@ import UIKit
 class LoginRequest: NSObject {
     var memberIdno: String? = nil
     var password: String? = nil
+    
+    required init(idno: String, password: String) {
+        memberIdno = idno
+        self.password = password
+    }
 }

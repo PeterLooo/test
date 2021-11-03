@@ -8,21 +8,11 @@
 
 import UIKit
 
-protocol CapsuleCellProtocol: NSObjectProtocol {
-    
-    func onTouchCapsule(areaInfo: TKTInitResponse.TicketResponse.Area?, countryInfo: TKTInitResponse.TicketResponse.Country?, searchType: SearchByType)
-}
-
 class CapsuleCell: UICollectionViewCell {
     
     @IBOutlet weak var capsuleName: UILabel!
     
-    weak var delegate: CapsuleCellProtocol?
-    
-    private var areaInfo: TKTInitResponse.TicketResponse.Area?
-    private var countryInfo: TKTInitResponse.TicketResponse.Country?
-    private var searchType: SearchByType?
-    private var selectedSign: Bool?
+    var viewModel: CapsuleCellViewModel?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -32,26 +22,24 @@ class CapsuleCell: UICollectionViewCell {
         capsuleName.addGestureRecognizer(ges)
     }
     
-    func setCellWith(airTicketInfo: TKTInitResponse.TicketResponse?, lccAirInfo: LccResponse.LCCSearchInitialData?, searchType: SearchByType, row: Int) {
+    func setCell(viewModel: CapsuleCellViewModel) {
+        self.viewModel = viewModel
         
-        self.searchType = searchType
-        
-        switch searchType {
+        switch viewModel.searchType {
         case .airTkt:
-            areaInfo = airTicketInfo?.areaList[row]
-            capsuleName.text = areaInfo?.areaName
-            selectedSign = areaInfo?.isSelected
+            capsuleName.text = viewModel.areaInfo?.areaName
             
         case .soto:
             ()
             
         case .lcc:
-            countryInfo = lccAirInfo?.countryList[row]
-            capsuleName.text = countryInfo?.countryName
-            selectedSign = countryInfo?.isSelected
+            capsuleName.text = viewModel.countryInfo?.countryName
+            
+        default :
+            ()
         }
         
-        switch selectedSign {
+        switch viewModel.selectedSign {
         case true:
             capsuleName.textColor = .white
             capsuleName.backgroundColor = UIColor(named: "通用綠")
@@ -70,15 +58,6 @@ class CapsuleCell: UICollectionViewCell {
     
     @objc func onTouchCapsule() {
         
-        switch searchType {
-        case .airTkt:
-            delegate?.onTouchCapsule(areaInfo: areaInfo!, countryInfo: nil, searchType: .airTkt)
-            
-        case .lcc:
-            delegate?.onTouchCapsule(areaInfo: nil, countryInfo: countryInfo!, searchType: .lcc)
-            
-        default:
-            ()
-        }
+        viewModel?.onTouchToCapsule()
     }
 }

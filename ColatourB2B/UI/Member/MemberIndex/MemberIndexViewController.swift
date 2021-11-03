@@ -8,24 +8,12 @@
 
 import UIKit
 
-class MemberIndexViewController: BaseViewController {
+class MemberIndexViewController: BaseViewControllerMVVM {
     
     @IBOutlet weak var tableView: UITableView!
     
-    enum Section : Int, CaseIterable {
-        case TOP_VIEW_LIST = 0
-        case SEVICE_LIST
-        case VERSION
-    }
-    
-    private var presenter: MemberIndexPresenterProtocol?
-    private var memberIndex: MemberIndexResponse?
+    private var viewModel: MemberIndexViewModel?
     private var cellsHeight: [IndexPath: CGFloat] = [:]
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        presenter = MemberIndexPresenter(delegate: self)
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,58 +26,27 @@ class MemberIndexViewController: BaseViewController {
         setNavType(navBarType: .hidden)
         setTabBarType(tabBarType: .notHidden)
         setBarAlpha(alpha: 0.0, animate: true)
+        bindViewModel()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         loadData()
-        
     }
+    
     override func adjustViewAppearance() {
         super.adjustViewAppearance()
         adjustBarTopConstraint()
     }
     
-    private func adjustBarTopConstraint(){
-        
-        let totalHeight = statusBarHeight
-        let tableViewTopConstraint = NSLayoutConstraint(item: self.tableView!, attribute: .top, relatedBy: .equal, toItem: self.view, attribute: .top, multiplier: 1, constant: -totalHeight)
-        
-        self.view.addConstraint(tableViewTopConstraint)
-    }
-    
     override func loadData() {
         super.loadData()
         
-        presenter?.getMemberIndex()
-    }
-    
-}
-
-extension MemberIndexViewController: MemberIndexViewProtocol {
-    func onBindMemberIndex(result: MemberIndexResponse) {
-        self.memberIndex = result
-        tableView.reloadData()
+        viewModel?.getMemberIndex()
     }
 }
 
-extension MemberIndexViewController: MemberTopCellProtocol {
-    func onTouchLogout() {
-        presenter?.memberLogout()
-        UserDefaultUtil.shared.accessToken = ""
-        UserDefaultUtil.shared.refreshToken = ""
-        NotificationCenter.default.post(name: Notification.Name("noticeLoadDate"), object: nil)
-        NotificationCenter.default.post(name: Notification.Name("getUnreadCount"), object: nil)
-        loadData()
-    }
-}
-
-extension MemberIndexViewController: MemberIndexServiceCellProtocol {
-    func onTouchServer(server: ServerData) {
-        self.handleLinkType(linkType: server.linkType, linkValue: server.linkValue, linkText: server.linkName ?? "")
-    }
-}
 extension MemberIndexViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         cellsHeight[indexPath] = cell.frame.size.height
@@ -97,12 +54,12 @@ extension MemberIndexViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         var maxHeight: CGFloat = 0
-        if Section(rawValue: indexPath.section)! == .VERSION {
+        
+        if indexPath.section == (viewModel?.sections.endIndex)! - 1{
             for (key, value) in cellsHeight {
-                if key.section != Section.VERSION.rawValue {
+                if key.section != (viewModel?.sections.endIndex)! - 1 {
                     maxHeight += value
                 }
-                
             }
             
             let versionCellHeight = screenHeight - maxHeight - (navigationController?.navigationBar.frame.height ?? 0) - (UIApplication.shared.keyWindow?.safeAreaInsets.bottom ?? 0)
@@ -134,39 +91,56 @@ extension MemberIndexViewController: UITableViewDelegate {
 extension MemberIndexViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return Section.allCases.count
+        return viewModel?.sections.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let section = Section(rawValue: section)!
-        switch section {
-        case .TOP_VIEW_LIST:
+        
+        switch viewModel?.sections[section] {
+        case .headerCell(_):
             return 1
-        case .SEVICE_LIST:
-            if self.memberIndex == nil { return 0 }
-            return memberIndex!.memberIndexList.count
-        case .VERSION:
+        case .serverCell(let serverViewModel):
+            return serverViewModel.count
+        case .versionCell:
             return 1
+        default:
+            return 0
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell: UITableViewCell!
-        let section = Section(rawValue: indexPath.section)!
-        switch section {
-        case .TOP_VIEW_LIST:
+        
+        switch viewModel?.sections[indexPath.section] {
+        case .headerCell(let headerViewModel):
             cell = tableView.dequeueReusableCell(withIdentifier: "MemberTopCell") as! MemberTopCell
-            (cell as! MemberTopCell).setCellWith(title: memberIndex?.memeberName)
-            (cell as! MemberTopCell).delegate = self
-            
-        case .SEVICE_LIST:
+            (cell as! MemberTopCell).setCellWith(viewModel: headerViewModel)
+        case .serverCell(let serverViewModel):
             cell = tableView.dequeueReusableCell(withIdentifier: "MemberIndexServiceCell")
-            (cell as! MemberIndexServiceCell).setCellWith(serverData: (memberIndex?.memberIndexList[indexPath.row])!)
-            (cell as! MemberIndexServiceCell).delegate = self
-        case .VERSION:
+            (cell as! MemberIndexServiceCell).setCell(viewModel: (serverViewModel[indexPath.row]))
+        case .versionCell:
             cell = tableView.dequeueReusableCell(withIdentifier: "MemberIndexVersionCell")
-            
+        default:
+            return UITableViewCell()
         }
         return cell
+    }
+}
+
+extension MemberIndexViewController {
+    private func bindViewModel(){
+        viewModel = MemberIndexViewModel()
+        self.bindToBaseViewModel(viewModel: viewModel!)
+        viewModel?.reloadTableView = {[weak self] in
+            self?.tableView.reloadData()
+        }
+    }
+    
+    private func adjustBarTopConstraint(){
+        
+        let totalHeight = statusBarHeight
+        let tableViewTopConstraint = NSLayoutConstraint(item: self.tableView!, attribute: .top, relatedBy: .equal, toItem: self.view, attribute: .top, multiplier: 1, constant: -totalHeight)
+        
+        self.view.addConstraint(tableViewTopConstraint)
     }
 }

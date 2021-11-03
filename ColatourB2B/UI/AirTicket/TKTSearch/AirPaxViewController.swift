@@ -7,8 +7,12 @@
 //
 
 import UIKit
-protocol AirPaxViewControllerProtocol: NSObjectProtocol {
-    func onTouchBottomButton(lccTicketRequest: LccTicketRequest)
+
+extension AirPaxViewController {
+    
+    func setTextWith(viewModel: AirPaxViewModel) {
+        self.viewModel = viewModel
+    }
 }
 
 class AirPaxViewController: UIViewController {
@@ -21,11 +25,11 @@ class AirPaxViewController: UIViewController {
     @IBOutlet weak var childCount: ChooseCountButton!
     @IBOutlet weak var infanCount: ChooseCountButton!
     
-    private var lccTicketRequest = LccTicketRequest()
     private var bottomButtonTitle: String?
     private var isFadeInBefore = false
     
-    weak var delegate: AirPaxViewControllerProtocol?
+    var onTouchBottomButton: ((_ lccTicketRequest: LccTicketRequest) ->())?
+    var viewModel: AirPaxViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,9 +37,9 @@ class AirPaxViewController: UIViewController {
         bottomButton.setTitle("確認", for: .normal)
         bottomButton.setBorder(width: 1, radius: 4, color: UIColor.init(named: "通用綠")!)
         adultCount.lowLimit = 1
-        adultCount.setChooseCountButton(count: lccTicketRequest.adultCount, allowSaleMark: true)
-        childCount.setChooseCountButton(count: lccTicketRequest.childCount, allowSaleMark: true)
-        infanCount.setChooseCountButton(count: lccTicketRequest.infanCount, allowSaleMark: true)
+        adultCount.setChooseCountButton(count: viewModel?.lccTicketRequest.adultCount ?? 0, allowSaleMark: true)
+        childCount.setChooseCountButton(count: viewModel?.lccTicketRequest.childCount ?? 0, allowSaleMark: true)
+        infanCount.setChooseCountButton(count: viewModel?.lccTicketRequest.infanCount ?? 0, allowSaleMark: true)
         adultCount.limitFlour = 9
         childCount.limitFlour = 9
         infanCount.limitFlour = 9
@@ -48,20 +52,17 @@ class AirPaxViewController: UIViewController {
         layout()
     }
     
-    func setTextWith(lccTicketRequest: LccTicketRequest){
-        self.lccTicketRequest = lccTicketRequest
-    }
-    
     @IBAction func onTouchBackgroundButton(_ sender: UIButton) {
         dismiss()
     }
     
     @IBAction func onTouchBottomButton(_ sender: UIButton) {
-        lccTicketRequest.adultCount = adultCount.count
-        lccTicketRequest.childCount = childCount.count
-        lccTicketRequest.infanCount = infanCount.count
+        
+        viewModel?.lccTicketRequest.adultCount = adultCount.count
+        viewModel?.lccTicketRequest.childCount = childCount.count
+        viewModel?.lccTicketRequest.infanCount = infanCount.count
         dismiss()
-        delegate?.onTouchBottomButton(lccTicketRequest: lccTicketRequest)
+        onTouchBottomButton?(viewModel?.lccTicketRequest ?? LccTicketRequest())
     }
     
     private func fadeInBackgroundColor(){
@@ -74,7 +75,7 @@ class AirPaxViewController: UIViewController {
         }
     }
     
-    func fadeOutBackgroundColor(){
+    private func fadeOutBackgroundColor(){
         if isFadeInBefore == true {
             isFadeInBefore = false
             UIView.animate(withDuration: 0.5, animations: {
@@ -84,7 +85,7 @@ class AirPaxViewController: UIViewController {
         }
     }
     
-    private func layout(){
+    private func layout() {
         cardView.layoutIfNeeded()
         let safeAreaBottom = UIApplication.shared.keyWindow?.safeAreaInsets.bottom ?? 0
         cardViewTop.constant = screenHeight - statusBarHeight - cardView.frame.height - safeAreaBottom
@@ -99,7 +100,7 @@ class AirPaxViewController: UIViewController {
         return countTextView.frame.height
     }
     
-    private func dismiss(){
+    private func dismiss() {
         fadeOutBackgroundColor()
         self.dismiss(animated: true, completion: nil)
     }
@@ -114,7 +115,7 @@ extension AirPaxViewController: UIScrollViewDelegate {
         if (velocity.y < criticalVelocityY) && (scrollView.contentOffset.y < criticalContentY) {
             dismiss()
         }
-
+        
         //Note: 往上拉，停止時歸位，待確認兩邊都寫才有效果的原因
         if scrollView.contentOffset.y > 0  {
             scrollView.setContentOffset(CGPoint.zero, animated: true)

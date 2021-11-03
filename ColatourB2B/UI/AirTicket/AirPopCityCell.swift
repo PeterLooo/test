@@ -15,31 +15,17 @@ class AirPopCityCell: UITableViewCell {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var scrollViewHeight: NSLayoutConstraint!
     
-    weak var delegate: HomeAd1CellProtocol?
-
-    func setCell(item:IndexResponse.Module, numOfIndex: Int){
+    func setCell(viewModel: AirPopCityCellViewModel) {
+        
         self.stackView.subviews.forEach{$0.removeFromSuperview()}
         
-        self.moduleTitle.text = item.moduleText
-        
+        self.moduleTitle.text = viewModel.moduleTitle
         scrollViewHeight.constant = screenWidth * (1 / 1.73) + 18
-        item.moduleItemList.forEach { (module) in
-            let moduleIndex = item.moduleItemList.firstIndex(of: module)
-            if moduleIndex! % 2 == 0 {
-                let view = AirPopCityView()
-                view.setView(item: module, isFirst: item.moduleItemList.first == module, isLast: item.moduleItemList.last == module)
-                view.delegate = self
-                self.stackView.addArrangedSubview(view)
-            }else{
-                
-                let lastView = self.stackView.subviews.last as! AirPopCityView
-                lastView.setCellSec(item: module)
-            }
+        
+        viewModel.subViewViewModels.forEach { subViewViewModel in
+            let view = AirPopCityView()
+            view.setView(viewModel: subViewViewModel)
+            stackView.addArrangedSubview(view)
         }
-    }
-}
-extension AirPopCityCell : HomeAd1ViewProcotol {
-    func onTouchHotelAdItem(adItem: IndexResponse.ModuleItem) {
-        self.delegate?.onTouchItem(adItem: adItem)
     }
 }

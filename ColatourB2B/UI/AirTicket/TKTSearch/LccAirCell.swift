@@ -20,7 +20,7 @@ protocol LccCellProtocol: NSObjectProtocol {
 }
 
 class LccAirCell: UITableViewCell {
-
+    
     @IBOutlet weak var toAndForRadio: UIImageView!
     @IBOutlet weak var oneWayRadio: UIImageView!
     @IBOutlet weak var departure: UILabel!
@@ -29,56 +29,53 @@ class LccAirCell: UITableViewCell {
     @IBOutlet weak var sameAirlineSwitch: UISwitch!
     @IBOutlet weak var paxInfo: UILabel!
     
-    weak var delegate: LccCellProtocol?
-
-    func setCell(lccInfo: LccTicketRequest) {
-        toAndForRadio.image = lccInfo.isToAndFro ? #imageLiteral(resourceName: "radio_on"):#imageLiteral(resourceName: "radio_off")
-        oneWayRadio.image = lccInfo.isToAndFro ? #imageLiteral(resourceName: "radio_off"):#imageLiteral(resourceName: "radio_on")
-        departure.text = lccInfo.departure == nil ? "輸入 國家/城市/機場代碼" : lccInfo.departure?.cityName
-        departure.textColor = lccInfo.departure == nil ? UIColor.init(named: "預設文字") : UIColor.init(named: "標題黑" )
-        destination.text = lccInfo.destination == nil ? "輸入 國家/城市/機場代碼" : lccInfo.destination?.cityName
-        destination.textColor = lccInfo.destination == nil ? UIColor.init(named: "預設文字") : UIColor.init(named: "標題黑" )
-        tourDate.text = lccInfo.isToAndFro ? "\(lccInfo.startTravelDate ?? "") ~ \(lccInfo.endTravelDate ?? "")" : "\(lccInfo.startTravelDate ?? "")"
-        sameAirlineSwitch.isOn = lccInfo.isSameAirline
-        paxInfo.text = "\(lccInfo.adultCount) 大人 \(lccInfo.childCount) 小孩 \(lccInfo.infanCount) 嬰兒"
+    var viewModel: LccAirCellViewModel?
+    
+    func setCell(viewModel: LccAirCellViewModel) {
+        self.viewModel = viewModel
+        
+        toAndForRadio.image = (viewModel.isToAndFro ?? false) ? #imageLiteral(resourceName: "radio_on"):#imageLiteral(resourceName: "radio_off")
+        oneWayRadio.image = (viewModel.isToAndFro ?? false) ? #imageLiteral(resourceName: "radio_off"):#imageLiteral(resourceName: "radio_on")
+        departure.text = viewModel.departure
+        departure.textColor = UIColor.init(named: viewModel.departureColor ?? "")
+        destination.text = viewModel.destination
+        destination.textColor = UIColor.init(named: viewModel.destinationColor ?? "")
+        tourDate.text = viewModel.tourDate
+        sameAirlineSwitch.isOn = viewModel.sameAirlineSwitch ?? false
+        paxInfo.text = viewModel.paxInfo
     }
     
     @IBAction func onTouchDate(_ sender: Any) {
-        self.delegate?.onTouchLccDate()
+        
+        viewModel?.onTouchLccDate?()
     }
     
     @IBAction func onTouchRadioButton(_ sender: UIButton) {
-        switch sender.tag {
-        case 0:
-            self.delegate?.onTouchRadio(isToAndFor: true)
-        case 1:
-            self.delegate?.onTouchRadio(isToAndFor: false)
-        default:
-            ()
-        }
+        
+        viewModel?.onTouchRadioButton(tag: sender.tag)
     }
     
     @IBAction func onTouchAirlineSwithc(_ sender: Any) {
-        self.delegate?.onTouchAirlineSwitch()
+        viewModel?.onTouchAirlineSwitch?()
     }
     
     @IBAction func onTouchPax(_ sender: Any) {
-        self.delegate?.onTouchPax()
+        viewModel?.onTouchPax?()
     }
     
     @IBAction func onTouchLccRequestByPerson(_ sender: Any) {
-        self.delegate?.onTouchLccRequestByPerson()
+        viewModel?.onTouchLccRequestByPerson?()
     }
     
-    @IBAction func onTouchSearch(){
-        self.delegate?.onTouchLccSearch()
+    @IBAction func onTouchSearch() {
+        viewModel?.onTouchLccSearch?()
     }
     
     @IBAction func onTouchDeparture(_ sender: Any) {
-        self.delegate?.onTouchLccDeparture()
+        viewModel?.onTouchLccDeparture?()
     }
     
     @IBAction func onTouchDestination(_ sender: Any) {
-        self.delegate?.onTouchLccDestination()
+        viewModel?.onTouchLccDestination?()
     }
 }

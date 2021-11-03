@@ -145,7 +145,9 @@ extension GroupTourViewController: UIViewControllerTransitioningDelegate {
 extension GroupTourViewController: GroupNavigationViewProtocol{
     func onTouchSearchView() {
         let vc = getVC(st: "GroupTourSearch", vc: "GroupTourSearchViewController") as! GroupTourSearchViewController
-        vc.setKeywordOrTourCodeDepartureCityShareOptionList(cityKey: viewModel?.focusOnType?.rawValue ?? "*")
+        let viewModel = GroupTourSearchViewModel()
+        viewModel.cityKey = self.viewModel?.focusOnType?.rawValue
+        vc.setViewModle(viewModel: viewModel)
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }

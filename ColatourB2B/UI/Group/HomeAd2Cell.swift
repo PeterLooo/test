@@ -13,21 +13,7 @@ class HomeAd2Cell: UITableViewCell {
     @IBOutlet weak var moduleText: UILabel!
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var top: NSLayoutConstraint!
-    
-    weak var delegate: HomeAd1CellProtocol?
-    
-    func setCell(item:IndexResponse.Module, isLastSection: Bool, needLogoImage:Bool){
-        self.stackView.subviews.forEach { $0.removeFromSuperview() }
-        moduleText.text = item.moduleText
         
-        item.moduleItemList.forEach { (module) in
-            let view = HomeAd2View()
-            view.setView(item: module, isLast: (isLastSection) ? item.moduleItemList.last == module : false, needLogoImage: needLogoImage)
-            view.delegate = self
-            self.stackView.addArrangedSubview(view)
-        }
-    }
-    
     func setCell(viewModel: HomeAd2ViewCellViewModel){
         stackView.subviews.forEach { $0.removeFromSuperview() }
         
@@ -40,11 +26,5 @@ class HomeAd2Cell: UITableViewCell {
             
             self.stackView.addArrangedSubview(view)
         }
-    }
-}
-
-extension HomeAd2Cell : HomeAd1ViewProcotol {
-    func onTouchHotelAdItem(adItem: IndexResponse.ModuleItem) {
-        self.delegate?.onTouchItem(adItem: adItem)
     }
 }
