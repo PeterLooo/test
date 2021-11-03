@@ -413,12 +413,21 @@ class BaseViewController: UIViewController {
     }
     
     private func setUpErrorViews() {
-        apiFailErrorView.delegate = self
+        
         apiFailErrorView.setUpApiFailErrorView()
+        apiFailErrorView.onTouchServiceAction = {[weak self] in
+            let vc = self?.getVC(st: "ContactInfo", vc: "ContactInfo") as! ContactInfoViewController
+            self?.navigationController?.pushViewController(vc, animated: true)
+        }
+        apiFailErrorView.loadData = {[weak self] in
+            self?.loadData()
+        }
         self.view.addSubview(apiFailErrorView)
         
-        noInternetErrorView.delegate = self
         noInternetErrorView.setUpNoInternetErrorView()
+        noInternetErrorView.loadData = {[weak self] in
+            self?.loadData()
+        }
         self.view.addSubview(noInternetErrorView)
     }
     
@@ -840,13 +849,13 @@ extension BaseViewController {
             self.tabBarController?.selectedIndex = 2
         case .airTicket:
             vc = getVC(st: "TKTSearch", vc: "AirTicketSearchViewController") as! AirTicketSearchViewController
-            (vc as! AirTicketSearchViewController).setVC(searchType: .airTkt)
+            (vc as! AirTicketSearchViewController).setVC(viewModel: AirTicketSearchViewModel(searchType: .airTkt))
         case .sotoTicket:
             vc = getVC(st: "TKTSearch", vc: "AirTicketSearchViewController") as! AirTicketSearchViewController
-            (vc as! AirTicketSearchViewController).setVC(searchType: .soto)
+            (vc as! AirTicketSearchViewController).setVC(viewModel: AirTicketSearchViewModel(searchType: .soto))
         case .lccTicket:
             vc = getVC(st: "TKTSearch", vc: "AirTicketSearchViewController") as! AirTicketSearchViewController
-            (vc as! AirTicketSearchViewController).setVC(searchType: .lcc)
+            (vc as! AirTicketSearchViewController).setVC(viewModel: AirTicketSearchViewModel(searchType: .lcc))
         case .unknown:
             //Note: doNothing
             ()

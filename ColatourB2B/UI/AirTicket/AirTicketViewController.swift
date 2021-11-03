@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AirTicketViewController: BaseViewController {
+class AirTicketViewController: BaseViewControllerMVVM {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var airSearchView: UIView!
@@ -19,55 +19,33 @@ class AirTicketViewController: BaseViewController {
         case HOMEAD2
         case HOMEAD3
     }
+    
     private var cellsHeight: [IndexPath : CGFloat] = [:]
     
-    weak var delegate : GroupTableViewProtocol?
-    private var itemList: [IndexResponse.MultiModule] = [] {
-        didSet {
-            indexList = itemList.filter{$0.groupName == "首頁1"}.flatMap{$0.moduleList}
-            airPopCityList = itemList.filter{$0.groupName == "HomeAd1"}.flatMap{$0.moduleList}
-            homeAd2List = itemList.filter{$0.groupName == "HomeAd2"}.flatMap{$0.moduleList}
-            homeAd3List = itemList.filter{$0.groupName == "HomeAd3"}.flatMap{$0.moduleList}
-            tableView.reloadData()
-        }
-    }
-    private var indexList: [IndexResponse.Module] = []
-    private var airPopCityList: [IndexResponse.Module] = []
+    var viewModel: AirTicketViewModel?
     
-    private var homeAd2List: [IndexResponse.Module] = []
-    private var homeAd3List: [IndexResponse.Module] = []
     private var needUpdateBannerImage = false
-    private var presenter: AirTicketPresenter?
     private var needRefreshNavRight: Bool = true
     
     let transiton = GroupSlideInTransition()
-    private var menuList : GroupMenuResponse?
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        
-        presenter = AirTicketPresenter(delegate: self)
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.getEmployeeMark), name: Notification.Name("getEmployeeMark"), object: nil)
         
+        bindViewModel()
         setIsNavShadowEnable(false)
         setNavBarItem(left: .custom, mid: .custom, right: .custom)
         setNavIcon()
-        tableView.register(UINib(nibName: "AirIndexCell", bundle: nil), forCellReuseIdentifier: "AirIndexCell")
-        tableView.register(UINib(nibName: "AirPopCityCell", bundle: nil), forCellReuseIdentifier: "AirPopCityCell")
-        tableView.register(UINib(nibName: "HomeAd1Cell", bundle: nil), forCellReuseIdentifier: "HomeAd1Cell")
-        tableView.register(UINib(nibName: "HomeAd2Cell", bundle: nil), forCellReuseIdentifier: "HomeAd2Cell")
+        setTableView()
         setSearchBorder()
         setSearchGes()
         addRefreshControlToTableView()
         
         loadData()
     }
-
+    
     override func loadData() {
         super.loadData()
         
@@ -89,54 +67,6 @@ class AirTicketViewController: BaseViewController {
     @objc private func getEmployeeMark() {
         
         needRefreshNavRight = true
-    }
-    
-    private func getAirMenu(){
-        self.presenter?.getAirMenu(toolBarType: .tkt)
-    }
-    
-    private func gatTktIndex(){
-        self.presenter?.getAirTicketIndex()
-    }
-    
-    private func setSearchBorder(){
-        airSearchView.setBorder(width: 0.5, radius: 14, color: UIColor.init(red: 230, green: 230, blue: 230))
-    }
-    
-    private func setNavIcon(){
-        self.setNavTitle(title: "機票")
-        
-        let menuButtonView = UIButton(type: .system)
-        
-        let leftImage = #imageLiteral(resourceName: "home_menu")
-        menuButtonView.setImage(leftImage, for: .normal)
-        menuButtonView.addTarget(self, action: #selector(self.onTouchMenu), for: .touchUpInside)
-        
-        var menuBarButtonItem = UIBarButtonItem(customView: menuButtonView)
-        menuBarButtonItem = UIBarButtonItem(image: leftImage, style: .plain, target: self, action: #selector(self.onTouchMenu))
-        
-        self.setCustomLeftBarButtonItem(barButtonItem: menuBarButtonItem)
-    }
-    
-    private func setContaceBarButtonItem() {
-        
-        let contaceButtonView = UIButton(type: .system)
-        
-        let rightImage = #imageLiteral(resourceName: "home_contavt")
-        contaceButtonView.setImage(rightImage, for: .normal)
-        contaceButtonView.addTarget(self, action: #selector(self.onTouchContact), for: .touchUpInside)
-
-        var contaceBarButtonItem = UIBarButtonItem(customView: contaceButtonView)
-        contaceBarButtonItem = UIBarButtonItem(image: rightImage, style: .plain, target: self, action: #selector(self.onTouchContact))
-        
-        self.setCustomRightBarButtonItem(barButtonItem: (isEmployee == true) ? nil : contaceBarButtonItem)
-    }
-    
-    private func addRefreshControlToTableView(){
-        let refreshControl = UIRefreshControl()
-        refreshControl.tintColor = UIColor.gray
-        refreshControl.addTarget(self, action: #selector(self.pullToRefresh) ,for: .valueChanged)
-        self.tableView.refreshControl = refreshControl
     }
     
     @objc private func pullToRefresh() {
@@ -163,11 +93,11 @@ class AirTicketViewController: BaseViewController {
         vc.onTouchData = { [weak self] data in
             self?.handleLinkType(linkType: data.linkType, linkValue: data.linkValue, linkText: data.linkName ?? "")
         }
-        vc.setVC(menuResponse: self.menuList)
+        vc.setVC(menuResponse: viewModel?.menuList)
         present(vc, animated: true)
     }
     
-    @objc func onTouchContact (){
+    @objc func onTouchContact () {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
         alert.addAction(UIAlertAction(title: "聯絡業務(團體)" , style: .default, handler: { (_) in
@@ -184,56 +114,21 @@ class AirTicketViewController: BaseViewController {
         self.present(alert, animated: true)
     }
     
-    private func setSearchGes(){
+    private func setSearchGes() {
         let ges = UITapGestureRecognizer(target: self, action: #selector(onTouchSearch))
         self.airSearchView.addGestureRecognizer(ges)
         self.airSearchView.isUserInteractionEnabled = true
     }
     
-    private func onPopContactVC(messageSendType: String, navTitle: String){
-        
-        let messageSendViewController = getVC(st: "MessageSend", vc: "MessageSend") as! MessageSendViewController
-        messageSendViewController.setVC(messageSendType: messageSendType, navTitle: navTitle)
-        messageSendViewController.delegate = self
-        
-        let nav = UINavigationController(rootViewController: messageSendViewController)
-        nav.modalPresentationStyle = .fullScreen
-        self.navigationController?.present(nav, animated: true)
-    }
-    
-    @objc private func onTouchSearch(){
+    @objc private func onTouchSearch() {
         let vc = getVC(st: "TKTSearch", vc: "AirTicketSearchViewController") as! AirTicketSearchViewController
-        vc.setVC(searchType: .airTkt)
+        vc.setVC(viewModel: AirTicketSearchViewModel(searchType: .airTkt))
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 
-extension AirTicketViewController : HomeAd1CellProtocol {
-    func onTouchItem(adItem: IndexResponse.ModuleItem) {
-        self.handleLinkType(linkType: adItem.linkType, linkValue: adItem.linkParams, linkText: nil)
-    }
-}
-extension AirTicketViewController: AirTicketViewProtocol {
-    func onBindAirTicketIndex(moduleDataList: [IndexResponse.MultiModule]) {
-        self.itemList = moduleDataList
-        self.tableView.refreshControl?.endRefreshing()
-    }
-    
-    func onBindAirTicketIndexError(){
-        self.itemList = []
-        self.tableView.refreshControl?.endRefreshing()
-    }
-    
-    func onBindAirMenu(menu: GroupMenuResponse) {
-        self.menuList = menu
-    }
-    
-    func onGetAirMenuError() {
-        self.menuList = nil
-    }
-}
-
 extension AirTicketViewController: UIViewControllerTransitioningDelegate {
+    
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         transiton.isPresenting = true
         self.tabBarController?.tabBar.isHidden = true
@@ -250,7 +145,7 @@ extension AirTicketViewController: UIViewControllerTransitioningDelegate {
 }
 
 extension AirTicketViewController: MessageSendToastDelegate {
-
+    
     func setMessageSendToastText(text: String) {
         
         self.toast(text: text)
@@ -282,17 +177,18 @@ extension AirTicketViewController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let section = Section(rawValue: section)!
+        
         switch section {
         case .BANNER:
-            return self.indexList.isEmpty ? 0 : 1
+            return viewModel?.airIndexCellViewModels.count ?? 0
             
         case .HOMEAD1:
-            return self.airPopCityList.count
-       
+            return viewModel?.airPopCityCellViewModels.count ?? 0
+            
         case .HOMEAD2:
-            return self.homeAd2List.count
+            return viewModel?.homeAd1CellViewModels.count ?? 0
         case .HOMEAD3:
-            return self.homeAd3List.count
+            return viewModel?.homeAd2ViewModels.count ?? 0
         }
     }
     
@@ -306,24 +202,104 @@ extension AirTicketViewController : UITableViewDataSource {
         case .BANNER:
             cell = tableView.dequeueReusableCell(withIdentifier: "AirIndexCell") as! AirIndexCell
             
-            (cell as! AirIndexCell).setCell(item: indexList[indexPath.row])
-            (cell as! AirIndexCell).delegate = self
-        
+            (cell as! AirIndexCell).setCell(viewModel: viewModel!.airIndexCellViewModels[indexPath.row])
+            
         case .HOMEAD1:
             cell = tableView.dequeueReusableCell(withIdentifier: "AirPopCityCell") as! AirPopCityCell
-            (cell as! AirPopCityCell).setCell(item: self.airPopCityList[indexPath.row], numOfIndex: 0)
-            (cell as! AirPopCityCell).delegate = self
-        
+            (cell as! AirPopCityCell).setCell(viewModel: viewModel!.airPopCityCellViewModels[indexPath.row])
+            
         case .HOMEAD2:
             cell = tableView.dequeueReusableCell(withIdentifier: "HomeAd1Cell") as! HomeAd1Cell
-            (cell as! HomeAd1Cell).setCell(item: self.homeAd2List[indexPath.row])
-            (cell as! HomeAd1Cell).delegate = self
-
+            (cell as! HomeAd1Cell).setCell(viewModel: viewModel!.homeAd1CellViewModels[indexPath.row])
+            
         case .HOMEAD3:
             cell = tableView.dequeueReusableCell(withIdentifier: "HomeAd2Cell") as! HomeAd2Cell
-            (cell as! HomeAd2Cell).setCell(item: self.homeAd3List[indexPath.row], isLastSection: tableView.numberOfSections - 1 == section.rawValue, needLogoImage: true)
-            (cell as! HomeAd2Cell).delegate = self
+            (cell as! HomeAd2Cell).setCell(viewModel: viewModel!.homeAd2ViewModels[indexPath.row])
         }
         return cell
+    }
+}
+
+extension AirTicketViewController {
+    
+    private func bindViewModel() {
+        viewModel = AirTicketViewModel()
+        self.bindToBaseViewModel(viewModel: self.viewModel!)
+        
+        viewModel?.onTouchHotelAdItem = { [weak self] item in
+            self?.handleLinkType(linkType: item.linkType, linkValue: item.linkParams, linkText: nil)
+        }
+        viewModel?.reloadData = { [weak self] in
+            self?.tableView.reloadData()
+        }
+        viewModel?.endRefreshing = { [weak self] in
+            self?.tableView.refreshControl?.endRefreshing()
+        }
+    }
+    
+    private func setTableView() {
+        tableView.register(UINib(nibName: "AirIndexCell", bundle: nil), forCellReuseIdentifier: "AirIndexCell")
+        tableView.register(UINib(nibName: "AirPopCityCell", bundle: nil), forCellReuseIdentifier: "AirPopCityCell")
+        tableView.register(UINib(nibName: "HomeAd1Cell", bundle: nil), forCellReuseIdentifier: "HomeAd1Cell")
+        tableView.register(UINib(nibName: "HomeAd2Cell", bundle: nil), forCellReuseIdentifier: "HomeAd2Cell")
+    }
+    
+    private func getAirMenu() {
+        viewModel?.getAirMenu()
+    }
+    
+    private func gatTktIndex() {
+        viewModel?.getAirTicketIndex()
+    }
+    
+    private func onPopContactVC(messageSendType: String, navTitle: String){
+        
+        let messageSendViewController = getVC(st: "MessageSend", vc: "MessageSend") as! MessageSendViewController
+        messageSendViewController.setVC(messageSendType: messageSendType, navTitle: navTitle)
+        messageSendViewController.delegate = self
+        
+        let nav = UINavigationController(rootViewController: messageSendViewController)
+        nav.modalPresentationStyle = .fullScreen
+        self.navigationController?.present(nav, animated: true)
+    }
+    
+    private func setSearchBorder(){
+        airSearchView.setBorder(width: 0.5, radius: 14, color: UIColor.init(red: 230, green: 230, blue: 230))
+    }
+    
+    private func setNavIcon() {
+        self.setNavTitle(title: "機票")
+        
+        let menuButtonView = UIButton(type: .system)
+        
+        let leftImage = #imageLiteral(resourceName: "home_menu")
+        menuButtonView.setImage(leftImage, for: .normal)
+        menuButtonView.addTarget(self, action: #selector(self.onTouchMenu), for: .touchUpInside)
+        
+        var menuBarButtonItem = UIBarButtonItem(customView: menuButtonView)
+        menuBarButtonItem = UIBarButtonItem(image: leftImage, style: .plain, target: self, action: #selector(self.onTouchMenu))
+        
+        self.setCustomLeftBarButtonItem(barButtonItem: menuBarButtonItem)
+    }
+    
+    private func setContaceBarButtonItem() {
+        
+        let contaceButtonView = UIButton(type: .system)
+        
+        let rightImage = #imageLiteral(resourceName: "home_contavt")
+        contaceButtonView.setImage(rightImage, for: .normal)
+        contaceButtonView.addTarget(self, action: #selector(self.onTouchContact), for: .touchUpInside)
+        
+        var contaceBarButtonItem = UIBarButtonItem(customView: contaceButtonView)
+        contaceBarButtonItem = UIBarButtonItem(image: rightImage, style: .plain, target: self, action: #selector(self.onTouchContact))
+        
+        self.setCustomRightBarButtonItem(barButtonItem: (isEmployee == true) ? nil : contaceBarButtonItem)
+    }
+    
+    private func addRefreshControlToTableView() {
+        let refreshControl = UIRefreshControl()
+        refreshControl.tintColor = UIColor.gray
+        refreshControl.addTarget(self, action: #selector(self.pullToRefresh) ,for: .valueChanged)
+        self.tableView.refreshControl = refreshControl
     }
 }

@@ -8,20 +8,11 @@
 
 import UIKit
 
-protocol BrickCellProtocol: NSObjectProtocol {
-    
-    func onTouchBrick(countryInfo: TKTInitResponse.TicketResponse.Country?, cityInfo: TKTInitResponse.TicketResponse.City?, searchType: SearchByType)
-}
-
 class BrickCell: UICollectionViewCell {
     
     @IBOutlet weak var brickName: UILabel!
     
-    weak var delegate: BrickCellProtocol?
-    
-    private var countryInfo: TKTInitResponse.TicketResponse.Country?
-    private var cityInfo: TKTInitResponse.TicketResponse.City?
-    private var searchType: SearchByType?
+    var viewModel: BrickCellViewModel?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -35,18 +26,15 @@ class BrickCell: UICollectionViewCell {
         brickName.setBorder(width: 1, radius: 5, color: UIColor(named: "分隔線"))
     }
     
-    func setCellWith(countryInfo: TKTInitResponse.TicketResponse.Country?, cityInfo: TKTInitResponse.TicketResponse.City?, searchType: SearchByType) {
+    func setCell(viewModel: BrickCellViewModel) {
+        self.viewModel = viewModel
         
-        self.searchType = searchType
-        self.countryInfo = countryInfo
-        self.cityInfo = cityInfo
-        
-        switch searchType {
+        switch viewModel.searchType {
         case .airTkt:
-            brickName.text = countryInfo?.countryName
+            brickName.text = viewModel.countryInfo?.countryName
             
         case .lcc:
-            brickName.text = cityInfo?.cityName
+            brickName.text = viewModel.cityInfo?.cityName
             
         default:
             ()
@@ -54,16 +42,6 @@ class BrickCell: UICollectionViewCell {
     }
     
     @objc func onTouchBrick() {
-        
-        switch searchType {
-        case .airTkt:
-            delegate?.onTouchBrick(countryInfo: countryInfo!, cityInfo: nil, searchType: .airTkt)
-            
-        case .lcc:
-            delegate?.onTouchBrick(countryInfo: nil, cityInfo: cityInfo!, searchType: .lcc)
-            
-        default:
-            ()
-        }
+        viewModel?.onTouchToBrick()
     }
 }

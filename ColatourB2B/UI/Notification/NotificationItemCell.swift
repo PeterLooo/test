@@ -8,19 +8,14 @@
 
 import UIKit
 
-protocol NotificationItemCellProtocol: NSObjectProtocol {
-    func onTouchItem(item: NotiItem)
-}
-
 class NotificationItemCell: UITableViewCell {
 
-    weak var delegate: NotificationItemCellProtocol?
     @IBOutlet weak var unReadView: UIView!
     @IBOutlet weak var notiTitle: UILabel!
     @IBOutlet weak var notiContent: UILabel!
     @IBOutlet weak var notiDate: UILabel!
     
-    private var item: NotiItem?
+    private var viewModel: NotiItemViewModel?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -29,17 +24,17 @@ class NotificationItemCell: UITableViewCell {
         self.isUserInteractionEnabled = true
     }
     
-    func setCell(item: NotiItem) {
-        self.item = item
-        self.notiTitle.text = item.notiTitle
-        self.notiContent.text = item.notiContent
-        self.notiContent.numberOfLines = item.apiNotiType == "Message" ? 1 : 0
-        self.notiDate.text = item.notiDate
-        self.unReadView.backgroundColor = item.unreadMark != false ? UIColor.init(named: "通用綠") : UIColor.white
+    func setCell(viewModel: NotiItemViewModel) {
+        self.viewModel = viewModel
+        self.notiTitle.text = viewModel.notiTitle
+        self.notiContent.text = viewModel.notiContent
+        self.notiContent.numberOfLines = viewModel.apiNotiType == "Message" ? 1 : 0
+        self.notiDate.text = viewModel.notiDate
+        self.unReadView.backgroundColor = viewModel.unreadMark != false ? UIColor.init(named: "通用綠") : UIColor.white
     }
     
     @objc func onTouchItem(){
         unReadView.backgroundColor = UIColor.white
-        self.delegate?.onTouchItem(item: self.item!)
+        viewModel?.onTouchItem?()
     }
 }

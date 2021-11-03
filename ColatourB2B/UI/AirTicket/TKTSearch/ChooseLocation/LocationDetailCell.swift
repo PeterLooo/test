@@ -8,39 +8,32 @@
 
 import UIKit
 
-protocol LocationDetailCellProtocol: NSObjectProtocol {
-    
-    func onTouchCity(cityInfo: TKTInitResponse.TicketResponse.City)
-}
-
 class LocationDetailCell: UICollectionViewCell {
     
     @IBOutlet weak var cityName: UILabel!
     
-    weak var delegate: LocationDetailCellProtocol?
-    
-    private var cityInfo: TKTInitResponse.TicketResponse.City?
+    var onTouchCity: ((_ cityInfo: TKTInitResponse.TicketResponse.City?) -> ())?
+    var viewModel: LocationDetailCellViewModel?
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        let ges = UITapGestureRecognizer(target: self, action: #selector(self.onTouchCity))
+                
+        let ges = UITapGestureRecognizer(target: self, action: #selector(self.onTouchToCity))
         cityName.isUserInteractionEnabled = true
         cityName.addGestureRecognizer(ges)
+    }
+    
+    func setCell(viewModel: LocationDetailCellViewModel) {
+        self.viewModel = viewModel
         
         cityName.textColor = .black
         cityName.backgroundColor = .white
         cityName.setBorder(width: 1, radius: 5, color: UIColor(named: "分隔線"))
+        cityName.text = viewModel.cityInfo?.cityName
     }
     
-    func setCellWith(cityInfo: TKTInitResponse.TicketResponse.City) {
+    @objc func onTouchToCity() {
         
-        self.cityInfo = cityInfo
-        cityName.text = cityInfo.cityName
-    }
-    
-    @objc func onTouchCity() {
-        
-        delegate?.onTouchCity(cityInfo: cityInfo!)
+        onTouchCity?(viewModel?.cityInfo)
     }
 }
