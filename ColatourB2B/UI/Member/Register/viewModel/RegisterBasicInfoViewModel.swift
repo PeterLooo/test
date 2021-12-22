@@ -79,6 +79,9 @@ class RegisterBasicInfoViewModel: BaseViewModel {
     
     func onNext(password: String, confirmPassword: String, passwordHint: String, chineseName: String, email: String, companyArea: String, companyPhone: String, companyPhoneExt: String, cellPhone: String, female: String, man: String, group: String, ticket: String,introCompanyName: String, introName: String, birthday: String) {
         
+        var mediaIdno: String?
+        var mediaName: String?
+        
         if password.isEmpty {
             setErrorPassword?("請輸入密碼")
             return
@@ -135,13 +138,20 @@ class RegisterBasicInfoViewModel: BaseViewModel {
                 setErrorIntroName?("請輸入姓名")
                 return
             }
+            
+            mediaIdno = introCompanyName
+            mediaName = introName
         case "電子郵件":
             if emailKey.isNilOrEmpty {
                 setToast?("請選擇電子郵件")
                 return
             }
+            mediaIdno = emailKey
+            mediaName = emailValue
             
         case "ＤＭ文宣","同業媒體":
+            mediaIdno = ""
+            mediaName = ""
             break
             
         default:
@@ -149,29 +159,10 @@ class RegisterBasicInfoViewModel: BaseViewModel {
             return
         }
         
-        var gender: String?
-        female != "" ? (gender = female) : (gender = man)
+        let gender = female != "" ? female : man
+        let mainBiz = group != "" ? group : ticket
         
-        var mainBiz: String?
-        group != "" ? (mainBiz = group) : (mainBiz = ticket)
-        
-        var mediaIdno: String?
-        var mediaName: String?
-        
-        if introCompanyName == "" && emailKey.isNilOrEmpty {
-            mediaIdno = ""
-            mediaName = ""
-        } else {
-            if introCompanyName.isEmpty == true {
-                mediaIdno = emailKey
-                mediaName = emailValue
-            }else {
-                mediaIdno = introCompanyName
-                mediaName = introName
-            }
-        }
-        
-        let request = RegisterBasicInfoRequest.init(companyIdno: company ?? "", memberIdno: id ?? "", memberPassword: password , passwordIdentify: confirmPassword , passwordReminder: passwordHint , memberName: chineseName, memberGender: gender ?? "", memberBirthday: birthday, memberEmail: email, companyPhoneZone: companyArea, companyPhoneNo: companyPhone, companyPhoneExt: companyPhoneExt, mobilePhone: cellPhone, mainBiz: mainBiz ?? "", channelType: sourceType ?? "", mediaIdno: mediaIdno ?? "", mediaName: mediaName ?? "")
+        let request = RegisterBasicInfoRequest.init(companyIdno: company ?? "", memberIdno: id ?? "", memberPassword: password , passwordIdentify: confirmPassword , passwordReminder: passwordHint , memberName: chineseName, memberGender: gender , memberBirthday: birthday, memberEmail: email, companyPhoneZone: companyArea, companyPhoneNo: companyPhone, companyPhoneExt: companyPhoneExt, mobilePhone: cellPhone, mainBiz: mainBiz, channelType: sourceType ?? "", mediaIdno: mediaIdno ?? "", mediaName: mediaName ?? "")
         
         postBasicRegister(request: request)
     }
@@ -338,17 +329,9 @@ extension RegisterBasicInfoViewModel {
             case "Channel_Type":
                 self.setToast?(name.errorMessage ?? "")
             case "Media_Idno":
-                if sourceType == "電子郵件" {
-                    self.setToast?("請輸入電子郵件")
-                }else {
-                    self.setErrorIntroCompanyName?(name.errorMessage ?? "")
-                }
+                sourceType == "電子郵件" ? self.setToast?("請輸入電子郵件") : self.setErrorIntroCompanyName?(name.errorMessage ?? "")
             case "Media_Name":
-                if sourceType == "電子郵件" {
-                    self.setToast?(name.errorMessage ?? "")
-                }else {
-                    self.setErrorIntroCompanyName?(name.errorMessage ?? "")
-                }
+                sourceType == "電子郵件" ? self.setToast?(name.errorMessage ?? "") : self.setErrorIntroName?(name.errorMessage ?? "")
             default:
                 break
             }
