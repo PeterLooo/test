@@ -29,7 +29,10 @@ class ChangeCompanyCell: UITableViewCell {
             exCompany.text = viewModel?.exCompanyName
             email.text = email.text.isNilOrEmpty == true ? viewModel?.email : email.text
             mobile.text = mobile.text.isNilOrEmpty == true ? viewModel?.mobile : mobile.text
-            
+            phoneZone.text = viewModel?.phoneZone
+            phoneNo.text = viewModel?.phoneNo
+            phoneExtension.text = viewModel?.phoneExtension
+            mobile.text = viewModel?.mobile
             if viewModel?.errorInfo != nil {
                 setErrorInfo()
             }
@@ -67,6 +70,7 @@ class ChangeCompanyCell: UITableViewCell {
         if sender is CustomTextField {
             (sender as! CustomTextField).someController?.setErrorText(nil, errorAccessibilityValue: nil)
         }else{
+            phoneError.isHidden = true
             phoneError.text = ""
         }
         switch sender {
@@ -90,12 +94,28 @@ class ChangeCompanyCell: UITableViewCell {
     }
     
     private func setErrorInfo() {
-        newCompanyId.someController?.setErrorText(viewModel?.errorInfo?.newCompanyId, errorAccessibilityValue: nil)
-        newCompany.someController?.setErrorText(viewModel?.errorInfo?.newCompanyName, errorAccessibilityValue: nil)
-        email.someController?.setErrorText(viewModel?.errorInfo?.email, errorAccessibilityValue: nil)
-        mobile.someController?.setErrorText(viewModel?.errorInfo?.mobile, errorAccessibilityValue: nil)
-        if viewModel?.errorInfo?.phone.isNilOrEmpty == false {
-            phoneError.text = viewModel?.errorInfo?.phone
-        }
+        
+        viewModel?.errorInfo.forEach({
+            switch $0.columnName {
+            case "Member_Email" :
+                email.someController?.setErrorText($0.errorMessage, errorAccessibilityValue: "")
+                email.becomeFirstResponder()
+            case "New_Company_Idno" :
+                newCompanyId.someController?.setErrorText($0.errorMessage, errorAccessibilityValue: "")
+                newCompanyId.becomeFirstResponder()
+            case "New_Company_Name" :
+                newCompany.someController?.setErrorText($0.errorMessage, errorAccessibilityValue: "")
+                newCompany.becomeFirstResponder()
+            case "Mobile_Phone" :
+                mobile.someController?.setErrorText($0.errorMessage, errorAccessibilityValue: "")
+                mobile.becomeFirstResponder()
+            case "Company_Phone_No","Company_Phone_Zone", "Company_Phone_Ext" :
+                phoneError.isHidden = false
+                if phoneError.text.isNilOrEmpty == false { phoneError.text?.append("\n")}
+                phoneError.text! += $0.errorMessage!
+            default:
+                ()
+            }
+        })
     }
 }

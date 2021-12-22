@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -81,6 +81,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bottomView" destination="Sm9-Ho-SuL" id="aRs-5T-FWd"/>
                         <outlet property="tableView" destination="hYB-t0-7CZ" id="Dzb-53-yzQ"/>
                     </connections>
                 </viewController>
@@ -88,8 +89,79 @@
             </objects>
             <point key="canvasLocation" x="133" y="94"/>
         </scene>
+        <!--Change Company Success View Controller-->
+        <scene sceneID="TBX-Hq-JQH">
+            <objects>
+                <viewController storyboardIdentifier="ChangeCompanySuccess" useStoryboardIdentifierAsRestorationIdentifier="YES" id="AXE-9A-aWp" customClass="ChangeCompanySuccessViewController" customModule="ColatourB2B" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bTL-kB-1Ku">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="5jb-ER-Ex6">
+                                <rect key="frame" x="177" y="104.5" width="60" height="59"/>
+                                <color key="tintColor" name="按鈕背景綠"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="fIG-4L-zK1"/>
+                                    <constraint firstAttribute="height" constant="60" id="gpZ-qd-2ML"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="更改任職旅行社資料已送出" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yoK-lm-mAY">
+                                <rect key="frame" x="57" y="172" width="300" height="35"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="25"/>
+                                <color key="textColor" name="按鈕背景綠"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="►「可樂B2B同業網」客服小組已經收到您的更改任職旅行社通知，我們會在2個工作天內完成您的更改任職旅行社作業，並以電子郵件通知您。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7cv-L5-vwE">
+                                <rect key="frame" x="16" y="271" width="382" height="63"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="15"/>
+                                <color key="textColor" name="小標灰"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9jL-Qb-UtU">
+                                <rect key="frame" x="16" y="350" width="382" height="40"/>
+                                <color key="backgroundColor" name="按鈕背景綠"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="JU3-oV-xET"/>
+                                </constraints>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="完成"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onTouchDone:" destination="AXE-9A-aWp" eventType="touchUpInside" id="lHa-09-h4c"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="VC5-Ch-Mp2"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="yoK-lm-mAY" firstAttribute="top" secondItem="5jb-ER-Ex6" secondAttribute="bottom" constant="8" id="3Nu-Ln-Fy7"/>
+                            <constraint firstItem="5jb-ER-Ex6" firstAttribute="centerX" secondItem="VC5-Ch-Mp2" secondAttribute="centerX" id="E0h-03-WIQ"/>
+                            <constraint firstItem="7cv-L5-vwE" firstAttribute="top" secondItem="yoK-lm-mAY" secondAttribute="bottom" constant="64" id="KPt-dx-VUf"/>
+                            <constraint firstItem="9jL-Qb-UtU" firstAttribute="leading" secondItem="VC5-Ch-Mp2" secondAttribute="leading" constant="16" id="PlU-pE-Lg6"/>
+                            <constraint firstItem="VC5-Ch-Mp2" firstAttribute="trailing" secondItem="9jL-Qb-UtU" secondAttribute="trailing" constant="16" id="fa1-TN-3Zc"/>
+                            <constraint firstItem="7cv-L5-vwE" firstAttribute="leading" secondItem="VC5-Ch-Mp2" secondAttribute="leading" constant="16" id="hVn-KR-uc3"/>
+                            <constraint firstItem="5jb-ER-Ex6" firstAttribute="top" secondItem="VC5-Ch-Mp2" secondAttribute="top" constant="60" id="jPg-nm-Ayw"/>
+                            <constraint firstItem="VC5-Ch-Mp2" firstAttribute="trailing" secondItem="7cv-L5-vwE" secondAttribute="trailing" constant="16" id="oDv-IP-wDh"/>
+                            <constraint firstItem="9jL-Qb-UtU" firstAttribute="top" secondItem="7cv-L5-vwE" secondAttribute="bottom" constant="16" id="w9Z-z8-IeY"/>
+                            <constraint firstItem="yoK-lm-mAY" firstAttribute="centerX" secondItem="VC5-Ch-Mp2" secondAttribute="centerX" id="xw1-Za-628"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UPe-B7-Rw4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="968" y="136"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="checkmark.circle.fill" catalog="system" width="128" height="121"/>
+        <namedColor name="小標灰">
+            <color red="0.43137254901960786" green="0.43137254901960786" blue="0.43137254901960786" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="按鈕背景綠">
             <color red="0.098039215686274508" green="0.74901960784313726" blue="0.3843137254901961" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
