@@ -96,6 +96,12 @@
 		06DA4F8F23E92260001B7DF1 /* MessageSendNotificationListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DA4F7D23E9225F001B7DF1 /* MessageSendNotificationListCell.swift */; };
 		06DA4F9223E922C0001B7DF1 /* MessageSend.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06DA4F9123E922C0001B7DF1 /* MessageSend.storyboard */; };
 		06DA4F9323E922C0001B7DF1 /* MessageSend.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06DA4F9123E922C0001B7DF1 /* MessageSend.storyboard */; };
+		0A00FF152767268600F601B3 /* RegisterCompanyRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A00FF142767268600F601B3 /* RegisterCompanyRequest.swift */; };
+		0A00FF162767268600F601B3 /* RegisterCompanyRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A00FF142767268600F601B3 /* RegisterCompanyRequest.swift */; };
+		0A18630027605F5D0030751F /* RegisterCityResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1862FF27605F5D0030751F /* RegisterCityResponse.swift */; };
+		0A18630127605F5D0030751F /* RegisterCityResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1862FF27605F5D0030751F /* RegisterCityResponse.swift */; };
+		0A1BD8B6275481F000CE7833 /* RegisterIdCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1BD8B5275481F000CE7833 /* RegisterIdCardViewController.swift */; };
+		0A1BD8B7275481F000CE7833 /* RegisterIdCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1BD8B5275481F000CE7833 /* RegisterIdCardViewController.swift */; };
 		0A1F8A6526952E8700E357A8 /* AirTktCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1F8A6426952E8700E357A8 /* AirTktCellViewModel.swift */; };
 		0A1F8A6626952E8700E357A8 /* AirTktCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1F8A6426952E8700E357A8 /* AirTktCellViewModel.swift */; };
 		0A1F8A7026954C3800E357A8 /* SotoAirCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1F8A6F26954C3800E357A8 /* SotoAirCellViewModel.swift */; };
@@ -104,10 +110,14 @@
 		0A1F8A7C26954C5400E357A8 /* LccAirCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1F8A7A26954C5400E357A8 /* LccAirCellViewModel.swift */; };
 		0A26FC02269838D000A43C0D /* SearchResultCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A26FC01269838D000A43C0D /* SearchResultCellViewModel.swift */; };
 		0A26FC03269838D000A43C0D /* SearchResultCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A26FC01269838D000A43C0D /* SearchResultCellViewModel.swift */; };
+		0A276BB7276ACC09000C3875 /* RegisterBasicInfoRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A276BB6276ACC09000C3875 /* RegisterBasicInfoRequest.swift */; };
+		0A276BB8276ACC09000C3875 /* RegisterBasicInfoRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A276BB6276ACC09000C3875 /* RegisterBasicInfoRequest.swift */; };
 		0A2EF5F0269807CA00B12A44 /* CapsuleCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2EF5EF269807CA00B12A44 /* CapsuleCellViewModel.swift */; };
 		0A2EF5F1269807CA00B12A44 /* CapsuleCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2EF5EF269807CA00B12A44 /* CapsuleCellViewModel.swift */; };
 		0A2EF5FB26982E7300B12A44 /* BrickCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2EF5FA26982E7300B12A44 /* BrickCellViewModel.swift */; };
 		0A2EF5FC26982E7300B12A44 /* BrickCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2EF5FA26982E7300B12A44 /* BrickCellViewModel.swift */; };
+		0A337A482755FE9B006AEB4C /* RegisterBasicInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A337A472755FE9B006AEB4C /* RegisterBasicInfoViewController.swift */; };
+		0A337A492755FE9B006AEB4C /* RegisterBasicInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A337A472755FE9B006AEB4C /* RegisterBasicInfoViewController.swift */; };
 		0A44F1AE2693F854001C2C5D /* AirTicketSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A44F1AD2693F854001C2C5D /* AirTicketSearchViewModel.swift */; };
 		0A44F1AF2693F854001C2C5D /* AirTicketSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A44F1AD2693F854001C2C5D /* AirTicketSearchViewModel.swift */; };
 		0A56766C2697D0C100F58D8A /* AirPaxViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A56766B2697D0C100F58D8A /* AirPaxViewModel.swift */; };
@@ -116,10 +126,36 @@
 		0A5676742697E45100F58D8A /* ChooseLocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5676722697E45100F58D8A /* ChooseLocationViewModel.swift */; };
 		0A666A2626967F89008B3ADF /* AirTicket.json in Resources */ = {isa = PBXBuildFile; fileRef = 0A666A2526967F89008B3ADF /* AirTicket.json */; };
 		0A666A2726967F89008B3ADF /* AirTicket.json in Resources */ = {isa = PBXBuildFile; fileRef = 0A666A2526967F89008B3ADF /* AirTicket.json */; };
+		0A7286E9275F02A2000316B4 /* RegisterEditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7286E8275F02A2000316B4 /* RegisterEditorViewModel.swift */; };
+		0A7286EA275F02A6000316B4 /* RegisterEditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7286E8275F02A2000316B4 /* RegisterEditorViewModel.swift */; };
+		0A7286EC275F0865000316B4 /* RegisterRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7286EB275F0865000316B4 /* RegisterRepository.swift */; };
+		0A7286ED275F0865000316B4 /* RegisterRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7286EB275F0865000316B4 /* RegisterRepository.swift */; };
+		0A7286F0275F0965000316B4 /* RegisterAgentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7286EF275F0965000316B4 /* RegisterAgentModel.swift */; };
+		0A7286F1275F0965000316B4 /* RegisterAgentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7286EF275F0965000316B4 /* RegisterAgentModel.swift */; };
+		0A7286F3275F14DA000316B4 /* RegisterIdCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7286F2275F14DA000316B4 /* RegisterIdCardViewModel.swift */; };
+		0A7286F4275F14DA000316B4 /* RegisterIdCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7286F2275F14DA000316B4 /* RegisterIdCardViewModel.swift */; };
+		0A7286F6275F1628000316B4 /* RegisterIdNoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7286F5275F1628000316B4 /* RegisterIdNoModel.swift */; };
+		0A7286F7275F1628000316B4 /* RegisterIdNoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7286F5275F1628000316B4 /* RegisterIdNoModel.swift */; };
+		0A7286F9275F3DDD000316B4 /* RegisterCompanyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7286F8275F3DDD000316B4 /* RegisterCompanyViewModel.swift */; };
+		0A7286FA275F3DDD000316B4 /* RegisterCompanyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7286F8275F3DDD000316B4 /* RegisterCompanyViewModel.swift */; };
 		0A7DC4232698495F00CA3CD9 /* LocationDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7DC4222698495F00CA3CD9 /* LocationDetailViewModel.swift */; };
 		0A7DC4282698496800CA3CD9 /* LocationDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7DC4222698495F00CA3CD9 /* LocationDetailViewModel.swift */; };
 		0A7DC42E26984AF100CA3CD9 /* LocationDetailCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7DC42D26984AF100CA3CD9 /* LocationDetailCellViewModel.swift */; };
 		0A7DC42F26984AF100CA3CD9 /* LocationDetailCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7DC42D26984AF100CA3CD9 /* LocationDetailCellViewModel.swift */; };
+		0A84671B276C90CC000CC949 /* RegisterSuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A84671A276C90CC000CC949 /* RegisterSuccessViewController.swift */; };
+		0A84671C276C90CC000CC949 /* RegisterSuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A84671A276C90CC000CC949 /* RegisterSuccessViewController.swift */; };
+		0AB9CFE4275068450073002A /* RegisterCompanyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB9CFE2275068450073002A /* RegisterCompanyViewController.swift */; };
+		0AB9CFE5275068450073002A /* RegisterCompanyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB9CFE2275068450073002A /* RegisterCompanyViewController.swift */; };
+		0AD65E74274F42E400A7D135 /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AD65E73274F42E400A7D135 /* Register.storyboard */; };
+		0AD65E75274F42E400A7D135 /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AD65E73274F42E400A7D135 /* Register.storyboard */; };
+		0AD65E79274F456600A7D135 /* RegisterNoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD65E77274F456600A7D135 /* RegisterNoticeViewController.swift */; };
+		0AD65E7A274F456600A7D135 /* RegisterNoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD65E77274F456600A7D135 /* RegisterNoticeViewController.swift */; };
+		0AD65E82274F7B9800A7D135 /* RegisterEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD65E80274F7B9800A7D135 /* RegisterEditorViewController.swift */; };
+		0AD65E83274F7B9800A7D135 /* RegisterEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD65E80274F7B9800A7D135 /* RegisterEditorViewController.swift */; };
+		0ADD0B172769823A00E259F1 /* RegisterResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADD0B162769823A00E259F1 /* RegisterResponse.swift */; };
+		0ADD0B182769823A00E259F1 /* RegisterResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADD0B162769823A00E259F1 /* RegisterResponse.swift */; };
+		0ADD0B1B2769C65100E259F1 /* RegisterBasicInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADD0B1A2769C65100E259F1 /* RegisterBasicInfoViewModel.swift */; };
+		0ADD0B1C2769C65100E259F1 /* RegisterBasicInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADD0B1A2769C65100E259F1 /* RegisterBasicInfoViewModel.swift */; };
 		2AF496B423AB7EA50053EA45 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2AF496B323AB7EA50053EA45 /* GoogleService-Info.plist */; };
 		2AF496B623AB7EBB0053EA45 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2AF496B523AB7EBB0053EA45 /* GoogleService-Info.plist */; };
 		3802A18F23C8520C00CD2EF2 /* SalesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3802A18E23C8520C00CD2EF2 /* SalesViewController.swift */; };
@@ -653,18 +689,36 @@
 		06DA4F7C23E9225F001B7DF1 /* MessageSendTopicCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageSendTopicCell.swift; sourceTree = "<group>"; };
 		06DA4F7D23E9225F001B7DF1 /* MessageSendNotificationListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageSendNotificationListCell.swift; sourceTree = "<group>"; };
 		06DA4F9123E922C0001B7DF1 /* MessageSend.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MessageSend.storyboard; sourceTree = "<group>"; };
+		0A00FF142767268600F601B3 /* RegisterCompanyRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCompanyRequest.swift; sourceTree = "<group>"; };
+		0A1862FF27605F5D0030751F /* RegisterCityResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCityResponse.swift; sourceTree = "<group>"; };
+		0A1BD8B5275481F000CE7833 /* RegisterIdCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterIdCardViewController.swift; sourceTree = "<group>"; };
 		0A1F8A6426952E8700E357A8 /* AirTktCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirTktCellViewModel.swift; sourceTree = "<group>"; };
 		0A1F8A6F26954C3800E357A8 /* SotoAirCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SotoAirCellViewModel.swift; sourceTree = "<group>"; };
 		0A1F8A7A26954C5400E357A8 /* LccAirCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LccAirCellViewModel.swift; sourceTree = "<group>"; };
 		0A26FC01269838D000A43C0D /* SearchResultCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCellViewModel.swift; sourceTree = "<group>"; };
+		0A276BB6276ACC09000C3875 /* RegisterBasicInfoRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterBasicInfoRequest.swift; sourceTree = "<group>"; };
 		0A2EF5EF269807CA00B12A44 /* CapsuleCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapsuleCellViewModel.swift; sourceTree = "<group>"; };
 		0A2EF5FA26982E7300B12A44 /* BrickCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrickCellViewModel.swift; sourceTree = "<group>"; };
+		0A337A472755FE9B006AEB4C /* RegisterBasicInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterBasicInfoViewController.swift; sourceTree = "<group>"; };
 		0A44F1AD2693F854001C2C5D /* AirTicketSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirTicketSearchViewModel.swift; sourceTree = "<group>"; };
 		0A56766B2697D0C100F58D8A /* AirPaxViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirPaxViewModel.swift; sourceTree = "<group>"; };
 		0A5676722697E45100F58D8A /* ChooseLocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseLocationViewModel.swift; sourceTree = "<group>"; };
 		0A666A2526967F89008B3ADF /* AirTicket.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AirTicket.json; sourceTree = "<group>"; };
+		0A7286E8275F02A2000316B4 /* RegisterEditorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterEditorViewModel.swift; sourceTree = "<group>"; };
+		0A7286EB275F0865000316B4 /* RegisterRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRepository.swift; sourceTree = "<group>"; };
+		0A7286EF275F0965000316B4 /* RegisterAgentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterAgentModel.swift; sourceTree = "<group>"; };
+		0A7286F2275F14DA000316B4 /* RegisterIdCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterIdCardViewModel.swift; sourceTree = "<group>"; };
+		0A7286F5275F1628000316B4 /* RegisterIdNoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterIdNoModel.swift; sourceTree = "<group>"; };
+		0A7286F8275F3DDD000316B4 /* RegisterCompanyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCompanyViewModel.swift; sourceTree = "<group>"; };
 		0A7DC4222698495F00CA3CD9 /* LocationDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailViewModel.swift; sourceTree = "<group>"; };
 		0A7DC42D26984AF100CA3CD9 /* LocationDetailCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailCellViewModel.swift; sourceTree = "<group>"; };
+		0A84671A276C90CC000CC949 /* RegisterSuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterSuccessViewController.swift; sourceTree = "<group>"; };
+		0AB9CFE2275068450073002A /* RegisterCompanyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCompanyViewController.swift; sourceTree = "<group>"; };
+		0AD65E73274F42E400A7D135 /* Register.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Register.storyboard; sourceTree = "<group>"; };
+		0AD65E77274F456600A7D135 /* RegisterNoticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterNoticeViewController.swift; sourceTree = "<group>"; };
+		0AD65E80274F7B9800A7D135 /* RegisterEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterEditorViewController.swift; sourceTree = "<group>"; };
+		0ADD0B162769823A00E259F1 /* RegisterResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterResponse.swift; sourceTree = "<group>"; };
+		0ADD0B1A2769C65100E259F1 /* RegisterBasicInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterBasicInfoViewModel.swift; sourceTree = "<group>"; };
 		0AEE673B268E9F8400EDB092 /* AirTicketViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirTicketViewModel.swift; sourceTree = "<group>"; };
 		0AEE6746268EA2F100EDB092 /* AirIndexCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirIndexCellViewModel.swift; sourceTree = "<group>"; };
 		0AEE6755268EAA4400EDB092 /* AirIndexViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirIndexViewModel.swift; sourceTree = "<group>"; };
@@ -1047,6 +1101,30 @@
 			path = MessageSend;
 			sourceTree = "<group>";
 		};
+		0A7286E7275F028E000316B4 /* viewModel */ = {
+			isa = PBXGroup;
+			children = (
+				0A7286E8275F02A2000316B4 /* RegisterEditorViewModel.swift */,
+				0A7286F8275F3DDD000316B4 /* RegisterCompanyViewModel.swift */,
+				0A7286F2275F14DA000316B4 /* RegisterIdCardViewModel.swift */,
+				0ADD0B1A2769C65100E259F1 /* RegisterBasicInfoViewModel.swift */,
+			);
+			path = viewModel;
+			sourceTree = "<group>";
+		};
+		0A7286EE275F093F000316B4 /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				0A7286EF275F0965000316B4 /* RegisterAgentModel.swift */,
+				0A7286F5275F1628000316B4 /* RegisterIdNoModel.swift */,
+				0A1862FF27605F5D0030751F /* RegisterCityResponse.swift */,
+				0A00FF142767268600F601B3 /* RegisterCompanyRequest.swift */,
+				0ADD0B162769823A00E259F1 /* RegisterResponse.swift */,
+				0A276BB6276ACC09000C3875 /* RegisterBasicInfoRequest.swift */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
 		0AB5A458269D90EA001D13F2 /* viewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -1070,6 +1148,20 @@
 				0A56766B2697D0C100F58D8A /* AirPaxViewModel.swift */,
 			);
 			path = viewModel;
+			sourceTree = "<group>";
+		};
+		0AD65E76274F454600A7D135 /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				0A7286E7275F028E000316B4 /* viewModel */,
+				0AD65E77274F456600A7D135 /* RegisterNoticeViewController.swift */,
+				0AD65E80274F7B9800A7D135 /* RegisterEditorViewController.swift */,
+				0AB9CFE2275068450073002A /* RegisterCompanyViewController.swift */,
+				0A1BD8B5275481F000CE7833 /* RegisterIdCardViewController.swift */,
+				0A337A472755FE9B006AEB4C /* RegisterBasicInfoViewController.swift */,
+				0A84671A276C90CC000CC949 /* RegisterSuccessViewController.swift */,
+			);
+			path = Register;
 			sourceTree = "<group>";
 		};
 		2AF496AD23AB6D580053EA45 /* ColatourB2BDev */ = {
@@ -1252,6 +1344,7 @@
 		387FBF0823ACCE5C005412F1 /* Member */ = {
 			isa = PBXGroup;
 			children = (
+				0AD65E76274F454600A7D135 /* Register */,
 				CCCC734E23E42C2700FC03EE /* PasswordModify */,
 				387FBF0D23ACCEE4005412F1 /* Login */,
 				387FBF0C23ACCEC7005412F1 /* MemberIndex */,
@@ -1264,6 +1357,7 @@
 			children = (
 				387FBF0A23ACCEB7005412F1 /* Login.storyboard */,
 				CCCC735E23E42D8200FC03EE /* PasswordModify.storyboard */,
+				0AD65E73274F42E400A7D135 /* Register.storyboard */,
 			);
 			path = Member;
 			sourceTree = "<group>";
@@ -1305,6 +1399,7 @@
 				3848DA8023C72FA600EA0ED0 /* NoticeRepository.swift */,
 				0650775D23ED55F60067377C /* ContactInfoRepository.swift */,
 				A1876A972415FDCA00855DE6 /* TKTRepository.swift */,
+				0A7286EB275F0865000316B4 /* RegisterRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -1470,6 +1565,7 @@
 		38BCDA3123A37FDA00D59910 /* Response */ = {
 			isa = PBXGroup;
 			children = (
+				0A7286EE275F093F000316B4 /* Register */,
 				A14F56E8241F703800BF40DA /* TKT */,
 				A1A7F3112418882000263E42 /* Common */,
 				0650776723ED6BB80067377C /* ContactService */,
@@ -2072,6 +2168,7 @@
 				06DA4F8A23E92260001B7DF1 /* MessageSendNotificationListCell.xib in Resources */,
 				06468516241F710600104346 /* LocationDetailCell.xib in Resources */,
 				A17CFAE3241B398A00922CC2 /* AirIndexView.xib in Resources */,
+				0AD65E74274F42E400A7D135 /* Register.storyboard in Resources */,
 				0A666A2626967F89008B3ADF /* AirTicket.json in Resources */,
 				2AF496B423AB7EA50053EA45 /* GoogleService-Info.plist in Resources */,
 				A1A7F2FF2418854D00263E42 /* CalendarTableViewCell.xib in Resources */,
@@ -2117,6 +2214,7 @@
 				069D7499241A13EF0047EA03 /* TKTSearchInit.json in Resources */,
 				38871ECA23D5B524007ED33D /* HomeAd1View.xib in Resources */,
 				C7BD649123ED453200FEE538 /* EmptyDataCell.xib in Resources */,
+				0AD65E75274F42E400A7D135 /* Register.storyboard in Resources */,
 				C70EEF5123EA545300D67FF4 /* VersionRule.storyboard in Resources */,
 				38AA456123D68E0A00BE3F95 /* HomeAd2Cell.xib in Resources */,
 				06DA4F8523E92260001B7DF1 /* MessageSendContentCell.xib in Resources */,
@@ -2314,13 +2412,16 @@
 				A1A7F2EF2418854D00263E42 /* CalendarSelectedYearMonthDays.swift in Sources */,
 				38BCD99C23A363AB00D59910 /* MemberRepositoryProtocol.swift in Sources */,
 				A173BE6026A13ADA00BBEE87 /* AirIndexViewModel.swift in Sources */,
+				0ADD0B172769823A00E259F1 /* RegisterResponse.swift in Sources */,
 				381B12B223C466370030BACE /* NoticeViewController.swift in Sources */,
 				A14F56EA241F708700BF40DA /* AirSearchUrlResponse.swift in Sources */,
 				CCCC735223E42C2700FC03EE /* PasswordModifyProtocol.swift in Sources */,
 				06DA4F8823E92260001B7DF1 /* MessageSendPresenter.swift in Sources */,
+				0AD65E82274F7B9800A7D135 /* RegisterEditorViewController.swift in Sources */,
 				06DA4F8C23E92260001B7DF1 /* MessageSendTopicCell.swift in Sources */,
 				A1A7F30F2418854D00263E42 /* CalendarDataDestinationViewControllerProtocol.swift in Sources */,
 				C7BBF4BB23C7040900023307 /* NoticeDetailProtocol.swift in Sources */,
+				0A18630027605F5D0030751F /* RegisterCityResponse.swift in Sources */,
 				38E9921E23B04CF200E28271 /* GropeTourPresenter.swift in Sources */,
 				A1A7F32C2418DDCC00263E42 /* ChooseCountButton.swift in Sources */,
 				38BCD9D423A366D500D59910 /* BaseViewController.swift in Sources */,
@@ -2333,6 +2434,7 @@
 				38E68AB423B5ABE9006BC4DD /* AppHelper.swift in Sources */,
 				B6D3C7E826731B5100C20763 /* GroupHeadCellViewModel.swift in Sources */,
 				A1A7F2ED2418854D00263E42 /* CalendarSingleOrMutipleType.swift in Sources */,
+				0A00FF152767268600F601B3 /* RegisterCompanyRequest.swift in Sources */,
 				38BCDA0D23A367D000D59910 /* LoadingView.swift in Sources */,
 				0650776123ED5E6B0067377C /* ContactInfoProtocol.swift in Sources */,
 				A1A7F2F32418854D00263E42 /* CalendarColorType.swift in Sources */,
@@ -2367,7 +2469,9 @@
 				38AA455E23D68E0A00BE3F95 /* HomeAd2Cell.swift in Sources */,
 				A1A7F30D2418854D00263E42 /* CalendarForTicketViewController.swift in Sources */,
 				A1A7F3232418882100263E42 /* YearMonthDay.swift in Sources */,
+				0A7286F9275F3DDD000316B4 /* RegisterCompanyViewModel.swift in Sources */,
 				38BCD95723A3471600D59910 /* FirebaseAnalyticsManager.swift in Sources */,
+				0A337A482755FE9B006AEB4C /* RegisterBasicInfoViewController.swift in Sources */,
 				38BCD99423A3499700D59910 /* Constant.swift in Sources */,
 				06DA4F8623E92260001B7DF1 /* MessageSendViewController.swift in Sources */,
 				38BCD97323A3484300D59910 /* UIImageViewExtension.swift in Sources */,
@@ -2377,6 +2481,7 @@
 				0A7DC42E26984AF100CA3CD9 /* LocationDetailCellViewModel.swift in Sources */,
 				0626031B23F3E5570026DC59 /* DeviceCell.swift in Sources */,
 				38871EC623D5B50F007ED33D /* HomeAd1View.swift in Sources */,
+				0AB9CFE4275068450073002A /* RegisterCompanyViewController.swift in Sources */,
 				0A1F8A7026954C3800E357A8 /* SotoAirCellViewModel.swift in Sources */,
 				38BCD94423A346B800D59910 /* APIManager.swift in Sources */,
 				C7DCA71F23D1BBC400F415B8 /* GroupTourSearchProtocol.swift in Sources */,
@@ -2384,16 +2489,20 @@
 				A173BE6226A13ADA00BBEE87 /* AirPopCityCellViewModel.swift in Sources */,
 				38BCD9CA23A3647E00D59910 /* BaseModel.swift in Sources */,
 				0626032023F401A70026DC59 /* ContactInfoCell.swift in Sources */,
+				0A7286F6275F1628000316B4 /* RegisterIdNoModel.swift in Sources */,
 				382FD59923D7F48F001FF38E /* NewsResponse.swift in Sources */,
 				C70EEF5723EA549200D67FF4 /* BulletinViewController.swift in Sources */,
 				38BCD97923A3484300D59910 /* UIViewExtenstion.swift in Sources */,
 				A1A7F2E92418854D00263E42 /* CalendarSelectedYearMonthDaysString.swift in Sources */,
+				0A7286F3275F14DA000316B4 /* RegisterIdCardViewModel.swift in Sources */,
 				A1A7F3252418882100263E42 /* CustomCalendar.swift in Sources */,
 				C7DA175A23D70245006A8803 /* GroupTourSearchKeywordAndTourCodeRequest.swift in Sources */,
 				38E9922423B04F2A00E28271 /* BulletinResponse.swift in Sources */,
 				381B12AC23C465950030BACE /* MoreViewController.swift in Sources */,
 				3817E4F723A33C8400ED8609 /* AppDelegate.swift in Sources */,
+				0A7286E9275F02A2000316B4 /* RegisterEditorViewModel.swift in Sources */,
 				B64535DE2660C3DC006FE4AB /* BaseViewControllerMVVM.swift in Sources */,
+				0A7286F0275F0965000316B4 /* RegisterAgentModel.swift in Sources */,
 				38BCD98F23A3484300D59910 /* DateFormatterExtenstion.swift in Sources */,
 				382EF48323BEF93A0002BAB0 /* GroupReponsitory.swift in Sources */,
 				0650775523ED4FD50067377C /* ContactInfoResponse.swift in Sources */,
@@ -2414,6 +2523,7 @@
 				38BCD98923A3484300D59910 /* OptionalStringExtension.swift in Sources */,
 				382FD59C23D80382001FF38E /* BottomLoadingView.swift in Sources */,
 				38BCDA0123A367D000D59910 /* NoInternetErrorView.swift in Sources */,
+				0ADD0B1B2769C65100E259F1 /* RegisterBasicInfoViewModel.swift in Sources */,
 				38BCD98323A3484300D59910 /* DateComponentExtension.swift in Sources */,
 				A198E511268326CE000A9A4A /* LoginViewModel.swift in Sources */,
 				38BCD97123A3484300D59910 /* FirebaseEvent.swift in Sources */,
@@ -2422,6 +2532,7 @@
 				A173BE6826A13ADA00BBEE87 /* AirPopCityViewModel.swift in Sources */,
 				38BCDA1823A3696800D59910 /* WebViewController.swift in Sources */,
 				C78F071923E7F2AD009C1183 /* PopTextViewController.swift in Sources */,
+				0A84671B276C90CC000CC949 /* RegisterSuccessViewController.swift in Sources */,
 				38E9923723B06AFA00E28271 /* BasePresenter.swift in Sources */,
 				38BCDA0523A367D000D59910 /* ToastView.swift in Sources */,
 				38BCD97B23A3484300D59910 /* UILabelExtension.swift in Sources */,
@@ -2448,12 +2559,14 @@
 				0650776423ED5F300067377C /* ContactInfoPresenter.swift in Sources */,
 				A1A7F2F92418854D00263E42 /* CalendarSelectedDates.swift in Sources */,
 				A1A7F31F2418882100263E42 /* YearMonth.swift in Sources */,
+				0A1BD8B6275481F000CE7833 /* RegisterIdCardViewController.swift in Sources */,
 				38BCD93523A345FA00D59910 /* GTMBase64.m in Sources */,
 				382ADF1923C5D02C00E886B4 /* NoticeResponse.swift in Sources */,
 				A1876A842415D67D00855DE6 /* AirTicketSearchViewController.swift in Sources */,
 				38871EC123D5B061007ED33D /* HomeAd1Cell.swift in Sources */,
 				38BCD9D723A366EC00D59910 /* TabBarViewController.swift in Sources */,
 				C7DA175723D6E5C9006A8803 /* GroupTourSearchKeywordAndTourCodeInputCell.swift in Sources */,
+				0A7286EC275F0865000316B4 /* RegisterRepository.swift in Sources */,
 				C7C623CD23E2C71600A2D8B0 /* GroupTourSearchUrlResponse.swift in Sources */,
 				A173BE6626A13ADA00BBEE87 /* AirIndexCellViewModel.swift in Sources */,
 				0650775E23ED55F60067377C /* ContactInfoRepository.swift in Sources */,
@@ -2493,6 +2606,7 @@
 				38BCDA0323A367D000D59910 /* ApiFailErrorView.swift in Sources */,
 				A1DB93E424066EC500AE427C /* WebViewTourShareResponse.swift in Sources */,
 				06AA65912418E6EA001CDA37 /* SearchEmptyCell.swift in Sources */,
+				0A276BB7276ACC09000C3875 /* RegisterBasicInfoRequest.swift in Sources */,
 				A1B6979626957C6D00269454 /* MoreViewModel.swift in Sources */,
 				C70EEF5A23EA549800D67FF4 /* VersionRuleViewController.swift in Sources */,
 				0655CD30241B6A77006092AB /* SotoTicketRequest.swift in Sources */,
@@ -2506,6 +2620,7 @@
 				06AA658B2418E553001CDA37 /* SearchResultCell.swift in Sources */,
 				C7DCA71C23D1BBAB00F415B8 /* GroupTourSearchInitResponse.swift in Sources */,
 				06DA4F6B23E921F8001B7DF1 /* MessageSendRepository.swift in Sources */,
+				0AD65E79274F456600A7D135 /* RegisterNoticeViewController.swift in Sources */,
 				3802A19723C8530100CD2EF2 /* SalesResponse.swift in Sources */,
 				0655CD29241B643E006092AB /* TKTInitResponse.swift in Sources */,
 				38BCD95123A3471600D59910 /* FirebaseCrashManager.swift in Sources */,
@@ -2560,13 +2675,16 @@
 				38BCD99D23A363AB00D59910 /* MemberRepositoryProtocol.swift in Sources */,
 				381B12B323C466370030BACE /* NoticeViewController.swift in Sources */,
 				A173BE6126A13ADA00BBEE87 /* AirIndexViewModel.swift in Sources */,
+				0ADD0B182769823A00E259F1 /* RegisterResponse.swift in Sources */,
 				A14F56EB241F708700BF40DA /* AirSearchUrlResponse.swift in Sources */,
 				CCCC735323E42C2700FC03EE /* PasswordModifyProtocol.swift in Sources */,
 				06DA4F8923E92260001B7DF1 /* MessageSendPresenter.swift in Sources */,
 				06DA4F8D23E92260001B7DF1 /* MessageSendTopicCell.swift in Sources */,
+				0AD65E83274F7B9800A7D135 /* RegisterEditorViewController.swift in Sources */,
 				A1A7F3102418854D00263E42 /* CalendarDataDestinationViewControllerProtocol.swift in Sources */,
 				C7BBF4BC23C7040900023307 /* NoticeDetailProtocol.swift in Sources */,
 				38E9921F23B04CF200E28271 /* GropeTourPresenter.swift in Sources */,
+				0A18630127605F5D0030751F /* RegisterCityResponse.swift in Sources */,
 				A1A7F32D2418DDCC00263E42 /* ChooseCountButton.swift in Sources */,
 				38BCD9D523A366D500D59910 /* BaseViewController.swift in Sources */,
 				38BCDA1323A3684E00D59910 /* BaseProtocol.swift in Sources */,
@@ -2579,6 +2697,7 @@
 				B6D3C7E926731B5100C20763 /* GroupHeadCellViewModel.swift in Sources */,
 				A1A7F2EE2418854D00263E42 /* CalendarSingleOrMutipleType.swift in Sources */,
 				38BCDA0E23A367D000D59910 /* LoadingView.swift in Sources */,
+				0A00FF162767268600F601B3 /* RegisterCompanyRequest.swift in Sources */,
 				0650776223ED5E6B0067377C /* ContactInfoProtocol.swift in Sources */,
 				A1A7F2F42418854D00263E42 /* CalendarColorType.swift in Sources */,
 				38BCD91D23A3457900D59910 /* AccountRepository.swift in Sources */,
@@ -2613,7 +2732,9 @@
 				A1A7F30E2418854D00263E42 /* CalendarForTicketViewController.swift in Sources */,
 				A1A7F3242418882100263E42 /* YearMonthDay.swift in Sources */,
 				38BCD95823A3471600D59910 /* FirebaseAnalyticsManager.swift in Sources */,
+				0A7286FA275F3DDD000316B4 /* RegisterCompanyViewModel.swift in Sources */,
 				38BCD99523A3499700D59910 /* Constant.swift in Sources */,
+				0A337A492755FE9B006AEB4C /* RegisterBasicInfoViewController.swift in Sources */,
 				06DA4F8723E92260001B7DF1 /* MessageSendViewController.swift in Sources */,
 				38BCD97423A3484300D59910 /* UIImageViewExtension.swift in Sources */,
 				38BCD98623A3484300D59910 /* ShareEnum.swift in Sources */,
@@ -2623,6 +2744,7 @@
 				0A7DC42F26984AF100CA3CD9 /* LocationDetailCellViewModel.swift in Sources */,
 				38871EC723D5B50F007ED33D /* HomeAd1View.swift in Sources */,
 				38BCD94523A346B800D59910 /* APIManager.swift in Sources */,
+				0AB9CFE5275068450073002A /* RegisterCompanyViewController.swift in Sources */,
 				0A1F8A7126954C3800E357A8 /* SotoAirCellViewModel.swift in Sources */,
 				C7DCA72023D1BBC400F415B8 /* GroupTourSearchProtocol.swift in Sources */,
 				A17CFAE1241B396B00922CC2 /* AirIndexView.swift in Sources */,
@@ -2630,16 +2752,20 @@
 				A173BE6326A13ADA00BBEE87 /* AirPopCityCellViewModel.swift in Sources */,
 				0626032123F401A70026DC59 /* ContactInfoCell.swift in Sources */,
 				382FD59A23D7F48F001FF38E /* NewsResponse.swift in Sources */,
+				0A7286F7275F1628000316B4 /* RegisterIdNoModel.swift in Sources */,
 				C70EEF5823EA549200D67FF4 /* BulletinViewController.swift in Sources */,
 				38BCD97A23A3484300D59910 /* UIViewExtenstion.swift in Sources */,
 				A1A7F2EA2418854D00263E42 /* CalendarSelectedYearMonthDaysString.swift in Sources */,
 				A1A7F3262418882100263E42 /* CustomCalendar.swift in Sources */,
+				0A7286F4275F14DA000316B4 /* RegisterIdCardViewModel.swift in Sources */,
 				C7DA175B23D70245006A8803 /* GroupTourSearchKeywordAndTourCodeRequest.swift in Sources */,
 				38E9922523B04F2A00E28271 /* BulletinResponse.swift in Sources */,
 				A1F2DAF9268D5E3B00C0DDA0 /* GroupTourSearchViewModel.swift in Sources */,
 				381B12AD23C465950030BACE /* MoreViewController.swift in Sources */,
 				3817E52723A33C9500ED8609 /* AppDelegate.swift in Sources */,
+				0A7286EA275F02A6000316B4 /* RegisterEditorViewModel.swift in Sources */,
 				B64535DF2660C3DC006FE4AB /* BaseViewControllerMVVM.swift in Sources */,
+				0A7286F1275F0965000316B4 /* RegisterAgentModel.swift in Sources */,
 				38BCD99023A3484300D59910 /* DateFormatterExtenstion.swift in Sources */,
 				382EF48423BEF93A0002BAB0 /* GroupReponsitory.swift in Sources */,
 				0650775623ED4FD50067377C /* ContactInfoResponse.swift in Sources */,
@@ -2660,6 +2786,7 @@
 				38BCD98A23A3484300D59910 /* OptionalStringExtension.swift in Sources */,
 				382FD59D23D80382001FF38E /* BottomLoadingView.swift in Sources */,
 				38BCDA0223A367D000D59910 /* NoInternetErrorView.swift in Sources */,
+				0ADD0B1C2769C65100E259F1 /* RegisterBasicInfoViewModel.swift in Sources */,
 				38BCD98423A3484300D59910 /* DateComponentExtension.swift in Sources */,
 				A198E512268326CE000A9A4A /* LoginViewModel.swift in Sources */,
 				38BCD97223A3484300D59910 /* FirebaseEvent.swift in Sources */,
@@ -2668,6 +2795,7 @@
 				A173BE6926A13ADA00BBEE87 /* AirPopCityViewModel.swift in Sources */,
 				38BCDA1923A3696800D59910 /* WebViewController.swift in Sources */,
 				C78F071A23E7F2AD009C1183 /* PopTextViewController.swift in Sources */,
+				0A84671C276C90CC000CC949 /* RegisterSuccessViewController.swift in Sources */,
 				38E9923823B06AFA00E28271 /* BasePresenter.swift in Sources */,
 				38BCDA0623A367D000D59910 /* ToastView.swift in Sources */,
 				38BCD97C23A3484300D59910 /* UILabelExtension.swift in Sources */,
@@ -2694,12 +2822,14 @@
 				0650776523ED5F300067377C /* ContactInfoPresenter.swift in Sources */,
 				A1A7F2FA2418854D00263E42 /* CalendarSelectedDates.swift in Sources */,
 				A1A7F3202418882100263E42 /* YearMonth.swift in Sources */,
+				0A1BD8B7275481F000CE7833 /* RegisterIdCardViewController.swift in Sources */,
 				38BCD93623A345FA00D59910 /* GTMBase64.m in Sources */,
 				382ADF1A23C5D02C00E886B4 /* NoticeResponse.swift in Sources */,
 				A1876A852415D67D00855DE6 /* AirTicketSearchViewController.swift in Sources */,
 				38871EC223D5B061007ED33D /* HomeAd1Cell.swift in Sources */,
 				38BCD9D823A366EC00D59910 /* TabBarViewController.swift in Sources */,
 				C7DA175823D6E5C9006A8803 /* GroupTourSearchKeywordAndTourCodeInputCell.swift in Sources */,
+				0A7286ED275F0865000316B4 /* RegisterRepository.swift in Sources */,
 				C7C623CE23E2C71600A2D8B0 /* GroupTourSearchUrlResponse.swift in Sources */,
 				A173BE6726A13ADA00BBEE87 /* AirIndexCellViewModel.swift in Sources */,
 				0650775F23ED55F60067377C /* ContactInfoRepository.swift in Sources */,
@@ -2739,6 +2869,7 @@
 				38BCDA0423A367D000D59910 /* ApiFailErrorView.swift in Sources */,
 				A1DB93E524066EC500AE427C /* WebViewTourShareResponse.swift in Sources */,
 				06AA65922418E6EA001CDA37 /* SearchEmptyCell.swift in Sources */,
+				0A276BB8276ACC09000C3875 /* RegisterBasicInfoRequest.swift in Sources */,
 				A1B6979726957C6D00269454 /* MoreViewModel.swift in Sources */,
 				C70EEF5B23EA549800D67FF4 /* VersionRuleViewController.swift in Sources */,
 				0655CD31241B6A77006092AB /* SotoTicketRequest.swift in Sources */,
@@ -2752,6 +2883,7 @@
 				06AA658C2418E553001CDA37 /* SearchResultCell.swift in Sources */,
 				C7DCA71D23D1BBAB00F415B8 /* GroupTourSearchInitResponse.swift in Sources */,
 				06DA4F6C23E921F8001B7DF1 /* MessageSendRepository.swift in Sources */,
+				0AD65E7A274F456600A7D135 /* RegisterNoticeViewController.swift in Sources */,
 				3802A19823C8530100CD2EF2 /* SalesResponse.swift in Sources */,
 				0655CD2A241B643E006092AB /* TKTInitResponse.swift in Sources */,
 				38BCD95223A3471600D59910 /* FirebaseCrashManager.swift in Sources */,

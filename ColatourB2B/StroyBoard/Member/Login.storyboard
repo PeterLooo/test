@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -24,7 +25,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="dZ2-9b-8LZ">
-                                                <rect key="frame" x="16" y="280" width="288" height="83"/>
+                                                <rect key="frame" x="16" y="214" width="288" height="83"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="會員帳號" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="50v-PW-UNO" customClass="CustomTextField" customModule="ColatourB2B" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="288" height="34"/>
@@ -47,8 +48,8 @@
                                                     <constraint firstItem="faI-xK-pJ6" firstAttribute="width" secondItem="50v-PW-UNO" secondAttribute="width" id="iHL-79-MdK"/>
                                                 </constraints>
                                             </stackView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="66s-xk-8pc">
-                                                <rect key="frame" x="16" y="488" width="288" height="40"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="66s-xk-8pc">
+                                                <rect key="frame" x="16" y="432" width="288" height="40"/>
                                                 <color key="backgroundColor" name="按鈕背景綠"/>
                                                 <accessibility key="accessibilityConfiguration" identifier="login"/>
                                                 <constraints>
@@ -68,7 +69,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aHi-Fs-E0x" customClass="BooleanButton" customModule="ColatourB2B" customModuleProvider="target">
-                                                <rect key="frame" x="270" y="353" width="40" height="30"/>
+                                                <rect key="frame" x="270" y="287" width="40" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="40" id="2t1-HJ-X9G"/>
                                                     <constraint firstAttribute="height" constant="30" id="9U0-AS-XoL"/>
@@ -83,13 +84,36 @@
                                                 </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bab_login_logo" translatesAutoresizingMaskIntoConstraints="NO" id="1xu-wL-9tt">
-                                                <rect key="frame" x="-85" y="88" width="490" height="132"/>
+                                                <rect key="frame" x="37.5" y="88" width="245" height="66"/>
                                             </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vf5-mA-YY2">
+                                                <rect key="frame" x="16" y="488" width="288" height="40"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="login"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="Odo-9W-u8K"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="15"/>
+                                                <state key="normal" title="申請帳號">
+                                                    <color key="titleColor" name="按鈕背景綠"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="4"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                        <integer key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="onTouchRegister:" destination="V0a-Px-Ihe" eventType="touchUpInside" id="E3K-td-QEg"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="aHi-Fs-E0x" firstAttribute="top" secondItem="faI-xK-pJ6" secondAttribute="top" constant="24" id="1ln-Er-brf"/>
                                             <constraint firstItem="dZ2-9b-8LZ" firstAttribute="width" secondItem="bYh-PJ-61R" secondAttribute="width" constant="-32" id="4Xu-aI-4nX"/>
+                                            <constraint firstItem="Vf5-mA-YY2" firstAttribute="width" secondItem="bYh-PJ-61R" secondAttribute="width" constant="-32" id="5E5-hz-Exv"/>
                                             <constraint firstItem="dZ2-9b-8LZ" firstAttribute="centerX" secondItem="bYh-PJ-61R" secondAttribute="centerX" id="5bw-Na-lKH"/>
                                             <constraint firstItem="1xu-wL-9tt" firstAttribute="centerX" secondItem="bYh-PJ-61R" secondAttribute="centerX" id="7Lk-y7-eum"/>
                                             <constraint firstItem="dZ2-9b-8LZ" firstAttribute="top" secondItem="1xu-wL-9tt" secondAttribute="bottom" constant="60" id="AB2-0l-PkR"/>
@@ -97,7 +121,9 @@
                                             <constraint firstItem="66s-xk-8pc" firstAttribute="centerX" secondItem="bYh-PJ-61R" secondAttribute="centerX" id="HCJ-r9-9xU"/>
                                             <constraint firstItem="66s-xk-8pc" firstAttribute="width" secondItem="bYh-PJ-61R" secondAttribute="width" constant="-32" id="JOi-Je-J7g"/>
                                             <constraint firstAttribute="trailing" secondItem="aHi-Fs-E0x" secondAttribute="trailing" constant="10" id="Jdi-i6-GsM"/>
-                                            <constraint firstAttribute="bottom" secondItem="66s-xk-8pc" secondAttribute="bottom" constant="40" id="UgB-zz-imc"/>
+                                            <constraint firstItem="Vf5-mA-YY2" firstAttribute="top" secondItem="66s-xk-8pc" secondAttribute="bottom" constant="16" id="YyB-Eq-ThG"/>
+                                            <constraint firstItem="Vf5-mA-YY2" firstAttribute="centerX" secondItem="bYh-PJ-61R" secondAttribute="centerX" id="aTq-g2-kWy"/>
+                                            <constraint firstAttribute="bottom" secondItem="Vf5-mA-YY2" secondAttribute="bottom" constant="40" id="bnt-it-qHU"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -113,7 +139,8 @@
                                 </connections>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="uzi-aB-BOO"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Dwt-5i-9z4" firstAttribute="leading" secondItem="uzi-aB-BOO" secondAttribute="leading" id="0Pq-Ix-q78"/>
                             <constraint firstItem="Dwt-5i-9z4" firstAttribute="top" secondItem="Rfx-OV-JTH" secondAttribute="top" id="LMb-VY-j6s"/>
@@ -121,12 +148,12 @@
                             <constraint firstItem="uzi-aB-BOO" firstAttribute="bottom" secondItem="Dwt-5i-9z4" secondAttribute="bottom" id="ZO2-s3-jNe"/>
                             <constraint firstItem="bYh-PJ-61R" firstAttribute="height" secondItem="uzi-aB-BOO" secondAttribute="height" id="yJu-hH-ecF"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="uzi-aB-BOO"/>
                     </view>
                     <connections>
                         <outlet property="login" destination="66s-xk-8pc" id="BzZ-th-LdC"/>
                         <outlet property="memberIdno" destination="50v-PW-UNO" id="Eke-KV-yNE"/>
                         <outlet property="password" destination="faI-xK-pJ6" id="wBW-ib-XVB"/>
+                        <outlet property="register" destination="Vf5-mA-YY2" id="I6k-H5-ngF"/>
                         <outlet property="scrollView" destination="Dwt-5i-9z4" id="ZVZ-XP-zw6"/>
                     </connections>
                 </viewController>
@@ -135,6 +162,11 @@
             <point key="canvasLocation" x="104.8" y="95.802098950524751"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="aHi-Fs-E0x">
+            <size key="intrinsicContentSize" width="30" height="34"/>
+        </designable>
+    </designables>
     <resources>
         <image name="bab_login_logo" width="245" height="66"/>
         <image name="member_code_hide" width="20" height="20"/>
@@ -142,5 +174,8 @@
         <namedColor name="按鈕背景綠">
             <color red="0.098039215686274508" green="0.74901960784313726" blue="0.3843137254901961" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>
