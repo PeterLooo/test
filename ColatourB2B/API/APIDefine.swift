@@ -114,8 +114,10 @@ enum APIUrl {
         case passwordModify = "Password/Modify"
         case noticeDetail = "noticeDetail"
         #warning("待 api 接上修正")
-        case changeCompany = "changeCompany"
-        case changeCompanyAction = "changeCompanyAction"
+        case changeCompany = "Company/Initial"
+        case changeCompanyAction = "Company/Change"
+        case chnegeMemberInfoInit = "Data/Initial"
+        case chnegeMemberInfo = "Data/Modify"
         
         static func urlWith(type: MemberApi, append:String) -> String {
             let base =  MEMBER_WEB_HOST + "/Member/"

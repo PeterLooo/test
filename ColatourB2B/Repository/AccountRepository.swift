@@ -141,8 +141,8 @@ class AccountRepository: NSObject {
     }
     
     func getAccessToken(getLocalToken: Bool = true) -> Single<LoginResponse>{
-        let refreshToken = UserDefaultUtil.shared.refreshToken
-        let accessToken = UserDefaultUtil.shared.accessToken
+        let refreshToken = UserDefaultUtil.shared.refreshToken // 長效期
+        let accessToken = UserDefaultUtil.shared.accessToken // 短效期
         
         if refreshToken == nil || refreshToken == "" {
             MemberRepository.shared.removeLocalAccessToken()

@@ -92,4 +92,20 @@ class MemberRepository: MemberRepositoryProtocol {
             .flatMap{ _ in api}
             .map{ChangeCompanyModel(JSON: $0)!}
     }
+    
+    func changeMemberInfoInit() -> Single<MemberData> {
+        let api = APIManager.shared.changeMemberInfoInit()
+        
+        return AccountRepository.shared.getAccessToken()
+            .flatMap{ _ in api}
+            .map{MemberData(JSON:$0)!}
+    }
+    
+    func changeMemberInfo(changeMember: ChangeMemberInfo) -> Single<MemberData> {
+        let api = APIManager.shared.changeMemberInfo(changeMember: changeMember)
+        
+        return AccountRepository.shared.getAccessToken()
+            .flatMap{ _ in api}
+            .map{MemberData(JSON:$0)!}
+    }
 }

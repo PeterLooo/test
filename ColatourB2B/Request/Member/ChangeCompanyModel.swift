@@ -20,33 +20,37 @@ class ChangeCompanyModel: BaseModel {
     var phoneZone: String?
     var phoneNo: String?
     var phoneExtension: String?
-    var errorInfo: ChangeCompanyErrorModel?
+    var errorInfo: [ErrorInfo] = []
     
     override func mapping(map: Map) {
         super.mapping(map: map)
-        memberId <- map["memberId"]
-        name <- map["name"]
-        exCompanyName <- map["exCompanyName"]
+        memberId <- map["Member_Idno"]
+        name <- map["Member_Name"]
         newCompanyId <- map["newCompanyId"]
-        email <- map["email"]
-        mobile <- map["mobile"]
-        phoneZone <- map["phoneZone"]
-        phoneNo <- map["phoneNo"]
-        phoneExtension <- map["phoneExtension"]
-        errorInfo <- map["errorInfo"]
+        email <- map["Member_Email"]
+        mobile <- map["Mobile_Phone"]
+        phoneZone <- map["Company_Phone_Zone"]
+        phoneNo <- map["Company_Phone_No"]
+        phoneExtension <- map["Company_Phone_Ext"]
+        errorInfo <- map["ErrorMsg_List"]
+        
+        var exCompanyName = ""
+        exCompanyName <- map["Company_Name"]
+        var exCompanyId = ""
+        exCompanyId <- map["Company_Idno"]
+        self.exCompanyName = "\(exCompanyId) \(exCompanyName)"
     }
     
     func getDictionary() -> [String:Any] {
         
-        let params = ["會員帳號": memberId!,
-                      "姓名": name!,
-                      "原任職旅行社":exCompanyName!,
-                      "新旅行社統編": newCompanyId!,
-                      "電子信箱": email!,
-                      "區碼": phoneZone!,
-                      "公司電話": phoneNo!,
-                      "行動電話": mobile!,
-                      "分機": phoneExtension ?? ""] as [String : Any]
+        let params = [
+                      "New_Company_Idno": newCompanyId!,
+                      "New_Company_Name": newCompanyName ?? "",
+                      "Member_Email": email!,
+                      "Company_Phone_Zone": phoneZone!,
+                      "Company_Phone_No": phoneNo!,
+                      "Mobile_Phone": mobile!,
+                      "Company_Phone_Ext": phoneExtension ?? ""] as [String : Any]
         
         return params
     }
