@@ -108,4 +108,25 @@ class MemberRepository: MemberRepositoryProtocol {
             .flatMap{ _ in api}
             .map{MemberData(JSON:$0)!}
     }
+    
+    func correctEmailInit() -> Single<CorrectEmailInfo> {
+        let api = APIManager.shared.correctEmailInit()
+        return AccountRepository.shared.getAccessToken()
+            .flatMap{_ in api}
+            .map{CorrectEmailInfo(JSON:$0)!}
+    }
+    
+    func correctEmailSend(email: String) -> Single<CorrectEmailInfo> {
+        let api = APIManager.shared.correctEmailSend(email: email)
+        return AccountRepository.shared.getAccessToken()
+            .flatMap{_ in api}
+            .map{CorrectEmailInfo(JSON:$0)!}
+    }
+    
+    func  correntEmailComfirem(confirmCode: String) -> Single<CorrectEmailInfo> {
+        let api = APIManager.shared.correntEmailComfirem(confirmCode: confirmCode)
+        return AccountRepository.shared.getAccessToken()
+            .flatMap{_ in api}
+            .map{CorrectEmailInfo(JSON:$0)!}
+    }
 }

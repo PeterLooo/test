@@ -154,6 +154,14 @@ extension ChangeCompanyViewController {
             nav.modalPresentationStyle = .fullScreen
             self?.navigationController?.present(nav, animated: true)
         }
+        
+        viewModel?.emailConfirm = {[weak self] in
+            let vc = self?.getVC(st: "Login", vc: "MailChangeViewController") as! MailChangeViewController
+            let viewModel = MailChangeViewModel.init(type: .sendKey)
+            
+            vc.setVC(viewModel: viewModel)
+            self?.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     private func setTitle() {

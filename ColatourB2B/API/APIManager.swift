@@ -275,6 +275,21 @@ extension APIManager {
         return manager(method: .get, appendUrl: "", url: APIUrl.memberApi(type: .chnegeMemberInfoInit), parameters: nil, appendHeaders: nil)
     }
     
+    func correctEmailInit() -> Single<[String:Any]> {
+        
+        return manager(method: .get, appendUrl: "", url: APIUrl.memberApi(type: .correctEmailInit), parameters: nil, appendHeaders: nil)
+    }
+    
+    func correctEmailSend(email: String) -> Single<[String:Any]> {
+        let parmas = ["Member_Email": email]
+        return manager(method: .post, appendUrl: "", url: APIUrl.memberApi(type: .correctEmailSend), parameters: parmas, appendHeaders: nil)
+    }
+    
+    func  correntEmailComfirem(confirmCode: String) -> Single<[String:Any]> {
+        let parmas = ["Confirm_Code": confirmCode]
+        return manager(method: .post, appendUrl: "", url: APIUrl.memberApi(type: .correctEmailConfirm), parameters: parmas, appendHeaders: nil)
+    }
+    
     func changeMemberInfo(changeMember: ChangeMemberInfo) -> Single<[String:Any]> {
         let param = changeMember.getDictionary()
         return manager(method: .post, appendUrl: "", url: APIUrl.memberApi(type: .chnegeMemberInfo), parameters: param, appendHeaders: nil)

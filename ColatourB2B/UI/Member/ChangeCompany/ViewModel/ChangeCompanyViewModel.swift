@@ -14,6 +14,7 @@ class ChangeCompanyViewModel: BaseViewModel {
     var setMemberErrorInfo: (([ErrorInfo]) -> ())?
     var changeCompanySuccessfully: (()->())?
     var toastInfo: ((String)->())?
+    var emailConfirm: (()->())?
     let respository = MemberRepository.shared
     
     var changeCompanyModel: ChangeCompanyModel?
@@ -98,8 +99,8 @@ class ChangeCompanyViewModel: BaseViewModel {
     }
     
     func bindChangeMemberData(result: MemberData) {
-        if result.emailError == true{
-            self.toastInfo?("Email錯誤")
+        if result.emailError == true {
+            self.emailConfirm?()
         }else if result.errorList.isEmpty == false {
             self.setMemberErrorInfo?(result.errorList)
         }else{

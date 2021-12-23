@@ -380,6 +380,40 @@
 		9196F236CE205CFA47F4C95B /* Pods_ColatourB2BDev.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00BEF28893EA23CD1FFC87FB /* Pods_ColatourB2BDev.framework */; };
 		A1047301269433BA00C4D4E9 /* NoticeTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1047300269433BA00C4D4E9 /* NoticeTableViewModel.swift */; };
 		A1047302269433BA00C4D4E9 /* NoticeTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1047300269433BA00C4D4E9 /* NoticeTableViewModel.swift */; };
+		A104F7442772CC5F00DADE9A /* ConfirmKeyCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A104F7362772CC5E00DADE9A /* ConfirmKeyCellViewModel.swift */; };
+		A104F7452772CC5F00DADE9A /* ConfirmKeyCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A104F7362772CC5E00DADE9A /* ConfirmKeyCellViewModel.swift */; };
+		A104F7462772CC5F00DADE9A /* EditingEmailCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A104F7372772CC5E00DADE9A /* EditingEmailCellViewModel.swift */; };
+		A104F7472772CC5F00DADE9A /* EditingEmailCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A104F7372772CC5E00DADE9A /* EditingEmailCellViewModel.swift */; };
+		A104F7482772CC5F00DADE9A /* MailChangeCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A104F7382772CC5E00DADE9A /* MailChangeCellViewModel.swift */; };
+		A104F7492772CC5F00DADE9A /* MailChangeCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A104F7382772CC5E00DADE9A /* MailChangeCellViewModel.swift */; };
+		A104F74A2772CC5F00DADE9A /* ConfirmKeySuccessCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A104F7392772CC5E00DADE9A /* ConfirmKeySuccessCellViewModel.swift */; };
+		A104F74B2772CC5F00DADE9A /* ConfirmKeySuccessCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A104F7392772CC5E00DADE9A /* ConfirmKeySuccessCellViewModel.swift */; };
+		A104F74C2772CC5F00DADE9A /* MailChangeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A104F73A2772CC5E00DADE9A /* MailChangeViewModel.swift */; };
+		A104F74D2772CC5F00DADE9A /* MailChangeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A104F73A2772CC5E00DADE9A /* MailChangeViewModel.swift */; };
+		A104F74E2772CC5F00DADE9A /* EditingEmailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A104F73B2772CC5E00DADE9A /* EditingEmailCell.xib */; };
+		A104F74F2772CC5F00DADE9A /* EditingEmailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A104F73B2772CC5E00DADE9A /* EditingEmailCell.xib */; };
+		A104F7502772CC5F00DADE9A /* ConfirmKeyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A104F73C2772CC5E00DADE9A /* ConfirmKeyCell.swift */; };
+		A104F7512772CC5F00DADE9A /* ConfirmKeyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A104F73C2772CC5E00DADE9A /* ConfirmKeyCell.swift */; };
+		A104F7522772CC5F00DADE9A /* MailChangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A104F73D2772CC5E00DADE9A /* MailChangeViewController.swift */; };
+		A104F7532772CC5F00DADE9A /* MailChangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A104F73D2772CC5E00DADE9A /* MailChangeViewController.swift */; };
+		A104F7542772CC5F00DADE9A /* ConfirmKeySuccessCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A104F73E2772CC5E00DADE9A /* ConfirmKeySuccessCell.xib */; };
+		A104F7552772CC5F00DADE9A /* ConfirmKeySuccessCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A104F73E2772CC5E00DADE9A /* ConfirmKeySuccessCell.xib */; };
+		A104F7562772CC5F00DADE9A /* MailChangeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A104F73F2772CC5E00DADE9A /* MailChangeCell.xib */; };
+		A104F7572772CC5F00DADE9A /* MailChangeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A104F73F2772CC5E00DADE9A /* MailChangeCell.xib */; };
+		A104F7582772CC5F00DADE9A /* ConfirmKeySuccessCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A104F7402772CC5E00DADE9A /* ConfirmKeySuccessCell.swift */; };
+		A104F7592772CC5F00DADE9A /* ConfirmKeySuccessCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A104F7402772CC5E00DADE9A /* ConfirmKeySuccessCell.swift */; };
+		A104F75A2772CC5F00DADE9A /* ConfirmKeyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A104F7412772CC5E00DADE9A /* ConfirmKeyCell.xib */; };
+		A104F75B2772CC5F00DADE9A /* ConfirmKeyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A104F7412772CC5E00DADE9A /* ConfirmKeyCell.xib */; };
+		A104F75C2772CC5F00DADE9A /* MailChangeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A104F7422772CC5F00DADE9A /* MailChangeCell.swift */; };
+		A104F75D2772CC5F00DADE9A /* MailChangeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A104F7422772CC5F00DADE9A /* MailChangeCell.swift */; };
+		A104F75E2772CC5F00DADE9A /* EditingEmailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A104F7432772CC5F00DADE9A /* EditingEmailCell.swift */; };
+		A104F75F2772CC5F00DADE9A /* EditingEmailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A104F7432772CC5F00DADE9A /* EditingEmailCell.swift */; };
+		A104F7612772FC4600DADE9A /* CorrectEmailInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A104F7602772FC4600DADE9A /* CorrectEmailInfo.swift */; };
+		A104F7622772FC4600DADE9A /* CorrectEmailInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A104F7602772FC4600DADE9A /* CorrectEmailInfo.swift */; };
+		A104F7652773211200DADE9A /* MailChangeFailureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A104F7632773211200DADE9A /* MailChangeFailureCell.swift */; };
+		A104F7662773211200DADE9A /* MailChangeFailureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A104F7632773211200DADE9A /* MailChangeFailureCell.swift */; };
+		A104F7672773211200DADE9A /* MailChangeFailureCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A104F7642773211200DADE9A /* MailChangeFailureCell.xib */; };
+		A104F7682773211200DADE9A /* MailChangeFailureCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A104F7642773211200DADE9A /* MailChangeFailureCell.xib */; };
 		A1068F4C241625C900710DC4 /* TKTSearchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1068F4B241625C800710DC4 /* TKTSearchRequest.swift */; };
 		A1068F4D241625C900710DC4 /* TKTSearchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1068F4B241625C800710DC4 /* TKTSearchRequest.swift */; };
 		A10C824D24186CD80092DACA /* LccTicketRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10C824C24186CD80092DACA /* LccTicketRequest.swift */; };
@@ -392,6 +426,8 @@
 		A146A01B2692BBCC00741D54 /* NoticeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A146A0192692BBCC00741D54 /* NoticeViewModel.swift */; };
 		A14F56EA241F708700BF40DA /* AirSearchUrlResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14F56E9241F708700BF40DA /* AirSearchUrlResponse.swift */; };
 		A14F56EB241F708700BF40DA /* AirSearchUrlResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14F56E9241F708700BF40DA /* AirSearchUrlResponse.swift */; };
+		A16350C527741DEA00BFE4B2 /* MailChangeFailureViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16350C427741DEA00BFE4B2 /* MailChangeFailureViewModel.swift */; };
+		A16350C627741DEA00BFE4B2 /* MailChangeFailureViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16350C427741DEA00BFE4B2 /* MailChangeFailureViewModel.swift */; };
 		A173BE6026A13ADA00BBEE87 /* AirIndexViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A173BE5B26A13ADA00BBEE87 /* AirIndexViewModel.swift */; };
 		A173BE6126A13ADA00BBEE87 /* AirIndexViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A173BE5B26A13ADA00BBEE87 /* AirIndexViewModel.swift */; };
 		A173BE6226A13ADA00BBEE87 /* AirPopCityCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A173BE5C26A13ADA00BBEE87 /* AirPopCityCellViewModel.swift */; };
@@ -518,8 +554,6 @@
 		A1C0861027609E8C007E9535 /* ChangeMemberInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1C0860C27609E8C007E9535 /* ChangeMemberInfoCell.xib */; };
 		A1C086122760A3EC007E9535 /* ChangeMemberInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C086112760A3EC007E9535 /* ChangeMemberInfo.swift */; };
 		A1C086132760A3EC007E9535 /* ChangeMemberInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C086112760A3EC007E9535 /* ChangeMemberInfo.swift */; };
-		A1C086152760B9E1007E9535 /* ChangeMemberInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = A1C086142760B9E0007E9535 /* ChangeMemberInfo.json */; };
-		A1C086162760B9E1007E9535 /* ChangeMemberInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = A1C086142760B9E0007E9535 /* ChangeMemberInfo.json */; };
 		A1DB93DE24066B5D00AE427C /* WebViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DB93DD24066B5D00AE427C /* WebViewProtocol.swift */; };
 		A1DB93DF24066B5D00AE427C /* WebViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DB93DD24066B5D00AE427C /* WebViewProtocol.swift */; };
 		A1DB93E124066B8E00AE427C /* WebViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DB93E024066B8E00AE427C /* WebViewPresenter.swift */; };
@@ -846,12 +880,30 @@
 		732B40A95C148E8D08B6AD90 /* Pods-ColatourB2BDev.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ColatourB2BDev.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ColatourB2BDev/Pods-ColatourB2BDev.debug.xcconfig"; sourceTree = "<group>"; };
 		987A0E450DD4AC32A30375C6 /* Pods-ColatourB2B.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ColatourB2B.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ColatourB2B/Pods-ColatourB2B.debug.xcconfig"; sourceTree = "<group>"; };
 		A1047300269433BA00C4D4E9 /* NoticeTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeTableViewModel.swift; sourceTree = "<group>"; };
+		A104F7362772CC5E00DADE9A /* ConfirmKeyCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmKeyCellViewModel.swift; sourceTree = "<group>"; };
+		A104F7372772CC5E00DADE9A /* EditingEmailCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditingEmailCellViewModel.swift; sourceTree = "<group>"; };
+		A104F7382772CC5E00DADE9A /* MailChangeCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MailChangeCellViewModel.swift; sourceTree = "<group>"; };
+		A104F7392772CC5E00DADE9A /* ConfirmKeySuccessCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmKeySuccessCellViewModel.swift; sourceTree = "<group>"; };
+		A104F73A2772CC5E00DADE9A /* MailChangeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MailChangeViewModel.swift; sourceTree = "<group>"; };
+		A104F73B2772CC5E00DADE9A /* EditingEmailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditingEmailCell.xib; sourceTree = "<group>"; };
+		A104F73C2772CC5E00DADE9A /* ConfirmKeyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmKeyCell.swift; sourceTree = "<group>"; };
+		A104F73D2772CC5E00DADE9A /* MailChangeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MailChangeViewController.swift; sourceTree = "<group>"; };
+		A104F73E2772CC5E00DADE9A /* ConfirmKeySuccessCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConfirmKeySuccessCell.xib; sourceTree = "<group>"; };
+		A104F73F2772CC5E00DADE9A /* MailChangeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MailChangeCell.xib; sourceTree = "<group>"; };
+		A104F7402772CC5E00DADE9A /* ConfirmKeySuccessCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmKeySuccessCell.swift; sourceTree = "<group>"; };
+		A104F7412772CC5E00DADE9A /* ConfirmKeyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConfirmKeyCell.xib; sourceTree = "<group>"; };
+		A104F7422772CC5F00DADE9A /* MailChangeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MailChangeCell.swift; sourceTree = "<group>"; };
+		A104F7432772CC5F00DADE9A /* EditingEmailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditingEmailCell.swift; sourceTree = "<group>"; };
+		A104F7602772FC4600DADE9A /* CorrectEmailInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorrectEmailInfo.swift; sourceTree = "<group>"; };
+		A104F7632773211200DADE9A /* MailChangeFailureCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailChangeFailureCell.swift; sourceTree = "<group>"; };
+		A104F7642773211200DADE9A /* MailChangeFailureCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MailChangeFailureCell.xib; sourceTree = "<group>"; };
 		A1068F4B241625C800710DC4 /* TKTSearchRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TKTSearchRequest.swift; sourceTree = "<group>"; };
 		A10C824C24186CD80092DACA /* LccTicketRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LccTicketRequest.swift; sourceTree = "<group>"; };
 		A12808A723F7937100287B9F /* PriceRangeSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceRangeSlider.swift; sourceTree = "<group>"; };
 		A142DF57242321DC003D103E /* LccResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LccResponse.swift; sourceTree = "<group>"; };
 		A146A0192692BBCC00741D54 /* NoticeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeViewModel.swift; sourceTree = "<group>"; };
 		A14F56E9241F708700BF40DA /* AirSearchUrlResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirSearchUrlResponse.swift; sourceTree = "<group>"; };
+		A16350C427741DEA00BFE4B2 /* MailChangeFailureViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailChangeFailureViewModel.swift; sourceTree = "<group>"; };
 		A173BE5B26A13ADA00BBEE87 /* AirIndexViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirIndexViewModel.swift; sourceTree = "<group>"; };
 		A173BE5C26A13ADA00BBEE87 /* AirPopCityCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirPopCityCellViewModel.swift; sourceTree = "<group>"; };
 		A173BE5D26A13ADA00BBEE87 /* AirTicketViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirTicketViewModel.swift; sourceTree = "<group>"; };
@@ -916,7 +968,6 @@
 		A1C0860B27609E8C007E9535 /* ChangeMemberInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeMemberInfoCell.swift; sourceTree = "<group>"; };
 		A1C0860C27609E8C007E9535 /* ChangeMemberInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChangeMemberInfoCell.xib; sourceTree = "<group>"; };
 		A1C086112760A3EC007E9535 /* ChangeMemberInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeMemberInfo.swift; sourceTree = "<group>"; };
-		A1C086142760B9E0007E9535 /* ChangeMemberInfo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ChangeMemberInfo.json; sourceTree = "<group>"; };
 		A1DB93DD24066B5D00AE427C /* WebViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewProtocol.swift; sourceTree = "<group>"; };
 		A1DB93E024066B8E00AE427C /* WebViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewPresenter.swift; sourceTree = "<group>"; };
 		A1DB93E324066EC500AE427C /* WebViewTourShareResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewTourShareResponse.swift; sourceTree = "<group>"; };
@@ -1263,6 +1314,7 @@
 			children = (
 				38E9923323B05A0700E28271 /* LoginResponse.swift */,
 				3869542D23BADC9000F6E7D9 /* MemberIndexResponse.swift */,
+				A104F7602772FC4600DADE9A /* CorrectEmailInfo.swift */,
 			);
 			path = Member;
 			sourceTree = "<group>";
@@ -1294,6 +1346,7 @@
 		387FBF0823ACCE5C005412F1 /* Member */ = {
 			isa = PBXGroup;
 			children = (
+				A104F7342772CC5E00DADE9A /* MailChange */,
 				A173FDB2273272A400ECDABA /* ChangeCompany */,
 				CCCC734E23E42C2700FC03EE /* PasswordModify */,
 				387FBF0D23ACCEE4005412F1 /* Login */,
@@ -1617,6 +1670,38 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		A104F7342772CC5E00DADE9A /* MailChange */ = {
+			isa = PBXGroup;
+			children = (
+				A104F7352772CC5E00DADE9A /* ViewModel */,
+				A104F73D2772CC5E00DADE9A /* MailChangeViewController.swift */,
+				A104F7432772CC5F00DADE9A /* EditingEmailCell.swift */,
+				A104F73B2772CC5E00DADE9A /* EditingEmailCell.xib */,
+				A104F73C2772CC5E00DADE9A /* ConfirmKeyCell.swift */,
+				A104F7412772CC5E00DADE9A /* ConfirmKeyCell.xib */,
+				A104F7402772CC5E00DADE9A /* ConfirmKeySuccessCell.swift */,
+				A104F73E2772CC5E00DADE9A /* ConfirmKeySuccessCell.xib */,
+				A104F7422772CC5F00DADE9A /* MailChangeCell.swift */,
+				A104F73F2772CC5E00DADE9A /* MailChangeCell.xib */,
+				A104F7632773211200DADE9A /* MailChangeFailureCell.swift */,
+				A104F7642773211200DADE9A /* MailChangeFailureCell.xib */,
+			);
+			path = MailChange;
+			sourceTree = "<group>";
+		};
+		A104F7352772CC5E00DADE9A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A104F73A2772CC5E00DADE9A /* MailChangeViewModel.swift */,
+				A104F7362772CC5E00DADE9A /* ConfirmKeyCellViewModel.swift */,
+				A104F7372772CC5E00DADE9A /* EditingEmailCellViewModel.swift */,
+				A104F7382772CC5E00DADE9A /* MailChangeCellViewModel.swift */,
+				A104F7392772CC5E00DADE9A /* ConfirmKeySuccessCellViewModel.swift */,
+				A16350C427741DEA00BFE4B2 /* MailChangeFailureViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		A146A0182692BB7700741D54 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -1698,7 +1783,6 @@
 		A173FDB6273272A400ECDABA /* Mock */ = {
 			isa = PBXGroup;
 			children = (
-				A1C086142760B9E0007E9535 /* ChangeMemberInfo.json */,
 				A173FDB7273272A400ECDABA /* Change.json */,
 			);
 			path = Mock;
@@ -2127,7 +2211,9 @@
 				A1A7F2FD2418854D00263E42 /* CalendarDayCollectionViewCell.xib in Resources */,
 				38BCDA2623A3796800D59910 /* GroupTour.storyboard in Resources */,
 				A1C0860F27609E8C007E9535 /* ChangeMemberInfoCell.xib in Resources */,
+				A104F74E2772CC5F00DADE9A /* EditingEmailCell.xib in Resources */,
 				A1E449B7241B168B00895AF6 /* AirPopCityCell.xib in Resources */,
+				A104F7672773211200DADE9A /* MailChangeFailureCell.xib in Resources */,
 				387FBF0B23ACCEB7005412F1 /* Login.storyboard in Resources */,
 				38871EC923D5B524007ED33D /* HomeAd1View.xib in Resources */,
 				A173FDBE273272A400ECDABA /* Change.json in Resources */,
@@ -2137,6 +2223,7 @@
 				C77282F323CC502500067EB4 /* GroupTourSearch.storyboard in Resources */,
 				06AA658D2418E553001CDA37 /* SearchResultCell.xib in Resources */,
 				38AA456623D6906400BE3F95 /* HomeAd2View.xib in Resources */,
+				A104F7562772CC5F00DADE9A /* MailChangeCell.xib in Resources */,
 				061CD2B2241F6C1400BD0DE1 /* LocationDetail.storyboard in Resources */,
 				06DA4F8423E92260001B7DF1 /* MessageSendContentCell.xib in Resources */,
 				0626031D23F3E5570026DC59 /* DeviceCell.xib in Resources */,
@@ -2171,17 +2258,18 @@
 				3817E4FE23A33C8500ED8609 /* Assets.xcassets in Resources */,
 				06DA4F8A23E92260001B7DF1 /* MessageSendNotificationListCell.xib in Resources */,
 				06468516241F710600104346 /* LocationDetailCell.xib in Resources */,
+				A104F7542772CC5F00DADE9A /* ConfirmKeySuccessCell.xib in Resources */,
 				A17CFAE3241B398A00922CC2 /* AirIndexView.xib in Resources */,
 				0A666A2626967F89008B3ADF /* AirTicket.json in Resources */,
 				2AF496B423AB7EA50053EA45 /* GoogleService-Info.plist in Resources */,
 				A1A7F2FF2418854D00263E42 /* CalendarTableViewCell.xib in Resources */,
+				A104F75A2772CC5F00DADE9A /* ConfirmKeyCell.xib in Resources */,
 				3817E4FC23A33C8400ED8609 /* Main.storyboard in Resources */,
 				A173FDC2273272A400ECDABA /* ChangeCompanyCell.xib in Resources */,
 				06DA4F8023E92260001B7DF1 /* MessageSendTopicCell.xib in Resources */,
 				C74FC80123C5AEE100E2250D /* NoticeDetail.storyboard in Resources */,
 				3869543A23BAF85900F6E7D9 /* MemberIndexServiceCell.xib in Resources */,
 				38BCDA0923A367D000D59910 /* ToastView.xib in Resources */,
-				A1C086152760B9E1007E9535 /* ChangeMemberInfo.json in Resources */,
 				38871EC323D5B061007ED33D /* HomeAd1Cell.xib in Resources */,
 				C70EEF5023EA545300D67FF4 /* VersionRule.storyboard in Resources */,
 			);
@@ -2216,11 +2304,12 @@
 				C70EEF5323EA545300D67FF4 /* Bulletin.storyboard in Resources */,
 				38BCDA2723A3796800D59910 /* GroupTour.storyboard in Resources */,
 				387FBF1123ACCF00005412F1 /* Login.storyboard in Resources */,
+				A104F7682773211200DADE9A /* MailChangeFailureCell.xib in Resources */,
 				069D7499241A13EF0047EA03 /* TKTSearchInit.json in Resources */,
 				38871ECA23D5B524007ED33D /* HomeAd1View.xib in Resources */,
 				C7BD649123ED453200FEE538 /* EmptyDataCell.xib in Resources */,
-				A1C086162760B9E1007E9535 /* ChangeMemberInfo.json in Resources */,
 				C70EEF5123EA545300D67FF4 /* VersionRule.storyboard in Resources */,
+				A104F7552772CC5F00DADE9A /* ConfirmKeySuccessCell.xib in Resources */,
 				38AA456123D68E0A00BE3F95 /* HomeAd2Cell.xib in Resources */,
 				06DA4F8523E92260001B7DF1 /* MessageSendContentCell.xib in Resources */,
 				A1E449B8241B168B00895AF6 /* AirPopCityCell.xib in Resources */,
@@ -2246,6 +2335,8 @@
 				38BCDA2D23A37B5D00D59910 /* MemberIndex.storyboard in Resources */,
 				06B05CB92416470900C8F447 /* BrickCell.xib in Resources */,
 				A1A7F32B2418DDCC00263E42 /* ChooseCountButton.xib in Resources */,
+				A104F75B2772CC5F00DADE9A /* ConfirmKeyCell.xib in Resources */,
+				A104F7572772CC5F00DADE9A /* MailChangeCell.xib in Resources */,
 				38AA8E0723CC4FE600A7EB07 /* Dev_Info.plist in Resources */,
 				38E68AB023B5AB80006BC4DD /* GroupSliderItemCell.xib in Resources */,
 				06DA4F8123E92260001B7DF1 /* MessageSendTopicCell.xib in Resources */,
@@ -2253,6 +2344,7 @@
 				0650775023ED4EE70067377C /* ContactInfo.storyboard in Resources */,
 				387FBEF823ACA201005412F1 /* AirTicket.storyboard in Resources */,
 				387FBF0423ACA327005412F1 /* More.storyboard in Resources */,
+				A104F74F2772CC5F00DADE9A /* EditingEmailCell.xib in Resources */,
 				3869543523BAE5F500F6E7D9 /* MemberTopCell.xib in Resources */,
 				0650775C23ED52970067377C /* ContactInfoCell.xib in Resources */,
 				A17CFAE4241B398A00922CC2 /* AirIndexView.xib in Resources */,
@@ -2408,6 +2500,7 @@
 				38E9922723B053A200E28271 /* LoginProtocol.swift in Sources */,
 				3802A19B23C8542800CD2EF2 /* SalseInfoCell.swift in Sources */,
 				38BCD97723A3484300D59910 /* NSObjectExtension.swift in Sources */,
+				A104F7482772CC5F00DADE9A /* MailChangeCellViewModel.swift in Sources */,
 				38871EB423D55E2F007ED33D /* GroupIndexHeaderImageCell.swift in Sources */,
 				38871EB023D55D16007ED33D /* GroupTableView.swift in Sources */,
 				0A2EF5F0269807CA00B12A44 /* CapsuleCellViewModel.swift in Sources */,
@@ -2423,6 +2516,7 @@
 				38BCD99C23A363AB00D59910 /* MemberRepositoryProtocol.swift in Sources */,
 				A173BE6026A13ADA00BBEE87 /* AirIndexViewModel.swift in Sources */,
 				381B12B223C466370030BACE /* NoticeViewController.swift in Sources */,
+				A104F74C2772CC5F00DADE9A /* MailChangeViewModel.swift in Sources */,
 				A14F56EA241F708700BF40DA /* AirSearchUrlResponse.swift in Sources */,
 				CCCC735223E42C2700FC03EE /* PasswordModifyProtocol.swift in Sources */,
 				06DA4F8823E92260001B7DF1 /* MessageSendPresenter.swift in Sources */,
@@ -2452,6 +2546,7 @@
 				38BCDA1B23A36AC100D59910 /* TabBarProtocol.swift in Sources */,
 				38BCD9D023A3652200D59910 /* VerifyModel.swift in Sources */,
 				38E68AB723B5AC12006BC4DD /* GroupMenuResponse.swift in Sources */,
+				A104F7462772CC5F00DADE9A /* EditingEmailCellViewModel.swift in Sources */,
 				A1A7F2EB2418854D00263E42 /* CalendarDateAttribute.swift in Sources */,
 				B6D3C7E126731B0300C20763 /* GroupAd2ViewModel.swift in Sources */,
 				38E9921B23B04CD400E28271 /* GropeTourProtocol.swift in Sources */,
@@ -2467,7 +2562,9 @@
 				0A1F8A6526952E8700E357A8 /* AirTktCellViewModel.swift in Sources */,
 				B65191122666094A002337A1 /* GroupTableViewViewModel.swift in Sources */,
 				0650775223ED4F1E0067377C /* ContactInfoViewController.swift in Sources */,
+				A104F7522772CC5F00DADE9A /* MailChangeViewController.swift in Sources */,
 				06B05CB02416293B00C8F447 /* ChooseLocationViewController.swift in Sources */,
+				A104F7612772FC4600DADE9A /* CorrectEmailInfo.swift in Sources */,
 				38BCD93123A345FA00D59910 /* UserDefaultUtil.swift in Sources */,
 				38BCD98B23A3484300D59910 /* UINavigationBarExtension.swift in Sources */,
 				B64535E82660C42A006FE4AB /* BaseViewModel.swift in Sources */,
@@ -2486,6 +2583,7 @@
 				0A7DC42E26984AF100CA3CD9 /* LocationDetailCellViewModel.swift in Sources */,
 				A197B2F4276C83B400E67501 /* ChangeCompanySuccessViewController.swift in Sources */,
 				0626031B23F3E5570026DC59 /* DeviceCell.swift in Sources */,
+				A104F7442772CC5F00DADE9A /* ConfirmKeyCellViewModel.swift in Sources */,
 				38871EC623D5B50F007ED33D /* HomeAd1View.swift in Sources */,
 				0A1F8A7026954C3800E357A8 /* SotoAirCellViewModel.swift in Sources */,
 				38BCD94423A346B800D59910 /* APIManager.swift in Sources */,
@@ -2502,6 +2600,7 @@
 				C7DA175A23D70245006A8803 /* GroupTourSearchKeywordAndTourCodeRequest.swift in Sources */,
 				38E9922423B04F2A00E28271 /* BulletinResponse.swift in Sources */,
 				381B12AC23C465950030BACE /* MoreViewController.swift in Sources */,
+				A104F7582772CC5F00DADE9A /* ConfirmKeySuccessCell.swift in Sources */,
 				A1C086122760A3EC007E9535 /* ChangeMemberInfo.swift in Sources */,
 				3817E4F723A33C8400ED8609 /* AppDelegate.swift in Sources */,
 				B64535DE2660C3DC006FE4AB /* BaseViewControllerMVVM.swift in Sources */,
@@ -2576,6 +2675,7 @@
 				C7DA175D23D70261006A8803 /* GroupTourSearchRequest.swift in Sources */,
 				A1A7F3032418854D00263E42 /* CalendarDayCollectionViewCell.swift in Sources */,
 				A1A7F31D2418882100263E42 /* CalenderSelectStatus.swift in Sources */,
+				A16350C527741DEA00BFE4B2 /* MailChangeFailureViewModel.swift in Sources */,
 				064DE9102421FA8B005D7A83 /* AirTktLocationKeywordSearchResponse.swift in Sources */,
 				38BCD93323A345FA00D59910 /* FormatUtil.swift in Sources */,
 				3869543223BAE5F500F6E7D9 /* MemberTopCell.swift in Sources */,
@@ -2585,8 +2685,11 @@
 				38E9923A23B0B5DF00E28271 /* BooleanButton.swift in Sources */,
 				A1A7F3012418854D00263E42 /* CalendarViewProtocol.swift in Sources */,
 				0A2EF5FB26982E7300B12A44 /* BrickCellViewModel.swift in Sources */,
+				A104F74A2772CC5F00DADE9A /* ConfirmKeySuccessCellViewModel.swift in Sources */,
 				A1B6975126953D5900269454 /* MemberIndexViewModel.swift in Sources */,
 				A1B6978F269563AE00269454 /* MemberIndexServiceCellViewModel.swift in Sources */,
+				A104F7502772CC5F00DADE9A /* ConfirmKeyCell.swift in Sources */,
+				A104F75C2772CC5F00DADE9A /* MailChangeCell.swift in Sources */,
 				38BCD97F23A3484300D59910 /* UIFontExtenstion.swift in Sources */,
 				A1C0860D27609E8C007E9535 /* ChangeMemberInfoCell.swift in Sources */,
 				A1A7F3092418854D00263E42 /* CalendarViewControllerProtocol.swift in Sources */,
@@ -2618,6 +2721,7 @@
 				A17CFADB241B387C00922CC2 /* AirIndexCell.swift in Sources */,
 				06DA4F7E23E92260001B7DF1 /* MessageSendProtocol.swift in Sources */,
 				38BCD93E23A346B800D59910 /* APIError.swift in Sources */,
+				A104F75E2772CC5F00DADE9A /* EditingEmailCell.swift in Sources */,
 				06AA658B2418E553001CDA37 /* SearchResultCell.swift in Sources */,
 				C7DCA71C23D1BBAB00F415B8 /* GroupTourSearchInitResponse.swift in Sources */,
 				06DA4F6B23E921F8001B7DF1 /* MessageSendRepository.swift in Sources */,
@@ -2625,6 +2729,7 @@
 				0655CD29241B643E006092AB /* TKTInitResponse.swift in Sources */,
 				38BCD95123A3471600D59910 /* FirebaseCrashManager.swift in Sources */,
 				A1F6E88324176BB90015279F /* SotoAirCell.swift in Sources */,
+				A104F7652773211200DADE9A /* MailChangeFailureCell.swift in Sources */,
 				A173FDC0273272A400ECDABA /* ChangeCompanyCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2662,6 +2767,7 @@
 				3802A19C23C8542800CD2EF2 /* SalseInfoCell.swift in Sources */,
 				38BCD97823A3484300D59910 /* NSObjectExtension.swift in Sources */,
 				38871EB523D55E2F007ED33D /* GroupIndexHeaderImageCell.swift in Sources */,
+				A104F7492772CC5F00DADE9A /* MailChangeCellViewModel.swift in Sources */,
 				38871EB123D55D16007ED33D /* GroupTableView.swift in Sources */,
 				A1E449BB241B17B100895AF6 /* AirPopCityView.swift in Sources */,
 				0A2EF5F1269807CA00B12A44 /* CapsuleCellViewModel.swift in Sources */,
@@ -2677,6 +2783,7 @@
 				381B12B323C466370030BACE /* NoticeViewController.swift in Sources */,
 				A173BE6126A13ADA00BBEE87 /* AirIndexViewModel.swift in Sources */,
 				A14F56EB241F708700BF40DA /* AirSearchUrlResponse.swift in Sources */,
+				A104F74D2772CC5F00DADE9A /* MailChangeViewModel.swift in Sources */,
 				CCCC735323E42C2700FC03EE /* PasswordModifyProtocol.swift in Sources */,
 				06DA4F8923E92260001B7DF1 /* MessageSendPresenter.swift in Sources */,
 				06DA4F8D23E92260001B7DF1 /* MessageSendTopicCell.swift in Sources */,
@@ -2706,6 +2813,7 @@
 				38BCD9D123A3652200D59910 /* VerifyModel.swift in Sources */,
 				38E68AB823B5AC12006BC4DD /* GroupMenuResponse.swift in Sources */,
 				A1A7F2EC2418854D00263E42 /* CalendarDateAttribute.swift in Sources */,
+				A104F7472772CC5F00DADE9A /* EditingEmailCellViewModel.swift in Sources */,
 				B6D3C7E226731B0300C20763 /* GroupAd2ViewModel.swift in Sources */,
 				38E9921C23B04CD400E28271 /* GropeTourProtocol.swift in Sources */,
 				B64535D32660C1A1006FE4AB /* GroupTourViewModel.swift in Sources */,
@@ -2721,7 +2829,9 @@
 				0A1F8A6626952E8700E357A8 /* AirTktCellViewModel.swift in Sources */,
 				0650775323ED4F1E0067377C /* ContactInfoViewController.swift in Sources */,
 				06B05CB12416293B00C8F447 /* ChooseLocationViewController.swift in Sources */,
+				A104F7532772CC5F00DADE9A /* MailChangeViewController.swift in Sources */,
 				38BCD93223A345FA00D59910 /* UserDefaultUtil.swift in Sources */,
+				A104F7622772FC4600DADE9A /* CorrectEmailInfo.swift in Sources */,
 				38BCD98C23A3484300D59910 /* UINavigationBarExtension.swift in Sources */,
 				B64535E92660C42A006FE4AB /* BaseViewModel.swift in Sources */,
 				06DA4F7123E9222F001B7DF1 /* MessageSendUserListResponse.swift in Sources */,
@@ -2740,6 +2850,7 @@
 				0A7DC42F26984AF100CA3CD9 /* LocationDetailCellViewModel.swift in Sources */,
 				A197B2F5276C83B400E67501 /* ChangeCompanySuccessViewController.swift in Sources */,
 				38871EC723D5B50F007ED33D /* HomeAd1View.swift in Sources */,
+				A104F7452772CC5F00DADE9A /* ConfirmKeyCellViewModel.swift in Sources */,
 				38BCD94523A346B800D59910 /* APIManager.swift in Sources */,
 				0A1F8A7126954C3800E357A8 /* SotoAirCellViewModel.swift in Sources */,
 				C7DCA72023D1BBC400F415B8 /* GroupTourSearchProtocol.swift in Sources */,
@@ -2756,6 +2867,7 @@
 				38E9922523B04F2A00E28271 /* BulletinResponse.swift in Sources */,
 				A1F2DAF9268D5E3B00C0DDA0 /* GroupTourSearchViewModel.swift in Sources */,
 				381B12AD23C465950030BACE /* MoreViewController.swift in Sources */,
+				A104F7592772CC5F00DADE9A /* ConfirmKeySuccessCell.swift in Sources */,
 				A1C086132760A3EC007E9535 /* ChangeMemberInfo.swift in Sources */,
 				3817E52723A33C9500ED8609 /* AppDelegate.swift in Sources */,
 				B64535DF2660C3DC006FE4AB /* BaseViewControllerMVVM.swift in Sources */,
@@ -2830,6 +2942,7 @@
 				C7DA175E23D70261006A8803 /* GroupTourSearchRequest.swift in Sources */,
 				A1A7F3042418854D00263E42 /* CalendarDayCollectionViewCell.swift in Sources */,
 				A1A7F31E2418882100263E42 /* CalenderSelectStatus.swift in Sources */,
+				A16350C627741DEA00BFE4B2 /* MailChangeFailureViewModel.swift in Sources */,
 				064DE9112421FA8B005D7A83 /* AirTktLocationKeywordSearchResponse.swift in Sources */,
 				38BCD93423A345FA00D59910 /* FormatUtil.swift in Sources */,
 				3869543323BAE5F500F6E7D9 /* MemberTopCell.swift in Sources */,
@@ -2839,8 +2952,11 @@
 				38E9923B23B0B5DF00E28271 /* BooleanButton.swift in Sources */,
 				A1A7F3022418854D00263E42 /* CalendarViewProtocol.swift in Sources */,
 				0A2EF5FC26982E7300B12A44 /* BrickCellViewModel.swift in Sources */,
+				A104F74B2772CC5F00DADE9A /* ConfirmKeySuccessCellViewModel.swift in Sources */,
 				A1B6975226953D5900269454 /* MemberIndexViewModel.swift in Sources */,
 				A1B69790269563AE00269454 /* MemberIndexServiceCellViewModel.swift in Sources */,
+				A104F7512772CC5F00DADE9A /* ConfirmKeyCell.swift in Sources */,
+				A104F75D2772CC5F00DADE9A /* MailChangeCell.swift in Sources */,
 				38BCD98023A3484300D59910 /* UIFontExtenstion.swift in Sources */,
 				A1C0860E27609E8C007E9535 /* ChangeMemberInfoCell.swift in Sources */,
 				A1A7F30A2418854D00263E42 /* CalendarViewControllerProtocol.swift in Sources */,
@@ -2872,6 +2988,7 @@
 				A17CFADC241B387C00922CC2 /* AirIndexCell.swift in Sources */,
 				06DA4F7F23E92260001B7DF1 /* MessageSendProtocol.swift in Sources */,
 				38BCD93F23A346B800D59910 /* APIError.swift in Sources */,
+				A104F75F2772CC5F00DADE9A /* EditingEmailCell.swift in Sources */,
 				06AA658C2418E553001CDA37 /* SearchResultCell.swift in Sources */,
 				C7DCA71D23D1BBAB00F415B8 /* GroupTourSearchInitResponse.swift in Sources */,
 				06DA4F6C23E921F8001B7DF1 /* MessageSendRepository.swift in Sources */,
@@ -2879,6 +2996,7 @@
 				0655CD2A241B643E006092AB /* TKTInitResponse.swift in Sources */,
 				38BCD95223A3471600D59910 /* FirebaseCrashManager.swift in Sources */,
 				A1F6E88424176BB90015279F /* SotoAirCell.swift in Sources */,
+				A104F7662773211200DADE9A /* MailChangeFailureCell.swift in Sources */,
 				A173FDC1273272A400ECDABA /* ChangeCompanyCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

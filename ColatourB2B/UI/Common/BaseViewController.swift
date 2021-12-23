@@ -811,7 +811,8 @@ extension BaseViewController {
             self.tabBarController?.selectedIndex = 2
             
         case .salesPage:
-            vc = getVC(st: "Sales", vc: "SalesViewController") as! SalesViewController
+            vc = getVC(st: "ChangeCompany", vc: "ChangeCompanyViewController") as! ChangeCompanyViewController
+            (vc as! ChangeCompanyViewController).setView(editType: .memberInfo)
             
         case .getApiUrlThenOpenAppWebView:
             self.basePresenter?.getAccessWebUrl(webUrl: linkValue!, title: linkText ?? "", openBrowserOrAppWebView: .openAppWebView)
