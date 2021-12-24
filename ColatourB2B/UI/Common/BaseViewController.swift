@@ -826,9 +826,18 @@ extension BaseViewController {
             nav.modalPresentationStyle = .fullScreen
             self.navigationController?.present(nav, animated: true)
             
-        case .updateDate:
+        case .changeMemberInfo:
             
-            ()
+            vc = getVC(st: "ChangeCompany", vc: "ChangeCompanyViewController") as! ChangeCompanyViewController
+            (vc as! ChangeCompanyViewController).setView(editType: .memberInfo)
+        
+        case .changeCompany:
+            vc = getVC(st: "ChangeCompany", vc: "ChangeCompanyViewController") as! ChangeCompanyViewController
+            (vc as! ChangeCompanyViewController).setView(editType: .company)
+
+        case .emailError:
+            vc = getVC(st: "Login", vc: "MailChangeViewController") as! MailChangeViewController
+            (vc as!MailChangeViewController).setVC(viewModel: MailChangeViewModel.init(type: .changeEmail))
             
         case .groupNoti:
             if self.tabBarController?.viewControllers?[2].restorationIdentifier == "NoticeNavigationController" {
