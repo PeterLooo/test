@@ -13,6 +13,7 @@ public enum LinkType: String {
     case openBrowser = "002"
     case getApiUrlThenOpenAppWebView = "003"
     case getApiUrlThenOpenBrowser = "004"
+    case notOpenAssignment = "009"
     case salesPage = "011"
     case passwordModify = "031"
     case updateDate = "032"

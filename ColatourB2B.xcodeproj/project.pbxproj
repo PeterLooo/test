@@ -152,6 +152,8 @@
 		0AD65E7A274F456600A7D135 /* RegisterNoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD65E77274F456600A7D135 /* RegisterNoticeViewController.swift */; };
 		0AD65E82274F7B9800A7D135 /* RegisterEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD65E80274F7B9800A7D135 /* RegisterEditorViewController.swift */; };
 		0AD65E83274F7B9800A7D135 /* RegisterEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD65E80274F7B9800A7D135 /* RegisterEditorViewController.swift */; };
+		0ADC1E4F2775B2B60092A0E1 /* EmployeeEnableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADC1E4D2775B2B60092A0E1 /* EmployeeEnableViewController.swift */; };
+		0ADC1E502775B2B60092A0E1 /* EmployeeEnableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADC1E4D2775B2B60092A0E1 /* EmployeeEnableViewController.swift */; };
 		0ADD0B172769823A00E259F1 /* RegisterResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADD0B162769823A00E259F1 /* RegisterResponse.swift */; };
 		0ADD0B182769823A00E259F1 /* RegisterResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADD0B162769823A00E259F1 /* RegisterResponse.swift */; };
 		0ADD0B1B2769C65100E259F1 /* RegisterBasicInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADD0B1A2769C65100E259F1 /* RegisterBasicInfoViewModel.swift */; };
@@ -717,6 +719,7 @@
 		0AD65E73274F42E400A7D135 /* Register.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Register.storyboard; sourceTree = "<group>"; };
 		0AD65E77274F456600A7D135 /* RegisterNoticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterNoticeViewController.swift; sourceTree = "<group>"; };
 		0AD65E80274F7B9800A7D135 /* RegisterEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterEditorViewController.swift; sourceTree = "<group>"; };
+		0ADC1E4D2775B2B60092A0E1 /* EmployeeEnableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeEnableViewController.swift; sourceTree = "<group>"; };
 		0ADD0B162769823A00E259F1 /* RegisterResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterResponse.swift; sourceTree = "<group>"; };
 		0ADD0B1A2769C65100E259F1 /* RegisterBasicInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterBasicInfoViewModel.swift; sourceTree = "<group>"; };
 		0AEE673B268E9F8400EDB092 /* AirTicketViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirTicketViewModel.swift; sourceTree = "<group>"; };
@@ -1527,6 +1530,7 @@
 				38E9923923B0B5DF00E28271 /* BooleanButton.swift */,
 				C7E15BF023D18CB0004C20A0 /* CustomPickerView.swift */,
 				C78F071823E7F2AD009C1183 /* PopTextViewController.swift */,
+				0ADC1E4D2775B2B60092A0E1 /* EmployeeEnableViewController.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -2604,6 +2608,7 @@
 				38BCD97523A3484300D59910 /* UIColorExtension.swift in Sources */,
 				3802A18F23C8520C00CD2EF2 /* SalesViewController.swift in Sources */,
 				38BCDA0323A367D000D59910 /* ApiFailErrorView.swift in Sources */,
+				0ADC1E4F2775B2B60092A0E1 /* EmployeeEnableViewController.swift in Sources */,
 				A1DB93E424066EC500AE427C /* WebViewTourShareResponse.swift in Sources */,
 				06AA65912418E6EA001CDA37 /* SearchEmptyCell.swift in Sources */,
 				0A276BB7276ACC09000C3875 /* RegisterBasicInfoRequest.swift in Sources */,
@@ -2867,6 +2872,7 @@
 				38BCD97623A3484300D59910 /* UIColorExtension.swift in Sources */,
 				3802A19023C8520C00CD2EF2 /* SalesViewController.swift in Sources */,
 				38BCDA0423A367D000D59910 /* ApiFailErrorView.swift in Sources */,
+				0ADC1E502775B2B60092A0E1 /* EmployeeEnableViewController.swift in Sources */,
 				A1DB93E524066EC500AE427C /* WebViewTourShareResponse.swift in Sources */,
 				06AA65922418E6EA001CDA37 /* SearchEmptyCell.swift in Sources */,
 				0A276BB8276ACC09000C3875 /* RegisterBasicInfoRequest.swift in Sources */,

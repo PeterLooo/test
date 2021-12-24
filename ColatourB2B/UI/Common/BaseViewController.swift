@@ -812,6 +812,14 @@ extension BaseViewController {
             
         case .salesPage:
             vc = getVC(st: "Sales", vc: "SalesViewController") as! SalesViewController
+        
+        case .notOpenAssignment:
+            
+            let viewController = getVC(st: "Login", vc: "EmployeeEnableViewController") as! EmployeeEnableViewController
+            let nav = UINavigationController(rootViewController: viewController)
+            nav.modalPresentationStyle = .fullScreen
+            self.navigationController?.present(nav, animated: true)
+            return
             
         case .getApiUrlThenOpenAppWebView:
             self.basePresenter?.getAccessWebUrl(webUrl: linkValue!, title: linkText ?? "", openBrowserOrAppWebView: .openAppWebView)

@@ -161,6 +161,73 @@
             </objects>
             <point key="canvasLocation" x="104.8" y="95.802098950524751"/>
         </scene>
+        <!--Employee Enable View Controller-->
+        <scene sceneID="cMN-m7-RbR">
+            <objects>
+                <viewController storyboardIdentifier="EmployeeEnableViewController" id="AVs-ti-UBF" customClass="EmployeeEnableViewController" customModule="ColatourB2B" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LHE-XE-gK0">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="b2b_block" translatesAutoresizingMaskIntoConstraints="NO" id="Kl5-hl-Ozc">
+                                <rect key="frame" x="130" y="60" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="jxL-1m-cHh"/>
+                                    <constraint firstAttribute="width" constant="60" id="mR8-1C-ieQ"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="很抱歉..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hua-lx-OAd">
+                                <rect key="frame" x="112" y="136" width="96" height="35"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="25"/>
+                                <color key="textColor" red="0.43137254901960786" green="0.43137254901960786" blue="0.43137254901960786" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="可樂員工不開放此作業！" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T0C-8m-jjQ">
+                                <rect key="frame" x="77.5" y="171" width="165" height="21"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M0V-9a-9CD">
+                                <rect key="frame" x="16" y="232" width="288" height="40"/>
+                                <color key="backgroundColor" name="按鈕背景綠"/>
+                                <accessibility key="accessibilityConfiguration" identifier="login"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="BUN-Cc-6xw"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="15"/>
+                                <state key="normal" title="完成">
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onTouchEnd:" destination="AVs-ti-UBF" eventType="touchUpInside" id="eAX-cG-SRe"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="enW-65-oKc"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="T0C-8m-jjQ" firstAttribute="centerX" secondItem="enW-65-oKc" secondAttribute="centerX" id="8a3-PQ-Csl"/>
+                            <constraint firstItem="hua-lx-OAd" firstAttribute="top" secondItem="Kl5-hl-Ozc" secondAttribute="bottom" constant="16" id="Lgb-3N-IGy"/>
+                            <constraint firstItem="M0V-9a-9CD" firstAttribute="leading" secondItem="enW-65-oKc" secondAttribute="leading" constant="16" id="YuT-hi-KQN"/>
+                            <constraint firstItem="T0C-8m-jjQ" firstAttribute="top" secondItem="hua-lx-OAd" secondAttribute="bottom" id="aaJ-qV-m6r"/>
+                            <constraint firstItem="hua-lx-OAd" firstAttribute="centerX" secondItem="enW-65-oKc" secondAttribute="centerX" id="gCb-Ii-Hil"/>
+                            <constraint firstItem="M0V-9a-9CD" firstAttribute="top" secondItem="T0C-8m-jjQ" secondAttribute="bottom" constant="40" id="gT9-zF-L9R"/>
+                            <constraint firstItem="enW-65-oKc" firstAttribute="trailing" secondItem="M0V-9a-9CD" secondAttribute="trailing" constant="16" id="iFE-cc-JcP"/>
+                            <constraint firstItem="Kl5-hl-Ozc" firstAttribute="top" secondItem="enW-65-oKc" secondAttribute="top" constant="60" id="lSx-9A-P0s"/>
+                            <constraint firstItem="Kl5-hl-Ozc" firstAttribute="centerX" secondItem="enW-65-oKc" secondAttribute="centerX" id="nvb-kf-RT0"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Yv-O2-kfg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="819" y="95"/>
+        </scene>
     </scenes>
     <designables>
         <designable name="aHi-Fs-E0x">
@@ -168,6 +235,7 @@
         </designable>
     </designables>
     <resources>
+        <image name="b2b_block" width="60" height="60"/>
         <image name="bab_login_logo" width="245" height="66"/>
         <image name="member_code_hide" width="20" height="20"/>
         <image name="member_code_reveal" width="20" height="20"/>
