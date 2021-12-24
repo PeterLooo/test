@@ -28,19 +28,13 @@ class ChangeCompanyViewController: BaseViewControllerMVVM {
     override func viewDidLoad() {
         super.viewDidLoad()
         setTitle()
-        
+        setTabBarType(tabBarType: .hidden)
         tableView.register(UINib(nibName: "ChangeCompanyCell", bundle: nil), forCellReuseIdentifier: "ChangeCompanyCell")
         tableView.register(UINib(nibName: "ChangeMemberInfoCell", bundle: nil), forCellReuseIdentifier: "ChangeMemberInfoCell")
         tableView.register(UINib(nibName: "EmployeeDisableCell", bundle: nil), forCellReuseIdentifier: "EmployeeDisableCell")
         setKeyboardShow()
         bindViewModel()
         loadData()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        self.setTabBarType(tabBarType: .hidden)
-        super.viewWillAppear(animated)
-        
     }
     
     override func loadData() {

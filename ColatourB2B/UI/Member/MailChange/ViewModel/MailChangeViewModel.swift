@@ -35,13 +35,13 @@ class MailChangeViewModel: BaseViewModel {
         }
     }
     
-    
     var emailChangeType: LoginEmailChangeType? {
         didSet{
             
             deterType()
         }
     }
+    
     private var befortType: LoginEmailChangeType? {
         didSet{
             deterType()
@@ -76,6 +76,7 @@ class MailChangeViewModel: BaseViewModel {
             }
         }
     }
+    
     var editingEmailCellViewModel: EditingEmailCellViewModel? {
         didSet{
             
@@ -123,8 +124,6 @@ class MailChangeViewModel: BaseViewModel {
         super.init()
         
         self.emailChangeType = type
-        deterType()
-        
     }
     
     func getCorrectEmailInti() {
@@ -177,7 +176,7 @@ class MailChangeViewModel: BaseViewModel {
         }
     }
     
-    func deterType(){
+    private func deterType(){
         
         switch emailChangeType {
         case .changeEmail:

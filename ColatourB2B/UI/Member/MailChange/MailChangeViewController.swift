@@ -103,12 +103,15 @@ extension MailChangeViewController {
         viewModel?.updateTableView = { [weak self] in
             switch self?.viewModel?.emailChangeType {
             case .editingEmail, .sendKey:
-                self?.setNavBarItem(left: .custom, mid: .textTitle, right: .nothing)
-
-                let newBackButton = UIBarButtonItem(image: #imageLiteral(resourceName: "arrow_back_purple"), style: .plain, target: self, action: #selector(self?.back(sender:)))
-                newBackButton.imageInsets = UIEdgeInsets(top: 1, left: -7, bottom: 0, right: 0)
-                self?.setCustomLeftBarButtonItem(barButtonItem: newBackButton)
-                self?.setBarTypeLayoutImmediately()
+                if self?.navigationController?.viewControllers.filter({$0.restorationIdentifier == "ChangeCompanyViewController"}) == nil { // 因為會從登入與會員資料修改進來所以判斷back事件
+                    self?.setNavBarItem(left: .custom, mid: .textTitle, right: .nothing)
+                    
+                    let newBackButton = UIBarButtonItem(image: #imageLiteral(resourceName: "arrow_back_purple"), style: .plain, target: self, action: #selector(self?.back(sender:)))
+                    newBackButton.imageInsets = UIEdgeInsets(top: 1, left: -7, bottom: 0, right: 0)
+                    self?.setCustomLeftBarButtonItem(barButtonItem: newBackButton)
+                    self?.setBarTypeLayoutImmediately()
+                }
+                
             default :
                 self?.setNavBarItem(left: .defaultType, mid: .textTitle, right: .nothing)
                 self?.setBarTypeLayoutImmediately()
