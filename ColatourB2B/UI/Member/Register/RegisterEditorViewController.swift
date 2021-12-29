@@ -40,11 +40,10 @@ extension RegisterEditorViewController: UITextFieldDelegate {
         return true
     }
     
-    func textFieldDidBeginEditing(_ textField: UITextField) {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
         self.edtior.someController?.setErrorText(nil, errorAccessibilityValue: nil)
-        self.edtior.text = ""
-        self.edtiorInfo.isHidden = false
+        return true
     }
 }
 

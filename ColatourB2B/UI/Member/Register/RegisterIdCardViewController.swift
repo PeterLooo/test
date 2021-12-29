@@ -40,7 +40,7 @@ class RegisterIdCardViewController: BaseViewControllerMVVM {
     }
     
     @IBAction func onTouchBack(_ sender: Any) {
-        self.dismiss(animated: true)
+        self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func onTouchNext(_ sender: Any) {

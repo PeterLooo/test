@@ -20,17 +20,12 @@ class RegisterCompanyViewModel: BaseViewModel {
     
     var companyId: String?
     
+    var setError: ((String, String) -> ())?
     var endEditing: (()->())?
     var presentPickerView: ((Bool)->())?
     var setBusinessType: ((String)->())?
     var setCity: ((String, Bool)->())?
     var setDistrict: ((String)->())?
-    var setApplicant: ((String)->())?
-    var setPrincipal: ((String)->())?
-    var setCompany: ((String)->())?
-    var setCompanyArea: ((String)->())?
-    var setCompanyPhoneError: ((String)->())?
-    var setCompanyFaxError: ((String)->())?
     var updatePickerView: (([ShareOption], NSTextAlignment, String?)->())?
     var setToast: ((String) -> ())?
     var pushToVC: ((UIViewController) -> ())?
@@ -126,39 +121,39 @@ class RegisterCompanyViewModel: BaseViewModel {
         let request = RegisterCompanyRequest.init(senderName: applicant ?? "", companyIdno: companyId ?? "", bossName: principal ?? "", companyName: company ?? "", businessType: businessType ?? "", zoneCode: cityCode ?? "", zoneName: city ?? "", zipCode: districtCode ?? "", zipName: district ?? "", companyAddress: companyArea ?? "", companyPhoneZone: companyAreaCode ?? "", companyPhoneNo: companyPhone ?? "", companyFaxZone: companyFaxAreaCode ?? "" , companyFaxNo: companyFaxPhone ?? "")
         
         if applicant.isNilOrEmpty == true {
-            setApplicant?("請填寫申請人")
+            setError?("Sender_Name", "請填寫申請人")
             return
         }
         if principal.isNilOrEmpty == true {
-            setPrincipal?("請填寫負責人")
+            setError?("Boss_Name", "請填寫負責人")
             return
         }
         if company.isNilOrEmpty == true {
-            setCompany?("請填寫公司名稱")
+            setError?("Company_Name", "請填寫公司名稱")
             return
         }
         if businessType.isNilOrEmpty == true {
-            setToast?("請選擇營業種類")
+            setError?("Business_Type", "請選擇營業種類")
             return
         }
         if city.isNilOrEmpty == true {
-            setToast?("請選擇區域")
+            setError?("Zone_Name", "請選擇區域")
             return
         }
         if district.isNilOrEmpty == true {
-            setToast?("請選擇鄉鎮市區")
+            setError?("Zip_Name", "請選擇鄉鎮市區")
             return
         }
         if companyArea.isNilOrEmpty == true {
-            setCompanyArea?("請填寫公司地址")
+            setError?("Company_Address", "請填寫公司地址")
             return
         }
         if companyAreaCode.isNilOrEmpty == true || companyPhone.isNilOrEmpty == true {
-            setCompanyPhoneError?("請填寫公司電話")
+            setError?("Company_Phone_No", "請填寫公司電話")
             return
         }
         if companyFaxAreaCode.isNilOrEmpty == true || companyFaxPhone.isNilOrEmpty == true {
-            setCompanyFaxError?("請填寫傳真電話")
+            setError?("Company_Fax_No", "請填寫傳真電話")
             return
         }
         
@@ -282,29 +277,29 @@ extension RegisterCompanyViewModel {
         model.errorMsgList?.forEach{ name in
             switch name.columnName {
             case "Sender_Name":
-                self.setApplicant?(name.errorMessage ?? "")
+                setError?("Sender_Name", name.errorMessage ?? "")
             case "Company_Idno":
-                self.setToast?(name.errorMessage ?? "")
+                setError?("Company_Idno", name.errorMessage ?? "")
             case "Boss_Name":
-                self.setPrincipal?(name.errorMessage ?? "")
+                setError?("Boss_Name", name.errorMessage ?? "")
             case "Company_Name":
-                self.setCompany?(name.errorMessage ?? "")
+                setError?("Company_Name", name.errorMessage ?? "")
             case "Business_Type":
-                self.setToast?(name.errorMessage ?? "")
+                setError?("Business_Type", name.errorMessage ?? "")
             case "Zone_Code","Zone_Name":
-                self.setToast?(name.errorMessage ?? "")
+                setError?("Zone_Code", name.errorMessage ?? "")
             case "Zip_Code","Zip_Name":
-                self.setToast?(name.errorMessage ?? "")
+                setError?("Zip_Code", name.errorMessage ?? "")
             case "Company_Address":
-                self.setCompanyArea?(name.errorMessage ?? "")
+                setError?("Company_Address", name.errorMessage ?? "")
             case "Company_Phone_Zone", "Company_Phone_No":
                 if phoneError.isEmpty == false { phoneError.append("\n") }
                 phoneError += "\(name.errorMessage ?? "")"
-                phoneError.isEmpty == false ? setCompanyPhoneError?(phoneError) : ()
+                phoneError.isEmpty == false ? setError?("Company_Phone_No", name.errorMessage ?? "") : ()
             case "Company_Fax_Zone", "Company_Fax_No":
                 if faxError.isEmpty == false { faxError.append("\n") }
                 faxError += "\(name.errorMessage ?? "")"
-                faxError.isEmpty == false ? setCompanyFaxError?(faxError) : ()
+                faxError.isEmpty == false ? setError?("Company_Fax_No", name.errorMessage ?? "") : ()
             default:
                 break
             }

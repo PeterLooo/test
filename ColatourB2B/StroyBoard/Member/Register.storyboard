@@ -860,7 +860,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Pp5-OB-3g4">
-                                        <rect key="frame" x="16" y="47.5" width="382" height="985.5"/>
+                                        <rect key="frame" x="16" y="47.5" width="382" height="997"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="任職旅行社" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YPN-Yc-vZG" customClass="CustomTextField" customModule="ColatourB2B" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="382" height="34"/>
@@ -878,7 +878,7 @@
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="＊密碼" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nmq-lx-bwL" customClass="CustomTextField" customModule="ColatourB2B" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="382" height="50"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" textContentType="password"/>
+                                                        <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                                     </textField>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="請輸入8碼～20碼大小寫英文字母或阿拉伯數字" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TsI-ed-U0l">
                                                         <rect key="frame" x="0.0" y="31.5" width="270.5" height="18.5"/>
@@ -893,7 +893,7 @@
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="image" keyPath="selectImage" value="member_code_reveal"/>
                                                             <userDefinedRuntimeAttribute type="image" keyPath="nonSelecImage" value="member_code_hide"/>
-                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSelect" value="YES"/>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSelect" value="NO"/>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
                                                             <action selector="onTouchWatchPassword:" destination="0Th-bF-3y3" eventType="touchUpInside" id="RBS-dE-hSK"/>
@@ -985,7 +985,7 @@
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lCL-R2-TNx" userLabel="Gender View">
-                                                <rect key="frame" x="0.0" y="302" width="382" height="69.5"/>
+                                                <rect key="frame" x="0.0" y="302" width="382" height="81"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="＊性別" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jf6-Ka-JMT">
                                                         <rect key="frame" x="0.0" y="0.0" width="39" height="18.5"/>
@@ -1033,20 +1033,28 @@
                                                             <action selector="onTouchMan:" destination="0Th-bF-3y3" eventType="touchUpInside" id="l2B-8g-aUP"/>
                                                         </connections>
                                                     </button>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RHA-2F-JR9">
+                                                        <rect key="frame" x="0.0" y="65.5" width="0.0" height="15.5"/>
+                                                        <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="11"/>
+                                                        <color key="textColor" systemColor="systemRedColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
+                                                    <constraint firstItem="RHA-2F-JR9" firstAttribute="bottom" secondItem="lCL-R2-TNx" secondAttribute="bottom" id="0QV-4k-3Hk"/>
                                                     <constraint firstAttribute="trailing" secondItem="805-6D-1HG" secondAttribute="trailing" constant="90" id="AkW-LB-4OK"/>
                                                     <constraint firstItem="Jf6-Ka-JMT" firstAttribute="top" secondItem="lCL-R2-TNx" secondAttribute="top" id="EyL-Vq-tZj"/>
+                                                    <constraint firstItem="RHA-2F-JR9" firstAttribute="leading" secondItem="lCL-R2-TNx" secondAttribute="leading" id="HvI-8P-UcE"/>
                                                     <constraint firstItem="K7d-4s-N35" firstAttribute="top" secondItem="Jf6-Ka-JMT" secondAttribute="bottom" constant="10" id="L1w-8Y-bAs"/>
                                                     <constraint firstItem="Jf6-Ka-JMT" firstAttribute="leading" secondItem="lCL-R2-TNx" secondAttribute="leading" id="Sue-EP-kE3"/>
                                                     <constraint firstItem="K7d-4s-N35" firstAttribute="leading" secondItem="lCL-R2-TNx" secondAttribute="leading" constant="10" id="cG6-6q-GG0"/>
+                                                    <constraint firstItem="K7d-4s-N35" firstAttribute="bottom" secondItem="RHA-2F-JR9" secondAttribute="top" constant="-6" id="i70-yg-j0z"/>
                                                     <constraint firstItem="805-6D-1HG" firstAttribute="centerY" secondItem="K7d-4s-N35" secondAttribute="centerY" id="iJ6-0E-zTX"/>
-                                                    <constraint firstAttribute="bottom" secondItem="K7d-4s-N35" secondAttribute="bottom" constant="10" id="r3m-2N-AQy"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KJ4-0r-3E1">
-                                                <rect key="frame" x="0.0" y="371.5" width="382" height="80"/>
+                                                <rect key="frame" x="0.0" y="383" width="382" height="80"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="＊出生日期" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BKu-hL-1gF" customClass="CustomTextField" customModule="ColatourB2B" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="382" height="80"/>
@@ -1064,7 +1072,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fcO-dq-GD1" userLabel="Email View">
-                                                <rect key="frame" x="0.0" y="451.5" width="382" height="100"/>
+                                                <rect key="frame" x="0.0" y="463" width="382" height="100"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="＊電子郵件" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NBP-ys-aNw" customClass="CustomTextField" customModule="ColatourB2B" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="382" height="68.5"/>
@@ -1090,7 +1098,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3eU-aW-p60" userLabel="CompanyPhoneAndArea">
-                                                <rect key="frame" x="0.0" y="551.5" width="382" height="102.5"/>
+                                                <rect key="frame" x="0.0" y="563" width="382" height="102.5"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="HfQ-UA-QdC" userLabel="PhoneStackView">
                                                         <rect key="frame" x="0.0" y="18.5" width="382" height="34"/>
@@ -1152,12 +1160,12 @@
                                                 </constraints>
                                             </view>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="＊手機號碼" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YoA-xZ-Vqb" customClass="CustomTextField" customModule="ColatourB2B" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="654" width="382" height="34"/>
+                                                <rect key="frame" x="0.0" y="665.5" width="382" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                                             </textField>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oy4-Er-cAd" userLabel="Business View">
-                                                <rect key="frame" x="0.0" y="688" width="382" height="69.5"/>
+                                                <rect key="frame" x="0.0" y="699.5" width="382" height="69.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="＊主要往來業務" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EZQ-PH-krR">
                                                         <rect key="frame" x="0.0" y="0.0" width="91" height="18.5"/>
@@ -1218,7 +1226,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XK7-Th-v8B" userLabel="SourceView">
-                                                <rect key="frame" x="0.0" y="757.5" width="382" height="128"/>
+                                                <rect key="frame" x="0.0" y="769" width="382" height="128"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="24J-ga-HeV">
                                                         <rect key="frame" x="0.0" y="0.0" width="382" height="128"/>
@@ -1308,7 +1316,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LEp-7F-sGH" userLabel="CompanyAndName">
-                                                <rect key="frame" x="0.0" y="885.5" width="382" height="100"/>
+                                                <rect key="frame" x="0.0" y="897" width="382" height="100"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="sXx-EE-nw7" userLabel="PhoneStackView">
                                                         <rect key="frame" x="0.0" y="18.5" width="382" height="81.5"/>
@@ -1448,6 +1456,7 @@
                         <outlet property="emailSource" destination="x0u-x8-IDn" id="Qvm-nM-rHW"/>
                         <outlet property="emailView" destination="k7O-Hk-amj" id="Oev-tH-l5L"/>
                         <outlet property="female" destination="K7d-4s-N35" id="az3-VN-K0c"/>
+                        <outlet property="genderError" destination="RHA-2F-JR9" id="XaR-V3-5jj"/>
                         <outlet property="group" destination="UUE-3Y-LYA" id="sea-Xs-mlk"/>
                         <outlet property="holdAPost" destination="YPN-Yc-vZG" id="ZbX-l3-Yvk"/>
                         <outlet property="introCompanyAndNameView" destination="LEp-7F-sGH" id="1MJ-XA-BaZ"/>

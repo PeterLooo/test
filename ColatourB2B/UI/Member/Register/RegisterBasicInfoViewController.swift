@@ -25,6 +25,7 @@ class RegisterBasicInfoViewController: BaseViewControllerMVVM {
     @IBOutlet weak var passwordHintExample: UILabel!
     @IBOutlet weak var emailExample: UILabel!
     @IBOutlet weak var companyPhoneError: UILabel!
+    @IBOutlet weak var genderError: UILabel!
     @IBOutlet weak var female: BooleanButton!
     @IBOutlet weak var man: BooleanButton!
     @IBOutlet weak var group: BooleanButton!
@@ -48,7 +49,6 @@ class RegisterBasicInfoViewController: BaseViewControllerMVVM {
     
     private var viewModel: RegisterBasicInfoViewModel?
     private var pickerViewTop: NSLayoutConstraint!
-    
     private let datePicker : UIDatePicker = {
         let view = UIDatePicker()
         if #available(iOS 14.0, *) {
@@ -105,6 +105,12 @@ class RegisterBasicInfoViewController: BaseViewControllerMVVM {
         self.title = "密碼與基本資料"
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
     @IBAction func onTouchBack(_ sender: Any) {
         self.dismiss(animated: true)
     }
@@ -132,11 +138,13 @@ class RegisterBasicInfoViewController: BaseViewControllerMVVM {
     @IBAction func onTouchFemale(_ sender: Any) {
         self.female.isSelect = true
         self.man.isSelect = false
+        self.genderError.text = ""
     }
     
     @IBAction func onTouchMan(_ sender: Any) {
         self.man.isSelect = true
         self.female.isSelect = false
+        self.genderError.text = ""
     }
     
     @IBAction func onTouchGroup(_ sender: Any) {
@@ -150,10 +158,19 @@ class RegisterBasicInfoViewController: BaseViewControllerMVVM {
     
     @objc private func datePickerChanged(picker: UIDatePicker) {
         birthday.text = FormatUtil.convertDateToString(dateFormatTo: "yyyy/MM/dd", date: picker.date)
+        self.birthday.someController?.setErrorText(nil, errorAccessibilityValue: nil)
     }
     
     @objc private func onTouchDone() {
         datePickerChanged(picker: datePicker)
+        self.view.endEditing(true)
+    }
+}
+
+extension RegisterBasicInfoViewController: UIScrollViewDelegate {
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        pickerView.pickerView(pickerView, didSelectRow: pickerView.selectedRow(inComponent: 0), inComponent: 0)
         self.view.endEditing(true)
     }
 }
@@ -177,12 +194,15 @@ extension RegisterBasicInfoViewController {
         }
         
         viewModel?.presentPickerView = {[weak self] isPickerViewShow in
+            
+            self?.view.layoutIfNeeded()
+            
             let constant = isPickerViewShow ? -(self?.pickerView.frame.height)! - (self?.toolBarOnPickerView.frame.height)! : 0
             self?.pickerViewTop.constant = constant
             
-            UIView.animate(withDuration: 0.3) {
-                self?.view.layoutIfNeeded()
-            }
+            let scrollViewSize = (self?.scrollView.contentSize.height)! - (self?.scrollView.bounds.height)!
+            let bottomOffset = CGPoint(x: 0, y: isPickerViewShow ? scrollViewSize + (self?.pickerView.frame.height)! : scrollViewSize)
+            self?.scrollView.setContentOffset(bottomOffset, animated: true)
         }
         
         viewModel?.updatePickerView = { [weak self] list, textAlign, selectedKey in
@@ -219,69 +239,65 @@ extension RegisterBasicInfoViewController {
             self?.emailSource.text = key
         }
         
-        viewModel?.setErrorPassword = { [weak self] error in
-            self?.password.someController?.setErrorText(error, errorAccessibilityValue: nil)
-            self?.passwordExample.isHidden = true
-            self?.password.becomeFirstResponder()
-        }
-        
-        viewModel?.setErrorConfirmPassword = { [weak self] error in
-            self?.confirmPassword.someController?.setErrorText(error, errorAccessibilityValue: nil)
-            self?.confirmPasswordExample.isHidden = true
-            self?.confirmPassword.becomeFirstResponder()
-        }
-        
-        viewModel?.setErrorPasswordHint = { [weak self] error in
-            self?.passwordHint.someController?.setErrorText(error, errorAccessibilityValue: nil)
-            self?.passwordHintExample.isHidden = true
-            self?.passwordHint.becomeFirstResponder()
-        }
-        
-        viewModel?.setErrorChineseName = { [weak self] error in
-            self?.chineseName.someController?.setErrorText(error, errorAccessibilityValue: nil)
-            self?.chineseName.becomeFirstResponder()
-        }
-        
-        viewModel?.setErrorEmail = { [weak self] error in
-            self?.email.someController?.setErrorText(error, errorAccessibilityValue: nil)
-            self?.emailExample.isHidden = true
-            self?.email.becomeFirstResponder()
-        }
-        
-        viewModel?.setErrorCellPhone = { [weak self] error in
-            self?.cellPhone.someController?.setErrorText(error, errorAccessibilityValue: nil)
-            self?.cellPhone.becomeFirstResponder()
-        }
-        
-        viewModel?.setErrorBirthday = { [weak self] error in
-            self?.birthday.someController?.setErrorText(error, errorAccessibilityValue: nil)
-            self?.birthday.becomeFirstResponder()
-        }
-        
-        viewModel?.setToast = { [weak self] error in
-            self?.toast(text: error)
-        }
-        
-        viewModel?.setErrorIntroCompanyName = { [weak self] error in
-            self?.introCompanyName.someController?.setErrorText(error, errorAccessibilityValue: nil)
-            self?.introCompanyName.becomeFirstResponder()
-        }
-        
-        viewModel?.setErrorIntroName = { [weak self] error in
-            self?.introName.someController?.setErrorText(error, errorAccessibilityValue: nil)
-            self?.introName.becomeFirstResponder()
-        }
-        
         viewModel?.pushToVC = { [weak self] vc in
             self?.navigationController?.pushViewController(vc, animated: true)
         }
         
-        viewModel?.setErrorPhone = { [weak self] error in
-            self?.companyArea.someController?.setErrorText("", errorAccessibilityValue: nil)
-            self?.companyPhone.someController?.setErrorText("", errorAccessibilityValue: nil)
-            self?.companyPhoneExt.someController?.setErrorText("", errorAccessibilityValue: nil)
-            self?.companyPhoneError.isHidden = false
-            self?.companyPhoneError.text = error
+        viewModel?.setError = { [weak self] textField, error in
+            
+            switch textField {
+            case "Company_Idno":
+                self?.toast(text: error)
+            case "Member_Idno":
+                self?.toast(text: error)
+            case "Member_Password":
+                self?.password.someController?.setErrorText(error, errorAccessibilityValue: nil)
+                self?.passwordExample.isHidden = true
+                self?.password.becomeFirstResponder()
+            case "Password_Identify":
+                self?.confirmPassword.someController?.setErrorText(error, errorAccessibilityValue: nil)
+                self?.confirmPasswordExample.isHidden = true
+                self?.confirmPassword.becomeFirstResponder()
+            case "Password_Reminder":
+                self?.passwordHint.someController?.setErrorText(error, errorAccessibilityValue: nil)
+                self?.passwordHintExample.isHidden = true
+                self?.passwordHint.becomeFirstResponder()
+            case "Member_Name":
+                self?.chineseName.someController?.setErrorText(error, errorAccessibilityValue: nil)
+                self?.chineseName.becomeFirstResponder()
+            case "Member_Gender":
+                self?.genderError.text = "\(error)"
+            case "Member_Birthday":
+                self?.birthday.someController?.setErrorText(error, errorAccessibilityValue: nil)
+                self?.birthday.becomeFirstResponder()
+            case "Member_Email":
+                self?.email.someController?.setErrorText(error, errorAccessibilityValue: nil)
+                self?.emailExample.isHidden = true
+                self?.email.becomeFirstResponder()
+            case "Company_Phone_Zone", "Company_Phone_No", "Company_Phone_Ext":
+                self?.companyArea.someController?.setErrorText("", errorAccessibilityValue: nil)
+                self?.companyPhone.someController?.setErrorText("", errorAccessibilityValue: nil)
+                self?.companyPhoneExt.someController?.setErrorText("", errorAccessibilityValue: nil)
+                self?.companyPhoneError.isHidden = false
+                self?.companyPhoneError.text = error
+            case "Mobile_Phone":
+                self?.cellPhone.someController?.setErrorText(error, errorAccessibilityValue: nil)
+                self?.cellPhone.becomeFirstResponder()
+            case "Main_Biz":
+                self?.toast(text: error)
+            case "Channel_Type":
+                self?.toast(text: error)
+            case "Media_Idno":
+                self?.introCompanyName.someController?.setErrorText(error, errorAccessibilityValue: nil)
+                self?.introCompanyName.becomeFirstResponder()
+            case "Media_Name":
+                self?.introName.someController?.setErrorText(error, errorAccessibilityValue: nil)
+                self?.introName.becomeFirstResponder()
+            case "Media_Email":
+                self?.toast(text: error)
+            default:
+                break
+            }
         }
     }
     
@@ -317,6 +333,7 @@ extension RegisterBasicInfoViewController {
         self.cellPhone.delegate = self
         self.introCompanyName.delegate = self
         self.introName.delegate = self
+        self.scrollView.delegate = self
         
         self.backButton.layer.borderColor = ColorHexUtil.hexColor(hex: "#19BF62").cgColor
         
@@ -368,6 +385,7 @@ extension RegisterBasicInfoViewController {
     
     @objc private func onTouchPickerViewDone() {
         pickerView.pickerView(pickerView, didSelectRow: pickerView.selectedRow(inComponent: 0), inComponent: 0)
+        viewModel?.setScrollView()
         viewModel?.setInputFieldType(inputFieldType: nil)
     }
 }
@@ -411,6 +429,9 @@ extension RegisterBasicInfoViewController: UITextFieldDelegate {
             
         case cellPhone:
             self.cellPhone.someController?.setErrorText(nil, errorAccessibilityValue: nil)
+            
+        case birthday:
+            self.birthday.someController?.setErrorText(nil, errorAccessibilityValue: nil)
             
         case introCompanyName:
             self.introCompanyName.someController?.setErrorText(nil, errorAccessibilityValue: nil)

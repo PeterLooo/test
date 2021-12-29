@@ -30,17 +30,7 @@ class RegisterBasicInfoViewModel: BaseViewModel {
     var presentPickerView: ((Bool)->())?
     var updatePickerView: (([ShareOption], NSTextAlignment, String?)->())?
     
-    var setErrorPassword: ((String)->())?
-    var setErrorConfirmPassword: ((String)->())?
-    var setErrorPasswordHint: ((String)->())?
-    var setErrorChineseName: ((String)->())?
-    var setErrorEmail: ((String)->())?
-    var setErrorCellPhone: ((String)->())?
-    var setErrorIntroName: ((String)->())?
-    var setErrorIntroCompanyName: ((String)->())?
-    var setErrorBirthday: ((String)->())?
-    var setErrorPhone: ((String)->())?
-    var setToast: ((String)->())?
+    var setError: ((String, String) -> ())?
     var pushToVC: ((UIViewController) -> ())?
     
     private let registerRepository = RegisterRepository.shared
@@ -83,59 +73,59 @@ class RegisterBasicInfoViewModel: BaseViewModel {
         var mediaName: String?
         
         if password.isEmpty {
-            setErrorPassword?("請輸入密碼")
+            setError?("Member_Password", "請輸入密碼")
             return
         }
         if confirmPassword.isEmpty {
-            setErrorConfirmPassword?("請輸入確認密碼")
+            setError?("Password_Identify", "請輸入確認密碼")
             return
         }
         if passwordHint.isEmpty {
-            setErrorPasswordHint?("請輸入密碼提示")
+            setError?("Password_Reminder", "請輸入密碼提示")
             return
         }
         if chineseName.isEmpty {
-            setErrorChineseName?("請輸入中文姓名")
-            return
-        }
-        if email.isEmpty {
-            setErrorEmail?("請輸入電子郵件")
+            setError?("Member_Name", "請輸入中文姓名")
             return
         }
         if female.isEmpty && man.isEmpty {
-            setToast?("請選擇性別")
+            setError?("Member_Gender", "請輸入性別")
             return
         }
         if birthday.isEmpty {
-            setErrorBirthday?("請選擇出生日期")
+            setError?("Member_Birthday", "請選擇出生日期")
             return
         }
-        if companyArea.isEmpty || companyPhone.isEmpty || companyPhoneExt.isEmpty {
-            setErrorPhone?("請輸入電話號碼")
+        if email.isEmpty {
+            setError?("Member_Email", "請輸入電子郵件")
+            return
+        }
+        if companyArea.isEmpty || companyPhone.isEmpty {
+            setError?("Company_Phone_No", "請輸入電話號碼")
             return
         }
         if cellPhone.isEmpty {
-            setErrorCellPhone?("請輸入電話")
+            setError?("Mobile_Phone", "請輸入電話")
             return
         }
         if group.isEmpty && ticket.isEmpty {
-            setToast?("請輸入主要往來業務")
+            setError?("Main_Biz", "請輸入主要往來業務")
             return
         }
         if password != confirmPassword {
-            setErrorConfirmPassword?("密碼與確認密碼不相符")
+            setError?("Password_Identify", "密碼與確認密碼不相符")
             return
         }
         
         switch sourceType {
         case "業務拜訪","同業推薦":
             if introCompanyName.isEmpty {
-                setErrorIntroCompanyName?("請輸入公司名稱")
+                setError?("Media_Idno", "請輸入公司名稱")
                 return
             }
             
             if introName.isEmpty {
-                setErrorIntroName?("請輸入姓名")
+                setError?("Media_Name", "請輸入姓名")
                 return
             }
             
@@ -143,11 +133,11 @@ class RegisterBasicInfoViewModel: BaseViewModel {
             mediaName = introName
         case "電子郵件":
             if emailKey.isNilOrEmpty {
-                setToast?("請選擇電子郵件")
+                setError?("Media_Email", "請選擇電子郵件")
                 return
             }
             mediaIdno = emailKey
-            mediaName = emailValue
+            mediaName = emailValue ?? ""
             
         case "ＤＭ文宣","同業媒體":
             mediaIdno = ""
@@ -155,7 +145,7 @@ class RegisterBasicInfoViewModel: BaseViewModel {
             break
             
         default:
-            setToast?("請選擇消息來源")
+            setError?("Channel_Type", "請選擇消息來源")
             return
         }
         
@@ -180,16 +170,6 @@ class RegisterBasicInfoViewModel: BaseViewModel {
         case .source:
             
             self.sourceType = key
-            
-            switch sourceType {
-            case "業務拜訪","同業推薦":
-                setCompanyAndNameView?(key)
-            case "電子郵件":
-                setEmailView?(key)
-            default:
-                setSourceView?(key)
-            }
-            
         case .email:
             
             let keyValue = emailShareOptionList.first{ $0.key == key }!
@@ -199,6 +179,17 @@ class RegisterBasicInfoViewModel: BaseViewModel {
             
         case nil:
             ()
+        }
+    }
+    
+    func setScrollView() {
+        switch sourceType {
+        case "業務拜訪","同業推薦":
+            setCompanyAndNameView?(sourceType!)
+        case "電子郵件":
+            setEmailView?(sourceType!)
+        default:
+            setSourceView?(sourceType!)
         }
     }
 }
@@ -301,37 +292,37 @@ extension RegisterBasicInfoViewModel {
         model.errorMsgList?.forEach{ name in
             switch name.columnName {
             case "Company_Idno":
-                self.setToast?(name.errorMessage ?? "")
+                self.setError?("Company_Idno", name.errorMessage ?? "")
             case "Member_Idno":
-                self.setToast?(name.errorMessage ?? "")
+                self.setError?("Member_Idno", name.errorMessage ?? "")
             case "Member_Password":
-                self.setErrorPassword?(name.errorMessage ?? "")
+                self.setError?("Member_Password", name.errorMessage ?? "")
             case "Password_Identify":
-                self.setErrorConfirmPassword?(name.errorMessage ?? "")
+                self.setError?("Password_Identify", name.errorMessage ?? "")
             case "Password_Reminder":
-                self.setErrorPasswordHint?(name.errorMessage ?? "")
+                self.setError?("Password_Reminder", name.errorMessage ?? "")
             case "Member_Name":
-                self.setErrorChineseName?(name.errorMessage ?? "")
+                self.setError?("Member_Name", name.errorMessage ?? "")
             case "Member_Gender":
-                self.setToast?(name.errorMessage ?? "")
+                self.setError?("Member_Gender", name.errorMessage ?? "")
             case "Member_Birthday":
-                self.setToast?(name.errorMessage ?? "")
+                self.setError?("Member_Birthday", name.errorMessage ?? "")
             case "Member_Email":
-                self.setErrorEmail?(name.errorMessage ?? "")
+                self.setError?("Member_Email", name.errorMessage ?? "")
             case "Company_Phone_Zone", "Company_Phone_No", "Company_Phone_Ext":
                 if phoneError.isEmpty == false { phoneError.append("\n") }
                 phoneError += "\(name.errorMessage ?? "")"
-                phoneError.isEmpty == false ? setErrorPhone?(phoneError) : ()
+                phoneError.isEmpty == false ? self.setError?("Company_Phone_No", name.errorMessage ?? "") : ()
             case "Mobile_Phone":
-                self.setErrorCellPhone?(name.errorMessage ?? "")
+                self.setError?("Mobile_Phone", name.errorMessage ?? "")
             case "Main_Biz":
-                self.setToast?(name.errorMessage ?? "")
+                self.setError?("Main_Biz", name.errorMessage ?? "")
             case "Channel_Type":
-                self.setToast?(name.errorMessage ?? "")
+                self.setError?("Channel_Type", name.errorMessage ?? "")
             case "Media_Idno":
-                sourceType == "電子郵件" ? self.setToast?("請輸入電子郵件") : self.setErrorIntroCompanyName?(name.errorMessage ?? "")
+                self.setError?((sourceType == "電子郵件" ? "Media_Email" : "Media_Idno"), name.errorMessage ?? "")
             case "Media_Name":
-                sourceType == "電子郵件" ? self.setToast?(name.errorMessage ?? "") : self.setErrorIntroName?(name.errorMessage ?? "")
+                self.setError?((sourceType == "電子郵件" ? "Media_Email" : "Media_Idno"), name.errorMessage ?? "")
             default:
                 break
             }

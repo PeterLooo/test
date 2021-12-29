@@ -72,6 +72,12 @@ class RegisterCompanyViewController: BaseViewControllerMVVM {
         self.id.text = viewModel?.companyId ?? ""
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
     @IBAction func onTouchNext(_ sender: Any) {
         
         viewModel?.onTouchNext(applicant: applicant.text,
@@ -86,7 +92,7 @@ class RegisterCompanyViewController: BaseViewControllerMVVM {
     }
     
     @IBAction func onTouchBack(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func onTouchBusinessType(_ sender: Any) {
@@ -123,6 +129,15 @@ class RegisterCompanyViewController: BaseViewControllerMVVM {
         UIView.animate(withDuration: 0.05, animations: {
             self.scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         })
+    }
+}
+
+extension RegisterCompanyViewController: UIScrollViewDelegate {
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        pickerView.pickerView(pickerView, didSelectRow: pickerView.selectedRow(inComponent: 0), inComponent: 0)
+        viewModel?.setInputFieldType(inputFieldType: nil)
+        self.view.endEditing(true)
     }
 }
 
@@ -182,45 +197,48 @@ extension RegisterCompanyViewController {
             self?.toast(text: toast)
         }
         
-        viewModel?.setApplicant = { [weak self] error in
-            self?.applicant.someController?.setErrorText(error, errorAccessibilityValue: nil)
-            self?.applicant.becomeFirstResponder()
-        }
-        
-        viewModel?.setPrincipal = { [weak self] error in
-            self?.principal.someController?.setErrorText(error, errorAccessibilityValue: nil)
-            self?.principal.becomeFirstResponder()
-        }
-        
-        viewModel?.setCompany = { [weak self] error in
-            self?.company.someController?.setErrorText(error, errorAccessibilityValue: nil)
-            self?.companyExample.isHidden = true
-            self?.company.becomeFirstResponder()
-        }
-        
-        viewModel?.setCompanyArea = { [weak self] error in
-            self?.companyArea.someController?.setErrorText(error, errorAccessibilityValue: nil)
-            self?.companyArea.becomeFirstResponder()
-        }
-        
-        viewModel?.setCompanyPhoneError = { [weak self] error in
-            self?.companyAreaCode.someController?.setErrorText("", errorAccessibilityValue: nil)
-            self?.companyPhone.someController?.setErrorText("", errorAccessibilityValue: nil)
-            self?.companyPhoneError.isHidden = false
-            self?.companyPhoneError.text = error
-            self?.companyAreaCode.becomeFirstResponder()
-        }
-        
-        viewModel?.setCompanyFaxError = { [weak self] error in
-            self?.companyFaxAreaCode.someController?.setErrorText("", errorAccessibilityValue: nil)
-            self?.companyFaxPhone.someController?.setErrorText("", errorAccessibilityValue: nil)
-            self?.companyFaxError.isHidden = false
-            self?.companyFaxError.text = error
-            self?.companyFaxPhone.becomeFirstResponder()
-        }
-        
         viewModel?.pushToVC = { [weak self] vc in
             self?.navigationController?.pushViewController(vc, animated: true)
+        }
+        
+        viewModel?.setError = { [weak self] textField, error in
+            switch textField {
+            case "Sender_Name":
+                self?.applicant.someController?.setErrorText(error, errorAccessibilityValue: nil)
+                self?.applicant.becomeFirstResponder()
+            case "Company_Idno":
+                self?.toast(text: error)
+            case "Boss_Name":
+                self?.principal.someController?.setErrorText(error, errorAccessibilityValue: nil)
+                self?.principal.becomeFirstResponder()
+            case "Company_Name":
+                self?.company.someController?.setErrorText(error, errorAccessibilityValue: nil)
+                self?.companyExample.isHidden = true
+                self?.company.becomeFirstResponder()
+            case "Business_Type":
+                self?.toast(text: error)
+            case "Zone_Code","Zone_Name":
+                self?.toast(text: error)
+            case "Zip_Code","Zip_Name":
+                self?.toast(text: error)
+            case "Company_Address":
+                self?.companyArea.someController?.setErrorText(error, errorAccessibilityValue: nil)
+                self?.companyArea.becomeFirstResponder()
+            case "Company_Phone_Zone", "Company_Phone_No":
+                self?.companyAreaCode.someController?.setErrorText("", errorAccessibilityValue: nil)
+                self?.companyPhone.someController?.setErrorText("", errorAccessibilityValue: nil)
+                self?.companyPhoneError.isHidden = false
+                self?.companyPhoneError.text = error
+                self?.companyAreaCode.becomeFirstResponder()
+            case "Company_Fax_Zone", "Company_Fax_No":
+                self?.companyFaxAreaCode.someController?.setErrorText("", errorAccessibilityValue: nil)
+                self?.companyFaxPhone.someController?.setErrorText("", errorAccessibilityValue: nil)
+                self?.companyFaxError.isHidden = false
+                self?.companyFaxError.text = error
+                self?.companyFaxPhone.becomeFirstResponder()
+            default:
+                break
+            }
         }
     }
     
@@ -252,6 +270,7 @@ extension RegisterCompanyViewController {
         self.city.delegate = self
         self.district.delegate = self
         self.businessType.delegate = self
+        self.scrollView.delegate = self
         
         let ges = UITapGestureRecognizer.init(target: self, action: #selector(dimissKeyBoard))
         view.addGestureRecognizer(ges)
