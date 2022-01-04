@@ -131,6 +131,20 @@ class LoginViewController: BaseViewController {
                 self?.memberIdno.becomeFirstResponder()
             }
         }
+        viewModel?.toEmailErrorVC = { [weak self] loginResponse in
+            let vc = self?.getVC(st: "Login", vc: "MailChangeViewController") as! MailChangeViewController
+//            UserDefaultUtil.shared.refreshToken = loginResponse.refreshToken
+//            UserDefaultUtil.shared.accessToken = loginResponse.accessToken
+            let viewModel = MailChangeViewModel.init(type: .changeEmail,
+                                                     loginResponse: loginResponse)
+            viewModel.setDefaultTabBar = { [weak self] () in
+                self?.viewModel?.setDefaultTabBar?()
+                self?.viewModel?.pushDevice()
+                self?.viewModel?.loginSuccessAction()
+            }
+            vc.setVC(viewModel: viewModel)
+            self?.navigationController?.pushViewController(vc, animated: true)
+        }
     }
 }
 

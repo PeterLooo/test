@@ -109,24 +109,32 @@ class MemberRepository: MemberRepositoryProtocol {
             .map{MemberData(JSON:$0)!}
     }
     
-    func correctEmailInit() -> Single<CorrectEmailInfo> {
-        let api = APIManager.shared.correctEmailInit()
-        return AccountRepository.shared.getAccessToken()
+    func correctEmailInit(refreshToken: String?, accessToken: String?) -> Single<CorrectEmailInfo> {
+        let api = APIManager.shared.correctEmailInit(accessToken: accessToken)
+        return AccountRepository.shared.getAccessToken(refreshToken: refreshToken , accessToken: accessToken)
             .flatMap{_ in api}
             .map{CorrectEmailInfo(JSON:$0)!}
     }
     
-    func correctEmailSend(email: String) -> Single<CorrectEmailInfo> {
-        let api = APIManager.shared.correctEmailSend(email: email)
-        return AccountRepository.shared.getAccessToken()
+    func correctEmailSend(email: String, refreshToken: String?, accessToken: String?) -> Single<CorrectEmailInfo> {
+        let api = APIManager.shared.correctEmailSend(email: email, accessToken: accessToken)
+        return AccountRepository.shared.getAccessToken(refreshToken: refreshToken , accessToken: accessToken)
             .flatMap{_ in api}
             .map{CorrectEmailInfo(JSON:$0)!}
     }
     
-    func  correntEmailComfirem(confirmCode: String) -> Single<CorrectEmailInfo> {
-        let api = APIManager.shared.correntEmailComfirem(confirmCode: confirmCode)
-        return AccountRepository.shared.getAccessToken()
+    func  correntEmailComfirem(confirmCode: String, refreshToken: String?, accessToken: String?) -> Single<CorrectEmailInfo> {
+        let api = APIManager.shared.correntEmailComfirem(confirmCode: confirmCode, accessToken: accessToken)
+        return AccountRepository.shared.getAccessToken(refreshToken: refreshToken , accessToken: accessToken)
             .flatMap{_ in api}
             .map{CorrectEmailInfo(JSON:$0)!}
+    }
+    
+    func loginFirst(emailMark: Bool, pageId: String, refreshToken: String? ,accessToken: String?) -> Single<BaseModel> {
+        let api = APIManager.shared.loginFirst(emailMark: emailMark, pageId: pageId, accessToken: accessToken)
+        
+        return AccountRepository.shared.getAccessToken(refreshToken: refreshToken , accessToken: accessToken)
+            .flatMap{_ in api}
+            .map{BaseModel(JSON:$0)!}
     }
 }

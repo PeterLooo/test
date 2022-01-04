@@ -14,6 +14,8 @@ class LoginViewModel: BaseViewModel {
     let accountRepository = AccountRepository.shared
     var setToastText: ((String)->())?
     var presentModifyVC: ((String,String,String)->())?
+    var toEmailErrorVC: ((LoginResponse)->())?
+    var toCompanyChange: ((LoginResponse)->())?
     var setDefaultTabBar: (()->())?
     var dismissLoginView: (()->())?
     var onLoginSuccess: (()->())?
@@ -62,6 +64,10 @@ class LoginViewModel: BaseViewModel {
                                   loginResponse.refreshToken!,
                                   loginResponse.loginMessage!)
             
+        } else if loginResponse.linkType == .emailError {
+            self.toEmailErrorVC?(loginResponse)
+        } else if loginResponse.linkType == .companyError {
+            self.toCompanyChange?(loginResponse)
         } else {
             self.setDefaultTabBar?()
             pushDevice()

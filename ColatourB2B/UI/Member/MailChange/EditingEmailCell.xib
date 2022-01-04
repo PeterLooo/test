@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -18,10 +18,22 @@
                 <rect key="frame" x="0.0" y="0.0" width="321" height="350"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="輸入新的電子信箱後，請按﹝測試收信功能﹞我們將立即寄出一封測試收信功能的信件到您的指定的電子郵件信箱。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9QB-aL-Dht">
-                        <rect key="frame" x="16" y="24" width="289" height="138"/>
-                        <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="15"/>
-                        <color key="textColor" name="陰影灰 333333"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9QB-aL-Dht">
+                        <rect key="frame" x="16" y="24" width="289" height="72"/>
+                        <attributedString key="attributedText">
+                            <fragment content="輸入新的電子信箱後，請按">
+                                <attributes>
+                                    <color key="NSColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <font key="NSFont" size="15" name="PingFangTC-Semibold"/>
+                                </attributes>
+                            </fragment>
+                            <fragment content="﹝測試收信功能﹞">
+                                <attributes>
+                                    <color key="NSColor" red="0.9882352941176471" green="0.29803921568627451" blue="0.0078431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <font key="NSFont" size="15" name="PingFangTC-Semibold"/>
+                                </attributes>
+                            </fragment>
+                        </attributedString>
                         <nil key="highlightedColor"/>
                     </label>
                     <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="原註冊電子郵件信箱" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="kp9-tI-ROE" customClass="CustomTextField" customModule="ColatourB2B" customModuleProvider="target">
@@ -33,7 +45,7 @@
                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="新的電子郵件信箱" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="FX9-0O-KrJ" customClass="CustomTextField" customModule="ColatourB2B" customModuleProvider="target">
                         <rect key="frame" x="16" y="236" width="289" height="34"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                        <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="alphabet" returnKeyType="next"/>
+                        <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress" returnKeyType="next"/>
                     </textField>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TJt-9K-8dl">
                         <rect key="frame" x="16" y="290" width="289" height="40"/>
@@ -54,20 +66,35 @@
                             <action selector="testEmailAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="bIZ-QR-zWv"/>
                         </connections>
                     </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JyE-1B-kWO">
+                        <rect key="frame" x="16" y="120" width="289" height="42"/>
+                        <attributedString key="attributedText">
+                            <fragment content="我們將立即寄出一封測試收信功能的信件到您的指定的電子郵件信箱。">
+                                <attributes>
+                                    <color key="NSColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <font key="NSFont" size="15" name="PingFangTC-Semibold"/>
+                                </attributes>
+                            </fragment>
+                        </attributedString>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="JyE-1B-kWO" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="5JD-lq-tAy"/>
                     <constraint firstItem="TJt-9K-8dl" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="7Cw-yQ-EIj"/>
                     <constraint firstItem="TJt-9K-8dl" firstAttribute="top" secondItem="FX9-0O-KrJ" secondAttribute="bottom" constant="20" id="CfX-wV-k1S"/>
                     <constraint firstItem="FX9-0O-KrJ" firstAttribute="top" secondItem="kp9-tI-ROE" secondAttribute="bottom" id="MkH-K5-S00"/>
                     <constraint firstItem="9QB-aL-Dht" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="24" id="P7x-aU-rOy"/>
+                    <constraint firstItem="JyE-1B-kWO" firstAttribute="top" secondItem="9QB-aL-Dht" secondAttribute="bottom" constant="24" id="Q2x-P6-YYW"/>
                     <constraint firstAttribute="trailing" secondItem="9QB-aL-Dht" secondAttribute="trailing" constant="16" id="TKW-zJ-aZD"/>
                     <constraint firstAttribute="trailing" secondItem="TJt-9K-8dl" secondAttribute="trailing" constant="16" id="Tbi-d6-H9T"/>
                     <constraint firstAttribute="trailing" secondItem="kp9-tI-ROE" secondAttribute="trailing" constant="16" id="WIW-Fv-Qc3"/>
                     <constraint firstItem="9QB-aL-Dht" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="aNQ-Nc-NqJ"/>
                     <constraint firstAttribute="trailing" secondItem="FX9-0O-KrJ" secondAttribute="trailing" constant="16" id="dHf-yP-gpY"/>
                     <constraint firstAttribute="bottom" secondItem="TJt-9K-8dl" secondAttribute="bottom" constant="20" id="hqi-gX-UHB"/>
-                    <constraint firstItem="kp9-tI-ROE" firstAttribute="top" secondItem="9QB-aL-Dht" secondAttribute="bottom" constant="40" id="nKk-A8-ueN"/>
+                    <constraint firstAttribute="trailing" secondItem="JyE-1B-kWO" secondAttribute="trailing" constant="16" id="hra-Vm-WVc"/>
                     <constraint firstItem="kp9-tI-ROE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="qMl-GB-wAX"/>
+                    <constraint firstItem="kp9-tI-ROE" firstAttribute="top" secondItem="JyE-1B-kWO" secondAttribute="bottom" constant="40" id="sws-UM-yth"/>
                     <constraint firstItem="FX9-0O-KrJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="yDk-Qf-epg"/>
                 </constraints>
             </tableViewCellContentView>
@@ -75,7 +102,6 @@
             <connections>
                 <outlet property="newEmail" destination="FX9-0O-KrJ" id="6gh-Yb-2Wc"/>
                 <outlet property="originalEmail" destination="kp9-tI-ROE" id="DYq-q1-N3t"/>
-                <outlet property="titleInfo" destination="9QB-aL-Dht" id="Hhe-cu-xD1"/>
             </connections>
             <point key="canvasLocation" x="136.95652173913044" y="253.125"/>
         </tableViewCell>
@@ -83,9 +109,6 @@
     <resources>
         <namedColor name="通用綠">
             <color red="0.098039215686274508" green="0.74901960784313726" blue="0.3843137254901961" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="陰影灰 333333">
-            <color red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="預設文字">
             <color red="0.70588235294117652" green="0.70588235294117652" blue="0.70588235294117652" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

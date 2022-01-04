@@ -458,7 +458,7 @@ class BaseViewController: UIViewController {
                 case .notification:
                     tabbarVC.selectedIndex = 2
                     
-                case .unknown:
+                default :
                     tabbarVC.selectedIndex = 3
                 }
                 
@@ -837,7 +837,7 @@ extension BaseViewController {
 
         case .emailError:
             vc = getVC(st: "Login", vc: "MailChangeViewController") as! MailChangeViewController
-            (vc as!MailChangeViewController).setVC(viewModel: MailChangeViewModel.init(type: .changeEmail))
+            (vc as!MailChangeViewController).setVC(viewModel: MailChangeViewModel.init(type: .changeEmail, loginResponse: nil))
             
         case .groupNoti:
             if self.tabBarController?.viewControllers?[2].restorationIdentifier == "NoticeNavigationController" {

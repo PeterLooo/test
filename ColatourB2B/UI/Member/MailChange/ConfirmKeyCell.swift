@@ -25,7 +25,6 @@ class ConfirmKeyCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
         receiveFail.setBorder(width: 1, radius: 4, color: UIColor.init(named: "通用綠"))
         confirmKey.addTarget(self, action: #selector(editComfirmKey), for: .editingChanged)
         confirmKey.someController?.placeholderText = "請輸入收信確認碼"

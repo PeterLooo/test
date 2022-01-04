@@ -17,7 +17,7 @@ public enum LinkType: String {
     case passwordModify = "031"
     case changeMemberInfo = "032"
     case changeCompany = "034"
-    case emailError = "35"
+    case emailError = "035"
     case tourIndex = "012"
     case groupNoti = "013"
     case airNoti = "052"
@@ -62,6 +62,8 @@ public enum TabBarLinkType: String {
     case tour = "012"
     case ticket = "051"
     case notification = "005"
+    case emailError = "035"
+    case companyError = "034"
     case unknown
 }
 

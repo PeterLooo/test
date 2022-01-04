@@ -40,7 +40,11 @@ class MailChangeViewController: BaseViewControllerMVVM {
     }
     
     @IBAction func bottomConfirmAction(_ sender: Any) {
-        self.navigationController?.popToRootViewController(animated: true)
+        if self.navigationController?.viewControllers.first?.restorationIdentifier == "LoginViewController" {
+            self.dismiss(animated: true)
+        }else{
+            self.navigationController?.popToRootViewController(animated: true)
+        }
     }
 }
 
@@ -56,7 +60,7 @@ extension MailChangeViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch viewModel?.emailChangeType {
-        case .changeEmail, .testEmail:
+        case .changeEmail:
             let cell = tableView.dequeueReusableCell(withIdentifier: "MailChangeCell", for: indexPath) as! MailChangeCell
             cell.setCell(viewModel: (viewModel?.mailChangeCellViewModle)!)
             return cell
@@ -103,12 +107,24 @@ extension MailChangeViewController {
         viewModel?.updateTableView = { [weak self] in
             switch self?.viewModel?.emailChangeType {
             case .editingEmail, .sendKey:
-                if self?.navigationController?.viewControllers.filter({$0.restorationIdentifier == "ChangeCompanyViewController"}) == nil { // 因為會從登入與會員資料修改進來所以判斷back事件
+                if self?.navigationController?.viewControllers.filter({$0.restorationIdentifier == "ChangeCompanyViewController"}).first == nil { // 因為會從登入與會員資料修改進來所以判斷back事件
                     self?.setNavBarItem(left: .custom, mid: .textTitle, right: .nothing)
                     
                     let newBackButton = UIBarButtonItem(image: #imageLiteral(resourceName: "arrow_back_purple"), style: .plain, target: self, action: #selector(self?.back(sender:)))
                     newBackButton.imageInsets = UIEdgeInsets(top: 1, left: -7, bottom: 0, right: 0)
                     self?.setCustomLeftBarButtonItem(barButtonItem: newBackButton)
+                    self?.setBarTypeLayoutImmediately()
+                }
+            case .success, .failure:
+                if self?.navigationController?.viewControllers.filter({$0.restorationIdentifier == "ChangeCompanyViewController"}).first == nil { // 因為會從登入與會員資料修改進來所以判斷back事件
+                    self?.setNavBarItem(left: .custom, mid: .textTitle, right: .nothing)
+                    let newBackButton = UIBarButtonItem(image: nil, style: .plain, target: self, action: nil)
+                    
+                    newBackButton.imageInsets = UIEdgeInsets(top: 1, left: -7, bottom: 0, right: 0)
+                    self?.setCustomLeftBarButtonItem(barButtonItem: newBackButton)
+                    self?.setBarTypeLayoutImmediately()
+                }else{
+                    self?.setNavBarItem(left: .defaultType, mid: .textTitle, right: .nothing)
                     self?.setBarTypeLayoutImmediately()
                 }
                 
@@ -125,7 +141,7 @@ extension MailChangeViewController {
         
         viewModel?.nextTimeToEdit = { [weak self] in
             // 登入 B2B下次再修改Email api 好要確定一下流程
-            self?.navigationController?.popViewController(animated: true)
+            self?.dismiss(animated: true, completion: nil)
         }
         
         viewModel?.toastText = { [weak self] text in

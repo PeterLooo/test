@@ -20,14 +20,15 @@ class EditingEmailCell: UITableViewCell {
         super.awakeFromNib()
         originalEmail.someController?.placeholderText = "原註冊電子郵件信箱"
         newEmail.someController?.placeholderText = "新的電子郵件信箱"
+        originalEmail.textColor = UIColor.init(named: "預設文字")
         
-        titleInfo.text = "輸入新的電子信箱後，請按﹝測試收信功能﹞\n我們將立即寄出一封測試收信功能的信件到您的指定的電子郵件信箱。"
         newEmail.addTarget(self, action: #selector(editNewEmail), for: .editingChanged)
     }
 
     func setCell(viewModel: EditingEmailCellViewModel){
         self.viewModel = viewModel
         originalEmail.text = viewModel.originalEmail
+        newEmail.text = ""
         viewModel.emailAreEmpty = { [weak self] errorInfo in
             self?.newEmail.someController?.setErrorText(errorInfo, errorAccessibilityValue: nil)
         }

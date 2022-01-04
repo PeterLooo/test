@@ -18,7 +18,6 @@ class MailChangeFailureCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
         contantService.setBorder(width: 1, radius: 4, color: UIColor.init(named: "通用綠"))
     }
     

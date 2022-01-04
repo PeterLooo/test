@@ -10,22 +10,20 @@ import Foundation
 
 class MailChangeCellViewModel {
     
-    var topButtonAction: (()->())?
-    var donwButtonAction: (()->())?
+    var testEmailAction: (()->())?
+    var nextTimeAction: (()->())?
+    var editEmailAction: (()->())?
     
-    var changeInfo: String!
+    var name: String!
     var email: String!
-    var topButton: String!
-    var donwButton: String!
+    var gender: String!
     
-    required init(chnageInfo: String,
+    required init(name: String,
                   email: String,
-                  topButton: String,
-                  donwButton: String) {
+                  gender: String) {
         
-        self.changeInfo = chnageInfo
+        self.name = name
         self.email = email
-        self.topButton = topButton
-        self.donwButton = donwButton
+        self.gender = gender
     }
 }

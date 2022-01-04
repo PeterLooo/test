@@ -13,7 +13,6 @@ import Alamofire
 extension MailChangeViewModel {
     enum LoginEmailChangeType {
         case changeEmail
-        case testEmail
         case editingEmail
         case sendKey
         case success
@@ -25,6 +24,7 @@ class MailChangeViewModel: BaseViewModel {
     
     var nextTimeToEdit: (()->())?
     var updateTableView: (()->())?
+    var setDefaultTabBar: (()->())?
     var toastText: ((String)->())?
     
     let respository = MemberRepository.shared
@@ -37,42 +37,32 @@ class MailChangeViewModel: BaseViewModel {
     
     var emailChangeType: LoginEmailChangeType? {
         didSet{
-            
             deterType()
         }
     }
     
-    private var befortType: LoginEmailChangeType? {
-        didSet{
-            deterType()
-        }
-    }
+    private var befortType: LoginEmailChangeType?
     
     var mailChangeCellViewModle: MailChangeCellViewModel? {
         didSet{
-            mailChangeCellViewModle?.topButtonAction = { [weak self] in
+            mailChangeCellViewModle?.testEmailAction = { [weak self] in
+                
                 switch self?.emailChangeType {
                 case .changeEmail:
-                    self?.befortType = .changeEmail
-                    self?.emailChangeType = .editingEmail
-                case .testEmail:
-                    self?.befortType = .testEmail
-                    self?.emailChangeType = .sendKey
+                    self?.befortType = self?.emailChangeType
+                    self?.getCorrectEmailSend(email: self?.correctEmailInfo?.email ?? "")
                 default:
                     print("topButtonAction: \(self!.emailChangeType!)")
                 }
             }
-            
-            mailChangeCellViewModle?.donwButtonAction = { [weak self] in
-                switch self?.emailChangeType {
-                case .changeEmail:
-                    self?.nextTimeToEdit?()
-                case .testEmail:
-                    self?.befortType = .testEmail
-                    self?.emailChangeType = .editingEmail
-                default:
-                    ()
-                }
+            mailChangeCellViewModle?.nextTimeAction = { [weak self] in
+                
+                self?.loginFirst(emailMark: true)
+                self?.nextTimeToEdit?()
+            }
+            mailChangeCellViewModle?.editEmailAction = { [weak self] in
+                self?.befortType = .changeEmail
+                self?.emailChangeType = .editingEmail
             }
         }
     }
@@ -81,7 +71,9 @@ class MailChangeViewModel: BaseViewModel {
         didSet{
             
             editingEmailCellViewModel?.sendEmail = { [weak self] email in
-                self?.getCorrectEmailSend()
+                self?.befortType = self?.emailChangeType
+                self?.newEmail = email
+                self?.getCorrectEmailSend(email: email!)
             }
         }
     }
@@ -97,7 +89,6 @@ class MailChangeViewModel: BaseViewModel {
             
             confirmKeyCellViewModel?.receiveFail = { [weak self] in
                 self?.emailChangeType = .failure
-                self?.deterType()
             }
         }
     }
@@ -105,30 +96,34 @@ class MailChangeViewModel: BaseViewModel {
     var failureViewModel: MailChangeFailureViewModel? {
         didSet{
             failureViewModel?.reSendEmail = { [weak self] in
-                self?.getCorrectEmailSend()
-                self?.emailChangeType = .sendKey
-                self?.updateTableView?()
+                let email = (self?.newEmail.isNilOrEmpty)! ? (self?.correctEmailInfo?.email)! : (self?.newEmail)!
+                self?.getCorrectEmailSend(email: email)
             }
             
             failureViewModel?.contactService = { [weak self] in
-                self?.handleLinkType?(.getApiUrlThenOpenAppWebView, "/R01C_Service/R01C000_ServiceMain.aspx?ServiceType=團體", nil, nil)
+                self?.openWebUrl(webUrl: "/R01C_Service/R01C000_ServiceMain.aspx?ServiceType=團體", title: "", openBrowserOrAppWebView: .openBrowser)
             }
         }
     }
     
     var confirmSuccessViewModel: ConfirmKeySuccessCellViewModel?
     
+    private var newEmail: String?
+    private var loginResponse: LoginResponse?
+    
     private let disposeBag = DisposeBag()
     
-    required init(type: LoginEmailChangeType) {
+    required init(type: LoginEmailChangeType, loginResponse: LoginResponse? ) {
         super.init()
         
         self.emailChangeType = type
+        self.loginResponse = loginResponse
     }
     
     func getCorrectEmailInti() {
         self.onStartLoadingHandle?(.coverPlateAlpha)
-        respository.correctEmailInit().subscribe { [weak self] model in
+        respository.correctEmailInit(refreshToken: loginResponse?.refreshToken,
+                                     accessToken: loginResponse?.accessToken).subscribe { [weak self] model in
             self?.correctEmailInfo = model
             self?.updateTableView?()
             self?.onCompletedLoadingHandle?()
@@ -138,9 +133,11 @@ class MailChangeViewModel: BaseViewModel {
         }.disposed(by: disposeBag)
     }
     
-    func getCorrectEmailSend() {
+    func getCorrectEmailSend(email: String) {
         self.onStartLoadingHandle?(.coverPlateAlpha)
-        respository.correctEmailSend(email: (correctEmailInfo?.email)!).subscribe { [weak self] model in
+        respository.correctEmailSend(email: email,
+                                     refreshToken: loginResponse?.refreshToken,
+                                     accessToken: loginResponse?.accessToken).subscribe { [weak self] model in
             self?.bindingSendEamil(errorResult: model.sendEmailResult)
             self?.onCompletedLoadingHandle?()
         } onError: { [weak self] error in
@@ -151,7 +148,9 @@ class MailChangeViewModel: BaseViewModel {
     
     func getCorrectEmailConfirm(confirmCode: String) {
         self.onStartLoadingHandle?(.coverPlateAlpha)
-        respository.correntEmailComfirem(confirmCode: confirmCode).subscribe { [weak self] model in
+        respository.correntEmailComfirem(confirmCode: confirmCode,
+                                         refreshToken: loginResponse?.refreshToken,
+                                         accessToken: loginResponse?.accessToken).subscribe { [weak self] model in
             self?.bindingCouurectEmailConfirm(result: model.comfirmResult)
             self?.onCompletedLoadingHandle?()
         } onError: { [weak self] error in
@@ -160,17 +159,44 @@ class MailChangeViewModel: BaseViewModel {
         }.disposed(by: disposeBag)
     }
     
+    private func openWebUrl(webUrl:String, title: String, openBrowserOrAppWebView: OpenBrowserOrAppWebView) {
+        
+        AccountRepository.shared.getAccessWeb(webUrl: webUrl, refreshToken: loginResponse?.refreshToken, accessToken: loginResponse?.accessToken).subscribe(onSuccess: { (url) in
+            self.handleLinkType?(.openAppWebView, url, title, nil)
+        }, onError: { (error) in
+            ()
+        }).disposed(by: disposeBag)
+    }
+    
+    func loginFirst(emailMark: Bool) {
+        if loginResponse == nil { return }
+        respository.loginFirst(emailMark: emailMark,
+                               pageId: (loginResponse?.pageId)!,
+                               refreshToken: loginResponse?.refreshToken,
+                               accessToken: loginResponse?.accessToken).subscribe { [weak self] _ in
+            UserDefaultUtil.shared.accessToken = self?.loginResponse?.accessToken
+            UserDefaultUtil.shared.refreshToken = self?.loginResponse?.refreshToken
+            self?.setDefaultTabBar?()
+        } onError: {[weak self] error in
+            self?.onApiErrorHandle?(error as! APIError, .alert)
+        }.disposed(by: disposeBag)
+    }
+    
     func bindingCouurectEmailConfirm(result: Bool?) {
         
         if result == true {
-            self.confirmSuccessViewModel = ConfirmKeySuccessCellViewModel(email: (self.correctEmailInfo?.email)!, successInfo: "\(correctEmailInfo?.name ?? "") \(correctEmailInfo?.gender ?? "")，您好：\n您註冊的電子郵件信箱已經可以正常接收「可樂B2B同業網」寄送給您的信件！\n\n我們往後的網路服務信函將會寄送到此信箱，謝謝您的配合！")
-            self.emailChangeType = .success
+            
+            loginFirst(emailMark: false)
+            confirmSuccessViewModel = ConfirmKeySuccessCellViewModel(email: (self.correctEmailInfo?.email)!, successInfo: "\(correctEmailInfo?.name ?? "") \(correctEmailInfo?.gender ?? "")，您好：\n您註冊的電子郵件信箱已經可以正常接收「可樂B2B同業網」寄送給您的信件！\n\n我們往後的網路服務信函將會寄送到此信箱，謝謝您的配合！")
+            emailChangeType = .success
+        }else{
+            self.toastText?("請輸入正確的確認碼")
         }
     }
     
     func bindingSendEamil(errorResult: String?) {
         if errorResult.isNilOrEmpty {
-            
+            self.emailChangeType = .sendKey
         }else{
             self.toastText?(errorResult!)
         }
@@ -181,22 +207,17 @@ class MailChangeViewModel: BaseViewModel {
         switch emailChangeType {
         case .changeEmail:
             mailChangeCellViewModle = MailChangeCellViewModel(
-                chnageInfo: "\(correctEmailInfo?.name ?? "") \(correctEmailInfo?.gender ?? "")，您好：\n您註冊的電子郵件信箱無法正常接收「可樂B2B同業網」寄送給您的各項業務住來信函！\n\n當您因為任職旅行社更改，而無法使用會員帳號時，請填寫下列資料MAIL通知客服中心。",
-                email: "abc@cola.com.tw",
-                topButton: "修改我的電子郵件",
-                donwButton: "登入B2B下次再修改")
-        case .testEmail:
-            mailChangeCellViewModle = MailChangeCellViewModel(
-                chnageInfo: "\(correctEmailInfo?.name ?? "") \(correctEmailInfo?.gender ?? "")，您好：\n您註冊的電子郵件信箱無法正常接收「可樂B2B同業網」寄送給您的各項業務住來信函！\n\n當您因為任職旅行社更改，而無法使用會員帳號時，請填寫下列資料MAIL通知客服中心。",
-                email: "\(correctEmailInfo?.email ?? "")",
-                topButton: "測試收信功能",
-                donwButton: "更改為新的Email")
+                name: correctEmailInfo?.name ?? "",
+                email: correctEmailInfo?.email ?? "",
+                gender: correctEmailInfo?.gender ?? "")
         case .editingEmail:
             editingEmailCellViewModel = EditingEmailCellViewModel(originalEmail: mailChangeCellViewModle?.email ?? "")
         case .sendKey:
-            confirmKeyCellViewModel = ConfirmKeyCellViewModel(email: correctEmailInfo?.email ?? "")
+            confirmKeyCellViewModel = ConfirmKeyCellViewModel(email: newEmail.isNilOrEmpty ? (correctEmailInfo?.email ?? "") : newEmail!)
         case .failure:
-            failureViewModel = MailChangeFailureViewModel(email: correctEmailInfo?.email ?? "",
+            
+            let email = newEmail.isNilOrEmpty ? (correctEmailInfo?.email ?? "") : newEmail!
+            failureViewModel = MailChangeFailureViewModel(email: email,
                                                           info: "\(correctEmailInfo?.name ?? "") \(correctEmailInfo?.gender ?? "")，您好：\n您輸入的「收信確認碼」與我們寄出的資料不符合或您尚無法接收我們寄出的電子郵件！")
         default:
             ()
@@ -206,5 +227,15 @@ class MailChangeViewModel: BaseViewModel {
     
     func onTouchBack(){
         self.emailChangeType = befortType != nil ? befortType:emailChangeType
+        
+        switch emailChangeType {
+            
+        case .editingEmail:
+            befortType = .changeEmail
+        case .sendKey:
+            befortType = .editingEmail
+        default:
+            ()
+        }
     }
 }

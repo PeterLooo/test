@@ -1675,14 +1675,14 @@
 			children = (
 				A104F7352772CC5E00DADE9A /* ViewModel */,
 				A104F73D2772CC5E00DADE9A /* MailChangeViewController.swift */,
+				A104F7422772CC5F00DADE9A /* MailChangeCell.swift */,
+				A104F73F2772CC5E00DADE9A /* MailChangeCell.xib */,
 				A104F7432772CC5F00DADE9A /* EditingEmailCell.swift */,
 				A104F73B2772CC5E00DADE9A /* EditingEmailCell.xib */,
 				A104F73C2772CC5E00DADE9A /* ConfirmKeyCell.swift */,
 				A104F7412772CC5E00DADE9A /* ConfirmKeyCell.xib */,
 				A104F7402772CC5E00DADE9A /* ConfirmKeySuccessCell.swift */,
 				A104F73E2772CC5E00DADE9A /* ConfirmKeySuccessCell.xib */,
-				A104F7422772CC5F00DADE9A /* MailChangeCell.swift */,
-				A104F73F2772CC5E00DADE9A /* MailChangeCell.xib */,
 				A104F7632773211200DADE9A /* MailChangeFailureCell.swift */,
 				A104F7642773211200DADE9A /* MailChangeFailureCell.xib */,
 			);

@@ -151,7 +151,7 @@ extension ChangeCompanyViewController {
         
         viewModel?.emailConfirm = {[weak self] in
             let vc = self?.getVC(st: "Login", vc: "MailChangeViewController") as! MailChangeViewController
-            let viewModel = MailChangeViewModel.init(type: .sendKey)
+            let viewModel = MailChangeViewModel.init(type: .sendKey, loginResponse: nil)
             
             vc.setVC(viewModel: viewModel)
             self?.navigationController?.pushViewController(vc, animated: true)

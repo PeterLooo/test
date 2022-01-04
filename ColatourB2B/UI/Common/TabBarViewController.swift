@@ -49,7 +49,7 @@ class TabBarViewController: UITabBarController {
         case .notification:
             self.selectedIndex = 2
             
-        case .unknown:
+        default :
             self.selectedIndex = 3
         }
         
