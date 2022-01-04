@@ -131,18 +131,19 @@ class AccountRepository: NSObject {
         MemberRepository.shared.setEmployeeMark(emloyeeMark: loginResponse.employeeMark ?? false)
         MemberRepository.shared.setAllowTour(allowTour: loginResponse.allowTour ?? false)
         MemberRepository.shared.setAllowTkt(allowTkt: loginResponse.allowTkt ?? false)
-        MemberRepository.shared.setTabBarLinkType(linkType: loginResponse.linkType!.rawValue)
         
-        if loginResponse.passwordReset == false {
+        
+        if loginResponse.passwordReset == false && (loginResponse.linkType != .emailError && loginResponse.linkType != .companyError) {
             MemberRepository.shared.setLocalUserToken(refreshToken: loginResponse.refreshToken ?? "", accessToken: loginResponse.accessToken ?? "")
+            MemberRepository.shared.setTabBarLinkType(linkType: loginResponse.linkType!.rawValue)
         }
         
         return Single.just(loginResponse)
     }
     
-    func getAccessToken(getLocalToken: Bool = true) -> Single<LoginResponse>{
-        let refreshToken = UserDefaultUtil.shared.refreshToken // 長效期
-        let accessToken = UserDefaultUtil.shared.accessToken // 短效期
+    func getAccessToken(getLocalToken: Bool = true , refreshToken: String? = nil, accessToken: String? = nil) -> Single<LoginResponse>{// 帶入token 是 重更改Email來的
+        let refreshToken = refreshToken == nil ? UserDefaultUtil.shared.refreshToken:refreshToken // 長效期
+        let accessToken =  accessToken == nil ? UserDefaultUtil.shared.accessToken:accessToken // 短效期
         
         if refreshToken == nil || refreshToken == "" {
             MemberRepository.shared.removeLocalAccessToken()
@@ -186,9 +187,9 @@ class AccountRepository: NSObject {
         }
     }
     
-    func getAccessWeb(webUrl:String) -> Single<String> {
-        let api = APIManager.shared.getAccessWeb(webUrl: webUrl)
-        return AccountRepository.shared.getAccessToken()
+    func getAccessWeb(webUrl:String, refreshToken: String? = nil, accessToken: String? = nil) -> Single<String> {
+        let api = APIManager.shared.getAccessWeb(webUrl: webUrl, accessToken: accessToken)
+        return AccountRepository.shared.getAccessToken(refreshToken: refreshToken, accessToken: accessToken)
         .flatMap{_ in api}
         .map{ WebUrl(JSON: $0)!.webUrl!}
     }
