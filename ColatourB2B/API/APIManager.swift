@@ -260,14 +260,14 @@ extension APIManager {
         return manager(method: .post, appendUrl: "", url: APIUrl.memberApi(type: .passwordModify), parameters: params as [String : Any], appendHeaders: nil)
     }
     
-    func getCompanyInfo() -> Single<[String:Any]> {
+    func getCompanyInfo(accessToken: String?) -> Single<[String:Any]> {
         
-        return manager(method: .get, appendUrl: "", url: APIUrl.memberApi(type: .changeCompany), parameters: nil, appendHeaders: nil)
+        return manager(method: .get, appendUrl: "", url: APIUrl.memberApi(type: .changeCompany), parameters: nil, appendHeaders: nil, accessToken: accessToken)
     }
     
-    func changeCompanyAction(changeModel: ChangeCompanyModel) -> Single<[String:Any]> {
+    func changeCompanyAction(changeModel: ChangeCompanyModel, accessToken: String?) -> Single<[String:Any]> {
         let param = changeModel.getDictionary()
-        return manager(method: .post, appendUrl: "", url: APIUrl.memberApi(type: .changeCompanyAction), parameters: param, appendHeaders: nil)
+        return manager(method: .post, appendUrl: "", url: APIUrl.memberApi(type: .changeCompanyAction), parameters: param, appendHeaders: nil, accessToken: accessToken)
     }
     
     func changeMemberInfoInit() -> Single<[String:Any]> {
@@ -277,7 +277,7 @@ extension APIManager {
     
     func correctEmailInit(accessToken: String?) -> Single<[String:Any]> {
         
-        return manager(method: .get, appendUrl: "", url: APIUrl.memberApi(type: .correctEmailInit), parameters: nil, appendHeaders: nil,accessToken: accessToken)
+        return manager(method: .get, appendUrl: "", url: APIUrl.memberApi(type: .correctEmailInit), parameters: nil, appendHeaders: nil, accessToken: accessToken)
     }
     
     func correctEmailSend(email: String, accessToken: String?) -> Single<[String:Any]> {

@@ -21,11 +21,16 @@ class ChangeCompanyViewModel: BaseViewModel {
     var changeMemberInfo: ChangeMemberInfo?
     
     private let disposeBag = DisposeBag()
+    var loginResponse: LoginResponse?
+    
+    init (loginResponse: LoginResponse?) {
+        self.loginResponse = loginResponse
+    }
     
     func getChangeCompanyInfo() {
         self.onStartLoadingHandle?(.coverPlate)
         
-        respository.getChangeCompany().subscribe { [weak self] model in
+        respository.getChangeCompany(loginResponse: self.loginResponse).subscribe { [weak self] model in
             self?.changeCompanyModel = model
             self?.reloadTableView?()
             self?.onCompletedLoadingHandle?()
@@ -37,7 +42,7 @@ class ChangeCompanyViewModel: BaseViewModel {
     
     private func postChangeCompany(){
         self.onStartLoadingHandle?(.coverPlateAlpha)
-        respository.postChangeCompany(model: changeCompanyModel!).subscribe {[weak self] model in
+        respository.postChangeCompany(model: changeCompanyModel!, loginResponse: self.loginResponse).subscribe {[weak self] model in
             self?.bindingChangeCompany(result: model)
             self?.onCompletedLoadingHandle?()
         } onError: { [weak self] error in

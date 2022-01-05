@@ -133,8 +133,7 @@ class LoginViewController: BaseViewController {
         }
         viewModel?.toEmailErrorVC = { [weak self] loginResponse in
             let vc = self?.getVC(st: "Login", vc: "MailChangeViewController") as! MailChangeViewController
-//            UserDefaultUtil.shared.refreshToken = loginResponse.refreshToken
-//            UserDefaultUtil.shared.accessToken = loginResponse.accessToken
+
             let viewModel = MailChangeViewModel.init(type: .changeEmail,
                                                      loginResponse: loginResponse)
             viewModel.setDefaultTabBar = { [weak self] () in
@@ -143,6 +142,11 @@ class LoginViewController: BaseViewController {
                 self?.viewModel?.loginSuccessAction()
             }
             vc.setVC(viewModel: viewModel)
+            self?.navigationController?.pushViewController(vc, animated: true)
+        }
+        viewModel?.toCompanyChange = { [weak self] loginResponse in
+            let vc = self?.getVC(st: "ChangeCompany", vc: "ChangeCompanyViewController") as! ChangeCompanyViewController
+            vc.setView(editType: .company, loginResponse: loginResponse)
             self?.navigationController?.pushViewController(vc, animated: true)
         }
     }

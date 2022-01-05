@@ -77,18 +77,18 @@ class MemberRepository: MemberRepositoryProtocol {
             .map{SalesResponse(JSON: $0)!}
     }
     
-    func getChangeCompany() -> Single<ChangeCompanyModel> {
-        let api = APIManager.shared.getCompanyInfo()
+    func getChangeCompany(loginResponse: LoginResponse?) -> Single<ChangeCompanyModel> {
+        let api = APIManager.shared.getCompanyInfo(accessToken: loginResponse?.accessToken)
         
-        return AccountRepository.shared.getAccessToken()
+        return AccountRepository.shared.getAccessToken(refreshToken: loginResponse?.refreshToken, accessToken: loginResponse?.accessToken)
             .flatMap{_ in api}
             .map{ChangeCompanyModel(JSON: $0)!}
     }
     
-    func postChangeCompany(model: ChangeCompanyModel) -> Single<ChangeCompanyModel> {
-        let api = APIManager.shared.changeCompanyAction(changeModel: model)
+    func postChangeCompany(model: ChangeCompanyModel, loginResponse: LoginResponse?) -> Single<ChangeCompanyModel> {
+        let api = APIManager.shared.changeCompanyAction(changeModel: model, accessToken: loginResponse?.accessToken)
         
-        return AccountRepository.shared.getAccessToken()
+        return AccountRepository.shared.getAccessToken(refreshToken: loginResponse?.refreshToken, accessToken: loginResponse?.accessToken)
             .flatMap{ _ in api}
             .map{ChangeCompanyModel(JSON: $0)!}
     }

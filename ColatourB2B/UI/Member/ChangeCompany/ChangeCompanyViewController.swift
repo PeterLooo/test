@@ -8,8 +8,9 @@
 
 import UIKit
 extension ChangeCompanyViewController {
-    func setView(editType: MemberEdit) {
+    func setView(editType: MemberEdit, loginResponse: LoginResponse?) {
         self.editType = editType
+        viewModel = ChangeCompanyViewModel(loginResponse: loginResponse)
     }
 }
 class ChangeCompanyViewController: BaseViewControllerMVVM {
@@ -122,7 +123,7 @@ extension ChangeCompanyViewController: UITableViewDelegate {
 
 extension ChangeCompanyViewController {
     private func bindViewModel(){
-        viewModel = ChangeCompanyViewModel()
+        
         self.bindToBaseViewModel(viewModel: viewModel!)
         viewModel?.reloadTableView = { [weak self] in
             self?.tableView.reloadData()
