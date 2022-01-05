@@ -261,8 +261,8 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="edtior" destination="bnD-Xg-zdX" id="CZv-N5-eTE"/>
-                        <outlet property="edtiorInfo" destination="TOH-uY-fZN" id="L6S-Zu-3k8"/>
+                        <outlet property="editor" destination="bnD-Xg-zdX" id="Ny3-6S-S9u"/>
+                        <outlet property="editorInfo" destination="TOH-uY-fZN" id="Iqs-9j-1dB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AIj-EJ-a9B" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
