@@ -21,6 +21,7 @@ class LoginViewController: BaseViewController {
     @IBOutlet weak var password: CustomTextField!
     @IBOutlet weak var login: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var register: UIButton!
     
     weak var navCloseDelegate: MemberLoginOnTouchNavCloseProtocol?
     
@@ -34,6 +35,7 @@ class LoginViewController: BaseViewController {
         self.setNavBarItem(left: .custom, mid: .textTitle, right: .nothing)
         self.setIsNavShadowEnable(false)
         self.setTabBarType(tabBarType: .hidden)
+        self.register.layer.borderColor = ColorHexUtil.hexColor(hex: "#19BF62").cgColor
         
         let ges = UITapGestureRecognizer(target: self, action: #selector(onTouchScrollView(_:)))
         scrollView.addGestureRecognizer(ges)
@@ -94,6 +96,12 @@ class LoginViewController: BaseViewController {
     
     @IBAction func onTouchLogin(_ sender: UIButton) {
         viewModel?.login()
+    }
+    
+    @IBAction func onTouchRegister(_ sender: Any) {
+        
+        let vc = self.getVC(st: "Register", vc: "RegisterNoticeViewController") as! RegisterNoticeViewController
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func onTouchEyes(_ sender: BooleanButton) {
