@@ -187,13 +187,14 @@ class BaseViewController: UIViewController {
     let apiFailErrorView = ApiFailErrorView(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
     let toastView = ToastView(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
     
+    var baseLinkType: LinkType?
+    var baseLinkValue: String?
+    
     private var tabBarType: TabBarType = .notHidden
     private var navBarType: NavBarType = .notHidden
     private var navLeftType: NavLeftType = .defaultType
     private var navMidType: NavMidType = .textTitle
     private var navRightType: NavRightType = .nothing
-    private var baseLinkType: LinkType?
-    private var baseLinkValue: String?
     private var isNavHideWhenSwipe = false
     private var isNavShadowEnable = true
     private var isNavHidesBarsOnSwipe = false
@@ -412,12 +413,21 @@ class BaseViewController: UIViewController {
     }
     
     private func setUpErrorViews() {
-        apiFailErrorView.delegate = self
+        
         apiFailErrorView.setUpApiFailErrorView()
+        apiFailErrorView.onTouchServiceAction = {[weak self] in
+            let vc = self?.getVC(st: "ContactInfo", vc: "ContactInfo") as! ContactInfoViewController
+            self?.navigationController?.pushViewController(vc, animated: true)
+        }
+        apiFailErrorView.loadData = {[weak self] in
+            self?.loadData()
+        }
         self.view.addSubview(apiFailErrorView)
         
-        noInternetErrorView.delegate = self
         noInternetErrorView.setUpNoInternetErrorView()
+        noInternetErrorView.loadData = {[weak self] in
+            self?.loadData()
+        }
         self.view.addSubview(noInternetErrorView)
     }
     
@@ -434,7 +444,32 @@ class BaseViewController: UIViewController {
     func logoutAndPopLoginVC(isAllowPaxButtonEnable: Bool = false) {
         let vc = getVC(st: "Login", vc: "LoginViewController") as! LoginViewController
         vc.modalPresentationStyle = .fullScreen
-        vc.loginSuccessDelegate = self
+        vc.setVC(viewModel: LoginViewModel())
+        vc.viewModel?.setDefaultTabBar = { [weak self] in
+            if let tabbarVC = self?.tabBarController as? TabBarViewController {
+                
+                switch tabBarLinkType {
+                case .tour:
+                    tabbarVC.selectedIndex = (isAllowTour == true) ? 0 : 3
+                    
+                case .ticket:
+                    tabbarVC.selectedIndex = (isAllowTkt == true) ? 1 : 3
+                    
+                case .notification:
+                    tabbarVC.selectedIndex = 2
+                    
+                case .unknown:
+                    tabbarVC.selectedIndex = 3
+                }
+                
+                tabbarVC.viewControllers?[0].tabBarItem.isEnabled = isAllowTour ?? false
+                tabbarVC.viewControllers?[1].tabBarItem.isEnabled = isAllowTkt ?? false
+            }
+        }
+        
+        vc.viewModel?.onLoginSuccess = { [weak self] in
+            self?.onLoginSuccess()
+        }
         let nav = UINavigationController(rootViewController: vc)
         nav.modalPresentationStyle = .fullScreen
         nav.restorationIdentifier = "LoginViewControllerNavigationController"
@@ -444,37 +479,9 @@ class BaseViewController: UIViewController {
     func logoutAndPopLoginVC(linkType: LinkType) {
         
     }
-}
-extension BaseViewController: MemberLoginSuccessViewProtocol {
-    func onLoginSuccess(linkType: LinkType, linkValue: String?) {
-        handleLinkType(linkType: linkType, linkValue: linkValue, linkText: nil)
-    }
     
-    @objc func onLoginSuccess() {
-        ()
-    }
-    
-    func setDefaultTabBar() {
+    func onLoginSuccess() {
         
-        if let tabbarVC = self.tabBarController as? TabBarViewController {
-            
-            switch tabBarLinkType {
-            case .tour:
-                tabbarVC.selectedIndex = (isAllowTour == true) ? 0 : 3
-                
-            case .ticket:
-                tabbarVC.selectedIndex = (isAllowTkt == true) ? 1 : 3
-                
-            case .notification:
-                tabbarVC.selectedIndex = 2
-                
-            case .unknown:
-                tabbarVC.selectedIndex = 3
-            }
-            
-            tabbarVC.viewControllers?[0].tabBarItem.isEnabled = isAllowTour ?? false
-            tabbarVC.viewControllers?[1].tabBarItem.isEnabled = isAllowTkt ?? false
-        }
     }
 }
 extension BaseViewController: MemberLoginOnTouchNavCloseProtocol {
@@ -805,6 +812,14 @@ extension BaseViewController {
             
         case .salesPage:
             vc = getVC(st: "Sales", vc: "SalesViewController") as! SalesViewController
+        
+        case .notOpenAssignment:
+            
+            let viewController = getVC(st: "Login", vc: "EmployeeEnableViewController") as! EmployeeEnableViewController
+            let nav = UINavigationController(rootViewController: viewController)
+            nav.modalPresentationStyle = .fullScreen
+            self.navigationController?.present(nav, animated: true)
+            return
             
         case .getApiUrlThenOpenAppWebView:
             self.basePresenter?.getAccessWebUrl(webUrl: linkValue!, title: linkText ?? "", openBrowserOrAppWebView: .openAppWebView)
@@ -842,13 +857,13 @@ extension BaseViewController {
             self.tabBarController?.selectedIndex = 2
         case .airTicket:
             vc = getVC(st: "TKTSearch", vc: "AirTicketSearchViewController") as! AirTicketSearchViewController
-            (vc as! AirTicketSearchViewController).setVC(searchType: .airTkt)
+            (vc as! AirTicketSearchViewController).setVC(viewModel: AirTicketSearchViewModel(searchType: .airTkt))
         case .sotoTicket:
             vc = getVC(st: "TKTSearch", vc: "AirTicketSearchViewController") as! AirTicketSearchViewController
-            (vc as! AirTicketSearchViewController).setVC(searchType: .soto)
+            (vc as! AirTicketSearchViewController).setVC(viewModel: AirTicketSearchViewModel(searchType: .soto))
         case .lccTicket:
             vc = getVC(st: "TKTSearch", vc: "AirTicketSearchViewController") as! AirTicketSearchViewController
-            (vc as! AirTicketSearchViewController).setVC(searchType: .lcc)
+            (vc as! AirTicketSearchViewController).setVC(viewModel: AirTicketSearchViewModel(searchType: .lcc))
         case .unknown:
             //Note: doNothing
             ()

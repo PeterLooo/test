@@ -7,20 +7,18 @@
 //
 
 import UIKit
-protocol GroupSliderViewControllerProtocol: NSObjectProtocol {
-    
-    func onTouchData(serverData: ServerData)
-}
+
 extension GroupSliderViewController {
     func setVC(menuResponse: GroupMenuResponse?) {
         self.menuResponse = menuResponse
     }
 }
+
 class GroupSliderViewController: BaseViewController {
 
-    @IBOutlet weak var tableView: UITableView!
+    var onTouchData: ((_ serverData: ServerData)->())?
     
-    weak var delegate : GroupSliderViewControllerProtocol?
+    @IBOutlet weak var tableView: UITableView!
     
     private var menuResponse : GroupMenuResponse?
     
@@ -40,15 +38,8 @@ class GroupSliderViewController: BaseViewController {
     @objc func onTouchCardView(){
         self.dismiss(animated: true, completion: nil)
     }
+}
 
-}
-extension GroupSliderViewController: GroupSliderItemCellProtocol {
-    
-    func onTouchDate(serverData: ServerData) {
-        self.dismiss(animated: true, completion: nil)
-        self.delegate?.onTouchData(serverData: serverData)
-    }
-}
 extension GroupSliderViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         if menuResponse == nil { return 0 }
@@ -68,7 +59,10 @@ extension GroupSliderViewController: UITableViewDataSource {
                      isNeedLine: isNeedLine,
                      isFirst: indexPath.row == 0,
                      isLast: isLast)
-        cell.delegate = self
+        cell.onTouchDate = { [weak self] data in
+            self?.dismiss(animated: true, completion: nil)
+            self?.onTouchData?(data)
+        }
         return cell
     }
 }

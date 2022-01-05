@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "76DF29AD3CEE1C68809E8B182A621883"
+               BlueprintIdentifier = "55A01F8E987A6E2F7F0ED141A1ECA406"
                BuildableName = "MDFInternationalization.framework"
                BlueprintName = "MDFInternationalization"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -50,7 +50,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "76DF29AD3CEE1C68809E8B182A621883"
+            BlueprintIdentifier = "55A01F8E987A6E2F7F0ED141A1ECA406"
             BuildableName = "MDFInternationalization.framework"
             BlueprintName = "MDFInternationalization"
             ReferencedContainer = "container:Pods.xcodeproj">

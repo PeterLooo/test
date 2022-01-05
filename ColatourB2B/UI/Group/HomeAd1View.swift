@@ -9,9 +9,6 @@
 import UIKit
 import SDWebImage
 
-protocol HomeAd1ViewProcotol : NSObjectProtocol {
-    func onTouchHotelAdItem(adItem: IndexResponse.ModuleItem)
-}
 class HomeAd1View: UIView {
     
     @IBOutlet weak var boderView: UIView!
@@ -23,9 +20,8 @@ class HomeAd1View: UIView {
     @IBOutlet weak var viewTrailing: NSLayoutConstraint!
     @IBOutlet weak var boderViewWidth: NSLayoutConstraint!
     @IBOutlet weak var boderViewHeight: NSLayoutConstraint!
-
-    weak var delegate: HomeAd1ViewProcotol?
     
+    private var viewModel: HomeAd1ViewModel?
     private var adItem: IndexResponse.ModuleItem?
     
     override init(frame: CGRect) {
@@ -48,33 +44,30 @@ class HomeAd1View: UIView {
         view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         self.addSubview(view)
         setCustomViewFrameAndGes()
+        self.imageView.contentMode = .scaleAspectFill
     }
     
-    func setView(item: IndexResponse.ModuleItem, isFirst: Bool, isLast: Bool){
-        self.adItem = item
+    func setView(viewModel: HomeAd1ViewModel) {
+        self.viewModel = viewModel
         
-        self.imageView.sd_setImage(with: URL.init(string: item.smallPicUrl ?? "")) { (image, error, cacheType, imageURL) in
-            SDWebImageManager.shared.loadImage(with: URL(string: item.picUrl ?? ""), options: SDWebImageOptions(rawValue: 0), progress: nil, completed: { (image, data, error, cacheType, bool, imageURL) in
-                if error == nil {
-                    self.imageView.image = image
-                }
-            })
-        }
-        viewLeading.constant = isFirst ? 16:0
-        viewTrailing.constant = isLast ? 16:0
-        
-        self.imageView.contentMode = .scaleAspectFill
-        
-        self.itemContent.text = item.itemText
-        let priceFormat = FormatUtil.priceFormat(price: item.itemPrice)
-        self.itemPrice.text = item.itemPrice == 0 ? "" : "\(priceFormat)起"
+        viewLeading.constant = viewModel.viewLeading!
+        viewTrailing.constant = viewModel.viewTrailing!
+        itemPrice.text = viewModel.itemPrice
+        itemContent.text = viewModel.itemContent
         setAttribute(label: self.itemPrice, amount: self.itemPrice.text!)
-        self.boderView.layoutIfNeeded()
-        self.boderView.layer.masksToBounds = true
+        boderView.layoutIfNeeded()
+        boderView.layer.masksToBounds = true
+        
+        viewModel.downImage { (image) in
+            DispatchQueue.main.async {
+                self.imageView.image = image
+            }
+        }
     }
     
     @objc func onTouchAdView(){
-        self.delegate?.onTouchHotelAdItem(adItem: self.adItem!)
+        
+        viewModel?.onTouchHotelAdItem?()
     }
     
     private func setCustomViewFrameAndGes(){
@@ -87,7 +80,7 @@ class HomeAd1View: UIView {
         self.isUserInteractionEnabled = true
     }
     
-    func setAttribute(label:UILabel,amount:String){
+    func setAttribute(label:UILabel, amount:String){
         
         let length = amount.count
         if length <= 0 {return}

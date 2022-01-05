@@ -13,6 +13,7 @@ public enum LinkType: String {
     case openBrowser = "002"
     case getApiUrlThenOpenAppWebView = "003"
     case getApiUrlThenOpenBrowser = "004"
+    case notOpenAssignment = "009"
     case salesPage = "011"
     case passwordModify = "031"
     case updateDate = "032"
@@ -63,10 +64,10 @@ public enum TabBarLinkType: String {
     case unknown
 }
 
-public enum TourType {
-    case tour
-    case taichung
-    case kaohsiung
+public enum TourType: String  {
+    case tour = "*"
+    case taichung = "台中"
+    case kaohsiung = "高雄"
     case tkt
     
     func getApiUrl() -> APIUrl {
@@ -117,3 +118,37 @@ enum DayOfTheWeek: String {
         }
     }
 }
+
+public enum TKTInputFieldType {
+    case startTourDate
+    case dateRange
+    case id
+    case sitClass
+    case departureCity
+    case sotoArrival
+    case airlineCode
+    case tourType
+}
+
+public enum KeyboardType {
+    case pickerView
+    case datePicker
+    case hide
+}
+
+public enum SearchByType {
+    case airTkt
+    case soto
+    case lcc
+}
+
+public enum ArrivalType {
+    case departureCity
+    case backStartingCity
+}
+
+public enum StartEndType {
+    case Departure
+    case Destination
+}
+

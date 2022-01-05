@@ -12,24 +12,19 @@ class HomeAd2Cell: UITableViewCell {
 
     @IBOutlet weak var moduleText: UILabel!
     @IBOutlet weak var stackView: UIStackView!
-    
-    weak var delegate: HomeAd1CellProtocol?
-    
-    func setCell(item:IndexResponse.Module, isLastSection: Bool, needLogoImage:Bool){
-        self.stackView.subviews.forEach { $0.removeFromSuperview() }
-        moduleText.text = item.moduleText
+    @IBOutlet weak var top: NSLayoutConstraint!
         
-        item.moduleItemList.forEach { (module) in
+    func setCell(viewModel: HomeAd2ViewCellViewModel){
+        stackView.subviews.forEach { $0.removeFromSuperview() }
+        
+        moduleText.text = viewModel.moduleText
+        top.constant = viewModel.topConstant!
+        
+        viewModel.subViewModels.forEach { (viewModel) in
             let view = HomeAd2View()
-            view.setView(item: module, isLast: (isLastSection) ? item.moduleItemList.last == module : false, needLogoImage: needLogoImage)
-            view.delegate = self
+            view.setView(viewModel: viewModel)
+            
             self.stackView.addArrangedSubview(view)
         }
-    }
-}
-
-extension HomeAd2Cell : HomeAd1ViewProcotol {
-    func onTouchHotelAdItem(adItem: IndexResponse.ModuleItem) {
-        self.delegate?.onTouchItem(adItem: adItem)
     }
 }

@@ -113,6 +113,11 @@ enum APIUrl {
         case memberIndex = "Index"
         case passwordModify = "Password/Modify"
         case noticeDetail = "noticeDetail"
+        case agent = "Register/Agent"
+        case account = "Register/Account"
+        case accountInitial = "Register/Account/Initial"
+        case register = "Register/AgentData"
+        case basicRegister = "Register/AccountData"
         
         static func urlWith(type: MemberApi, append:String) -> String {
             let base =  MEMBER_WEB_HOST + "/Member/"
@@ -183,6 +188,7 @@ enum APIUrl {
         case important = "/Notification/important?"
         case unreadCount = "/Notification/Unread"
         case setNotiRead = "/Notification/Modify/Status"
+        case city = "/Basis/City"
         
         static func urlWith(type: NoticeApi, append: String) -> String {
             let base =  MEMBER_WEB_HOST

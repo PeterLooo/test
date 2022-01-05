@@ -10,7 +10,8 @@ import UIKit
 
 class ApiFailErrorView: UIView {
     
-    weak var delegate: BaseViewProtocol?
+    var loadData: (()->())?
+    var onTouchServiceAction: (()->())?
     
     @IBOutlet weak var midReload: UIButton!
     @IBOutlet weak var midService: UIButton!
@@ -52,10 +53,10 @@ class ApiFailErrorView: UIView {
     }
     
     @objc func onTouchReload(){
-        self.delegate?.loadData()
+        self.loadData?()
     }
     
     @objc func onTouchService(){
-        self.delegate?.onTouchService()
+        self.onTouchServiceAction?()
     }
 }

@@ -397,6 +397,32 @@ extension APIManager {
     func getLccLocationKeywordSearchResult(keyword: String) -> Single<[String: Any]> {
         return manager(method: .get, appendUrl: keyword, url: APIUrl.mainApi(type: .lccLocationKeywordSearch), parameters: nil, appendHeaders: nil)
     }
+    
+    func getEditorAgent(companyIdno: String) -> Single<[String:Any]> {
+        let params = ["Company_Idno": companyIdno]
+        return manager(method: .post, appendUrl: "", url: APIUrl.memberApi(type: .agent), parameters: params, appendHeaders: nil)
+    }
+    
+    func getRegisterIdNo(idNo: String) -> Single<[String:Any]> {
+        let params = ["Member_Idno": idNo]
+        return manager(method: .post, appendUrl: "", url: APIUrl.memberApi(type: .account), parameters: params, appendHeaders: nil)
+    }
+    
+    func getIDTitle() -> Single<[String: Any]> {
+        return manager(method: .get, appendUrl: "", url: APIUrl.memberApi(type: .accountInitial), parameters: nil, appendHeaders: nil)
+    }
+    
+    func getCity() -> Single<[String: Any]> {
+        return manager(method: .get, appendUrl: "", url: APIUrl.noticeApi(type: .city), parameters: nil, appendHeaders: nil)
+    }
+    func postCompanyRegister(request: RegisterCompanyRequest) -> Single<[String: Any]>  {
+        let params = request.getDic()
+        return manager(method: .post, appendUrl: "", url: APIUrl.memberApi(type: .register), parameters: params, appendHeaders: nil)
+    }
+    func postBasicRegister(request: RegisterBasicInfoRequest) -> Single<[String: Any]>  {
+        let params = request.getDic()
+        return manager(method: .post, appendUrl: "", url: APIUrl.memberApi(type: .basicRegister), parameters: params, appendHeaders: nil)
+    }
 }
 
 extension APIManager {

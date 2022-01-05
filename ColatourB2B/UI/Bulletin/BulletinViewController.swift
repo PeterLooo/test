@@ -9,13 +9,10 @@
 import UIKit
 import SDWebImage
 
-protocol BulletinViewControllerProtocol: BaseViewProtocol{
-    func onTouchBulletinLink(linkType: LinkType, linkValue: String?, linkText: String?)
-    func onDismissBulletinViewController()
-    func onDismissBulletinViewControllerCompletion()
-}
-
 class BulletinViewController: BaseViewController {
+    
+    var onTouchBulletinLink: ((_ linkType: LinkType, _ linkValue: String?, _ linkText: String?)->())?
+    
     @IBOutlet weak var imageHeight: NSLayoutConstraint!
     @IBOutlet weak var cardView: UIView!
     @IBOutlet weak var titleStackView: UIStackView!
@@ -25,7 +22,6 @@ class BulletinViewController: BaseViewController {
     @IBOutlet weak var bulletinContent: UILabel!
     @IBOutlet weak var bulletinImage: UIImageView!
     
-    weak var delegate:BulletinViewControllerProtocol?
     var bulletin: BulletinResponse.Bulletin!
     
     override func viewDidLoad() {
@@ -90,21 +86,18 @@ class BulletinViewController: BaseViewController {
     }
     
     @objc func onTouchCancel(_ sender: UIButton) {
-        delegate?.onDismissBulletinViewController()
-        self.dismiss(animated: true, completion: {
-            self.delegate?.onDismissBulletinViewControllerCompletion()
-        })
+        
+        self.dismiss(animated: true, completion: nil)
     }
     
     @objc func onTouchBulletin(_ sender: UIButton) {
-        self.delegate?.onDismissBulletinViewController()
+        
         self.dismiss(animated: true, completion: self.handleLinkType)
     }
     
     private func handleLinkType(){
         let linkType = self.bulletin?.linkType!
         let linkParams = self.bulletin?.actionParam ?? ""
-        delegate?.onTouchBulletinLink(linkType: linkType!, linkValue: linkParams, linkText: "")
-        delegate?.onDismissBulletinViewControllerCompletion()
+        onTouchBulletinLink?( linkType!,  linkParams,  "")
     }
 }

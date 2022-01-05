@@ -8,24 +8,16 @@
 
 import UIKit
 
-protocol NotificationTableViewProtocol: NSObjectProtocol {
-    func onTouchNoti(item: NotiItem, notiType: NotiType)
-    func onStartLoading(notiType: NotiType)
-    func pullRefresh(notiType: NotiType)
-}
-
 class NotificationTableView: UIView {
     
     private var cellsHeight: [IndexPath : CGFloat] = [:]
-    
-    weak var delegate : NotificationTableViewProtocol?
     
     let apiFailErrorView = ApiFailErrorView(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
     let noInternetErrorView = NoInternetErrorView(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
     
     private let bottomLoadingView = BottomLoadingView()
-    private var itemList: [NotiItem] = []
-    private var notiType: NotiType!
+    
+    var viewModel: NoticeTableViewModel?
     
     enum Section: Int, CaseIterable{
         case notiItem = 0
@@ -77,16 +69,16 @@ class NotificationTableView: UIView {
         setUpErrorViews()
     }
     
-    func setViewWith(itemList: [NotiItem], notiType: NotiType){
-        self.itemList = itemList
-        self.notiType = notiType
+    func setViewModel(viewModel: NoticeTableViewModel){
+        self.viewModel = viewModel
         cellsHeight = [:]
         self.tableView.refreshControl?.endRefreshing()
         tableView.reloadData()
+        closeErrorView()
     }
     
     @objc private func pullToRefresh(){
-        self.delegate?.pullRefresh(notiType: self.notiType)
+        self.viewModel?.pullRefresh?(viewModel!.notiType)
     }
     
     private func startBottomLoadingView(){
@@ -126,7 +118,7 @@ class NotificationTableView: UIView {
         }
     }
     
-    func closeErrorView(){
+    private func closeErrorView(){
         self.apiFailErrorView.isHidden = true
         self.noInternetErrorView.isHidden = true
     }
@@ -140,20 +132,14 @@ class NotificationTableView: UIView {
     }
 }
 
-extension NotificationTableView : NotificationItemCellProtocol {
-    func onTouchItem(item: NotiItem) {
-        self.delegate?.onTouchNoti(item: item, notiType: self.notiType)
-    }
-}
-
 extension NotificationTableView : UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         cellsHeight[indexPath] = cell.frame.size.height
-        if itemList.isEmpty == true  { return }
+        if viewModel!.itemList.isEmpty == true  { return }
         
-        let secondLastOrLast = max(itemList.count - 2 , 0 )
+        let secondLastOrLast = max(viewModel!.itemList.count - 2 , 0 )
         let isSecondLastOrLast = (secondLastOrLast == indexPath.row)
-        if isSecondLastOrLast { self.delegate?.onStartLoading(notiType: self.notiType) }
+        if isSecondLastOrLast { self.viewModel?.onStartLoading?( viewModel!.notiType) }
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -188,44 +174,25 @@ extension NotificationTableView : UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch Section(rawValue: section)! {
         case .notiItem:
-            return self.itemList.count
+            return viewModel?.itemList.count ?? 0
         case .empty:
-            return itemList.count == 0 ? 1 : 0
+            return viewModel?.itemList.count == 0 ? 1 : 0
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        var notiTypeText: String?
-        
-        switch notiType {
-        case .important:
-            notiTypeText = "訂單"
-            
-        case .noti:
-            notiTypeText = "訊息"
-            
-        case .groupNews:
-            notiTypeText = "團體快訊"
-            
-        case .airNews:
-            notiTypeText = "機票快訊"
-        
-        case .none:
-            ()
-        }
-        
         switch Section(rawValue: indexPath.section)! {
         case .notiItem:
             let cell = tableView.dequeueReusableCell(withIdentifier: "NotificationItemCell", for: indexPath) as! NotificationItemCell
-            cell.setCell(item: itemList[indexPath.row])
-            cell.delegate = self
+            cell.setCell(viewModel: viewModel!.itemList[indexPath.row])
+            
             return cell
         case .empty:
             let cell = tableView.dequeueReusableCell(withIdentifier: "EmptyDataCell", for: indexPath) as! EmptyDataCell
             let image = UIImage.init(named: "notification_none")!
             cell.setCellWith(image: image,
-                             message: "目前沒有任何\(notiTypeText!)通知！",
+                             message: "目前沒有任何\(viewModel?.notiTypeText ?? "")通知！",
                              iconTopConstraint: 90)
             return cell
         }
