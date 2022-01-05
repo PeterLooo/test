@@ -112,7 +112,7 @@ class RegisterBasicInfoViewController: BaseViewControllerMVVM {
     }
     
     @IBAction func onTouchBack(_ sender: Any) {
-        self.dismiss(animated: true)
+        self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func onNext(_ sender: Any) {
