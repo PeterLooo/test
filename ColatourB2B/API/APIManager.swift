@@ -53,12 +53,12 @@ class APIManager: NSObject {
         progress.removeObserver(self, forKeyPath: "apiCompleted")
     }
     
-    fileprivate func manager(method: HTTPMethod, appendUrl: String, url: APIUrl, parameters: [String: Any]?, appendHeaders: [String: String]?) -> Single<[String:Any]> {
+    fileprivate func manager(method: HTTPMethod, appendUrl: String, url: APIUrl, parameters: [String: Any]?, appendHeaders: [String: String]?, accessToken: String? = nil) -> Single<[String:Any]> {
         
         return Single.create { (single) -> Disposable in
             
             let param = (parameters) ?? [String:Any]()
-            let headers: HTTPHeaders = self.getHttpHeadersWith(method: method, appendHeaders: appendHeaders)
+            let headers: HTTPHeaders = self.getHttpHeadersWith(method: method, appendHeaders: appendHeaders, accessToken: accessToken)
             let requestUrl: String = self.getRequestUrlWith(url: url, appendUrl: appendUrl)
             let encode: ParameterEncoding = self.getEncodeWith(method: method)
             
@@ -128,12 +128,12 @@ class APIManager: NSObject {
         }
     }
     
-    private func getHttpHeadersWith(method: HTTPMethod, appendHeaders: [String: String]?) -> HTTPHeaders{
+    private func getHttpHeadersWith(method: HTTPMethod, appendHeaders: [String: String]?, accessToken: String? = nil) -> HTTPHeaders{
         let uuid = AccountRepository.shared.osUUID
         let appVersion = DeviceUtil.appBuildVersion()
         let osVersion = DeviceUtil.osVersion()
         let apiToken = AccountRepository.shared.getLocalApiToken() ?? ""
-        let accessToken = MemberRepository.shared.getLocalAccessToken() ?? ""
+        let accessToken = accessToken == nil ? (MemberRepository.shared.getLocalAccessToken() ?? "") : accessToken
         
         var headers: HTTPHeaders = [
             "Client_Id": "IOS",
@@ -237,9 +237,9 @@ extension APIManager {
         return manager(method: .post, appendUrl: "", url: APIUrl.authApi(type: .accessToken), parameters: params, appendHeaders: nil)
     }
     
-    func getAccessWeb(webUrl:String) -> Single<[String:Any]> {
+    func getAccessWeb(webUrl:String, accessToken: String? = nil) -> Single<[String:Any]> {
            let params = ["Web_Url":webUrl]
-           return manager(method: .post, appendUrl: "", url: APIUrl.authApi(type: .accessWeb), parameters: params, appendHeaders: nil)
+        return manager(method: .post, appendUrl: "", url: APIUrl.authApi(type: .accessWeb), parameters: params, appendHeaders: nil, accessToken: accessToken)
     }
     
     func memberLogout() -> Single<[String:Any]> {
@@ -258,6 +258,47 @@ extension APIManager {
                       "Password_Hint": passwordModifyRequest.passwordHint,
                       "Refresh_Token": passwordModifyRequest.refreshToken]
         return manager(method: .post, appendUrl: "", url: APIUrl.memberApi(type: .passwordModify), parameters: params as [String : Any], appendHeaders: nil)
+    }
+    
+    func getCompanyInfo(accessToken: String?) -> Single<[String:Any]> {
+        
+        return manager(method: .get, appendUrl: "", url: APIUrl.memberApi(type: .changeCompany), parameters: nil, appendHeaders: nil, accessToken: accessToken)
+    }
+    
+    func changeCompanyAction(changeModel: ChangeCompanyModel, accessToken: String?) -> Single<[String:Any]> {
+        let param = changeModel.getDictionary()
+        return manager(method: .post, appendUrl: "", url: APIUrl.memberApi(type: .changeCompanyAction), parameters: param, appendHeaders: nil, accessToken: accessToken)
+    }
+    
+    func changeMemberInfoInit() -> Single<[String:Any]> {
+        
+        return manager(method: .get, appendUrl: "", url: APIUrl.memberApi(type: .chnegeMemberInfoInit), parameters: nil, appendHeaders: nil)
+    }
+    
+    func correctEmailInit(accessToken: String?) -> Single<[String:Any]> {
+        
+        return manager(method: .get, appendUrl: "", url: APIUrl.memberApi(type: .correctEmailInit), parameters: nil, appendHeaders: nil, accessToken: accessToken)
+    }
+    
+    func correctEmailSend(email: String, accessToken: String?) -> Single<[String:Any]> {
+        let parmas = ["Member_Email": email]
+        return manager(method: .post, appendUrl: "", url: APIUrl.memberApi(type: .correctEmailSend), parameters: parmas, appendHeaders: nil, accessToken: accessToken)
+    }
+    
+    func  correntEmailComfirem(confirmCode: String, accessToken: String?) -> Single<[String:Any]> {
+        let parmas = ["Confirm_Code": confirmCode]
+        return manager(method: .post, appendUrl: "", url: APIUrl.memberApi(type: .correctEmailConfirm), parameters: parmas, appendHeaders: nil, accessToken: accessToken)
+    }
+    
+    func changeMemberInfo(changeMember: ChangeMemberInfo) -> Single<[String:Any]> {
+        let param = changeMember.getDictionary()
+        return manager(method: .post, appendUrl: "", url: APIUrl.memberApi(type: .chnegeMemberInfo), parameters: param, appendHeaders: nil)
+    }
+    
+    func loginFirst(emailMark: Bool, pageId: String , accessToken: String?) -> Single<[String:Any]>{
+        let parmas = ["Page_Id": pageId,
+                      "Error_Mail": emailMark] as [String : Any]
+        return manager(method: .post, appendUrl: "", url: APIUrl.authApi(type: .loginFirst), parameters: parmas, appendHeaders: nil, accessToken: accessToken)
     }
     
     func getGroupIndex(tourType:TourType) -> Single<[String:Any]> {

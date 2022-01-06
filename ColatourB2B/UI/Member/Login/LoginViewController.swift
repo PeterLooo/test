@@ -139,6 +139,24 @@ class LoginViewController: BaseViewController {
                 self?.memberIdno.becomeFirstResponder()
             }
         }
+        viewModel?.toEmailErrorVC = { [weak self] loginResponse in
+            let vc = self?.getVC(st: "Login", vc: "MailChangeViewController") as! MailChangeViewController
+
+            let viewModel = MailChangeViewModel.init(type: .changeEmail,
+                                                     loginResponse: loginResponse)
+            viewModel.setDefaultTabBar = { [weak self] () in
+                self?.viewModel?.setDefaultTabBar?()
+                self?.viewModel?.pushDevice()
+                self?.viewModel?.loginSuccessAction()
+            }
+            vc.setVC(viewModel: viewModel)
+            self?.navigationController?.pushViewController(vc, animated: true)
+        }
+        viewModel?.toCompanyChange = { [weak self] loginResponse in
+            let vc = self?.getVC(st: "ChangeCompany", vc: "ChangeCompanyViewController") as! ChangeCompanyViewController
+            vc.setView(editType: .company, loginResponse: loginResponse)
+            self?.navigationController?.pushViewController(vc, animated: true)
+        }
     }
 }
 

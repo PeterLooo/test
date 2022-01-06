@@ -39,6 +39,7 @@ class MemberIndexViewModel: BaseViewModel {
     }
     
     func memberLogout(){
+        
         let _ = accountRepository.memberLogout().subscribe()
         UserDefaultUtil.shared.accessToken = ""
         UserDefaultUtil.shared.refreshToken = ""

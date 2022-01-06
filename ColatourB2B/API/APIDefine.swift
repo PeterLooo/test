@@ -52,6 +52,7 @@ enum APIUrl {
         case versionRule = "VersionRule"
         case logout = "logout"
         case accessWeb = "AccessWeb"
+        case loginFirst = "LoginFirst"
         
         static func urlWith(type: AuthApi, append:String) -> String {
             let base =  AUTH_WEB_HOST + "/auth/"
@@ -113,6 +114,13 @@ enum APIUrl {
         case memberIndex = "Index"
         case passwordModify = "Password/Modify"
         case noticeDetail = "noticeDetail"
+        case changeCompany = "Company/Initial"
+        case changeCompanyAction = "Company/Change"
+        case chnegeMemberInfoInit = "Data/Initial"
+        case chnegeMemberInfo = "Data/Modify"
+        case correctEmailInit = "Email/MemberInfo/Initial"
+        case correctEmailSend = "Email/Send"
+        case correctEmailConfirm = "Email/Confirm"
         case agent = "Register/Agent"
         case account = "Register/Account"
         case accountInitial = "Register/Account/Initial"

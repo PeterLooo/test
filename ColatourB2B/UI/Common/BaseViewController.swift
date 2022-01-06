@@ -458,7 +458,7 @@ class BaseViewController: UIViewController {
                 case .notification:
                     tabbarVC.selectedIndex = 2
                     
-                case .unknown:
+                default :
                     tabbarVC.selectedIndex = 3
                 }
                 
@@ -834,9 +834,18 @@ extension BaseViewController {
             nav.modalPresentationStyle = .fullScreen
             self.navigationController?.present(nav, animated: true)
             
-        case .updateDate:
+        case .changeMemberInfo:
             
-            ()
+            vc = getVC(st: "ChangeCompany", vc: "ChangeCompanyViewController") as! ChangeCompanyViewController
+            (vc as! ChangeCompanyViewController).setView(editType: .memberInfo, loginResponse: nil)
+        
+        case .changeCompany:
+            vc = getVC(st: "ChangeCompany", vc: "ChangeCompanyViewController") as! ChangeCompanyViewController
+            (vc as! ChangeCompanyViewController).setView(editType: .company, loginResponse: nil)
+
+        case .emailError:
+            vc = getVC(st: "Login", vc: "MailChangeViewController") as! MailChangeViewController
+            (vc as!MailChangeViewController).setVC(viewModel: MailChangeViewModel.init(type: .changeEmail, loginResponse: nil))
             
         case .groupNoti:
             if self.tabBarController?.viewControllers?[2].restorationIdentifier == "NoticeNavigationController" {
