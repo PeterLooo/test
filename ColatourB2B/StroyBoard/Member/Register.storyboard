@@ -854,7 +854,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="761"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="有＊號內容為必須項目" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pd0-Ft-3Ji">
-                                        <rect key="frame" x="236" y="5" width="130" height="18.5"/>
+                                        <rect key="frame" x="268" y="5" width="130" height="18.5"/>
                                         <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="13"/>
                                         <color key="textColor" red="0.98823529409999999" green="0.29803921570000003" blue="0.0078431372550000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -1357,9 +1357,9 @@
                                     </stackView>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="pd0-Ft-3Ji" secondAttribute="trailing" constant="-16" id="CVG-b7-pRy"/>
                                     <constraint firstAttribute="bottom" secondItem="Pp5-OB-3g4" secondAttribute="bottom" constant="40" id="H3Y-gq-bDm"/>
                                     <constraint firstItem="pd0-Ft-3Ji" firstAttribute="top" secondItem="T4g-hW-Yzx" secondAttribute="top" constant="5" id="MdM-H9-D9h"/>
-                                    <constraint firstAttribute="trailing" secondItem="pd0-Ft-3Ji" secondAttribute="trailing" constant="16" id="SuO-hg-LDN"/>
                                     <constraint firstItem="Pp5-OB-3g4" firstAttribute="leading" secondItem="T4g-hW-Yzx" secondAttribute="leading" constant="16" id="cHl-Ne-HDC"/>
                                     <constraint firstItem="Pp5-OB-3g4" firstAttribute="top" secondItem="pd0-Ft-3Ji" secondAttribute="bottom" constant="24" id="msK-Z1-uAW"/>
                                     <constraint firstItem="Pp5-OB-3g4" firstAttribute="trailing" secondItem="T4g-hW-Yzx" secondAttribute="trailing" constant="16" id="qFH-kZ-MJB"/>
