@@ -816,6 +816,7 @@ extension BaseViewController {
         case .notOpenAssignment:
             
             let viewController = getVC(st: "Login", vc: "EmployeeEnableViewController") as! EmployeeEnableViewController
+            viewController.setVC(title: linkText ?? "")
             let nav = UINavigationController(rootViewController: viewController)
             nav.modalPresentationStyle = .fullScreen
             self.navigationController?.present(nav, animated: true)

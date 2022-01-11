@@ -5,10 +5,17 @@
 //  Created by 7690 劉晉賢 on 2021/12/24.
 //  Copyright © 2021 Colatour. All rights reserved.
 //
-
 import UIKit
 
+extension EmployeeEnableViewController {
+    func setVC(title: String) {
+        self.navTitle = title
+    }
+}
+
 class EmployeeEnableViewController: BaseViewController {
+    
+    private var navTitle: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,7 +25,7 @@ class EmployeeEnableViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.setNavTitle(title: "改任職旅行社")
+        self.setNavTitle(title: navTitle ?? "")
     }
     
     @IBAction func onTouchEnd(_ sender: Any) {
