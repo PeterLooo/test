@@ -143,6 +143,10 @@ extension MailChangeViewController {
             self?.dismiss(animated: true, completion: nil)
         }
         
+        viewModel?.popToRootView = { [weak self] in
+            self?.navigationController?.popToRootViewController(animated: true)
+        }
+        
         viewModel?.toastText = { [weak self] text in
             self?.toast(text: text)
         }

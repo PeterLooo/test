@@ -25,6 +25,7 @@ class MailChangeViewModel: BaseViewModel {
     var nextTimeToEdit: (()->())?
     var updateTableView: (()->())?
     var setDefaultTabBar: (()->())?
+    var popToRootView: (()->())?
     var toastText: ((String)->())?
     
     let repository = MemberRepository.shared
@@ -127,7 +128,11 @@ class MailChangeViewModel: BaseViewModel {
             self?.updateTableView?()
             self?.onCompletedLoadingHandle?()
         } onError: { [weak self] error in
-            self?.onApiErrorHandle?(error as! APIError, .coverPlate)
+            if (error as! APIError).type == .apiForbiddenException {
+                self?.popToRootView?()
+            }else{
+                self?.onApiErrorHandle?(error as! APIError, .alert)
+            }
             self?.onCompletedLoadingHandle?()
         }.disposed(by: disposeBag)
     }
@@ -140,7 +145,11 @@ class MailChangeViewModel: BaseViewModel {
             self?.bindingSendEmail(errorResult: model.sendEmailResult)
             self?.onCompletedLoadingHandle?()
         } onError: { [weak self] error in
-            self?.onApiErrorHandle?(error as! APIError, .alert)
+            if (error as! APIError).type == .apiForbiddenException {
+                self?.popToRootView?()
+            }else{
+                self?.onApiErrorHandle?(error as! APIError, .alert)
+            }
             self?.onCompletedLoadingHandle?()
         }.disposed(by: disposeBag)
     }
@@ -153,7 +162,11 @@ class MailChangeViewModel: BaseViewModel {
             self?.bindingCorrectEmailConfirm(result: model.confirmResult)
             self?.onCompletedLoadingHandle?()
         } onError: { [weak self] error in
-            self?.onApiErrorHandle?(error as! APIError, .alert)
+            if (error as! APIError).type == .apiForbiddenException {
+                self?.popToRootView?()
+            }else{
+                self?.onApiErrorHandle?(error as! APIError, .alert)
+            }
             self?.onCompletedLoadingHandle?()
         }.disposed(by: disposeBag)
     }
