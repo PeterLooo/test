@@ -123,8 +123,8 @@ class MemberRepository: MemberRepositoryProtocol {
             .map{CorrectEmailInfo(JSON:$0)!}
     }
     
-    func  correntEmailComfirem(confirmCode: String, refreshToken: String?, accessToken: String?) -> Single<CorrectEmailInfo> {
-        let api = APIManager.shared.correntEmailComfirem(confirmCode: confirmCode, accessToken: accessToken)
+    func correctEmailConfirm(confirmCode: String, refreshToken: String?, accessToken: String?) -> Single<CorrectEmailInfo> {
+        let api = APIManager.shared.correctEmailConfirm(confirmCode: confirmCode, accessToken: accessToken)
         return AccountRepository.shared.getAccessToken(refreshToken: refreshToken , accessToken: accessToken)
             .flatMap{_ in api}
             .map{CorrectEmailInfo(JSON:$0)!}

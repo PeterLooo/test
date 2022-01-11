@@ -36,7 +36,7 @@ class MailChangeViewController: BaseViewControllerMVVM {
     
     override func loadData() {
         super.loadData()
-        viewModel?.getCorrectEmailInti()
+        viewModel?.getCorrectEmailInit()
     }
     
     @IBAction func bottomConfirmAction(_ sender: Any) {
@@ -62,7 +62,7 @@ extension MailChangeViewController: UITableViewDataSource {
         switch viewModel?.emailChangeType {
         case .changeEmail:
             let cell = tableView.dequeueReusableCell(withIdentifier: "MailChangeCell", for: indexPath) as! MailChangeCell
-            cell.setCell(viewModel: (viewModel?.mailChangeCellViewModle)!)
+            cell.setCell(viewModel: (viewModel?.mailChangeCellViewModel)!)
             return cell
             
         case .editingEmail:
@@ -140,8 +140,11 @@ extension MailChangeViewController {
         }
         
         viewModel?.nextTimeToEdit = { [weak self] in
-            // 登入 B2B下次再修改Email api 好要確定一下流程
             self?.dismiss(animated: true, completion: nil)
+        }
+        
+        viewModel?.popToRootView = { [weak self] in
+            self?.navigationController?.popToRootViewController(animated: true)
         }
         
         viewModel?.toastText = { [weak self] text in

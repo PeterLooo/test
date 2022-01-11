@@ -285,7 +285,7 @@ extension APIManager {
         return manager(method: .post, appendUrl: "", url: APIUrl.memberApi(type: .correctEmailSend), parameters: parmas, appendHeaders: nil, accessToken: accessToken)
     }
     
-    func  correntEmailComfirem(confirmCode: String, accessToken: String?) -> Single<[String:Any]> {
+    func  correctEmailConfirm(confirmCode: String, accessToken: String?) -> Single<[String:Any]> {
         let parmas = ["Confirm_Code": confirmCode]
         return manager(method: .post, appendUrl: "", url: APIUrl.memberApi(type: .correctEmailConfirm), parameters: parmas, appendHeaders: nil, accessToken: accessToken)
     }
