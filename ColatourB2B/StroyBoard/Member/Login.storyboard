@@ -231,7 +231,7 @@
         <!--Mail Change View Controller-->
         <scene sceneID="73d-dF-JLg">
             <objects>
-                <viewController storyboardIdentifier="MailChangeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="0r5-Nd-7eZ" customClass="MailChangeViewController" customModule="ColatourB2B" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MailChangeViewController" hidesBottomBarWhenPushed="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="0r5-Nd-7eZ" customClass="MailChangeViewController" customModule="ColatourB2B" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mPu-Qk-3ex">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
