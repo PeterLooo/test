@@ -14,7 +14,7 @@ class CorrectEmailInfo: BaseModel {
     var gender: String?
     var email: String?
     var sendEmailResult: String?
-    var comfirmResult: Bool?
+    var confirmResult: Bool?
     
     override func mapping(map: Map) {
         super.mapping(map: map)
@@ -23,6 +23,6 @@ class CorrectEmailInfo: BaseModel {
         gender <- map["Member_Gender"]
         email <- map["Member_Email"]
         sendEmailResult <- map["Error_Message"]
-        comfirmResult <- map["Confirm_Mark"]
+        confirmResult <- map["Confirm_Mark"]
     }
 }
