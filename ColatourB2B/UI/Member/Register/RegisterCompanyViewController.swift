@@ -248,14 +248,14 @@ extension RegisterCompanyViewController {
         self.id.someController?.placeholderText = "統一編號"
         self.applicant.someController?.placeholderText = "＊申請人"
         self.company.someController?.placeholderText = "＊公司名稱"
-        self.companyArea.someController?.placeholderText = "公司地址"
+        self.companyArea.someController?.placeholderText = "*公司地址"
         self.companyAreaCode.someController?.placeholderText = "區碼"
         self.companyPhone.someController?.placeholderText = "電話"
         self.companyFaxAreaCode.someController?.placeholderText = "區碼"
         self.companyFaxPhone.someController?.placeholderText = "電話"
         self.city.someController?.placeholderText = "請選擇區域"
         self.district.someController?.placeholderText = "請選擇鄉鎮市區"
-        self.businessType.someController?.placeholderText = "營業種類"
+        self.businessType.someController?.placeholderText = "*營業種類"
         self.companyFaxError.isHidden = true
         self.companyPhoneError.isHidden = true
         
