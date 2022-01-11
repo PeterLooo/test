@@ -81,7 +81,10 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AKh-IN-5Lh">
-                                <rect key="frame" x="16" y="44" width="304" height="31"/>
+                                <rect key="frame" x="16" y="44" width="304" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="BsR-x0-MbD"/>
+                                </constraints>
                                 <color key="tintColor" name="通用綠"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="查詢客服電話"/>
@@ -90,7 +93,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="253" verticalHuggingPriority="249" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="若您想與「可樂B2B同業網」客服小組聯絡，以尋求協助，請洽B2B客務專線（電話號碼於全省服務網）。" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T1s-rt-nMt">
-                                <rect key="frame" x="16" y="89" width="304" height="89"/>
+                                <rect key="frame" x="16" y="98" width="304" height="80"/>
                                 <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="13"/>
                                 <color key="textColor" name="預設文字"/>
                                 <nil key="highlightedColor"/>
