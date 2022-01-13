@@ -17,7 +17,6 @@ extension RegisterCompanyViewController {
 class RegisterCompanyViewController: BaseViewControllerMVVM {
     
     @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var companyExample: UILabel!
     @IBOutlet weak var id: CustomTextField!
     @IBOutlet weak var businessType: CustomTextField!
@@ -89,10 +88,6 @@ class RegisterCompanyViewController: BaseViewControllerMVVM {
                                companyFaxAreaCode: companyFaxAreaCode.text,
                                companyFaxPhone: companyFaxPhone.text)
         
-    }
-    
-    @IBAction func onTouchBack(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func onTouchBusinessType(_ sender: Any) {
@@ -243,7 +238,6 @@ extension RegisterCompanyViewController {
     }
     
     private func setView() {
-        self.backButton.layer.borderColor = ColorHexUtil.hexColor(hex: "#19BF62").cgColor
         self.principal.someController?.placeholderText = "＊負責人"
         self.id.someController?.placeholderText = "統一編號"
         self.applicant.someController?.placeholderText = "＊申請人"

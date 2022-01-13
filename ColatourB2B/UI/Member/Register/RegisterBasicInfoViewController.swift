@@ -15,7 +15,6 @@ extension RegisterBasicInfoViewController {
 
 class RegisterBasicInfoViewController: BaseViewControllerMVVM {
     
-    @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var emailView: UIView!
     @IBOutlet weak var tempView: UIView!
@@ -109,10 +108,6 @@ class RegisterBasicInfoViewController: BaseViewControllerMVVM {
         super.viewDidDisappear(animated)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
-    }
-    
-    @IBAction func onTouchBack(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func onNext(_ sender: Any) {
@@ -334,8 +329,6 @@ extension RegisterBasicInfoViewController {
         self.introCompanyName.delegate = self
         self.introName.delegate = self
         self.scrollView.delegate = self
-        
-        self.backButton.layer.borderColor = ColorHexUtil.hexColor(hex: "#19BF62").cgColor
         
         self.birthday.inputView = datePicker
         self.birthday.inputAccessoryView = toolBarOnDatePicker

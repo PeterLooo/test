@@ -634,30 +634,8 @@
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="tN3-tU-UFG">
                                 <rect key="frame" x="16" y="814" width="382" height="40"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Or9-gC-UFh">
-                                        <rect key="frame" x="0.0" y="0.0" width="186.5" height="40"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="zXM-Y4-y2w"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="15"/>
-                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="回上頁">
-                                            <color key="titleColor" red="0.098039215686274508" green="0.74901960784313726" blue="0.38431372549019605" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="4"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                                <integer key="value" value="1"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="onTouchBack:" destination="3D5-RV-OTt" eventType="touchUpInside" id="ITV-Hf-BDE"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OHO-ja-QT8">
-                                        <rect key="frame" x="195.5" y="0.0" width="186.5" height="40"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="382" height="40"/>
                                         <color key="backgroundColor" red="0.098039215686274508" green="0.74901960784313726" blue="0.3843137254901961" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="05r-LC-kGU"/>
@@ -698,7 +676,6 @@
                     </view>
                     <connections>
                         <outlet property="applicant" destination="cE8-Np-HCQ" id="5WT-7H-VFm"/>
-                        <outlet property="backButton" destination="Or9-gC-UFh" id="s8N-Fo-nmv"/>
                         <outlet property="businessType" destination="q0B-LE-XCw" id="zBK-kq-qBO"/>
                         <outlet property="city" destination="yPr-W0-ju0" id="Dcm-Lc-zsG"/>
                         <outlet property="company" destination="KEM-hL-PDd" id="6Jb-cf-lc4"/>
@@ -765,30 +742,8 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="FSo-uW-BxX">
                                         <rect key="frame" x="16" y="112.5" width="382" height="40"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="20t-SA-xFF">
-                                                <rect key="frame" x="0.0" y="0.0" width="186.5" height="40"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="40" id="aJu-DT-X6u"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="15"/>
-                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <state key="normal" title="回上頁">
-                                                    <color key="titleColor" red="0.098039215690000001" green="0.74901960779999999" blue="0.38431372549999998" alpha="1" colorSpace="calibratedRGB"/>
-                                                </state>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                        <integer key="value" value="4"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                                        <integer key="value" value="1"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="onTouchBack:" destination="uUw-dU-oUZ" eventType="touchUpInside" id="UIt-VA-mV7"/>
-                                                </connections>
-                                            </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QTc-Lk-IbV">
-                                                <rect key="frame" x="195.5" y="0.0" width="186.5" height="40"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="382" height="40"/>
                                                 <color key="backgroundColor" name="按鈕背景綠"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="KXh-ja-lmh"/>
@@ -833,7 +788,6 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="backButton" destination="20t-SA-xFF" id="zKO-MH-N7v"/>
                         <outlet property="id" destination="f9d-6a-7mZ" id="Ywf-yJ-e8F"/>
                         <outlet property="idInfo" destination="aUr-eM-bHJ" id="Uah-5P-jcf"/>
                     </connections>
@@ -1375,31 +1329,8 @@
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="Dwg-yk-PcY">
                                 <rect key="frame" x="16" y="814" width="382" height="40"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vls-f4-WoD">
-                                        <rect key="frame" x="0.0" y="0.0" width="186.5" height="40"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="kB4-So-D3R"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="15"/>
-                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="回上頁">
-                                            <color key="titleColor" red="0.098039215690000001" green="0.74901960779999999" blue="0.38431372549999998" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="4"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                                <integer key="value" value="1"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="onTouchBack:" destination="uUw-dU-oUZ" eventType="touchUpInside" id="TAU-MY-May"/>
-                                            <action selector="onTouchBack:" destination="0Th-bF-3y3" eventType="touchUpInside" id="hxV-5B-Bly"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4R2-qL-Jxd">
-                                        <rect key="frame" x="195.5" y="0.0" width="186.5" height="40"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="382" height="40"/>
                                         <color key="backgroundColor" name="按鈕背景綠"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="4Y6-xQ-B2g"/>
@@ -1441,7 +1372,6 @@
                     </view>
                     <connections>
                         <outlet property="account" destination="BHa-lu-IsR" id="u68-qn-xDO"/>
-                        <outlet property="backButton" destination="Vls-f4-WoD" id="jCX-Wb-3WD"/>
                         <outlet property="birthday" destination="BKu-hL-1gF" id="hqQ-AR-JzX"/>
                         <outlet property="cellPhone" destination="YoA-xZ-Vqb" id="SsY-qe-EBW"/>
                         <outlet property="chineseName" destination="IwE-bA-rIC" id="ZUv-i4-hbP"/>
