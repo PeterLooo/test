@@ -10,11 +10,13 @@ let AUTH_WEB_HOST = "https://ntestWebAPIBauth.colatour.com.tw"
 let PORTAL_WEB_HOST = "https://ntestwebAPIBportal.colatour.com.tw"
 let MEMBER_WEB_HOST = "https://ntestWebAPIBmember.colatour.com.tw"
 let MAIN_WEB_HOST = "https://ntestWebAPIBportal.colatour.com.tw/"
+let TOUR_SALE_HOST = "https://ntestWebAPIBtoursale.colatour.com.tw"
 #else
 let AUTH_WEB_HOST = "https://WebAPIBauth.colatour.com.tw"
 let PORTAL_WEB_HOST = "https://webAPIBportal.colatour.com.tw"
 let MEMBER_WEB_HOST = "https://WebAPIBmember.colatour.com.tw"
 let MAIN_WEB_HOST = "https://WebAPIBportal.colatour.com.tw/"
+let TOUR_SALE_HOST = "https://WebAPIBtoursale.colatour.com.tw"
 #endif
 
 enum APIUrl {
@@ -25,6 +27,7 @@ enum APIUrl {
     case mainApi(type: MainApi)
     case serviceApi(type: ServiceApi)
     case noticeApi(type: NoticeApi)
+    case tourSaleApi(type: TourSaleApi)
     func getUrl() -> String {
         switch self {
         case .authApi(let type):
@@ -40,6 +43,8 @@ enum APIUrl {
         case .serviceApi(let type):
             return type.url()
         case .noticeApi(let type):
+            return type.url()
+        case .tourSaleApi(let type):
             return type.url()
         }
     }
@@ -209,6 +214,23 @@ enum APIUrl {
         
         func url(append:String) -> String {
             return APIUrl.NoticeApi.urlWith(type: self, append: append)
+        }
+    }
+    
+    enum TourSaleApi: String {
+        case tourSearchInit = "Tour/Search/Initial"
+        
+        static func urlWith(type: TourSaleApi, append: String) -> String {
+            let base =  TOUR_SALE_HOST + "/Common/"
+            return "\(base)\(type.rawValue)\(append)"
+        }
+        
+        func url () -> String {
+            return APIUrl.TourSaleApi.urlWith(type: self, append: "")
+        }
+        
+        func url(append:String) -> String {
+            return APIUrl.TourSaleApi.urlWith(type: self, append: append)
         }
     }
 }

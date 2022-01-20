@@ -180,6 +180,8 @@ class APIManager: NSObject {
             requestUrl = type.url()
         case .noticeApi(let type):
             requestUrl = type.url()
+        case .tourSaleApi(let type):
+            requestUrl = type.url()
         }
 
         requestUrl =  (requestUrl + encodeUrl ).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
@@ -314,7 +316,7 @@ extension APIManager {
     func getGroupTourSearchInit(departureCode: String?) -> Single<[String: Any]> {
 
         let appendUrl = ( departureCode == nil ) ? "" : "?Departure_Code=\(departureCode!)"
-        return manager(method: .get, appendUrl: appendUrl, url: APIUrl.mainApi(type: .tourSearchInit), parameters: nil, appendHeaders: nil)
+        return manager(method: .get, appendUrl: appendUrl, url: APIUrl.tourSaleApi(type: .tourSearchInit), parameters: nil, appendHeaders: nil)
     }
     
     func getGroupTourSearchUrl(groupTourSearchRequest: GroupTourSearchRequest) -> Single<[String: Any]> {
