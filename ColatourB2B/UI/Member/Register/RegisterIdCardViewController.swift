@@ -17,7 +17,6 @@ class RegisterIdCardViewController: BaseViewControllerMVVM {
     
     @IBOutlet weak var id: CustomTextField!
     @IBOutlet weak var idInfo: UILabel!
-    @IBOutlet weak var backButton: UIButton!
     
     private var viewModel: RegisterIdCardViewModel?
     
@@ -37,10 +36,6 @@ class RegisterIdCardViewController: BaseViewControllerMVVM {
     
     @objc func dimissKeyBoard() {
         self.id.endEditing(true)
-    }
-    
-    @IBAction func onTouchBack(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func onTouchNext(_ sender: Any) {
@@ -83,7 +78,6 @@ extension RegisterIdCardViewController {
     
     private func setView() {
         id.delegate = self
-        backButton.layer.borderColor = ColorHexUtil.hexColor(hex: "#19BF62").cgColor
         let ges = UITapGestureRecognizer.init(target: self, action: #selector(dimissKeyBoard))
         view.addGestureRecognizer(ges)
     }
