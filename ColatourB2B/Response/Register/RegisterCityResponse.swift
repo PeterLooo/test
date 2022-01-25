@@ -53,7 +53,6 @@ class RegisterCityResponse: BaseModel {
         
         var zoneName: String?
         var zoneCode: String?
-        var zipCode: String?
         
         override init() {
             super.init()
@@ -68,7 +67,6 @@ class RegisterCityResponse: BaseModel {
             
             zoneName <- map["Zone_Name"]
             zoneCode <- map["Zone_Code"]
-            zipCode <- map[" Zip_Code"]
         }
     }
 }
