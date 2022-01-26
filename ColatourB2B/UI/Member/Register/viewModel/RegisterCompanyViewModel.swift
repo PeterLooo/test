@@ -30,6 +30,7 @@ class RegisterCompanyViewModel: BaseViewModel {
     var setToast: ((String) -> ())?
     var pushToVC: ((UIViewController) -> ())?
     
+    private var companyName: String?
     private var registerCityResponse: RegisterCityResponse?
     private var businessType: String?
     private var cityCode: String?
@@ -152,6 +153,7 @@ class RegisterCompanyViewModel: BaseViewModel {
             return
         }
         
+        self.companyName = company
         postRegister(request: request)
     }
 }
@@ -305,7 +307,7 @@ extension RegisterCompanyViewModel {
         let storyboard = UIStoryboard(name: "Register", bundle: Bundle.main)
         let viewController = storyboard.instantiateViewController(withIdentifier: "RegisterIdCardViewController") as! RegisterIdCardViewController
         let viewModel = RegisterIdCardViewModel()
-        viewModel.setViewModel(title: model.titleName ?? "", company: companyId ?? "")
+        viewModel.setViewModel(title: model.titleName ?? "", companyID: companyId ?? "", companyName: companyName ?? "")
         viewController.setVC(viewModel: viewModel)
         
         pushToVC?(viewController)

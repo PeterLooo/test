@@ -9,11 +9,11 @@ import RxSwift
 
 class RegisterEditorViewModel: BaseViewModel {
     
-    var companyIdno: String?
-    
     var setError: ((String) -> ())?
     var pushToVC: ((UIViewController) -> ())?
     
+    private var companyIdno: String?
+    private var companyName: String?
     private let registerRepository = RegisterRepository.shared
     private var disposeBag = DisposeBag()
     
@@ -60,7 +60,7 @@ extension RegisterEditorViewModel {
         if model.errorMessage.isNilOrEmpty == false {
             setError?(model.errorMessage ?? "")
         } else if model.agentIsExist == true {
-            
+            self.companyName = model.companyName
             getIdTitle()
         } else {
             
@@ -78,7 +78,7 @@ extension RegisterEditorViewModel {
         let storyboard = UIStoryboard(name: "Register", bundle: Bundle.main)
         let viewController = storyboard.instantiateViewController(withIdentifier: "RegisterIdCardViewController") as! RegisterIdCardViewController
         let viewModel = RegisterIdCardViewModel()
-        viewModel.setViewModel(title: model.titleName ?? "", company: companyIdno ?? "")
+        viewModel.setViewModel(title: model.titleName ?? "", companyID: companyIdno ?? "", companyName: companyName ?? "")
         viewController.setVC(viewModel: viewModel)
         
         pushToVC?(viewController)

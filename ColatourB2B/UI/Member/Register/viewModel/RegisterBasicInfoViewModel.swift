@@ -33,6 +33,8 @@ class RegisterBasicInfoViewModel: BaseViewModel {
     var setError: ((String, String) -> ())?
     var pushToVC: ((UIViewController) -> ())?
     
+    private var companyID: String?
+    
     private let registerRepository = RegisterRepository.shared
     private var disposeBag = DisposeBag()
     
@@ -62,9 +64,10 @@ class RegisterBasicInfoViewModel: BaseViewModel {
     private var emailKey: String?
     private var emailValue: String?
     
-    func setViewModel(id: String, company: String) {
+    func setViewModel(id: String, companyID: String, companyName: String) {
         self.id = id
-        self.company = company
+        self.company = "\(companyID) \(companyName)"
+        self.companyID = companyID
     }
     
     func onNext(password: String, confirmPassword: String, passwordHint: String, chineseName: String, email: String, companyArea: String, companyPhone: String, companyPhoneExt: String, cellPhone: String, female: String, man: String, group: String, ticket: String,introCompanyName: String, introName: String, birthday: String) {
@@ -152,7 +155,7 @@ class RegisterBasicInfoViewModel: BaseViewModel {
         let gender = female != "" ? female : man
         let mainBiz = group != "" ? group : ticket
         
-        let request = RegisterBasicInfoRequest.init(companyIdno: company ?? "", memberIdno: id ?? "", memberPassword: password , passwordIdentify: confirmPassword , passwordReminder: passwordHint , memberName: chineseName, memberGender: gender , memberBirthday: birthday, memberEmail: email, companyPhoneZone: companyArea, companyPhoneNo: companyPhone, companyPhoneExt: companyPhoneExt, mobilePhone: cellPhone, mainBiz: mainBiz, channelType: sourceType ?? "", mediaIdno: mediaIdno ?? "", mediaName: mediaName ?? "")
+        let request = RegisterBasicInfoRequest.init(companyIdno: companyID ?? "", memberIdno: id ?? "", memberPassword: password , passwordIdentify: confirmPassword , passwordReminder: passwordHint , memberName: chineseName, memberGender: gender , memberBirthday: birthday, memberEmail: email, companyPhoneZone: companyArea, companyPhoneNo: companyPhone, companyPhoneExt: companyPhoneExt, mobilePhone: cellPhone, mainBiz: mainBiz, channelType: sourceType ?? "", mediaIdno: mediaIdno ?? "", mediaName: mediaName ?? "")
         
         postBasicRegister(request: request)
     }
