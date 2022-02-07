@@ -27,7 +27,7 @@ class GroupTourSearchKeywordAndTourCodeInputCell: UITableViewCell, UITextFieldDe
     
     func setCellWith(groupTourSearchKeywordAndTourCodeRequest: GroupTourSearchKeywordAndTourCodeRequest) {
         viewModel = groupTourSearchKeywordAndTourCodeRequest
-        self.departureCity.text = groupTourSearchKeywordAndTourCodeRequest.selectedDepartureCity?.value
+        self.departureCity.text = groupTourSearchKeywordAndTourCodeRequest.selectedDepartureCity?.departureName
         self.keywordOrTourCodeTextField.text = groupTourSearchKeywordAndTourCodeRequest.keywordOrTourCode
     }
     

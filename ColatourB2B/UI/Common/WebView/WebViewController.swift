@@ -220,7 +220,9 @@ class WebViewController: BaseViewController, UIGestureRecognizerDelegate {
         let compareUrl = "\(urlHost ?? "")\(urlPathComponents ?? "")"
         let tourUrlDev = "ntestb2b.colatour.com.tw/R10T_TourSale/R10T13_TourItinerary.aspx"
         let tourUrlProd = "b2b.colatour.com.tw/R10T_TourSale/R10T13_TourItinerary.aspx"
-        if compareUrl == tourUrlDev || compareUrl == tourUrlProd {
+        let newTourUrlDev = "ntestb2b.colatour.com.tw/R10T_TourSale/R10T13_Itinerary.aspx"
+        let newTourUrlProd = "b2b.colatour.com.tw/R10T_TourSale/R10T13_Itinerary.aspx"
+        if compareUrl == tourUrlDev || compareUrl == tourUrlProd || compareUrl == newTourUrlDev || compareUrl == newTourUrlProd {
             if let tourCode = url?.valueOf("TourCode"), let tourDate = url?.valueOf("TourDate") {
                 self.presenter?.getTourShareList(tourCode: tourCode, tourDate: tourDate)
                 webView.scrollView.delegate = self

@@ -60,11 +60,7 @@ class GroupTourSearchViewModel: BaseViewModel {
     var groupTourSearchInit: GroupTourSearchInitResponse.GroupTourSearchInit?
     var groupTourSearchRequest = GroupTourSearchRequest()
     var groupTourSearchKeywordAndTourCodeRequest = GroupTourSearchKeywordAndTourCodeRequest()
-    var keywordOrTourCodeDepartureCityShareOptionList =
-        [KeyValue(key: "*", value: "不限出發地"),
-         KeyValue(key: "台北", value: "台北出發"),
-         KeyValue(key: "台中", value: "台中出發"),
-         KeyValue(key: "高雄", value: "高雄出發")]
+    var keywordOrTourCodeDepartureCityShareOptionList: [GroupTourSearchInitResponse.DepartureCity] = []
     
     fileprivate var dispose = DisposeBag()
     private let responsitory = GroupReponsitory.shared
@@ -125,12 +121,12 @@ class GroupTourSearchViewModel: BaseViewModel {
     
     func onBindGroupTourSearchInit(groupTourSearchInit: GroupTourSearchInitResponse.GroupTourSearchInit) {
         self.groupTourSearchInit = groupTourSearchInit
-        
-        if cityKey?.isEmpty == false{
+        keywordOrTourCodeDepartureCityShareOptionList = groupTourSearchInit.departureCityList
+        if cityKey.isNilOrEmpty == false{
             let departureCode = groupTourSearchInit.departureCityList.first{ $0.departureCode == cityKey }!
             groupTourSearchRequest.selectedDepartureCity = departureCode
-            
-            let keyValue = keywordOrTourCodeDepartureCityShareOptionList.first{ $0.key == cityKey }!
+           
+            let keyValue = keywordOrTourCodeDepartureCityShareOptionList.first{ $0.departureCode == cityKey }!
             groupTourSearchKeywordAndTourCodeRequest.selectedDepartureCity = keyValue
             getGroupTourSearchInit()
             cityKey = ""
@@ -213,11 +209,10 @@ class GroupTourSearchViewModel: BaseViewModel {
         case .keywordOrTourCode:
             ()
         case .keywordOrTourCodeDepartureCity:
-            shareOptionList = keywordOrTourCodeDepartureCityShareOptionList.map({ ShareOption(optionKey: $0.key!, optionValue: $0.value!) })
+            shareOptionList = keywordOrTourCodeDepartureCityShareOptionList.map({ ShareOption(optionKey: $0.departureCode!, optionValue: $0.departureName!) })
             selectedKey = groupTourSearchKeywordAndTourCodeRequest
                 .selectedDepartureCity?
-                .key
-            
+                .departureCode
         case nil:
             ()
         }
@@ -326,7 +321,9 @@ class GroupTourSearchViewModel: BaseViewModel {
             //Note: 不使用PickerView，用Textfield cell裡 editingDidEnd textFieldDidChange(_:)
             ()
         case .keywordOrTourCodeDepartureCity:
-            let keyValue = keywordOrTourCodeDepartureCityShareOptionList.first{ $0.key == key }!
+            let keyValueList = groupTourSearchInit?.departureCityList
+            
+            let keyValue = keyValueList?.first{ $0.departureCode == key }!
             groupTourSearchKeywordAndTourCodeRequest.selectedDepartureCity = keyValue
             
         case nil:

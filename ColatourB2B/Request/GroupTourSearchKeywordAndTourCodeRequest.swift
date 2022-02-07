@@ -12,7 +12,7 @@ class GroupTourSearchKeywordAndTourCodeRequest: NSObject {
             self.keywordOrTourCodeValueChange?()
         }
     }
-    var selectedDepartureCity: KeyValue?
+    var selectedDepartureCity: GroupTourSearchInitResponse.DepartureCity?
     var keywordOrTourCodeSearchType: KeywordOrTourCodeSearchType!
     
     var keywordOrTourCodeValueChange: (()->())?
@@ -33,7 +33,7 @@ class GroupTourSearchKeywordAndTourCodeRequest: NSObject {
         
         let params = ["Search_Type": searchType!
             , "Keyword": keywordOrTourCode ?? ""
-            , "Departure_City": selectedDepartureCity?.key ?? ""] as [String : Any]
+            , "Departure_City": selectedDepartureCity?.departureCode ?? ""] as [String : Any]
         
         return params
     }
