@@ -48,9 +48,11 @@ extension RegisterNoticeViewController {
     
     private func setAgreeButton() {
         if checkButton.isSelect == true {
+            checkButton.tintColor = ColorHexUtil.hexColor(hex: "#19BF62")
             agreeButton.isEnabled = true
-            agreeButton.backgroundColor =  ColorHexUtil.hexColor(hex: "#19BF62")
+            agreeButton.backgroundColor = ColorHexUtil.hexColor(hex: "#19BF62")
         } else {
+            checkButton.tintColor = colorLayerGray
             agreeButton.isEnabled = false
             agreeButton.backgroundColor =  ColorHexUtil.hexColor(hex: "#D6D6D6")
         }

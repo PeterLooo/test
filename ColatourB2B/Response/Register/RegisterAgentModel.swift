@@ -10,6 +10,7 @@ import ObjectMapper
 
 class RegisterAgentModel: BaseModel {
     
+    var companyName: String?
     var errorMessage: String?
     var agentIsExist: Bool?
     
@@ -24,6 +25,7 @@ class RegisterAgentModel: BaseModel {
     override func mapping(map: Map) {
         super.mapping(map: map)
         
+        companyName <- map["Company_Name"]
         errorMessage <- map["Error_Message"]
         agentIsExist <- map["Agent_IsExist"]
     }

@@ -30,11 +30,10 @@ class RegisterCompanyViewModel: BaseViewModel {
     var setToast: ((String) -> ())?
     var pushToVC: ((UIViewController) -> ())?
     
+    private var companyName: String?
     private var registerCityResponse: RegisterCityResponse?
     private var businessType: String?
-    private var city: String?
     private var cityCode: String?
-    private var district: String?
     private var districtCode: String?
     
     private var touchInputField: InputFieldType? {
@@ -47,7 +46,7 @@ class RegisterCompanyViewModel: BaseViewModel {
     private let registerRepository = RegisterRepository.shared
     private var disposeBag = DisposeBag()
     
-    var businessTypeShareOptionList =
+    private var businessTypeShareOptionList =
     [KeyValue(key: "綜合", value: "綜合"),
      KeyValue(key: "甲種", value: "甲種"),
      KeyValue(key: "乙種", value: "乙種")
@@ -85,13 +84,11 @@ class RegisterCompanyViewModel: BaseViewModel {
             let keyValue = registerCityResponse!.cityList!.first{ $0.zoneCode == key }!
             let changeDic: Bool = (cityCode != keyValue.zoneCode)
             self.cityCode = keyValue.zoneCode
-            self.city = keyValue.zoneName
             setCity?(keyValue.zoneName ?? "", changeDic)
             
         case .district:
-            let keyValue = registerCityResponse!.cityList!.first{ $0.zoneName == city }!
+            let keyValue = registerCityResponse!.cityList!.first{ $0.zoneCode == cityCode }!
             let value = keyValue.zoneList?.first{$0.zoneCode == key}
-            self.district = value?.zoneName
             self.districtCode = value?.zoneCode
             setDistrict?(value?.zoneName ?? "")
             
@@ -102,7 +99,7 @@ class RegisterCompanyViewModel: BaseViewModel {
     
     func onTouchDistrict() {
         
-        if city != nil {
+        if cityCode != nil {
             setInputFieldType(inputFieldType: .district)
         } else {
             setToast?("請輸入區域")
@@ -117,8 +114,7 @@ class RegisterCompanyViewModel: BaseViewModel {
                      companyPhone: String?,
                      companyFaxAreaCode: String?,
                      companyFaxPhone: String?) {
-        
-        let request = RegisterCompanyRequest.init(senderName: applicant ?? "", companyIdno: companyId ?? "", bossName: principal ?? "", companyName: company ?? "", businessType: businessType ?? "", zoneCode: cityCode ?? "", zoneName: city ?? "", zipCode: districtCode ?? "", zipName: district ?? "", companyAddress: companyArea ?? "", companyPhoneZone: companyAreaCode ?? "", companyPhoneNo: companyPhone ?? "", companyFaxZone: companyFaxAreaCode ?? "" , companyFaxNo: companyFaxPhone ?? "")
+        let request = RegisterCompanyRequest.init(senderName: applicant ?? "", companyIdno: companyId ?? "", bossName: principal ?? "", companyName: company ?? "", businessType: businessType ?? "", zoneCode: districtCode ?? "", companyAddress: companyArea ?? "", companyPhoneZone: companyAreaCode ?? "", companyPhoneNo: companyPhone ?? "", companyFaxZone: companyFaxAreaCode ?? "" , companyFaxNo: companyFaxPhone ?? "")
         
         if applicant.isNilOrEmpty == true {
             setError?("Sender_Name", "請填寫申請人")
@@ -136,11 +132,11 @@ class RegisterCompanyViewModel: BaseViewModel {
             setError?("Business_Type", "請選擇營業種類")
             return
         }
-        if city.isNilOrEmpty == true {
+        if cityCode.isNilOrEmpty == true {
             setError?("Zone_Name", "請選擇區域")
             return
         }
-        if district.isNilOrEmpty == true {
+        if districtCode.isNilOrEmpty == true {
             setError?("Zip_Name", "請選擇鄉鎮市區")
             return
         }
@@ -157,6 +153,7 @@ class RegisterCompanyViewModel: BaseViewModel {
             return
         }
         
+        self.companyName = company
         postRegister(request: request)
     }
 }
@@ -208,7 +205,7 @@ extension RegisterCompanyViewModel {
             selectedKey = cityCode
             
         case .district:
-            let keyValue = registerCityResponse!.cityList!.first{ $0.zoneName == city }!
+            let keyValue = registerCityResponse!.cityList!.first{ $0.zoneCode == cityCode }!
             shareOptionList = keyValue.zoneList?.map({ShareOption(optionKey: $0.zoneCode!, optionValue: $0.zoneName!) }) ?? []
             selectedKey = districtCode
             
@@ -310,7 +307,7 @@ extension RegisterCompanyViewModel {
         let storyboard = UIStoryboard(name: "Register", bundle: Bundle.main)
         let viewController = storyboard.instantiateViewController(withIdentifier: "RegisterIdCardViewController") as! RegisterIdCardViewController
         let viewModel = RegisterIdCardViewModel()
-        viewModel.setViewModel(title: model.titleName ?? "", company: companyId ?? "")
+        viewModel.setViewModel(title: model.titleName ?? "", companyID: companyId ?? "", companyName: companyName ?? "")
         viewController.setVC(viewModel: viewModel)
         
         pushToVC?(viewController)

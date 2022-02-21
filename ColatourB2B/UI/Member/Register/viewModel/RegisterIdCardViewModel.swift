@@ -14,13 +14,15 @@ class RegisterIdCardViewModel: BaseViewModel {
     var pushToVC: ((UIViewController) -> ())?
     
     private var id: String?
-    private var company: String?
+    private var companyID: String?
+    private var companyName: String?
     private let registerRepository = RegisterRepository.shared
     private var disposeBag = DisposeBag()
     
-    func setViewModel(title: String, company: String) {
+    func setViewModel(title: String, companyID: String, companyName: String) {
         self.title = title
-        self.company = company
+        self.companyID = companyID
+        self.companyName = companyName
     }
     
     func onTouchNext(id: String) {
@@ -39,7 +41,7 @@ extension RegisterIdCardViewModel {
             let storyboard = UIStoryboard(name: "Register", bundle: Bundle.main)
             let viewController = storyboard.instantiateViewController(withIdentifier: "RegisterBasicInfoViewController") as! RegisterBasicInfoViewController
             let viewModel = RegisterBasicInfoViewModel()
-            viewModel.setViewModel(id: id ?? "", company: company ?? "")
+            viewModel.setViewModel(id: id ?? "", companyID: companyID ?? "", companyName: companyName ?? "")
             viewController.setVC(viewModel: viewModel)
             pushToVC?(viewController)
         }
