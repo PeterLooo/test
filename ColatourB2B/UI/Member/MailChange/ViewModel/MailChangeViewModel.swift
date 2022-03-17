@@ -102,6 +102,7 @@ class MailChangeViewModel: BaseViewModel {
             
             failureViewModel?.contactService = { [weak self] in
                 self?.openWebUrl(webUrl: "/R01C_Service/R01C000_ServiceMain.aspx?ServiceType=團體", title: "", openBrowserOrAppWebView: .openBrowser)
+                self?.popToRootView?()
             }
         }
     }
