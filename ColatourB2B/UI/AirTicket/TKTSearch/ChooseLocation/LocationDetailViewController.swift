@@ -8,49 +8,25 @@
 
 import UIKit
 
-protocol SetAirTktChooseCityProtocol: NSObjectProtocol {
+extension LocationDetailViewController {
     
-    func setChooseCity(cityInfo: TKTInitResponse.TicketResponse.City)
+    func setVC(viewModel: LocationDetailViewModel) {
+        self.viewModel = viewModel
+    }
 }
 
 class LocationDetailViewController: BaseViewController {
-
-    weak var delegate: SetAirTktChooseCityProtocol?
     
-    private var country: TKTInitResponse.TicketResponse.Country?
+    var setChooseCity: ((_ cityInfo: TKTInitResponse.TicketResponse.City?) -> ())?
+    var viewModel: LocationDetailViewModel?
     
     @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        setNavTitle(title: country?.countryName ?? "")
         
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        
-        collectionView.register(UINib(nibName: "LocationDetailCell", bundle: nil), forCellWithReuseIdentifier: "LocationDetailCell")
-        
+        setView()
         setCollectionViewLayout()
-    }
-    
-    func setVC(countryInfo: TKTInitResponse.TicketResponse.Country) {
-        
-        self.country = countryInfo
-    }
-    
-    func setCollectionViewLayout(){
-        
-        self.collectionView.setCollectionViewLayout(UICollectionViewFlowLayout(), animated: false)
-    }
-}
-
-extension LocationDetailViewController: LocationDetailCellProtocol {
-    
-    func onTouchCity(cityInfo: TKTInitResponse.TicketResponse.City) {
-        
-        delegate?.setChooseCity(cityInfo: cityInfo)
-        dismiss(animated: true, completion: nil)
     }
 }
 
@@ -58,15 +34,17 @@ extension LocationDetailViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return country?.cityList.count ?? 0
+        return viewModel?.country?.cityList.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LocationDetailCell", for: indexPath) as! LocationDetailCell
-        cell.delegate = self
-        cell.setCellWith(cityInfo: (country?.cityList[indexPath.row])!)
-        
+        cell.setCell(viewModel: LocationDetailCellViewModel(cityInfo: (viewModel?.country?.cityList[indexPath.row])!))
+        cell.onTouchCity = { [weak self] cityInfo in
+            self?.setChooseCity?(cityInfo)
+            self?.dismiss(animated: true, completion: nil)
+        }
         return cell
     }
 }
@@ -87,7 +65,7 @@ extension LocationDetailViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-         
+        
         var cellSize = CGSize()
         
         cellSize.width = (collectionView.frame.width - 65) / 2
@@ -104,5 +82,21 @@ extension LocationDetailViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         
         return 33
+    }
+}
+
+extension LocationDetailViewController {
+    
+    private func setCollectionViewLayout() {
+        self.collectionView.setCollectionViewLayout(UICollectionViewFlowLayout(), animated: false)
+    }
+    
+    private func setView() {
+        
+        viewModel = LocationDetailViewModel(countryInfo: viewModel?.country ?? TKTInitResponse.TicketResponse.Country())
+        setNavTitle(title: viewModel?.country?.countryName ?? "")
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.register(UINib(nibName: "LocationDetailCell", bundle: nil), forCellWithReuseIdentifier: "LocationDetailCell")
     }
 }

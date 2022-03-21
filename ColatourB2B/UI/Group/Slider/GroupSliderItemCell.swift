@@ -7,21 +7,21 @@
 //
 
 import UIKit
-protocol GroupSliderItemCellProtocol: NSObjectProtocol {
-    func onTouchDate(serverData: ServerData)
-}
+
 class GroupSliderItemCell: UITableViewCell {
 
+    var onTouchDate: ((_ serverData: ServerData)->())?
+    
     @IBOutlet weak var serverTitle: UILabel!
     @IBOutlet weak var titleTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var bottomViewHeight: NSLayoutConstraint!
     @IBOutlet weak var titleBottomConstraint: NSLayoutConstraint!
     
-    weak var delegate: GroupSliderItemCellProtocol?
     private var serverData: ServerData?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        let ges = UITapGestureRecognizer(target: self, action: #selector(onTouchDate))
+        let ges = UITapGestureRecognizer(target: self, action: #selector(onTouchDateAction))
         self.addGestureRecognizer(ges)
         self.isUserInteractionEnabled = true
     }
@@ -38,7 +38,7 @@ class GroupSliderItemCell: UITableViewCell {
         titleBottomConstraint.constant = isLast ? 26 : 12
     }
     
-    @objc func onTouchDate(){
-        self.delegate?.onTouchDate(serverData: self.serverData!)
+    @objc func onTouchDateAction(){
+        self.onTouchDate?(self.serverData!)
     }
 }

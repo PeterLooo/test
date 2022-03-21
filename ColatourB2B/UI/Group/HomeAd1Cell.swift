@@ -7,32 +7,22 @@
 //
 
 import UIKit
-protocol HomeAd1CellProtocol: NSObjectProtocol {
-    func onTouchItem(adItem: IndexResponse.ModuleItem)
-}
+
 class HomeAd1Cell: UITableViewCell {
     @IBOutlet weak var moduleTitle: UILabel!
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var scrollViewHeight: NSLayoutConstraint!
-
-    weak var delegate: HomeAd1CellProtocol?
     
-    func setCell(item:IndexResponse.Module){
+    func setCell(viewModel: HomeAd1CellViewModel){
         self.stackView.subviews.forEach{$0.removeFromSuperview()}
-        self.moduleTitle.text = item.moduleText
+        self.moduleTitle.text = viewModel.moduleTitle
         scrollViewHeight.constant = (screenWidth / 2.20) / 0.9
-        item.moduleItemList.forEach { (module) in
+        viewModel.subViewViewModels.forEach { (viewModel) in
             let view = HomeAd1View()
-            view.setView(item: module, isFirst: item.moduleItemList.first == module, isLast: item.moduleItemList.last == module)
-            view.delegate = self
+            view.setView(viewModel: viewModel)
+            
             self.stackView.addArrangedSubview(view)
         }
-    }
-}
-
-extension HomeAd1Cell: HomeAd1ViewProcotol {
-    func onTouchHotelAdItem(adItem: IndexResponse.ModuleItem) {
-        self.delegate?.onTouchItem(adItem: adItem)
     }
 }

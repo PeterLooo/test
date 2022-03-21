@@ -76,4 +76,65 @@ class MemberRepository: MemberRepositoryProtocol {
             .flatMap{ _ in api}
             .map{SalesResponse(JSON: $0)!}
     }
+    
+    func getChangeCompany(loginResponse: LoginResponse?) -> Single<ChangeCompanyModel> {
+        let api = APIManager.shared.getCompanyInfo(accessToken: loginResponse?.accessToken)
+        
+        return AccountRepository.shared.getAccessToken(refreshToken: loginResponse?.refreshToken, accessToken: loginResponse?.accessToken)
+            .flatMap{_ in api}
+            .map{ChangeCompanyModel(JSON: $0)!}
+    }
+    
+    func postChangeCompany(model: ChangeCompanyModel, loginResponse: LoginResponse?) -> Single<ChangeCompanyModel> {
+        let api = APIManager.shared.changeCompanyAction(changeModel: model, accessToken: loginResponse?.accessToken)
+        
+        return AccountRepository.shared.getAccessToken(refreshToken: loginResponse?.refreshToken, accessToken: loginResponse?.accessToken)
+            .flatMap{ _ in api}
+            .map{ChangeCompanyModel(JSON: $0)!}
+    }
+    
+    func changeMemberInfoInit() -> Single<MemberData> {
+        let api = APIManager.shared.changeMemberInfoInit()
+        
+        return AccountRepository.shared.getAccessToken()
+            .flatMap{ _ in api}
+            .map{MemberData(JSON:$0)!}
+    }
+    
+    func changeMemberInfo(changeMember: ChangeMemberInfo) -> Single<MemberData> {
+        let api = APIManager.shared.changeMemberInfo(changeMember: changeMember)
+        
+        return AccountRepository.shared.getAccessToken()
+            .flatMap{ _ in api}
+            .map{MemberData(JSON:$0)!}
+    }
+    
+    func correctEmailInit(refreshToken: String?, accessToken: String?) -> Single<CorrectEmailInfo> {
+        let api = APIManager.shared.correctEmailInit(accessToken: accessToken)
+        return AccountRepository.shared.getAccessToken(refreshToken: refreshToken , accessToken: accessToken)
+            .flatMap{_ in api}
+            .map{CorrectEmailInfo(JSON:$0)!}
+    }
+    
+    func correctEmailSend(email: String, refreshToken: String?, accessToken: String?) -> Single<CorrectEmailInfo> {
+        let api = APIManager.shared.correctEmailSend(email: email, accessToken: accessToken)
+        return AccountRepository.shared.getAccessToken(refreshToken: refreshToken , accessToken: accessToken)
+            .flatMap{_ in api}
+            .map{CorrectEmailInfo(JSON:$0)!}
+    }
+    
+    func correctEmailConfirm(confirmCode: String, refreshToken: String?, accessToken: String?) -> Single<CorrectEmailInfo> {
+        let api = APIManager.shared.correctEmailConfirm(confirmCode: confirmCode, accessToken: accessToken)
+        return AccountRepository.shared.getAccessToken(refreshToken: refreshToken , accessToken: accessToken)
+            .flatMap{_ in api}
+            .map{CorrectEmailInfo(JSON:$0)!}
+    }
+    
+    func loginFirst(emailMark: Bool, pageId: String, refreshToken: String? ,accessToken: String?) -> Single<BaseModel> {
+        let api = APIManager.shared.loginFirst(emailMark: emailMark, pageId: pageId, accessToken: accessToken)
+        
+        return AccountRepository.shared.getAccessToken(refreshToken: refreshToken , accessToken: accessToken)
+            .flatMap{_ in api}
+            .map{BaseModel(JSON:$0)!}
+    }
 }

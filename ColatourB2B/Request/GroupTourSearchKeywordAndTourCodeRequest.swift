@@ -7,9 +7,15 @@
 //
 
 class GroupTourSearchKeywordAndTourCodeRequest: NSObject {
-    var keywordOrTourCode: String?
-    var selectedDepartureCity: KeyValue?
+    var keywordOrTourCode: String? {
+        didSet{
+            self.keywordOrTourCodeValueChange?()
+        }
+    }
+    var selectedDepartureCity: GroupTourSearchInitResponse.DepartureCity?
     var keywordOrTourCodeSearchType: KeywordOrTourCodeSearchType!
+    
+    var keywordOrTourCodeValueChange: (()->())?
     
     enum KeywordOrTourCodeSearchType {
         case keyword
@@ -27,7 +33,7 @@ class GroupTourSearchKeywordAndTourCodeRequest: NSObject {
         
         let params = ["Search_Type": searchType!
             , "Keyword": keywordOrTourCode ?? ""
-            , "Departure_City": selectedDepartureCity?.key ?? ""] as [String : Any]
+            , "Departure_City": selectedDepartureCity?.departureCode ?? ""] as [String : Any]
         
         return params
     }

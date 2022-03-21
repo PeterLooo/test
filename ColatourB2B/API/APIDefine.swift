@@ -10,11 +10,13 @@ let AUTH_WEB_HOST = "https://ntestWebAPIBauth.colatour.com.tw"
 let PORTAL_WEB_HOST = "https://ntestwebAPIBportal.colatour.com.tw"
 let MEMBER_WEB_HOST = "https://ntestWebAPIBmember.colatour.com.tw"
 let MAIN_WEB_HOST = "https://ntestWebAPIBportal.colatour.com.tw/"
+let TOUR_SALE_HOST = "https://ntestWebAPIBtoursale.colatour.com.tw"
 #else
 let AUTH_WEB_HOST = "https://WebAPIBauth.colatour.com.tw"
 let PORTAL_WEB_HOST = "https://webAPIBportal.colatour.com.tw"
 let MEMBER_WEB_HOST = "https://WebAPIBmember.colatour.com.tw"
 let MAIN_WEB_HOST = "https://WebAPIBportal.colatour.com.tw/"
+let TOUR_SALE_HOST = "https://WebAPIBtoursale.colatour.com.tw"
 #endif
 
 enum APIUrl {
@@ -25,6 +27,7 @@ enum APIUrl {
     case mainApi(type: MainApi)
     case serviceApi(type: ServiceApi)
     case noticeApi(type: NoticeApi)
+    case tourSaleApi(type: TourSaleApi)
     func getUrl() -> String {
         switch self {
         case .authApi(let type):
@@ -41,6 +44,8 @@ enum APIUrl {
             return type.url()
         case .noticeApi(let type):
             return type.url()
+        case .tourSaleApi(let type):
+            return type.url()
         }
     }
     
@@ -52,6 +57,7 @@ enum APIUrl {
         case versionRule = "VersionRule"
         case logout = "logout"
         case accessWeb = "AccessWeb"
+        case loginFirst = "LoginFirst"
         
         static func urlWith(type: AuthApi, append:String) -> String {
             let base =  AUTH_WEB_HOST + "/auth/"
@@ -113,6 +119,18 @@ enum APIUrl {
         case memberIndex = "Index"
         case passwordModify = "Password/Modify"
         case noticeDetail = "noticeDetail"
+        case changeCompany = "Company/Initial"
+        case changeCompanyAction = "Company/Change"
+        case chnegeMemberInfoInit = "Data/Initial"
+        case chnegeMemberInfo = "Data/Modify"
+        case correctEmailInit = "Email/MemberInfo/Initial"
+        case correctEmailSend = "Email/Send"
+        case correctEmailConfirm = "Email/Confirm"
+        case agent = "Register/Agent"
+        case account = "Register/Account"
+        case accountInitial = "Register/Account/Initial"
+        case register = "Register/AgentData"
+        case basicRegister = "Register/AccountData"
         
         static func urlWith(type: MemberApi, append:String) -> String {
             let base =  MEMBER_WEB_HOST + "/Member/"
@@ -183,6 +201,7 @@ enum APIUrl {
         case important = "/Notification/important?"
         case unreadCount = "/Notification/Unread"
         case setNotiRead = "/Notification/Modify/Status"
+        case city = "/Basis/City"
         
         static func urlWith(type: NoticeApi, append: String) -> String {
             let base =  MEMBER_WEB_HOST
@@ -195,6 +214,23 @@ enum APIUrl {
         
         func url(append:String) -> String {
             return APIUrl.NoticeApi.urlWith(type: self, append: append)
+        }
+    }
+    
+    enum TourSaleApi: String {
+        case tourSearchInit = "Tour/Search/Initial"
+        
+        static func urlWith(type: TourSaleApi, append: String) -> String {
+            let base =  TOUR_SALE_HOST + "/Common/"
+            return "\(base)\(type.rawValue)\(append)"
+        }
+        
+        func url () -> String {
+            return APIUrl.TourSaleApi.urlWith(type: self, append: "")
+        }
+        
+        func url(append:String) -> String {
+            return APIUrl.TourSaleApi.urlWith(type: self, append: append)
         }
     }
 }

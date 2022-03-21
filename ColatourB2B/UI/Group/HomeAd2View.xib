@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeAd2View" customModule="ColatourB2B" customModuleProvider="target">
             <connections>
                 <outlet property="borderView" destination="JGr-Lu-Z6E" id="nEf-aB-npc"/>
-                <outlet property="bottomConstraint" destination="4i4-dc-67K" id="U2K-WE-LfG"/>
                 <outlet property="imageWidth" destination="yWu-Yg-grS" id="eza-os-ak5"/>
                 <outlet property="itemPrice" destination="bhb-Zr-022" id="9oa-Iy-b5Q"/>
                 <outlet property="itemPromotion" destination="4ps-0R-KxE" id="LWo-Io-d9a"/>
@@ -60,7 +60,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
                                         <constraint firstItem="4ps-0R-KxE" firstAttribute="bottom" secondItem="Xoj-1a-H4d" secondAttribute="bottom" id="5Qw-qa-9T9"/>
                                         <constraint firstItem="bhb-Zr-022" firstAttribute="bottom" secondItem="Xoj-1a-H4d" secondAttribute="bottom" id="6eC-mY-zeN"/>
@@ -83,7 +83,7 @@
                             </constraints>
                         </imageView>
                     </subviews>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstItem="7Ew-c5-7h0" firstAttribute="bottom" secondItem="JGr-Lu-Z6E" secondAttribute="bottom" constant="-10" id="0h1-re-acI"/>
                         <constraint firstItem="7Ew-c5-7h0" firstAttribute="top" secondItem="JGr-Lu-Z6E" secondAttribute="top" constant="10" id="Ca7-n6-QXz"/>
@@ -94,6 +94,7 @@
                     </constraints>
                 </view>
             </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" name="背景灰"/>
             <constraints>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="JGr-Lu-Z6E" secondAttribute="bottom" priority="999" constant="5" id="4i4-dc-67K"/>
@@ -106,7 +107,6 @@
                 <constraint firstItem="jA4-JK-15G" firstAttribute="leading" secondItem="JGr-Lu-Z6E" secondAttribute="leading" id="vMs-f1-pZq"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <point key="canvasLocation" x="136.80000000000001" y="401.19940029985008"/>
         </view>
     </objects>
@@ -114,5 +114,8 @@
         <namedColor name="背景灰">
             <color red="0.97254901960784312" green="0.97254901960784312" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

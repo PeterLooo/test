@@ -220,7 +220,9 @@ class WebViewController: BaseViewController, UIGestureRecognizerDelegate {
         let compareUrl = "\(urlHost ?? "")\(urlPathComponents ?? "")"
         let tourUrlDev = "ntestb2b.colatour.com.tw/R10T_TourSale/R10T13_TourItinerary.aspx"
         let tourUrlProd = "b2b.colatour.com.tw/R10T_TourSale/R10T13_TourItinerary.aspx"
-        if compareUrl == tourUrlDev || compareUrl == tourUrlProd {
+        let newTourUrlDev = "ntestb2b.colatour.com.tw/R10T_TourSale/R10T13_Itinerary.aspx"
+        let newTourUrlProd = "b2b.colatour.com.tw/R10T_TourSale/R10T13_Itinerary.aspx"
+        if compareUrl == tourUrlDev || compareUrl == tourUrlProd || compareUrl == newTourUrlDev || compareUrl == newTourUrlProd {
             if let tourCode = url?.valueOf("TourCode"), let tourDate = url?.valueOf("TourDate") {
                 self.presenter?.getTourShareList(tourCode: tourCode, tourDate: tourDate)
                 webView.scrollView.delegate = self
@@ -268,19 +270,22 @@ class WebViewController: BaseViewController, UIGestureRecognizerDelegate {
             }
         }
         
-        let navHieght = self.navigationController?.navigationBar.frame.height
-        expandableButtonView = ExpandableButtonView(frame: CGRect(x: screenWidth - 75, y: screenHeight - statusBarHeight - navHieght! - 220, width: 56, height: 256))
+        let navHieght = self.navigationController?.navigationBar.frame.height ?? 44
+        expandableButtonView = ExpandableButtonView(frame: CGRect(x: screenWidth - 75, y: screenHeight - statusBarHeight - navHieght - 220, width: 56, height: 256))
         expandableButtonView?.delegate = self
         expandableButtonView?.setUpButtons(shareList: shareList)
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            self.view.addSubview(self.expandableButtonView!)
+        if let view = expandableButtonView {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                self.view.addSubview(view)
+            }
         }
     }
     
     func shareInfo() {
         
-        let activityVC = UIActivityViewController(activityItems: ["\(shareList?.shareInfo ?? "") \(shareList?.contactInfo ?? "")", shareList?.shareUrl ?? ""], applicationActivities: nil)
+        let items = "\(shareList?.shareInfo ?? "")\n\(shareList?.shareUrl ?? "")\n\n\(shareList?.contactInfo ?? "")"
+        let activityVC = UIActivityViewController(activityItems: [items], applicationActivities: nil)
         self.present(activityVC, animated: true, completion: nil)
     }
 }

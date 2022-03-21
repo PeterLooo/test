@@ -49,7 +49,7 @@ class TabBarViewController: UITabBarController {
         case .notification:
             self.selectedIndex = 2
             
-        case .unknown:
+        default :
             self.selectedIndex = 3
         }
         
@@ -58,8 +58,7 @@ class TabBarViewController: UITabBarController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.getUnreadCount), name: Notification.Name("getUnreadCount"), object: nil)
         creatSubViewControllers()
-        
-        self.tabBar.tintColor = UIColor(named: "TabBar綠")
+        setUpTabbar()
     }
     
     func creatSubViewControllers(){
@@ -108,6 +107,16 @@ class TabBarViewController: UITabBarController {
         } else {
             enableTabBarNotificationBadgeNumber(false)
         }
+    }
+    
+    private func setUpTabbar() {
+        if #available(iOS 15.0, *) {
+            let appearance = UITabBarAppearance()
+            appearance.configureWithOpaqueBackground()
+            tabBar.standardAppearance = appearance
+            tabBar.scrollEdgeAppearance = tabBar.standardAppearance
+        }
+        self.tabBar.tintColor = UIColor(named: "TabBar綠")
     }
 }
 

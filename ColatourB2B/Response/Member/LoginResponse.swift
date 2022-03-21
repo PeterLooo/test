@@ -21,7 +21,8 @@ class LoginResponse: BaseModel {
     var allowTour: Bool?
     var allowTkt: Bool?
     var employeeMark: Bool?
-
+    var pageId: String?
+    
     override func mapping(map: Map) {
         super.mapping(map: map)
         loginResult <- map["Login_Result"]
@@ -39,6 +40,7 @@ class LoginResponse: BaseModel {
         allowTour <- map["Allow_Tour"]
         allowTkt <- map["Allow_Tkt"]
         employeeMark <- map["Employee_Mark"]
+        pageId <- map["Page_Id"]
     }
     
     override func getValue<T>(Type: T.Type) -> T {
