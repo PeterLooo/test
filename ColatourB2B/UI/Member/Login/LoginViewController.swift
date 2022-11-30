@@ -15,7 +15,7 @@ extension LoginViewController {
 protocol MemberLoginOnTouchNavCloseProtocol : NSObjectProtocol{
     func onTouchLoginNavClose()
 }
-class LoginViewController: BaseViewController {
+class LoginViewController: BaseViewControllerMVVM {
     
     @IBOutlet weak var memberIdno: CustomTextField!
     @IBOutlet weak var password: CustomTextField!
@@ -108,7 +108,9 @@ class LoginViewController: BaseViewController {
         password.isSecureTextEntry = sender.isSelect
     }
     
-    private func bindViewModel(){
+    private func bindViewModel() {
+        
+        self.bindToBaseViewModel(viewModel: viewModel!)
         
         viewModel?.dismissLoginView = { [weak self] in
             self?.dismiss(animated: true, completion: {
@@ -124,13 +126,11 @@ class LoginViewController: BaseViewController {
             vc.delegate = self
             self?.navigationController?.pushViewController(vc, animated: true)
         }
-        viewModel?.setToastText = { [weak self] text in
-            self?.view.endEditing(true)
-            self?.toast(text: text)
-        }
         
         viewModel?.setTextFieldErrorInfo = { [weak self] errorId, errorPassword in
             if errorPassword != nil {
+                self?.password.text = ""
+                self?.viewModel!.password = ""
                 self?.password.someController?.setErrorText(errorPassword!, errorAccessibilityValue: nil)
                 self?.password.becomeFirstResponder()
             }

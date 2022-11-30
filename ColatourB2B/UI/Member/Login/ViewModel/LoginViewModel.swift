@@ -12,7 +12,6 @@ class LoginViewModel: BaseViewModel {
     
     let dispose = DisposeBag()
     let accountRepository = AccountRepository.shared
-    var setToastText: ((String)->())?
     var presentModifyVC: ((String,String,String)->())?
     var toEmailErrorVC: ((LoginResponse)->())?
     var toCompanyChange: ((LoginResponse)->())?
@@ -41,7 +40,8 @@ class LoginViewModel: BaseViewModel {
             request = LoginRequest(idno: memberIdno!, password: password!)
         }
         
-        self.onStartLoadingHandle?(.ignore)
+        self.onStartLoadingHandle?(.coverPlateAlpha)
+        
         accountRepository.getRefreshToke(loginRequest: request!)
         .subscribe(onSuccess: { [weak self] (model) in
             self?.loginSuccess(loginResponse: model)
@@ -55,9 +55,10 @@ class LoginViewModel: BaseViewModel {
     }
     
     func loginSuccess(loginResponse: LoginResponse) {
+        
         if loginResponse.loginResult == false {
             if let resultMessage = loginResponse.loginMessage {
-                self.setToastText?(resultMessage)
+                setTextFieldErrorInfo?(nil, resultMessage)
             }
         } else if loginResponse.passwordReset == true {
             self.presentModifyVC?(loginResponse.accessToken!,
