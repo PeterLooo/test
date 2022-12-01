@@ -206,7 +206,11 @@ class BaseViewController: UIViewController {
                 existStatusBar.layer.zPosition = 1
                 return existStatusBar
             }else{
-                let statusBar = UIView(frame: UIApplication.shared.statusBarFrame)
+                
+                let window = UIApplication.shared.windows.first
+                let topPadding = window?.safeAreaInsets.top ?? 0
+                let statusBar = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: topPadding ))
+                statusBar.backgroundColor = UIColor.white
                 statusBar.restorationIdentifier = "statusBar"
                 UIApplication.shared.keyWindow?.addSubview(statusBar)
                 return statusBar
