@@ -28,6 +28,7 @@ class LccAirCell: UITableViewCell {
     @IBOutlet weak var tourDate: UILabel!
     @IBOutlet weak var sameAirlineSwitch: UISwitch!
     @IBOutlet weak var paxInfo: UILabel!
+    @IBOutlet weak var bookingTourView: UIView!
     
     var viewModel: LccAirCellViewModel?
     
@@ -43,6 +44,7 @@ class LccAirCell: UITableViewCell {
         tourDate.text = viewModel.tourDate
         sameAirlineSwitch.isOn = viewModel.sameAirlineSwitch ?? false
         paxInfo.text = viewModel.paxInfo
+        bookingTourView.isHidden = !(viewModel.isToAndFro ?? false)
     }
     
     @IBAction func onTouchDate(_ sender: Any) {

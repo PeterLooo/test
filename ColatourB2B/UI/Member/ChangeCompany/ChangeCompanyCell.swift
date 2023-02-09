@@ -44,8 +44,8 @@ class ChangeCompanyCell: UITableViewCell {
         memberId.someController?.placeholderText = "會員帳號"
         memberName.someController?.placeholderText = "姓名"
         exCompany.someController?.placeholderText = "原任職旅行社"
-        newCompanyId.someController?.placeholderText = "新旅行社統編"
-        newCompany.someController?.placeholderText = "新旅行社公司名"
+        newCompanyId.someController?.placeholderText = "＊新旅行社統編"
+        newCompany.someController?.placeholderText = "＊新旅行社公司名"
         email.someController?.placeholderText = "電子信箱"
         mobile.someController?.placeholderText = "行動電話"
         
